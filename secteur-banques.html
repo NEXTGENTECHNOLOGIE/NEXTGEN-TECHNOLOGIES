@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Solutions cybersécurité pour le secteur bancaire et financier. Conformité régulateur bancaire, lutte antifraude, sécurisation des transactions.">
+<title>Cybersécurité Banques & Finance · NextGen Technologies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<style>
+:root {
+ --primary: #0A1628;
+ --primary-deep: #050B14;
+ --primary-light: #1E3A5F;
+ --accent: #00D4FF;
+ --accent-dark: #0891B2;
+ --gold: #FFB800;
+ --gold-dark: #D97706;
+ --white: #FFFFFF;
+ --off-white: #F8FAFC;
+ --gray-light: #E2E8F0;
+ --gray-mid: #64748B;
+ --gray-dark: #334155;
+ --success: #10B981;
+ --danger: #EF4444;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+ font-family: 'Manrope', sans-serif;
+ color: var(--gray-dark);
+ line-height: 1.6;
+ overflow-x: hidden;
+ background: var(--white);
+}
+h1, h2, h3, h4 {
+ font-family: 'Space Grotesk', sans-serif;
+ font-weight: 700;
+ letter-spacing: -0.02em;
+}
+a { text-decoration: none; }
+
+.top-bar {
+ background: var(--primary-deep);
+ color: var(--gray-light);
+ padding: 0.5rem 4%;
+ font-size: 0.8rem;
+ border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.top-bar-container {
+ max-width: 1400px; margin: 0 auto;
+ display: flex; justify-content: space-between; align-items: center;
+ flex-wrap: wrap; gap: 0.5rem;
+}
+.top-bar-info { display: flex; gap: 2rem; flex-wrap: wrap; }
+.top-bar-info span { display: flex; align-items: center; gap: 0.4rem; }
+.top-bar-info i { color: var(--accent); }
+.top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; transition: color 0.2s; }
+.top-bar-social a:hover { color: var(--accent); }
+
+.nav {
+ position: sticky; top: 0; z-index: 1000;
+ padding: 1rem 4%;
+ background: var(--white);
+ border-bottom: 1px solid var(--gray-light);
+ box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+.nav-container {
+ max-width: 1400px; margin: 0 auto;
+ display: flex; align-items: center; justify-content: space-between;
+}
+.logo {
+ display: flex; align-items: center; gap: 0.6rem;
+ font-family: 'Space Grotesk', sans-serif;
+ font-weight: 700; font-size: 1.3rem;
+ color: var(--primary);
+}
+.logo-shield {
+ width: 32px; height: 32px;
+ fill: var(--accent) !important;
+ flex-shrink: 0;
+}
+.logo-shield path { fill: var(--accent) !important; }
+.logo-text-accent { color: var(--accent); }
+
+.nav-links { display: flex; gap: 0.4rem; list-style: none; align-items: center; }
+.nav-links > li { position: relative; }
+.nav-links > li > a {
+ color: var(--primary); font-size: 0.92rem; font-weight: 600;
+ padding: 0.6rem 1rem; border-radius: 4px;
+ transition: all 0.2s;
+ display: flex; align-items: center; gap: 0.3rem;
+}
+.nav-links > li > a:hover { background: var(--off-white); color: var(--accent-dark); }
+.nav-links > li > a.active { color: var(--accent-dark); background: var(--off-white); }
+
+.dropdown-menu {
+ position: absolute; top: 100%; left: 0;
+ background: var(--white);
+ min-width: 280px;
+ box-shadow: 0 10px 40px rgba(10, 22, 40, 0.12);
+ border-radius: 6px; padding: 0.6rem;
+ list-style: none;
+ opacity: 0; visibility: hidden; transform: translateY(8px);
+ transition: all 0.2s;
+ border-top: 3px solid var(--accent);
+}
+.nav-links > li:hover >.dropdown-menu {
+ opacity: 1; visibility: visible; transform: translateY(0);
+}
+.dropdown-menu li a {
+ display: block; padding: 0.7rem 1rem;
+ color: var(--gray-dark); font-size: 0.88rem;
+ border-radius: 4px;
+ transition: all 0.15s;
+}
+.dropdown-menu li a:hover {
+ background: var(--off-white); color: var(--accent-dark); padding-left: 1.4rem;
+}
+.dropdown-menu li a i { color: var(--accent); margin-right: 0.6rem; width: 18px; }
+
+.nav-cta {
+ background: var(--gold) !important;
+ color: var(--primary) !important;
+ padding: 0.7rem 1.4rem !important;
+ border-radius: 4px !important;
+ font-weight: 700 !important;
+}
+.nav-cta:hover { background: var(--accent) !important; transform: translateY(-1px); }
+
+.menu-toggle {
+ display: none;
+ background: none; border: none;
+ color: var(--primary); font-size: 1.5rem;
+ cursor: pointer;
+}
+
+.page-header {
+ background: var(--primary-deep);
+ color: var(--white);
+ padding: 5rem 4% 4rem;
+ position: relative; overflow: hidden;
+}
+.page-header::before {
+ content: ''; position: absolute;
+ top: 0; right: 0; width: 60%; height: 100%;
+ background:
+ radial-gradient(circle at 70% 30%, rgba(0, 212, 255, 0.15) 0%, transparent 60%),
+ radial-gradient(circle at 80% 70%, rgba(255, 184, 0, 0.08) 0%, transparent 50%);
+}
+.page-header::after {
+ content: ''; position: absolute; inset: 0;
+ background-image:
+ linear-gradient(rgba(0, 212, 255, 0.04) 1px, transparent 1px),
+ linear-gradient(90deg, rgba(0, 212, 255, 0.04) 1px, transparent 1px);
+ background-size: 40px 40px;
+ pointer-events: none;
+}
+.page-header-container {
+ max-width: 1400px; margin: 0 auto;
+ position: relative; z-index: 2;
+}
+.breadcrumb { color: var(--gray-light); font-size: 0.85rem; margin-bottom: 1rem; }
+.breadcrumb a { color: var(--accent); }
+.breadcrumb i { margin: 0 0.5rem; font-size: 0.7rem; opacity: 0.6; }
+.page-header h1 {
+ font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+ line-height: 1.1; margin-bottom: 1rem; max-width: 800px;
+}
+.page-header h1.accent { color: var(--accent); }
+.page-header p {
+ font-size: 1.15rem; color: var(--gray-light); max-width: 750px;
+}
+
+.btn-primary,.btn-secondary {
+ padding: 1rem 2rem; border-radius: 4px;
+ font-weight: 700; font-size: 0.95rem;
+ display: inline-flex; align-items: center; gap: 0.6rem;
+ transition: all 0.25s ease;
+ cursor: pointer; border: none;
+ font-family: inherit;
+}
+.btn-primary { background: var(--accent); color: var(--primary); }
+.btn-primary:hover {
+ background: var(--gold); transform: translateY(-2px);
+ box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+}
+.btn-secondary {
+ background: transparent; color: var(--white);
+ border: 1.5px solid rgba(255, 255, 255, 0.25);
+}
+.btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+section { padding: 5rem 4%; }
+.container { max-width: 1400px; margin: 0 auto; }
+.section-tag {
+ display: inline-block;
+ color: var(--accent-dark);
+ font-size: 0.78rem; font-weight: 700;
+ text-transform: uppercase; letter-spacing: 0.2em;
+ margin-bottom: 0.8rem;
+}
+.section-title {
+ font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+ color: var(--primary);
+ margin-bottom: 0.8rem; line-height: 1.15;
+}
+.section-subtitle {
+ font-size: 1.05rem; color: var(--gray-mid);
+ max-width: 700px; margin-bottom: 3rem;
+}
+
+.cta-block {
+ background: linear-gradient(135deg, var(--primary), var(--primary-light));
+ color: var(--white); text-align: center;
+ padding: 4rem 4%;
+ position: relative; overflow: hidden;
+}
+.cta-block::before {
+ content: ''; position: absolute;
+ top: 50%; left: 50%; transform: translate(-50%, -50%);
+ width: 600px; height: 600px;
+ background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 60%);
+}
+.cta-block-content {
+ max-width: 700px; margin: 0 auto;
+ position: relative; z-index: 2;
+}
+.cta-block h2 {
+ font-size: clamp(1.6rem, 3vw, 2.2rem);
+ color: var(--white); margin-bottom: 1rem;
+}
+.cta-block p { color: var(--gray-light); margin-bottom: 2rem; }
+
+footer {
+ background: var(--primary-deep);
+ color: var(--gray-light);
+ padding: 3rem 4% 1.5rem;
+ border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+.footer-grid {
+ max-width: 1400px; margin: 0 auto;
+ display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+ gap: 3rem; margin-bottom: 2.5rem;
+}
+.footer-brand p {
+ color: var(--gray-mid); font-size: 0.88rem;
+ margin: 1rem 0; line-height: 1.6;
+}
+.footer-col h4 {
+ color: var(--white); font-size: 0.92rem;
+ margin-bottom: 1rem;
+ text-transform: uppercase; letter-spacing: 0.08em;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 0.6rem; }
+.footer-col ul a {
+ color: var(--gray-light); font-size: 0.88rem;
+ transition: color 0.2s;
+}
+.footer-col ul a:hover { color: var(--accent); }
+.footer-bottom {
+ max-width: 1400px; margin: 0 auto;
+ padding-top: 1.5rem;
+ border-top: 1px solid rgba(255, 255, 255, 0.05);
+ display: flex; justify-content: space-between; align-items: center;
+ flex-wrap: wrap; gap: 1rem;
+ font-size: 0.82rem; color: var(--gray-mid);
+}
+
+.whatsapp-float {
+ position: fixed; bottom: 25px; right: 25px;
+ width: 60px; height: 60px;
+ background: #25D366;
+ border-radius: 50%;
+ display: flex; align-items: center; justify-content: center;
+ color: var(--white); font-size: 1.8rem;
+ box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+ z-index: 999;
+ transition: all 0.2s;
+ animation: pulseWa 2s infinite;
+}
+.whatsapp-float:hover { transform: scale(1.1); }
+@keyframes pulseWa {
+ 0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+ 50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.8); }
+}
+
+.reveal {
+ opacity: 0; transform: translateY(20px);
+ transition: all 0.6s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* Service cards */
+.services-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+ gap: 1.5rem;
+}
+.service-card {
+ background: var(--white);
+ border-radius: 8px; overflow: hidden;
+ box-shadow: 0 2px 12px rgba(10, 22, 40, 0.06);
+ transition: all 0.3s ease;
+ color: inherit; display: block;
+}
+.service-card:hover {
+ transform: translateY(-6px);
+ box-shadow: 0 15px 40px rgba(10, 22, 40, 0.12);
+}
+.service-img {
+ height: 170px;
+ background: linear-gradient(135deg, var(--primary), var(--primary-light));
+ position: relative; overflow: hidden;
+ display: flex; align-items: center; justify-content: center;
+}
+.service-img::before {
+ content: ''; position: absolute; inset: 0;
+ background:
+ radial-gradient(circle at 30% 30%, rgba(0, 212, 255, 0.3) 0%, transparent 50%),
+ radial-gradient(circle at 70% 70%, rgba(255, 184, 0, 0.2) 0%, transparent 50%);
+}
+.service-img::after {
+ content: ''; position: absolute; inset: 0;
+ background-image:
+ linear-gradient(rgba(0, 212, 255, 0.05) 1px, transparent 1px),
+ linear-gradient(90deg, rgba(0, 212, 255, 0.05) 1px, transparent 1px);
+ background-size: 25px 25px;
+}
+.service-img i {
+ font-size: 3.5rem; color: var(--accent); z-index: 1;
+ text-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
+}
+.service-card.gold.service-img i {
+ color: var(--gold);
+ text-shadow: 0 4px 20px rgba(255, 184, 0, 0.4);
+}
+.service-content { padding: 1.5rem; }
+.service-content h3 {
+ font-size: 1.15rem; color: var(--primary);
+ margin-bottom: 0.5rem;
+}
+.service-content p {
+ color: var(--gray-mid); font-size: 0.88rem;
+ margin-bottom: 1rem; line-height: 1.5;
+}
+.service-link {
+ color: var(--accent-dark);
+ font-size: 0.83rem; font-weight: 700;
+ display: inline-flex; align-items: center; gap: 0.4rem;
+}
+
+/* Detail page */
+.detail-section { background: var(--white); padding: 4rem 4%; }
+.detail-section.alt { background: var(--off-white); }
+.detail-grid {
+ display: grid; grid-template-columns: 1fr 1fr;
+ gap: 4rem; align-items: center;
+}
+.detail-text h2 { color: var(--primary); }
+.detail-features { list-style: none; margin-top: 1.5rem; }
+.detail-features li {
+ display: flex; gap: 1rem;
+ padding: 0.9rem 0;
+ border-bottom: 1px solid var(--gray-light);
+}
+.detail-features li:last-child { border-bottom: none; }
+.detail-icon {
+ width: 40px; height: 40px;
+ background: var(--off-white);
+ color: var(--accent-dark);
+ border-radius: 8px;
+ display: flex; align-items: center; justify-content: center;
+ flex-shrink: 0; font-size: 1rem;
+}
+.detail-features strong {
+ display: block; color: var(--primary);
+ font-size: 1rem; margin-bottom: 0.2rem;
+}
+.detail-features span { color: var(--gray-mid); font-size: 0.88rem; }
+.detail-visual {
+ background: var(--primary); color: var(--white);
+ padding: 3rem; border-radius: 12px;
+ position: relative; overflow: hidden;
+}
+.detail-visual::before {
+ content: ''; position: absolute;
+ top: -50%; right: -50%;
+ width: 100%; height: 100%;
+ background: radial-gradient(circle, rgba(0, 212, 255, 0.15) 0%, transparent 70%);
+}
+.detail-visual h3 {
+ color: var(--accent);
+ font-size: 1.3rem; margin-bottom: 1.5rem;
+ position: relative; z-index: 1;
+}
+.detail-stat {
+ position: relative; z-index: 1;
+ padding: 1rem 0;
+ border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.detail-stat:last-child { border-bottom: none; }
+.detail-stat.label {
+ color: var(--gold);
+ font-size: 0.78rem;
+ text-transform: uppercase; letter-spacing: 0.1em;
+ margin-bottom: 0.3rem;
+}
+.detail-stat.value {
+ color: var(--white); font-size: 1rem; font-weight: 600;
+}
+.step-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+ gap: 1.5rem;
+}
+.step-card {
+ background: var(--white); padding: 1.8rem;
+ border-radius: 8px;
+ border-top: 3px solid var(--accent);
+ box-shadow: 0 2px 12px rgba(10, 22, 40, 0.06);
+}
+.step-num {
+ font-family: 'Space Grotesk', sans-serif;
+ font-size: 2rem; font-weight: 700;
+ color: var(--accent);
+ line-height: 1; margin-bottom: 0.8rem;
+}
+.step-card h4 { color: var(--primary); font-size: 1.1rem; margin-bottom: 0.6rem; }
+.step-card p { color: var(--gray-mid); font-size: 0.9rem; }
+
+@media (max-width: 1024px) {
+.footer-grid { grid-template-columns: 1fr 1fr; }
+.detail-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+@media (max-width: 768px) {
+.nav-links {
+ position: fixed; top: 70px; right: 0;
+ flex-direction: column;
+ background: var(--white); padding: 1.5rem;
+ width: 100%; gap: 0.5rem;
+ transform: translateX(100%);
+ transition: transform 0.3s;
+ box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+ align-items: stretch;
+ }
+.nav-links.active { transform: translateX(0); }
+.menu-toggle { display: block; }
+.nav-links > li > a { padding: 0.8rem 1rem; }
+.dropdown-menu {
+ position: static; box-shadow: none;
+ opacity: 1; visibility: visible; transform: none;
+ padding-left: 1rem; min-width: auto; border-top: none;
+ }
+.top-bar-info { gap: 1rem; }
+.footer-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+.top-bar-social { display: none; }
+}
+</style>
+</head><body>
+<div class="top-bar">
+ <div class="top-bar-container">
+ <div class="top-bar-info">
+ <span><i class="fas fa-phone"></i> +212 5 XX XX XX XX</span>
+ <span><i class="fas fa-envelope"></i> contact@nextgen-tech.ma</span>
+ <span><i class="fas fa-map-marker-alt"></i> Casablanca</span>
+ </div>
+ <div class="top-bar-social">
+ <a href="#"><i class="fab fa-linkedin-in"></i></a>
+ <a href="#"><i class="fab fa-x-twitter"></i></a>
+ <a href="#"><i class="fab fa-instagram"></i></a>
+ </div>
+ </div>
+</div>
+
+<nav class="nav">
+ <div class="nav-container">
+ <a href="index.html" class="logo">
+ <svg class="logo-shield" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00D4FF"/>
+      <stop offset="100%" stop-color="#0891B2"/>
+    </linearGradient>
+    <linearGradient id="boltGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FEE2E2"/>
+      <stop offset="40%" stop-color="#EF4444"/>
+      <stop offset="100%" stop-color="#991B1B"/>
+    </linearGradient>
+  </defs>
+  <path d="M32 4 L8 12 V28 C8 42 18 54 32 60 C46 54 56 42 56 28 V12 Z" fill="url(#shieldGrad)" stroke="#FFB800" stroke-width="1.5"/>
+  <path d="M32 8 L12 14 V28 C12 40 20 50 32 56" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+  <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="url(#boltGrad)" stroke="#7F1D1D" stroke-width="1.5" stroke-linejoin="round"/>
+</svg>
+ <span>NextGen <span class="logo-text-accent">Technologies</span></span>
+ </a>
+ <ul class="nav-links" id="navLinks">
+ <li><a href="index.html">Accueil</a></li>
+ <li>
+ <a href="services.html">Services <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+ <ul class="dropdown-menu">
+ <li><a href="soc-consultation.html"><i class="fas fa-shield-halved"></i> SOC Consultation</a></li>
+ <li><a href="managed-security.html"><i class="fas fa-eye"></i> Managed Security Services</a></li>
+ <li><a href="vapt.html"><i class="fas fa-bug"></i> VAPT - Tests d'intrusion</a></li>
+ <li><a href="data-security.html"><i class="fas fa-database"></i> Data Security Management</a></li>
+ <li><a href="cloud-security.html"><i class="fas fa-cloud"></i> Cloud Security</a></li>
+ <li><a href="securite-reseau.html"><i class="fas fa-network-wired"></i> Sécurité Réseau</a></li>
+ <li><a href="conformite.html"><i class="fas fa-gavel"></i> Conformité & Régulation</a></li>
+ <li><a href="reponse-incident.html"><i class="fas fa-triangle-exclamation"></i> Réponse à Incident</a></li>
+ </ul>
+ </li>
+ <li>
+ <a href="secteurs.html" class="active">Secteurs <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+ <ul class="dropdown-menu">
+ <li><a href="secteur-banques.html"><i class="fas fa-building-columns"></i> Banques & Finance</a></li>
+ <li><a href="secteur-ecommerce.html"><i class="fas fa-cart-shopping"></i> E-commerce & Retail</a></li>
+ <li><a href="secteur-sante.html"><i class="fas fa-heart-pulse"></i> Santé & Pharma</a></li>
+ <li><a href="secteur-industrie.html"><i class="fas fa-industry"></i> Industrie & Manufacture</a></li>
+ <li><a href="secteur-administrations.html"><i class="fas fa-landmark"></i> Administrations</a></li>
+ </ul>
+ </li>
+ <li><a href="academy.html">Academy</a></li>
+ <li><a href="menaces.html">Menaces</a></li>
+ <li><a href="contact.html">Contact</a></li>
+ <li><a href="contact.html" class="nav-cta">Audit gratuit</a></li>
+ </ul>
+ <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+ </div>
+</nav>
+
+<section class="page-header">
+ <div class="page-header-container">
+ <div class="breadcrumb">
+ <a href="index.html">Accueil</a> <i class="fas fa-chevron-right"></i> <span style="color:var(--white)">Banques & Finance</span>
+ </div>
+ <h1>Cybersécurité <span class="accent">Banques</span><br>& Finance</h1>
+ <p>Le secteur financier fait face à des menaces spécifiques et des obligations réglementaires strictes. Nous accompagnons banques, établissements de crédit et fintechs.</p>
+ </div>
+</section>
+
+<section class="detail-section">
+ <div class="container">
+ <div class="detail-grid">
+ <div class="detail-text">
+ <span class="section-tag">Banques & Finance</span>
+ <h2 class="section-title">Les enjeux spécifiques<br>de votre secteur</h2>
+ <p style="color: var(--gray-mid); font-size: 1.05rem;">Le secteur bancaire est l'une des cibles privilégiées des cybercriminels. Fraude, ransomware, vol de données clients, attaques contre les systèmes de paiement : les enjeux sont à la fois financiers, réglementaires et réputationnels. Notre approche combine expertise sectorielle et conformité régulateur bancaire.</p>
+ <ul class="detail-features">
+ <li>
+ <div class="detail-icon"><i class="fas fa-money-bill-trend-up"></i></div>
+ <div>
+ <strong>Fraude financière</strong>
+ <span>Détection et prévention des tentatives de fraude bancaire et carte</span>
+ </div>
+ </li>
+ <li>
+ <div class="detail-icon"><i class="fas fa-shield-halved"></i></div>
+ <div>
+ <strong>Conformité régulateur bancaire</strong>
+ <span>Respect des directives de la Banque Centrale en cybersécurité</span>
+ </div>
+ </li>
+ <li>
+ <div class="detail-icon"><i class="fas fa-credit-card"></i></div>
+ <div>
+ <strong>Sécurité des paiements</strong>
+ <span>Conformité PCI-DSS, sécurisation des transactions</span>
+ </div>
+ </li>
+ <li>
+ <div class="detail-icon"><i class="fas fa-user-shield"></i></div>
+ <div>
+ <strong>Protection données clients</strong>
+ <span>régulateur, secret bancaire, données KYC</span>
+ </div>
+ </li>
+ <li>
+ <div class="detail-icon"><i class="fas fa-virus"></i></div>
+ <div>
+ <strong>Lutte anti-ransomware</strong>
+ <span>Stratégie de protection et de récupération adaptée</span>
+ </div>
+ </li>
+ </ul>
+ </div>
+ <div class="detail-visual">
+ <h3><i class="fas fa-chart-line" style="margin-right: 0.5rem;"></i> Chiffres clés du secteur</h3>
+ <div class="detail-stat"><div class="label">Coût moyen attaque</div><div class="value">5.7M USD pour une banque</div></div>
+ <div class="detail-stat"><div class="label">Augmentation 2024</div><div class="value">+38% d'attaques sur le secteur</div></div>
+ <div class="detail-stat"><div class="label">Réglementation</div><div class="value">régulateur bancaire + régulateur</div></div>
+ <div class="detail-stat"><div class="label">Standards</div><div class="value">PCI-DSS, ISO 27001, SWIFT CSP</div></div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<section class="detail-section alt">
+ <div class="container">
+ <span class="section-tag">Notre offre</span>
+ <h2 class="section-title">Services adaptés à votre métier</h2>
+ <p class="section-subtitle">Des solutions pensées pour les contraintes spécifiques de votre activité.</p>
+ <div class="services-grid">
+ <a href="soc-consultation.html" class="service-card reveal">
+ <div class="service-img"><i class="fas fa-shield-halved"></i></div>
+ <div class="service-content">
+ <h3>SOC bancaire spécialisé</h3>
+ <p>Détection des fraudes et menaces ciblant le secteur financier.</p>
+ <span class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></span>
+ </div>
+ </a>
+ <a href="vapt.html" class="service-card gold reveal">
+ <div class="service-img"><i class="fas fa-bug"></i></div>
+ <div class="service-content">
+ <h3>VAPT applications bancaires</h3>
+ <p>Tests d'intrusion sur applications web, mobile et API banking.</p>
+ <span class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></span>
+ </div>
+ </a>
+ <a href="data-security.html" class="service-card reveal">
+ <div class="service-img"><i class="fas fa-database"></i></div>
+ <div class="service-content">
+ <h3>Protection données clients</h3>
+ <p>Sécurisation des données KYC, transactions, secret bancaire.</p>
+ <span class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></span>
+ </div>
+ </a>
+ <a href="conformite.html" class="service-card gold reveal">
+ <div class="service-img"><i class="fas fa-gavel"></i></div>
+ <div class="service-content">
+ <h3>Conformité réglementaire</h3>
+ <p>régulateur bancaire, PCI-DSS, régulateur, normes internationales.</p>
+ <span class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></span>
+ </div>
+ </a>
+ </div>
+ </div>
+</section>
+
+<section class="cta-block">
+ <div class="cta-block-content">
+ <h2>Prêt à sécuriser votre entreprise ?</h2>
+ <p>Audit gratuit de 30 minutes pour évaluer vos besoins. Aucun engagement.</p>
+ <a href="contact.html" class="btn-primary">Demander un audit gratuit <i class="fas fa-arrow-right"></i></a>
+ </div>
+</section>
+
+<footer>
+ <div class="footer-grid">
+ <div class="footer-brand">
+ <a href="index.html" class="logo" style="font-size: 1.4rem;">
+ <svg class="logo-shield" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00D4FF"/>
+      <stop offset="100%" stop-color="#0891B2"/>
+    </linearGradient>
+    <linearGradient id="boltGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FEE2E2"/>
+      <stop offset="40%" stop-color="#EF4444"/>
+      <stop offset="100%" stop-color="#991B1B"/>
+    </linearGradient>
+  </defs>
+  <path d="M32 4 L8 12 V28 C8 42 18 54 32 60 C46 54 56 42 56 28 V12 Z" fill="url(#shieldGrad)" stroke="#FFB800" stroke-width="1.5"/>
+  <path d="M32 8 L12 14 V28 C12 40 20 50 32 56" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+  <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="url(#boltGrad)" stroke="#7F1D1D" stroke-width="1.5" stroke-linejoin="round"/>
+</svg>
+ <span style="color: var(--white)">NextGen <span class="logo-text-accent">Technologies</span></span>
+ </a>
+ <p>Cybersécurité, conseil et formation au service des entreprises. Une protection complète, accessible et indépendante.</p>
+ <div style="margin-top: 1rem;">
+ <a href="#" style="color: var(--gray-light); margin-right: 1rem;"><i class="fab fa-linkedin-in"></i></a>
+ <a href="#" style="color: var(--gray-light); margin-right: 1rem;"><i class="fab fa-x-twitter"></i></a>
+ <a href="#" style="color: var(--gray-light); margin-right: 1rem;"><i class="fab fa-instagram"></i></a>
+ <a href="#" style="color: var(--gray-light);"><i class="fab fa-youtube"></i></a>
+ </div>
+ </div>
+ <div class="footer-col">
+ <h4>Services</h4>
+ <ul>
+ <li><a href="soc-consultation.html">SOC Consultation</a></li>
+ <li><a href="managed-security.html">Managed Security</a></li>
+ <li><a href="vapt.html">VAPT</a></li>
+ <li><a href="data-security.html">Data Security</a></li>
+ <li><a href="cloud-security.html">Cloud Security</a></li>
+ <li><a href="conformite.html">Conformité</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Secteurs</h4>
+ <ul>
+ <li><a href="secteur-banques.html">Banques & Finance</a></li>
+ <li><a href="secteur-ecommerce.html">E-commerce</a></li>
+ <li><a href="secteur-sante.html">Santé</a></li>
+ <li><a href="secteur-industrie.html">Industrie</a></li>
+ <li><a href="secteur-administrations.html">Administrations</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Entreprise</h4>
+ <ul>
+ <li><a href="academy.html">Academy</a></li>
+ <li><a href="menaces.html">Menaces actuelles</a></li>
+ <li><a href="contact.html">Contact</a></li>
+ <li><a href="#">Mentions légales</a></li>
+ </ul>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <span>© 2026 NextGen Technologies SARL · Casablanca</span>
+ <span>Excellence & Innovation</span>
+ </div>
+</footer>
+<a href="https://wa.me/2126XXXXXXXX" class="whatsapp-float" target="_blank" rel="noopener">
+ <i class="fab fa-whatsapp"></i>
+</a>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+ const menuToggle = document.getElementById('menuToggle');
+ const navLinks = document.getElementById('navLinks');
+ if (menuToggle && navLinks) {
+ menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+ document.querySelectorAll('.nav-links a').forEach(link => {
+ link.addEventListener('click', () => navLinks.classList.remove('active'));
+ });
+ }
+ const observer = new IntersectionObserver((entries) => {
+ entries.forEach(entry => {
+ if (entry.isIntersecting) entry.target.classList.add('visible');
+ });
+ }, { threshold: 0.1 });
+ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+});
+function handleSubmit(formId) {
+ const form = document.getElementById(formId || 'contactForm');
+ if (!form) return;
+ const inputs = form.querySelectorAll('input[required], textarea[required]');
+ let valid = true;
+ inputs.forEach(i => {
+ if (!i.value.trim()) { valid = false; i.style.borderColor = '#EF4444'; }
+ else { i.style.borderColor = ''; }
+ });
+ if (!valid) { alert('Merci de remplir tous les champs obligatoires.'); return; }
+ alert('Merci ! Votre demande a bien été reçue. Nous vous recontactons sous 24h.');
+ form.querySelectorAll('input, textarea').forEach(f => f.value = '');
+}
+</script>
+</body></html>
