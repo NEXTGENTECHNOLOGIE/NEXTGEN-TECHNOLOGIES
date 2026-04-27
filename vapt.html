@@ -460,6 +460,198 @@ footer {
 @media (max-width: 600px) {
 .top-bar-social { display: none; }
 }
+
+/* ========== ANIMATIONS ATTRACTIVES ========== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+@keyframes shine {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* H1 page-header avec effet shine */
+.page-header h1 {
+  animation: fadeInUp 1s ease-out;
+}
+.page-header h1 .accent {
+  background: linear-gradient(90deg, var(--accent) 0%, #FFB800 50%, var(--accent) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+}
+.page-header p {
+  animation: fadeInUp 1s ease-out 0.3s both;
+}
+.breadcrumb {
+  animation: fadeInLeft 0.8s ease-out;
+}
+
+/* Section titles */
+.section-title {
+  animation: fadeInUp 0.8s ease-out;
+}
+.section-tag {
+  animation: fadeInLeft 0.6s ease-out;
+}
+
+/* Detail visual + image hover */
+.detail-photo {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 50px rgba(10,22,40,0.2);
+  transition: all 0.4s ease;
+  animation: scaleIn 1s ease-out 0.4s both;
+}
+.detail-photo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 60px rgba(10,22,40,0.3);
+}
+.detail-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.detail-photo:hover img {
+  transform: scale(1.05);
+}
+.detail-photo-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(10,22,40,0.95));
+  padding: 3rem 2rem 1.5rem;
+  color: white;
+}
+.detail-photo-tag {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5rem;
+  background: rgba(255,184,0,0.15);
+  padding: 0.3rem 0.8rem;
+  border-radius: 30px;
+  border: 1px solid rgba(255,184,0,0.3);
+}
+.detail-photo h3 {
+  color: white;
+  font-size: 1.4rem;
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Service cards animation */
+.service-card {
+  animation: fadeInUp 0.8s ease-out both;
+}
+.service-card:nth-child(1) { animation-delay: 0s; }
+.service-card:nth-child(2) { animation-delay: 0.1s; }
+.service-card:nth-child(3) { animation-delay: 0.2s; }
+.service-card:nth-child(4) { animation-delay: 0.3s; }
+.service-card:nth-child(5) { animation-delay: 0.4s; }
+.service-card:nth-child(6) { animation-delay: 0.5s; }
+.service-card:nth-child(7) { animation-delay: 0.6s; }
+.service-card:nth-child(8) { animation-delay: 0.7s; }
+.service-card .service-img i {
+  transition: transform 0.5s ease;
+}
+.service-card:hover .service-img i {
+  transform: scale(1.15) rotate(5deg);
+}
+
+/* Buttons pulse on key CTA */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s, height 0.5s;
+}
+.btn-primary:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Step cards stagger */
+.step-card {
+  animation: fadeInUp 0.6s ease-out both;
+}
+.step-card:nth-child(1) { animation-delay: 0s; }
+.step-card:nth-child(2) { animation-delay: 0.15s; }
+.step-card:nth-child(3) { animation-delay: 0.3s; }
+.step-card:nth-child(4) { animation-delay: 0.45s; }
+.step-card:nth-child(5) { animation-delay: 0.6s; }
+
+/* Stats numbers */
+.stat-bar-item .num {
+  animation: scaleIn 1s ease-out both;
+}
+.stat-bar-item:nth-child(1) .num { animation-delay: 0.1s; }
+.stat-bar-item:nth-child(2) .num { animation-delay: 0.3s; }
+.stat-bar-item:nth-child(3) .num { animation-delay: 0.5s; }
+.stat-bar-item:nth-child(4) .num { animation-delay: 0.7s; }
+
+/* Logo float */
+.logo-shield {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* CTA block emphasis */
+.cta-block h2 {
+  animation: fadeInUp 0.8s ease-out;
+}
+.cta-block p {
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+.cta-block .btn-primary {
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
 </style>
 </head><body>
 <div class="top-bar">
@@ -587,7 +779,14 @@ footer {
  </li>
  </ul>
  </div>
- <div class="detail-visual">
+ <div class="detail-photo">
+  <img src="VAPT.jpg" alt="NextGen Technologies" loading="lazy">
+  <div class="detail-photo-overlay">
+    <span class="detail-photo-tag">TESTS D'INTRUSION</span>
+    <h3>Pensez comme un attaquant</h3>
+  </div>
+</div>
+<div class="detail-visual" style="margin-top: 1.5rem;">
  <h3><i class="fas fa-bug" style="margin-right: 0.5rem;"></i> Notre arsenal</h3>
  <div class="detail-stat"><div class="label">Méthodologies</div><div class="value">OWASP · PTES · OSSTMM · NIST</div></div>
  <div class="detail-stat"><div class="label">Certifications</div><div class="value">Pentest+ · CEH · OSCP en cours</div></div>
