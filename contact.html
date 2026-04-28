@@ -761,19 +761,25 @@ footer {
  </div>
  </div>
 
- <form id="contactForm" onsubmit="event.preventDefault(); handleSubmit('contactForm');" style="background: var(--white); padding: 2.5rem; border-radius: 8px; border-top: 4px solid var(--accent); box-shadow: 0 4px 20px rgba(10, 22, 40, 0.06);">
+ <form id="contactForm" action="https://formspree.io/f/myklqdky" method="POST" style="background: var(--white); padding: 2.5rem; border-radius: 8px; border-top: 4px solid var(--accent); box-shadow: 0 4px 20px rgba(10, 22, 40, 0.06);">
  <h3 style="color: var(--primary); font-size: 1.3rem; margin-bottom: 1.5rem;">Demandez votre audit gratuit</h3>
- <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
- <div style="margin-bottom: 1rem;"><label style="display: block; font-size: 0.82rem; color: var(--gray-dark); margin-bottom: 0.4rem; font-weight: 600;">Nom complet *</label><input type="text" id="nom" required placeholder="Votre nom" style="width: 100%; padding: 0.8rem 1rem; border: 1.5px solid var(--gray-light); border-radius: 6px; font-family: inherit; font-size: 0.92rem; background: var(--off-white);"></div>
- <div style="margin-bottom: 1rem;"><label style="display: block; font-size: 0.82rem; color: var(--gray-dark); margin-bottom: 0.4rem; font-weight: 600;">Entreprise</label><input type="text" id="entreprise" placeholder="Nom de l'entreprise" style="width: 100%; padding: 0.8rem 1rem; border: 1.5px solid var(--gray-light); border-radius: 6px; font-family: inherit; font-size: 0.92rem; background: var(--off-white);"></div>
+ <div id="formSuccess" style="display:none; background:#10B981; color:white; padding:1rem; border-radius:6px; margin-bottom:1rem; text-align:center; font-weight:600;">
+  ✓ Merci ! Votre demande a bien été envoyée. Nous vous recontactons sous 24h.
+ </div>
+ <div id="formError" style="display:none; background:#EF4444; color:white; padding:1rem; border-radius:6px; margin-bottom:1rem; text-align:center; font-weight:600;">
+  ✗ Une erreur est survenue. Veuillez réessayer ou nous contacter directement.
  </div>
  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
- <div style="margin-bottom: 1rem;"><label style="display: block; font-size: 0.82rem; color: var(--gray-dark); margin-bottom: 0.4rem; font-weight: 600;">Email *</label><input type="email" id="email" required placeholder="vous@entreprise.com" style="width: 100%; padding: 0.8rem 1rem; border: 1.5px solid var(--gray-light); border-radius: 6px; font-family: inherit; font-size: 0.92rem; background: var(--off-white);"></div>
- <div style="margin-bottom: 1rem;"><label style="display: block; font-size: 0.82rem; color: var(--gray-dark); margin-bottom: 0.4rem; font-weight: 600;">Téléphone *</label><input type="tel" id="phone" required placeholder="+212..." style="width: 100%; padding: 0.8rem 1rem; border: 1.5px solid var(--gray-light); border-radius: 6px; font-family: inherit; font-size: 0.92rem; background: var(--off-white);"></div>
+ <div style="margin-bottom: 1rem;"><label style="display: block; font-size: 0.82rem; color: var(--gray-dark); margin-bottom: 0.4rem; font-weight: 600;">Nom complet *</label><input type="text" id="nom" name="nom" required placeholder="Votre nom" style="width: 100%; padding: 0.8rem 1rem; border: 1.5px solid var(--gray-light); border-radius: 6px; font-family: inherit; font-size: 0.92rem; background: var(--off-white);"></div>
+ <div style="margin-bottom: 1rem;"><label style="display: block; font-size: 0.82rem; color: var(--gray-dark); margin-bottom: 0.4rem; font-weight: 600;">Entreprise</label><input type="text" id="entreprise" name="entreprise" placeholder="Nom de l'entreprise" style="width: 100%; padding: 0.8rem 1rem; border: 1.5px solid var(--gray-light); border-radius: 6px; font-family: inherit; font-size: 0.92rem; background: var(--off-white);"></div>
+ </div>
+ <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+ <div style="margin-bottom: 1rem;"><label style="display: block; font-size: 0.82rem; color: var(--gray-dark); margin-bottom: 0.4rem; font-weight: 600;">Email *</label><input type="email" id="email" name="email" required placeholder="vous@entreprise.com" style="width: 100%; padding: 0.8rem 1rem; border: 1.5px solid var(--gray-light); border-radius: 6px; font-family: inherit; font-size: 0.92rem; background: var(--off-white);"></div>
+ <div style="margin-bottom: 1rem;"><label style="display: block; font-size: 0.82rem; color: var(--gray-dark); margin-bottom: 0.4rem; font-weight: 600;">Téléphone *</label><input type="tel" id="phone" name="telephone" required placeholder="+212..." style="width: 100%; padding: 0.8rem 1rem; border: 1.5px solid var(--gray-light); border-radius: 6px; font-family: inherit; font-size: 0.92rem; background: var(--off-white);"></div>
  </div>
  <div style="margin-bottom: 1rem;">
  <label style="display: block; font-size: 0.82rem; color: var(--gray-dark); margin-bottom: 0.4rem; font-weight: 600;">Service qui vous intéresse</label>
- <select id="service" style="width: 100%; padding: 0.8rem 1rem; border: 1.5px solid var(--gray-light); border-radius: 6px; font-family: inherit; font-size: 0.92rem; background: var(--off-white);">
+ <select id="service" name="service" style="width: 100%; padding: 0.8rem 1rem; border: 1.5px solid var(--gray-light); border-radius: 6px; font-family: inherit; font-size: 0.92rem; background: var(--off-white);">
  <option>Audit cyber gratuit</option>
  <option>SOC Consultation</option>
  <option>Managed Security Services</option>
@@ -788,10 +794,50 @@ footer {
  </div>
  <div style="margin-bottom: 1rem;">
  <label style="display: block; font-size: 0.82rem; color: var(--gray-dark); margin-bottom: 0.4rem; font-weight: 600;">Votre message</label>
- <textarea id="message" placeholder="Décrivez brièvement votre besoin..." style="width: 100%; padding: 0.8rem 1rem; border: 1.5px solid var(--gray-light); border-radius: 6px; font-family: inherit; font-size: 0.92rem; background: var(--off-white); resize: vertical; min-height: 100px;"></textarea>
+ <textarea id="message" name="message" placeholder="Décrivez brièvement votre besoin..." style="width: 100%; padding: 0.8rem 1rem; border: 1.5px solid var(--gray-light); border-radius: 6px; font-family: inherit; font-size: 0.92rem; background: var(--off-white); resize: vertical; min-height: 100px;"></textarea>
  </div>
- <button type="submit" style="width: 100%; padding: 1rem; background: var(--primary); color: var(--white); border: none; border-radius: 6px; font-weight: 700; font-size: 1rem; cursor: pointer; font-family: inherit; margin-top: 0.5rem;">Envoyer ma demande</button>
+ <input type="hidden" name="_subject" value="Nouvelle demande NextGen Technologies">
+ <input type="text" name="_gotcha" style="display:none">
+ <button type="submit" id="submitBtn" style="width: 100%; padding: 1rem; background: var(--primary); color: var(--white); border: none; border-radius: 6px; font-weight: 700; font-size: 1rem; cursor: pointer; font-family: inherit; margin-top: 0.5rem; transition: all 0.2s;">Envoyer ma demande</button>
  </form>
+ <script>
+ document.getElementById('contactForm').addEventListener('submit', async function(e) {
+   e.preventDefault();
+   const form = e.target;
+   const btn = document.getElementById('submitBtn');
+   const success = document.getElementById('formSuccess');
+   const error = document.getElementById('formError');
+
+   success.style.display = 'none';
+   error.style.display = 'none';
+   btn.disabled = true;
+   btn.textContent = 'Envoi en cours...';
+   btn.style.opacity = '0.7';
+
+   try {
+     const data = new FormData(form);
+     const response = await fetch(form.action, {
+       method: 'POST',
+       body: data,
+       headers: { 'Accept': 'application/json' }
+     });
+
+     if (response.ok) {
+       success.style.display = 'block';
+       form.reset();
+       success.scrollIntoView({behavior:'smooth', block:'center'});
+     } else {
+       error.style.display = 'block';
+     }
+   } catch (err) {
+     error.style.display = 'block';
+   } finally {
+     btn.disabled = false;
+     btn.textContent = 'Envoyer ma demande';
+     btn.style.opacity = '1';
+   }
+ });
+ </script>
  </div>
  </div>
 </section>
