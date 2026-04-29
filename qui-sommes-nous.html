@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Découvrez NextGen Technologies : une équipe d'ingénieurs passionnés au service de la cybersécurité. Notre vision, nos valeurs, notre équipe.">
+<title>Qui sommes-nous · NextGen Technologies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<style>
+:root {
+  --primary: #0A1628; --primary-deep: #050B14; --primary-light: #1E3A5F;
+  --accent: #00D4FF; --accent-dark: #0891B2;
+  --gold: #FFB800; --gold-dark: #D97706;
+  --white: #FFFFFF; --off-white: #F8FAFC;
+  --gray-light: #E2E8F0; --gray-mid: #64748B; --gray-dark: #334155;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Manrope', sans-serif; color: var(--gray-dark); line-height: 1.6; background: var(--white); overflow-x: hidden; }
+h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+a { text-decoration: none; }
+
+.top-bar { background: var(--primary-deep); color: var(--gray-light); padding: 0.5rem 4%; font-size: 0.8rem; }
+.top-bar-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+.top-bar-info { display: flex; gap: 2rem; flex-wrap: wrap; }
+.top-bar-info span { display: flex; align-items: center; gap: 0.4rem; }
+.top-bar-info i { color: var(--accent); }
+.top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; }
+
+.nav { position: sticky; top: 0; z-index: 1000; padding: 1rem 4%; background: var(--white); border-bottom: 1px solid var(--gray-light); box-shadow: 0 2px 10px rgba(0,0,0,0.04); }
+.nav-container { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.logo { display: flex; align-items: center; gap: 0.6rem; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.3rem; color: var(--primary); }
+.logo-shield { width: 40px; height: 40px; flex-shrink: 0; filter: drop-shadow(0 2px 6px rgba(0,212,255,0.4)); animation: float 3s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+.logo-text-accent { color: var(--accent); }
+.nav-links { display: flex; gap: 0.4rem; list-style: none; align-items: center; }
+.nav-links > li > a { color: var(--primary); font-size: 0.92rem; font-weight: 600; padding: 0.6rem 1rem; border-radius: 4px; }
+.nav-links > li > a:hover { background: var(--off-white); color: var(--accent-dark); }
+.nav-links > li > a.active { color: var(--accent-dark); background: var(--off-white); }
+.nav-cta { background: var(--gold) !important; color: var(--primary) !important; padding: 0.7rem 1.4rem !important; border-radius: 4px !important; font-weight: 700 !important; }
+
+/* HERO PREMIUM */
+.hero-about {
+  background: linear-gradient(135deg, #0A1628 0%, #1E3A5F 50%, #0891B2 100%);
+  color: var(--white); padding: 6rem 4% 5rem;
+  position: relative; overflow: hidden; min-height: 500px;
+}
+.hero-about::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(0,212,255,0.3) 0%, transparent 50%),
+              radial-gradient(circle at 80% 30%, rgba(255,184,0,0.2) 0%, transparent 50%),
+              radial-gradient(circle at 50% 80%, rgba(239,68,68,0.15) 0%, transparent 50%);
+  animation: heroGlow 8s ease-in-out infinite;
+}
+@keyframes heroGlow { 0%, 100% { opacity: 0.7; } 50% { opacity: 1; } }
+.hero-about::after {
+  content: ''; position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(0,212,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.06) 1px, transparent 1px);
+  background-size: 40px 40px; pointer-events: none;
+}
+.hero-content { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+.hero-tag {
+  display: inline-block; background: rgba(255,184,0,0.15); color: var(--gold);
+  padding: 0.5rem 1.2rem; border-radius: 30px; font-size: 0.8rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.15em;
+  border: 1px solid rgba(255,184,0,0.3); margin-bottom: 1.5rem;
+  animation: fadeInUp 0.8s ease-out;
+}
+.hero-about h1 { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.05; margin-bottom: 1.5rem; max-width: 850px; animation: fadeInUp 1s ease-out 0.2s both; }
+.hero-about h1 .accent {
+  background: linear-gradient(90deg, #00D4FF 0%, #FFB800 50%, #EF4444 75%, #00D4FF 100%);
+  background-size: 200% auto; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  animation: shineRainbow 4s linear infinite;
+}
+@keyframes shineRainbow { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+.hero-about p { font-size: 1.25rem; color: rgba(255,255,255,0.85); max-width: 750px; margin-bottom: 2rem; animation: fadeInUp 1s ease-out 0.4s both; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); animation: fadeInUp 1s ease-out 0.6s both; }
+.hero-stat .num { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 0.3rem; }
+.hero-stat .lbl { font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+
+/* STORY */
+.story-section { padding: 5rem 4%; background: var(--white); }
+.story-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: center; }
+.story-visual { position: relative; aspect-ratio: 1; background: linear-gradient(135deg, var(--primary), var(--primary-light)); border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(10,22,40,0.2); }
+.story-visual::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 30%, rgba(0,212,255,0.4) 0%, transparent 60%), radial-gradient(circle at 70% 70%, rgba(255,184,0,0.3) 0%, transparent 60%); }
+.story-visual::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 30px 30px; }
+.story-visual .quote-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 8rem; color: var(--accent); opacity: 0.8; z-index: 1; filter: drop-shadow(0 4px 20px rgba(0,212,255,0.5)); }
+.story-text .section-tag { display: inline-block; color: var(--accent-dark); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1rem; }
+.story-text h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); color: var(--primary); margin-bottom: 1.2rem; line-height: 1.15; }
+.story-text p { color: var(--gray-mid); margin-bottom: 1rem; font-size: 1.02rem; line-height: 1.7; }
+.story-text p strong { color: var(--primary); font-weight: 600; }
+
+/* INTERNATIONAL */
+.international-section { padding: 5rem 4%; background: linear-gradient(135deg, #050B14 0%, #0A1628 100%); color: var(--white); position: relative; overflow: hidden; }
+.international-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 80% 20%, rgba(0,212,255,0.15) 0%, transparent 50%), radial-gradient(circle at 20% 80%, rgba(239,68,68,0.1) 0%, transparent 50%); }
+.international-container { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; text-align: center; }
+.international-section .section-tag { color: var(--accent); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; }
+.international-section h2 { color: var(--white); font-size: clamp(1.8rem, 3.5vw, 2.5rem); margin-bottom: 1.5rem; margin-top: 0.8rem; }
+.international-section h2 .gold { color: var(--gold); }
+.international-section .lead { font-size: 1.15rem; color: rgba(255,255,255,0.85); max-width: 750px; margin: 0 auto 3rem; line-height: 1.7; }
+.flags-row { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 3rem; }
+.flag-card { display: flex; flex-direction: column; align-items: center; padding: 1.5rem 2rem; background: rgba(255,255,255,0.05); border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); min-width: 200px; transition: all 0.3s; }
+.flag-card:hover { transform: translateY(-5px); border-color: var(--accent); background: rgba(0,212,255,0.05); }
+.flag-card .flag { font-size: 3rem; margin-bottom: 0.8rem; }
+.flag-card .country { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--white); font-size: 1.1rem; margin-bottom: 0.3rem; }
+.flag-card .desc { font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+
+/* TEAM */
+.team-section { padding: 5rem 4%; background: var(--off-white); }
+.team-container { max-width: 1200px; margin: 0 auto; }
+.team-header { text-align: center; margin-bottom: 4rem; }
+.team-header .section-tag { display: inline-block; color: var(--accent-dark); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1rem; }
+.team-header h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); color: var(--primary); margin-bottom: 1rem; }
+.team-header h2 .accent { background: linear-gradient(90deg, var(--accent) 0%, var(--gold) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.team-header p { color: var(--gray-mid); max-width: 700px; margin: 0 auto; font-size: 1.05rem; }
+
+.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+.team-card { background: var(--white); border-radius: 16px; padding: 2rem 1.5rem; text-align: center; box-shadow: 0 4px 20px rgba(10,22,40,0.06); transition: all 0.4s; border-top: 4px solid var(--accent); position: relative; overflow: hidden; }
+.team-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 100px; background: linear-gradient(180deg, rgba(0,212,255,0.08) 0%, transparent 100%); pointer-events: none; }
+.team-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(10,22,40,0.15); }
+.team-card:nth-child(1) { border-top-color: #00D4FF; }
+.team-card:nth-child(2) { border-top-color: #FFB800; }
+.team-card:nth-child(3) { border-top-color: #EF4444; }
+.team-card:nth-child(4) { border-top-color: #10B981; }
+
+.team-photo { width: 130px; height: 130px; border-radius: 50%; margin: 0 auto 1.2rem; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-size: 2.8rem; font-weight: 700; color: var(--white); border: 4px solid var(--white); box-shadow: 0 8px 30px rgba(10,22,40,0.15); overflow: hidden; position: relative; transition: transform 0.3s; }
+.team-card:hover .team-photo { transform: scale(1.05); }
+.team-photo img { width: 100%; height: 100%; object-fit: cover; }
+.team-card:nth-child(2) .team-photo { background: linear-gradient(135deg, #FFB800, #D97706); }
+.team-card:nth-child(3) .team-photo { background: linear-gradient(135deg, #EF4444, #B91C1C); }
+.team-card:nth-child(4) .team-photo { background: linear-gradient(135deg, #10B981, #047857); }
+
+.team-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--primary); margin-bottom: 0.3rem; }
+.team-role { display: inline-block; background: rgba(0,212,255,0.1); color: var(--accent-dark); padding: 0.3rem 0.9rem; border-radius: 30px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.8rem; }
+.team-card:nth-child(2) .team-role { background: rgba(255,184,0,0.15); color: var(--gold-dark); }
+.team-card:nth-child(3) .team-role { background: rgba(239,68,68,0.1); color: #B91C1C; }
+.team-card:nth-child(4) .team-role { background: rgba(16,185,129,0.1); color: #047857; }
+.team-expertise { font-size: 0.9rem; color: var(--gray-mid); margin-bottom: 1.2rem; line-height: 1.5; }
+.team-skills { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; }
+.team-skill { font-size: 0.72rem; background: var(--off-white); color: var(--gray-dark); padding: 0.3rem 0.7rem; border-radius: 20px; border: 1px solid var(--gray-light); font-weight: 600; }
+
+/* VALUES */
+.values-section { padding: 5rem 4%; background: var(--white); }
+.values-container { max-width: 1200px; margin: 0 auto; }
+.values-header { text-align: center; margin-bottom: 4rem; }
+.values-header .section-tag { display: inline-block; color: var(--accent-dark); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1rem; }
+.values-header h2 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); color: var(--primary); margin-bottom: 1rem; }
+.values-header p { color: var(--gray-mid); max-width: 700px; margin: 0 auto; font-size: 1.05rem; }
+.values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.8rem; }
+.value-card { padding: 2.5rem 1.8rem; border-radius: 16px; background: var(--off-white); text-align: center; transition: all 0.3s; border: 1px solid var(--gray-light); }
+.value-card:hover { transform: translateY(-6px); box-shadow: 0 15px 40px rgba(10,22,40,0.1); border-color: var(--accent); }
+.value-icon { width: 70px; height: 70px; border-radius: 18px; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 1.2rem; box-shadow: 0 8px 25px rgba(0,212,255,0.3); }
+.value-card:nth-child(2) .value-icon { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); box-shadow: 0 8px 25px rgba(255,184,0,0.3); }
+.value-card:nth-child(3) .value-icon { background: linear-gradient(135deg, #EF4444, #B91C1C); box-shadow: 0 8px 25px rgba(239,68,68,0.3); }
+.value-card:nth-child(4) .value-icon { background: linear-gradient(135deg, #10B981, #047857); box-shadow: 0 8px 25px rgba(16,185,129,0.3); }
+.value-card h4 { color: var(--primary); font-size: 1.15rem; margin-bottom: 0.6rem; }
+.value-card p { color: var(--gray-mid); font-size: 0.92rem; line-height: 1.6; }
+
+/* CTA */
+.cta-block { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: var(--white); text-align: center; padding: 4rem 4%; position: relative; overflow: hidden; }
+.cta-block::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(0,212,255,0.1) 0%, transparent 60%); }
+.cta-block-content { max-width: 700px; margin: 0 auto; position: relative; z-index: 2; }
+.cta-block h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--white); margin-bottom: 1rem; }
+.cta-block p { color: var(--gray-light); margin-bottom: 2rem; }
+.btn-primary { padding: 1rem 2rem; border-radius: 4px; font-weight: 700; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 0.6rem; background: var(--accent); color: var(--primary); transition: all 0.25s ease; }
+.btn-primary:hover { background: var(--gold); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,212,255,0.3); }
+
+/* Footer */
+footer { background: var(--primary-deep); color: var(--gray-light); padding: 3rem 4% 1.5rem; }
+.footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+.footer-brand p { color: var(--gray-mid); font-size: 0.88rem; margin: 1rem 0; }
+.footer-col h4 { color: var(--white); font-size: 0.92rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 0.6rem; }
+.footer-col ul a { color: var(--gray-light); font-size: 0.88rem; }
+.footer-col ul a:hover { color: var(--accent); }
+.footer-bottom { max-width: 1400px; margin: 0 auto; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; color: var(--gray-mid); }
+
+@media (max-width: 1024px) {
+  .story-container { grid-template-columns: 1fr; gap: 2.5rem; }
+  .story-visual { max-width: 400px; margin: 0 auto; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .values-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .hero-stats { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .team-grid, .values-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .flags-row { gap: 1rem; }
+  .flag-card { min-width: 140px; padding: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="top-bar-container">
+    <div class="top-bar-info">
+      <span><i class="fas fa-phone"></i> +212 5 XX XX XX XX</span>
+      <span><i class="fas fa-envelope"></i> contact@nextgen-tech.ma</span>
+      <span><i class="fas fa-map-marker-alt"></i> Casablanca</span>
+    </div>
+    <div class="top-bar-social">
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-x-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <svg class="logo-shield" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="shieldGradN" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00D4FF"/><stop offset="100%" stop-color="#0891B2"/></linearGradient>
+          <linearGradient id="boltGradN" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#FEE2E2"/><stop offset="40%" stop-color="#EF4444"/><stop offset="100%" stop-color="#991B1B"/></linearGradient>
+        </defs>
+        <path d="M32 4 L8 12 V28 C8 42 18 54 32 60 C46 54 56 42 56 28 V12 Z" fill="url(#shieldGradN)" stroke="#FFB800" stroke-width="1.5"/>
+        <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="url(#boltGradN)" stroke="#7F1D1D" stroke-width="1.5" stroke-linejoin="round"/>
+      </svg>
+      <span>NextGen <span class="logo-text-accent">Technologies</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="secteurs.html">Secteurs</a></li>
+      <li><a href="academy.html">Academy</a></li>
+      <li><a href="qui-sommes-nous.html" class="active">Qui sommes-nous</a></li>
+      <li><a href="carrieres.html">Carrières</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html" class="nav-cta">Audit gratuit</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO PREMIUM -->
+<section class="hero-about">
+  <div class="hero-content">
+    <span class="hero-tag">⚡ Notre histoire</span>
+    <h1>Une équipe d'<span class="accent">ingénieurs</span><br>au service de votre cybersécurité</h1>
+    <p>NextGen Technologies est née de la rencontre de quatre ingénieurs partageant une même conviction : la cybersécurité de haut niveau ne doit plus être réservée aux grandes entreprises.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">4</div><div class="lbl">Ingénieurs fondateurs</div></div>
+      <div class="hero-stat"><div class="num">30+</div><div class="lbl">Années d'expérience cumulées</div></div>
+      <div class="hero-stat"><div class="num">8</div><div class="lbl">Domaines d'expertise</div></div>
+      <div class="hero-stat"><div class="num">2</div><div class="lbl">Continents d'expérience</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story-section">
+  <div class="story-container">
+    <div class="story-visual">
+      <i class="fas fa-shield-halved quote-icon"></i>
+    </div>
+    <div class="story-text">
+      <span class="section-tag">Notre histoire</span>
+      <h2>Une vision commune,<br>quatre expertises complémentaires</h2>
+      <p>NextGen Technologies est le fruit d'une rencontre entre <strong>quatre ingénieurs</strong> aux parcours variés mais à la conviction partagée : <strong>la cybersécurité doit être accessible, transparente et adaptée à chaque entreprise</strong>.</p>
+      <p>Forts d'expériences acquises au Maroc et à l'international, nous avons réuni nos compétences pour créer une structure qui combine <strong>excellence technique, proximité client et indépendance technologique</strong>.</p>
+      <p>Notre approche est claire : pas de solution miracle, pas de jargon inutile, juste des prestations concrètes qui répondent aux vrais enjeux de votre entreprise. Nous croyons que la confiance se construit dans le détail, dans le suivi, dans la qualité du conseil délivré chaque jour.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INTERNATIONAL -->
+<section class="international-section">
+  <div class="international-container">
+    <span class="section-tag">Notre dimension internationale</span>
+    <h2>Une expertise locale,<br>une <span class="gold">vision globale</span></h2>
+    <p class="lead">Notre équipe combine une solide expérience locale avec des compétences acquises à l'international, notamment au Canada où plusieurs membres ont étudié et travaillé. Cette double culture nous permet d'apporter aux entreprises les meilleures pratiques internationales tout en respectant les spécificités du marché local.</p>
+    <div class="flags-row">
+      <div class="flag-card">
+        <div class="flag">🇲🇦</div>
+        <div class="country">Maroc</div>
+        <div class="desc">Siège social · Casablanca</div>
+      </div>
+      <div class="flag-card">
+        <div class="flag">🇨🇦</div>
+        <div class="country">Canada</div>
+        <div class="desc">Formations · Expertises</div>
+      </div>
+      <div class="flag-card">
+        <div class="flag">🌍</div>
+        <div class="country">International</div>
+        <div class="desc">Standards & certifications</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team-section">
+  <div class="team-container">
+    <div class="team-header">
+      <span class="section-tag">L'équipe fondatrice</span>
+      <h2>Quatre ingénieurs,<br>une <span class="accent">même ambition</span></h2>
+      <p>Une équipe complémentaire qui réunit toutes les compétences nécessaires pour vous accompagner sur l'ensemble de vos enjeux de cybersécurité.</p>
+    </div>
+    <div class="team-grid">
+
+      <div class="team-card">
+        <div class="team-photo"><img src="youssef.jpg" alt="Youssef"></div>
+        <div class="team-name">Youssef</div>
+        <div class="team-role">Co-fondateur · Co-gérant</div>
+        <p class="team-expertise">Cybersécurité opérationnelle et développement commercial. Pilote la stratégie commerciale et les opérations.</p>
+        <div class="team-skills">
+          <span class="team-skill">Cybersécurité</span>
+          <span class="team-skill">Business Dev</span>
+          <span class="team-skill">Bug Bounty</span>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo"><img src="mohssine.jpg" alt="Mohssine"></div>
+        <div class="team-name">Mohssine</div>
+        <div class="team-role">Co-fondateur</div>
+        <p class="team-expertise">Formation et sécurité. Conçoit et anime les programmes de l'Academy. Expert en transmission de compétences cyber.</p>
+        <div class="team-skills">
+          <span class="team-skill">Formation</span>
+          <span class="team-skill">Sécurité</span>
+          <span class="team-skill">Pédagogie</span>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo"><img src="marouan.jpg" alt="Marouan"></div>
+        <div class="team-name">Marouan</div>
+        <div class="team-role">Co-fondateur · CTO</div>
+        <p class="team-expertise">Réseau et infrastructure. Architecte des solutions techniques. Expert Cisco et infrastructures sécurisées.</p>
+        <div class="team-skills">
+          <span class="team-skill">Réseau</span>
+          <span class="team-skill">Cisco</span>
+          <span class="team-skill">Infrastructure</span>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo"><img src="amine.png" alt="Amine"></div>
+        <div class="team-name">Amine</div>
+        <div class="team-role">Co-fondateur · CISO</div>
+        <p class="team-expertise">SOC, sécurité informatique et pentest. Pilote la défense, la détection et les tests d'intrusion offensifs.</p>
+        <div class="team-skills">
+          <span class="team-skill">SOC</span>
+          <span class="team-skill">Pentest</span>
+          <span class="team-skill">Sécurité IT</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values-section">
+  <div class="values-container">
+    <div class="values-header">
+      <span class="section-tag">Nos valeurs</span>
+      <h2>Ce qui nous guide au quotidien</h2>
+      <p>Quatre principes fondamentaux qui définissent notre manière de travailler et notre engagement envers nos clients.</p>
+    </div>
+    <div class="values-grid">
+
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-medal"></i></div>
+        <h4>Excellence technique</h4>
+        <p>Nous maintenons un haut niveau d'expertise par la veille continue, les certifications et la formation permanente.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-eye"></i></div>
+        <h4>Transparence</h4>
+        <p>Pas de jargon inutile. Nos rapports sont clairs, nos tarifs transparents, nos engagements respectés.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-handshake"></i></div>
+        <h4>Indépendance</h4>
+        <p>Nos recommandations sont libres de tout intérêt commercial. Nous proposons les meilleures solutions, pas les plus rentables pour nous.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-users-rays"></i></div>
+        <h4>Esprit d'équipe</h4>
+        <p>Nous travaillons à parts égales, dans le respect mutuel. Cette culture interne se reflète dans la relation client.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-block">
+  <div class="cta-block-content">
+    <h2>Prêt à découvrir nos services ?</h2>
+    <p>Démarrez par un audit gratuit de 30 minutes. Vision claire de vos enjeux, sans engagement.</p>
+    <a href="contact.html" class="btn-primary">Demander un audit gratuit <i class="fas fa-arrow-right"></i></a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo" style="font-size: 1.4rem;">
+        <svg class="logo-shield" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="shieldGradF" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00D4FF"/><stop offset="100%" stop-color="#0891B2"/></linearGradient>
+            <linearGradient id="boltGradF" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#FEE2E2"/><stop offset="40%" stop-color="#EF4444"/><stop offset="100%" stop-color="#991B1B"/></linearGradient>
+          </defs>
+          <path d="M32 4 L8 12 V28 C8 42 18 54 32 60 C46 54 56 42 56 28 V12 Z" fill="url(#shieldGradF)" stroke="#FFB800" stroke-width="1.5"/>
+          <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="url(#boltGradF)" stroke="#7F1D1D" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+        <span style="color: var(--white)">NextGen <span class="logo-text-accent">Technologies</span></span>
+      </a>
+      <p>Cybersécurité, conseil et formation au service des entreprises. Une protection complète, accessible et indépendante.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="soc-consultation.html">SOC Consultation</a></li>
+        <li><a href="vapt.html">VAPT</a></li>
+        <li><a href="cloud-security.html">Cloud Security</a></li>
+        <li><a href="academy.html">Academy</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Entreprise</h4>
+      <ul>
+        <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
+        <li><a href="carrieres.html">Carrières</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="menaces.html">Menaces actuelles</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Légal</h4>
+      <ul>
+        <li><a href="#">Mentions légales</a></li>
+        <li><a href="#">Confidentialité</a></li>
+        <li><a href="#">CGV</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 NextGen Technologies SARL · Casablanca</span>
+    <span>Excellence & Innovation</span>
+  </div>
+</footer>
+
+</body>
+</html>
