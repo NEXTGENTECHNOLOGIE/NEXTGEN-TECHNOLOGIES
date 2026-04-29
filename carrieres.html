@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Carrières chez NextGen Technologies. Postulez en ligne pour rejoindre nos équipes cybersécurité.">
+<title>Carrières · NextGen Technologies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<style>
+:root {
+  --primary: #0A1628;
+  --primary-deep: #050B14;
+  --primary-light: #1E3A5F;
+  --accent: #00D4FF;
+  --accent-dark: #0891B2;
+  --gold: #FFB800;
+  --gold-dark: #D97706;
+  --white: #FFFFFF;
+  --off-white: #F8FAFC;
+  --gray-light: #E2E8F0;
+  --gray-mid: #64748B;
+  --gray-dark: #334155;
+  --success: #10B981;
+  --danger: #EF4444;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Manrope', sans-serif;
+  color: var(--gray-dark);
+  line-height: 1.6;
+  background: var(--white);
+}
+h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+a { text-decoration: none; }
+
+/* Top bar */
+.top-bar { background: var(--primary-deep); color: var(--gray-light); padding: 0.5rem 4%; font-size: 0.8rem; }
+.top-bar-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+.top-bar-info { display: flex; gap: 2rem; flex-wrap: wrap; }
+.top-bar-info span { display: flex; align-items: center; gap: 0.4rem; }
+.top-bar-info i { color: var(--accent); }
+.top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; }
+
+/* Nav */
+.nav { position: sticky; top: 0; z-index: 1000; padding: 1rem 4%; background: var(--white); border-bottom: 1px solid var(--gray-light); box-shadow: 0 2px 10px rgba(0,0,0,0.04); }
+.nav-container { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.logo { display: flex; align-items: center; gap: 0.6rem; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.3rem; color: var(--primary); }
+.logo-shield { width: 40px; height: 40px; flex-shrink: 0; filter: drop-shadow(0 2px 6px rgba(0,212,255,0.4)); animation: float 3s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+.logo-text-accent { color: var(--accent); }
+.nav-links { display: flex; gap: 0.4rem; list-style: none; align-items: center; }
+.nav-links > li { position: relative; }
+.nav-links > li > a { color: var(--primary); font-size: 0.92rem; font-weight: 600; padding: 0.6rem 1rem; border-radius: 4px; display: flex; align-items: center; gap: 0.3rem; }
+.nav-links > li > a:hover { background: var(--off-white); color: var(--accent-dark); }
+.nav-links > li > a.active { color: var(--accent-dark); background: var(--off-white); }
+.nav-cta { background: var(--gold) !important; color: var(--primary) !important; padding: 0.7rem 1.4rem !important; border-radius: 4px !important; font-weight: 700 !important; }
+
+/* Page header */
+.page-header { background: var(--primary-deep); color: var(--white); padding: 5rem 4% 4rem; position: relative; overflow: hidden; }
+.page-header::before { content: ''; position: absolute; top: 0; right: 0; width: 60%; height: 100%; background: radial-gradient(circle at 70% 30%, rgba(0,212,255,0.15) 0%, transparent 60%), radial-gradient(circle at 80% 70%, rgba(255,184,0,0.08) 0%, transparent 50%); }
+.page-header::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px); background-size: 40px 40px; pointer-events: none; }
+.page-header-container { max-width: 1400px; margin: 0 auto; position: relative; z-index: 2; }
+.breadcrumb { color: var(--gray-light); font-size: 0.85rem; margin-bottom: 1rem; animation: fadeInLeft 0.8s ease-out; }
+.breadcrumb a { color: var(--accent); }
+.breadcrumb i { margin: 0 0.5rem; font-size: 0.7rem; opacity: 0.6; }
+.page-header h1 { font-size: clamp(2.2rem, 4.5vw, 3.5rem); line-height: 1.1; margin-bottom: 1rem; max-width: 800px; animation: fadeInUp 1s ease-out; }
+.page-header h1 .accent {
+  background: linear-gradient(90deg, var(--accent) 0%, #FFB800 50%, var(--accent) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+}
+@keyframes shine { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInLeft { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: translateX(0); } }
+.page-header p { font-size: 1.15rem; color: var(--gray-light); max-width: 750px; animation: fadeInUp 1s ease-out 0.3s both; }
+
+/* Sections */
+section { padding: 4rem 4%; }
+.container { max-width: 1100px; margin: 0 auto; }
+.section-tag { display: inline-block; color: var(--accent-dark); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 0.8rem; }
+.section-title { font-size: clamp(1.8rem, 3.5vw, 2.3rem); color: var(--primary); margin-bottom: 0.8rem; line-height: 1.15; }
+.section-subtitle { font-size: 1.05rem; color: var(--gray-mid); max-width: 700px; margin-bottom: 2.5rem; }
+
+/* Why join cards */
+.why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+.why-card { background: var(--white); padding: 1.8rem; border-radius: 10px; border-top: 3px solid var(--accent); box-shadow: 0 2px 12px rgba(10,22,40,0.06); transition: all 0.3s; }
+.why-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(10,22,40,0.12); }
+.why-card .icon { width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: var(--white); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 1rem; }
+.why-card h4 { color: var(--primary); font-size: 1.05rem; margin-bottom: 0.5rem; }
+.why-card p { color: var(--gray-mid); font-size: 0.9rem; }
+
+/* Form */
+.form-section { background: var(--off-white); }
+.form-card { background: var(--white); padding: 3rem; border-radius: 12px; border-top: 4px solid var(--accent); box-shadow: 0 4px 20px rgba(10,22,40,0.08); }
+.form-step { margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--gray-light); }
+.form-step:last-of-type { border-bottom: none; padding-bottom: 0; }
+.form-step h3 { color: var(--primary); font-size: 1.25rem; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.7rem; }
+.form-step h3 .step-num { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; flex-shrink: 0; }
+.form-step .step-desc { color: var(--gray-mid); font-size: 0.88rem; margin-bottom: 1.5rem; padding-left: 2.7rem; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.form-row.three { grid-template-columns: 1fr 1fr 1fr; }
+.form-group { margin-bottom: 1rem; }
+.form-group label { display: block; font-size: 0.85rem; color: var(--gray-dark); margin-bottom: 0.4rem; font-weight: 600; }
+.form-group label .required { color: var(--danger); }
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%; padding: 0.85rem 1rem; border: 1.5px solid var(--gray-light);
+  border-radius: 6px; font-family: inherit; font-size: 0.92rem;
+  background: var(--off-white); color: var(--primary); transition: all 0.2s;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  outline: none; border-color: var(--accent); background: var(--white);
+  box-shadow: 0 0 0 3px rgba(0,212,255,0.1);
+}
+.form-group textarea { resize: vertical; min-height: 100px; }
+.form-group input[type="file"] {
+  padding: 0.6rem; background: var(--white); cursor: pointer;
+  border: 2px dashed var(--accent); border-radius: 8px;
+}
+.form-group input[type="file"]:hover { background: rgba(0,212,255,0.05); }
+.form-help { font-size: 0.78rem; color: var(--gray-mid); margin-top: 0.3rem; }
+
+/* Radio & Checkbox groups */
+.radio-group, .checkbox-group { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.radio-option, .checkbox-option {
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.6rem 1rem; background: var(--off-white);
+  border: 1.5px solid var(--gray-light); border-radius: 6px;
+  cursor: pointer; transition: all 0.2s; font-size: 0.9rem;
+}
+.radio-option:hover, .checkbox-option:hover { border-color: var(--accent); }
+.radio-option input, .checkbox-option input { width: auto; margin: 0; cursor: pointer; }
+.radio-option input:checked + span, .checkbox-option input:checked + span { color: var(--accent-dark); font-weight: 700; }
+
+/* Skills matrix */
+.skills-matrix { background: var(--off-white); border-radius: 8px; padding: 1.2rem; margin-top: 0.5rem; }
+.skill-row {
+  display: grid; grid-template-columns: 1.5fr repeat(5, 1fr); gap: 0.5rem;
+  align-items: center; padding: 0.7rem 0.5rem;
+  border-bottom: 1px solid var(--gray-light); font-size: 0.85rem;
+}
+.skill-row:last-child { border-bottom: none; }
+.skill-row.header { font-weight: 700; color: var(--primary); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; padding-bottom: 0.5rem; }
+.skill-row.header > div { text-align: center; }
+.skill-row > div:first-child { font-weight: 600; color: var(--primary); }
+.skill-row label { display: flex; justify-content: center; cursor: pointer; }
+.skill-row input[type="radio"] { width: 18px; height: 18px; cursor: pointer; accent-color: var(--accent); }
+
+.submit-btn {
+  width: 100%; padding: 1.2rem; background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: var(--white); border: none; border-radius: 8px; font-weight: 700; font-size: 1.05rem;
+  cursor: pointer; font-family: inherit; margin-top: 1rem; transition: all 0.3s;
+  display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+}
+.submit-btn:hover { background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: var(--primary); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,212,255,0.3); }
+.submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.form-message { padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; text-align: center; font-weight: 600; display: none; }
+.form-message.success { background: var(--success); color: var(--white); display: block; }
+.form-message.error { background: var(--danger); color: var(--white); display: block; }
+
+/* Footer */
+footer { background: var(--primary-deep); color: var(--gray-light); padding: 3rem 4% 1.5rem; }
+.footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+.footer-brand p { color: var(--gray-mid); font-size: 0.88rem; margin: 1rem 0; }
+.footer-col h4 { color: var(--white); font-size: 0.92rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 0.6rem; }
+.footer-col ul a { color: var(--gray-light); font-size: 0.88rem; }
+.footer-col ul a:hover { color: var(--accent); }
+.footer-bottom { max-width: 1400px; margin: 0 auto; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; color: var(--gray-mid); }
+
+@media (max-width: 1024px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 768px) {
+  .form-card { padding: 1.5rem; }
+  .form-row, .form-row.three { grid-template-columns: 1fr; }
+  .skill-row { grid-template-columns: 1fr; gap: 0.3rem; padding: 1rem 0.5rem; }
+  .skill-row.header { display: none; }
+  .skill-row label::before { content: attr(data-label); display: inline-block; width: 110px; font-size: 0.78rem; color: var(--gray-mid); }
+  .skill-row label { justify-content: flex-start; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="top-bar-container">
+    <div class="top-bar-info">
+      <span><i class="fas fa-phone"></i> +212 5 XX XX XX XX</span>
+      <span><i class="fas fa-envelope"></i> contact@nextgen-tech.ma</span>
+      <span><i class="fas fa-map-marker-alt"></i> Casablanca</span>
+    </div>
+    <div class="top-bar-social">
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-x-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <svg class="logo-shield" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00D4FF"/>
+            <stop offset="100%" stop-color="#0891B2"/>
+          </linearGradient>
+          <linearGradient id="boltGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#FEE2E2"/>
+            <stop offset="40%" stop-color="#EF4444"/>
+            <stop offset="100%" stop-color="#991B1B"/>
+          </linearGradient>
+        </defs>
+        <path d="M32 4 L8 12 V28 C8 42 18 54 32 60 C46 54 56 42 56 28 V12 Z" fill="url(#shieldGrad)" stroke="#FFB800" stroke-width="1.5"/>
+        <path d="M32 8 L12 14 V28 C12 40 20 50 32 56" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+        <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="url(#boltGrad)" stroke="#7F1D1D" stroke-width="1.5" stroke-linejoin="round"/>
+      </svg>
+      <span>NextGen <span class="logo-text-accent">Technologies</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="secteurs.html">Secteurs</a></li>
+      <li><a href="academy.html">Academy</a></li>
+      <li><a href="carrieres.html" class="active">Carrières</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html" class="nav-cta">Audit gratuit</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="page-header">
+  <div class="page-header-container">
+    <div class="breadcrumb">
+      <a href="index.html">Accueil</a> <i class="fas fa-chevron-right"></i> <span style="color:var(--white)">Carrières</span>
+    </div>
+    <h1>Construisons l'avenir<br>de la <span class="accent">cybersécurité</span><br>ensemble</h1>
+    <p>Vous êtes passionné par la cybersécurité, l'innovation technologique et le défi ? Rejoignez NextGen Technologies. Envoyez-nous votre candidature spontanée, nous étudions chaque profil avec attention.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <span class="section-tag">Pourquoi nous rejoindre</span>
+    <h2 class="section-title">Une aventure entrepreneuriale<br>au service de l'excellence cyber</h2>
+    <p class="section-subtitle">Chez NextGen Technologies, vous trouverez bien plus qu'un emploi : une mission, des défis stimulants et une équipe engagée.</p>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="icon"><i class="fas fa-rocket"></i></div>
+        <h4>Projets stimulants</h4>
+        <p>Travaillez sur des missions cyber variées avec des clients de différents secteurs.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+        <h4>Formation continue</h4>
+        <p>Certifications financées, accès aux dernières technologies et veille permanente.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon"><i class="fas fa-users"></i></div>
+        <h4>Esprit d'équipe</h4>
+        <p>Une culture collaborative où chaque voix compte et où la transmission est essentielle.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon"><i class="fas fa-chart-line"></i></div>
+        <h4>Évolution rapide</h4>
+        <p>Des opportunités concrètes de progression dans une structure en pleine croissance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="form-section">
+  <div class="container">
+    <span class="section-tag">Candidature spontanée</span>
+    <h2 class="section-title">Envoyez-nous votre dossier</h2>
+    <p class="section-subtitle">Remplissez ce formulaire avec attention. Plus votre candidature sera complète, mieux nous pourrons l'évaluer. Nous étudions chaque dossier sous 7 jours ouvrés.</p>
+
+    <form id="careerForm" action="https://formspree.io/f/myklqdky" method="POST" enctype="multipart/form-data">
+      <div class="form-card">
+        <div id="formMsgSuccess" class="form-message success">
+          ✓ Merci ! Votre candidature a bien été envoyée. Nous reviendrons vers vous sous 7 jours ouvrés.
+        </div>
+        <div id="formMsgError" class="form-message error">
+          ✗ Une erreur est survenue. Merci de réessayer ou de nous contacter directement.
+        </div>
+
+        <!-- ÉTAPE 1 : Identité -->
+        <div class="form-step">
+          <h3><span class="step-num">1</span>Vos informations personnelles</h3>
+          <p class="step-desc">Pour que nous puissions vous identifier et vous recontacter.</p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Prénom <span class="required">*</span></label>
+              <input type="text" name="prenom" required placeholder="Votre prénom">
+            </div>
+            <div class="form-group">
+              <label>Nom de famille <span class="required">*</span></label>
+              <input type="text" name="nom" required placeholder="Votre nom">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Adresse email <span class="required">*</span></label>
+              <input type="email" name="email" required placeholder="vous@exemple.com">
+            </div>
+            <div class="form-group">
+              <label>Téléphone <span class="required">*</span></label>
+              <input type="tel" name="telephone" required placeholder="+212 ...">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Genre</label>
+              <div class="radio-group">
+                <label class="radio-option"><input type="radio" name="genre" value="Femme"><span>Femme</span></label>
+                <label class="radio-option"><input type="radio" name="genre" value="Homme"><span>Homme</span></label>
+                <label class="radio-option"><input type="radio" name="genre" value="Autre"><span>Préfère ne pas répondre</span></label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Ville où vous résidez actuellement <span class="required">*</span></label>
+              <input type="text" name="ville_residence" required placeholder="Ex: Casablanca, Rabat, Tanger...">
+            </div>
+          </div>
+        </div>
+
+        <!-- ÉTAPE 2 : Mobilité -->
+        <div class="form-step">
+          <h3><span class="step-num">2</span>Mobilité et disponibilité</h3>
+          <p class="step-desc">Pour évaluer la compatibilité avec nos besoins opérationnels.</p>
+
+          <div class="form-group">
+            <label>Notre siège est à Casablanca. Êtes-vous prêt(e) à y travailler ? <span class="required">*</span></label>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="basé_casablanca" value="Déjà résident" required><span>Je suis déjà à Casablanca</span></label>
+              <label class="radio-option"><input type="radio" name="basé_casablanca" value="Prêt à déménager"><span>Je suis prêt(e) à m'y installer</span></label>
+              <label class="radio-option"><input type="radio" name="basé_casablanca" value="Hybride uniquement"><span>Uniquement en mode hybride</span></label>
+              <label class="radio-option"><input type="radio" name="basé_casablanca" value="Non"><span>Non disponible</span></label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Êtes-vous ouvert(e) au télétravail partiel (mode hybride) ?</label>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="hybride" value="Oui"><span>Oui, j'apprécie ce mode</span></label>
+              <label class="radio-option"><input type="radio" name="hybride" value="Préférence présentiel"><span>Je préfère le présentiel</span></label>
+              <label class="radio-option"><input type="radio" name="hybride" value="100% distanciel"><span>Je préfère le 100% distanciel</span></label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Acceptez-vous les déplacements professionnels (clients, formations) ?</label>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="deplacements" value="Oui fréquents"><span>Oui, même fréquents</span></label>
+              <label class="radio-option"><input type="radio" name="deplacements" value="Oui occasionnels"><span>Occasionnels uniquement</span></label>
+              <label class="radio-option"><input type="radio" name="deplacements" value="Non"><span>Non</span></label>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Sous quel délai pourriez-vous démarrer ?</label>
+              <select name="disponibilite">
+                <option value="Immédiate">Immédiate</option>
+                <option value="2 semaines">Sous 2 semaines</option>
+                <option value="1 mois">Sous 1 mois</option>
+                <option value="2 mois">Sous 2 mois</option>
+                <option value="3 mois ou plus">3 mois ou plus (préavis long)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Permis de conduire</label>
+              <div class="radio-group">
+                <label class="radio-option"><input type="radio" name="permis" value="Oui avec véhicule"><span>Oui, avec véhicule</span></label>
+                <label class="radio-option"><input type="radio" name="permis" value="Oui sans véhicule"><span>Oui, sans véhicule</span></label>
+                <label class="radio-option"><input type="radio" name="permis" value="Non"><span>Non</span></label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ÉTAPE 3 : Formation -->
+        <div class="form-step">
+          <h3><span class="step-num">3</span>Parcours académique</h3>
+          <p class="step-desc">Votre formation et vos certifications professionnelles.</p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Plus haut diplôme obtenu <span class="required">*</span></label>
+              <select name="niveau_etudes" required>
+                <option value="">Choisissez...</option>
+                <option value="Bac">Baccalauréat</option>
+                <option value="Bac+2">Bac+2 (BTS, DUT, AEC)</option>
+                <option value="Bac+3">Bac+3 (Licence)</option>
+                <option value="Bac+4">Bac+4 (Maîtrise)</option>
+                <option value="Bac+5">Bac+5 (Master, Ingénieur)</option>
+                <option value="Doctorat">Doctorat / PhD</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Établissement d'obtention</label>
+              <input type="text" name="etablissement" placeholder="Ex: ENSIAS, EMI, Polytechnique...">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Spécialité ou filière principale</label>
+            <input type="text" name="specialite" placeholder="Ex: Ingénieur réseaux, Master cyber, BTS informatique...">
+          </div>
+
+          <div class="form-group">
+            <label>Certifications professionnelles obtenues (séparez par virgules)</label>
+            <textarea name="certifications" placeholder="Ex: CompTIA Security+, CEH, CISSP, ISO 27001, Azure AZ-104, AWS Solutions Architect, Cisco CCNA..."></textarea>
+            <p class="form-help">Mentionnez aussi les certifications en cours de préparation.</p>
+          </div>
+        </div>
+
+        <!-- ÉTAPE 4 : Expérience -->
+        <div class="form-step">
+          <h3><span class="step-num">4</span>Votre expérience</h3>
+          <p class="step-desc">Votre parcours professionnel jusqu'à aujourd'hui.</p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Années d'expérience totale <span class="required">*</span></label>
+              <select name="annees_experience" required>
+                <option value="">Choisissez...</option>
+                <option value="Moins de 1 an">Moins de 1 an (débutant / stage)</option>
+                <option value="1-2 ans">1 à 2 ans</option>
+                <option value="3-5 ans">3 à 5 ans</option>
+                <option value="6-9 ans">6 à 9 ans</option>
+                <option value="10 ans et plus">10 ans et plus</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Domaine principal d'expertise</label>
+              <select name="domaine_expertise">
+                <option value="">Choisissez...</option>
+                <option value="SOC / Surveillance">SOC / Surveillance & Détection</option>
+                <option value="Pentest / Audit">Pentest / Audit offensif</option>
+                <option value="Réseau & Infrastructure">Réseau & Infrastructure</option>
+                <option value="Cloud Security">Cloud Security</option>
+                <option value="Conformité / GRC">Conformité / GRC</option>
+                <option value="Forensique">Forensique / Investigation</option>
+                <option value="Formation">Formation cyber</option>
+                <option value="Développement sécurité">Développement sécurité</option>
+                <option value="Autre">Autre</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Avez-vous déjà été impliqué(e) dans ces types de projets ? (cochez plusieurs si applicable)</label>
+            <div class="checkbox-group">
+              <label class="checkbox-option"><input type="checkbox" name="experiences[]" value="Mise en place SOC"><span>Mise en place de SOC</span></label>
+              <label class="checkbox-option"><input type="checkbox" name="experiences[]" value="Tests d'intrusion"><span>Tests d'intrusion</span></label>
+              <label class="checkbox-option"><input type="checkbox" name="experiences[]" value="Migration cloud"><span>Migration cloud</span></label>
+              <label class="checkbox-option"><input type="checkbox" name="experiences[]" value="Réponse à incident"><span>Réponse à incident majeur</span></label>
+              <label class="checkbox-option"><input type="checkbox" name="experiences[]" value="Audit conformité"><span>Audit de conformité</span></label>
+              <label class="checkbox-option"><input type="checkbox" name="experiences[]" value="Architecture sécurisée"><span>Architecture sécurisée</span></label>
+              <label class="checkbox-option"><input type="checkbox" name="experiences[]" value="Sensibilisation"><span>Sensibilisation utilisateurs</span></label>
+              <label class="checkbox-option"><input type="checkbox" name="experiences[]" value="Bug bounty"><span>Bug bounty</span></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- ÉTAPE 5 : Compétences techniques -->
+        <div class="form-step">
+          <h3><span class="step-num">5</span>Auto-évaluation technique</h3>
+          <p class="step-desc">Évaluez honnêtement votre maîtrise. Soyez réaliste, c'est le meilleur moyen pour nous de vous orienter vers le bon poste.</p>
+
+          <div class="skills-matrix">
+            <div class="skill-row header">
+              <div></div>
+              <div>Aucune</div>
+              <div>Débutant</div>
+              <div>Intermédiaire</div>
+              <div>Avancé</div>
+              <div>Expert</div>
+            </div>
+
+            <!-- Cybersécurité -->
+            <div class="skill-row"><div>SIEM (Wazuh, Splunk, ELK)</div>
+              <label data-label="Aucune"><input type="radio" name="skill_siem" value="0"></label>
+              <label data-label="Débutant"><input type="radio" name="skill_siem" value="1"></label>
+              <label data-label="Intermédiaire"><input type="radio" name="skill_siem" value="2"></label>
+              <label data-label="Avancé"><input type="radio" name="skill_siem" value="3"></label>
+              <label data-label="Expert"><input type="radio" name="skill_siem" value="4"></label>
+            </div>
+            <div class="skill-row"><div>Pentest (Burp, Metasploit, Nmap)</div>
+              <label data-label="Aucune"><input type="radio" name="skill_pentest" value="0"></label>
+              <label data-label="Débutant"><input type="radio" name="skill_pentest" value="1"></label>
+              <label data-label="Intermédiaire"><input type="radio" name="skill_pentest" value="2"></label>
+              <label data-label="Avancé"><input type="radio" name="skill_pentest" value="3"></label>
+              <label data-label="Expert"><input type="radio" name="skill_pentest" value="4"></label>
+            </div>
+            <div class="skill-row"><div>Pare-feu (FortiGate, Cisco, pfSense)</div>
+              <label data-label="Aucune"><input type="radio" name="skill_firewall" value="0"></label>
+              <label data-label="Débutant"><input type="radio" name="skill_firewall" value="1"></label>
+              <label data-label="Intermédiaire"><input type="radio" name="skill_firewall" value="2"></label>
+              <label data-label="Avancé"><input type="radio" name="skill_firewall" value="3"></label>
+              <label data-label="Expert"><input type="radio" name="skill_firewall" value="4"></label>
+            </div>
+
+            <!-- Cloud -->
+            <div class="skill-row"><div>Microsoft Azure</div>
+              <label data-label="Aucune"><input type="radio" name="skill_azure" value="0"></label>
+              <label data-label="Débutant"><input type="radio" name="skill_azure" value="1"></label>
+              <label data-label="Intermédiaire"><input type="radio" name="skill_azure" value="2"></label>
+              <label data-label="Avancé"><input type="radio" name="skill_azure" value="3"></label>
+              <label data-label="Expert"><input type="radio" name="skill_azure" value="4"></label>
+            </div>
+            <div class="skill-row"><div>AWS / Google Cloud</div>
+              <label data-label="Aucune"><input type="radio" name="skill_aws" value="0"></label>
+              <label data-label="Débutant"><input type="radio" name="skill_aws" value="1"></label>
+              <label data-label="Intermédiaire"><input type="radio" name="skill_aws" value="2"></label>
+              <label data-label="Avancé"><input type="radio" name="skill_aws" value="3"></label>
+              <label data-label="Expert"><input type="radio" name="skill_aws" value="4"></label>
+            </div>
+            <div class="skill-row"><div>Office 365 / M365</div>
+              <label data-label="Aucune"><input type="radio" name="skill_o365" value="0"></label>
+              <label data-label="Débutant"><input type="radio" name="skill_o365" value="1"></label>
+              <label data-label="Intermédiaire"><input type="radio" name="skill_o365" value="2"></label>
+              <label data-label="Avancé"><input type="radio" name="skill_o365" value="3"></label>
+              <label data-label="Expert"><input type="radio" name="skill_o365" value="4"></label>
+            </div>
+
+            <!-- Systèmes -->
+            <div class="skill-row"><div>Windows Server</div>
+              <label data-label="Aucune"><input type="radio" name="skill_winserver" value="0"></label>
+              <label data-label="Débutant"><input type="radio" name="skill_winserver" value="1"></label>
+              <label data-label="Intermédiaire"><input type="radio" name="skill_winserver" value="2"></label>
+              <label data-label="Avancé"><input type="radio" name="skill_winserver" value="3"></label>
+              <label data-label="Expert"><input type="radio" name="skill_winserver" value="4"></label>
+            </div>
+            <div class="skill-row"><div>Active Directory</div>
+              <label data-label="Aucune"><input type="radio" name="skill_ad" value="0"></label>
+              <label data-label="Débutant"><input type="radio" name="skill_ad" value="1"></label>
+              <label data-label="Intermédiaire"><input type="radio" name="skill_ad" value="2"></label>
+              <label data-label="Avancé"><input type="radio" name="skill_ad" value="3"></label>
+              <label data-label="Expert"><input type="radio" name="skill_ad" value="4"></label>
+            </div>
+            <div class="skill-row"><div>Linux (Debian, Ubuntu, RHEL)</div>
+              <label data-label="Aucune"><input type="radio" name="skill_linux" value="0"></label>
+              <label data-label="Débutant"><input type="radio" name="skill_linux" value="1"></label>
+              <label data-label="Intermédiaire"><input type="radio" name="skill_linux" value="2"></label>
+              <label data-label="Avancé"><input type="radio" name="skill_linux" value="3"></label>
+              <label data-label="Expert"><input type="radio" name="skill_linux" value="4"></label>
+            </div>
+
+            <!-- Scripting -->
+            <div class="skill-row"><div>PowerShell</div>
+              <label data-label="Aucune"><input type="radio" name="skill_powershell" value="0"></label>
+              <label data-label="Débutant"><input type="radio" name="skill_powershell" value="1"></label>
+              <label data-label="Intermédiaire"><input type="radio" name="skill_powershell" value="2"></label>
+              <label data-label="Avancé"><input type="radio" name="skill_powershell" value="3"></label>
+              <label data-label="Expert"><input type="radio" name="skill_powershell" value="4"></label>
+            </div>
+            <div class="skill-row"><div>Python / Bash</div>
+              <label data-label="Aucune"><input type="radio" name="skill_python" value="0"></label>
+              <label data-label="Débutant"><input type="radio" name="skill_python" value="1"></label>
+              <label data-label="Intermédiaire"><input type="radio" name="skill_python" value="2"></label>
+              <label data-label="Avancé"><input type="radio" name="skill_python" value="3"></label>
+              <label data-label="Expert"><input type="radio" name="skill_python" value="4"></label>
+            </div>
+            <div class="skill-row"><div>Terraform / Ansible</div>
+              <label data-label="Aucune"><input type="radio" name="skill_iac" value="0"></label>
+              <label data-label="Débutant"><input type="radio" name="skill_iac" value="1"></label>
+              <label data-label="Intermédiaire"><input type="radio" name="skill_iac" value="2"></label>
+              <label data-label="Avancé"><input type="radio" name="skill_iac" value="3"></label>
+              <label data-label="Expert"><input type="radio" name="skill_iac" value="4"></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- ÉTAPE 6 : Langues -->
+        <div class="form-step">
+          <h3><span class="step-num">6</span>Compétences linguistiques</h3>
+          <p class="step-desc">Vous serez amené(e) à interagir avec des clients variés.</p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Niveau en français <span class="required">*</span></label>
+              <select name="francais" required>
+                <option value="">Choisissez...</option>
+                <option value="Notions">Notions</option>
+                <option value="Conversationnel">Conversationnel</option>
+                <option value="Professionnel">Professionnel</option>
+                <option value="Courant">Courant</option>
+                <option value="Langue maternelle">Langue maternelle</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Niveau en anglais</label>
+              <select name="anglais">
+                <option value="">Choisissez...</option>
+                <option value="Notions">Notions</option>
+                <option value="Conversationnel">Conversationnel</option>
+                <option value="Professionnel">Professionnel</option>
+                <option value="Courant">Courant</option>
+                <option value="Langue maternelle">Langue maternelle</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Pouvez-vous tenir des réunions techniques en anglais ?</label>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="reunions_anglais" value="Oui sans difficulté"><span>Oui, sans difficulté</span></label>
+              <label class="radio-option"><input type="radio" name="reunions_anglais" value="Oui avec effort"><span>Oui, avec un peu d'effort</span></label>
+              <label class="radio-option"><input type="radio" name="reunions_anglais" value="Difficile"><span>Difficilement</span></label>
+              <label class="radio-option"><input type="radio" name="reunions_anglais" value="Non"><span>Non</span></label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Autres langues parlées (arabe, espagnol, etc.)</label>
+            <input type="text" name="autres_langues" placeholder="Ex: Arabe (langue maternelle), Espagnol (intermédiaire)...">
+          </div>
+        </div>
+
+        <!-- ÉTAPE 7 : Motivation et CV -->
+        <div class="form-step">
+          <h3><span class="step-num">7</span>Motivation et CV</h3>
+          <p class="step-desc">L'étape la plus importante. Soyez authentique.</p>
+
+          <div class="form-group">
+            <label>Pourquoi souhaitez-vous rejoindre NextGen Technologies ? <span class="required">*</span></label>
+            <textarea name="motivation" required placeholder="Parlez-nous de vos motivations, de ce qui vous attire dans notre approche, de ce que vous pensez pouvoir apporter à notre équipe..." style="min-height: 130px;"></textarea>
+            <p class="form-help">Soyez sincère. Pas besoin de discours formaté, on cherche des personnes vraies.</p>
+          </div>
+
+          <div class="form-group">
+            <label>Quel poste vous intéresserait chez nous ?</label>
+            <input type="text" name="poste_souhaite" placeholder="Ex: SOC Analyst, Pentester, Ingénieur réseau, Formateur...">
+          </div>
+
+          <div class="form-group">
+            <label>Joignez votre CV (PDF, DOCX) <span class="required">*</span></label>
+            <input type="file" name="cv" accept=".pdf,.doc,.docx" required>
+            <p class="form-help">Format PDF de préférence. Taille maximale : 10 MB.</p>
+          </div>
+
+          <div class="form-group">
+            <label>Lettre de motivation ou portfolio (optionnel)</label>
+            <input type="file" name="lettre_motivation" accept=".pdf,.doc,.docx">
+            <p class="form-help">Si vous avez un portfolio (writeups bug bounty, projets GitHub, etc.), joignez-le ici.</p>
+          </div>
+
+          <div class="form-group">
+            <label>Lien LinkedIn ou portfolio en ligne (optionnel)</label>
+            <input type="url" name="linkedin" placeholder="https://linkedin.com/in/votre-profil">
+          </div>
+        </div>
+
+        <!-- ÉTAPE 8 : Aspects financiers -->
+        <div class="form-step">
+          <h3><span class="step-num">8</span>Aspects financiers</h3>
+          <p class="step-desc">Pour évaluer la cohérence avec notre grille salariale.</p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Rémunération actuelle (DH net mensuel)</label>
+              <input type="text" name="salaire_actuel" placeholder="Ex: 8000">
+              <p class="form-help">Laissez vide si vous ne souhaitez pas répondre.</p>
+            </div>
+            <div class="form-group">
+              <label>Prétention salariale (DH net mensuel)</label>
+              <input type="text" name="pretention" placeholder="Ex: 10000">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Avantages actuels (en plus du salaire)</label>
+            <div class="checkbox-group">
+              <label class="checkbox-option"><input type="checkbox" name="avantages[]" value="CIMR"><span>CIMR / Retraite complémentaire</span></label>
+              <label class="checkbox-option"><input type="checkbox" name="avantages[]" value="Bonus"><span>Bonus annuel</span></label>
+              <label class="checkbox-option"><input type="checkbox" name="avantages[]" value="Primes religieuses"><span>Primes Aïd / Ramadan</span></label>
+              <label class="checkbox-option"><input type="checkbox" name="avantages[]" value="13e mois"><span>13e ou 14e mois</span></label>
+              <label class="checkbox-option"><input type="checkbox" name="avantages[]" value="Mutuelle"><span>Mutuelle santé</span></label>
+              <label class="checkbox-option"><input type="checkbox" name="avantages[]" value="Tickets restaurant"><span>Tickets restaurant</span></label>
+              <label class="checkbox-option"><input type="checkbox" name="avantages[]" value="Voiture de fonction"><span>Voiture de fonction</span></label>
+              <label class="checkbox-option"><input type="checkbox" name="avantages[]" value="Aucun"><span>Aucun avantage</span></label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Autres avantages ou commentaires</label>
+            <textarea name="commentaires" placeholder="Tout ce que vous souhaitez ajouter pour compléter votre candidature..."></textarea>
+          </div>
+        </div>
+
+        <!-- Hidden fields -->
+        <input type="hidden" name="_subject" value="Nouvelle candidature - Carrières NextGen Technologies">
+        <input type="text" name="_gotcha" style="display:none">
+
+        <button type="submit" id="submitBtn" class="submit-btn">
+          <i class="fas fa-paper-plane"></i> Envoyer ma candidature
+        </button>
+        <p style="text-align: center; font-size: 0.78rem; color: var(--gray-mid); margin-top: 1rem;">
+          🔒 Vos données sont confidentielles et utilisées uniquement pour le processus de recrutement.
+        </p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo" style="font-size: 1.4rem;">
+        <svg class="logo-shield" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="shieldGrad2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00D4FF"/><stop offset="100%" stop-color="#0891B2"/></linearGradient>
+            <linearGradient id="boltGrad2" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#FEE2E2"/><stop offset="40%" stop-color="#EF4444"/><stop offset="100%" stop-color="#991B1B"/></linearGradient>
+          </defs>
+          <path d="M32 4 L8 12 V28 C8 42 18 54 32 60 C46 54 56 42 56 28 V12 Z" fill="url(#shieldGrad2)" stroke="#FFB800" stroke-width="1.5"/>
+          <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="url(#boltGrad2)" stroke="#7F1D1D" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+        <span style="color: var(--white)">NextGen <span class="logo-text-accent">Technologies</span></span>
+      </a>
+      <p>Cybersécurité, conseil et formation au service des entreprises. Une protection complète, accessible et indépendante.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="soc-consultation.html">SOC Consultation</a></li>
+        <li><a href="vapt.html">VAPT</a></li>
+        <li><a href="cloud-security.html">Cloud Security</a></li>
+        <li><a href="academy.html">Academy</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Entreprise</h4>
+      <ul>
+        <li><a href="carrieres.html">Carrières</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="menaces.html">Menaces actuelles</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Légal</h4>
+      <ul>
+        <li><a href="#">Mentions légales</a></li>
+        <li><a href="#">Confidentialité</a></li>
+        <li><a href="#">CGV</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 NextGen Technologies SARL · Casablanca</span>
+    <span>Excellence & Innovation</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('careerForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = document.getElementById('submitBtn');
+  const success = document.getElementById('formMsgSuccess');
+  const error = document.getElementById('formMsgError');
+
+  success.style.display = 'none';
+  error.style.display = 'none';
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+
+  try {
+    const data = new FormData(form);
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      success.style.display = 'block';
+      form.reset();
+      success.scrollIntoView({behavior:'smooth', block:'center'});
+    } else {
+      const result = await response.json();
+      if (result.errors) {
+        error.innerHTML = '✗ ' + result.errors.map(e => e.message).join(', ');
+      }
+      error.style.display = 'block';
+    }
+  } catch (err) {
+    error.style.display = 'block';
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer ma candidature';
+  }
+});
+</script>
+</body>
+</html>
