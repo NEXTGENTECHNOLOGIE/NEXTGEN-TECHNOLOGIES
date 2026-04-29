@@ -716,7 +716,8 @@ footer {
  </ul>
  </li>
  <li><a href="academy.html">Academy</a></li>
- <li><a href="menaces.html">Menaces</a></li>
+ <li><a href="carrieres.html">Carrières</a></li>
+      <li><a href="menaces.html">Menaces</a></li>
  <li><a href="contact.html">Contact</a></li>
  <li><a href="contact.html" class="nav-cta">Audit gratuit</a></li>
  </ul>
@@ -909,6 +910,480 @@ footer {
 <a href="https://wa.me/2126XXXXXXXX" class="whatsapp-float" target="_blank" rel="noopener">
  <i class="fab fa-whatsapp"></i>
 </a>
+
+<!-- ===== CHATBOT NEXTGEN HELPER ===== -->
+<style>
+.chatbot-button {
+  position: fixed;
+  bottom: 25px;
+  right: 100px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #00D4FF, #0891B2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.6rem;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.5);
+  z-index: 998;
+  transition: all 0.3s;
+  border: 2px solid rgba(255,255,255,0.2);
+}
+.chatbot-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 25px rgba(0, 212, 255, 0.7);
+}
+.chatbot-button.hidden { display: none; }
+.chatbot-pulse {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 14px;
+  height: 14px;
+  background: #EF4444;
+  border-radius: 50%;
+  border: 2px solid white;
+  animation: chatPulse 2s infinite;
+}
+@keyframes chatPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.7; }
+}
+
+.chatbot-window {
+  position: fixed;
+  bottom: 100px;
+  right: 25px;
+  width: 380px;
+  max-width: calc(100vw - 50px);
+  height: 540px;
+  max-height: calc(100vh - 130px);
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(10, 22, 40, 0.25);
+  z-index: 999;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  animation: chatSlideUp 0.3s ease-out;
+}
+.chatbot-window.open { display: flex; }
+@keyframes chatSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.chatbot-header {
+  background: linear-gradient(135deg, #0A1628, #1E3A5F);
+  color: white;
+  padding: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  position: relative;
+}
+.chatbot-avatar {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, #00D4FF, #0891B2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+.chatbot-header-info { flex: 1; }
+.chatbot-header-info .name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 0;
+}
+.chatbot-header-info .status {
+  font-size: 0.78rem;
+  color: #00D4FF;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.chatbot-header-info .status::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #10B981;
+  border-radius: 50%;
+  animation: chatPulse 2s infinite;
+}
+.chatbot-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.4rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.chatbot-close:hover { opacity: 1; }
+
+.chatbot-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.2rem;
+  background: #F8FAFC;
+}
+.chatbot-body::-webkit-scrollbar { width: 6px; }
+.chatbot-body::-webkit-scrollbar-thumb { background: #E2E8F0; border-radius: 3px; }
+
+.chat-msg {
+  max-width: 85%;
+  padding: 0.8rem 1rem;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 0.8rem;
+  animation: msgFadeIn 0.3s ease-out;
+}
+@keyframes msgFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.chat-msg.bot {
+  background: white;
+  color: #334155;
+  border-bottom-left-radius: 4px;
+  box-shadow: 0 2px 8px rgba(10,22,40,0.06);
+}
+.chat-msg.user {
+  background: linear-gradient(135deg, #0A1628, #1E3A5F);
+  color: white;
+  margin-left: auto;
+  border-bottom-right-radius: 4px;
+}
+.chat-msg strong { color: #0891B2; }
+
+.chat-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0.5rem 0 1rem;
+}
+.chat-option {
+  background: white;
+  border: 1.5px solid #E2E8F0;
+  color: #0A1628;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.chat-option:hover {
+  border-color: #00D4FF;
+  background: #F0FDFF;
+  transform: translateX(3px);
+}
+.chat-option .icon {
+  width: 28px;
+  height: 28px;
+  background: rgba(0, 212, 255, 0.1);
+  color: #0891B2;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.85rem;
+}
+.chat-option.urgent .icon { background: rgba(239,68,68,0.1); color: #EF4444; }
+.chat-option.gold .icon { background: rgba(255,184,0,0.15); color: #D97706; }
+
+.chat-link-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0.5rem 0 1rem;
+}
+.chat-link {
+  background: linear-gradient(135deg, #0A1628, #1E3A5F);
+  color: white;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.chat-link:hover {
+  background: linear-gradient(135deg, #00D4FF, #0891B2);
+  color: #0A1628;
+  transform: translateY(-2px);
+}
+.chat-link.whatsapp {
+  background: #25D366;
+  color: white;
+}
+.chat-link.whatsapp:hover {
+  background: #128C7E;
+  color: white;
+}
+
+.chat-typing {
+  display: flex;
+  gap: 4px;
+  padding: 0.8rem 1rem;
+  background: white;
+  border-radius: 14px;
+  width: fit-content;
+  box-shadow: 0 2px 8px rgba(10,22,40,0.06);
+  margin-bottom: 0.8rem;
+}
+.chat-typing span {
+  width: 7px;
+  height: 7px;
+  background: #94A3B8;
+  border-radius: 50%;
+  animation: typingDot 1.4s infinite;
+}
+.chat-typing span:nth-child(2) { animation-delay: 0.2s; }
+.chat-typing span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes typingDot {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+  30% { transform: translateY(-6px); opacity: 1; }
+}
+
+.chatbot-footer {
+  padding: 0.7rem 1rem;
+  border-top: 1px solid #E2E8F0;
+  background: white;
+  font-size: 0.72rem;
+  color: #94A3B8;
+  text-align: center;
+}
+.chatbot-footer strong { color: #0A1628; }
+
+@media (max-width: 480px) {
+  .chatbot-window {
+    bottom: 90px;
+    right: 10px;
+    left: 10px;
+    width: auto;
+    height: 70vh;
+  }
+  .chatbot-button { right: 90px; bottom: 20px; }
+}
+</style>
+
+<div id="chatbotBtn" class="chatbot-button" onclick="toggleChat()">
+  <i class="fas fa-comments"></i>
+  <div class="chatbot-pulse"></div>
+</div>
+
+<div id="chatbotWindow" class="chatbot-window">
+  <div class="chatbot-header">
+    <div class="chatbot-avatar"><i class="fas fa-shield-halved"></i></div>
+    <div class="chatbot-header-info">
+      <div class="name">NextGen Helper</div>
+      <div class="status">En ligne · Réponse rapide</div>
+    </div>
+    <button class="chatbot-close" onclick="toggleChat()">×</button>
+  </div>
+  <div class="chatbot-body" id="chatBody"></div>
+  <div class="chatbot-footer">
+    Propulsé par <strong>NextGen Technologies</strong> · Réponse humaine sous 24h
+  </div>
+</div>
+
+<script>
+const chatBody = document.getElementById('chatBody');
+let chatInitialized = false;
+
+function toggleChat() {
+  const win = document.getElementById('chatbotWindow');
+  const btn = document.getElementById('chatbotBtn');
+  if (win.classList.contains('open')) {
+    win.classList.remove('open');
+  } else {
+    win.classList.add('open');
+    if (!chatInitialized) {
+      chatInitialized = true;
+      setTimeout(showWelcome, 400);
+    }
+  }
+}
+
+function addMsg(text, type = 'bot') {
+  const msg = document.createElement('div');
+  msg.className = 'chat-msg ' + type;
+  msg.innerHTML = text;
+  chatBody.appendChild(msg);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function addOptions(options) {
+  const wrap = document.createElement('div');
+  wrap.className = 'chat-options';
+  options.forEach(opt => {
+    const btn = document.createElement('button');
+    btn.className = 'chat-option' + (opt.urgent ? ' urgent' : '') + (opt.gold ? ' gold' : '');
+    btn.innerHTML = '<span class="icon"><i class="' + opt.icon + '"></i></span>' + opt.text;
+    btn.onclick = () => {
+      addMsg(opt.text, 'user');
+      wrap.remove();
+      setTimeout(() => showTyping(opt.action), 600);
+    };
+    wrap.appendChild(btn);
+  });
+  chatBody.appendChild(wrap);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function addLinks(links) {
+  const wrap = document.createElement('div');
+  wrap.className = 'chat-link-block';
+  links.forEach(l => {
+    const a = document.createElement('a');
+    a.className = 'chat-link' + (l.whatsapp ? ' whatsapp' : '');
+    a.href = l.url;
+    if (l.url.startsWith('http')) a.target = '_blank';
+    a.innerHTML = '<i class="' + l.icon + '"></i> ' + l.text;
+    wrap.appendChild(a);
+  });
+  chatBody.appendChild(wrap);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function showTyping(callback) {
+  const t = document.createElement('div');
+  t.className = 'chat-typing';
+  t.innerHTML = '<span></span><span></span><span></span>';
+  chatBody.appendChild(t);
+  chatBody.scrollTop = chatBody.scrollHeight;
+  setTimeout(() => {
+    t.remove();
+    callback();
+  }, 800);
+}
+
+function showWelcome() {
+  addMsg('Bonjour 👋 Je suis <strong>NextGen Helper</strong>, votre assistant cybersécurité.');
+  setTimeout(() => {
+    addMsg('Comment puis-je vous aider aujourd\'hui ?');
+    setTimeout(() => addOptions([
+      { text: 'J\'ai une urgence cyber', icon: 'fas fa-triangle-exclamation', urgent: true, action: showUrgence },
+      { text: 'Protéger mon entreprise', icon: 'fas fa-shield-halved', action: showProtection },
+      { text: 'Demander un audit gratuit', icon: 'fas fa-magnifying-glass-chart', gold: true, action: showAudit },
+      { text: 'Trouver une formation', icon: 'fas fa-graduation-cap', action: showFormation },
+      { text: 'Tester mes systèmes (pentest)', icon: 'fas fa-bug', action: showPentest },
+      { text: 'Sécurité Cloud', icon: 'fas fa-cloud', action: showCloud },
+      { text: 'Conformité réglementaire', icon: 'fas fa-gavel', action: showConformite },
+      { text: 'Parler à quelqu\'un', icon: 'fas fa-headset', action: showContact }
+    ]), 400);
+  }, 700);
+}
+
+function showUrgence() {
+  addMsg('🚨 Une urgence cyber demande une action immédiate.');
+  setTimeout(() => {
+    addMsg('Si vous êtes victime d\'une attaque <strong>en cours</strong> (ransomware, intrusion, perte de données), contactez-nous <strong>maintenant</strong> par WhatsApp pour une intervention rapide.');
+    setTimeout(() => addLinks([
+      { text: 'WhatsApp Urgence (réponse 5 min)', url: 'https://wa.me/2126XXXXXXXX?text=URGENCE%20CYBER%20-%20J%27ai%20besoin%20d%27aide%20rapidement', icon: 'fab fa-whatsapp', whatsapp: true },
+      { text: 'En savoir plus sur Réponse Incident', url: 'reponse-incident.html', icon: 'fas fa-arrow-right' }
+    ]), 400);
+  }, 600);
+}
+
+function showProtection() {
+  addMsg('🛡️ Excellent réflexe ! Plusieurs solutions selon votre besoin :');
+  setTimeout(() => {
+    addMsg('Quel est votre besoin principal ?');
+    setTimeout(() => addOptions([
+      { text: 'Surveillance 24/7 (SOC managé)', icon: 'fas fa-eye', action: () => goTo('Le SOC managé surveille vos systèmes en continu et détecte les attaques en temps réel.', 'managed-security.html', 'Découvrir Managed Security') },
+      { text: 'Stratégie SOC sur mesure', icon: 'fas fa-shield-halved', action: () => goTo('Conseil pour mettre en place ou optimiser votre SOC interne.', 'soc-consultation.html', 'Découvrir SOC Consultation') },
+      { text: 'Sécuriser mon réseau', icon: 'fas fa-network-wired', action: () => goTo('Architecture sécurisée, pare-feu, segmentation, VPN.', 'securite-reseau.html', 'Découvrir Sécurité Réseau') },
+      { text: 'Protéger mes données', icon: 'fas fa-database', action: () => goTo('Protection complète : chiffrement, sauvegarde, contrôle d\'accès.', 'data-security.html', 'Découvrir Data Security') }
+    ]), 400);
+  }, 600);
+}
+
+function showAudit() {
+  addMsg('💼 Notre audit gratuit prend 30 minutes et vous donne une vision claire de votre exposition cyber. Aucun engagement.');
+  setTimeout(() => addLinks([
+    { text: 'Demander mon audit gratuit', url: 'contact.html', icon: 'fas fa-paper-plane' },
+    { text: 'En savoir plus sur l\'audit', url: 'soc-consultation.html', icon: 'fas fa-info-circle' }
+  ]), 600);
+}
+
+function showFormation() {
+  addMsg('🎓 Notre Academy propose <strong>12 formations professionnelles</strong> 100% pratiques avec laboratoires d\'attaques réelles.');
+  setTimeout(() => {
+    addMsg('Quel type de formation cherchez-vous ?');
+    setTimeout(() => addOptions([
+      { text: 'Certifications internationales (CompTIA, CEH, CISSP)', icon: 'fas fa-medal', action: () => goTo('Préparation aux certifications les plus demandées sur le marché.', 'academy.html', 'Voir nos formations') },
+      { text: 'SOC Analyst & Pentest', icon: 'fas fa-bug', action: () => goTo('Bootcamps intensifs avec environnements d\'attaque réels.', 'academy.html', 'Voir les bootcamps') },
+      { text: 'Sensibilisation employés', icon: 'fas fa-users', action: () => goTo('Formez vos équipes : phishing, mots de passe, télétravail sécurisé.', 'academy.html', 'Demander un devis') },
+      { text: 'Cyber pour dirigeants', icon: 'fas fa-user-tie', action: () => goTo('Programme dédié aux décideurs : enjeux stratégiques, gouvernance.', 'academy.html', 'Voir le programme') }
+    ]), 400);
+  }, 600);
+}
+
+function showPentest() {
+  addMsg('🐛 Nos experts certifiés simulent de vraies cyberattaques sur vos systèmes pour identifier les failles avant les attaquants.');
+  setTimeout(() => addLinks([
+    { text: 'En savoir plus sur le VAPT', url: 'vapt.html', icon: 'fas fa-arrow-right' },
+    { text: 'Demander un devis pentest', url: 'contact.html', icon: 'fas fa-paper-plane' }
+  ]), 600);
+}
+
+function showCloud() {
+  addMsg('☁️ Nous sécurisons vos environnements cloud (AWS, Azure, Google Cloud, SaaS) avec une approche neutre et indépendante.');
+  setTimeout(() => addLinks([
+    { text: 'Découvrir Cloud Security', url: 'cloud-security.html', icon: 'fas fa-arrow-right' },
+    { text: 'Demander un audit cloud', url: 'contact.html', icon: 'fas fa-paper-plane' }
+  ]), 600);
+}
+
+function showConformite() {
+  addMsg('⚖️ Nous vous accompagnons sur la conformité aux réglementations applicables et standards internationaux (ISO 27001, normes sectorielles).');
+  setTimeout(() => addLinks([
+    { text: 'Découvrir Conformité & Régulation', url: 'conformite.html', icon: 'fas fa-arrow-right' },
+    { text: 'Demander un diagnostic conformité', url: 'contact.html', icon: 'fas fa-paper-plane' }
+  ]), 600);
+}
+
+function showContact() {
+  addMsg('📞 Plusieurs façons de nous joindre :');
+  setTimeout(() => addLinks([
+    { text: 'WhatsApp (réponse rapide)', url: 'https://wa.me/2126XXXXXXXX', icon: 'fab fa-whatsapp', whatsapp: true },
+    { text: 'Formulaire de contact', url: 'contact.html', icon: 'fas fa-envelope' },
+    { text: 'contact@nextgen-tech.ma', url: 'mailto:contact@nextgen-tech.ma', icon: 'fas fa-paper-plane' }
+  ]), 600);
+}
+
+function goTo(intro, url, label) {
+  addMsg(intro);
+  setTimeout(() => addLinks([
+    { text: label, url: url, icon: 'fas fa-arrow-right' },
+    { text: 'Demander un devis', url: 'contact.html', icon: 'fas fa-paper-plane' }
+  ]), 500);
+}
+</script>
+<!-- ===== FIN CHATBOT ===== -->
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
  const menuToggle = document.getElementById('menuToggle');
