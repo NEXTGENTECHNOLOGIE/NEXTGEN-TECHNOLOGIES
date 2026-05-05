@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Espace formation privé NextGen Technologies — Accès réservé aux élèves.">
+  <title>Campus Cyber · NextGen Technologies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0A1628;
+      --primary-deep: #050B14;
+      --primary-light: #1E3A5F;
+      --accent: #00D4FF;
+      --accent-dark: #0891B2;
+      --gold: #FFB800;
+      --gold-dark: #D97706;
+      --white: #FFFFFF;
+      --off-white: #F8FAFC;
+      --gray-light: #E2E8F0;
+      --gray-mid: #64748B;
+      --gray-dark: #334155;
+      --success: #10B981;
+      --danger: #EF4444;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Manrope', sans-serif;
+      color: var(--gray-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background: var(--white);
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    a { text-decoration: none; }
+
+    .top-bar {
+      background: var(--primary-deep);
+      color: var(--gray-light);
+      padding: 0.5rem 4%;
+      font-size: 0.8rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .top-bar-container {
+      max-width: 1400px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 0.5rem;
+    }
+    .top-bar-info { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .top-bar-info span { display: flex; align-items: center; gap: 0.4rem; }
+    .top-bar-info i { color: var(--accent); }
+    .top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; transition: color 0.2s; }
+    .top-bar-social a:hover { color: var(--accent); }
+
+    .nav {
+      position: sticky; top: 0; z-index: 1000;
+      padding: 1rem 4%;
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-light);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    }
+    .nav-container {
+      max-width: 1400px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700; font-size: 1.3rem;
+      color: var(--primary);
+    }
+    .logo-shield {
+      width: 32px; height: 32px;
+      fill: var(--accent) !important;
+      flex-shrink: 0;
+    }
+    .logo-shield path { fill: var(--accent) !important; }
+    .logo-text-accent { color: var(--accent); }
+
+    .nav-links { display: flex; gap: 0.4rem; list-style: none; align-items: center; }
+    .nav-links > li { position: relative; }
+    .nav-links > li > a {
+      color: var(--primary); font-size: 0.92rem; font-weight: 600;
+      padding: 0.6rem 1rem; border-radius: 4px;
+      display: flex; align-items: center; gap: 0.3rem;
+    }
+    .nav-links > li > a:hover { background: var(--off-white); color: var(--accent-dark); }
+    .nav-cta {
+      background: var(--gold) !important;
+      color: var(--primary) !important;
+      padding: 0.7rem 1.4rem !important;
+      border-radius: 4px !important;
+      font-weight: 700 !important;
+    }
+    .menu-toggle {
+      display: none;
+      background: none; border: none;
+      color: var(--primary); font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .page-header {
+      background: var(--primary-deep);
+      color: var(--white);
+      padding: 5rem 4% 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: ''; position: absolute;
+      top: 0; right: 0; width: 60%; height: 100%;
+      background: radial-gradient(circle at 70% 30%, rgba(0,212,255,0.15) 0%, transparent 60%),
+                  radial-gradient(circle at 80% 70%, rgba(255,184,0,0.08) 0%, transparent 50%);
+    }
+    .page-header-container {
+      max-width: 1400px; margin: 0 auto;
+      position: relative; z-index: 2;
+    }
+    .page-header h1 {
+      font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+      line-height: 1.1; margin-bottom: 1rem;
+    }
+    .page-header h1 .accent { color: var(--accent); }
+    .page-header p {
+      font-size: 1.15rem;
+      color: var(--gray-light);
+      max-width: 750px;
+    }
+
+    .btn-primary {
+      padding: 1rem 2rem;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--accent);
+      color: var(--primary);
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover { background: var(--gold); transform: translateY(-2px); }
+
+    .login-section, .protected-section {
+      padding: 4rem 4%;
+      background: var(--off-white);
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .login-card, .content-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 20px 35px rgba(0,0,0,0.05);
+      border-top: 4px solid var(--accent);
+    }
+    .login-card h2, .content-card h2 {
+      color: var(--primary);
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+    .login-card p, .content-card p {
+      color: var(--gray-mid);
+      margin-bottom: 1.5rem;
+    }
+    .login-card input {
+      width: 100%;
+      max-width: 300px;
+      padding: 0.8rem 1rem;
+      font-size: 1rem;
+      border: 1.5px solid var(--gray-light);
+      border-radius: 8px;
+      font-family: inherit;
+      margin-right: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .login-card input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .video-card {
+      background: var(--off-white);
+      padding: 1rem;
+      border-radius: 12px;
+      transition: all 0.3s;
+    }
+    .video-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    .video-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 8px;
+    }
+    .video-card a {
+      color: var(--accent-dark);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .video-card a:hover {
+      color: var(--gold-dark);
+    }
+
+    footer {
+      background: var(--primary-deep);
+      color: var(--gray-light);
+      padding: 3rem 4% 1.5rem;
+    }
+    .footer-grid {
+      max-width: 1400px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+    }
+    .footer-brand p {
+      color: var(--gray-mid);
+      font-size: 0.88rem;
+      margin: 1rem 0;
+    }
+    .footer-col h4 {
+      color: var(--white);
+      font-size: 0.92rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.6rem; }
+    .footer-col ul a {
+      color: var(--gray-light);
+      font-size: 0.88rem;
+    }
+    .footer-col ul a:hover { color: var(--accent); }
+    .footer-bottom {
+      max-width: 1400px; margin: 0 auto;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      font-size: 0.82rem;
+      color: var(--gray-mid);
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    .logo-shield { animation: float 3s ease-in-out infinite; }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed; top: 70px; right: 0;
+        flex-direction: column;
+        background: var(--white);
+        padding: 1.5rem;
+        width: 100%;
+        transform: translateX(100%);
+        transition: transform 0.3s;
+      }
+      .nav-links.active { transform: translateX(0); }
+      .menu-toggle { display: block; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="top-bar-container">
+    <div class="top-bar-info">
+      <span><i class="fas fa-phone"></i> +212 728 31 28 01</span>
+      <span><i class="fas fa-envelope"></i> contact@nextgentechnologies.net</span>
+      <span><i class="fas fa-map-marker-alt"></i> Casablanca</span>
+    </div>
+    <div class="top-bar-social">
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-x-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <svg class="logo-shield" viewBox="0 0 64 64" width="32" height="32">
+        <path d="M32 4 L8 12 V28 C8 42 18 54 32 60 C46 54 56 42 56 28 V12 Z" fill="#00D4FF" stroke="#FFB800" stroke-width="1.5"/>
+        <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="#EF4444" stroke="#7F1D1D" stroke-width="1.5" stroke-linejoin="round"/>
+      </svg>
+      <span>NextGen <span class="logo-text-accent">Technologies</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="academy.html">Academy</a></li>
+      <li><a href="carrieres.html">Carrières</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html" class="nav-cta">Audit gratuit</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+  </div>
+</nav>
+
+<section class="page-header">
+  <div class="page-header-container">
+    <h1>Campus <span class="accent">Cyber</span><br>Espace formation privé</h1>
+    <p>Accès réservé aux élèves — supports de cours, vidéos et ressources techniques exclusives.</p>
+  </div>
+</section>
+
+<!-- Partie protégée par mot de passe -->
+<section class="login-section" id="loginSection">
+  <div class="container">
+    <div class="login-card" id="loginForm">
+      <h2>📚 Bibliothèque technique NextGen</h2>
+      <p>Entrez votre mot de passe pour accéder aux ressources exclusives.</p>
+      <input type="password" id="passwordInput" placeholder="Mot de passe">
+      <button class="btn-primary" onclick="checkPassword()">Accéder</button>
+      <p style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--gray-mid);">Mot de passe : <strong>NextGen2025</strong></p>
+    </div>
+  </div>
+</section>
+
+<section class="protected-section" id="protectedSection" style="display: none;">
+  <div class="container">
+    <div class="content-card">
+      <h2>📘 Mes ressources techniques</h2>
+      <p>Bienvenue — voici vos supports de formation actifs.</p>
+
+      <div class="video-grid">
+        <div class="video-card">
+          <h3>🎥 Module 1 – Introduction à la cybersécurité</h3>
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen></iframe>
+          <p><a href="docs/module1.pdf" download>Télécharger le support PDF</a></p>
+        </div>
+        <div class="video-card">
+          <h3>🎥 Module 2 – Sécurité réseau & NGFW</h3>
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen></iframe>
+          <p><a href="docs/module2.pdf" download>Télécharger le support PDF</a></p>
+        </div>
+        <div class="video-card">
+          <h3>📄 Quiz & évaluation</h3>
+          <p><a href="quiz/module1.pdf" target="_blank">Accéder au quiz (PDF)</a></p>
+          <p><a href="reponse.html" target="_blank">Formulaire de remédiation</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo" style="font-size: 1.4rem;">
+        <svg class="logo-shield" viewBox="0 0 64 64" width="28" height="28">
+          <path d="M32 4 L8 12 V28 C8 42 18 54 32 60 C46 54 56 42 56 28 V12 Z" fill="#00D4FF" stroke="#FFB800" stroke-width="1.5"/>
+          <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="#EF4444" stroke="#7F1D1D" stroke-width="1.5"/>
+        </svg>
+        <span style="color: white;">NextGen <span class="logo-text-accent">Technologies</span></span>
+      </a>
+      <p>Cybersécurité, conseil et formation au service des entreprises. Une protection complète, accessible et indépendante.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="soc-consultation.html">SOC Consultation</a></li>
+        <li><a href="vapt.html">VAPT</a></li>
+        <li><a href="cloud-security.html">Cloud Security</a></li>
+        <li><a href="academy.html">Academy</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Entreprise</h4>
+      <ul>
+        <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
+        <li><a href="carrieres.html">Carrières</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="menaces.html">Menaces actuelles</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Légal</h4>
+      <ul>
+        <li><a href="#">Mentions légales</a></li>
+        <li><a href="#">Confidentialité</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 NextGen Technologies SARL · Casablanca</span>
+    <span>Excellence & Innovation</span>
+  </div>
+</footer>
+
+<script>
+  function checkPassword() {
+    const pwd = document.getElementById("passwordInput").value;
+    if (pwd === "NextGen2025") {
+      document.getElementById("protectedSection").style.display = "block";
+      document.getElementById("loginSection").style.display = "none";
+    } else {
+      alert("Mot de passe incorrect");
+    }
+  }
+
+  // Menu mobile
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+  }
+</script>
+
+<!-- Chatbot (optionnel – reprends le tien ici si nécessaire) -->
+</body>
+</html>
