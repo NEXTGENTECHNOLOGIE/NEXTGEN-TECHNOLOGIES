@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="NextGen Technologies — Cybersécurité, conseil et formation pour entreprises. SOC, VAPT, conformité, cloud security à Casablanca.">
-<title>NextGen Technologies · Sécurité cyber sur mesure</title>
+<meta name="description" content="NextGen Technologies — SOC, Sécurité Réseau, Pentest au Maroc.">
+<title>NextGen Technologies · SOC & Réseau</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
@@ -12,28 +12,27 @@
 :root {
   --primary: #0A1628;
   --primary-deep: #050B14;
-  --primary-light: #1E3A5F;
+  --primary-light: #0F2B4D;
   --accent: #00D4FF;
   --accent-dark: #0891B2;
   --gold: #FFB800;
   --gold-dark: #D97706;
+  --dark-bg: #071426;
+  --card-bg: #0F2A3E;
   --white: #FFFFFF;
-  --off-white: #F8FAFC;
-  --gray-light: #E2E8F0;
+  --off-white: #E2E8F0;
+  --gray-light: #94A3B8;
   --gray-mid: #64748B;
-  --gray-dark: #334155;
-  --success: #10B981;
-  --danger: #EF4444;
-  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
   font-family: 'Manrope', sans-serif;
-  color: var(--gray-dark);
+  color: var(--off-white);
   line-height: 1.6;
   overflow-x: hidden;
-  background: var(--white);
+  background: var(--primary-deep);
 }
 h1, h2, h3, h4 {
   font-family: 'Space Grotesk', sans-serif;
@@ -42,12 +41,14 @@ h1, h2, h3, h4 {
 }
 a { text-decoration: none; }
 
+/* Top Bar */
 .top-bar {
-  background: var(--primary-deep);
+  background: rgba(5, 11, 20, 0.95);
+  backdrop-filter: blur(10px);
   color: var(--gray-light);
   padding: 0.5rem 4%;
   font-size: 0.8rem;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(0,212,255,0.2);
   position: relative;
   z-index: 1001;
 }
@@ -69,7 +70,7 @@ a { text-decoration: none; }
 .lang-switch {
   display: flex;
   gap: 0.25rem;
-  background: rgba(255,255,255,0.08);
+  background: rgba(0,212,255,0.15);
   padding: 0.2rem 0.6rem;
   border-radius: 40px;
   align-items: center;
@@ -91,16 +92,17 @@ a { text-decoration: none; }
   color: var(--primary);
 }
 .lang-btn:hover:not(.active) {
-  background: rgba(0,212,255,0.2);
+  background: rgba(0,212,255,0.3);
   color: white;
 }
 
+/* Navigation */
 .nav {
   position: sticky; top: 0; z-index: 1000;
   padding: 1rem 4%;
-  background: var(--white);
-  border-bottom: 1px solid var(--gray-light);
-  box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  background: rgba(7, 20, 38, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,212,255,0.15);
 }
 .nav-container {
   max-width: 1400px; margin: 0 auto;
@@ -110,7 +112,7 @@ a { text-decoration: none; }
   display: flex; align-items: center; gap: 0.6rem;
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700; font-size: 1.3rem;
-  color: var(--primary);
+  color: var(--white);
   transition: var(--transition);
 }
 .logo:hover { transform: scale(1.02); }
@@ -124,23 +126,22 @@ a { text-decoration: none; }
   0%,100% { transform: translateY(0); }
   50% { transform: translateY(-5px); }
 }
-.logo-shield path { fill: var(--accent) !important; }
 .logo-text-accent { color: var(--accent); }
 
 .nav-links { display: flex; gap: 0.4rem; list-style: none; align-items: center; }
 .nav-links > li { position: relative; }
 .nav-links > li > a {
-  color: var(--primary); font-size: 0.92rem; font-weight: 600;
+  color: var(--off-white); font-size: 0.92rem; font-weight: 600;
   padding: 0.6rem 1rem; border-radius: 4px;
   transition: var(--transition);
   display: flex; align-items: center; gap: 0.3rem;
 }
-.nav-links > li > a:hover { background: var(--off-white); color: var(--accent-dark); }
+.nav-links > li > a:hover { background: rgba(0,212,255,0.1); color: var(--accent); }
 .dropdown-menu {
   position: absolute; top: 100%; left: 0;
-  background: var(--white);
+  background: var(--dark-bg);
   min-width: 280px;
-  box-shadow: 0 20px 40px rgba(10,22,40,0.15);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
   border-radius: 12px; padding: 0.6rem;
   list-style: none;
   opacity: 0; visibility: hidden; transform: translateY(10px);
@@ -152,12 +153,12 @@ a { text-decoration: none; }
 }
 .dropdown-menu li a {
   display: block; padding: 0.7rem 1rem;
-  color: var(--gray-dark); font-size: 0.88rem;
+  color: var(--gray-light); font-size: 0.88rem;
   border-radius: 8px;
   transition: var(--transition);
 }
 .dropdown-menu li a:hover {
-  background: var(--off-white); color: var(--accent-dark); padding-left: 1.4rem;
+  background: rgba(0,212,255,0.1); color: var(--accent); padding-left: 1.4rem;
 }
 .dropdown-menu li a i { color: var(--accent); margin-right: 0.6rem; width: 18px; }
 .nav-cta {
@@ -166,103 +167,188 @@ a { text-decoration: none; }
   padding: 0.7rem 1.4rem !important;
   border-radius: 40px !important;
   font-weight: 700 !important;
-  box-shadow: 0 4px 10px rgba(255,184,0,0.2);
 }
-.nav-cta:hover { transform: translateY(-2px) !important; box-shadow: 0 8px 20px rgba(255,184,0,0.3) !important; }
-.menu-toggle { display: none; background: none; border: none; color: var(--primary); font-size: 1.5rem; cursor: pointer; }
+.nav-cta:hover { transform: translateY(-2px) !important; background: var(--accent) !important; color: var(--primary) !important; }
+.menu-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
 
-.hero {
-  background: var(--primary-deep);
-  color: var(--white);
-  padding: 6rem 4% 5rem;
+/* SLIDER HERO */
+.slider {
   position: relative;
+  width: 100%;
+  height: 85vh;
+  min-height: 550px;
   overflow: hidden;
 }
-.hero::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(circle at 70% 30%, rgba(0,212,255,0.15) 0%, transparent 60%),
-              radial-gradient(circle at 80% 70%, rgba(255,184,0,0.08) 0%, transparent 50%);
-}
-.hero::after {
-  content: ''; position: absolute; inset: 0;
-  background-image: linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-.hero-container {
-  max-width: 1400px; margin: 0 auto;
-  position: relative; z-index: 2;
-}
-.hero h1 {
-  font-size: clamp(2.2rem, 5vw, 3.8rem);
-  line-height: 1.1;
-  margin-bottom: 1.2rem;
-  max-width: 800px;
-}
-.hero h1 .accent {
-  background: linear-gradient(90deg, var(--accent) 0%, var(--gold) 50%, var(--accent) 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shine 3s linear infinite;
-}
-@keyframes shine {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-.hero p {
-  font-size: 1.15rem;
-  color: var(--gray-light);
-  max-width: 700px;
-  margin-bottom: 2rem;
-}
-.btn-primary, .btn-secondary {
-  padding: 1rem 2rem;
-  border-radius: 40px;
-  font-weight: 700;
-  font-size: 0.95rem;
-  display: inline-flex;
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  display: flex;
   align-items: center;
-  gap: 0.6rem;
-  transition: var(--transition);
-  cursor: pointer;
-  border: none;
-  font-family: inherit;
+  justify-content: center;
+  text-align: center;
+  color: white;
 }
-.btn-primary {
+.slide::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(5,11,20,0.85), rgba(7,20,38,0.7));
+}
+.slide.active { opacity: 1; }
+.slide .caption {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 2rem;
+}
+.slide .caption h1 {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+.slide .caption h1 .accent-text { color: var(--accent); }
+.slide .caption p {
+  font-size: 1.1rem;
+  color: var(--gray-light);
+  margin-bottom: 1.5rem;
+}
+.slide .caption .btn-hero {
   background: linear-gradient(135deg, var(--accent), var(--accent-dark));
   color: var(--primary);
-  box-shadow: 0 4px 15px rgba(0,212,255,0.3);
+  padding: 0.8rem 2rem;
+  border-radius: 40px;
+  font-weight: 700;
+  transition: var(--transition);
+  display: inline-block;
 }
-.btn-primary:hover {
+.slide .caption .btn-hero:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 25px rgba(0,212,255,0.4);
+  background: var(--gold);
+  color: var(--primary);
 }
-.btn-secondary {
-  background: transparent;
-  color: var(--white);
-  border: 1.5px solid rgba(255,255,255,0.3);
+.controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  transform: translateY(-50%);
+  z-index: 10;
 }
-.btn-secondary:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  transform: translateY(-3px);
+.controls div {
+  background: rgba(0,212,255,0.2);
+  backdrop-filter: blur(5px);
+  color: white;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 1.5rem;
+}
+.controls div:hover {
+  background: var(--accent);
+  color: var(--primary);
+  transform: scale(1.1);
+}
+.indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+.indicator div {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.indicator div.active {
+  background: var(--accent);
+  width: 25px;
+  border-radius: 10px;
 }
 
-.stats-bar {
+/* Values Section */
+.values-section {
+  padding: 5rem 4%;
+  background: var(--dark-bg);
+}
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.value-card {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 20px;
+  background: rgba(15, 42, 62, 0.6);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(0,212,255,0.1);
+  transition: var(--transition);
+}
+.value-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent);
+  box-shadow: 0 20px 40px rgba(0,212,255,0.1);
+}
+.value-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.2rem;
+  color: var(--primary);
+  font-size: 1.8rem;
+}
+.value-card h3 {
+  color: var(--white);
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+}
+.value-card p {
+  color: var(--gray-light);
+  font-size: 0.9rem;
+}
+
+/* Stats Section */
+.stats-section {
   background: linear-gradient(135deg, var(--primary), var(--primary-light));
-  padding: 2rem 4%;
-  border-bottom: 3px solid var(--gold);
+  padding: 4rem 4%;
 }
 .stats-container {
-  max-width: 1400px; margin: 0 auto;
-  display: grid; grid-template-columns: repeat(4,1fr);
-  gap: 2rem; text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  text-align: center;
 }
 .stat-item .stat-number {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 2.2rem;
+  font-size: 2.8rem;
   font-weight: 700;
   color: var(--accent);
   line-height: 1;
@@ -273,11 +359,18 @@ a { text-decoration: none; }
   margin-top: 0.4rem;
 }
 
-section { padding: 5rem 4%; }
-.container { max-width: 1400px; margin: 0 auto; }
+/* Services Section */
+.services-section {
+  padding: 5rem 4%;
+  background: var(--primary-deep);
+}
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
 .section-tag {
   display: inline-block;
-  color: var(--accent-dark);
+  color: var(--accent);
   font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -286,46 +379,46 @@ section { padding: 5rem 4%; }
 }
 .section-title {
   font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  color: var(--primary);
+  color: var(--white);
   margin-bottom: 0.8rem;
   line-height: 1.15;
 }
 .section-subtitle {
   font-size: 1.05rem;
-  color: var(--gray-mid);
+  color: var(--gray-light);
   max-width: 700px;
   margin-bottom: 3rem;
 }
-
-.services-grid, .sectors-grid {
+.services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
   gap: 1.8rem;
 }
 .service-card {
-  background: var(--white);
+  background: rgba(15, 42, 62, 0.6);
+  backdrop-filter: blur(5px);
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 5px 20px rgba(10,22,40,0.06);
+  border: 1px solid rgba(0,212,255,0.1);
   transition: var(--transition);
   color: inherit;
   display: block;
 }
 .service-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 35px rgba(10,22,40,0.12);
+  border-color: var(--accent);
+  box-shadow: 0 20px 40px rgba(0,212,255,0.15);
 }
 .service-img {
   height: 170px;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
 }
 .service-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease;
 }
 .service-card:hover .service-img img {
   transform: scale(1.05);
@@ -337,14 +430,14 @@ section { padding: 5rem 4%; }
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(10,22,40,0.2), rgba(10,22,40,0.05));
+  background: linear-gradient(135deg, rgba(0,212,255,0.2), rgba(0,0,0,0.4));
   pointer-events: none;
 }
 .service-content { padding: 1.5rem; }
-.service-content h3 { font-size: 1.15rem; color: var(--primary); margin-bottom: 0.5rem; }
-.service-content p { color: var(--gray-mid); font-size: 0.88rem; margin-bottom: 1rem; line-height: 1.5; }
+.service-content h3 { font-size: 1.15rem; color: var(--white); margin-bottom: 0.5rem; }
+.service-content p { color: var(--gray-light); font-size: 0.88rem; margin-bottom: 1rem; line-height: 1.5; }
 .service-link {
-  color: var(--accent-dark);
+  color: var(--accent);
   font-size: 0.83rem;
   font-weight: 700;
   display: inline-flex;
@@ -352,130 +445,200 @@ section { padding: 5rem 4%; }
   gap: 0.4rem;
   transition: var(--transition);
 }
-.service-card:hover .service-link { gap: 0.8rem; color: var(--gold-dark); }
-.step-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.8rem;
+.service-card:hover .service-link { gap: 0.8rem; color: var(--gold); }
+
+/* Sectors Section */
+.sectors-section {
+  padding: 5rem 4%;
+  background: var(--dark-bg);
 }
-.step-card {
-  background: var(--white);
-  padding: 1.8rem;
-  border-radius: 20px;
-  border-top: 4px solid var(--accent);
-  box-shadow: 0 5px 20px rgba(10,22,40,0.04);
+.sectors-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.sector-card {
+  background: rgba(15, 42, 62, 0.5);
+  border-radius: 16px;
+  overflow: hidden;
+  text-align: center;
+  padding: 1.5rem;
+  border: 1px solid rgba(0,212,255,0.1);
   transition: var(--transition);
 }
-.step-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(10,22,40,0.1); }
-.step-num {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--accent);
-  line-height: 1;
-  margin-bottom: 0.8rem;
+.sector-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
 }
-.step-card h4 { color: var(--primary); font-size: 1.1rem; margin-bottom: 0.6rem; }
-.step-card p { color: var(--gray-mid); font-size: 0.9rem; }
-
-.cta-block {
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+.sector-card i {
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+.sector-card h4 {
   color: var(--white);
-  text-align: center;
-  padding: 4rem 4%;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.sector-card p {
+  color: var(--gray-light);
+  font-size: 0.75rem;
+}
+
+/* Testimonials Slider */
+.testimonials-section {
+  padding: 5rem 4%;
+  background: var(--primary-deep);
+}
+.testimonial-slider {
+  max-width: 800px;
+  margin: 0 auto;
   position: relative;
   overflow: hidden;
 }
-.cta-block::before {
-  content: ''; position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%,-50%);
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(0,212,255,0.15) 0%, transparent 70%);
+.testimonial-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+.testimonial-card {
+  flex: 0 0 100%;
+  background: rgba(15, 42, 62, 0.6);
+  backdrop-filter: blur(5px);
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  border-left: 4px solid var(--accent);
+}
+.testimonial-text {
+  font-style: italic;
+  color: var(--off-white);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+.testimonial-author {
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.2rem;
+}
+.testimonial-role {
+  font-size: 0.8rem;
+  color: var(--gray-light);
+}
+.testimonial-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 2rem;
+}
+.testimonial-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gray-mid);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.testimonial-dot.active {
+  background: var(--accent);
+  width: 25px;
+  border-radius: 10px;
+}
+
+/* CTA Block */
+.cta-block {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  text-align: center;
+  padding: 4rem 4%;
+  position: relative;
 }
 .cta-block-content {
-  max-width: 700px; margin: 0 auto;
-  position: relative; z-index: 2;
+  max-width: 700px;
+  margin: 0 auto;
 }
 .cta-block h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--white); margin-bottom: 1rem; }
 .cta-block p { color: var(--gray-light); margin-bottom: 2rem; }
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: var(--primary);
+  padding: 1rem 2rem;
+  border-radius: 40px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: var(--transition);
+}
+.btn-primary:hover {
+  background: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,212,255,0.3);
+}
 
+/* Footer */
 footer {
   background: var(--primary-deep);
-  color: var(--gray-light);
+  border-top: 1px solid rgba(0,212,255,0.1);
   padding: 3rem 4% 1.5rem;
-  border-top: 1px solid rgba(255,255,255,0.05);
 }
 .footer-grid {
-  max-width: 1400px; margin: 0 auto;
+  max-width: 1400px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 2rem;
   margin-bottom: 2rem;
 }
-.footer-brand p { color: var(--gray-mid); font-size: 0.88rem; margin: 1rem 0; line-height: 1.6; }
-.footer-col h4 { color: var(--white); font-size: 0.92rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.footer-brand p { color: var(--gray-mid); font-size: 0.88rem; margin: 1rem 0; }
+.footer-col h4 { color: var(--white); font-size: 0.92rem; margin-bottom: 1rem; text-transform: uppercase; }
 .footer-col ul { list-style: none; }
 .footer-col ul li { margin-bottom: 0.6rem; }
 .footer-col ul a { color: var(--gray-light); font-size: 0.88rem; transition: var(--transition); }
 .footer-col ul a:hover { color: var(--accent); padding-left: 5px; }
 .footer-bottom {
-  max-width: 1400px; margin: 0 auto;
+  max-width: 1400px;
+  margin: 0 auto;
   padding-top: 1.5rem;
-  border-top: 1px solid rgba(255,255,255,0.05);
-  display: flex; justify-content: space-between;
-  flex-wrap: wrap; gap: 1rem;
-  font-size: 0.82rem; color: var(--gray-mid);
+  border-top: 1px solid rgba(0,212,255,0.1);
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: var(--gray-mid);
 }
 
+/* Chatbot */
 .chatbot-button {
   position: fixed; bottom: 25px; right: 25px;
   width: 60px; height: 60px;
   background: linear-gradient(135deg, var(--accent), var(--accent-dark));
   border-radius: 50%;
   display: flex;
-  align-items: center; justify-content: center;
-  color: white; font-size: 1.6rem;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  font-size: 1.6rem;
   cursor: pointer;
   box-shadow: 0 6px 25px rgba(0,212,255,0.5);
   z-index: 998;
   transition: var(--transition);
-  border: 2px solid rgba(255,255,255,0.2);
 }
-.chatbot-button:hover { transform: scale(1.1); box-shadow: 0 10px 30px rgba(0,212,255,0.7); }
-.chatbot-pulse {
-  position: absolute; top: -3px; right: -3px;
-  width: 14px; height: 14px;
-  background: var(--danger);
-  border-radius: 50%;
-  border: 2px solid white;
-  animation: pulse 2s infinite;
-}
-@keyframes pulse {
-  0%,100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.3); opacity: 0.7; }
-}
+.chatbot-button:hover { transform: scale(1.1); }
 .chatbot-window {
   position: fixed; bottom: 100px; right: 25px;
-  width: 380px; max-width: calc(100vw - 50px);
-  height: 540px; max-height: calc(100vh - 130px);
-  background: white;
-  border-radius: 24px;
-  box-shadow: 0 25px 50px rgba(10,22,40,0.25);
+  width: 380px;
+  max-width: calc(100vw - 50px);
+  height: 540px;
+  background: var(--dark-bg);
+  border-radius: 20px;
+  border: 1px solid rgba(0,212,255,0.2);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
   z-index: 999;
   display: none;
   flex-direction: column;
   overflow: hidden;
-  animation: slideUp 0.3s ease;
-}
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 .chatbot-window.open { display: flex; }
 .chatbot-header {
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
-  color: white;
+  background: var(--primary-light);
   padding: 1rem;
   display: flex;
   align-items: center;
@@ -483,52 +646,44 @@ footer {
 }
 .chatbot-avatar {
   width: 44px; height: 44px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  background: var(--accent);
   border-radius: 50%;
   display: flex;
-  align-items: center; justify-content: center;
+  align-items: center;
+  justify-content: center;
   font-size: 1.3rem;
+  color: var(--primary);
 }
-.chatbot-header-info { flex: 1; }
-.chatbot-header-info .name { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; }
-.chatbot-header-info .status { font-size: 0.75rem; color: var(--accent); display: flex; align-items: center; gap: 0.4rem; }
-.chatbot-header-info .status::before {
-  content: ''; width: 8px; height: 8px;
-  background: var(--success); border-radius: 50%;
-  display: inline-block;
-}
+.chatbot-header-info .name { font-weight: 700; color: var(--white); }
+.chatbot-header-info .status { font-size: 0.75rem; color: var(--accent); }
 .chatbot-close {
-  background: none; border: none;
-  color: white; font-size: 1.4rem;
-  cursor: pointer; opacity: 0.7;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1.4rem;
+  cursor: pointer;
 }
 .chatbot-body {
   flex: 1;
   overflow-y: auto;
   padding: 1rem;
-  background: var(--off-white);
+  background: var(--primary-deep);
 }
 .chat-msg {
   max-width: 85%;
   padding: 0.7rem 1rem;
   border-radius: 18px;
   font-size: 0.88rem;
-  line-height: 1.4;
   margin-bottom: 0.8rem;
-  animation: fadeIn 0.3s ease;
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 .chat-msg.bot {
-  background: white;
-  color: var(--gray-dark);
+  background: var(--card-bg);
+  color: var(--off-white);
   border-bottom-left-radius: 4px;
 }
 .chat-msg.user {
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
-  color: white;
+  background: var(--accent);
+  color: var(--primary);
   margin-left: auto;
   border-bottom-right-radius: 4px;
 }
@@ -539,59 +694,65 @@ footer {
   margin: 0.5rem 0;
 }
 .chat-option {
-  background: white;
-  border: 1px solid var(--gray-light);
+  background: var(--card-bg);
+  border: 1px solid rgba(0,212,255,0.2);
   padding: 0.6rem 1rem;
   border-radius: 12px;
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
-  text-align: left;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
+  color: var(--off-white);
   transition: var(--transition);
 }
 .chat-option:hover {
   border-color: var(--accent);
-  background: #F0FDFF;
-  transform: translateX(3px);
+  background: rgba(0,212,255,0.1);
 }
 .chat-link {
   display: inline-block;
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
-  color: white;
+  background: var(--card-bg);
+  color: var(--white);
   padding: 0.7rem 1rem;
   border-radius: 12px;
-  font-size: 0.85rem;
-  font-weight: 600;
   text-align: center;
   width: 100%;
   margin-top: 0.5rem;
-  transition: var(--transition);
 }
-.chat-link.whatsapp { background: #25D366; }
-.chat-link:hover { transform: translateY(-2px); opacity: 0.9; }
+.chat-link.whatsapp { background: #25D366; color: white; }
 .chatbot-footer {
   padding: 0.6rem;
-  border-top: 1px solid var(--gray-light);
-  background: white;
+  border-top: 1px solid rgba(0,212,255,0.1);
+  background: var(--primary-deep);
   font-size: 0.7rem;
   text-align: center;
   color: var(--gray-mid);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (max-width: 768px) {
   .nav-links {
     position: fixed; top: 70px; right: 0;
     flex-direction: column;
-    background: var(--white);
+    background: var(--dark-bg);
     padding: 1.5rem;
     width: 100%;
     gap: 0.5rem;
     transform: translateX(100%);
     transition: transform 0.3s;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   }
   .nav-links.active { transform: translateX(0); }
   .menu-toggle { display: block; }
@@ -603,9 +764,10 @@ footer {
     box-shadow: none;
     padding-left: 1rem;
   }
+  .values-grid, .stats-container, .services-grid { grid-template-columns: 1fr; }
+  .sectors-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr; }
-  .stats-container { grid-template-columns: repeat(2,1fr); gap: 1rem; }
-  .top-bar-info { gap: 1rem; }
+  .slider { height: 100vh; }
 }
 </style>
 </head>
@@ -614,12 +776,12 @@ footer {
 <div class="top-bar">
   <div class="top-bar-container">
     <div class="top-bar-info">
-      <span><i class="fas fa-phone"></i> <span id="phone">+212 728 31 28 01</span></span>
+      <span><i class="fas fa-phone"></i> +212 728 31 28 01</span>
       <span><i class="fas fa-envelope"></i> contact@nextgentechnologies.net</span>
-      <span><i class="fas fa-map-marker-alt"></i> <span id="city">Casablanca</span></span>
+      <span><i class="fas fa-map-marker-alt"></i> Casablanca</span>
     </div>
     <div class="lang-switch">
-      <button class="lang-btn" data-lang="fr">🇫🇷 FR</button>
+      <button class="lang-btn active" data-lang="fr">🇫🇷 FR</button>
       <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
       <button class="lang-btn" data-lang="ar">🇸🇦 AR</button>
     </div>
@@ -636,395 +798,253 @@ footer {
     <a href="index.html" class="logo">
       <svg class="logo-shield" viewBox="0 0 64 64" width="32" height="32">
         <path d="M32 4 L8 12 V28 C8 42 18 54 32 60 C46 54 56 42 56 28 V12 Z" fill="#00D4FF" stroke="#FFB800" stroke-width="1.5"/>
-        <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="#EF4444" stroke="#7F1D1D" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="#EF4444" stroke="#7F1D1D" stroke-width="1.5"/>
       </svg>
       <span>NextGen <span class="logo-text-accent">Technologies</span></span>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html" id="navHome">Accueil</a></li>
-      <li><a href="services.html" id="navServices">Services <i class="fas fa-chevron-down"></i></a></li>
-      <li><a href="secteurs.html" id="navSectors">Secteurs <i class="fas fa-chevron-down"></i></a></li>
-      <li><a href="academy.html" id="navAcademy">Academy</a></li>
-      <li><a href="qui-sommes-nous.html" id="navAbout">Qui sommes-nous</a></li>
-      <li><a href="carrieres.html" id="navCareers">Carrières</a></li>
-      <li><a href="menaces.html" id="navThreats">Menaces</a></li>
-      <li><a href="campus-cyber.html" id="navCampus">🎓 Campus Cyber</a></li>
-      <li><a href="contact.html" id="navContact">Contact</a></li>
-      <li><a href="contact.html" class="nav-cta" id="navAudit">Audit gratuit</a></li>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="secteurs.html">Secteurs</a></li>
+      <li><a href="academy.html">Academy</a></li>
+      <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
+      <li><a href="carrieres.html">Carrières</a></li>
+      <li><a href="menaces.html">Menaces</a></li>
+      <li><a href="campus-cyber.html">🎓 Campus Cyber</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html" class="nav-cta">Audit gratuit</a></li>
     </ul>
     <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
   </div>
 </nav>
 
-<section class="hero">
-  <div class="hero-container">
-    <h1 id="heroTitle">Votre <span class="accent">partenaire</span><br>cybersécurité</h1>
-    <p id="heroDesc">Protection, conseil et formation pour entreprises de toutes tailles. Solutions complètes adaptées à votre secteur, votre maturité et vos enjeux.</p>
-    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-      <a href="contact.html" class="btn-primary" id="heroBtn1">Audit gratuit <i class="fas fa-arrow-right"></i></a>
-      <a href="services.html" class="btn-secondary" id="heroBtn2">Voir tous nos services</a>
+<!-- SLIDER HERO -->
+<div class="slider" id="heroSlider">
+  <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1920');">
+    <div class="caption">
+      <h1>L'avenir appartient à ceux qui <span class="accent-text">se protègent</span> dès aujourd'hui</h1>
+      <p>SOC, Sécurité Réseau et Pentest pour les entreprises marocaines. Une équipe technique opérationnelle.</p>
+      <a href="contact.html" class="btn-hero">Audit gratuit <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+  <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1920');">
+    <div class="caption">
+      <h1>All <span class="accent-text">connected</span>, all protected.</h1>
+      <p>Surveillance 24/7 de votre infrastructure critique. Détection et réponse immédiate.</p>
+      <a href="contact.html" class="btn-hero">En savoir plus</a>
+    </div>
+  </div>
+  <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1920');">
+    <div class="caption">
+      <h1>Ne laissez <span class="accent-text">rien au hasard</span></h1>
+      <p>Pentest et audit de vulnérabilités pour valider votre sécurité avant les attaquants.</p>
+      <a href="contact.html" class="btn-hero">Demander un audit</a>
+    </div>
+  </div>
+  <div class="controls">
+    <div class="prev" id="prevSlide">❮</div>
+    <div class="next" id="nextSlide">❯</div>
+  </div>
+  <div class="indicator" id="slideIndicator"></div>
+</div>
+
+<!-- Values Section -->
+<section class="values-section">
+  <div style="text-align: center; margin-bottom: 3rem;">
+    <span class="section-tag">Nos valeurs</span>
+    <h2 class="section-title">Pourquoi nous faire confiance ?</h2>
+  </div>
+  <div class="values-grid">
+    <div class="value-card reveal">
+      <div class="value-icon"><i class="fas fa-handshake"></i></div>
+      <h3>Engagés</h3>
+      <p>Nous sommes des ingénieurs terrain, pas des commerciaux. Votre sécurité est notre priorité absolue.</p>
+    </div>
+    <div class="value-card reveal">
+      <div class="value-icon"><i class="fas fa-rocket"></i></div>
+      <h3>Proactifs</h3>
+      <p>On anticipe les menaces, on ne les subit pas. Notre SOC veille 24/7 sur vos infrastructures.</p>
+    </div>
+    <div class="value-card reveal">
+      <div class="value-icon"><i class="fas fa-chalkboard-user"></i></div>
+      <h3>Pédagogues</h3>
+      <p>On forme vos équipes. La sécurité se vit au quotidien, pas juste dans un rapport.</p>
     </div>
   </div>
 </section>
 
-<div class="stats-bar">
+<!-- Stats Section -->
+<section class="stats-section">
   <div class="stats-container">
-    <div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label" id="stat1">Surveillance active</div></div>
-    <div class="stat-item"><div class="stat-number">< 4h</div><div class="stat-label" id="stat2">Réponse incident</div></div>
-    <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label" id="stat3">Données souveraines</div></div>
-    <div class="stat-item"><div class="stat-number">8+</div><div class="stat-label" id="stat4">Domaines d'expertise</div></div>
+    <div class="stat-item"><div class="stat-number" id="stat1" data-target="15">0</div><div class="stat-label">Années d'expérience cumulées</div></div>
+    <div class="stat-item"><div class="stat-number" id="stat2" data-target="4">0</div><div class="stat-label">Ingénieurs fondateurs</div></div>
+    <div class="stat-item"><div class="stat-number" id="stat3" data-target="24">0</div><div class="stat-label">Surveillance 24/7</div></div>
+    <div class="stat-item"><div class="stat-number" id="stat4" data-target="100">0</div><div class="stat-label">Données souveraines (%)</div></div>
   </div>
-</div>
+</section>
 
-<section style="background: var(--off-white);">
+<!-- Services Section -->
+<section class="services-section">
   <div class="container">
-    <span class="section-tag" id="servicesTag">Nos services</span>
-    <h2 class="section-title" id="servicesTitle">Une expertise complète</h2>
-    <p class="section-subtitle" id="servicesSub">Solutions professionnelles de cybersécurité, indépendantes des constructeurs, adaptées à chaque besoin.</p>
+    <span class="section-tag">Nos offres clés</span>
+    <h2 class="section-title">Ce que nous faisons concrètement</h2>
+    <p class="section-subtitle">Pas de jargon, du concret. On identifie, on teste, on sécurise, on surveille, on forme.</p>
     <div class="services-grid" id="servicesGrid"></div>
   </div>
 </section>
 
-<section style="background: var(--white);">
+<!-- Sectors Section -->
+<section class="sectors-section">
   <div class="container">
-    <span class="section-tag" id="sectorsTag">Secteurs d'activité</span>
-    <h2 class="section-title" id="sectorsTitle">Une expertise par métier</h2>
-    <p class="section-subtitle" id="sectorsSub">Chaque secteur a ses risques, ses contraintes réglementaires, ses enjeux. Nous adaptons notre approche.</p>
-    <div class="services-grid" id="sectorsGrid"></div>
+    <span class="section-tag">Secteurs d'activité</span>
+    <h2 class="section-title">Une expertise par métier</h2>
+    <div class="sectors-grid">
+      <div class="sector-card reveal"><i class="fas fa-building-columns"></i><h4>Banques & Finance</h4><p>Conformité bancaire, protection contre la fraude</p></div>
+      <div class="sector-card reveal"><i class="fas fa-cart-shopping"></i><h4>E-commerce & Retail</h4><p>Protection paiements, sécurité données clients</p></div>
+      <div class="sector-card reveal"><i class="fas fa-heart-pulse"></i><h4>Santé & Pharma</h4><p>Protection données patients, conformité</p></div>
+      <div class="sector-card reveal"><i class="fas fa-industry"></i><h4>Industrie & Manufacture</h4><p>Sécurisation OT/IT, continuité de production</p></div>
+    </div>
   </div>
 </section>
 
-<section style="background: var(--off-white);">
-  <div class="container">
-    <span class="section-tag" id="stepsTag">Notre approche</span>
-    <h2 class="section-title" id="stepsTitle">4 étapes pour vous protéger</h2>
-    <p class="section-subtitle" id="stepsSub">Une méthodologie éprouvée et transparente.</p>
-    <div class="step-grid" id="stepsGrid"></div>
+<!-- Testimonials -->
+<section class="testimonials-section">
+  <div style="text-align: center; margin-bottom: 2rem;">
+    <span class="section-tag">Ils nous font confiance</span>
+    <h2 class="section-title">Ce que nos clients disent</h2>
+  </div>
+  <div class="testimonial-slider">
+    <div class="testimonial-track" id="testimonialTrack">
+      <div class="testimonial-card"><p class="testimonial-text">"NextGen a audité notre système en 3 jours et a trouvé des failles critiques. Leur rapport était clair et actionnable."</p><p class="testimonial-author">Directeur IT</p><p class="testimonial-role">Banque marocaine</p></div>
+      <div class="testimonial-card"><p class="testimonial-text">"Leur approche réseau + SOC est ce qu'on cherchait depuis longtemps. Des gens qui comprennent notre infrastructure."</p><p class="testimonial-author">RSSI</p><p class="testimonial-role">Administration publique</p></div>
+      <div class="testimonial-card"><p class="testimonial-text">"Disponibles, réactifs, et surtout compétents. Leur formation Academy a fait monter en compétence toute notre DSI."</p><p class="testimonial-author">CIO</p><p class="testimonial-role">E-commerce</p></div>
+    </div>
+    <div class="testimonial-dots" id="testimonialDots"></div>
   </div>
 </section>
 
+<!-- CTA -->
 <section class="cta-block">
   <div class="cta-block-content">
-    <h2 id="ctaTitle">Anticipez. Protégez. Avancez sereinement</h2>
-    <p id="ctaDesc">Démarrez par un audit gratuit. Vision claire de votre exposition cyber.</p>
-    <a href="contact.html" class="btn-primary" id="ctaBtn">Réserver mon audit gratuit <i class="fas fa-arrow-right"></i></a>
+    <h2>Prêt à sécuriser votre entreprise ?</h2>
+    <p>Audit gratuit de 30 minutes pour évaluer vos besoins. Aucun engagement.</p>
+    <a href="contact.html" class="btn-primary">Demander un audit gratuit <i class="fas fa-arrow-right"></i></a>
   </div>
 </section>
 
+<!-- Footer -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="index.html" class="logo" style="font-size:1.2rem;">
-        <svg class="logo-shield" viewBox="0 0 64 64" width="28" height="28">
-          <path d="M32 4 L8 12 V28 C8 42 18 54 32 60 C46 54 56 42 56 28 V12 Z" fill="#00D4FF" stroke="#FFB800" stroke-width="1.5"/>
-          <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="#EF4444" stroke="#7F1D1D" stroke-width="1.5"/>
-        </svg>
-        <span style="color:white">NextGen <span class="logo-text-accent">Technologies</span></span>
-      </a>
-      <p id="footerDesc">Cybersécurité, conseil et formation au service des entreprises. Une protection complète, accessible et indépendante.</p>
+      <a href="index.html" class="logo" style="font-size:1.2rem; color:white;">NextGen <span class="logo-text-accent">Technologies</span></a>
+      <p>Cybersécurité opérationnelle au Maroc. SOC, Sécurité Réseau, Pentest, Formation.</p>
     </div>
-    <div class="footer-col"><h4 id="footerServicesTitle">Services</h4><ul id="footerServicesList"></ul></div>
-    <div class="footer-col"><h4 id="footerSectorsTitle">Secteurs</h4><ul id="footerSectorsList"></ul></div>
-    <div class="footer-col"><h4 id="footerCompanyTitle">Entreprise</h4><ul id="footerCompanyList"></ul></div>
+    <div class="footer-col"><h4>Services</h4><ul><li><a href="#">Audit & Diagnostic</a></li><li><a href="#">Pentest / VAPT</a></li><li><a href="#">Sécurité Réseau</a></li><li><a href="#">SOC Consultation</a></li><li><a href="#">Academy</a></li></ul></div>
+    <div class="footer-col"><h4>Entreprise</h4><ul><li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li><li><a href="contact.html">Contact</a></li><li><a href="carrieres.html">Carrières</a></li></ul></div>
+    <div class="footer-col"><h4>Légal</h4><ul><li><a href="#">Mentions légales</a></li><li><a href="#">Confidentialité</a></li></ul></div>
   </div>
-  <div class="footer-bottom"><span id="footerCopyright">© 2026 NextGen Technologies SARL · Casablanca</span><span>Excellence & Innovation</span></div>
+  <div class="footer-bottom"><span>© 2026 NextGen Technologies SARL · Casablanca</span><span>Excellence & Innovation</span></div>
 </footer>
 
-<div id="chatbotBtn" class="chatbot-button"><i class="fas fa-comments"></i><div class="chatbot-pulse"></div></div>
+<!-- Chatbot -->
+<div id="chatbotBtn" class="chatbot-button"><i class="fas fa-comments"></i></div>
 <div id="chatbotWindow" class="chatbot-window">
-  <div class="chatbot-header"><div class="chatbot-avatar"><i class="fas fa-shield-halved"></i></div><div class="chatbot-header-info"><div class="name">NextGen Helper</div><div class="status" id="chatStatus">En ligne · Réponse rapide</div></div><button class="chatbot-close" onclick="closeChat()">×</button></div>
-  <div class="chatbot-body" id="chatBody"></div>
-  <div class="chatbot-footer" id="chatFooter">Propulsé par <strong>NextGen Technologies</strong> · Réponse humaine sous 24h</div>
+  <div class="chatbot-header"><div class="chatbot-avatar"><i class="fas fa-shield-halved"></i></div><div class="chatbot-header-info"><div class="name">NextGen Helper</div><div class="status">En ligne</div></div><button class="chatbot-close" onclick="closeChat()">×</button></div>
+  <div class="chatbot-body" id="chatBody"><div class="chat-msg bot">Bonjour 👋 Je suis <strong>NextGen Helper</strong>. Audit gratuit, pentest, réseau ou SOC ? Dites-moi ce dont vous avez besoin.</div></div>
+  <div class="chatbot-footer">Propulsé par NextGen Technologies</div>
 </div>
 
 <script>
-const translations = {
-  fr: {
-    phone: "+212 728 31 28 01", city: "Casablanca",
-    heroTitle: "Votre <span class='accent'>partenaire</span><br>cybersécurité",
-    heroDesc: "Protection, conseil et formation pour entreprises de toutes tailles. Solutions complètes adaptées à votre secteur, votre maturité et vos enjeux.",
-    heroBtn1: "Audit gratuit <i class='fas fa-arrow-right'></i>",
-    heroBtn2: "Voir tous nos services",
-    stat1: "Surveillance active", stat2: "Réponse incident", stat3: "Données souveraines", stat4: "Domaines d'expertise",
-    servicesTag: "Nos services", servicesTitle: "Une expertise complète", servicesSub: "Solutions professionnelles de cybersécurité, indépendantes des constructeurs, adaptées à chaque besoin.",
-    sectorsTag: "Secteurs d'activité", sectorsTitle: "Une expertise par métier", sectorsSub: "Chaque secteur a ses risques, ses contraintes réglementaires, ses enjeux. Nous adaptons notre approche.",
-    stepsTag: "Notre approche", stepsTitle: "4 étapes pour vous protéger", stepsSub: "Une méthodologie éprouvée et transparente.",
-    ctaTitle: "Anticipez. Protégez. Avancez sereinement", ctaDesc: "Démarrez par un audit gratuit. Vision claire de votre exposition cyber.", ctaBtn: "Réserver mon audit gratuit <i class='fas fa-arrow-right'></i>",
-    footerDesc: "Cybersécurité, conseil et formation au service des entreprises. Une protection complète, accessible et indépendante.",
-    footerCopyright: "© 2026 NextGen Technologies SARL · Casablanca",
-    footerServicesTitle: "Services", footerSectorsTitle: "Secteurs", footerCompanyTitle: "Entreprise",
-    nav: { home: "Accueil", services: "Services", sectors: "Secteurs", academy: "Academy", about: "Qui sommes-nous", careers: "Carrières", threats: "Menaces", contact: "Contact", audit: "Audit gratuit" },
-    services: [
-      {title:"SOC Consultation", desc:"Conseil stratégique pour la mise en place et l'optimisation de votre SOC.", img:"soc-consultation.jpg", link:"soc-consultation.html", gold:false},
-      {title:"Managed Security Services", desc:"Surveillance et gestion continue de votre sécurité.", img:"managed-security.jpg", link:"managed-security.html", gold:true},
-      {title:"VAPT", desc:"Tests d'intrusion et évaluation des vulnérabilités.", img:"vapt.webp", link:"vapt.html", gold:false},
-      {title:"Data Security Management", desc:"Protection complète de vos données.", img:"data-security.jpg", link:"data-security.html", gold:true},
-      {title:"Cloud Security", desc:"Sécurisation de vos environnements cloud.", img:"cloud-security.jpg", link:"cloud-security.html", gold:false},
-      {title:"Sécurité Réseau", desc:"Architecture sécurisée, pare-feu, segmentation.", img:"securite-reseau.jpg", link:"securite-reseau.html", gold:true},
-      {title:"Conformité & Régulation", desc:"Accompagnement réglementaire ISO 27001.", img:"conformite.jpg", link:"conformite.html", gold:false},
-      {title:"Academy & Formations", desc:"Programmes certifiants et formations sur mesure.", img:"Academy-Formations.jpg", link:"academy.html", gold:true}
-    ],
-    sectors: [
-      {title:"Banques & Finance", desc:"Conformité bancaire, protection contre la fraude, sécurisation des transactions.", img:"banques-finance.avif", link:"secteur-banques.html", gold:false},
-      {title:"E-commerce & Retail", desc:"Protection paiements, sécurité données clients, prévention fraude transactionnelle.", img:"ecommerce-retail.avif", link:"secteur-ecommerce.html", gold:true},
-      {title:"Santé & Pharma", desc:"Protection données patients, conformité, sécurisation des dispositifs médicaux.", img:"sante-pharma.avif", link:"secteur-sante.html", gold:false},
-      {title:"Industrie & Manufacture", desc:"Sécurisation OT/IT, protection des automates, continuité de production.", img:"industrie-manufacture.avif", link:"secteur-industrie.html", gold:true}
-    ],
-    steps: [
-      {num:"01", title:"Audit gratuit", desc:"30 minutes pour comprendre votre exposition. Aucun engagement."},
-      {num:"02", title:"Plan personnalisé", desc:"Recommandations adaptées à votre taille et budget."},
-      {num:"03", title:"Déploiement", desc:"Mise en place rapide, sans interruption."},
-      {num:"04", title:"Suivi continu", desc:"Surveillance, optimisation et accompagnement humain."}
-    ],
-    footerServices: ["SOC Consultation","Managed Security","VAPT","Data Security","Cloud Security","Conformité"],
-    footerSectors: ["Banques & Finance","E-commerce","Santé","Industrie","Administrations"],
-    footerCompany: ["Academy","Menaces actuelles","Contact","Mentions légales"]
-  },
-  en: {
-    phone: "+212 728 31 28 01", city: "Casablanca",
-    heroTitle: "Your <span class='accent'>cybersecurity</span><br>partner",
-    heroDesc: "Protection, consulting and training for businesses of all sizes.",
-    heroBtn1: "Free audit <i class='fas fa-arrow-right'></i>",
-    heroBtn2: "View all services",
-    stat1: "Active monitoring", stat2: "Incident response", stat3: "Sovereign data", stat4: "Expertise areas",
-    servicesTag: "Our services", servicesTitle: "Complete expertise", servicesSub: "Professional cybersecurity solutions, vendor-agnostic, tailored to each need.",
-    sectorsTag: "Industries", sectorsTitle: "Industry expertise", sectorsSub: "Each sector has its own risks and challenges. We adapt our approach.",
-    stepsTag: "Our approach", stepsTitle: "4 steps to protect you", stepsSub: "A proven and transparent methodology.",
-    ctaTitle: "Anticipate. Protect. Move forward", ctaDesc: "Start with a free audit. Clear view of your cyber exposure.", ctaBtn: "Book my free audit <i class='fas fa-arrow-right'></i>",
-    footerDesc: "Cybersecurity, consulting and training for businesses. Complete, accessible and independent protection.",
-    footerCopyright: "© 2026 NextGen Technologies SARL · Casablanca",
-    footerServicesTitle: "Services", footerSectorsTitle: "Sectors", footerCompanyTitle: "Company",
-    nav: { home: "Home", services: "Services", sectors: "Sectors", academy: "Academy", about: "About us", careers: "Careers", threats: "Threats", contact: "Contact", audit: "Free audit" },
-    services: [
-      {title:"SOC Consulting", desc:"Strategic advice for setting up and optimizing your SOC.", img:"soc-consultation.jpg", link:"soc-consultation.html", gold:false},
-      {title:"Managed Security Services", desc:"Continuous monitoring and management of your security.", img:"managed-security.jpg", link:"managed-security.html", gold:true},
-      {title:"VAPT", desc:"Penetration testing and vulnerability assessment.", img:"vapt.webp", link:"vapt.html", gold:false},
-      {title:"Data Security Management", desc:"Complete data protection: confidentiality, integrity.", img:"data-security.jpg", link:"data-security.html", gold:true},
-      {title:"Cloud Security", desc:"Securing your public, private and hybrid clouds.", img:"cloud-security.jpg", link:"cloud-security.html", gold:false},
-      {title:"Network Security", desc:"Secure architecture, NGFW, segmentation, VPN.", img:"securite-reseau.jpg", link:"securite-reseau.html", gold:true},
-      {title:"Compliance & Regulation", desc:"Regulatory support, ISO 27001, sector standards.", img:"conformite.jpg", link:"conformite.html", gold:false},
-      {title:"Academy & Training", desc:"Certification programs and tailored training.", img:"Academy-Formations.jpg", link:"academy.html", gold:true}
-    ],
-    sectors: [
-      {title:"Banking & Finance", desc:"Banking compliance, fraud protection, transaction security.", img:"banques-finance.jpg", link:"secteur-banques.html", gold:false},
-      {title:"E-commerce & Retail", desc:"Payment protection, customer data security.", img:"ecommerce-retail.jpg", link:"secteur-ecommerce.html", gold:true},
-      {title:"Healthcare & Pharma", desc:"Patient data protection, compliance.", img:"sante-pharma.jpg", link:"secteur-sante.html", gold:false},
-      {title:"Industry & Manufacturing", desc:"OT/IT security, production continuity.", img:"industrie-manufacture.jpg", link:"secteur-industrie.html", gold:true}
-    ],
-    steps: [
-      {num:"01", title:"Free audit", desc:"30 minutes to understand your exposure."},
-      {num:"02", title:"Custom plan", desc:"Recommendations adapted to your size."},
-      {num:"03", title:"Deployment", desc:"Fast setup, no interruption."},
-      {num:"04", title:"Continuous follow-up", desc:"Monitoring and human support."}
-    ],
-    footerServices: ["SOC Consulting","Managed Security","VAPT","Data Security","Cloud Security","Compliance"],
-    footerSectors: ["Banking & Finance","E-commerce","Healthcare","Industry","Administrations"],
-    footerCompany: ["Academy","Threats","Contact","Legal"]
-  },
-  ar: {
-    phone: "+212 728 31 28 01", city: "الدار البيضاء",
-    heroTitle: "<span class='accent'>شريكك</span><br>في الأمن السيبراني",
-    heroDesc: "الحماية والاستشارات والتكوين للشركات من جميع الأحجام.",
-    heroBtn1: "تدقيق مجاني <i class='fas fa-arrow-left'></i>",
-    heroBtn2: "جميع خدماتنا",
-    stat1: "مراقبة نشطة", stat2: "استجابة للحوادث", stat3: "بيانات سيادية", stat4: "مجالات الخبرة",
-    servicesTag: "خدماتنا", servicesTitle: "خبرة شاملة", servicesSub: "حلول احترافية للأمن السيبراني.",
-    sectorsTag: "القطاعات", sectorsTitle: "خبرة حسب المجال", sectorsSub: "لكل قطاع مخاطره وتحدياته.",
-    stepsTag: "نهجنا", stepsTitle: "4 خطوات لحمايتك", stepsSub: "منهجية مثبتة وشفافة.",
-    ctaTitle: "توقع. احمِ. تقدم بثقة", ctaDesc: "ابدأ بتدقيق مجاني.", ctaBtn: "احجز تدقيقك المجاني <i class='fas fa-arrow-left'></i>",
-    footerDesc: "الأمن السيبراني والاستشارات والتكوين للشركات.",
-    footerCopyright: "© 2026 نكستجن تكنولوجيز · الدار البيضاء",
-    footerServicesTitle: "الخدمات", footerSectorsTitle: "القطاعات", footerCompanyTitle: "الشركة",
-    nav: { home: "الرئيسية", services: "الخدمات", sectors: "القطاعات", academy: "الأكاديمية", about: "من نحن", careers: "وظائف", threats: "التهديدات", contact: "اتصل بنا", audit: "تدقيق مجاني" },
-    services: [
-      {title:"استشارات SOC", desc:"نصائح استراتيجية لإعداد وتحسين مركز عمليات الأمن الخاص بك.", img:"soc-consultation.jpg", link:"soc-consultation.html", gold:false},
-      {title:"خدمات الأمن المُدارة", desc:"مراقبة وإدارة مستمرة لأمنك.", img:"managed-security.jpg", link:"managed-security.html", gold:true},
-      {title:"VAPT", desc:"اختبار الاختراق وتقييم الثغرات.", img:"vapt.webp", link:"vapt.html", gold:false},
-      {title:"إدارة أمن البيانات", desc:"حماية كاملة لبياناتك.", img:"data-security.jpg", link:"data-security.html", gold:true},
-      {title:"أمن السحابة", desc:"تأمين بيئات السحابة العامة والخاصة.", img:"cloud-security.jpg", link:"cloud-security.html", gold:false},
-      {title:"أمن الشبكات", desc:"بنية آمنة، جدار ناري، تجزئة، VPN.", img:"securite-reseau.jpg", link:"securite-reseau.html", gold:true},
-      {title:"الامتثال والتنظيم", desc:"دعم تنظيمي: ISO 27001، المعايير القطاعية.", img:"conformite.jpg", link:"conformite.html", gold:false},
-      {title:"الأكاديمية والتكوين", desc:"برامج شهادات وتكوينات مخصصة.", img:"Academy-Formations.jpg", link:"academy.html", gold:true}
-    ],
-    sectors: [
-      {title:"البنوك والتمويل", desc:"الامتثال التنظيمي المصرفي، الحماية من الاحتيال.", img:"banques-finance.jpg", link:"secteur-banques.html", gold:false},
-      {title:"التجارة الإلكترونية", desc:"حماية المدفوعات، أمن بيانات العملاء.", img:"ecommerce-retail.jpg", link:"secteur-ecommerce.html", gold:true},
-      {title:"الصحة والمستحضرات", desc:"حماية بيانات المرضى، الامتثال.", img:"sante-pharma.jpg", link:"secteur-sante.html", gold:false},
-      {title:"الصناعة والتصنيع", desc:"تأمين OT/IT، استمرارية الإنتاج.", img:"industrie-manufacture.jpg", link:"secteur-industrie.html", gold:true}
-    ],
-    steps: [
-      {num:"٠١", title:"تدقيق مجاني", desc:"٣٠ دقيقة لفهم مدى تعرضك."},
-      {num:"٠٢", title:"خطة مخصصة", desc:"توصيات تتكيف مع حجمك."},
-      {num:"٠٣", title:"النشر", desc:"إعداد سريع دون تعطيل."},
-      {num:"٠٤", title:"متابعة مستمرة", desc:"مراقبة وتحسين ودعم بشري."}
-    ],
-    footerServices: ["استشارات SOC","خدمات الأمن المُدارة","VAPT","إدارة أمن البيانات","أمن السحابة","الامتثال"],
-    footerSectors: ["البنوك والتمويل","التجارة الإلكترونية","الصحة","الصناعة","الجهات الحكومية"],
-    footerCompany: ["الأكاديمية","التهديدات","اتصل بنا","الشروط القانونية"]
-  }
-};
+// Services Data
+const servicesData = [
+  {title:"Audit & Diagnostic", desc:"On identifie vos failles critiques en quelques jours.", img:"audit-diagnostic.jpg", link:"contact.html"},
+  {title:"Pentest / VAPT", desc:"On teste votre système comme un hacker.", img:"vapt.webp", link:"vapt.html"},
+  {title:"Sécurité Réseau", desc:"On protège votre infrastructure contre les intrusions.", img:"securite-reseau.jpg", link:"securite-reseau.html"},
+  {title:"SOC Consultation", desc:"On surveille votre système 24/7 après sécurisation.", img:"soc-consultation.jpg", link:"soc-consultation.html"},
+  {title:"Academy & Formations", desc:"Programmes certifiants et formations sur mesure.", img:"Academy-Formations.jpg", link:"academy.html"}
+];
 
-let currentLang = localStorage.getItem('nextgen-lang') || 'fr';
-
-function applyLanguage(lang) {
-  const t = translations[lang];
-  if (!t) return;
-  document.getElementById('phone').innerText = t.phone;
-  document.getElementById('city').innerText = t.city;
-  document.getElementById('heroTitle').innerHTML = t.heroTitle;
-  document.getElementById('heroDesc').innerText = t.heroDesc;
-  document.getElementById('heroBtn1').innerHTML = t.heroBtn1;
-  document.getElementById('heroBtn2').innerHTML = t.heroBtn2;
-  document.getElementById('stat1').innerText = t.stat1;
-  document.getElementById('stat2').innerText = t.stat2;
-  document.getElementById('stat3').innerText = t.stat3;
-  document.getElementById('stat4').innerText = t.stat4;
-  document.getElementById('servicesTag').innerText = t.servicesTag;
-  document.getElementById('servicesTitle').innerText = t.servicesTitle;
-  document.getElementById('servicesSub').innerText = t.servicesSub;
-  document.getElementById('sectorsTag').innerText = t.sectorsTag;
-  document.getElementById('sectorsTitle').innerText = t.sectorsTitle;
-  document.getElementById('sectorsSub').innerText = t.sectorsSub;
-  document.getElementById('stepsTag').innerText = t.stepsTag;
-  document.getElementById('stepsTitle').innerText = t.stepsTitle;
-  document.getElementById('stepsSub').innerText = t.stepsSub;
-  document.getElementById('ctaTitle').innerText = t.ctaTitle;
-  document.getElementById('ctaDesc').innerText = t.ctaDesc;
-  document.getElementById('ctaBtn').innerHTML = t.ctaBtn;
-  document.getElementById('footerDesc').innerText = t.footerDesc;
-  document.getElementById('footerCopyright').innerText = t.footerCopyright;
-  document.getElementById('footerServicesTitle').innerText = t.footerServicesTitle;
-  document.getElementById('footerSectorsTitle').innerText = t.footerSectorsTitle;
-  document.getElementById('footerCompanyTitle').innerText = t.footerCompanyTitle;
-  document.getElementById('navHome').innerText = t.nav.home;
-  document.getElementById('navServices').innerHTML = t.nav.services + ' <i class="fas fa-chevron-down"></i>';
-  document.getElementById('navSectors').innerHTML = t.nav.sectors + ' <i class="fas fa-chevron-down"></i>';
-  document.getElementById('navAcademy').innerText = t.nav.academy;
-  document.getElementById('navAbout').innerText = t.nav.about;
-  document.getElementById('navCareers').innerText = t.nav.careers;
-  document.getElementById('navThreats').innerText = t.nav.threats;
-  document.getElementById('navContact').innerText = t.nav.contact;
-  document.getElementById('navAudit').innerHTML = t.nav.audit;
-  if (document.getElementById('chatStatus')) document.getElementById('chatStatus').innerText = lang === 'ar' ? 'متصل · رد سريع' : (lang === 'en' ? 'Online · Fast reply' : 'En ligne · Réponse rapide');
-
-  const servicesGrid = document.getElementById('servicesGrid');
+const servicesGrid = document.getElementById('servicesGrid');
+if (servicesGrid) {
   servicesGrid.innerHTML = '';
-  t.services.forEach(s => {
-    servicesGrid.innerHTML += `<a href="${s.link}" class="service-card ${s.gold?'gold':''}"><div class="service-img"><img src="${s.img}" alt="${s.title}"></div><div class="service-content"><h3>${s.title}</h3><p>${s.desc}</p><span class="service-link">${lang==='ar'?'اقرأ المزيد':'En savoir plus'} <i class="fas ${lang==='ar'?'fa-arrow-left':'fa-arrow-right'}"></i></span></div></a>`;
+  servicesData.forEach(s => {
+    servicesGrid.innerHTML += `<a href="${s.link}" class="service-card"><div class="service-img"><img src="${s.img}" alt="${s.title}"></div><div class="service-content"><h3>${s.title}</h3><p>${s.desc}</p><span class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></span></div></a>`;
   });
-  
-  const sectorsGrid = document.getElementById('sectorsGrid');
-  sectorsGrid.innerHTML = '';
-  t.sectors.forEach(s => {
-    sectorsGrid.innerHTML += `<a href="${s.link}" class="service-card ${s.gold?'gold':''}"><div class="service-img"><img src="${s.img}" alt="${s.title}"></div><div class="service-content"><h3>${s.title}</h3><p>${s.desc}</p><span class="service-link">${lang==='ar'?'اقرأ المزيد':'Découvrir'} <i class="fas ${lang==='ar'?'fa-arrow-left':'fa-arrow-right'}"></i></span></div></a>`;
-  });
-  
-  const stepsGrid = document.getElementById('stepsGrid');
-  stepsGrid.innerHTML = '';
-  t.steps.forEach(s => {
-    stepsGrid.innerHTML += `<div class="step-card"><div class="step-num">${s.num}</div><h4>${s.title}</h4><p>${s.desc}</p></div>`;
-  });
-  
-  const footerServicesList = document.getElementById('footerServicesList');
-  footerServicesList.innerHTML = '';
-  t.footerServices.forEach(s => { footerServicesList.innerHTML += `<li><a href="#">${s}</a></li>`; });
-  const footerSectorsList = document.getElementById('footerSectorsList');
-  footerSectorsList.innerHTML = '';
-  t.footerSectors.forEach(s => { footerSectorsList.innerHTML += `<li><a href="#">${s}</a></li>`; });
-  const footerCompanyList = document.getElementById('footerCompanyList');
-  footerCompanyList.innerHTML = '';
-  t.footerCompany.forEach(s => { footerCompanyList.innerHTML += `<li><a href="#">${s}</a></li>`; });
-
-  if (lang === 'ar') {
-    document.documentElement.setAttribute('dir', 'rtl');
-    document.body.style.fontFamily = "'Cairo', 'Manrope', sans-serif";
-  } else {
-    document.documentElement.setAttribute('dir', 'ltr');
-    document.body.style.fontFamily = "'Manrope', sans-serif";
-  }
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    if (btn.dataset.lang === lang) btn.classList.add('active');
-    else btn.classList.remove('active');
-  });
-  localStorage.setItem('nextgen-lang', lang);
 }
 
-document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => { currentLang = btn.dataset.lang; applyLanguage(currentLang); });
-});
+// Slider Hero
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const indicator = document.getElementById('slideIndicator');
+const prevBtn = document.getElementById('prevSlide');
+const nextBtn = document.getElementById('nextSlide');
 
+if (slides.length && indicator) {
+  slides.forEach((_, i) => { const dot = document.createElement('div'); dot.onclick = () => goToSlide(i); indicator.appendChild(dot); });
+  function updateIndicators() { indicator.querySelectorAll('div').forEach((dot, i) => dot.classList.toggle('active', i === currentSlide)); }
+  function goToSlide(index) { slides[currentSlide].classList.remove('active'); currentSlide = (index + slides.length) % slides.length; slides[currentSlide].classList.add('active'); updateIndicators(); }
+  function nextSlide() { goToSlide(currentSlide + 1); }
+  function prevSlide() { goToSlide(currentSlide - 1); }
+  prevBtn?.addEventListener('click', prevSlide);
+  nextBtn?.addEventListener('click', nextSlide);
+  setInterval(nextSlide, 6000);
+  updateIndicators();
+}
+
+// Animated Counters
+function animateNumber(element, target) {
+  let current = 0, increment = target / 50;
+  const timer = setInterval(() => {
+    current += increment;
+    if (current >= target) { element.textContent = target; clearInterval(timer); }
+    else { element.textContent = Math.floor(current); }
+  }, 30);
+}
+const statObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      document.querySelectorAll('.stat-number').forEach(el => { if (el.textContent == '0') animateNumber(el, parseInt(el.dataset.target)); });
+      statObserver.disconnect();
+    }
+  });
+}, { threshold: 0.3 });
+statObserver.observe(document.querySelector('.stats-section'));
+
+// Testimonials Slider
+let currentTestimonial = 0;
+const testimonialTrack = document.getElementById('testimonialTrack');
+const testimonials = document.querySelectorAll('.testimonial-card');
+const dotsContainer = document.getElementById('testimonialDots');
+if (testimonialTrack && testimonials.length && dotsContainer) {
+  testimonials.forEach((_, i) => {
+    const dot = document.createElement('div'); dot.classList.add('testimonial-dot'); if (i === 0) dot.classList.add('active');
+    dot.onclick = () => { currentTestimonial = i; testimonialTrack.style.transform = `translateX(-${i * 100}%)`; document.querySelectorAll('.testimonial-dot').forEach((d, idx) => d.classList.toggle('active', idx === i)); };
+    dotsContainer.appendChild(dot);
+  });
+  setInterval(() => {
+    currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+    testimonialTrack.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+    document.querySelectorAll('.testimonial-dot').forEach((d, i) => d.classList.toggle('active', i === currentTestimonial));
+  }, 5000);
+}
+
+// Reveal animations
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// Chatbot
 let chatOpen = false;
-function closeChat() {
-  const win = document.getElementById('chatbotWindow');
-  if (win) win.classList.remove('open');
-  chatOpen = false;
-}
+function closeChat() { document.getElementById('chatbotWindow')?.classList.remove('open'); chatOpen = false; }
 function toggleChat() {
   const win = document.getElementById('chatbotWindow');
   if (!win) return;
-  if (win.classList.contains('open')) {
-    win.classList.remove('open');
-    chatOpen = false;
-  } else {
-    win.classList.add('open');
-    chatOpen = true;
-    const body = document.getElementById('chatBody');
-    if (body && body.children.length === 0) {
-      setTimeout(() => {
-        const msg = document.createElement('div');
-        msg.className = 'chat-msg bot';
-        msg.innerHTML = currentLang === 'ar' ? 'مرحباً 👋 أنا <strong>مساعد نكستجن</strong>. كيف يمكنني مساعدتك؟' : (currentLang === 'en' ? 'Hello 👋 I\'m <strong>NextGen Helper</strong>. How can I help you?' : 'Bonjour 👋 Je suis <strong>NextGen Helper</strong>. Comment puis-je vous aider ?');
-        body.appendChild(msg);
-        const opts = document.createElement('div');
-        opts.className = 'chat-options';
-        const responses = currentLang === 'ar' ? [
-          {text:"طلب تدقيق مجاني", action:"audit", icon:"fas fa-chart-line"},
-          {text:"حماية شركتي", action:"protect", icon:"fas fa-shield-halved"},
-          {text:"التحدث مع فريق", action:"contact", icon:"fas fa-headset"}
-        ] : (currentLang === 'en' ? [
-          {text:"Request free audit", action:"audit", icon:"fas fa-chart-line"},
-          {text:"Protect my company", action:"protect", icon:"fas fa-shield-halved"},
-          {text:"Talk to a team", action:"contact", icon:"fas fa-headset"}
-        ] : [
-          {text:"Demander un audit gratuit", action:"audit", icon:"fas fa-chart-line"},
-          {text:"Protéger mon entreprise", action:"protect", icon:"fas fa-shield-halved"},
-          {text:"Parler à un conseiller", action:"contact", icon:"fas fa-headset"}
-        ]);
-        responses.forEach(opt => {
-          const btn = document.createElement('button');
-          btn.className = 'chat-option';
-          btn.innerHTML = `<span class="icon"><i class="${opt.icon}"></i></span> ${opt.text}`;
-          btn.onclick = () => {
-            const userMsg = document.createElement('div');
-            userMsg.className = 'chat-msg user';
-            userMsg.innerHTML = opt.text;
-            body.appendChild(userMsg);
-            setTimeout(() => {
-              const reply = document.createElement('div');
-              reply.className = 'chat-msg bot';
-              if (opt.action === 'audit') {
-                reply.innerHTML = currentLang === 'ar' ? '👍 ممتاز! يمكنك حجز تدقيقك المجاني <a href="contact.html" style="color:#00D4FF">هنا</a>' : (currentLang === 'en' ? '👍 Great! You can book your free audit <a href="contact.html" style="color:#00D4FF">here</a>' : '👍 Excellent ! Vous pouvez réserver votre audit gratuit <a href="contact.html" style="color:#00D4FF">ici</a>');
-              } else if (opt.action === 'protect') {
-                reply.innerHTML = currentLang === 'ar' ? '🛡️ نحن نقدم SOC, VAPT, أمن السحابة، إلخ. <a href="services.html" style="color:#00D4FF">اكتشف خدماتنا</a>' : (currentLang === 'en' ? '🛡️ We offer SOC, VAPT, Cloud Security, etc. <a href="services.html" style="color:#00D4FF">Discover our services</a>' : '🛡️ Nous proposons SOC, VAPT, Cloud Security, etc. <a href="services.html" style="color:#00D4FF">Découvrez nos services</a>');
-              } else {
-                reply.innerHTML = currentLang === 'ar' ? '📞 اتصل بنا مباشرة على واتساب: <a href="https://wa.me/212728312801" class="chat-link whatsapp" style="display:inline-block;margin-top:8px;">واتساب</a>' : (currentLang === 'en' ? '📞 Contact us directly on WhatsApp: <a href="https://wa.me/212728312801" class="chat-link whatsapp" style="display:inline-block;margin-top:8px;">WhatsApp</a>' : '📞 Contactez-nous directement sur WhatsApp : <a href="https://wa.me/212728312801" class="chat-link whatsapp" style="display:inline-block;margin-top:8px;">WhatsApp</a>');
-              }
-              body.appendChild(reply);
-              body.scrollTop = body.scrollHeight;
-            }, 500);
-            body.scrollTop = body.scrollHeight;
-          };
-          opts.appendChild(btn);
-        });
-        body.appendChild(opts);
-        body.scrollTop = body.scrollHeight;
-      }, 400);
-    }
-  }
+  if (win.classList.contains('open')) { win.classList.remove('open'); chatOpen = false; }
+  else { win.classList.add('open'); chatOpen = true; }
 }
 document.getElementById('chatbotBtn')?.addEventListener('click', toggleChat);
 document.getElementById('chatbotWindow')?.querySelector('.chatbot-close')?.addEventListener('click', closeChat);
-window.addEventListener('DOMContentLoaded', () => { applyLanguage(currentLang); });
 document.getElementById('menuToggle')?.addEventListener('click', () => document.getElementById('navLinks')?.classList.toggle('active'));
 </script>
 </body>
