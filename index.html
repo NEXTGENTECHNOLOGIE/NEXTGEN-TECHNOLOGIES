@@ -3,1323 +3,328 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="NextGen Technologies — SOC, Sécurité Réseau, Pentest au Maroc.">
-<title>NextGen Technologies · SOC & Réseau</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<title>NextGen Technologies</title>
+
 <style>
-:root {
-  --primary: #0A1628;
-  --primary-deep: #050B14;
-  --primary-light: #0F2B4D;
-  --accent: #00D4FF;
-  --accent-dark: #0891B2;
-  --red: #EF4444;
-  --red-dark: #DC2626;
-  --gold: #FFB800;
-  --white: #FFFFFF;
-  --off-white: #E2E8F0;
-  --gray-light: #94A3B8;
-  --gray-mid: #64748B;
-  --transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Manrope', sans-serif;
-  color: var(--off-white);
-  line-height: 1.6;
-  overflow-x: hidden;
-  background: var(--primary-deep);
-}
-h1, h2, h3, h4 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-a { text-decoration: none; }
-
-/* Top Bar */
-.top-bar {
-  background: rgba(5, 11, 20, 0.95);
-  backdrop-filter: blur(10px);
-  color: var(--gray-light);
-  padding: 0.5rem 4%;
-  font-size: 0.8rem;
-  border-bottom: 1px solid rgba(0,212,255,0.2);
-  position: relative;
-  z-index: 1001;
-}
-.top-bar-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-.top-bar-info { display: flex; gap: 2rem; flex-wrap: wrap; }
-.top-bar-info span { display: flex; align-items: center; gap: 0.4rem; }
-.top-bar-info i { color: var(--accent); }
-.top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; transition: var(--transition); }
-.top-bar-social a:hover { color: var(--accent); transform: translateY(-2px); }
-
-.lang-switch {
-  display: flex;
-  gap: 0.25rem;
-  background: rgba(0,212,255,0.15);
-  padding: 0.2rem 0.6rem;
-  border-radius: 40px;
-  align-items: center;
-}
-.lang-btn {
-  background: none;
-  border: none;
-  color: var(--gray-light);
-  font-size: 0.8rem;
-  font-weight: 600;
-  cursor: pointer;
-  padding: 0.2rem 0.6rem;
-  border-radius: 30px;
-  transition: var(--transition);
-  font-family: inherit;
-}
-.lang-btn.active {
-  background: var(--accent);
-  color: var(--primary);
+:root{
+  --primary:#0A1628;
+  --secondary:#071426;
+  --accent:#00D4FF;
+  --red:#EF4444;
 }
 
-/* Navigation */
-.nav {
-  position: sticky; top: 0; z-index: 1000;
-  padding: 1rem 4%;
-  background: rgba(7, 20, 38, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0,212,255,0.15);
-}
-.nav-container {
-  max-width: 1400px; margin: 0 auto;
-  display: flex; align-items: center; justify-content: space-between;
-}
-.logo {
-  display: flex; align-items: center; gap: 0.6rem;
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700; font-size: 1.3rem;
-  color: var(--white);
-  transition: var(--transition);
-}
-.logo:hover { transform: scale(1.02); }
-.logo-shield {
-  width: 32px; height: 32px;
-  fill: var(--accent) !important;
-  flex-shrink: 0;
-  animation: float 3s ease-in-out infinite;
-}
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-.logo-text-accent { color: var(--accent); }
-
-.nav-links { display: flex; gap: 0.4rem; list-style: none; align-items: center; }
-.nav-links > li { position: relative; }
-.nav-links > li > a {
-  color: var(--off-white); font-size: 0.92rem; font-weight: 600;
-  padding: 0.6rem 1rem; border-radius: 4px;
-  transition: var(--transition);
-  display: flex; align-items: center; gap: 0.3rem;
-}
-.nav-links > li > a:hover { background: rgba(0,212,255,0.1); color: var(--accent); }
-.dropdown-menu {
-  position: absolute; top: 100%; left: 0;
-  background: #071426;
-  min-width: 280px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-  border-radius: 12px; padding: 0.6rem;
-  list-style: none;
-  opacity: 0; visibility: hidden; transform: translateY(10px);
-  transition: var(--transition);
-  border-top: 3px solid var(--accent);
-}
-.nav-links > li:hover > .dropdown-menu {
-  opacity: 1; visibility: visible; transform: translateY(0);
-}
-.dropdown-menu li a {
-  display: block; padding: 0.7rem 1rem;
-  color: var(--gray-light); font-size: 0.88rem;
-  border-radius: 8px;
-  transition: var(--transition);
-}
-.dropdown-menu li a:hover {
-  background: rgba(0,212,255,0.1); color: var(--accent); padding-left: 1.4rem;
-}
-.nav-cta {
-  background: linear-gradient(135deg, var(--red), var(--red-dark)) !important;
-  color: var(--white) !important;
-  padding: 0.7rem 1.4rem !important;
-  border-radius: 40px !important;
-  font-weight: 700 !important;
-}
-.nav-cta:hover { transform: translateY(-2px) !important; background: var(--accent) !important; color: var(--primary) !important; }
-.menu-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
-
-/* SLIDER HERO */
-.slider {
-  position: relative;
-  width: 100%;
-  height: 85vh;
-  min-height: 550px;
-  overflow: hidden;
-}
-.slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  transition: opacity 0.8s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-}
-.slide::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(5,11,20,0.85), rgba(7,20,38,0.7));
-}
-.slide.active { opacity: 1; }
-.slide .caption {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  padding: 2rem;
-}
-.slide .caption h1 {
-  font-size: clamp(2rem, 4.5vw, 3.5rem);
-  margin-bottom: 1rem;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-}
-.slide .caption h1 .accent-text { color: var(--accent); }
-.slide .caption p {
-  font-size: 1.1rem;
-  color: var(--gray-light);
-  margin-bottom: 1.5rem;
-}
-.slide .caption .btn-hero {
-  background: linear-gradient(135deg, var(--red), var(--red-dark));
-  color: var(--white);
-  padding: 0.8rem 2rem;
-  border-radius: 40px;
-  font-weight: 700;
-  transition: var(--transition);
-  display: inline-block;
-}
-.slide .caption .btn-hero:hover {
-  transform: translateY(-3px);
-  background: var(--accent);
-  color: var(--primary);
-}
-.controls {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 20px;
-  transform: translateY(-50%);
-  z-index: 10;
-}
-.controls div {
-  background: rgba(0,212,255,0.2);
-  backdrop-filter: blur(5px);
-  color: white;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: var(--transition);
-  font-size: 1.5rem;
-}
-.controls div:hover {
-  background: var(--red);
-  color: var(--white);
-  transform: scale(1.1);
-}
-.indicator {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 12px;
-  z-index: 10;
-}
-.indicator div {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.4);
-  cursor: pointer;
-  transition: var(--transition);
-}
-.indicator div.active {
-  background: var(--red);
-  width: 25px;
-  border-radius: 10px;
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:var(--primary);
+  color:white;
 }
 
-/* Values Section */
-.values-section {
-  padding: 5rem 4%;
-  background: #071426;
-}
-.values-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.value-card {
-  text-align: center;
-  padding: 2rem;
-  border-radius: 20px;
-  background: rgba(15, 42, 62, 0.6);
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(0,212,255,0.1);
-  transition: var(--transition);
-}
-.value-card:hover {
-  transform: translateY(-8px);
-  border-color: var(--red);
-  box-shadow: 0 20px 40px rgba(239,68,68,0.1);
-}
-.value-icon {
-  width: 70px;
-  height: 70px;
-  background: linear-gradient(135deg, var(--red), var(--red-dark));
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1.2rem;
-  color: var(--white);
-  font-size: 1.8rem;
-}
-.value-card h3 {
-  color: var(--white);
-  font-size: 1.3rem;
-  margin-bottom: 0.8rem;
-}
-.value-card p {
-  color: var(--gray-light);
-  font-size: 0.9rem;
+/* NAV */
+.nav{
+  display:flex;
+  justify-content:space-between;
+  padding:1rem;
+  background:var(--secondary);
 }
 
-/* Stats Section */
-.stats-section {
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
-  padding: 4rem 4%;
-}
-.stats-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  text-align: center;
-}
-.stat-item .stat-number {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 2.8rem;
-  font-weight: 700;
-  color: var(--accent);
-  line-height: 1;
-}
-.stat-item .stat-label {
-  color: var(--gray-light);
-  font-size: 0.85rem;
-  margin-top: 0.4rem;
+.lang-btn{
+  margin-left:10px;
+  padding:5px 10px;
+  cursor:pointer;
+  border:none;
 }
 
-/* Services Section */
-.services-section {
-  padding: 5rem 4%;
-  background: var(--primary-deep);
-}
-.container {
-  max-width: 1400px;
-  margin: 0 auto;
-}
-.section-tag {
-  display: inline-block;
-  color: var(--accent);
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  margin-bottom: 0.8rem;
-}
-.section-title {
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  color: var(--white);
-  margin-bottom: 0.8rem;
-  line-height: 1.15;
-}
-.section-subtitle {
-  font-size: 1.05rem;
-  color: var(--gray-light);
-  max-width: 700px;
-  margin-bottom: 3rem;
-}
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-  gap: 1.8rem;
-}
-.service-card {
-  background: rgba(15, 42, 62, 0.6);
-  backdrop-filter: blur(5px);
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid rgba(0,212,255,0.1);
-  transition: var(--transition);
-  color: inherit;
-  display: block;
-}
-.service-card:hover {
-  transform: translateY(-8px);
-  border-color: var(--red);
-  box-shadow: 0 20px 40px rgba(239,68,68,0.15);
-}
-.service-img {
-  height: 170px;
-  position: relative;
-  overflow: hidden;
-}
-.service-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-.service-card:hover .service-img img {
-  transform: scale(1.05);
-}
-.service-img::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(239,68,68,0.2), rgba(0,0,0,0.4));
-  pointer-events: none;
-}
-.service-content { padding: 1.5rem; }
-.service-content h3 { font-size: 1.15rem; color: var(--white); margin-bottom: 0.5rem; }
-.service-content p { color: var(--gray-light); font-size: 0.88rem; margin-bottom: 1rem; line-height: 1.5; }
-.service-link {
-  color: var(--accent);
-  font-size: 0.83rem;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  transition: var(--transition);
-}
-.service-card:hover .service-link { gap: 0.8rem; color: var(--red); }
-
-/* Sectors Section */
-.sectors-section {
-  padding: 5rem 4%;
-  background: #071426;
-}
-.sectors-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-}
-.sector-card {
-  background: rgba(15, 42, 62, 0.6);
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid rgba(0,212,255,0.1);
-  transition: var(--transition);
-  display: block;
-  color: inherit;
-  text-decoration: none;
-}
-.sector-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--red);
-  box-shadow: 0 15px 30px rgba(239,68,68,0.1);
-}
-.sector-card img {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-}
-.sector-card h4 {
-  color: var(--white);
-  font-size: 1rem;
-  margin: 0.8rem 1rem 0.3rem;
-}
-.sector-card p {
-  color: var(--gray-light);
-  font-size: 0.75rem;
-  margin: 0 1rem 1rem;
-  line-height: 1.4;
-}
-@media (max-width: 768px) {
-  .sectors-grid { grid-template-columns: repeat(2, 1fr); }
+.lang-btn.active{
+  background:var(--accent);
+  color:black;
 }
 
-/* Banner CTA (remplace les témoignages) */
-.banner-cta {
-  background: linear-gradient(135deg, var(--red), var(--red-dark));
-  margin: 0 4% 4rem;
-  border-radius: 20px;
-  text-align: center;
-  padding: 3rem;
-  position: relative;
-  overflow: hidden;
-}
-.banner-cta::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-}
-.banner-cta-content {
-  position: relative;
-  z-index: 2;
-}
-.banner-cta h2 {
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  color: var(--white);
-  margin-bottom: 0.5rem;
-}
-.banner-cta p {
-  color: rgba(255,255,255,0.9);
-  margin-bottom: 1.5rem;
-}
-.banner-cta .btn-banner {
-  background: var(--white);
-  color: var(--red);
-  padding: 0.8rem 2rem;
-  border-radius: 40px;
-  font-weight: 700;
-  transition: var(--transition);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-.banner-cta .btn-banner:hover {
-  transform: translateY(-3px);
-  background: var(--primary);
-  color: var(--white);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+/* HERO */
+.hero{
+  padding:80px 20px;
+  text-align:center;
 }
 
-/* CTA Block final */
-.cta-block {
-  background: linear-gradient(135deg, var(--primary-light), var(--primary));
-  text-align: center;
-  padding: 4rem 4%;
-}
-.cta-block-content {
-  max-width: 700px;
-  margin: 0 auto;
-}
-.cta-block h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--white); margin-bottom: 1rem; }
-.cta-block p { color: var(--gray-light); margin-bottom: 2rem; }
-.btn-primary {
-  background: linear-gradient(135deg, var(--red), var(--red-dark));
-  color: var(--white);
-  padding: 1rem 2rem;
-  border-radius: 40px;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  transition: var(--transition);
-}
-.btn-primary:hover {
-  background: var(--accent);
-  color: var(--primary);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(239,68,68,0.3);
+.hero h1{
+  font-size:2.5rem;
 }
 
-/* Footer simplifié */
-footer {
-  background: var(--primary-deep);
-  border-top: 1px solid rgba(0,212,255,0.1);
-  padding: 3rem 4% 1.5rem;
-}
-.footer-content {
-  max-width: 1400px;
-  margin: 0 auto;
-  text-align: center;
-}
-.footer-brand {
-  margin-bottom: 1.5rem;
-}
-.footer-brand .logo {
-  display: inline-flex;
-  justify-content: center;
-  margin-bottom: 1rem;
-}
-.footer-brand p {
-  color: var(--gray-mid);
-  font-size: 0.88rem;
-  max-width: 400px;
-  margin: 0 auto;
-}
-.footer-contact {
-  margin: 1.5rem 0;
-}
-.footer-contact p {
-  color: var(--gray-light);
-  font-size: 0.85rem;
-  margin: 0.3rem 0;
-}
-.footer-contact i {
-  color: var(--accent);
-  margin-right: 0.5rem;
-}
-.footer-bottom {
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(0,212,255,0.1);
-  font-size: 0.75rem;
-  color: var(--gray-mid);
+.btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:10px 20px;
+  background:var(--red);
+  color:white;
+  text-decoration:none;
 }
 
-/* Chatbot */
-.chatbot-button {
-  position: fixed; bottom: 25px; right: 25px;
-  width: 60px; height: 60px;
-  background: linear-gradient(135deg, var(--red), var(--red-dark));
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--white);
-  font-size: 1.6rem;
-  cursor: pointer;
-  box-shadow: 0 6px 25px rgba(239,68,68,0.5);
-  z-index: 998;
-  transition: var(--transition);
-}
-.chatbot-button:hover { transform: scale(1.1); }
-.chatbot-window {
-  position: fixed; bottom: 100px; right: 25px;
-  width: 380px;
-  max-width: calc(100vw - 50px);
-  height: 540px;
-  background: #071426;
-  border-radius: 20px;
-  border: 1px solid rgba(0,212,255,0.2);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-  z-index: 999;
-  display: none;
-  flex-direction: column;
-  overflow: hidden;
-}
-.chatbot-window.open { display: flex; }
-.chatbot-header {
-  background: #0F2B4D;
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-.chatbot-avatar {
-  width: 44px; height: 44px;
-  background: var(--red);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-  color: var(--white);
-}
-.chatbot-header-info .name { font-weight: 700; color: var(--white); }
-.chatbot-header-info .status { font-size: 0.75rem; color: var(--accent); }
-.chatbot-close {
-  background: none;
-  border: none;
-  color: var(--white);
-  font-size: 1.4rem;
-  cursor: pointer;
-}
-.chatbot-body {
-  flex: 1;
-  overflow-y: auto;
-  padding: 1rem;
-  background: var(--primary-deep);
-}
-.chat-msg {
-  max-width: 85%;
-  padding: 0.7rem 1rem;
-  border-radius: 18px;
-  font-size: 0.88rem;
-  margin-bottom: 0.8rem;
-}
-.chat-msg.bot {
-  background: #0F2B4D;
-  color: var(--off-white);
-  border-bottom-left-radius: 4px;
-}
-.chat-msg.user {
-  background: var(--red);
-  color: var(--white);
-  margin-left: auto;
-  border-bottom-right-radius: 4px;
-}
-.chat-options {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin: 0.5rem 0;
-}
-.chat-option {
-  background: #0F2B4D;
-  border: 1px solid rgba(0,212,255,0.2);
-  padding: 0.6rem 1rem;
-  border-radius: 12px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  color: var(--off-white);
-  transition: var(--transition);
-}
-.chat-option:hover {
-  border-color: var(--red);
-  background: rgba(239,68,68,0.1);
-}
-.chat-link {
-  display: inline-block;
-  background: #0F2B4D;
-  color: var(--white);
-  padding: 0.7rem 1rem;
-  border-radius: 12px;
-  text-align: center;
-  width: 100%;
-  margin-top: 0.5rem;
-}
-.chat-link.whatsapp { background: #25D366; color: white; }
-.chatbot-footer {
-  padding: 0.6rem;
-  border-top: 1px solid rgba(0,212,255,0.1);
-  background: var(--primary-deep);
-  font-size: 0.7rem;
-  text-align: center;
-  color: var(--gray-mid);
+/* SECTIONS */
+.section{
+  padding:50px 20px;
+  text-align:center;
 }
 
-/* Animations */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
+/* CHATBOT */
+.chatbot-button{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:60px;
+  height:60px;
+  background:var(--red);
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
 }
 
-@media (max-width: 768px) {
-  .nav-links {
-    position: fixed; top: 70px; right: 0;
-    flex-direction: column;
-    background: #071426;
-    padding: 1.5rem;
-    width: 100%;
-    gap: 0.5rem;
-    transform: translateX(100%);
-    transition: transform 0.3s;
-  }
-  .nav-links.active { transform: translateX(0); }
-  .menu-toggle { display: block; }
-  .dropdown-menu {
-    position: static;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    box-shadow: none;
-    padding-left: 1rem;
-  }
-  .values-grid, .stats-container, .services-grid { grid-template-columns: 1fr; }
-  .sectors-grid { grid-template-columns: repeat(2, 1fr); }
-  .slider { height: 100vh; }
-  .banner-cta { margin: 2rem 4% 2rem; padding: 2rem; }
+.chatbot-window{
+  position:fixed;
+  bottom:90px;
+  right:20px;
+  width:320px;
+  height:420px;
+  background:var(--secondary);
+  display:none;
+  flex-direction:column;
+  border:1px solid var(--accent);
+}
+
+.chatbot-window.open{
+  display:flex;
+}
+
+.chat-body{
+  flex:1;
+  padding:10px;
+  overflow:auto;
+}
+
+.chat-msg{
+  margin:5px 0;
+  padding:8px;
+  border-radius:10px;
+}
+
+.bot{background:#0F2B4D;}
+.user{background:var(--red); text-align:right;}
+
+.chat-input-wrapper{
+  display:flex;
+}
+
+.chat-input{
+  flex:1;
+  padding:8px;
+}
+
+.chat-send{
+  background:var(--red);
+  color:white;
+  border:none;
+  padding:8px;
+  cursor:pointer;
 }
 </style>
 </head>
+
 <body>
 
-<div class="top-bar">
-  <div class="top-bar-container">
-    <div class="top-bar-info">
-      <span><i class="fas fa-phone"></i> +212 728 31 28 01</span>
-      <span><i class="fas fa-envelope"></i> contact@nextgentechnologies.net</span>
-      <span><i class="fas fa-map-marker-alt"></i> Casablanca</span>
-    </div>
-    <div class="lang-switch">
-      <button class="lang-btn active" data-lang="fr">🇫🇷 FR</button>
-      <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
-      <button class="lang-btn" data-lang="ar">🇸🇦 AR</button>
-    </div>
-    <div class="top-bar-social">
-      <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      <a href="#"><i class="fab fa-x-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
+<!-- NAV -->
+<div class="nav">
+  <div><strong>NextGen</strong></div>
+  <div>
+    <button class="lang-btn active" data-lang="fr">FR</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="ar">AR</button>
   </div>
 </div>
 
-<nav class="nav">
-  <div class="nav-container">
-    <a href="index.html" class="logo">
-      <svg class="logo-shield" viewBox="0 0 64 64" width="32" height="32">
-        <path d="M32 4 L8 12 V28 C8 42 18 54 32 60 C46 54 56 42 56 28 V12 Z" fill="#00D4FF" stroke="#FFB800" stroke-width="1.5"/>
-        <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="#EF4444" stroke="#7F1D1D" stroke-width="1.5"/>
-      </svg>
-      <span>NextGen <span class="logo-text-accent">Technologies</span></span>
-    </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="secteurs.html">Secteurs</a></li>
-      <li><a href="academy.html">Academy</a></li>
-      <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
-      <li><a href="carrieres.html">Carrières</a></li>
-      <li><a href="menaces.html">Menaces</a></li>
-      <li><a href="campus-cyber.html">🎓 Campus Cyber</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="contact.html" class="nav-cta">Audit gratuit</a></li>
-    </ul>
-    <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
-  </div>
-</nav>
-
-<!-- SLIDER HERO - 4 slides avec tes phrases -->
-<div class="slider" id="heroSlider">
-  <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1920');">
-    <div class="caption">
-      <h1>Dans un monde <span class="accent-text">connecté</span>, chaque entreprise devient une cible</h1>
-      <p>SOC, Sécurité Réseau et Pentest pour les entreprises marocaines.</p>
-      <a href="contact.html" class="btn-hero">Audit gratuit <i class="fas fa-arrow-right"></i></a>
-    </div>
-  </div>
-  <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1920');">
-    <div class="caption">
-      <h1>Nous transformons les <span class="accent-text">vulnérabilités</span> en forces</h1>
-      <p>Surveillance 24/7 de votre infrastructure critique.</p>
-      <a href="contact.html" class="btn-hero">En savoir plus</a>
-    </div>
-  </div>
-  <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1920');">
-    <div class="caption">
-      <h1>Sécuriser <span class="accent-text">aujourd'hui</span> pour performer demain</h1>
-      <p>Pentest et audit de vulnérabilités pour valider votre sécurité.</p>
-      <a href="contact.html" class="btn-hero">Demander un audit</a>
-    </div>
-  </div>
-  <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1562813733-b31f71025d54?w=1920');">
-    <div class="caption">
-      <h1>Protéger vos <span class="accent-text">systèmes</span>, c'est sécuriser votre croissance</h1>
-      <p>Des talents locaux pour des entreprises marocaines.</p>
-      <a href="contact.html" class="btn-hero">Nous contacter</a>
-    </div>
-  </div>
-  <div class="controls">
-    <div class="prev" id="prevSlide">❮</div>
-    <div class="next" id="nextSlide">❯</div>
-  </div>
-  <div class="indicator" id="slideIndicator"></div>
+<!-- HERO -->
+<div class="hero">
+  <h1 id="heroTitle">Sécurisez votre entreprise dès aujourd'hui</h1>
+  <p id="heroDesc">SOC, Pentest et Sécurité Réseau au Maroc</p>
+  <a href="#" class="btn" id="heroBtn">Audit gratuit</a>
 </div>
 
-<!-- Values Section -->
-<section class="values-section">
-  <div style="text-align: center; margin-bottom: 3rem;">
-    <span class="section-tag">Nos valeurs</span>
-    <h2 class="section-title">Pourquoi nous faire confiance ?</h2>
-  </div>
-  <div class="values-grid">
-    <div class="value-card reveal">
-      <div class="value-icon"><i class="fas fa-handshake"></i></div>
-      <h3>Engagés</h3>
-      <p>Nous sommes des talents terrain, pas des commerciaux. Votre sécurité est notre priorité absolue.</p>
-    </div>
-    <div class="value-card reveal">
-      <div class="value-icon"><i class="fas fa-rocket"></i></div>
-      <h3>Proactifs</h3>
-      <p>On anticipe les menaces, on ne les subit pas. Notre SOC veille 24/7 sur vos infrastructures.</p>
-    </div>
-    <div class="value-card reveal">
-      <div class="value-icon"><i class="fas fa-chalkboard-user"></i></div>
-      <h3>Pédagogues</h3>
-      <p>On forme vos équipes. La sécurité se vit au quotidien, pas juste dans un rapport.</p>
-    </div>
-  </div>
-</section>
+<!-- VALUES -->
+<div class="section">
+  <h2 id="valuesTitle">Pourquoi nous faire confiance ?</h2>
 
-<!-- Stats Section -->
-<section class="stats-section">
-  <div class="stats-container">
-    <div class="stat-item"><div class="stat-number" id="stat1" data-target="15">0</div><div class="stat-label">Années d'expérience cumulées</div></div>
-    <div class="stat-item"><div class="stat-number" id="stat2" data-target="4">0</div><div class="stat-label">Talents fondateurs</div></div>
-    <div class="stat-item"><div class="stat-number" id="stat3" data-target="24">0</div><div class="stat-label">Surveillance 24/7</div></div>
-    <div class="stat-item"><div class="stat-number" id="stat4" data-target="100">0</div><div class="stat-label">Données souveraines (%)</div></div>
-  </div>
-</section>
+  <h3 id="v1Title">Engagés</h3>
+  <p id="v1Desc">Votre sécurité est notre priorité.</p>
 
-<!-- Services Section -->
-<section class="services-section">
-  <div class="container">
-    <span class="section-tag">Nos offres clés</span>
-    <h2 class="section-title">Ce que nous faisons concrètement</h2>
-    <p class="section-subtitle">Pas de jargon, du concret. On identifie, on teste, on sécurise, on surveille, on forme.</p>
-    <div class="services-grid" id="servicesGrid"></div>
-  </div>
-</section>
+  <h3 id="v2Title">Proactifs</h3>
+  <p id="v2Desc">Nous anticipons les attaques.</p>
 
-<!-- Sectors Section avec photos -->
-<section class="sectors-section">
-  <div class="container">
-    <span class="section-tag">Secteurs d'activité</span>
-    <h2 class="section-title">Une expertise par métier</h2>
-    <div class="sectors-grid">
-      <a href="secteur-banques.html" class="sector-card reveal">
-        <img src="banques-finance.avif" alt="Banques & Finance">
-        <h4>Banques & Finance</h4>
-        <p>Conformité bancaire, protection contre la fraude</p>
-      </a>
-      <a href="secteur-ecommerce.html" class="sector-card reveal">
-        <img src="ecommerce-retail.avif" alt="E-commerce & Retail">
-        <h4>E-commerce & Retail</h4>
-        <p>Protection paiements, sécurité données clients</p>
-      </a>
-      <a href="secteur-sante.html" class="sector-card reveal">
-        <img src="sante-pharma.avif" alt="Santé & Pharma">
-        <h4>Santé & Pharma</h4>
-        <p>Protection données patients, conformité</p>
-      </a>
-      <a href="secteur-industrie.html" class="sector-card reveal">
-        <img src="industrie-manufacture.avif" alt="Industrie & Manufacture">
-        <h4>Industrie & Manufacture</h4>
-        <p>Sécurisation OT/IT, continuité de production</p>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- Banner CTA (remplace les témoignages) -->
-<div class="banner-cta reveal" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 2rem; margin: 2rem 4%; text-align: center;">
-  <div class="banner-cta-content">
-    <h2 style="color: #0A1628; font-size: 1.6rem; margin-bottom: 0.5rem;">🔐 Évaluez votre niveau de sécurité dès maintenant</h2>
-    <p style="color: #64748B; margin-bottom: 1rem;">Audit gratuit de 30 minutes. Aucun engagement.</p>
-    <a href="contact.html" class="btn-banner" style="background: #00D4FF; color: #0A1628; padding: 0.6rem 1.5rem; border-radius: 40px; font-weight: 700; display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;">Demander mon audit <i class="fas fa-arrow-right"></i></a>
-  </div>
+  <h3 id="v3Title">Pédagogues</h3>
+  <p id="v3Desc">Nous formons vos équipes.</p>
 </div>
 
-<!-- CTA Block final -->
-<section class="cta-block">
-  <div class="cta-block-content">
-    <h2>Prêt à sécuriser votre entreprise ?</h2>
-    <p>Audit gratuit de 30 minutes pour évaluer vos besoins. Aucun engagement.</p>
-    <a href="contact.html" class="btn-primary">Demander un audit gratuit <i class="fas fa-arrow-right"></i></a>
-  </div>
-</section>
+<!-- CTA -->
+<div class="section">
+  <h2 id="ctaTitle">Prêt à sécuriser votre entreprise ?</h2>
+  <a href="#" class="btn" id="ctaBtn">Demander un audit</a>
+</div>
 
-<!-- Footer simplifié -->
-<footer>
-  <div class="footer-content">
-    <div class="footer-brand">
-      <a href="index.html" class="logo" style="display: inline-flex; font-size: 1.2rem;">
-        <svg class="logo-shield" viewBox="0 0 64 64" width="28" height="28">
-          <path d="M32 4 L8 12 V28 C8 42 18 54 32 60 C46 54 56 42 56 28 V12 Z" fill="#00D4FF" stroke="#FFB800" stroke-width="1.5"/>
-          <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="#EF4444" stroke="#7F1D1D" stroke-width="1.5"/>
-        </svg>
-        <span style="color:white">NextGen <span class="logo-text-accent">Technologies</span></span>
-      </a>
-      <p>Cybersécurité opérationnelle au Maroc. SOC, Sécurité Réseau, Pentest, Formation.</p>
-    </div>
-    <div class="footer-contact">
-      <p><i class="fas fa-map-marker-alt"></i> MAROC</p>
-      <p><i class="fas fa-envelope"></i> contact@nextgentechnologies.net</p>
-      <p><i class="fas fa-phone"></i> +212 728 31 28 01</p>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 NextGen Technologies SARL · Morocco</p>
-    </div>
-  </div>
-</footer>
+<!-- CHAT -->
+<div class="chatbot-button" id="chatBtn">💬</div>
 
-<!-- CHATBOT -->
-<div id="chatbotBtn" class="chatbot-button"><i class="fas fa-comments"></i></div>
-<div id="chatbotWindow" class="chatbot-window">
-  <div class="chatbot-header">
-    <div class="chatbot-avatar"><i class="fas fa-shield-halved"></i></div>
-    <div class="chatbot-header-info"><div class="name">NextGen Helper</div><div class="status" id="chatStatus">En ligne</div></div>
-    <button class="chatbot-close" id="chatbotCloseBtn">×</button>
-  </div>
-  <div class="chatbot-body" id="chatBody"></div>
-  <div class="chatbot-footer">Propulsé par NextGen Technologies</div>
+<div class="chatbot-window" id="chatWindow">
+  <div class="chat-body" id="chatBody"></div>
 </div>
 
 <script>
-// DONNÉES MULTILINGUES
-const servicesData = {
-  fr: [
-    {title:"Audit & Diagnostic", desc:"On identifie vos failles critiques en quelques jours.", img:"audit-diagnostic.jpg", link:"contact.html"},
-    {title:"Pentest / VAPT", desc:"On teste votre système comme un hacker.", img:"vapt.webp", link:"vapt.html"},
-    {title:"Sécurité Réseau", desc:"On protège votre infrastructure contre les intrusions.", img:"securite-reseau.jpg", link:"securite-reseau.html"},
-    {title:"SOC Consultation", desc:"On surveille votre système 24/7 après sécurisation.", img:"soc-consultation.jpg", link:"soc-consultation.html"},
-    {title:"Academy & Formations", desc:"Programmes certifiants et formations sur mesure.", img:"Academy-Formations.jpg", link:"academy.html"}
-  ],
-  en: [
-    {title:"Audit & Diagnostic", desc:"We identify your critical flaws in a few days.", img:"audit-diagnostic.jpg", link:"contact.html"},
-    {title:"Pentest / VAPT", desc:"We test your system like a hacker.", img:"vapt.webp", link:"vapt.html"},
-    {title:"Network Security", desc:"We protect your infrastructure against intrusions.", img:"securite-reseau.jpg", link:"securite-reseau.html"},
-    {title:"SOC Consulting", desc:"We monitor your system 24/7 after securing it.", img:"soc-consultation.jpg", link:"soc-consultation.html"},
-    {title:"Academy & Training", desc:"Certification programs and tailored training.", img:"Academy-Formations.jpg", link:"academy.html"}
-  ],
-  ar: [
-    {title:"التدقيق والتشخيص", desc:"نحدد نقاط ضعفك الحرجة في أيام قليلة.", img:"audit-diagnostic.jpg", link:"contact.html"},
-    {title:"اختبار الاختراق", desc:"نختبر نظامك مثل القراصنة.", img:"vapt.webp", link:"vapt.html"},
-    {title:"أمن الشبكات", desc:"نحمي بنيتك التحتية من الاختراقات.", img:"securite-reseau.jpg", link:"securite-reseau.html"},
-    {title:"استشارات SOC", desc:"نراقب نظامك 24/7 بعد تأمينه.", img:"soc-consultation.jpg", link:"soc-consultation.html"},
-    {title:"الأكاديمية والتكوين", desc:"برامج شهادات وتكوينات مخصصة.", img:"Academy-Formations.jpg", link:"academy.html"}
-  ]
-};
 
-const sectorsData = {
-  fr: [
-    {title:"Banques & Finance", desc:"Conformité bancaire, protection contre la fraude", img:"banques-finance.jpg", link:"secteur-banques.html"},
-    {title:"E-commerce & Retail", desc:"Protection paiements, sécurité données clients", img:"ecommerce-retail.jpg", link:"secteur-ecommerce.html"},
-    {title:"Santé & Pharma", desc:"Protection données patients, conformité", img:"sante-pharma.jpg", link:"secteur-sante.html"},
-    {title:"Industrie & Manufacture", desc:"Sécurisation OT/IT, continuité de production", img:"industrie-manufacture.jpg", link:"secteur-industrie.html"}
-  ],
-  en: [
-    {title:"Banking & Finance", desc:"Banking compliance, fraud protection", img:"banques-finance.jpg", link:"secteur-banques.html"},
-    {title:"E-commerce & Retail", desc:"Payment protection, customer data security", img:"ecommerce-retail.jpg", link:"secteur-ecommerce.html"},
-    {title:"Healthcare & Pharma", desc:"Patient data protection, compliance", img:"sante-pharma.jpg", link:"secteur-sante.html"},
-    {title:"Industry & Manufacturing", desc:"OT/IT security, production continuity", img:"industrie-manufacture.jpg", link:"secteur-industrie.html"}
-  ],
-  ar: [
-    {title:"البنوك والتمويل", desc:"الامتثال المصرفي، الحماية من الاحتيال", img:"banques-finance.jpg", link:"secteur-banques.html"},
-    {title:"التجارة الإلكترونية", desc:"حماية المدفوعات، أمن بيانات العملاء", img:"ecommerce-retail.jpg", link:"secteur-ecommerce.html"},
-    {title:"الصحة والمستحضرات", desc:"حماية بيانات المرضى، الامتثال", img:"sante-pharma.jpg", link:"secteur-sante.html"},
-    {title:"الصناعة والتصنيع", desc:"تأمين OT/IT، استمرارية الإنتاج", img:"industrie-manufacture.jpg", link:"secteur-industrie.html"}
-  ]
-};
-
+/* LANGUES */
 const translations = {
-  fr: {
-    valuesTitle: "Pourquoi nous faire confiance ?",
-    value1Title: "Engagés", value1Desc: "Nous sommes des talents terrain, pas des commerciaux. Votre sécurité est notre priorité absolue.",
-    value2Title: "Proactifs", value2Desc: "On anticipe les menaces, on ne les subit pas. Notre SOC veille 24/7 sur vos infrastructures.",
-    value3Title: "Pédagogues", value3Desc: "On forme vos équipes. La sécurité se vit au quotidien, pas juste dans un rapport.",
-    statLabels: ["Années d'expérience cumulées", "Talents fondateurs", "Surveillance 24/7", "Données souveraines (%)"],
-    servicesTag: "Nos offres clés", servicesTitle: "Ce que nous faisons concrètement", servicesSub: "Pas de jargon, du concret. On identifie, on teste, on sécurise, on surveille, on forme.",
-    sectorsTag: "Secteurs d'activité", sectorsTitle: "Une expertise par métier",
-    bannerTitle: "🔐 Évaluez votre niveau de sécurité dès maintenant", bannerText: "Audit gratuit de 30 minutes. Aucun engagement.", bannerBtn: "Demander mon audit",
-    ctaTitle: "Prêt à sécuriser votre entreprise ?", ctaText: "Audit gratuit de 30 minutes pour évaluer vos besoins. Aucun engagement.", ctaBtn: "Demander un audit gratuit",
-    chatStatus: "En ligne"
+  fr:{
+    heroTitle:"Sécurisez votre entreprise dès aujourd'hui",
+    heroDesc:"SOC, Pentest et Sécurité Réseau au Maroc",
+    heroBtn:"Audit gratuit",
+    valuesTitle:"Pourquoi nous faire confiance ?",
+    v1Title:"Engagés",
+    v1Desc:"Votre sécurité est notre priorité.",
+    v2Title:"Proactifs",
+    v2Desc:"Nous anticipons les attaques.",
+    v3Title:"Pédagogues",
+    v3Desc:"Nous formons vos équipes.",
+    ctaTitle:"Prêt à sécuriser votre entreprise ?",
+    ctaBtn:"Demander un audit",
+    hello:"Bonjour 👋 Comment puis-je vous aider ?"
   },
-  en: {
-    valuesTitle: "Why trust us?",
-    value1Title: "Committed", value1Desc: "We are field talents, not salespeople. Your security is our absolute priority.",
-    value2Title: "Proactive", value2Desc: "We anticipate threats, we don't suffer them. Our SOC monitors your infrastructure 24/7.",
-    value3Title: "Educators", value3Desc: "We train your teams. Security is lived daily, not just in a report.",
-    statLabels: ["Years of experience", "Founding talents", "24/7 Monitoring", "Sovereign data (%)"],
-    servicesTag: "Our key offers", servicesTitle: "What we do concretely", servicesSub: "No jargon, just concrete. We identify, test, secure, monitor, train.",
-    sectorsTag: "Industries", sectorsTitle: "Industry expertise",
-    bannerTitle: "🔐 Assess your security level now", bannerText: "30-minute free audit. No commitment.", bannerBtn: "Request my audit",
-    ctaTitle: "Ready to secure your business?", ctaText: "30-minute free audit to assess your needs. No commitment.", ctaBtn: "Request free audit",
-    chatStatus: "Online"
+  en:{
+    heroTitle:"Secure your business today",
+    heroDesc:"SOC, Pentest and Network Security",
+    heroBtn:"Free audit",
+    valuesTitle:"Why trust us?",
+    v1Title:"Committed",
+    v1Desc:"Your security is our priority.",
+    v2Title:"Proactive",
+    v2Desc:"We anticipate attacks.",
+    v3Title:"Educators",
+    v3Desc:"We train your teams.",
+    ctaTitle:"Ready to secure your business?",
+    ctaBtn:"Request audit",
+    hello:"Hello 👋 How can I help?"
   },
-  ar: {
-    valuesTitle: "لماذا تثق بنا؟",
-    value1Title: "ملتزمون", value1Desc: "نحن مواهب ميدانية، وليس بائعين. أمنك هو أولويتنا المطلقة.",
-    value2Title: "استباقيون", value2Desc: "نتوقع التهديدات، لا نعاني منها. SOC لدينا يراقب بنيتك التحتية 24/7.",
-    value3Title: "معلمون", value3Desc: "ندرب فرقك. الأمن يعاش يوميا، ليس فقط في تقرير.",
-    statLabels: ["سنوات الخبرة", "مواهب مؤسسة", "مراقبة 24/7", "بيانات سيادية (%)"],
-    servicesTag: "عروضنا الرئيسية", servicesTitle: "ماذا نفعل بشكل ملموس", servicesSub: "لا مصطلحات معقدة. نحدد، نختبر، نؤمن، نراقب، نكون.",
-    sectorsTag: "القطاعات", sectorsTitle: "خبرة حسب المجال",
-    bannerTitle: "🔐 قيم مستوى أمانك الآن", bannerText: "تدقيق مجاني لمدة 30 دقيقة. بدون التزام.", bannerBtn: "اطلب تدقيقي",
-    ctaTitle: "مستعد لتأمين عملك؟", ctaText: "تدقيق مجاني لمدة 30 دقيقة لتقييم احتياجاتك. بدون التزام.", ctaBtn: "اطلب تدقيقًا مجانيًا",
-    chatStatus: "متصل"
+  ar:{
+    heroTitle:"أمّن شركتك اليوم",
+    heroDesc:"SOC واختبار الاختراق وأمن الشبكات",
+    heroBtn:"تدقيق مجاني",
+    valuesTitle:"لماذا تثق بنا؟",
+    v1Title:"ملتزمون",
+    v1Desc:"أمنك أولويتنا.",
+    v2Title:"استباقيون",
+    v2Desc:"نتوقع الهجمات.",
+    v3Title:"معلمون",
+    v3Desc:"ندرب فرقك.",
+    ctaTitle:"هل أنت مستعد لتأمين عملك؟",
+    ctaBtn:"اطلب تدقيقًا",
+    hello:"مرحبا 👋 كيف أساعدك؟"
   }
 };
 
-let currentLang = localStorage.getItem('nextgen-lang') || 'fr';
+let currentLang="fr";
 
-// APPLICATION DE LA LANGUE
-function applyLanguage(lang) {
-  const t = translations[lang];
-  if (!t) return;
-  
-  document.getElementById('valuesTitle').innerText = t.valuesTitle;
-  document.getElementById('value1Title').innerText = t.value1Title;
-  document.getElementById('value1Desc').innerText = t.value1Desc;
-  document.getElementById('value2Title').innerText = t.value2Title;
-  document.getElementById('value2Desc').innerText = t.value2Desc;
-  document.getElementById('value3Title').innerText = t.value3Title;
-  document.getElementById('value3Desc').innerText = t.value3Desc;
-  
-  for (let i = 0; i < t.statLabels.length; i++) {
-    const labelEl = document.getElementById(`statLabel${i+1}`);
-    if (labelEl) labelEl.innerText = t.statLabels[i];
+function applyLang(lang){
+  currentLang=lang;
+  const t=translations[lang];
+
+  for(let key in t){
+    const el=document.getElementById(key);
+    if(el) el.innerText=t[key];
   }
-  
-  document.getElementById('servicesTag').innerText = t.servicesTag;
-  document.getElementById('servicesTitle').innerText = t.servicesTitle;
-  document.getElementById('servicesSub').innerText = t.servicesSub;
-  document.getElementById('sectorsTag').innerText = t.sectorsTag;
-  document.getElementById('sectorsTitle').innerText = t.sectorsTitle;
-  document.getElementById('bannerTitle').innerHTML = t.bannerTitle;
-  document.getElementById('bannerText').innerText = t.bannerText;
-  document.getElementById('bannerBtn').innerHTML = t.bannerBtn + ' <i class="fas fa-arrow-right"></i>';
-  document.getElementById('ctaTitle').innerText = t.ctaTitle;
-  document.getElementById('ctaText').innerText = t.ctaText;
-  document.getElementById('ctaBtn').innerHTML = t.ctaBtn + ' <i class="fas fa-arrow-right"></i>';
-  document.getElementById('chatStatus').innerText = t.chatStatus;
-  
-  const servicesGrid = document.getElementById('servicesGrid');
-  if (servicesGrid) {
-    servicesGrid.innerHTML = '';
-    servicesData[lang].forEach(s => {
-      servicesGrid.innerHTML += `<a href="${s.link}" class="service-card"><div class="service-img"><img src="${s.img}" alt="${s.title}"></div><div class="service-content"><h3>${s.title}</h3><p>${s.desc}</p><span class="service-link">${lang === 'ar' ? 'اقرأ المزيد' : 'En savoir plus'} <i class="fas ${lang === 'ar' ? 'fa-arrow-left' : 'fa-arrow-right'}"></i></span></div></a>`;
-    });
+
+  if(lang==="ar"){
+    document.body.dir="rtl";
+  }else{
+    document.body.dir="ltr";
   }
-  
-  const sectorsGrid = document.getElementById('sectorsGrid');
-  if (sectorsGrid) {
-    sectorsGrid.innerHTML = '';
-    sectorsData[lang].forEach(s => {
-      sectorsGrid.innerHTML += `<a href="${s.link}" class="sector-card reveal"><img src="${s.img}" alt="${s.title}"><h4>${s.title}</h4><p>${s.desc}</p></a>`;
-    });
-  }
-  
-  if (lang === 'ar') {
-    document.documentElement.setAttribute('dir', 'rtl');
-    document.body.style.fontFamily = "'Cairo', 'Manrope', sans-serif";
-  } else {
-    document.documentElement.setAttribute('dir', 'ltr');
-    document.body.style.fontFamily = "'Manrope', sans-serif";
-  }
-  
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.remove('active');
-    if (btn.getAttribute('data-lang') === lang) {
-      btn.classList.add('active');
-    }
+
+  document.querySelectorAll(".lang-btn").forEach(btn=>{
+    btn.classList.remove("active");
+    if(btn.dataset.lang===lang) btn.classList.add("active");
   });
-  
-  localStorage.setItem('nextgen-lang', lang);
 }
 
-// CHATBOT INTELLIGENT
-const chatBtn = document.getElementById('chatbotBtn');
-const chatWindow = document.getElementById('chatbotWindow');
-const chatCloseBtn = document.getElementById('chatbotCloseBtn');
-const chatBody = document.getElementById('chatBody');
+document.querySelectorAll(".lang-btn").forEach(btn=>{
+  btn.onclick=()=>applyLang(btn.dataset.lang);
+});
 
-function addChatMessage(text, isUser = false) {
-  const msgDiv = document.createElement('div');
-  msgDiv.className = `chat-msg ${isUser ? 'user' : 'bot'}`;
-  msgDiv.innerHTML = text;
-  chatBody.appendChild(msgDiv);
-  chatBody.scrollTop = chatBody.scrollHeight;
+/* CHATBOT */
+const chatBtn=document.getElementById("chatBtn");
+const chatWindow=document.getElementById("chatWindow");
+const chatBody=document.getElementById("chatBody");
+
+chatBtn.onclick=()=>{
+  chatWindow.classList.toggle("open");
+  if(chatWindow.classList.contains("open")) initChat();
+};
+
+function addMsg(text,type="bot"){
+  const div=document.createElement("div");
+  div.className="chat-msg "+type;
+  div.innerHTML=text;
+  chatBody.appendChild(div);
+  chatBody.scrollTop=chatBody.scrollHeight;
 }
 
-function addChatInput() {
-  const inputDiv = document.createElement('div');
-  inputDiv.className = 'chat-input-wrapper';
-  inputDiv.innerHTML = `
-    <input type="text" class="chat-input" placeholder="${currentLang === 'fr' ? 'Écrivez votre message...' : (currentLang === 'en' ? 'Type your message...' : 'اكتب رسالتك...')}">
-    <button class="chat-send"><i class="fas fa-paper-plane"></i></button>
+function addInput(){
+  const wrap=document.createElement("div");
+  wrap.className="chat-input-wrapper";
+
+  wrap.innerHTML=`
+    <input class="chat-input" placeholder="Message...">
+    <button class="chat-send">➤</button>
   `;
-  const input = inputDiv.querySelector('.chat-input');
-  const sendBtn = inputDiv.querySelector('.chat-send');
-  
-  const sendMessage = () => {
-    const message = input.value.trim();
-    if (message === '') return;
-    processUserMessage(message);
-    input.value = '';
-  };
-  
-  sendBtn.onclick = sendMessage;
-  input.onkeypress = (e) => { if (e.key === 'Enter') sendMessage(); };
-  
-  chatBody.appendChild(inputDiv);
-  chatBody.scrollTop = chatBody.scrollHeight;
-}
 
-function processUserMessage(message) {
-  const lowerMsg = message.toLowerCase();
-  addChatMessage(message, true);
-  
-  setTimeout(() => {
-    let reply = '';
-    
-    if (lowerMsg.includes('audit') || lowerMsg.includes('évaluation') || lowerMsg.includes('gratuit')) {
-      reply = currentLang === 'fr' ? '👍 Excellent ! <a href="contact.html" style="color: #EF4444;">Réservez votre audit gratuit ici</a>' : (currentLang === 'en' ? '👍 Great! <a href="contact.html" style="color: #EF4444;">Book your free audit here</a>' : '👍 ممتاز! <a href="contact.html" style="color: #EF4444;">احجز تدقيقك المجاني هنا</a>');
-    }
-    else if (lowerMsg.includes('protect') || lowerMsg.includes('protéger') || lowerMsg.includes('sécurité')) {
-      reply = currentLang === 'fr' ? '🛡️ Nous proposons SOC, Pentest, Sécurité Réseau. <a href="services.html" style="color: #EF4444;">Découvrez nos services</a>' : (currentLang === 'en' ? '🛡️ We offer SOC, Pentest, Network Security. <a href="services.html" style="color: #EF4444;">Discover our services</a>' : '🛡️ نقدم SOC، اختبار الاختراق، أمن الشبكات. <a href="services.html" style="color: #EF4444;">اكتشف خدماتنا</a>');
-    }
-    else if (lowerMsg.includes('contact') || lowerMsg.includes('whatsapp') || lowerMsg.includes('appeler')) {
-      reply = currentLang === 'fr' ? '📞 Contactez-nous sur WhatsApp : <a href="https://wa.me/212728312801" style="color: #25D366;">+212 728 31 28 01</a>' : (currentLang === 'en' ? '📞 Contact us on WhatsApp: <a href="https://wa.me/212728312801" style="color: #25D366;">+212 728 31 28 01</a>' : '📞 اتصل بنا على واتساب: <a href="https://wa.me/212728312801" style="color: #25D366;">+212 728 31 28 01</a>');
-    }
-    else if (lowerMsg.includes('pentest') || lowerMsg.includes('vapt') || lowerMsg.includes('intrusion')) {
-      reply = currentLang === 'fr' ? '🐛 Nos experts simulent de vraies cyberattaques. <a href="vapt.html" style="color: #EF4444;">En savoir plus</a>' : (currentLang === 'en' ? '🐛 Our experts simulate real cyberattacks. <a href="vapt.html" style="color: #EF4444;">Learn more</a>' : '🐛 خبراؤنا يحاكيون هجمات إلكترونية حقيقية. <a href="vapt.html" style="color: #EF4444;">اعرف أكثر</a>');
-    }
-    else if (lowerMsg.includes('réseau') || lowerMsg.includes('reseau') || lowerMsg.includes('network')) {
-      reply = currentLang === 'fr' ? '🌐 Sécurité Réseau : architecture sécurisée, pare-feu, VPN. <a href="securite-reseau.html" style="color: #EF4444;">En savoir plus</a>' : (currentLang === 'en' ? '🌐 Network Security: secure architecture, firewall, VPN. <a href="securite-reseau.html" style="color: #EF4444;">Learn more</a>' : '🌐 أمن الشبكات: بنية آمنة، جدار ناري، VPN. <a href="securite-reseau.html" style="color: #EF4444;">اعرف أكثر</a>');
-    }
-    else if (lowerMsg.includes('soc')) {
-      reply = currentLang === 'fr' ? '🔔 SOC : Surveillance 24/7, détection et réponse aux incidents. <a href="soc-consultation.html" style="color: #EF4444;">En savoir plus</a>' : (currentLang === 'en' ? '🔔 SOC: 24/7 monitoring, detection and incident response. <a href="soc-consultation.html" style="color: #EF4444;">Learn more</a>' : '🔔 SOC: مراقبة 24/7، اكتشاف والاستجابة للحوادث. <a href="soc-consultation.html" style="color: #EF4444;">اعرف أكثر</a>');
-    }
-    else if (lowerMsg.includes('formation') || lowerMsg.includes('academy') || lowerMsg.includes('cours')) {
-      reply = currentLang === 'fr' ? '🎓 Academy : formations certifiantes et sur mesure. <a href="academy.html" style="color: #EF4444;">Découvrir</a>' : (currentLang === 'en' ? '🎓 Academy: certification and tailored training. <a href="academy.html" style="color: #EF4444;">Discover</a>' : '🎓 الأكاديمية: تكوين وشهادات مخصصة. <a href="academy.html" style="color: #EF4444;">اكتشف</a>');
-    }
-    else if (lowerMsg.includes('bonjour') || lowerMsg.includes('salut') || lowerMsg.includes('hello')) {
-      reply = currentLang === 'fr' ? 'Bonjour ! 👋 Comment puis-je vous aider ? Audit gratuit, pentest, SOC, Réseau ou Academy ?' : (currentLang === 'en' ? 'Hello! 👋 How can I help you? Free audit, pentest, SOC, Network or Academy?' : 'مرحباً! 👋 كيف يمكنني مساعدتك؟ تدقيق مجاني، اختبار اختراق، SOC، شبكات أو الأكاديمية؟');
-    }
-    else {
-      reply = currentLang === 'fr' ? 'Je suis là pour vous aider ! 🤝<br><br>🔹 Audit gratuit<br>🔹 Protection entreprise (SOC, Pentest, Réseau)<br>🔹 Formation Academy<br><br>Posez-moi une question ci-dessus.' : (currentLang === 'en' ? 'I am here to help! 🤝<br><br>🔹 Free audit<br>🔹 Company protection (SOC, Pentest, Network)<br>🔹 Academy training<br><br>Ask me a question above.' : 'أنا هنا لمساعدتك! 🤝<br><br>🔹 تدقيق مجاني<br>🔹 حماية الشركة (SOC، اختبار اختراق، شبكات)<br>🔹 تكوين الأكاديمية<br><br>اطرح علي سؤالاً أعلاه.');
-    }
-    
-    addChatMessage(reply, false);
-    setTimeout(() => addChatInput(), 500);
-  }, 500);
-}
+  const input=wrap.querySelector(".chat-input");
+  const send=wrap.querySelector(".chat-send");
 
-function initChat() {
-  chatBody.innerHTML = '';
-  const welcomeMsg = currentLang === 'fr' ? 'Bonjour 👋 Je suis <strong>NextGen Helper</strong>. Comment puis-je vous aider ?' : (currentLang === 'en' ? 'Hello 👋 I\'m <strong>NextGen Helper</strong>. How can I help you?' : 'مرحباً 👋 أنا <strong>مساعد نكستجن</strong>. كيف يمكنني مساعدتك؟');
-  addChatMessage(welcomeMsg, false);
-  setTimeout(() => addChatInput(), 300);
-}
-
-function toggleChat() {
-  if (chatWindow.classList.contains('open')) {
-    chatWindow.classList.remove('open');
-  } else {
-    chatWindow.classList.add('open');
-    if (chatBody.children.length === 0 || (chatBody.children.length === 1 && chatBody.children[0].classList?.contains('chat-input-wrapper'))) {
-      initChat();
-    }
+  function sendMsg(){
+    if(!input.value) return;
+    processMsg(input.value);
+    input.value="";
   }
+
+  send.onclick=sendMsg;
+  input.onkeypress=e=>{if(e.key==="Enter") sendMsg();};
+
+  chatBody.appendChild(wrap);
 }
 
-function closeChat() {
-  chatWindow.classList.remove('open');
+function processMsg(msg){
+  addMsg(msg,"user");
+
+  let reply="";
+
+  if(msg.toLowerCase().includes("audit")){
+    reply="👉 Demandez votre audit ici.";
+  }
+  else if(msg.toLowerCase().includes("prix")){
+    reply="💰 Contactez-nous pour un devis.";
+  }
+  else{
+    reply="Je peux vous aider : audit, pentest, sécurité.";
+  }
+
+  setTimeout(()=>{
+    addMsg(reply);
+    addInput();
+  },500);
 }
 
-chatBtn?.addEventListener('click', toggleChat);
-chatCloseBtn?.addEventListener('click', closeChat);
-
-// SLIDER
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
-const indicator = document.getElementById('slideIndicator');
-const prevBtn = document.getElementById('prevSlide');
-const nextBtn = document.getElementById('nextSlide');
-
-if (slides.length && indicator) {
-  slides.forEach((_, i) => { const dot = document.createElement('div'); dot.onclick = () => goToSlide(i); indicator.appendChild(dot); });
-  function updateIndicators() { indicator.querySelectorAll('div').forEach((dot, i) => dot.classList.toggle('active', i === currentSlide)); }
-  function goToSlide(index) { slides[currentSlide].classList.remove('active'); currentSlide = (index + slides.length) % slides.length; slides[currentSlide].classList.add('active'); updateIndicators(); }
-  function nextSlide() { goToSlide(currentSlide + 1); }
-  function prevSlide() { goToSlide(currentSlide - 1); }
-  prevBtn?.addEventListener('click', prevSlide);
-  nextBtn?.addEventListener('click', nextSlide);
-  setInterval(nextSlide, 6000);
-  updateIndicators();
+function initChat(){
+  chatBody.innerHTML="";
+  addMsg(translations[currentLang].hello);
+  addInput();
 }
 
-// COMPTEURS ANIMÉS
-function animateNumber(element, target) {
-  let current = 0;
-  const increment = target / 50;
-  const timer = setInterval(() => {
-    current += increment;
-    if (current >= target) {
-      element.textContent = target;
-      clearInterval(timer);
-    } else {
-      element.textContent = Math.floor(current);
-    }
-  }, 30);
-}
-
-const statObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      document.querySelectorAll('.stat-number').forEach(el => {
-        if (el.textContent == '0') {
-          animateNumber(el, parseInt(el.dataset.target));
-        }
-      });
-      statObserver.disconnect();
-    }
-  });
-}, { threshold: 0.3 });
-statObserver.observe(document.querySelector('.stats-section'));
-
-// REVEAL ANIMATIONS
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-// LANGUE
-document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const lang = btn.getAttribute('data-lang');
-    if (lang) {
-      currentLang = lang;
-      applyLanguage(currentLang);
-      if (chatWindow.classList.contains('open')) {
-        initChat();
-      }
-    }
-  });
-});
-
-// MENU MOBILE
-document.getElementById('menuToggle')?.addEventListener('click', () => {
-  document.getElementById('navLinks')?.classList.toggle('active');
-});
-
-// INITIALISATION
-applyLanguage(currentLang);
 </script>
+
 </body>
 </html>
