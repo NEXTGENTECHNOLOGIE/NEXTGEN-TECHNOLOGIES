@@ -269,24 +269,6 @@ footer {
  font-size: 0.82rem; color: var(--gray-mid);
 }
 
-.whatsapp-float {
- position: fixed; bottom: 25px; right: 25px;
- width: 60px; height: 60px;
- background: #25D366;
- border-radius: 50%;
- display: flex; align-items: center; justify-content: center;
- color: var(--white); font-size: 1.8rem;
- box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
- z-index: 999;
- transition: all 0.2s;
- animation: pulseWa 2s infinite;
-}
-.whatsapp-float:hover { transform: scale(1.1); }
-@keyframes pulseWa {
- 0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
- 50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.8); }
-}
-
 .reveal {
  opacity: 0; transform: translateY(20px);
  transition: all 0.6s ease;
@@ -312,30 +294,28 @@ footer {
 }
 .service-img {
  height: 170px;
+ position: relative;
+ overflow: hidden;
  background: linear-gradient(135deg, var(--primary), var(--primary-light));
- position: relative; overflow: hidden;
- display: flex; align-items: center; justify-content: center;
 }
-.service-img::before {
- content: ''; position: absolute; inset: 0;
- background:
- radial-gradient(circle at 30% 30%, rgba(0, 212, 255, 0.3) 0%, transparent 50%),
- radial-gradient(circle at 70% 70%, rgba(255, 184, 0, 0.2) 0%, transparent 50%);
+.service-img img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ transition: transform 0.3s ease;
+}
+.service-card:hover .service-img img {
+ transform: scale(1.05);
 }
 .service-img::after {
- content: ''; position: absolute; inset: 0;
- background-image:
- linear-gradient(rgba(0, 212, 255, 0.05) 1px, transparent 1px),
- linear-gradient(90deg, rgba(0, 212, 255, 0.05) 1px, transparent 1px);
- background-size: 25px 25px;
-}
-.service-img i {
- font-size: 3.5rem; color: var(--accent); z-index: 1;
- text-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
-}
-.service-card.gold.service-img i {
- color: var(--gold);
- text-shadow: 0 4px 20px rgba(255, 184, 0, 0.4);
+ content: '';
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background: linear-gradient(135deg, rgba(10,22,40,0.2), rgba(10,22,40,0.05));
+ pointer-events: none;
 }
 .service-content { padding: 1.5rem; }
 .service-content h3 {
@@ -351,89 +331,38 @@ footer {
  font-size: 0.83rem; font-weight: 700;
  display: inline-flex; align-items: center; gap: 0.4rem;
 }
+.service-card:hover .service-link { gap: 0.8rem; color: var(--gold-dark); }
 
-/* Detail page */
-.detail-section { background: var(--white); padding: 4rem 4%; }
-.detail-section.alt { background: var(--off-white); }
-.detail-grid {
- display: grid; grid-template-columns: 1fr 1fr;
- gap: 4rem; align-items: center;
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-.detail-text h2 { color: var(--primary); }
-.detail-features { list-style: none; margin-top: 1.5rem; }
-.detail-features li {
- display: flex; gap: 1rem;
- padding: 0.9rem 0;
- border-bottom: 1px solid var(--gray-light);
+@keyframes shine {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
 }
-.detail-features li:last-child { border-bottom: none; }
-.detail-icon {
- width: 40px; height: 40px;
- background: var(--off-white);
- color: var(--accent-dark);
- border-radius: 8px;
- display: flex; align-items: center; justify-content: center;
- flex-shrink: 0; font-size: 1rem;
+.service-card {
+  animation: fadeInUp 0.8s ease-out both;
 }
-.detail-features strong {
- display: block; color: var(--primary);
- font-size: 1rem; margin-bottom: 0.2rem;
+.service-card:nth-child(1) { animation-delay: 0s; }
+.service-card:nth-child(2) { animation-delay: 0.1s; }
+.service-card:nth-child(3) { animation-delay: 0.2s; }
+.service-card:nth-child(4) { animation-delay: 0.3s; }
+.service-card:nth-child(5) { animation-delay: 0.4s; }
+.service-card:nth-child(6) { animation-delay: 0.5s; }
+.service-card:nth-child(7) { animation-delay: 0.6s; }
+.service-card:nth-child(8) { animation-delay: 0.7s; }
+.service-card:nth-child(9) { animation-delay: 0.8s; }
+
+.logo-shield { animation: float 3s ease-in-out infinite; }
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
 }
-.detail-features span { color: var(--gray-mid); font-size: 0.88rem; }
-.detail-visual {
- background: var(--primary); color: var(--white);
- padding: 3rem; border-radius: 12px;
- position: relative; overflow: hidden;
-}
-.detail-visual::before {
- content: ''; position: absolute;
- top: -50%; right: -50%;
- width: 100%; height: 100%;
- background: radial-gradient(circle, rgba(0, 212, 255, 0.15) 0%, transparent 70%);
-}
-.detail-visual h3 {
- color: var(--accent);
- font-size: 1.3rem; margin-bottom: 1.5rem;
- position: relative; z-index: 1;
-}
-.detail-stat {
- position: relative; z-index: 1;
- padding: 1rem 0;
- border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-.detail-stat:last-child { border-bottom: none; }
-.detail-stat.label {
- color: var(--gold);
- font-size: 0.78rem;
- text-transform: uppercase; letter-spacing: 0.1em;
- margin-bottom: 0.3rem;
-}
-.detail-stat.value {
- color: var(--white); font-size: 1rem; font-weight: 600;
-}
-.step-grid {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
- gap: 1.5rem;
-}
-.step-card {
- background: var(--white); padding: 1.8rem;
- border-radius: 8px;
- border-top: 3px solid var(--accent);
- box-shadow: 0 2px 12px rgba(10, 22, 40, 0.06);
-}
-.step-num {
- font-family: 'Space Grotesk', sans-serif;
- font-size: 2rem; font-weight: 700;
- color: var(--accent);
- line-height: 1; margin-bottom: 0.8rem;
-}
-.step-card h4 { color: var(--primary); font-size: 1.1rem; margin-bottom: 0.6rem; }
-.step-card p { color: var(--gray-mid); font-size: 0.9rem; }
 
 @media (max-width: 1024px) {
 .footer-grid { grid-template-columns: 1fr 1fr; }
-.detail-grid { grid-template-columns: 1fr; gap: 2.5rem; }
 }
 @media (max-width: 768px) {
 .nav-links {
@@ -460,200 +389,10 @@ footer {
 @media (max-width: 600px) {
 .top-bar-social { display: none; }
 }
-
-/* ========== ANIMATIONS ATTRACTIVES ========== */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeInLeft {
-  from { opacity: 0; transform: translateX(-40px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-@keyframes fadeInRight {
-  from { opacity: 0; transform: translateX(40px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-@keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
-}
-@keyframes typewriter {
-  from { width: 0; }
-  to { width: 100%; }
-}
-@keyframes blink {
-  50% { border-color: transparent; }
-}
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-@keyframes shine {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-/* H1 page-header avec effet shine */
-.page-header h1 {
-  animation: fadeInUp 1s ease-out;
-}
-.page-header h1 .accent {
-  background: linear-gradient(90deg, var(--accent) 0%, #FFB800 50%, var(--accent) 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shine 3s linear infinite;
-}
-.page-header p {
-  animation: fadeInUp 1s ease-out 0.3s both;
-}
-.breadcrumb {
-  animation: fadeInLeft 0.8s ease-out;
-}
-
-/* Section titles */
-.section-title {
-  animation: fadeInUp 0.8s ease-out;
-}
-.section-tag {
-  animation: fadeInLeft 0.6s ease-out;
-}
-
-/* Detail visual + image hover */
-.detail-photo {
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 15px 50px rgba(10,22,40,0.2);
-  transition: all 0.4s ease;
-  animation: scaleIn 1s ease-out 0.4s both;
-}
-.detail-photo:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 25px 60px rgba(10,22,40,0.3);
-}
-.detail-photo img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.5s ease;
-}
-.detail-photo:hover img {
-  transform: scale(1.05);
-}
-.detail-photo-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(transparent, rgba(10,22,40,0.95));
-  padding: 3rem 2rem 1.5rem;
-  color: white;
-}
-.detail-photo-tag {
-  display: inline-block;
-  color: var(--gold);
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  margin-bottom: 0.5rem;
-  background: rgba(255,184,0,0.15);
-  padding: 0.3rem 0.8rem;
-  border-radius: 30px;
-  border: 1px solid rgba(255,184,0,0.3);
-}
-.detail-photo h3 {
-  color: white;
-  font-size: 1.4rem;
-  margin: 0;
-  font-family: 'Space Grotesk', sans-serif;
-}
-
-/* Service cards animation */
-.service-card {
-  animation: fadeInUp 0.8s ease-out both;
-}
-.service-card:nth-child(1) { animation-delay: 0s; }
-.service-card:nth-child(2) { animation-delay: 0.1s; }
-.service-card:nth-child(3) { animation-delay: 0.2s; }
-.service-card:nth-child(4) { animation-delay: 0.3s; }
-.service-card:nth-child(5) { animation-delay: 0.4s; }
-.service-card:nth-child(6) { animation-delay: 0.5s; }
-.service-card:nth-child(7) { animation-delay: 0.6s; }
-.service-card:nth-child(8) { animation-delay: 0.7s; }
-.service-card .service-img i {
-  transition: transform 0.5s ease;
-}
-.service-card:hover .service-img i {
-  transform: scale(1.15) rotate(5deg);
-}
-
-/* Buttons pulse on key CTA */
-.btn-primary {
-  position: relative;
-  overflow: hidden;
-}
-.btn-primary::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.3);
-  transform: translate(-50%, -50%);
-  transition: width 0.5s, height 0.5s;
-}
-.btn-primary:hover::after {
-  width: 300px;
-  height: 300px;
-}
-
-/* Step cards stagger */
-.step-card {
-  animation: fadeInUp 0.6s ease-out both;
-}
-.step-card:nth-child(1) { animation-delay: 0s; }
-.step-card:nth-child(2) { animation-delay: 0.15s; }
-.step-card:nth-child(3) { animation-delay: 0.3s; }
-.step-card:nth-child(4) { animation-delay: 0.45s; }
-.step-card:nth-child(5) { animation-delay: 0.6s; }
-
-/* Stats numbers */
-.stat-bar-item .num {
-  animation: scaleIn 1s ease-out both;
-}
-.stat-bar-item:nth-child(1) .num { animation-delay: 0.1s; }
-.stat-bar-item:nth-child(2) .num { animation-delay: 0.3s; }
-.stat-bar-item:nth-child(3) .num { animation-delay: 0.5s; }
-.stat-bar-item:nth-child(4) .num { animation-delay: 0.7s; }
-
-/* Logo float */
-.logo-shield {
-  animation: float 3s ease-in-out infinite;
-}
-
-/* CTA block emphasis */
-.cta-block h2 {
-  animation: fadeInUp 0.8s ease-out;
-}
-.cta-block p {
-  animation: fadeInUp 0.8s ease-out 0.2s both;
-}
-.cta-block .btn-primary {
-  animation: fadeInUp 0.8s ease-out 0.4s both;
-}
-
 </style>
-</head><body>
+</head>
+<body>
+
 <div class="top-bar">
  <div class="top-bar-container">
  <div class="top-bar-info">
@@ -717,8 +456,8 @@ footer {
  </li>
  <li><a href="academy.html">Academy</a></li>
  <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
-      <li><a href="carrieres.html">Carrières</a></li>
-      <li><a href="menaces.html">Menaces</a></li>
+ <li><a href="carrieres.html">Carrières</a></li>
+ <li><a href="menaces.html">Menaces</a></li>
  <li><a href="contact.html">Contact</a></li>
  <li><a href="contact.html" class="nav-cta">Audit gratuit</a></li>
  </ul>
@@ -732,7 +471,7 @@ footer {
  <a href="index.html">Accueil</a> <i class="fas fa-chevron-right"></i> <span style="color:var(--white)">Tous nos services</span>
  </div>
  <h1>Tous nos <span class="accent">services</span><br>cybersécurité</h1>
- <p>8 domaines d'expertise complémentaires. Une approche neutre, indépendante des constructeurs, pour vous offrir la meilleure solution selon votre besoin.</p>
+ <p>9 domaines d'expertise complémentaires. Une approche neutre, indépendante des constructeurs, pour vous offrir la meilleure solution selon votre besoin.</p>
  </div>
 </section>
 
@@ -742,15 +481,23 @@ footer {
  <h2 class="section-title">Une expertise par besoin</h2>
  <p class="section-subtitle">Cliquez sur un service pour découvrir le détail, la méthodologie et les modalités.</p>
  <div class="services-grid">
- <a href="soc-consultation.html" class="service-card reveal"><div class="service-img"><i class="fas fa-shield-halved"></i></div><div class="service-content"><h3>SOC Consultation</h3><p>Conseil stratégique pour mettre en place ou optimiser votre Security Operations Center.</p><span class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></span></div></a>
- <a href="managed-security.html" class="service-card gold reveal"><div class="service-img"><i class="fas fa-eye"></i></div><div class="service-content"><h3>Managed Security Services</h3><p>Surveillance et gestion continue de votre sécurité par nos analystes.</p><span class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></span></div></a>
- <a href="vapt.html" class="service-card reveal"><div class="service-img"><i class="fas fa-bug"></i></div><div class="service-content"><h3>VAPT</h3><p>Vulnerability Assessment & Penetration Testing. Identifiez les failles.</p><span class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></span></div></a>
- <a href="data-security.html" class="service-card gold reveal"><div class="service-img"><i class="fas fa-database"></i></div><div class="service-content"><h3>Data Security Management</h3><p>Confidentialité, intégrité et disponibilité de vos données critiques.</p><span class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></span></div></a>
- <a href="cloud-security.html" class="service-card reveal"><div class="service-img"><i class="fas fa-cloud"></i></div><div class="service-content"><h3>Cloud Security</h3><p>Sécurisation des environnements cloud publics, privés et hybrides.</p><span class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></span></div></a>
- <a href="securite-reseau.html" class="service-card gold reveal"><div class="service-img"><i class="fas fa-network-wired"></i></div><div class="service-content"><h3>Sécurité Réseau</h3><p>Architecture sécurisée, pare-feu nouvelle génération, segmentation.</p><span class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></span></div></a>
- <a href="conformite.html" class="service-card reveal"><div class="service-img"><i class="fas fa-gavel"></i></div><div class="service-content"><h3>Conformité & Régulation</h3><p>réglementations en vigueur, ISO 27001, normes sectorielles.</p><span class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></span></div></a>
- <a href="reponse-incident.html" class="service-card gold reveal"><div class="service-img"><i class="fas fa-triangle-exclamation"></i></div><div class="service-content"><h3>Réponse à Incident</h3><p>Intervention rapide, confinement, investigation, restauration.</p><span class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></span></div></a>
- <a href="academy.html" class="service-card reveal"><div class="service-img"><i class="fas fa-graduation-cap"></i></div><div class="service-content"><h3>Academy & Formations</h3><p>Programmes certifiants et formations sur mesure pour vos équipes.</p><span class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></span></div></a>
+  <a href="soc-consultation.html" class="service-card reveal"><div class="service-img"><img src="soc-consultation.jpg" alt="SOC Consultation"></div><div class="service-content"><h3>SOC Consultation</h3><p>Conseil stratégique pour mettre en place ou optimiser votre Security Operations Center.</p><span class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></span></div></a>
+  
+  <a href="managed-security.html" class="service-card gold reveal"><div class="service-img"><img src="managed-security.jpg" alt="Managed Security Services"></div><div class="service-content"><h3>Managed Security Services</h3><p>Surveillance et gestion continue de votre sécurité par nos analystes.</p><span class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></span></div></a>
+  
+  <a href="vapt.html" class="service-card reveal"><div class="service-img"><img src="vapt.webp" alt="VAPT"></div><div class="service-content"><h3>VAPT</h3><p>Vulnerability Assessment & Penetration Testing. Identifiez les failles.</p><span class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></span></div></a>
+  
+  <a href="data-security.html" class="service-card gold reveal"><div class="service-img"><img src="data-security.jpg" alt="Data Security Management"></div><div class="service-content"><h3>Data Security Management</h3><p>Confidentialité, intégrité et disponibilité de vos données critiques.</p><span class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></span></div></a>
+  
+  <a href="cloud-security.html" class="service-card reveal"><div class="service-img"><img src="cloud-security.jpg" alt="Cloud Security"></div><div class="service-content"><h3>Cloud Security</h3><p>Sécurisation des environnements cloud publics, privés et hybrides.</p><span class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></span></div></a>
+  
+  <a href="securite-reseau.html" class="service-card gold reveal"><div class="service-img"><img src="securite-reseau.jpg" alt="Sécurité Réseau"></div><div class="service-content"><h3>Sécurité Réseau</h3><p>Architecture sécurisée, pare-feu nouvelle génération, segmentation.</p><span class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></span></div></a>
+  
+  <a href="conformite.html" class="service-card reveal"><div class="service-img"><img src="conformite.jpg" alt="Conformité & Régulation"></div><div class="service-content"><h3>Conformité & Régulation</h3><p>Réglementations en vigueur, ISO 27001, normes sectorielles.</p><span class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></span></div></a>
+  
+  <a href="reponse-incident.html" class="service-card gold reveal"><div class="service-img"><img src="reponse-incident.jpg" alt="Réponse à Incident"></div><div class="service-content"><h3>Réponse à Incident</h3><p>Intervention rapide, confinement, investigation, restauration.</p><span class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></span></div></a>
+  
+  <a href="academy.html" class="service-card reveal"><div class="service-img"><img src="Academy-Formations.jpg" alt="Academy & Formations"></div><div class="service-content"><h3>Academy & Formations</h3><p>Programmes certifiants et formations sur mesure pour vos équipes.</p><span class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></span></div></a>
  </div>
  </div>
 </section>
@@ -829,19 +576,16 @@ footer {
  <span>Excellence & Innovation</span>
  </div>
 </footer>
-<!-- ===== CHATBOT NEXTGEN HELPER ===== -->
+
+<!-- Chatbot -->
 <style>
 .chatbot-button {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  width: 60px;
-  height: 60px;
+  position: fixed; bottom: 25px; right: 25px;
+  width: 60px; height: 60px;
   background: linear-gradient(135deg, #00D4FF, #0891B2);
   border-radius: 50%;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: center; justify-content: center;
   color: white;
   font-size: 1.6rem;
   cursor: pointer;
@@ -850,35 +594,23 @@ footer {
   transition: all 0.3s;
   border: 2px solid rgba(255,255,255,0.2);
 }
-.chatbot-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 25px rgba(0, 212, 255, 0.7);
-}
-.chatbot-button.hidden { display: none; }
+.chatbot-button:hover { transform: scale(1.1); box-shadow: 0 6px 25px rgba(0, 212, 255, 0.7); }
 .chatbot-pulse {
-  position: absolute;
-  top: -3px;
-  right: -3px;
-  width: 14px;
-  height: 14px;
+  position: absolute; top: -3px; right: -3px;
+  width: 14px; height: 14px;
   background: #EF4444;
   border-radius: 50%;
   border: 2px solid white;
   animation: chatPulse 2s infinite;
 }
 @keyframes chatPulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
+  0%,100% { transform: scale(1); opacity: 1; }
   50% { transform: scale(1.3); opacity: 0.7; }
 }
-
 .chatbot-window {
-  position: fixed;
-  bottom: 100px;
-  right: 25px;
-  width: 380px;
-  max-width: calc(100vw - 50px);
-  height: 540px;
-  max-height: calc(100vh - 130px);
+  position: fixed; bottom: 100px; right: 25px;
+  width: 380px; max-width: calc(100vw - 50px);
+  height: 540px; max-height: calc(100vh - 130px);
   background: white;
   border-radius: 16px;
   box-shadow: 0 20px 60px rgba(10, 22, 40, 0.25);
@@ -893,7 +625,6 @@ footer {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
 .chatbot-header {
   background: linear-gradient(135deg, #0A1628, #1E3A5F);
   color: white;
@@ -901,61 +632,31 @@ footer {
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  position: relative;
 }
 .chatbot-avatar {
-  width: 44px;
-  height: 44px;
+  width: 44px; height: 44px;
   background: linear-gradient(135deg, #00D4FF, #0891B2);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.3rem;
-  flex-shrink: 0;
 }
 .chatbot-header-info { flex: 1; }
-.chatbot-header-info .name {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  font-size: 1rem;
-  margin: 0;
-}
-.chatbot-header-info .status {
-  font-size: 0.78rem;
-  color: #00D4FF;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-.chatbot-header-info .status::before {
-  content: '';
-  width: 8px;
-  height: 8px;
-  background: #10B981;
-  border-radius: 50%;
-  animation: chatPulse 2s infinite;
-}
+.chatbot-header-info .name { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; }
+.chatbot-header-info .status { font-size: 0.78rem; color: #00D4FF; display: flex; align-items: center; gap: 0.4rem; }
+.chatbot-header-info .status::before { content: ''; width: 8px; height: 8px; background: #10B981; border-radius: 50%; }
 .chatbot-close {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.4rem;
-  cursor: pointer;
-  opacity: 0.7;
-  transition: opacity 0.2s;
+  background: none; border: none;
+  color: white; font-size: 1.4rem;
+  cursor: pointer; opacity: 0.7;
 }
-.chatbot-close:hover { opacity: 1; }
-
 .chatbot-body {
   flex: 1;
   overflow-y: auto;
   padding: 1.2rem;
   background: #F8FAFC;
 }
-.chatbot-body::-webkit-scrollbar { width: 6px; }
-.chatbot-body::-webkit-scrollbar-thumb { background: #E2E8F0; border-radius: 3px; }
-
 .chat-msg {
   max-width: 85%;
   padding: 0.8rem 1rem;
@@ -963,146 +664,41 @@ footer {
   font-size: 0.9rem;
   line-height: 1.5;
   margin-bottom: 0.8rem;
-  animation: msgFadeIn 0.3s ease-out;
 }
-@keyframes msgFadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.chat-msg.bot {
-  background: white;
-  color: #334155;
-  border-bottom-left-radius: 4px;
-  box-shadow: 0 2px 8px rgba(10,22,40,0.06);
-}
-.chat-msg.user {
-  background: linear-gradient(135deg, #0A1628, #1E3A5F);
-  color: white;
-  margin-left: auto;
-  border-bottom-right-radius: 4px;
-}
-.chat-msg strong { color: #0891B2; }
-
-.chat-options {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin: 0.5rem 0 1rem;
-}
+.chat-msg.bot { background: white; color: #334155; border-bottom-left-radius: 4px; }
+.chat-msg.user { background: linear-gradient(135deg, #0A1628, #1E3A5F); color: white; margin-left: auto; border-bottom-right-radius: 4px; }
+.chat-options { display: flex; flex-direction: column; gap: 0.5rem; margin: 0.5rem 0; }
 .chat-option {
   background: white;
   border: 1.5px solid #E2E8F0;
-  color: #0A1628;
   padding: 0.7rem 1rem;
   border-radius: 10px;
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
-  text-align: left;
-  font-family: inherit;
-  transition: all 0.2s;
   display: flex;
   align-items: center;
   gap: 0.6rem;
 }
-.chat-option:hover {
-  border-color: #00D4FF;
-  background: #F0FDFF;
-  transform: translateX(3px);
-}
-.chat-option .icon {
-  width: 28px;
-  height: 28px;
-  background: rgba(0, 212, 255, 0.1);
-  color: #0891B2;
-  border-radius: 7px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  font-size: 0.85rem;
-}
-.chat-option.urgent .icon { background: rgba(239,68,68,0.1); color: #EF4444; }
-.chat-option.gold .icon { background: rgba(255,184,0,0.15); color: #D97706; }
-
-.chat-link-block {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin: 0.5rem 0 1rem;
-}
+.chat-option:hover { border-color: #00D4FF; background: #F0FDFF; }
 .chat-link {
   background: linear-gradient(135deg, #0A1628, #1E3A5F);
   color: white;
-  padding: 0.85rem 1rem;
-  border-radius: 10px;
-  font-size: 0.9rem;
-  font-weight: 700;
-  text-align: center;
-  text-decoration: none;
-  transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-.chat-link:hover {
-  background: linear-gradient(135deg, #00D4FF, #0891B2);
-  color: #0A1628;
-  transform: translateY(-2px);
-}
-.chat-link.whatsapp {
-  background: #25D366;
-  color: white;
-}
-.chat-link.whatsapp:hover {
-  background: #128C7E;
-  color: white;
-}
-
-.chat-typing {
-  display: flex;
-  gap: 4px;
-  padding: 0.8rem 1rem;
-  background: white;
-  border-radius: 14px;
-  width: fit-content;
-  box-shadow: 0 2px 8px rgba(10,22,40,0.06);
-  margin-bottom: 0.8rem;
-}
-.chat-typing span {
-  width: 7px;
-  height: 7px;
-  background: #94A3B8;
-  border-radius: 50%;
-  animation: typingDot 1.4s infinite;
-}
-.chat-typing span:nth-child(2) { animation-delay: 0.2s; }
-.chat-typing span:nth-child(3) { animation-delay: 0.4s; }
-@keyframes typingDot {
-  0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
-  30% { transform: translateY(-6px); opacity: 1; }
-}
-
-.chatbot-footer {
   padding: 0.7rem 1rem;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  display: block;
+  margin-top: 0.5rem;
+}
+.chat-link.whatsapp { background: #25D366; }
+.chatbot-footer {
+  padding: 0.7rem;
   border-top: 1px solid #E2E8F0;
   background: white;
   font-size: 0.72rem;
-  color: #94A3B8;
   text-align: center;
-}
-.chatbot-footer strong { color: #0A1628; }
-
-@media (max-width: 480px) {
-  .chatbot-window {
-    bottom: 90px;
-    right: 10px;
-    left: 10px;
-    width: auto;
-    height: 70vh;
-  }
-  .chatbot-button { right: 20px; bottom: 20px; }
 }
 </style>
 
@@ -1132,7 +728,6 @@ let chatInitialized = false;
 
 function toggleChat() {
   const win = document.getElementById('chatbotWindow');
-  const btn = document.getElementById('chatbotBtn');
   if (win.classList.contains('open')) {
     win.classList.remove('open');
   } else {
@@ -1157,12 +752,12 @@ function addOptions(options) {
   wrap.className = 'chat-options';
   options.forEach(opt => {
     const btn = document.createElement('button');
-    btn.className = 'chat-option' + (opt.urgent ? ' urgent' : '') + (opt.gold ? ' gold' : '');
-    btn.innerHTML = '<span class="icon"><i class="' + opt.icon + '"></i></span>' + opt.text;
+    btn.className = 'chat-option';
+    btn.innerHTML = '<span class="icon"><i class="' + opt.icon + '"></i></span> ' + opt.text;
     btn.onclick = () => {
       addMsg(opt.text, 'user');
       wrap.remove();
-      setTimeout(() => showTyping(opt.action), 600);
+      setTimeout(() => opt.action(), 600);
     };
     wrap.appendChild(btn);
   });
@@ -1172,12 +767,11 @@ function addOptions(options) {
 
 function addLinks(links) {
   const wrap = document.createElement('div');
-  wrap.className = 'chat-link-block';
   links.forEach(l => {
     const a = document.createElement('a');
     a.className = 'chat-link' + (l.whatsapp ? ' whatsapp' : '');
     a.href = l.url;
-    if (l.url.startsWith('http')) a.target = '_blank';
+    a.target = '_blank';
     a.innerHTML = '<i class="' + l.icon + '"></i> ' + l.text;
     wrap.appendChild(a);
   });
@@ -1185,152 +779,50 @@ function addLinks(links) {
   chatBody.scrollTop = chatBody.scrollHeight;
 }
 
-function showTyping(callback) {
-  const t = document.createElement('div');
-  t.className = 'chat-typing';
-  t.innerHTML = '<span></span><span></span><span></span>';
-  chatBody.appendChild(t);
-  chatBody.scrollTop = chatBody.scrollHeight;
-  setTimeout(() => {
-    t.remove();
-    callback();
-  }, 800);
-}
-
 function showWelcome() {
   addMsg('Bonjour 👋 Je suis <strong>NextGen Helper</strong>, votre assistant cybersécurité.');
   setTimeout(() => {
     addMsg('Comment puis-je vous aider aujourd\'hui ?');
     setTimeout(() => addOptions([
-      { text: 'J\'ai une urgence cyber', icon: 'fas fa-triangle-exclamation', urgent: true, action: showUrgence },
+      { text: 'J\'ai une urgence cyber', icon: 'fas fa-triangle-exclamation', action: showUrgence },
       { text: 'Protéger mon entreprise', icon: 'fas fa-shield-halved', action: showProtection },
-      { text: 'Demander un audit gratuit', icon: 'fas fa-magnifying-glass-chart', gold: true, action: showAudit },
+      { text: 'Demander un audit gratuit', icon: 'fas fa-chart-line', action: showAudit },
       { text: 'Trouver une formation', icon: 'fas fa-graduation-cap', action: showFormation },
-      { text: 'Tester mes systèmes (pentest)', icon: 'fas fa-bug', action: showPentest },
-      { text: 'Sécurité Cloud', icon: 'fas fa-cloud', action: showCloud },
-      { text: 'Conformité réglementaire', icon: 'fas fa-gavel', action: showConformite },
       { text: 'Parler à quelqu\'un', icon: 'fas fa-headset', action: showContact }
     ]), 400);
   }, 700);
 }
 
 function showUrgence() {
-  addMsg('🚨 Une urgence cyber demande une action immédiate.');
-  setTimeout(() => {
-    addMsg('Si vous êtes victime d\'une attaque <strong>en cours</strong> (ransomware, intrusion, perte de données), contactez-nous <strong>maintenant</strong> par WhatsApp pour une intervention rapide.');
-    setTimeout(() => addLinks([
-      { text: 'WhatsApp Urgence (réponse 5 min)', url: 'https://wa.me/212728312801?text=URGENCE%20CYBER%20-%20J%27ai%20besoin%20d%27aide%20rapidement', icon: 'fab fa-whatsapp', whatsapp: true },
-      { text: 'En savoir plus sur Réponse Incident', url: 'reponse-incident.html', icon: 'fas fa-arrow-right' }
-    ]), 400);
-  }, 600);
+  addMsg('🚨 Urgence cyber ? Contactez-nous immédiatement sur WhatsApp.');
+  setTimeout(() => addLinks([
+    { text: 'WhatsApp Urgence', url: 'https://wa.me/212728312801?text=URGENCE%20CYBER', icon: 'fab fa-whatsapp', whatsapp: true }
+  ]), 600);
 }
 
 function showProtection() {
-  addMsg('🛡️ Excellent réflexe ! Plusieurs solutions selon votre besoin :');
-  setTimeout(() => {
-    addMsg('Quel est votre besoin principal ?');
-    setTimeout(() => addOptions([
-      { text: 'Surveillance 24/7 (SOC managé)', icon: 'fas fa-eye', action: () => goTo('Le SOC managé surveille vos systèmes en continu et détecte les attaques en temps réel.', 'managed-security.html', 'Découvrir Managed Security') },
-      { text: 'Stratégie SOC sur mesure', icon: 'fas fa-shield-halved', action: () => goTo('Conseil pour mettre en place ou optimiser votre SOC interne.', 'soc-consultation.html', 'Découvrir SOC Consultation') },
-      { text: 'Sécuriser mon réseau', icon: 'fas fa-network-wired', action: () => goTo('Architecture sécurisée, pare-feu, segmentation, VPN.', 'securite-reseau.html', 'Découvrir Sécurité Réseau') },
-      { text: 'Protéger mes données', icon: 'fas fa-database', action: () => goTo('Protection complète : chiffrement, sauvegarde, contrôle d\'accès.', 'data-security.html', 'Découvrir Data Security') }
-    ]), 400);
-  }, 600);
+  addMsg('🛡️ Nous proposons SOC, VAPT, Cloud Security, etc. <a href="services.html" style="color:#00D4FF">Voir tous nos services</a>');
 }
 
 function showAudit() {
-  addMsg('💼 Notre audit gratuit prend 30 minutes et vous donne une vision claire de votre exposition cyber. Aucun engagement.');
-  setTimeout(() => addLinks([
-    { text: 'Demander mon audit gratuit', url: 'contact.html', icon: 'fas fa-paper-plane' },
-    { text: 'En savoir plus sur l\'audit', url: 'soc-consultation.html', icon: 'fas fa-info-circle' }
-  ]), 600);
+  addMsg('💼 Réservez votre audit gratuit <a href="contact.html" style="color:#00D4FF">ici</a>');
 }
 
 function showFormation() {
-  addMsg('🎓 Notre Academy propose <strong>12 formations professionnelles</strong> 100% pratiques avec laboratoires d\'attaques réelles.');
-  setTimeout(() => {
-    addMsg('Quel type de formation cherchez-vous ?');
-    setTimeout(() => addOptions([
-      { text: 'Certifications internationales (CompTIA, CEH, CISSP)', icon: 'fas fa-medal', action: () => goTo('Préparation aux certifications les plus demandées sur le marché.', 'academy.html', 'Voir nos formations') },
-      { text: 'SOC Analyst & Pentest', icon: 'fas fa-bug', action: () => goTo('Bootcamps intensifs avec environnements d\'attaque réels.', 'academy.html', 'Voir les bootcamps') },
-      { text: 'Sensibilisation employés', icon: 'fas fa-users', action: () => goTo('Formez vos équipes : phishing, mots de passe, télétravail sécurisé.', 'academy.html', 'Demander un devis') },
-      { text: 'Cyber pour dirigeants', icon: 'fas fa-user-tie', action: () => goTo('Programme dédié aux décideurs : enjeux stratégiques, gouvernance.', 'academy.html', 'Voir le programme') }
-    ]), 400);
-  }, 600);
-}
-
-function showPentest() {
-  addMsg('🐛 Nos experts certifiés simulent de vraies cyberattaques sur vos systèmes pour identifier les failles avant les attaquants.');
-  setTimeout(() => addLinks([
-    { text: 'En savoir plus sur le VAPT', url: 'vapt.html', icon: 'fas fa-arrow-right' },
-    { text: 'Demander un devis pentest', url: 'contact.html', icon: 'fas fa-paper-plane' }
-  ]), 600);
-}
-
-function showCloud() {
-  addMsg('☁️ Nous sécurisons vos environnements cloud (AWS, Azure, Google Cloud, SaaS) avec une approche neutre et indépendante.');
-  setTimeout(() => addLinks([
-    { text: 'Découvrir Cloud Security', url: 'cloud-security.html', icon: 'fas fa-arrow-right' },
-    { text: 'Demander un audit cloud', url: 'contact.html', icon: 'fas fa-paper-plane' }
-  ]), 600);
-}
-
-function showConformite() {
-  addMsg('⚖️ Nous vous accompagnons sur la conformité aux réglementations applicables et standards internationaux (ISO 27001, normes sectorielles).');
-  setTimeout(() => addLinks([
-    { text: 'Découvrir Conformité & Régulation', url: 'conformite.html', icon: 'fas fa-arrow-right' },
-    { text: 'Demander un diagnostic conformité', url: 'contact.html', icon: 'fas fa-paper-plane' }
-  ]), 600);
+  addMsg('🎓 Découvrez nos formations <a href="academy.html" style="color:#00D4FF">Academy</a>');
 }
 
 function showContact() {
-  addMsg('📞 Plusieurs façons de nous joindre :');
-  setTimeout(() => addLinks([
-    { text: 'WhatsApp (réponse rapide)', url: 'https://wa.me/212728312801', icon: 'fab fa-whatsapp', whatsapp: true },
-    { text: 'Formulaire de contact', url: 'contact.html', icon: 'fas fa-envelope' },
-    { text: 'contact@nextgentechnologies.net', url: 'mailto:contact@nextgentechnologies.net', icon: 'fas fa-paper-plane' }
-  ]), 600);
+  addMsg('📞 Contactez-nous sur WhatsApp : <a href="https://wa.me/212728312801" style="color:#25D366">+212 728 31 28 01</a>');
 }
 
-function goTo(intro, url, label) {
-  addMsg(intro);
-  setTimeout(() => addLinks([
-    { text: label, url: url, icon: 'fas fa-arrow-right' },
-    { text: 'Demander un devis', url: 'contact.html', icon: 'fas fa-paper-plane' }
-  ]), 500);
-}
-</script>
-<!-- ===== FIN CHATBOT ===== -->
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
- const menuToggle = document.getElementById('menuToggle');
- const navLinks = document.getElementById('navLinks');
- if (menuToggle && navLinks) {
- menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
- document.querySelectorAll('.nav-links a').forEach(link => {
- link.addEventListener('click', () => navLinks.classList.remove('active'));
- });
- }
- const observer = new IntersectionObserver((entries) => {
- entries.forEach(entry => {
- if (entry.isIntersecting) entry.target.classList.add('visible');
- });
- }, { threshold: 0.1 });
- document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.getElementById('menuToggle')?.addEventListener('click', () => document.getElementById('navLinks')?.classList.toggle('active'));
+document.querySelectorAll('.reveal').forEach(el => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  observer.observe(el);
 });
-function handleSubmit(formId) {
- const form = document.getElementById(formId || 'contactForm');
- if (!form) return;
- const inputs = form.querySelectorAll('input[required], textarea[required]');
- let valid = true;
- inputs.forEach(i => {
- if (!i.value.trim()) { valid = false; i.style.borderColor = '#EF4444'; }
- else { i.style.borderColor = ''; }
- });
- if (!valid) { alert('Merci de remplir tous les champs obligatoires.'); return; }
- alert('Merci ! Votre demande a bien été reçue. Nous vous recontactons sous 24h.');
- form.querySelectorAll('input, textarea').forEach(f => f.value = '');
-}
 </script>
-</body></html>
+</body>
+</html>
