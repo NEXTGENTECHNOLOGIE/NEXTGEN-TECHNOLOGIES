@@ -104,7 +104,6 @@ a { text-decoration: none; }
   background: var(--white);
   border-bottom: 1px solid var(--gray-light);
   box-shadow: 0 2px 20px rgba(0,0,0,0.06);
-  backdrop-filter: blur(10px);
 }
 .nav-container {
   max-width: 1400px; margin: 0 auto;
@@ -324,21 +323,28 @@ section { padding: 5rem 4%; }
 }
 .service-img {
   height: 170px;
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: var(--transition);
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
 }
-.service-card:hover .service-img i {
-  transform: scale(1.1) rotate(5deg);
+.service-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
-.service-img i {
-  font-size: 3.5rem;
-  color: var(--accent);
-  z-index: 1;
-  transition: var(--transition);
+.service-card:hover .service-img img {
+  transform: scale(1.05);
+}
+.service-img::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(10,22,40,0.2), rgba(10,22,40,0.05));
+  pointer-events: none;
 }
 .service-card.gold .service-img i { color: var(--gold); }
 .service-content { padding: 1.5rem; }
@@ -646,15 +652,15 @@ footer {
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html" id="navHome">Accueil</a></li>
-<li><a href="services.html" id="navServices">Services <i class="fas fa-chevron-down"></i></a></li>
-<li><a href="secteurs.html" id="navSectors">Secteurs <i class="fas fa-chevron-down"></i></a></li>
-<li><a href="academy.html" id="navAcademy">Academy</a></li>
-<li><a href="qui-sommes-nous.html" id="navAbout">Qui sommes-nous</a></li>
-<li><a href="carrieres.html" id="navCareers">Carrières</a></li>
-<li><a href="menaces.html" id="navThreats">Menaces</a></li>
-<li><a href="campus-cyber.html" id="navCampus">🎓 Campus Cyber</a></li>   <!-- ← NOUVEAU LIEN -->
-<li><a href="contact.html" id="navContact">Contact</a></li>
-<li><a href="contact.html" class="nav-cta" id="navAudit">Audit gratuit</a></li>
+      <li><a href="services.html" id="navServices">Services <i class="fas fa-chevron-down"></i></a></li>
+      <li><a href="secteurs.html" id="navSectors">Secteurs <i class="fas fa-chevron-down"></i></a></li>
+      <li><a href="academy.html" id="navAcademy">Academy</a></li>
+      <li><a href="qui-sommes-nous.html" id="navAbout">Qui sommes-nous</a></li>
+      <li><a href="carrieres.html" id="navCareers">Carrières</a></li>
+      <li><a href="menaces.html" id="navThreats">Menaces</a></li>
+      <li><a href="campus-cyber.html" id="navCampus">🎓 Campus Cyber</a></li>
+      <li><a href="contact.html" id="navContact">Contact</a></li>
+      <li><a href="contact.html" class="nav-cta" id="navAudit">Audit gratuit</a></li>
     </ul>
     <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
   </div>
@@ -760,20 +766,20 @@ const translations = {
     footerServicesTitle: "Services", footerSectorsTitle: "Secteurs", footerCompanyTitle: "Entreprise",
     nav: { home: "Accueil", services: "Services", sectors: "Secteurs", academy: "Academy", about: "Qui sommes-nous", careers: "Carrières", threats: "Menaces", contact: "Contact", audit: "Audit gratuit" },
     services: [
-      {title:"SOC Consultation", desc:"Conseil stratégique pour la mise en place et l'optimisation de votre SOC.", icon:"fas fa-shield-halved", link:"soc-consultation.html", gold:false},
-      {title:"Managed Security Services", desc:"Surveillance et gestion continue de votre sécurité.", icon:"fas fa-eye", link:"managed-security.html", gold:true},
-      {title:"VAPT", desc:"Tests d'intrusion et évaluation des vulnérabilités.", icon:"fas fa-bug", link:"vapt.html", gold:false},
-      {title:"Data Security Management", desc:"Protection complète de vos données.", icon:"fas fa-database", link:"data-security.html", gold:true},
-      {title:"Cloud Security", desc:"Sécurisation de vos environnements cloud.", icon:"fas fa-cloud", link:"cloud-security.html", gold:false},
-      {title:"Sécurité Réseau", desc:"Architecture sécurisée, pare-feu, segmentation.", icon:"fas fa-network-wired", link:"securite-reseau.html", gold:true},
-      {title:"Conformité & Régulation", desc:"Accompagnement réglementaire ISO 27001.", icon:"fas fa-gavel", link:"conformite.html", gold:false},
-      {title:"Academy & Formations", desc:"Programmes certifiants pour vos équipes.", icon:"fas fa-graduation-cap", link:"academy.html", gold:true}
+      {title:"SOC Consultation", desc:"Conseil stratégique pour la mise en place et l'optimisation de votre SOC.", img:"soc-consultation.jpg", link:"soc-consultation.html", gold:false},
+      {title:"Managed Security Services", desc:"Surveillance et gestion continue de votre sécurité par notre équipe d'analystes.", img:"managed-security.jpg", link:"managed-security.html", gold:true},
+      {title:"VAPT", desc:"Tests d'intrusion et évaluation des vulnérabilités. Identifiez les failles avant les attaquants.", img:"vapt.webp", link:"vapt.html", gold:false},
+      {title:"Data Security Management", desc:"Protection complète de vos données : confidentialité, intégrité et disponibilité.", img:"data-security.jpg", link:"data-security.html", gold:true},
+      {title:"Cloud Security", desc:"Sécurisation de vos environnements cloud publics, privés et hybrides.", img:"cloud-security.jpg", link:"cloud-security.html", gold:false},
+      {title:"Sécurité Réseau", desc:"Architecture sécurisée, pare-feu nouvelle génération, segmentation, VPN.", img:"securite-reseau.jpg", link:"securite-reseau.html", gold:true},
+      {title:"Conformité & Régulation", desc:"Accompagnement réglementaire : réglementations en vigueur, ISO 27001, normes sectorielles.", img:"conformite.jpg", link:"conformite.html", gold:false},
+      {title:"Academy & Formations", desc:"Programmes certifiants et formations sur mesure pour vos équipes techniques et dirigeants.", img:"academy.jpg", link:"academy.html", gold:true}
     ],
     sectors: [
-      {title:"Banques & Finance", desc:"Conformité bancaire, protection contre la fraude.", icon:"fas fa-building-columns", link:"secteur-banques.html", gold:false},
-      {title:"E-commerce & Retail", desc:"Protection paiements, sécurité données clients.", icon:"fas fa-cart-shopping", link:"secteur-ecommerce.html", gold:true},
-      {title:"Santé & Pharma", desc:"Protection données patients, conformité.", icon:"fas fa-heart-pulse", link:"secteur-sante.html", gold:false},
-      {title:"Industrie & Manufacture", desc:"Sécurisation OT/IT, production industrielle.", icon:"fas fa-industry", link:"secteur-industrie.html", gold:true}
+      {title:"Banques & Finance", desc:"Conformité bancaire, protection contre la fraude, sécurisation des transactions.", icon:"fas fa-building-columns", link:"secteur-banques.html", gold:false},
+      {title:"E-commerce & Retail", desc:"Protection paiements, sécurité données clients, prévention fraude transactionnelle.", icon:"fas fa-cart-shopping", link:"secteur-ecommerce.html", gold:true},
+      {title:"Santé & Pharma", desc:"Protection données patients, conformité, sécurisation des dispositifs médicaux.", icon:"fas fa-heart-pulse", link:"secteur-sante.html", gold:false},
+      {title:"Industrie & Manufacture", desc:"Sécurisation OT/IT, protection des automates, continuité de production.", icon:"fas fa-industry", link:"secteur-industrie.html", gold:true}
     ],
     steps: [
       {num:"01", title:"Audit gratuit", desc:"30 minutes pour comprendre votre exposition. Aucun engagement."},
@@ -801,14 +807,14 @@ const translations = {
     footerServicesTitle: "Services", footerSectorsTitle: "Sectors", footerCompanyTitle: "Company",
     nav: { home: "Home", services: "Services", sectors: "Sectors", academy: "Academy", about: "About us", careers: "Careers", threats: "Threats", contact: "Contact", audit: "Free audit" },
     services: [
-      {title:"SOC Consulting", desc:"Strategic advice for setting up and optimizing your SOC.", icon:"fas fa-shield-halved", link:"soc-consultation.html", gold:false},
-      {title:"Managed Security Services", desc:"Continuous monitoring and management of your security.", icon:"fas fa-eye", link:"managed-security.html", gold:true},
-      {title:"VAPT", desc:"Penetration testing and vulnerability assessment.", icon:"fas fa-bug", link:"vapt.html", gold:false},
-      {title:"Data Security Management", desc:"Complete data protection: confidentiality, integrity.", icon:"fas fa-database", link:"data-security.html", gold:true},
-      {title:"Cloud Security", desc:"Securing your public, private and hybrid clouds.", icon:"fas fa-cloud", link:"cloud-security.html", gold:false},
-      {title:"Network Security", desc:"Secure architecture, NGFW, segmentation, VPN.", icon:"fas fa-network-wired", link:"securite-reseau.html", gold:true},
-      {title:"Compliance & Regulation", desc:"Regulatory support, ISO 27001, sector standards.", icon:"fas fa-gavel", link:"conformite.html", gold:false},
-      {title:"Academy & Training", desc:"Certification programs and tailored training.", icon:"fas fa-graduation-cap", link:"academy.html", gold:true}
+      {title:"SOC Consulting", desc:"Strategic advice for setting up and optimizing your SOC.", img:"soc-consultation.jpg", link:"soc-consultation.html", gold:false},
+      {title:"Managed Security Services", desc:"Continuous monitoring and management of your security.", img:"managed-security.jpg", link:"managed-security.html", gold:true},
+      {title:"VAPT", desc:"Penetration testing and vulnerability assessment.", img:"vapt.webp", link:"vapt.html", gold:false},
+      {title:"Data Security Management", desc:"Complete data protection: confidentiality, integrity.", img:"data-security.jpg", link:"data-security.html", gold:true},
+      {title:"Cloud Security", desc:"Securing your public, private and hybrid clouds.", img:"cloud-security.jpg", link:"cloud-security.html", gold:false},
+      {title:"Network Security", desc:"Secure architecture, NGFW, segmentation, VPN.", img:"securite-reseau.jpg", link:"securite-reseau.html", gold:true},
+      {title:"Compliance & Regulation", desc:"Regulatory support, ISO 27001, sector standards.", img:"conformite.jpg", link:"conformite.html", gold:false},
+      {title:"Academy & Training", desc:"Certification programs and tailored training.", img:"academy.jpg", link:"academy.html", gold:true}
     ],
     sectors: [
       {title:"Banking & Finance", desc:"Banking compliance, fraud protection.", icon:"fas fa-building-columns", link:"secteur-banques.html", gold:false},
@@ -842,14 +848,14 @@ const translations = {
     footerServicesTitle: "الخدمات", footerSectorsTitle: "القطاعات", footerCompanyTitle: "الشركة",
     nav: { home: "الرئيسية", services: "الخدمات", sectors: "القطاعات", academy: "الأكاديمية", about: "من نحن", careers: "وظائف", threats: "التهديدات", contact: "اتصل بنا", audit: "تدقيق مجاني" },
     services: [
-      {title:"استشارات SOC", desc:"نصائح استراتيجية لإعداد وتحسين مركز عمليات الأمن الخاص بك.", icon:"fas fa-shield-halved", link:"soc-consultation.html", gold:false},
-      {title:"خدمات الأمن المُدارة", desc:"مراقبة وإدارة مستمرة لأمنك من قبل فريق محللينا الخبراء.", icon:"fas fa-eye", link:"managed-security.html", gold:true},
-      {title:"VAPT", desc:"اختبار الاختراق وتقييم الثغرات. اكتشف الثغرات قبل المهاجمين.", icon:"fas fa-bug", link:"vapt.html", gold:false},
-      {title:"إدارة أمن البيانات", desc:"حماية كاملة لبياناتك: السرية والنزاهة والتوفر.", icon:"fas fa-database", link:"data-security.html", gold:true},
-      {title:"أمن السحابة", desc:"تأمين بيئات السحابة العامة والخاصة والهجينة.", icon:"fas fa-cloud", link:"cloud-security.html", gold:false},
-      {title:"أمن الشبكات", desc:"بنية آمنة، جدار ناري من الجيل التالي، تجزئة، VPN، شبكة لاسلكية آمنة.", icon:"fas fa-network-wired", link:"securite-reseau.html", gold:true},
-      {title:"الامتثال والتنظيم", desc:"دعم تنظيمي: القوانين المعمول بها، ISO 27001، المعايير القطاعية.", icon:"fas fa-gavel", link:"conformite.html", gold:false},
-      {title:"الأكاديمية والتكوين", desc:"برامج شهادات وتكوينات مخصصة لفرقك التقنية والقادة.", icon:"fas fa-graduation-cap", link:"academy.html", gold:true}
+      {title:"استشارات SOC", desc:"نصائح استراتيجية لإعداد وتحسين مركز عمليات الأمن الخاص بك.", img:"soc-consultation.jpg", link:"soc-consultation.html", gold:false},
+      {title:"خدمات الأمن المُدارة", desc:"مراقبة وإدارة مستمرة لأمنك من قبل فريق محللينا الخبراء.", img:"managed-security.jpg", link:"managed-security.html", gold:true},
+      {title:"VAPT", desc:"اختبار الاختراق وتقييم الثغرات. اكتشف الثغرات قبل المهاجمين.", img:"vapt.webp", link:"vapt.html", gold:false},
+      {title:"إدارة أمن البيانات", desc:"حماية كاملة لبياناتك: السرية والنزاهة والتوفر.", img:"data-security.jpg", link:"data-security.html", gold:true},
+      {title:"أمن السحابة", desc:"تأمين بيئات السحابة العامة والخاصة والهجينة.", img:"cloud-security.jpg", link:"cloud-security.html", gold:false},
+      {title:"أمن الشبكات", desc:"بنية آمنة، جدار ناري من الجيل التالي، تجزئة، VPN، شبكة لاسلكية آمنة.", img:"securite-reseau.jpg", link:"securite-reseau.html", gold:true},
+      {title:"الامتثال والتنظيم", desc:"دعم تنظيمي: القوانين المعمول بها، ISO 27001، المعايير القطاعية.", img:"conformite.jpg", link:"conformite.html", gold:false},
+      {title:"الأكاديمية والتكوين", desc:"برامج شهادات وتكوينات مخصصة لفرقك التقنية والقادة.", img:"academy.jpg", link:"academy.html", gold:true}
     ],
     sectors: [
       {title:"البنوك والتمويل", desc:"الامتثال التنظيمي المصرفي، الحماية من الاحتيال، تأمين المعاملات.", icon:"fas fa-building-columns", link:"secteur-banques.html", gold:false},
@@ -915,7 +921,7 @@ function applyLanguage(lang) {
   const servicesGrid = document.getElementById('servicesGrid');
   servicesGrid.innerHTML = '';
   t.services.forEach(s => {
-    servicesGrid.innerHTML += `<a href="${s.link}" class="service-card ${s.gold?'gold':''}"><div class="service-img"><i class="${s.icon}"></i></div><div class="service-content"><h3>${s.title}</h3><p>${s.desc}</p><span class="service-link">${lang==='ar'?'اقرأ المزيد':'En savoir plus'} <i class="fas ${lang==='ar'?'fa-arrow-left':'fa-arrow-right'}"></i></span></div></a>`;
+    servicesGrid.innerHTML += `<a href="${s.link}" class="service-card ${s.gold?'gold':''}"><div class="service-img"><img src="${s.img}" alt="${s.title}"></div><div class="service-content"><h3>${s.title}</h3><p>${s.desc}</p><span class="service-link">${lang==='ar'?'اقرأ المزيد':'En savoir plus'} <i class="fas ${lang==='ar'?'fa-arrow-left':'fa-arrow-right'}"></i></span></div></a>`;
   });
   const sectorsGrid = document.getElementById('sectorsGrid');
   sectorsGrid.innerHTML = '';
@@ -1008,9 +1014,9 @@ function toggleChat() {
               if (opt.action === 'audit') {
                 reply.innerHTML = currentLang === 'ar' ? '👍 ممتاز! يمكنك حجز تدقيقك المجاني <a href="contact.html" style="color:#00D4FF">هنا</a> أو التواصل معنا واتساب.' : (currentLang === 'en' ? '👍 Great! You can book your free audit <a href="contact.html" style="color:#00D4FF">here</a> or contact us on WhatsApp.' : '👍 Excellent ! Vous pouvez réserver votre audit gratuit <a href="contact.html" style="color:#00D4FF">ici</a> ou nous contacter sur WhatsApp.');
               } else if (opt.action === 'protect') {
-                reply.innerHTML = currentLang === 'ar' ? '🛡️ Nous proposons SOC, VAPT, Cloud Security, etc. <a href="services.html" style="color:#00D4FF">Découvrez nos services</a>' : (currentLang === 'en' ? '🛡️ We offer SOC, VAPT, Cloud Security, etc. <a href="services.html" style="color:#00D4FF">Discover our services</a>' : '🛡️ Nous proposons SOC, VAPT, Cloud Security, etc. <a href="services.html" style="color:#00D4FF">Découvrez nos services</a>');
+                reply.innerHTML = currentLang === 'ar' ? '🛡️ نحن نقدم SOC, VAPT, أمن السحابة، إلخ. <a href="services.html" style="color:#00D4FF">اكتشف خدماتنا</a>' : (currentLang === 'en' ? '🛡️ We offer SOC, VAPT, Cloud Security, etc. <a href="services.html" style="color:#00D4FF">Discover our services</a>' : '🛡️ Nous proposons SOC, VAPT, Cloud Security, etc. <a href="services.html" style="color:#00D4FF">Découvrez nos services</a>');
               } else {
-                reply.innerHTML = currentLang === 'ar' ? '📞 Contactez-nous directement sur WhatsApp : <a href="https://wa.me/212728312801" class="chat-link whatsapp" style="display:inline-block;margin-top:8px;">واتساب</a>' : (currentLang === 'en' ? '📞 Contact us directly on WhatsApp: <a href="https://wa.me/212728312801" class="chat-link whatsapp" style="display:inline-block;margin-top:8px;">WhatsApp</a>' : '📞 Contactez-nous directement sur WhatsApp : <a href="https://wa.me/212728312801" class="chat-link whatsapp" style="display:inline-block;margin-top:8px;">WhatsApp</a>');
+                reply.innerHTML = currentLang === 'ar' ? '📞 اتصل بنا مباشرة على واتساب: <a href="https://wa.me/212728312801" class="chat-link whatsapp" style="display:inline-block;margin-top:8px;">واتساب</a>' : (currentLang === 'en' ? '📞 Contact us directly on WhatsApp: <a href="https://wa.me/212728312801" class="chat-link whatsapp" style="display:inline-block;margin-top:8px;">WhatsApp</a>' : '📞 Contactez-nous directement sur WhatsApp : <a href="https://wa.me/212728312801" class="chat-link whatsapp" style="display:inline-block;margin-top:8px;">WhatsApp</a>');
               }
               body.appendChild(reply);
               body.scrollTop = body.scrollHeight;
