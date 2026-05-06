@@ -21,7 +21,7 @@
   --off-white: #E2E8F0;
   --gray-light: #94A3B8;
   --gray-mid: #64748B;
-  --transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  --transition: all 0.4s ease;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -63,7 +63,6 @@ a { text-decoration: none; }
 .top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; transition: var(--transition); }
 .top-bar-social a:hover { color: var(--accent); transform: translateY(-2px); }
 
-/* Langues simples - 3 boutons */
 .lang-switch {
   display: flex;
   gap: 0.25rem;
@@ -482,21 +481,14 @@ a { text-decoration: none; }
   .sectors-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* Bannière NOIR SUR BLANC */
 .banner-cta {
   background: var(--white);
   margin: 0 4% 4rem;
   border-radius: 20px;
   text-align: center;
   padding: 3rem;
-  position: relative;
-  overflow: hidden;
   border: 1px solid rgba(0,0,0,0.1);
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
-.banner-cta-content {
-  position: relative;
-  z-index: 2;
 }
 .banner-cta h2 {
   font-size: clamp(1.6rem, 3vw, 2.2rem);
@@ -522,7 +514,6 @@ a { text-decoration: none; }
   transform: translateY(-3px);
   background: var(--accent);
   color: var(--primary);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
 .cta-block {
@@ -551,7 +542,6 @@ a { text-decoration: none; }
   background: var(--accent);
   color: var(--primary);
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(239,68,68,0.3);
 }
 
 footer {
@@ -722,7 +712,7 @@ footer {
 <!-- VALUES SECTION -->
 <section class="values-section">
   <div style="text-align: center; margin-bottom: 3rem;">
-    <span class="section-tag">Nos valeurs</span>
+    <span class="section-tag" id="valuesTag">Nos valeurs</span>
     <h2 class="section-title" id="valuesTitle">Pourquoi nous faire confiance ?</h2>
   </div>
   <div class="values-grid">
@@ -773,13 +763,11 @@ footer {
   </div>
 </section>
 
-<!-- BANNER CTA (NOIR SUR BLANC) -->
+<!-- BANNER CTA NOIR SUR BLANC -->
 <div class="banner-cta reveal">
-  <div class="banner-cta-content">
-    <h2 id="bannerTitle">🔐 Évaluez votre niveau de sécurité dès maintenant</h2>
-    <p id="bannerText">Audit gratuit de 30 minutes. Aucun engagement.</p>
-    <a href="contact.html" class="btn-banner" id="bannerBtn">Demander mon audit <i class="fas fa-arrow-right"></i></a>
-  </div>
+  <h2 id="bannerTitle">🔐 Évaluez votre niveau de sécurité dès maintenant</h2>
+  <p id="bannerText">Audit gratuit de 30 minutes. Aucun engagement.</p>
+  <a href="contact.html" class="btn-banner" id="bannerBtn">Demander mon audit <i class="fas fa-arrow-right"></i></a>
 </div>
 
 <!-- CTA BLOCK -->
@@ -816,7 +804,7 @@ footer {
 </footer>
 
 <script>
-// DONNÉES MULTILINGUES
+// DONNÉES SERVICES
 const servicesData = {
   fr: [
     {title:"Audit & Diagnostic", desc:"On identifie vos failles critiques en quelques jours.", img:"audit-diagnostic.jpg", link:"contact.html"},
@@ -841,6 +829,7 @@ const servicesData = {
   ]
 };
 
+// DONNÉES SECTEURS avec photos AVIF
 const sectorsData = {
   fr: [
     {title:"Banques & Finance", desc:"Conformité bancaire, protection contre la fraude", img:"banques-finance.avif", link:"secteur-banques.html"},
@@ -862,9 +851,10 @@ const sectorsData = {
   ]
 };
 
+// TRADUCTIONS
 const translations = {
   fr: {
-    valuesTitle: "Pourquoi nous faire confiance ?",
+    valuesTag: "Nos valeurs", valuesTitle: "Pourquoi nous faire confiance ?",
     value1Title: "Engagés", value1Desc: "Nous sommes des talents terrain, pas des commerciaux. Votre sécurité est notre priorité absolue.",
     value2Title: "Proactifs", value2Desc: "On anticipe les menaces, on ne les subit pas. Notre SOC veille 24/7 sur vos infrastructures.",
     value3Title: "Pédagogues", value3Desc: "On forme vos équipes. La sécurité se vit au quotidien, pas juste dans un rapport.",
@@ -875,7 +865,7 @@ const translations = {
     ctaTitle: "Prêt à sécuriser votre entreprise ?", ctaText: "Audit gratuit de 30 minutes pour évaluer vos besoins. Aucun engagement.", ctaBtn: "Demander un audit gratuit"
   },
   en: {
-    valuesTitle: "Why trust us?",
+    valuesTag: "Our values", valuesTitle: "Why trust us?",
     value1Title: "Committed", value1Desc: "We are field talents, not salespeople. Your security is our absolute priority.",
     value2Title: "Proactive", value2Desc: "We anticipate threats, we don't suffer them. Our SOC monitors your infrastructure 24/7.",
     value3Title: "Educators", value3Desc: "We train your teams. Security is lived daily, not just in a report.",
@@ -886,7 +876,7 @@ const translations = {
     ctaTitle: "Ready to secure your business?", ctaText: "30-minute free audit to assess your needs. No commitment.", ctaBtn: "Request free audit"
   },
   ar: {
-    valuesTitle: "لماذا تثق بنا؟",
+    valuesTag: "قيمنا", valuesTitle: "لماذا تثق بنا؟",
     value1Title: "ملتزمون", value1Desc: "نحن مواهب ميدانية، وليس بائعين. أمنك هو أولويتنا المطلقة.",
     value2Title: "استباقيون", value2Desc: "نتوقع التهديدات، لا نعاني منها. SOC لدينا يراقب بنيتك التحتية 24/7.",
     value3Title: "معلمون", value3Desc: "ندرب فرقك. الأمن يعاش يوميا، ليس فقط في تقرير.",
@@ -900,11 +890,11 @@ const translations = {
 
 let currentLang = localStorage.getItem('nextgen-lang') || 'fr';
 
-// APPLICATION DE LA LANGUE
 function applyLanguage(lang) {
   const t = translations[lang];
   if (!t) return;
   
+  document.getElementById('valuesTag').innerText = t.valuesTag;
   document.getElementById('valuesTitle').innerText = t.valuesTitle;
   document.getElementById('value1Title').innerText = t.value1Title;
   document.getElementById('value1Desc').innerText = t.value1Desc;
@@ -1018,7 +1008,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// LANGUE - BOUTONS SIMPLES
+// LANGUE
 document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const lang = btn.getAttribute('data-lang');
