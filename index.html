@@ -977,86 +977,35 @@ footer {
   </div>
 </footer>
 
-<!-- Chatbot -->
 <div id="chatbotBtn" class="chatbot-button"><i class="fas fa-comments"></i></div>
 <div id="chatbotWindow" class="chatbot-window">
   <div class="chatbot-header">
     <div class="chatbot-avatar"><i class="fas fa-shield-halved"></i></div>
-    <div class="chatbot-header-info"><div class="name">NextGen Helper</div><div class="status">En ligne</div></div>
+    <div class="chatbot-header-info">
+        <div class="name">NextGen Expert</div>
+        <div class="status">IA de Sécurité</div>
+    </div>
     <button class="chatbot-close" onclick="closeChat()">×</button>
   </div>
+  
   <div class="chatbot-body" id="chatBody">
-    <div class="chat-msg bot">Bonjour 👋 Je suis <strong>NextGen Helper</strong>. Audit gratuit, pentest, réseau ou SOC ? Dites-moi ce dont vous avez besoin.</div>
+    <div class="chat-msg bot">
+        Bonjour. Je suis l'expert IA de <strong>NextGen Technologies</strong>. 
+        Comment puis-je sécuriser votre infrastructure aujourd'hui ?
+    </div>
   </div>
-  <div class="chatbot-footer">Propulsé par NextGen Technologies</div>
+
+  <div class="chatbot-input-area">
+    <input type="text" id="userInput" placeholder="Posez votre question cyber..." autocomplete="off">
+    <button id="sendBtn"><i class="fas fa-paper-plane"></i></button>
+  </div>
+  <div class="chatbot-footer">Propulsé par NextGen Intelligence</div>
 </div>
 
 <script>
-// Services Data
-const servicesData = [
-  {title:"Audit & Diagnostic", desc:"On identifie vos failles critiques en quelques jours.", img:"audit-diagnostic.jpg", link:"contact.html"},
-  {title:"Pentest / VAPT", desc:"On teste votre système comme un hacker.", img:"vapt.webp", link:"vapt.html"},
-  {title:"Sécurité Réseau", desc:"On protège votre infrastructure contre les intrusions.", img:"securite-reseau.jpg", link:"securite-reseau.html"},
-  {title:"SOC Consultation", desc:"On surveille votre système 24/7 après sécurisation.", img:"soc-consultation.jpg", link:"soc-consultation.html"},
-  {title:"Academy & Formations", desc:"Programmes certifiants et formations sur mesure.", img:"Academy-Formations.jpg", link:"academy.html"}
-];
+/* --- TOUT VOTRE CODE PRÉCÉDENT (SLIDER, STATS, REVEAL) DOIT ÊTRE AU-DESSUS --- */
 
-const servicesGrid = document.getElementById('servicesGrid');
-if (servicesGrid) {
-  servicesGrid.innerHTML = servicesData.map(s => `
-    <a href="${s.link}" class="service-card">
-      <div class="service-img"><img src="${s.img}" alt="${s.title}"></div>
-      <div class="service-content"><h3>${s.title}</h3><p>${s.desc}</p><span class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></span></div>
-    </a>
-  `).join('');
-}
-
-// Slider Hero
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
-const indicator = document.getElementById('slideIndicator');
-const prevBtn = document.getElementById('prevSlide');
-const nextBtn = document.getElementById('nextSlide');
-
-if (slides.length && indicator) {
-  slides.forEach((_, i) => { const dot = document.createElement('div'); dot.onclick = () => goToSlide(i); indicator.appendChild(dot); });
-  function updateIndicators() { indicator.querySelectorAll('div').forEach((dot, i) => dot.classList.toggle('active', i === currentSlide)); }
-  function goToSlide(index) { slides[currentSlide].classList.remove('active'); currentSlide = (index + slides.length) % slides.length; slides[currentSlide].classList.add('active'); updateIndicators(); }
-  function nextSlide() { goToSlide(currentSlide + 1); }
-  function prevSlide() { goToSlide(currentSlide - 1); }
-  prevBtn?.addEventListener('click', prevSlide);
-  nextBtn?.addEventListener('click', nextSlide);
-  setInterval(nextSlide, 6000);
-  updateIndicators();
-}
-
-// Animated Counters
-function animateNumber(element, target) {
-  let current = 0, increment = target / 50;
-  const timer = setInterval(() => {
-    current += increment;
-    if (current >= target) { element.textContent = target; clearInterval(timer); }
-    else { element.textContent = Math.floor(current); }
-  }, 30);
-}
-const statObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      document.querySelectorAll('.stat-number').forEach(el => { if (el.textContent == '0') animateNumber(el, parseInt(el.dataset.target)); });
-      statObserver.disconnect();
-    }
-  });
-}, { threshold: 0.3 });
-statObserver.observe(document.querySelector('.stats-section'));
-
-// Reveal animations
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-// Chatbot
-<script>
+// Logique du Chatbot Intelligent
 let chatOpen = false;
 const chatBody = document.getElementById('chatBody');
 const userInput = document.getElementById('userInput');
@@ -1074,54 +1023,46 @@ function closeChat() {
     chatOpen = false;
 }
 
-// Fonction pour ajouter un message à l'écran
 function addMessage(text, sender) {
     const msgDiv = document.createElement('div');
     msgDiv.classList.add('chat-msg', sender);
     msgDiv.innerHTML = text;
     chatBody.appendChild(msgDiv);
-    chatBody.scrollTop = chatBody.scrollHeight; // Scroll vers le bas
+    chatBody.scrollTop = chatBody.scrollHeight;
 }
 
-// Simulation d'intelligence (à remplacer par une API plus tard)
 async function getAIResponse(userText) {
-    // On simule un petit temps de réflexion
-    addMessage("<i>En train de réfléchir...</i>", "bot");
+    addMessage("<small><i>En train de réfléchir...</i></small>", "bot");
     const typingMsg = chatBody.lastChild;
 
     setTimeout(() => {
-        typingMsg.remove(); // On enlève l'indicateur de frappe
+        typingMsg.remove();
+        let response = "C'est une question pertinente. Pour ce type de menace, NextGen recommande un audit de vulnérabilités. Souhaitez-vous que nos experts vous contactent ?";
         
-        let response = "C'est une excellente question. En tant qu'expert chez NextGen, je vous recommande un audit de type Pentest pour évaluer ce point précis. Souhaitez-vous être mis en relation avec un consultant ?";
+        if(userText.toLowerCase().includes("soc")) response = "Notre SOC surveille vos actifs 24h/24 au Maroc pour bloquer les menaces en temps réel.";
+        if(userText.toLowerCase().includes("prix") || userText.toLowerCase().includes("devis")) response = "Chaque projet est unique. Je vous invite à cliquer sur 'Audit Gratuit' pour une estimation précise.";
         
-        if(userText.toLowerCase().includes("soc")) {
-            response = "Notre SOC surveille vos logs 24h/24 au Maroc pour détecter toute intrusion avant qu'elle ne devienne critique.";
-        } else if(userText.toLowerCase().includes("prix") || userText.toLowerCase().includes("devis")) {
-            response = "Chaque infrastructure est unique. Je vous suggère de cliquer sur 'Audit Gratuit' pour obtenir un devis sur mesure.";
-        }
-
         addMessage(response, "bot");
-    }, 1000);
+    }, 800);
 }
 
 function handleSend() {
     const text = userInput.value.trim();
     if (text === "") return;
-
     addMessage(text, "user");
     userInput.value = "";
     getAIResponse(text);
 }
 
-// Événements
-sendBtn.addEventListener('click', handleSend);
-userInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') handleSend();
-});
-document.getElementById('chatbotBtn').addEventListener('click', toggleChat);
+// Listeners
+sendBtn?.addEventListener('click', handleSend);
+userInput?.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleSend(); });
+document.getElementById('chatbotBtn')?.addEventListener('click', toggleChat);
 
-// Menu Mobile
+// Menu Mobile (On le remet ici pour être sûr qu'il fonctionne)
 document.getElementById('menuToggle')?.addEventListener('click', () => {
     document.getElementById('navLinks').classList.toggle('active');
 });
 </script>
+</body>
+</html>
