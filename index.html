@@ -15,10 +15,9 @@
   --primary-light: #0F2B4D;
   --accent: #00D4FF;
   --accent-dark: #0891B2;
+  --red: #EF4444;
+  --red-dark: #DC2626;
   --gold: #FFB800;
-  --gold-dark: #D97706;
-  --dark-bg: #071426;
-  --card-bg: #0F2A3E;
   --white: #FFFFFF;
   --off-white: #E2E8F0;
   --gray-light: #94A3B8;
@@ -91,10 +90,6 @@ a { text-decoration: none; }
   background: var(--accent);
   color: var(--primary);
 }
-.lang-btn:hover:not(.active) {
-  background: rgba(0,212,255,0.3);
-  color: white;
-}
 
 /* Navigation */
 .nav {
@@ -139,7 +134,7 @@ a { text-decoration: none; }
 .nav-links > li > a:hover { background: rgba(0,212,255,0.1); color: var(--accent); }
 .dropdown-menu {
   position: absolute; top: 100%; left: 0;
-  background: var(--dark-bg);
+  background: #071426;
   min-width: 280px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.4);
   border-radius: 12px; padding: 0.6rem;
@@ -160,10 +155,9 @@ a { text-decoration: none; }
 .dropdown-menu li a:hover {
   background: rgba(0,212,255,0.1); color: var(--accent); padding-left: 1.4rem;
 }
-.dropdown-menu li a i { color: var(--accent); margin-right: 0.6rem; width: 18px; }
 .nav-cta {
-  background: linear-gradient(135deg, var(--gold), var(--gold-dark)) !important;
-  color: var(--primary) !important;
+  background: linear-gradient(135deg, var(--red), var(--red-dark)) !important;
+  color: var(--white) !important;
   padding: 0.7rem 1.4rem !important;
   border-radius: 40px !important;
   font-weight: 700 !important;
@@ -209,7 +203,7 @@ a { text-decoration: none; }
   padding: 2rem;
 }
 .slide .caption h1 {
-  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
   margin-bottom: 1rem;
   text-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
@@ -220,8 +214,8 @@ a { text-decoration: none; }
   margin-bottom: 1.5rem;
 }
 .slide .caption .btn-hero {
-  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-  color: var(--primary);
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
+  color: var(--white);
   padding: 0.8rem 2rem;
   border-radius: 40px;
   font-weight: 700;
@@ -230,7 +224,7 @@ a { text-decoration: none; }
 }
 .slide .caption .btn-hero:hover {
   transform: translateY(-3px);
-  background: var(--gold);
+  background: var(--accent);
   color: var(--primary);
 }
 .controls {
@@ -258,8 +252,8 @@ a { text-decoration: none; }
   font-size: 1.5rem;
 }
 .controls div:hover {
-  background: var(--accent);
-  color: var(--primary);
+  background: var(--red);
+  color: var(--white);
   transform: scale(1.1);
 }
 .indicator {
@@ -280,7 +274,7 @@ a { text-decoration: none; }
   transition: var(--transition);
 }
 .indicator div.active {
-  background: var(--accent);
+  background: var(--red);
   width: 25px;
   border-radius: 10px;
 }
@@ -288,7 +282,7 @@ a { text-decoration: none; }
 /* Values Section */
 .values-section {
   padding: 5rem 4%;
-  background: var(--dark-bg);
+  background: #071426;
 }
 .values-grid {
   display: grid;
@@ -308,19 +302,19 @@ a { text-decoration: none; }
 }
 .value-card:hover {
   transform: translateY(-8px);
-  border-color: var(--accent);
-  box-shadow: 0 20px 40px rgba(0,212,255,0.1);
+  border-color: var(--red);
+  box-shadow: 0 20px 40px rgba(239,68,68,0.1);
 }
 .value-icon {
   width: 70px;
   height: 70px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 1.2rem;
-  color: var(--primary);
+  color: var(--white);
   font-size: 1.8rem;
 }
 .value-card h3 {
@@ -406,8 +400,8 @@ a { text-decoration: none; }
 }
 .service-card:hover {
   transform: translateY(-8px);
-  border-color: var(--accent);
-  box-shadow: 0 20px 40px rgba(0,212,255,0.15);
+  border-color: var(--red);
+  box-shadow: 0 20px 40px rgba(239,68,68,0.15);
 }
 .service-img {
   height: 170px;
@@ -430,7 +424,7 @@ a { text-decoration: none; }
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(0,212,255,0.2), rgba(0,0,0,0.4));
+  background: linear-gradient(135deg, rgba(239,68,68,0.2), rgba(0,0,0,0.4));
   pointer-events: none;
 }
 .service-content { padding: 1.5rem; }
@@ -445,12 +439,12 @@ a { text-decoration: none; }
   gap: 0.4rem;
   transition: var(--transition);
 }
-.service-card:hover .service-link { gap: 0.8rem; color: var(--gold); }
+.service-card:hover .service-link { gap: 0.8rem; color: var(--red); }
 
 /* Sectors Section */
 .sectors-section {
   padding: 5rem 4%;
-  background: var(--dark-bg);
+  background: #071426;
 }
 .sectors-grid {
   display: grid;
@@ -458,98 +452,95 @@ a { text-decoration: none; }
   gap: 1.5rem;
 }
 .sector-card {
-  background: rgba(15, 42, 62, 0.5);
+  background: rgba(15, 42, 62, 0.6);
   border-radius: 16px;
   overflow: hidden;
-  text-align: center;
-  padding: 1.5rem;
   border: 1px solid rgba(0,212,255,0.1);
   transition: var(--transition);
+  display: block;
+  color: inherit;
+  text-decoration: none;
 }
 .sector-card:hover {
   transform: translateY(-5px);
-  border-color: var(--accent);
+  border-color: var(--red);
+  box-shadow: 0 15px 30px rgba(239,68,68,0.1);
 }
-.sector-card i {
-  font-size: 2.5rem;
-  color: var(--accent);
-  margin-bottom: 1rem;
+.sector-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
 }
 .sector-card h4 {
   color: var(--white);
   font-size: 1rem;
-  margin-bottom: 0.5rem;
+  margin: 0.8rem 1rem 0.3rem;
 }
 .sector-card p {
   color: var(--gray-light);
   font-size: 0.75rem;
+  margin: 0 1rem 1rem;
+  line-height: 1.4;
+}
+@media (max-width: 768px) {
+  .sectors-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* Testimonials Slider */
-.testimonials-section {
-  padding: 5rem 4%;
-  background: var(--primary-deep);
-}
-.testimonial-slider {
-  max-width: 800px;
-  margin: 0 auto;
+/* Banner CTA (remplace les témoignages) */
+.banner-cta {
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
+  margin: 0 4% 4rem;
+  border-radius: 20px;
+  text-align: center;
+  padding: 3rem;
   position: relative;
   overflow: hidden;
 }
-.testimonial-track {
-  display: flex;
-  transition: transform 0.5s ease;
+.banner-cta::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
 }
-.testimonial-card {
-  flex: 0 0 100%;
-  background: rgba(15, 42, 62, 0.6);
-  backdrop-filter: blur(5px);
-  padding: 2rem;
-  border-radius: 20px;
-  text-align: center;
-  border-left: 4px solid var(--accent);
+.banner-cta-content {
+  position: relative;
+  z-index: 2;
 }
-.testimonial-text {
-  font-style: italic;
-  color: var(--off-white);
-  margin-bottom: 1rem;
-  line-height: 1.6;
+.banner-cta h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--white);
+  margin-bottom: 0.5rem;
 }
-.testimonial-author {
+.banner-cta p {
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 1.5rem;
+}
+.banner-cta .btn-banner {
+  background: var(--white);
+  color: var(--red);
+  padding: 0.8rem 2rem;
+  border-radius: 40px;
   font-weight: 700;
-  color: var(--accent);
-  margin-bottom: 0.2rem;
-}
-.testimonial-role {
-  font-size: 0.8rem;
-  color: var(--gray-light);
-}
-.testimonial-dots {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 2rem;
-}
-.testimonial-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--gray-mid);
-  cursor: pointer;
   transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
 }
-.testimonial-dot.active {
-  background: var(--accent);
-  width: 25px;
-  border-radius: 10px;
+.banner-cta .btn-banner:hover {
+  transform: translateY(-3px);
+  background: var(--primary);
+  color: var(--white);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-/* CTA Block */
+/* CTA Block final */
 .cta-block {
   background: linear-gradient(135deg, var(--primary-light), var(--primary));
   text-align: center;
   padding: 4rem 4%;
-  position: relative;
 }
 .cta-block-content {
   max-width: 700px;
@@ -558,8 +549,8 @@ a { text-decoration: none; }
 .cta-block h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--white); margin-bottom: 1rem; }
 .cta-block p { color: var(--gray-light); margin-bottom: 2rem; }
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-  color: var(--primary);
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
+  color: var(--white);
   padding: 1rem 2rem;
   border-radius: 40px;
   font-weight: 700;
@@ -569,39 +560,53 @@ a { text-decoration: none; }
   transition: var(--transition);
 }
 .btn-primary:hover {
-  background: var(--gold);
+  background: var(--accent);
+  color: var(--primary);
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0,212,255,0.3);
+  box-shadow: 0 10px 25px rgba(239,68,68,0.3);
 }
 
-/* Footer */
+/* Footer simplifié */
 footer {
   background: var(--primary-deep);
   border-top: 1px solid rgba(0,212,255,0.1);
   padding: 3rem 4% 1.5rem;
 }
-.footer-grid {
+.footer-content {
   max-width: 1400px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 2rem;
-  margin-bottom: 2rem;
+  text-align: center;
 }
-.footer-brand p { color: var(--gray-mid); font-size: 0.88rem; margin: 1rem 0; }
-.footer-col h4 { color: var(--white); font-size: 0.92rem; margin-bottom: 1rem; text-transform: uppercase; }
-.footer-col ul { list-style: none; }
-.footer-col ul li { margin-bottom: 0.6rem; }
-.footer-col ul a { color: var(--gray-light); font-size: 0.88rem; transition: var(--transition); }
-.footer-col ul a:hover { color: var(--accent); padding-left: 5px; }
-.footer-bottom {
-  max-width: 1400px;
+.footer-brand {
+  margin-bottom: 1.5rem;
+}
+.footer-brand .logo {
+  display: inline-flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.footer-brand p {
+  color: var(--gray-mid);
+  font-size: 0.88rem;
+  max-width: 400px;
   margin: 0 auto;
+}
+.footer-contact {
+  margin: 1.5rem 0;
+}
+.footer-contact p {
+  color: var(--gray-light);
+  font-size: 0.85rem;
+  margin: 0.3rem 0;
+}
+.footer-contact i {
+  color: var(--accent);
+  margin-right: 0.5rem;
+}
+.footer-bottom {
   padding-top: 1.5rem;
   border-top: 1px solid rgba(0,212,255,0.1);
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.82rem;
+  font-size: 0.75rem;
   color: var(--gray-mid);
 }
 
@@ -609,15 +614,15 @@ footer {
 .chatbot-button {
   position: fixed; bottom: 25px; right: 25px;
   width: 60px; height: 60px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary);
+  color: var(--white);
   font-size: 1.6rem;
   cursor: pointer;
-  box-shadow: 0 6px 25px rgba(0,212,255,0.5);
+  box-shadow: 0 6px 25px rgba(239,68,68,0.5);
   z-index: 998;
   transition: var(--transition);
 }
@@ -627,7 +632,7 @@ footer {
   width: 380px;
   max-width: calc(100vw - 50px);
   height: 540px;
-  background: var(--dark-bg);
+  background: #071426;
   border-radius: 20px;
   border: 1px solid rgba(0,212,255,0.2);
   box-shadow: 0 20px 50px rgba(0,0,0,0.5);
@@ -638,7 +643,7 @@ footer {
 }
 .chatbot-window.open { display: flex; }
 .chatbot-header {
-  background: var(--primary-light);
+  background: #0F2B4D;
   padding: 1rem;
   display: flex;
   align-items: center;
@@ -646,13 +651,13 @@ footer {
 }
 .chatbot-avatar {
   width: 44px; height: 44px;
-  background: var(--accent);
+  background: var(--red);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.3rem;
-  color: var(--primary);
+  color: var(--white);
 }
 .chatbot-header-info .name { font-weight: 700; color: var(--white); }
 .chatbot-header-info .status { font-size: 0.75rem; color: var(--accent); }
@@ -677,13 +682,13 @@ footer {
   margin-bottom: 0.8rem;
 }
 .chat-msg.bot {
-  background: var(--card-bg);
+  background: #0F2B4D;
   color: var(--off-white);
   border-bottom-left-radius: 4px;
 }
 .chat-msg.user {
-  background: var(--accent);
-  color: var(--primary);
+  background: var(--red);
+  color: var(--white);
   margin-left: auto;
   border-bottom-right-radius: 4px;
 }
@@ -694,7 +699,7 @@ footer {
   margin: 0.5rem 0;
 }
 .chat-option {
-  background: var(--card-bg);
+  background: #0F2B4D;
   border: 1px solid rgba(0,212,255,0.2);
   padding: 0.6rem 1rem;
   border-radius: 12px;
@@ -705,12 +710,12 @@ footer {
   transition: var(--transition);
 }
 .chat-option:hover {
-  border-color: var(--accent);
-  background: rgba(0,212,255,0.1);
+  border-color: var(--red);
+  background: rgba(239,68,68,0.1);
 }
 .chat-link {
   display: inline-block;
-  background: var(--card-bg);
+  background: #0F2B4D;
   color: var(--white);
   padding: 0.7rem 1rem;
   border-radius: 12px;
@@ -747,7 +752,7 @@ footer {
   .nav-links {
     position: fixed; top: 70px; right: 0;
     flex-direction: column;
-    background: var(--dark-bg);
+    background: #071426;
     padding: 1.5rem;
     width: 100%;
     gap: 0.5rem;
@@ -766,8 +771,8 @@ footer {
   }
   .values-grid, .stats-container, .services-grid { grid-template-columns: 1fr; }
   .sectors-grid { grid-template-columns: repeat(2, 1fr); }
-  .footer-grid { grid-template-columns: 1fr; }
   .slider { height: 100vh; }
+  .banner-cta { margin: 2rem 4% 2rem; padding: 2rem; }
 }
 </style>
 </head>
@@ -818,27 +823,34 @@ footer {
   </div>
 </nav>
 
-<!-- SLIDER HERO -->
+<!-- SLIDER HERO - 4 slides avec tes phrases -->
 <div class="slider" id="heroSlider">
   <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1920');">
     <div class="caption">
-      <h1>L'avenir appartient à ceux qui <span class="accent-text">se protègent</span> dès aujourd'hui</h1>
-      <p>SOC, Sécurité Réseau et Pentest pour les entreprises marocaines. Une équipe technique opérationnelle.</p>
+      <h1>Dans un monde <span class="accent-text">connecté</span>, chaque entreprise devient une cible</h1>
+      <p>SOC, Sécurité Réseau et Pentest pour les entreprises marocaines.</p>
       <a href="contact.html" class="btn-hero">Audit gratuit <i class="fas fa-arrow-right"></i></a>
     </div>
   </div>
   <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1920');">
     <div class="caption">
-      <h1>All <span class="accent-text">connected</span>, all protected.</h1>
-      <p>Surveillance 24/7 de votre infrastructure critique. Détection et réponse immédiate.</p>
+      <h1>Nous transformons les <span class="accent-text">vulnérabilités</span> en forces</h1>
+      <p>Surveillance 24/7 de votre infrastructure critique.</p>
       <a href="contact.html" class="btn-hero">En savoir plus</a>
     </div>
   </div>
   <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1920');">
     <div class="caption">
-      <h1>Ne laissez <span class="accent-text">rien au hasard</span></h1>
-      <p>Pentest et audit de vulnérabilités pour valider votre sécurité avant les attaquants.</p>
+      <h1>Sécuriser <span class="accent-text">aujourd'hui</span> pour performer demain</h1>
+      <p>Pentest et audit de vulnérabilités pour valider votre sécurité.</p>
       <a href="contact.html" class="btn-hero">Demander un audit</a>
+    </div>
+  </div>
+  <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1562813733-b31f71025d54?w=1920');">
+    <div class="caption">
+      <h1>Protéger vos <span class="accent-text">systèmes</span>, c'est sécuriser votre croissance</h1>
+      <p>Des talents locaux pour des entreprises marocaines.</p>
+      <a href="contact.html" class="btn-hero">Nous contacter</a>
     </div>
   </div>
   <div class="controls">
@@ -858,7 +870,7 @@ footer {
     <div class="value-card reveal">
       <div class="value-icon"><i class="fas fa-handshake"></i></div>
       <h3>Engagés</h3>
-      <p>Nous sommes des ingénieurs terrain, pas des commerciaux. Votre sécurité est notre priorité absolue.</p>
+      <p>Nous sommes des talents terrain, pas des commerciaux. Votre sécurité est notre priorité absolue.</p>
     </div>
     <div class="value-card reveal">
       <div class="value-icon"><i class="fas fa-rocket"></i></div>
@@ -877,7 +889,7 @@ footer {
 <section class="stats-section">
   <div class="stats-container">
     <div class="stat-item"><div class="stat-number" id="stat1" data-target="15">0</div><div class="stat-label">Années d'expérience cumulées</div></div>
-    <div class="stat-item"><div class="stat-number" id="stat2" data-target="4">0</div><div class="stat-label">Ingénieurs fondateurs</div></div>
+    <div class="stat-item"><div class="stat-number" id="stat2" data-target="4">0</div><div class="stat-label">Talents fondateurs</div></div>
     <div class="stat-item"><div class="stat-number" id="stat3" data-target="24">0</div><div class="stat-label">Surveillance 24/7</div></div>
     <div class="stat-item"><div class="stat-number" id="stat4" data-target="100">0</div><div class="stat-label">Données souveraines (%)</div></div>
   </div>
@@ -893,37 +905,46 @@ footer {
   </div>
 </section>
 
-<!-- Sectors Section -->
+<!-- Sectors Section avec photos -->
 <section class="sectors-section">
   <div class="container">
     <span class="section-tag">Secteurs d'activité</span>
     <h2 class="section-title">Une expertise par métier</h2>
     <div class="sectors-grid">
-      <div class="sector-card reveal"><i class="fas fa-building-columns"></i><h4>Banques & Finance</h4><p>Conformité bancaire, protection contre la fraude</p></div>
-      <div class="sector-card reveal"><i class="fas fa-cart-shopping"></i><h4>E-commerce & Retail</h4><p>Protection paiements, sécurité données clients</p></div>
-      <div class="sector-card reveal"><i class="fas fa-heart-pulse"></i><h4>Santé & Pharma</h4><p>Protection données patients, conformité</p></div>
-      <div class="sector-card reveal"><i class="fas fa-industry"></i><h4>Industrie & Manufacture</h4><p>Sécurisation OT/IT, continuité de production</p></div>
+      <a href="secteur-banques.html" class="sector-card reveal">
+        <img src="banques-finance.jpg" alt="Banques & Finance">
+        <h4>Banques & Finance</h4>
+        <p>Conformité bancaire, protection contre la fraude</p>
+      </a>
+      <a href="secteur-ecommerce.html" class="sector-card reveal">
+        <img src="ecommerce-retail.jpg" alt="E-commerce & Retail">
+        <h4>E-commerce & Retail</h4>
+        <p>Protection paiements, sécurité données clients</p>
+      </a>
+      <a href="secteur-sante.html" class="sector-card reveal">
+        <img src="sante-pharma.jpg" alt="Santé & Pharma">
+        <h4>Santé & Pharma</h4>
+        <p>Protection données patients, conformité</p>
+      </a>
+      <a href="secteur-industrie.html" class="sector-card reveal">
+        <img src="industrie-manufacture.jpg" alt="Industrie & Manufacture">
+        <h4>Industrie & Manufacture</h4>
+        <p>Sécurisation OT/IT, continuité de production</p>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- Testimonials -->
-<section class="testimonials-section">
-  <div style="text-align: center; margin-bottom: 2rem;">
-    <span class="section-tag">Ils nous font confiance</span>
-    <h2 class="section-title">Ce que nos clients disent</h2>
+<!-- Banner CTA (remplace les témoignages) -->
+<div class="banner-cta reveal">
+  <div class="banner-cta-content">
+    <h2>🔐 Évaluez votre niveau de sécurité dès maintenant</h2>
+    <p>Audit gratuit de 30 minutes. Aucun engagement.</p>
+    <a href="contact.html" class="btn-banner">Demander mon audit <i class="fas fa-arrow-right"></i></a>
   </div>
-  <div class="testimonial-slider">
-    <div class="testimonial-track" id="testimonialTrack">
-      <div class="testimonial-card"><p class="testimonial-text">"NextGen a audité notre système en 3 jours et a trouvé des failles critiques. Leur rapport était clair et actionnable."</p><p class="testimonial-author">Directeur IT</p><p class="testimonial-role">Banque marocaine</p></div>
-      <div class="testimonial-card"><p class="testimonial-text">"Leur approche réseau + SOC est ce qu'on cherchait depuis longtemps. Des gens qui comprennent notre infrastructure."</p><p class="testimonial-author">RSSI</p><p class="testimonial-role">Administration publique</p></div>
-      <div class="testimonial-card"><p class="testimonial-text">"Disponibles, réactifs, et surtout compétents. Leur formation Academy a fait monter en compétence toute notre DSI."</p><p class="testimonial-author">CIO</p><p class="testimonial-role">E-commerce</p></div>
-    </div>
-    <div class="testimonial-dots" id="testimonialDots"></div>
-  </div>
-</section>
+</div>
 
-<!-- CTA -->
+<!-- CTA Block final -->
 <section class="cta-block">
   <div class="cta-block-content">
     <h2>Prêt à sécuriser votre entreprise ?</h2>
@@ -932,25 +953,41 @@ footer {
   </div>
 </section>
 
-<!-- Footer -->
+<!-- Footer simplifié -->
 <footer>
-  <div class="footer-grid">
+  <div class="footer-content">
     <div class="footer-brand">
-      <a href="index.html" class="logo" style="font-size:1.2rem; color:white;">NextGen <span class="logo-text-accent">Technologies</span></a>
+      <a href="index.html" class="logo" style="display: inline-flex; font-size: 1.2rem;">
+        <svg class="logo-shield" viewBox="0 0 64 64" width="28" height="28">
+          <path d="M32 4 L8 12 V28 C8 42 18 54 32 60 C46 54 56 42 56 28 V12 Z" fill="#00D4FF" stroke="#FFB800" stroke-width="1.5"/>
+          <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="#EF4444" stroke="#7F1D1D" stroke-width="1.5"/>
+        </svg>
+        <span style="color:white">NextGen <span class="logo-text-accent">Technologies</span></span>
+      </a>
       <p>Cybersécurité opérationnelle au Maroc. SOC, Sécurité Réseau, Pentest, Formation.</p>
     </div>
-    <div class="footer-col"><h4>Services</h4><ul><li><a href="#">Audit & Diagnostic</a></li><li><a href="#">Pentest / VAPT</a></li><li><a href="#">Sécurité Réseau</a></li><li><a href="#">SOC Consultation</a></li><li><a href="#">Academy</a></li></ul></div>
-    <div class="footer-col"><h4>Entreprise</h4><ul><li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li><li><a href="contact.html">Contact</a></li><li><a href="carrieres.html">Carrières</a></li></ul></div>
-    <div class="footer-col"><h4>Légal</h4><ul><li><a href="#">Mentions légales</a></li><li><a href="#">Confidentialité</a></li></ul></div>
+    <div class="footer-contact">
+      <p><i class="fas fa-map-marker-alt"></i> MAROC</p>
+      <p><i class="fas fa-envelope"></i> contact@nextgentechnologies.net</p>
+      <p><i class="fas fa-phone"></i> +212 728 31 28 01</p>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 NextGen Technologies SARL · Morocco</p>
+    </div>
   </div>
-  <div class="footer-bottom"><span>© 2026 NextGen Technologies SARL · Casablanca</span><span>Excellence & Innovation</span></div>
 </footer>
 
 <!-- Chatbot -->
 <div id="chatbotBtn" class="chatbot-button"><i class="fas fa-comments"></i></div>
 <div id="chatbotWindow" class="chatbot-window">
-  <div class="chatbot-header"><div class="chatbot-avatar"><i class="fas fa-shield-halved"></i></div><div class="chatbot-header-info"><div class="name">NextGen Helper</div><div class="status">En ligne</div></div><button class="chatbot-close" onclick="closeChat()">×</button></div>
-  <div class="chatbot-body" id="chatBody"><div class="chat-msg bot">Bonjour 👋 Je suis <strong>NextGen Helper</strong>. Audit gratuit, pentest, réseau ou SOC ? Dites-moi ce dont vous avez besoin.</div></div>
+  <div class="chatbot-header">
+    <div class="chatbot-avatar"><i class="fas fa-shield-halved"></i></div>
+    <div class="chatbot-header-info"><div class="name">NextGen Helper</div><div class="status">En ligne</div></div>
+    <button class="chatbot-close" onclick="closeChat()">×</button>
+  </div>
+  <div class="chatbot-body" id="chatBody">
+    <div class="chat-msg bot">Bonjour 👋 Je suis <strong>NextGen Helper</strong>. Audit gratuit, pentest, réseau ou SOC ? Dites-moi ce dont vous avez besoin.</div>
+  </div>
   <div class="chatbot-footer">Propulsé par NextGen Technologies</div>
 </div>
 
@@ -966,10 +1003,12 @@ const servicesData = [
 
 const servicesGrid = document.getElementById('servicesGrid');
 if (servicesGrid) {
-  servicesGrid.innerHTML = '';
-  servicesData.forEach(s => {
-    servicesGrid.innerHTML += `<a href="${s.link}" class="service-card"><div class="service-img"><img src="${s.img}" alt="${s.title}"></div><div class="service-content"><h3>${s.title}</h3><p>${s.desc}</p><span class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></span></div></a>`;
-  });
+  servicesGrid.innerHTML = servicesData.map(s => `
+    <a href="${s.link}" class="service-card">
+      <div class="service-img"><img src="${s.img}" alt="${s.title}"></div>
+      <div class="service-content"><h3>${s.title}</h3><p>${s.desc}</p><span class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></span></div>
+    </a>
+  `).join('');
 }
 
 // Slider Hero
@@ -1010,24 +1049,6 @@ const statObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.3 });
 statObserver.observe(document.querySelector('.stats-section'));
 
-// Testimonials Slider
-let currentTestimonial = 0;
-const testimonialTrack = document.getElementById('testimonialTrack');
-const testimonials = document.querySelectorAll('.testimonial-card');
-const dotsContainer = document.getElementById('testimonialDots');
-if (testimonialTrack && testimonials.length && dotsContainer) {
-  testimonials.forEach((_, i) => {
-    const dot = document.createElement('div'); dot.classList.add('testimonial-dot'); if (i === 0) dot.classList.add('active');
-    dot.onclick = () => { currentTestimonial = i; testimonialTrack.style.transform = `translateX(-${i * 100}%)`; document.querySelectorAll('.testimonial-dot').forEach((d, idx) => d.classList.toggle('active', idx === i)); };
-    dotsContainer.appendChild(dot);
-  });
-  setInterval(() => {
-    currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-    testimonialTrack.style.transform = `translateX(-${currentTestimonial * 100}%)`;
-    document.querySelectorAll('.testimonial-dot').forEach((d, i) => d.classList.toggle('active', i === currentTestimonial));
-  }, 5000);
-}
-
 // Reveal animations
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
@@ -1044,7 +1065,7 @@ function toggleChat() {
   else { win.classList.add('open'); chatOpen = true; }
 }
 document.getElementById('chatbotBtn')?.addEventListener('click', toggleChat);
-document.getElementById('chatbotWindow')?.querySelector('.chatbot-close')?.addEventListener('click', closeChat);
+document.querySelector('.chatbot-close')?.addEventListener('click', closeChat);
 document.getElementById('menuToggle')?.addEventListener('click', () => document.getElementById('navLinks')?.classList.toggle('active'));
 </script>
 </body>
