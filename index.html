@@ -17,11 +17,12 @@
   --accent-dark: #0891B2;
   --red: #EF4444;
   --red-dark: #DC2626;
+  --gold: #FFB800;
   --white: #FFFFFF;
   --off-white: #E2E8F0;
   --gray-light: #94A3B8;
   --gray-mid: #64748B;
-  --transition: all 0.4s ease;
+  --transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -39,6 +40,7 @@ h1, h2, h3, h4 {
 }
 a { text-decoration: none; }
 
+/* Top Bar */
 .top-bar {
   background: rgba(5, 11, 20, 0.95);
   backdrop-filter: blur(10px);
@@ -46,6 +48,7 @@ a { text-decoration: none; }
   padding: 0.5rem 4%;
   font-size: 0.8rem;
   border-bottom: 1px solid rgba(0,212,255,0.2);
+  position: relative;
   z-index: 1001;
 }
 .top-bar-container {
@@ -87,11 +90,8 @@ a { text-decoration: none; }
   background: var(--accent);
   color: var(--primary);
 }
-.lang-btn:hover:not(.active) {
-  background: rgba(0,212,255,0.2);
-  color: white;
-}
 
+/* Navigation */
 .nav {
   position: sticky; top: 0; z-index: 1000;
   padding: 1rem 4%;
@@ -165,6 +165,7 @@ a { text-decoration: none; }
 .nav-cta:hover { transform: translateY(-2px) !important; background: var(--accent) !important; color: var(--primary) !important; }
 .menu-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
 
+/* SLIDER HERO */
 .slider {
   position: relative;
   width: 100%;
@@ -278,6 +279,7 @@ a { text-decoration: none; }
   border-radius: 10px;
 }
 
+/* Values Section */
 .values-section {
   padding: 5rem 4%;
   background: #071426;
@@ -325,6 +327,7 @@ a { text-decoration: none; }
   font-size: 0.9rem;
 }
 
+/* Stats Section */
 .stats-section {
   background: linear-gradient(135deg, var(--primary), var(--primary-light));
   padding: 4rem 4%;
@@ -350,6 +353,7 @@ a { text-decoration: none; }
   margin-top: 0.4rem;
 }
 
+/* Services Section */
 .services-section {
   padding: 5rem 4%;
   background: var(--primary-deep);
@@ -437,6 +441,7 @@ a { text-decoration: none; }
 }
 .service-card:hover .service-link { gap: 0.8rem; color: var(--red); }
 
+/* Sectors Section */
 .sectors-section {
   padding: 5rem 4%;
   background: #071426;
@@ -481,27 +486,41 @@ a { text-decoration: none; }
   .sectors-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* Banner CTA (remplace les témoignages) */
 .banner-cta {
-  background: var(--white);
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
   margin: 0 4% 4rem;
   border-radius: 20px;
   text-align: center;
   padding: 3rem;
-  border: 1px solid rgba(0,0,0,0.1);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+}
+.banner-cta::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+}
+.banner-cta-content {
+  position: relative;
+  z-index: 2;
 }
 .banner-cta h2 {
   font-size: clamp(1.6rem, 3vw, 2.2rem);
-  color: var(--primary);
+  color: var(--white);
   margin-bottom: 0.5rem;
 }
 .banner-cta p {
-  color: var(--gray-mid);
+  color: rgba(255,255,255,0.9);
   margin-bottom: 1.5rem;
 }
 .banner-cta .btn-banner {
-  background: var(--primary);
-  color: var(--white);
+  background: var(--white);
+  color: var(--red);
   padding: 0.8rem 2rem;
   border-radius: 40px;
   font-weight: 700;
@@ -512,10 +531,12 @@ a { text-decoration: none; }
 }
 .banner-cta .btn-banner:hover {
   transform: translateY(-3px);
-  background: var(--accent);
-  color: var(--primary);
+  background: var(--primary);
+  color: var(--white);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
+/* CTA Block final */
 .cta-block {
   background: linear-gradient(135deg, var(--primary-light), var(--primary));
   text-align: center;
@@ -542,8 +563,10 @@ a { text-decoration: none; }
   background: var(--accent);
   color: var(--primary);
   transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(239,68,68,0.3);
 }
 
+/* Footer simplifié */
 footer {
   background: var(--primary-deep);
   border-top: 1px solid rgba(0,212,255,0.1);
@@ -587,6 +610,134 @@ footer {
   color: var(--gray-mid);
 }
 
+/* Chatbot */
+.chatbot-button {
+  position: fixed; bottom: 25px; right: 25px;
+  width: 60px; height: 60px;
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.6rem;
+  cursor: pointer;
+  box-shadow: 0 6px 25px rgba(239,68,68,0.5);
+  z-index: 998;
+  transition: var(--transition);
+}
+.chatbot-button:hover { transform: scale(1.1); }
+.chatbot-window {
+  position: fixed; bottom: 100px; right: 25px;
+  width: 380px;
+  max-width: calc(100vw - 50px);
+  height: 540px;
+  background: #071426;
+  border-radius: 20px;
+  border: 1px solid rgba(0,212,255,0.2);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  z-index: 999;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+.chatbot-window.open { display: flex; }
+.chatbot-header {
+  background: #0F2B4D;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.chatbot-avatar {
+  width: 44px; height: 44px;
+  background: var(--red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: var(--white);
+}
+.chatbot-header-info .name { font-weight: 700; color: var(--white); }
+.chatbot-header-info .status { font-size: 0.75rem; color: var(--accent); }
+.chatbot-close {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+.chatbot-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  background: var(--primary-deep);
+}
+.chat-msg {
+  max-width: 85%;
+  padding: 0.7rem 1rem;
+  border-radius: 18px;
+  font-size: 0.88rem;
+  margin-bottom: 0.8rem;
+}
+.chat-msg.bot {
+  background: #0F2B4D;
+  color: var(--off-white);
+  border-bottom-left-radius: 4px;
+}
+.chat-msg.user {
+  background: var(--red);
+  color: var(--white);
+  margin-left: auto;
+  border-bottom-right-radius: 4px;
+}
+.chat-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+.chat-option {
+  background: #0F2B4D;
+  border: 1px solid rgba(0,212,255,0.2);
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--off-white);
+  transition: var(--transition);
+}
+.chat-option:hover {
+  border-color: var(--red);
+  background: rgba(239,68,68,0.1);
+}
+.chat-link {
+  display: inline-block;
+  background: #0F2B4D;
+  color: var(--white);
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  text-align: center;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+.chat-link.whatsapp { background: #25D366; color: white; }
+.chatbot-footer {
+  padding: 0.6rem;
+  border-top: 1px solid rgba(0,212,255,0.1);
+  background: var(--primary-deep);
+  font-size: 0.7rem;
+  text-align: center;
+  color: var(--gray-mid);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -672,7 +823,7 @@ footer {
   </div>
 </nav>
 
-<!-- SLIDER HERO -->
+<!-- SLIDER HERO - 4 slides avec tes phrases -->
 <div class="slider" id="heroSlider">
   <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1920');">
     <div class="caption">
@@ -709,77 +860,100 @@ footer {
   <div class="indicator" id="slideIndicator"></div>
 </div>
 
-<!-- VALUES SECTION -->
+<!-- Values Section -->
 <section class="values-section">
   <div style="text-align: center; margin-bottom: 3rem;">
-    <span class="section-tag" id="valuesTag">Nos valeurs</span>
-    <h2 class="section-title" id="valuesTitle">Pourquoi nous faire confiance ?</h2>
+    <span class="section-tag">Nos valeurs</span>
+    <h2 class="section-title">Pourquoi nous faire confiance ?</h2>
   </div>
   <div class="values-grid">
     <div class="value-card reveal">
       <div class="value-icon"><i class="fas fa-handshake"></i></div>
-      <h3 id="value1Title">Engagés</h3>
-      <p id="value1Desc">Nous sommes des talents terrain, pas des commerciaux. Votre sécurité est notre priorité absolue.</p>
+      <h3>Engagés</h3>
+      <p>Nous sommes des talents terrain, pas des commerciaux. Votre sécurité est notre priorité absolue.</p>
     </div>
     <div class="value-card reveal">
       <div class="value-icon"><i class="fas fa-rocket"></i></div>
-      <h3 id="value2Title">Proactifs</h3>
-      <p id="value2Desc">On anticipe les menaces, on ne les subit pas. Notre SOC veille 24/7 sur vos infrastructures.</p>
+      <h3>Proactifs</h3>
+      <p>On anticipe les menaces, on ne les subit pas. Notre SOC veille 24/7 sur vos infrastructures.</p>
     </div>
     <div class="value-card reveal">
       <div class="value-icon"><i class="fas fa-chalkboard-user"></i></div>
-      <h3 id="value3Title">Pédagogues</h3>
-      <p id="value3Desc">On forme vos équipes. La sécurité se vit au quotidien, pas juste dans un rapport.</p>
+      <h3>Pédagogues</h3>
+      <p>On forme vos équipes. La sécurité se vit au quotidien, pas juste dans un rapport.</p>
     </div>
   </div>
 </section>
 
-<!-- STATS SECTION -->
+<!-- Stats Section -->
 <section class="stats-section">
   <div class="stats-container">
-    <div class="stat-item"><div class="stat-number" id="stat1" data-target="15">0</div><div class="stat-label" id="statLabel1">Années d'expérience cumulées</div></div>
-    <div class="stat-item"><div class="stat-number" id="stat2" data-target="4">0</div><div class="stat-label" id="statLabel2">Talents fondateurs</div></div>
-    <div class="stat-item"><div class="stat-number" id="stat3" data-target="24">0</div><div class="stat-label" id="statLabel3">Surveillance 24/7</div></div>
-    <div class="stat-item"><div class="stat-number" id="stat4" data-target="100">0</div><div class="stat-label" id="statLabel4">Données souveraines (%)</div></div>
+    <div class="stat-item"><div class="stat-number" id="stat1" data-target="15">0</div><div class="stat-label">Années d'expérience cumulées</div></div>
+    <div class="stat-item"><div class="stat-number" id="stat2" data-target="4">0</div><div class="stat-label">Talents fondateurs</div></div>
+    <div class="stat-item"><div class="stat-number" id="stat3" data-target="24">0</div><div class="stat-label">Surveillance 24/7</div></div>
+    <div class="stat-item"><div class="stat-number" id="stat4" data-target="100">0</div><div class="stat-label">Données souveraines (%)</div></div>
   </div>
 </section>
 
-<!-- SERVICES SECTION -->
+<!-- Services Section -->
 <section class="services-section">
   <div class="container">
-    <span class="section-tag" id="servicesTag">Nos offres clés</span>
-    <h2 class="section-title" id="servicesTitle">Ce que nous faisons concrètement</h2>
-    <p class="section-subtitle" id="servicesSub">Pas de jargon, du concret. On identifie, on teste, on sécurise, on surveille, on forme.</p>
+    <span class="section-tag">Nos offres clés</span>
+    <h2 class="section-title">Ce que nous faisons concrètement</h2>
+    <p class="section-subtitle">Pas de jargon, du concret. On identifie, on teste, on sécurise, on surveille, on forme.</p>
     <div class="services-grid" id="servicesGrid"></div>
   </div>
 </section>
 
-<!-- SECTORS SECTION avec photos AVIF -->
+<!-- Sectors Section avec photos -->
 <section class="sectors-section">
   <div class="container">
-    <span class="section-tag" id="sectorsTag">Secteurs d'activité</span>
-    <h2 class="section-title" id="sectorsTitle">Une expertise par métier</h2>
-    <div class="sectors-grid" id="sectorsGrid"></div>
+    <span class="section-tag">Secteurs d'activité</span>
+    <h2 class="section-title">Une expertise par métier</h2>
+    <div class="sectors-grid">
+      <a href="secteur-banques.html" class="sector-card reveal">
+        <img src="banques-finance.jpg" alt="Banques & Finance">
+        <h4>Banques & Finance</h4>
+        <p>Conformité bancaire, protection contre la fraude</p>
+      </a>
+      <a href="secteur-ecommerce.html" class="sector-card reveal">
+        <img src="ecommerce-retail.jpg" alt="E-commerce & Retail">
+        <h4>E-commerce & Retail</h4>
+        <p>Protection paiements, sécurité données clients</p>
+      </a>
+      <a href="secteur-sante.html" class="sector-card reveal">
+        <img src="sante-pharma.jpg" alt="Santé & Pharma">
+        <h4>Santé & Pharma</h4>
+        <p>Protection données patients, conformité</p>
+      </a>
+      <a href="secteur-industrie.html" class="sector-card reveal">
+        <img src="industrie-manufacture.jpg" alt="Industrie & Manufacture">
+        <h4>Industrie & Manufacture</h4>
+        <p>Sécurisation OT/IT, continuité de production</p>
+      </a>
+    </div>
   </div>
 </section>
 
-<!-- BANNER CTA NOIR SUR BLANC -->
+<!-- Banner CTA (remplace les témoignages) -->
 <div class="banner-cta reveal">
-  <h2 id="bannerTitle">🔐 Évaluez votre niveau de sécurité dès maintenant</h2>
-  <p id="bannerText">Audit gratuit de 30 minutes. Aucun engagement.</p>
-  <a href="contact.html" class="btn-banner" id="bannerBtn">Demander mon audit <i class="fas fa-arrow-right"></i></a>
+  <div class="banner-cta-content">
+    <h2>🔐 Évaluez votre niveau de sécurité dès maintenant</h2>
+    <p>Audit gratuit de 30 minutes. Aucun engagement.</p>
+    <a href="contact.html" class="btn-banner">Demander mon audit <i class="fas fa-arrow-right"></i></a>
+  </div>
 </div>
 
-<!-- CTA BLOCK -->
+<!-- CTA Block final -->
 <section class="cta-block">
   <div class="cta-block-content">
-    <h2 id="ctaTitle">Prêt à sécuriser votre entreprise ?</h2>
-    <p id="ctaText">Audit gratuit de 30 minutes pour évaluer vos besoins. Aucun engagement.</p>
-    <a href="contact.html" class="btn-primary" id="ctaBtn">Demander un audit gratuit <i class="fas fa-arrow-right"></i></a>
+    <h2>Prêt à sécuriser votre entreprise ?</h2>
+    <p>Audit gratuit de 30 minutes pour évaluer vos besoins. Aucun engagement.</p>
+    <a href="contact.html" class="btn-primary">Demander un audit gratuit <i class="fas fa-arrow-right"></i></a>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- Footer simplifié -->
 <footer>
   <div class="footer-content">
     <div class="footer-brand">
@@ -803,158 +977,41 @@ footer {
   </div>
 </footer>
 
+<!-- Chatbot -->
+<div id="chatbotBtn" class="chatbot-button"><i class="fas fa-comments"></i></div>
+<div id="chatbotWindow" class="chatbot-window">
+  <div class="chatbot-header">
+    <div class="chatbot-avatar"><i class="fas fa-shield-halved"></i></div>
+    <div class="chatbot-header-info"><div class="name">NextGen Helper</div><div class="status">En ligne</div></div>
+    <button class="chatbot-close" onclick="closeChat()">×</button>
+  </div>
+  <div class="chatbot-body" id="chatBody">
+    <div class="chat-msg bot">Bonjour 👋 Je suis <strong>NextGen Helper</strong>. Audit gratuit, pentest, réseau ou SOC ? Dites-moi ce dont vous avez besoin.</div>
+  </div>
+  <div class="chatbot-footer">Propulsé par NextGen Technologies</div>
+</div>
+
 <script>
-// DONNÉES SERVICES
-const servicesData = {
-  fr: [
-    {title:"Audit & Diagnostic", desc:"On identifie vos failles critiques en quelques jours.", img:"audit-diagnostic.jpg", link:"contact.html"},
-    {title:"Pentest / VAPT", desc:"On teste votre système comme un hacker.", img:"vapt.webp", link:"vapt.html"},
-    {title:"Sécurité Réseau", desc:"On protège votre infrastructure contre les intrusions.", img:"securite-reseau.jpg", link:"securite-reseau.html"},
-    {title:"SOC Consultation", desc:"On surveille votre système 24/7 après sécurisation.", img:"soc-consultation.jpg", link:"soc-consultation.html"},
-    {title:"Academy & Formations", desc:"Programmes certifiants et formations sur mesure.", img:"Academy-Formations.jpg", link:"academy.html"}
-  ],
-  en: [
-    {title:"Audit & Diagnostic", desc:"We identify your critical flaws in a few days.", img:"audit-diagnostic.jpg", link:"contact.html"},
-    {title:"Pentest / VAPT", desc:"We test your system like a hacker.", img:"vapt.webp", link:"vapt.html"},
-    {title:"Network Security", desc:"We protect your infrastructure against intrusions.", img:"securite-reseau.jpg", link:"securite-reseau.html"},
-    {title:"SOC Consulting", desc:"We monitor your system 24/7 after securing it.", img:"soc-consultation.jpg", link:"soc-consultation.html"},
-    {title:"Academy & Training", desc:"Certification programs and tailored training.", img:"Academy-Formations.jpg", link:"academy.html"}
-  ],
-  ar: [
-    {title:"التدقيق والتشخيص", desc:"نحدد نقاط ضعفك الحرجة في أيام قليلة.", img:"audit-diagnostic.jpg", link:"contact.html"},
-    {title:"اختبار الاختراق", desc:"نختبر نظامك مثل القراصنة.", img:"vapt.webp", link:"vapt.html"},
-    {title:"أمن الشبكات", desc:"نحمي بنيتك التحتية من الاختراقات.", img:"securite-reseau.jpg", link:"securite-reseau.html"},
-    {title:"استشارات SOC", desc:"نراقب نظامك 24/7 بعد تأمينه.", img:"soc-consultation.jpg", link:"soc-consultation.html"},
-    {title:"الأكاديمية والتكوين", desc:"برامج شهادات وتكوينات مخصصة.", img:"Academy-Formations.jpg", link:"academy.html"}
-  ]
-};
+// Services Data
+const servicesData = [
+  {title:"Audit & Diagnostic", desc:"On identifie vos failles critiques en quelques jours.", img:"audit-diagnostic.jpg", link:"contact.html"},
+  {title:"Pentest / VAPT", desc:"On teste votre système comme un hacker.", img:"vapt.webp", link:"vapt.html"},
+  {title:"Sécurité Réseau", desc:"On protège votre infrastructure contre les intrusions.", img:"securite-reseau.jpg", link:"securite-reseau.html"},
+  {title:"SOC Consultation", desc:"On surveille votre système 24/7 après sécurisation.", img:"soc-consultation.jpg", link:"soc-consultation.html"},
+  {title:"Academy & Formations", desc:"Programmes certifiants et formations sur mesure.", img:"Academy-Formations.jpg", link:"academy.html"}
+];
 
-// DONNÉES SECTEURS avec photos AVIF
-const sectorsData = {
-  fr: [
-    {title:"Banques & Finance", desc:"Conformité bancaire, protection contre la fraude", img:"banques-finance.avif", link:"secteur-banques.html"},
-    {title:"E-commerce & Retail", desc:"Protection paiements, sécurité données clients", img:"ecommerce-retail.avif", link:"secteur-ecommerce.html"},
-    {title:"Santé & Pharma", desc:"Protection données patients, conformité", img:"sante-pharma.avif", link:"secteur-sante.html"},
-    {title:"Industrie & Manufacture", desc:"Sécurisation OT/IT, continuité de production", img:"industrie-manufacture.avif", link:"secteur-industrie.html"}
-  ],
-  en: [
-    {title:"Banking & Finance", desc:"Banking compliance, fraud protection", img:"banques-finance.avif", link:"secteur-banques.html"},
-    {title:"E-commerce & Retail", desc:"Payment protection, customer data security", img:"ecommerce-retail.avif", link:"secteur-ecommerce.html"},
-    {title:"Healthcare & Pharma", desc:"Patient data protection, compliance", img:"sante-pharma.avif", link:"secteur-sante.html"},
-    {title:"Industry & Manufacturing", desc:"OT/IT security, production continuity", img:"industrie-manufacture.avif", link:"secteur-industrie.html"}
-  ],
-  ar: [
-    {title:"البنوك والتمويل", desc:"الامتثال المصرفي، الحماية من الاحتيال", img:"banques-finance.avif", link:"secteur-banques.html"},
-    {title:"التجارة الإلكترونية", desc:"حماية المدفوعات، أمن بيانات العملاء", img:"ecommerce-retail.avif", link:"secteur-ecommerce.html"},
-    {title:"الصحة والمستحضرات", desc:"حماية بيانات المرضى، الامتثال", img:"sante-pharma.avif", link:"secteur-sante.html"},
-    {title:"الصناعة والتصنيع", desc:"تأمين OT/IT، استمرارية الإنتاج", img:"industrie-manufacture.avif", link:"secteur-industrie.html"}
-  ]
-};
-
-// TRADUCTIONS
-const translations = {
-  fr: {
-    valuesTag: "Nos valeurs", valuesTitle: "Pourquoi nous faire confiance ?",
-    value1Title: "Engagés", value1Desc: "Nous sommes des talents terrain, pas des commerciaux. Votre sécurité est notre priorité absolue.",
-    value2Title: "Proactifs", value2Desc: "On anticipe les menaces, on ne les subit pas. Notre SOC veille 24/7 sur vos infrastructures.",
-    value3Title: "Pédagogues", value3Desc: "On forme vos équipes. La sécurité se vit au quotidien, pas juste dans un rapport.",
-    statLabels: ["Années d'expérience cumulées", "Talents fondateurs", "Surveillance 24/7", "Données souveraines (%)"],
-    servicesTag: "Nos offres clés", servicesTitle: "Ce que nous faisons concrètement", servicesSub: "Pas de jargon, du concret. On identifie, on teste, on sécurise, on surveille, on forme.",
-    sectorsTag: "Secteurs d'activité", sectorsTitle: "Une expertise par métier",
-    bannerTitle: "🔐 Évaluez votre niveau de sécurité dès maintenant", bannerText: "Audit gratuit de 30 minutes. Aucun engagement.", bannerBtn: "Demander mon audit",
-    ctaTitle: "Prêt à sécuriser votre entreprise ?", ctaText: "Audit gratuit de 30 minutes pour évaluer vos besoins. Aucun engagement.", ctaBtn: "Demander un audit gratuit"
-  },
-  en: {
-    valuesTag: "Our values", valuesTitle: "Why trust us?",
-    value1Title: "Committed", value1Desc: "We are field talents, not salespeople. Your security is our absolute priority.",
-    value2Title: "Proactive", value2Desc: "We anticipate threats, we don't suffer them. Our SOC monitors your infrastructure 24/7.",
-    value3Title: "Educators", value3Desc: "We train your teams. Security is lived daily, not just in a report.",
-    statLabels: ["Years of experience", "Founding talents", "24/7 Monitoring", "Sovereign data (%)"],
-    servicesTag: "Our key offers", servicesTitle: "What we do concretely", servicesSub: "No jargon, just concrete. We identify, test, secure, monitor, train.",
-    sectorsTag: "Industries", sectorsTitle: "Industry expertise",
-    bannerTitle: "🔐 Assess your security level now", bannerText: "30-minute free audit. No commitment.", bannerBtn: "Request my audit",
-    ctaTitle: "Ready to secure your business?", ctaText: "30-minute free audit to assess your needs. No commitment.", ctaBtn: "Request free audit"
-  },
-  ar: {
-    valuesTag: "قيمنا", valuesTitle: "لماذا تثق بنا؟",
-    value1Title: "ملتزمون", value1Desc: "نحن مواهب ميدانية، وليس بائعين. أمنك هو أولويتنا المطلقة.",
-    value2Title: "استباقيون", value2Desc: "نتوقع التهديدات، لا نعاني منها. SOC لدينا يراقب بنيتك التحتية 24/7.",
-    value3Title: "معلمون", value3Desc: "ندرب فرقك. الأمن يعاش يوميا، ليس فقط في تقرير.",
-    statLabels: ["سنوات الخبرة", "مواهب مؤسسة", "مراقبة 24/7", "بيانات سيادية (%)"],
-    servicesTag: "عروضنا الرئيسية", servicesTitle: "ماذا نفعل بشكل ملموس", servicesSub: "لا مصطلحات معقدة. نحدد، نختبر، نؤمن، نراقب، نكون.",
-    sectorsTag: "القطاعات", sectorsTitle: "خبرة حسب المجال",
-    bannerTitle: "🔐 قيم مستوى أمانك الآن", bannerText: "تدقيق مجاني لمدة 30 دقيقة. بدون التزام.", bannerBtn: "اطلب تدقيقي",
-    ctaTitle: "مستعد لتأمين عملك؟", ctaText: "تدقيق مجاني لمدة 30 دقيقة لتقييم احتياجاتك. بدون التزام.", ctaBtn: "اطلب تدقيقًا مجانيًا"
-  }
-};
-
-let currentLang = localStorage.getItem('nextgen-lang') || 'fr';
-
-function applyLanguage(lang) {
-  const t = translations[lang];
-  if (!t) return;
-  
-  document.getElementById('valuesTag').innerText = t.valuesTag;
-  document.getElementById('valuesTitle').innerText = t.valuesTitle;
-  document.getElementById('value1Title').innerText = t.value1Title;
-  document.getElementById('value1Desc').innerText = t.value1Desc;
-  document.getElementById('value2Title').innerText = t.value2Title;
-  document.getElementById('value2Desc').innerText = t.value2Desc;
-  document.getElementById('value3Title').innerText = t.value3Title;
-  document.getElementById('value3Desc').innerText = t.value3Desc;
-  
-  for (let i = 0; i < t.statLabels.length; i++) {
-    const labelEl = document.getElementById(`statLabel${i+1}`);
-    if (labelEl) labelEl.innerText = t.statLabels[i];
-  }
-  
-  document.getElementById('servicesTag').innerText = t.servicesTag;
-  document.getElementById('servicesTitle').innerText = t.servicesTitle;
-  document.getElementById('servicesSub').innerText = t.servicesSub;
-  document.getElementById('sectorsTag').innerText = t.sectorsTag;
-  document.getElementById('sectorsTitle').innerText = t.sectorsTitle;
-  document.getElementById('bannerTitle').innerHTML = t.bannerTitle;
-  document.getElementById('bannerText').innerText = t.bannerText;
-  document.getElementById('bannerBtn').innerHTML = t.bannerBtn + ' <i class="fas fa-arrow-right"></i>';
-  document.getElementById('ctaTitle').innerText = t.ctaTitle;
-  document.getElementById('ctaText').innerText = t.ctaText;
-  document.getElementById('ctaBtn').innerHTML = t.ctaBtn + ' <i class="fas fa-arrow-right"></i>';
-  
-  const servicesGrid = document.getElementById('servicesGrid');
-  if (servicesGrid) {
-    servicesGrid.innerHTML = '';
-    servicesData[lang].forEach(s => {
-      servicesGrid.innerHTML += `<a href="${s.link}" class="service-card"><div class="service-img"><img src="${s.img}" alt="${s.title}"></div><div class="service-content"><h3>${s.title}</h3><p>${s.desc}</p><span class="service-link">${lang === 'ar' ? 'اقرأ المزيد' : 'En savoir plus'} <i class="fas ${lang === 'ar' ? 'fa-arrow-left' : 'fa-arrow-right'}"></i></span></div></a>`;
-    });
-  }
-  
-  const sectorsGrid = document.getElementById('sectorsGrid');
-  if (sectorsGrid) {
-    sectorsGrid.innerHTML = '';
-    sectorsData[lang].forEach(s => {
-      sectorsGrid.innerHTML += `<a href="${s.link}" class="sector-card reveal"><img src="${s.img}" alt="${s.title}"><h4>${s.title}</h4><p>${s.desc}</p></a>`;
-    });
-  }
-  
-  if (lang === 'ar') {
-    document.documentElement.setAttribute('dir', 'rtl');
-    document.body.style.fontFamily = "'Cairo', 'Manrope', sans-serif";
-  } else {
-    document.documentElement.setAttribute('dir', 'ltr');
-    document.body.style.fontFamily = "'Manrope', sans-serif";
-  }
-  
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.remove('active');
-    if (btn.getAttribute('data-lang') === lang) {
-      btn.classList.add('active');
-    }
-  });
-  
-  localStorage.setItem('nextgen-lang', lang);
+const servicesGrid = document.getElementById('servicesGrid');
+if (servicesGrid) {
+  servicesGrid.innerHTML = servicesData.map(s => `
+    <a href="${s.link}" class="service-card">
+      <div class="service-img"><img src="${s.img}" alt="${s.title}"></div>
+      <div class="service-content"><h3>${s.title}</h3><p>${s.desc}</p><span class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></span></div>
+    </a>
+  `).join('');
 }
 
-// SLIDER
+// Slider Hero
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 const indicator = document.getElementById('slideIndicator');
@@ -973,58 +1030,43 @@ if (slides.length && indicator) {
   updateIndicators();
 }
 
-// COMPTEURS ANIMÉS
+// Animated Counters
 function animateNumber(element, target) {
-  let current = 0;
-  const increment = target / 50;
+  let current = 0, increment = target / 50;
   const timer = setInterval(() => {
     current += increment;
-    if (current >= target) {
-      element.textContent = target;
-      clearInterval(timer);
-    } else {
-      element.textContent = Math.floor(current);
-    }
+    if (current >= target) { element.textContent = target; clearInterval(timer); }
+    else { element.textContent = Math.floor(current); }
   }, 30);
 }
-
 const statObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      document.querySelectorAll('.stat-number').forEach(el => {
-        if (el.textContent == '0') {
-          animateNumber(el, parseInt(el.dataset.target));
-        }
-      });
+      document.querySelectorAll('.stat-number').forEach(el => { if (el.textContent == '0') animateNumber(el, parseInt(el.dataset.target)); });
       statObserver.disconnect();
     }
   });
 }, { threshold: 0.3 });
 statObserver.observe(document.querySelector('.stats-section'));
 
-// REVEAL ANIMATIONS
+// Reveal animations
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// LANGUE
-document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const lang = btn.getAttribute('data-lang');
-    if (lang) {
-      currentLang = lang;
-      applyLanguage(currentLang);
-    }
-  });
-});
-
-// MENU MOBILE
-document.getElementById('menuToggle')?.addEventListener('click', () => {
-  document.getElementById('navLinks')?.classList.toggle('active');
-});
-
-applyLanguage(currentLang);
+// Chatbot
+let chatOpen = false;
+function closeChat() { document.getElementById('chatbotWindow')?.classList.remove('open'); chatOpen = false; }
+function toggleChat() {
+  const win = document.getElementById('chatbotWindow');
+  if (!win) return;
+  if (win.classList.contains('open')) { win.classList.remove('open'); chatOpen = false; }
+  else { win.classList.add('open'); chatOpen = true; }
+}
+document.getElementById('chatbotBtn')?.addEventListener('click', toggleChat);
+document.querySelector('.chatbot-close')?.addEventListener('click', closeChat);
+document.getElementById('menuToggle')?.addEventListener('click', () => document.getElementById('navLinks')?.classList.toggle('active'));
 </script>
 </body>
 </html>
