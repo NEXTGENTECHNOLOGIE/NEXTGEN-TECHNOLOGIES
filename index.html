@@ -977,92 +977,349 @@ footer {
   </div>
 </footer>
 
+<!-- CHATBOT -->
 <div id="chatbotBtn" class="chatbot-button"><i class="fas fa-comments"></i></div>
 <div id="chatbotWindow" class="chatbot-window">
   <div class="chatbot-header">
     <div class="chatbot-avatar"><i class="fas fa-shield-halved"></i></div>
-    <div class="chatbot-header-info">
-        <div class="name">NextGen Expert</div>
-        <div class="status">IA de Sécurité</div>
-    </div>
-    <button class="chatbot-close" onclick="closeChat()">×</button>
+    <div class="chatbot-header-info"><div class="name">NextGen Helper</div><div class="status" id="chatStatus">En ligne</div></div>
+    <button class="chatbot-close" id="chatbotCloseBtn">×</button>
   </div>
-  
-  <div class="chatbot-body" id="chatBody">
-    <div class="chat-msg bot">
-        Bonjour. Je suis l'expert IA de <strong>NextGen Technologies</strong>. 
-        Comment puis-je sécuriser votre infrastructure aujourd'hui ?
-    </div>
-  </div>
-
-  <div class="chatbot-input-area">
-    <input type="text" id="userInput" placeholder="Posez votre question cyber..." autocomplete="off">
-    <button id="sendBtn"><i class="fas fa-paper-plane"></i></button>
-  </div>
-  <div class="chatbot-footer">Propulsé par NextGen Intelligence</div>
+  <div class="chatbot-body" id="chatBody"></div>
+  <div class="chatbot-footer">Propulsé par NextGen Technologies</div>
 </div>
 
 <script>
-/* --- TOUT VOTRE CODE PRÉCÉDENT (SLIDER, STATS, REVEAL) DOIT ÊTRE AU-DESSUS --- */
+// DONNÉES MULTILINGUES
+const servicesData = {
+  fr: [
+    {title:"Audit & Diagnostic", desc:"On identifie vos failles critiques en quelques jours.", img:"audit-diagnostic.jpg", link:"contact.html"},
+    {title:"Pentest / VAPT", desc:"On teste votre système comme un hacker.", img:"vapt.webp", link:"vapt.html"},
+    {title:"Sécurité Réseau", desc:"On protège votre infrastructure contre les intrusions.", img:"securite-reseau.jpg", link:"securite-reseau.html"},
+    {title:"SOC Consultation", desc:"On surveille votre système 24/7 après sécurisation.", img:"soc-consultation.jpg", link:"soc-consultation.html"},
+    {title:"Academy & Formations", desc:"Programmes certifiants et formations sur mesure.", img:"Academy-Formations.jpg", link:"academy.html"}
+  ],
+  en: [
+    {title:"Audit & Diagnostic", desc:"We identify your critical flaws in a few days.", img:"audit-diagnostic.jpg", link:"contact.html"},
+    {title:"Pentest / VAPT", desc:"We test your system like a hacker.", img:"vapt.webp", link:"vapt.html"},
+    {title:"Network Security", desc:"We protect your infrastructure against intrusions.", img:"securite-reseau.jpg", link:"securite-reseau.html"},
+    {title:"SOC Consulting", desc:"We monitor your system 24/7 after securing it.", img:"soc-consultation.jpg", link:"soc-consultation.html"},
+    {title:"Academy & Training", desc:"Certification programs and tailored training.", img:"Academy-Formations.jpg", link:"academy.html"}
+  ],
+  ar: [
+    {title:"التدقيق والتشخيص", desc:"نحدد نقاط ضعفك الحرجة في أيام قليلة.", img:"audit-diagnostic.jpg", link:"contact.html"},
+    {title:"اختبار الاختراق", desc:"نختبر نظامك مثل القراصنة.", img:"vapt.webp", link:"vapt.html"},
+    {title:"أمن الشبكات", desc:"نحمي بنيتك التحتية من الاختراقات.", img:"securite-reseau.jpg", link:"securite-reseau.html"},
+    {title:"استشارات SOC", desc:"نراقب نظامك 24/7 بعد تأمينه.", img:"soc-consultation.jpg", link:"soc-consultation.html"},
+    {title:"الأكاديمية والتكوين", desc:"برامج شهادات وتكوينات مخصصة.", img:"Academy-Formations.jpg", link:"academy.html"}
+  ]
+};
 
-// Logique du Chatbot Intelligent
-let chatOpen = false;
+const sectorsData = {
+  fr: [
+    {title:"Banques & Finance", desc:"Conformité bancaire, protection contre la fraude", img:"banques-finance.jpg", link:"secteur-banques.html"},
+    {title:"E-commerce & Retail", desc:"Protection paiements, sécurité données clients", img:"ecommerce-retail.jpg", link:"secteur-ecommerce.html"},
+    {title:"Santé & Pharma", desc:"Protection données patients, conformité", img:"sante-pharma.jpg", link:"secteur-sante.html"},
+    {title:"Industrie & Manufacture", desc:"Sécurisation OT/IT, continuité de production", img:"industrie-manufacture.jpg", link:"secteur-industrie.html"}
+  ],
+  en: [
+    {title:"Banking & Finance", desc:"Banking compliance, fraud protection", img:"banques-finance.jpg", link:"secteur-banques.html"},
+    {title:"E-commerce & Retail", desc:"Payment protection, customer data security", img:"ecommerce-retail.jpg", link:"secteur-ecommerce.html"},
+    {title:"Healthcare & Pharma", desc:"Patient data protection, compliance", img:"sante-pharma.jpg", link:"secteur-sante.html"},
+    {title:"Industry & Manufacturing", desc:"OT/IT security, production continuity", img:"industrie-manufacture.jpg", link:"secteur-industrie.html"}
+  ],
+  ar: [
+    {title:"البنوك والتمويل", desc:"الامتثال المصرفي، الحماية من الاحتيال", img:"banques-finance.jpg", link:"secteur-banques.html"},
+    {title:"التجارة الإلكترونية", desc:"حماية المدفوعات، أمن بيانات العملاء", img:"ecommerce-retail.jpg", link:"secteur-ecommerce.html"},
+    {title:"الصحة والمستحضرات", desc:"حماية بيانات المرضى، الامتثال", img:"sante-pharma.jpg", link:"secteur-sante.html"},
+    {title:"الصناعة والتصنيع", desc:"تأمين OT/IT، استمرارية الإنتاج", img:"industrie-manufacture.jpg", link:"secteur-industrie.html"}
+  ]
+};
+
+const translations = {
+  fr: {
+    valuesTitle: "Pourquoi nous faire confiance ?",
+    value1Title: "Engagés", value1Desc: "Nous sommes des talents terrain, pas des commerciaux. Votre sécurité est notre priorité absolue.",
+    value2Title: "Proactifs", value2Desc: "On anticipe les menaces, on ne les subit pas. Notre SOC veille 24/7 sur vos infrastructures.",
+    value3Title: "Pédagogues", value3Desc: "On forme vos équipes. La sécurité se vit au quotidien, pas juste dans un rapport.",
+    statLabels: ["Années d'expérience cumulées", "Talents fondateurs", "Surveillance 24/7", "Données souveraines (%)"],
+    servicesTag: "Nos offres clés", servicesTitle: "Ce que nous faisons concrètement", servicesSub: "Pas de jargon, du concret. On identifie, on teste, on sécurise, on surveille, on forme.",
+    sectorsTag: "Secteurs d'activité", sectorsTitle: "Une expertise par métier",
+    bannerTitle: "🔐 Évaluez votre niveau de sécurité dès maintenant", bannerText: "Audit gratuit de 30 minutes. Aucun engagement.", bannerBtn: "Demander mon audit",
+    ctaTitle: "Prêt à sécuriser votre entreprise ?", ctaText: "Audit gratuit de 30 minutes pour évaluer vos besoins. Aucun engagement.", ctaBtn: "Demander un audit gratuit",
+    chatStatus: "En ligne"
+  },
+  en: {
+    valuesTitle: "Why trust us?",
+    value1Title: "Committed", value1Desc: "We are field talents, not salespeople. Your security is our absolute priority.",
+    value2Title: "Proactive", value2Desc: "We anticipate threats, we don't suffer them. Our SOC monitors your infrastructure 24/7.",
+    value3Title: "Educators", value3Desc: "We train your teams. Security is lived daily, not just in a report.",
+    statLabels: ["Years of experience", "Founding talents", "24/7 Monitoring", "Sovereign data (%)"],
+    servicesTag: "Our key offers", servicesTitle: "What we do concretely", servicesSub: "No jargon, just concrete. We identify, test, secure, monitor, train.",
+    sectorsTag: "Industries", sectorsTitle: "Industry expertise",
+    bannerTitle: "🔐 Assess your security level now", bannerText: "30-minute free audit. No commitment.", bannerBtn: "Request my audit",
+    ctaTitle: "Ready to secure your business?", ctaText: "30-minute free audit to assess your needs. No commitment.", ctaBtn: "Request free audit",
+    chatStatus: "Online"
+  },
+  ar: {
+    valuesTitle: "لماذا تثق بنا؟",
+    value1Title: "ملتزمون", value1Desc: "نحن مواهب ميدانية، وليس بائعين. أمنك هو أولويتنا المطلقة.",
+    value2Title: "استباقيون", value2Desc: "نتوقع التهديدات، لا نعاني منها. SOC لدينا يراقب بنيتك التحتية 24/7.",
+    value3Title: "معلمون", value3Desc: "ندرب فرقك. الأمن يعاش يوميا، ليس فقط في تقرير.",
+    statLabels: ["سنوات الخبرة", "مواهب مؤسسة", "مراقبة 24/7", "بيانات سيادية (%)"],
+    servicesTag: "عروضنا الرئيسية", servicesTitle: "ماذا نفعل بشكل ملموس", servicesSub: "لا مصطلحات معقدة. نحدد، نختبر، نؤمن، نراقب، نكون.",
+    sectorsTag: "القطاعات", sectorsTitle: "خبرة حسب المجال",
+    bannerTitle: "🔐 قيم مستوى أمانك الآن", bannerText: "تدقيق مجاني لمدة 30 دقيقة. بدون التزام.", bannerBtn: "اطلب تدقيقي",
+    ctaTitle: "مستعد لتأمين عملك؟", ctaText: "تدقيق مجاني لمدة 30 دقيقة لتقييم احتياجاتك. بدون التزام.", ctaBtn: "اطلب تدقيقًا مجانيًا",
+    chatStatus: "متصل"
+  }
+};
+
+let currentLang = localStorage.getItem('nextgen-lang') || 'fr';
+
+// APPLICATION DE LA LANGUE
+function applyLanguage(lang) {
+  const t = translations[lang];
+  if (!t) return;
+  
+  document.getElementById('valuesTitle').innerText = t.valuesTitle;
+  document.getElementById('value1Title').innerText = t.value1Title;
+  document.getElementById('value1Desc').innerText = t.value1Desc;
+  document.getElementById('value2Title').innerText = t.value2Title;
+  document.getElementById('value2Desc').innerText = t.value2Desc;
+  document.getElementById('value3Title').innerText = t.value3Title;
+  document.getElementById('value3Desc').innerText = t.value3Desc;
+  
+  for (let i = 0; i < t.statLabels.length; i++) {
+    const labelEl = document.getElementById(`statLabel${i+1}`);
+    if (labelEl) labelEl.innerText = t.statLabels[i];
+  }
+  
+  document.getElementById('servicesTag').innerText = t.servicesTag;
+  document.getElementById('servicesTitle').innerText = t.servicesTitle;
+  document.getElementById('servicesSub').innerText = t.servicesSub;
+  document.getElementById('sectorsTag').innerText = t.sectorsTag;
+  document.getElementById('sectorsTitle').innerText = t.sectorsTitle;
+  document.getElementById('bannerTitle').innerHTML = t.bannerTitle;
+  document.getElementById('bannerText').innerText = t.bannerText;
+  document.getElementById('bannerBtn').innerHTML = t.bannerBtn + ' <i class="fas fa-arrow-right"></i>';
+  document.getElementById('ctaTitle').innerText = t.ctaTitle;
+  document.getElementById('ctaText').innerText = t.ctaText;
+  document.getElementById('ctaBtn').innerHTML = t.ctaBtn + ' <i class="fas fa-arrow-right"></i>';
+  document.getElementById('chatStatus').innerText = t.chatStatus;
+  
+  const servicesGrid = document.getElementById('servicesGrid');
+  if (servicesGrid) {
+    servicesGrid.innerHTML = '';
+    servicesData[lang].forEach(s => {
+      servicesGrid.innerHTML += `<a href="${s.link}" class="service-card"><div class="service-img"><img src="${s.img}" alt="${s.title}"></div><div class="service-content"><h3>${s.title}</h3><p>${s.desc}</p><span class="service-link">${lang === 'ar' ? 'اقرأ المزيد' : 'En savoir plus'} <i class="fas ${lang === 'ar' ? 'fa-arrow-left' : 'fa-arrow-right'}"></i></span></div></a>`;
+    });
+  }
+  
+  const sectorsGrid = document.getElementById('sectorsGrid');
+  if (sectorsGrid) {
+    sectorsGrid.innerHTML = '';
+    sectorsData[lang].forEach(s => {
+      sectorsGrid.innerHTML += `<a href="${s.link}" class="sector-card reveal"><img src="${s.img}" alt="${s.title}"><h4>${s.title}</h4><p>${s.desc}</p></a>`;
+    });
+  }
+  
+  if (lang === 'ar') {
+    document.documentElement.setAttribute('dir', 'rtl');
+    document.body.style.fontFamily = "'Cairo', 'Manrope', sans-serif";
+  } else {
+    document.documentElement.setAttribute('dir', 'ltr');
+    document.body.style.fontFamily = "'Manrope', sans-serif";
+  }
+  
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.remove('active');
+    if (btn.getAttribute('data-lang') === lang) {
+      btn.classList.add('active');
+    }
+  });
+  
+  localStorage.setItem('nextgen-lang', lang);
+}
+
+// CHATBOT INTELLIGENT
+const chatBtn = document.getElementById('chatbotBtn');
+const chatWindow = document.getElementById('chatbotWindow');
+const chatCloseBtn = document.getElementById('chatbotCloseBtn');
 const chatBody = document.getElementById('chatBody');
-const userInput = document.getElementById('userInput');
-const sendBtn = document.getElementById('sendBtn');
+
+function addChatMessage(text, isUser = false) {
+  const msgDiv = document.createElement('div');
+  msgDiv.className = `chat-msg ${isUser ? 'user' : 'bot'}`;
+  msgDiv.innerHTML = text;
+  chatBody.appendChild(msgDiv);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function addChatInput() {
+  const inputDiv = document.createElement('div');
+  inputDiv.className = 'chat-input-wrapper';
+  inputDiv.innerHTML = `
+    <input type="text" class="chat-input" placeholder="${currentLang === 'fr' ? 'Écrivez votre message...' : (currentLang === 'en' ? 'Type your message...' : 'اكتب رسالتك...')}">
+    <button class="chat-send"><i class="fas fa-paper-plane"></i></button>
+  `;
+  const input = inputDiv.querySelector('.chat-input');
+  const sendBtn = inputDiv.querySelector('.chat-send');
+  
+  const sendMessage = () => {
+    const message = input.value.trim();
+    if (message === '') return;
+    processUserMessage(message);
+    input.value = '';
+  };
+  
+  sendBtn.onclick = sendMessage;
+  input.onkeypress = (e) => { if (e.key === 'Enter') sendMessage(); };
+  
+  chatBody.appendChild(inputDiv);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function processUserMessage(message) {
+  const lowerMsg = message.toLowerCase();
+  addChatMessage(message, true);
+  
+  setTimeout(() => {
+    let reply = '';
+    
+    if (lowerMsg.includes('audit') || lowerMsg.includes('évaluation') || lowerMsg.includes('gratuit')) {
+      reply = currentLang === 'fr' ? '👍 Excellent ! <a href="contact.html" style="color: #EF4444;">Réservez votre audit gratuit ici</a>' : (currentLang === 'en' ? '👍 Great! <a href="contact.html" style="color: #EF4444;">Book your free audit here</a>' : '👍 ممتاز! <a href="contact.html" style="color: #EF4444;">احجز تدقيقك المجاني هنا</a>');
+    }
+    else if (lowerMsg.includes('protect') || lowerMsg.includes('protéger') || lowerMsg.includes('sécurité')) {
+      reply = currentLang === 'fr' ? '🛡️ Nous proposons SOC, Pentest, Sécurité Réseau. <a href="services.html" style="color: #EF4444;">Découvrez nos services</a>' : (currentLang === 'en' ? '🛡️ We offer SOC, Pentest, Network Security. <a href="services.html" style="color: #EF4444;">Discover our services</a>' : '🛡️ نقدم SOC، اختبار الاختراق، أمن الشبكات. <a href="services.html" style="color: #EF4444;">اكتشف خدماتنا</a>');
+    }
+    else if (lowerMsg.includes('contact') || lowerMsg.includes('whatsapp') || lowerMsg.includes('appeler')) {
+      reply = currentLang === 'fr' ? '📞 Contactez-nous sur WhatsApp : <a href="https://wa.me/212728312801" style="color: #25D366;">+212 728 31 28 01</a>' : (currentLang === 'en' ? '📞 Contact us on WhatsApp: <a href="https://wa.me/212728312801" style="color: #25D366;">+212 728 31 28 01</a>' : '📞 اتصل بنا على واتساب: <a href="https://wa.me/212728312801" style="color: #25D366;">+212 728 31 28 01</a>');
+    }
+    else if (lowerMsg.includes('pentest') || lowerMsg.includes('vapt') || lowerMsg.includes('intrusion')) {
+      reply = currentLang === 'fr' ? '🐛 Nos experts simulent de vraies cyberattaques. <a href="vapt.html" style="color: #EF4444;">En savoir plus</a>' : (currentLang === 'en' ? '🐛 Our experts simulate real cyberattacks. <a href="vapt.html" style="color: #EF4444;">Learn more</a>' : '🐛 خبراؤنا يحاكيون هجمات إلكترونية حقيقية. <a href="vapt.html" style="color: #EF4444;">اعرف أكثر</a>');
+    }
+    else if (lowerMsg.includes('réseau') || lowerMsg.includes('reseau') || lowerMsg.includes('network')) {
+      reply = currentLang === 'fr' ? '🌐 Sécurité Réseau : architecture sécurisée, pare-feu, VPN. <a href="securite-reseau.html" style="color: #EF4444;">En savoir plus</a>' : (currentLang === 'en' ? '🌐 Network Security: secure architecture, firewall, VPN. <a href="securite-reseau.html" style="color: #EF4444;">Learn more</a>' : '🌐 أمن الشبكات: بنية آمنة، جدار ناري، VPN. <a href="securite-reseau.html" style="color: #EF4444;">اعرف أكثر</a>');
+    }
+    else if (lowerMsg.includes('soc')) {
+      reply = currentLang === 'fr' ? '🔔 SOC : Surveillance 24/7, détection et réponse aux incidents. <a href="soc-consultation.html" style="color: #EF4444;">En savoir plus</a>' : (currentLang === 'en' ? '🔔 SOC: 24/7 monitoring, detection and incident response. <a href="soc-consultation.html" style="color: #EF4444;">Learn more</a>' : '🔔 SOC: مراقبة 24/7، اكتشاف والاستجابة للحوادث. <a href="soc-consultation.html" style="color: #EF4444;">اعرف أكثر</a>');
+    }
+    else if (lowerMsg.includes('formation') || lowerMsg.includes('academy') || lowerMsg.includes('cours')) {
+      reply = currentLang === 'fr' ? '🎓 Academy : formations certifiantes et sur mesure. <a href="academy.html" style="color: #EF4444;">Découvrir</a>' : (currentLang === 'en' ? '🎓 Academy: certification and tailored training. <a href="academy.html" style="color: #EF4444;">Discover</a>' : '🎓 الأكاديمية: تكوين وشهادات مخصصة. <a href="academy.html" style="color: #EF4444;">اكتشف</a>');
+    }
+    else if (lowerMsg.includes('bonjour') || lowerMsg.includes('salut') || lowerMsg.includes('hello')) {
+      reply = currentLang === 'fr' ? 'Bonjour ! 👋 Comment puis-je vous aider ? Audit gratuit, pentest, SOC, Réseau ou Academy ?' : (currentLang === 'en' ? 'Hello! 👋 How can I help you? Free audit, pentest, SOC, Network or Academy?' : 'مرحباً! 👋 كيف يمكنني مساعدتك؟ تدقيق مجاني، اختبار اختراق، SOC، شبكات أو الأكاديمية؟');
+    }
+    else {
+      reply = currentLang === 'fr' ? 'Je suis là pour vous aider ! 🤝<br><br>🔹 Audit gratuit<br>🔹 Protection entreprise (SOC, Pentest, Réseau)<br>🔹 Formation Academy<br><br>Posez-moi une question ci-dessus.' : (currentLang === 'en' ? 'I am here to help! 🤝<br><br>🔹 Free audit<br>🔹 Company protection (SOC, Pentest, Network)<br>🔹 Academy training<br><br>Ask me a question above.' : 'أنا هنا لمساعدتك! 🤝<br><br>🔹 تدقيق مجاني<br>🔹 حماية الشركة (SOC، اختبار اختراق، شبكات)<br>🔹 تكوين الأكاديمية<br><br>اطرح علي سؤالاً أعلاه.');
+    }
+    
+    addChatMessage(reply, false);
+    setTimeout(() => addChatInput(), 500);
+  }, 500);
+}
+
+function initChat() {
+  chatBody.innerHTML = '';
+  const welcomeMsg = currentLang === 'fr' ? 'Bonjour 👋 Je suis <strong>NextGen Helper</strong>. Comment puis-je vous aider ?' : (currentLang === 'en' ? 'Hello 👋 I\'m <strong>NextGen Helper</strong>. How can I help you?' : 'مرحباً 👋 أنا <strong>مساعد نكستجن</strong>. كيف يمكنني مساعدتك؟');
+  addChatMessage(welcomeMsg, false);
+  setTimeout(() => addChatInput(), 300);
+}
 
 function toggleChat() {
-    const win = document.getElementById('chatbotWindow');
-    win.classList.toggle('open');
-    chatOpen = !chatOpen;
-    if(chatOpen) userInput.focus();
+  if (chatWindow.classList.contains('open')) {
+    chatWindow.classList.remove('open');
+  } else {
+    chatWindow.classList.add('open');
+    if (chatBody.children.length === 0 || (chatBody.children.length === 1 && chatBody.children[0].classList?.contains('chat-input-wrapper'))) {
+      initChat();
+    }
+  }
 }
 
 function closeChat() {
-    document.getElementById('chatbotWindow').classList.remove('open');
-    chatOpen = false;
+  chatWindow.classList.remove('open');
 }
 
-function addMessage(text, sender) {
-    const msgDiv = document.createElement('div');
-    msgDiv.classList.add('chat-msg', sender);
-    msgDiv.innerHTML = text;
-    chatBody.appendChild(msgDiv);
-    chatBody.scrollTop = chatBody.scrollHeight;
+chatBtn?.addEventListener('click', toggleChat);
+chatCloseBtn?.addEventListener('click', closeChat);
+
+// SLIDER
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const indicator = document.getElementById('slideIndicator');
+const prevBtn = document.getElementById('prevSlide');
+const nextBtn = document.getElementById('nextSlide');
+
+if (slides.length && indicator) {
+  slides.forEach((_, i) => { const dot = document.createElement('div'); dot.onclick = () => goToSlide(i); indicator.appendChild(dot); });
+  function updateIndicators() { indicator.querySelectorAll('div').forEach((dot, i) => dot.classList.toggle('active', i === currentSlide)); }
+  function goToSlide(index) { slides[currentSlide].classList.remove('active'); currentSlide = (index + slides.length) % slides.length; slides[currentSlide].classList.add('active'); updateIndicators(); }
+  function nextSlide() { goToSlide(currentSlide + 1); }
+  function prevSlide() { goToSlide(currentSlide - 1); }
+  prevBtn?.addEventListener('click', prevSlide);
+  nextBtn?.addEventListener('click', nextSlide);
+  setInterval(nextSlide, 6000);
+  updateIndicators();
 }
 
-async function getAIResponse(userText) {
-    addMessage("<small><i>En train de réfléchir...</i></small>", "bot");
-    const typingMsg = chatBody.lastChild;
-
-    setTimeout(() => {
-        typingMsg.remove();
-        let response = "C'est une question pertinente. Pour ce type de menace, NextGen recommande un audit de vulnérabilités. Souhaitez-vous que nos experts vous contactent ?";
-        
-        if(userText.toLowerCase().includes("soc")) response = "Notre SOC surveille vos actifs 24h/24 au Maroc pour bloquer les menaces en temps réel.";
-        if(userText.toLowerCase().includes("prix") || userText.toLowerCase().includes("devis")) response = "Chaque projet est unique. Je vous invite à cliquer sur 'Audit Gratuit' pour une estimation précise.";
-        
-        addMessage(response, "bot");
-    }, 800);
+// COMPTEURS ANIMÉS
+function animateNumber(element, target) {
+  let current = 0;
+  const increment = target / 50;
+  const timer = setInterval(() => {
+    current += increment;
+    if (current >= target) {
+      element.textContent = target;
+      clearInterval(timer);
+    } else {
+      element.textContent = Math.floor(current);
+    }
+  }, 30);
 }
 
-function handleSend() {
-    const text = userInput.value.trim();
-    if (text === "") return;
-    addMessage(text, "user");
-    userInput.value = "";
-    getAIResponse(text);
-}
+const statObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      document.querySelectorAll('.stat-number').forEach(el => {
+        if (el.textContent == '0') {
+          animateNumber(el, parseInt(el.dataset.target));
+        }
+      });
+      statObserver.disconnect();
+    }
+  });
+}, { threshold: 0.3 });
+statObserver.observe(document.querySelector('.stats-section'));
 
-// Listeners
-sendBtn?.addEventListener('click', handleSend);
-userInput?.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleSend(); });
-document.getElementById('chatbotBtn')?.addEventListener('click', toggleChat);
+// REVEAL ANIMATIONS
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// Menu Mobile (On le remet ici pour être sûr qu'il fonctionne)
-document.getElementById('menuToggle')?.addEventListener('click', () => {
-    document.getElementById('navLinks').classList.toggle('active');
+// LANGUE
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const lang = btn.getAttribute('data-lang');
+    if (lang) {
+      currentLang = lang;
+      applyLanguage(currentLang);
+      if (chatWindow.classList.contains('open')) {
+        initChat();
+      }
+    }
+  });
 });
+
+// MENU MOBILE
+document.getElementById('menuToggle')?.addEventListener('click', () => {
+  document.getElementById('navLinks')?.classList.toggle('active');
+});
+
+// INITIALISATION
+applyLanguage(currentLang);
 </script>
 </body>
 </html>
