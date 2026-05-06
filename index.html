@@ -1056,17 +1056,72 @@ const revealObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
 // Chatbot
+<script>
 let chatOpen = false;
-function closeChat() { document.getElementById('chatbotWindow')?.classList.remove('open'); chatOpen = false; }
+const chatBody = document.getElementById('chatBody');
+const userInput = document.getElementById('userInput');
+const sendBtn = document.getElementById('sendBtn');
+
 function toggleChat() {
-  const win = document.getElementById('chatbotWindow');
-  if (!win) return;
-  if (win.classList.contains('open')) { win.classList.remove('open'); chatOpen = false; }
-  else { win.classList.add('open'); chatOpen = true; }
+    const win = document.getElementById('chatbotWindow');
+    win.classList.toggle('open');
+    chatOpen = !chatOpen;
+    if(chatOpen) userInput.focus();
 }
-document.getElementById('chatbotBtn')?.addEventListener('click', toggleChat);
-document.querySelector('.chatbot-close')?.addEventListener('click', closeChat);
-document.getElementById('menuToggle')?.addEventListener('click', () => document.getElementById('navLinks')?.classList.toggle('active'));
+
+function closeChat() {
+    document.getElementById('chatbotWindow').classList.remove('open');
+    chatOpen = false;
+}
+
+// Fonction pour ajouter un message à l'écran
+function addMessage(text, sender) {
+    const msgDiv = document.createElement('div');
+    msgDiv.classList.add('chat-msg', sender);
+    msgDiv.innerHTML = text;
+    chatBody.appendChild(msgDiv);
+    chatBody.scrollTop = chatBody.scrollHeight; // Scroll vers le bas
+}
+
+// Simulation d'intelligence (à remplacer par une API plus tard)
+async function getAIResponse(userText) {
+    // On simule un petit temps de réflexion
+    addMessage("<i>En train de réfléchir...</i>", "bot");
+    const typingMsg = chatBody.lastChild;
+
+    setTimeout(() => {
+        typingMsg.remove(); // On enlève l'indicateur de frappe
+        
+        let response = "C'est une excellente question. En tant qu'expert chez NextGen, je vous recommande un audit de type Pentest pour évaluer ce point précis. Souhaitez-vous être mis en relation avec un consultant ?";
+        
+        if(userText.toLowerCase().includes("soc")) {
+            response = "Notre SOC surveille vos logs 24h/24 au Maroc pour détecter toute intrusion avant qu'elle ne devienne critique.";
+        } else if(userText.toLowerCase().includes("prix") || userText.toLowerCase().includes("devis")) {
+            response = "Chaque infrastructure est unique. Je vous suggère de cliquer sur 'Audit Gratuit' pour obtenir un devis sur mesure.";
+        }
+
+        addMessage(response, "bot");
+    }, 1000);
+}
+
+function handleSend() {
+    const text = userInput.value.trim();
+    if (text === "") return;
+
+    addMessage(text, "user");
+    userInput.value = "";
+    getAIResponse(text);
+}
+
+// Événements
+sendBtn.addEventListener('click', handleSend);
+userInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') handleSend();
+});
+document.getElementById('chatbotBtn').addEventListener('click', toggleChat);
+
+// Menu Mobile
+document.getElementById('menuToggle')?.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('active');
+});
 </script>
-</body>
-</html> 
