@@ -80,6 +80,11 @@
       width: 32px; height: 32px;
       fill: var(--accent) !important;
       flex-shrink: 0;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
     }
     .logo-shield path { fill: var(--accent) !important; }
     .logo-text-accent { color: var(--accent); }
@@ -90,6 +95,7 @@
       color: var(--primary); font-size: 0.92rem; font-weight: 600;
       padding: 0.6rem 1rem; border-radius: 4px;
       display: flex; align-items: center; gap: 0.3rem;
+      transition: all 0.2s;
     }
     .nav-links > li > a:hover { background: var(--off-white); color: var(--accent-dark); }
     .nav-cta {
@@ -106,32 +112,114 @@
       cursor: pointer;
     }
 
+    /* Page Header avec photo du formateur */
     .page-header {
-      background: var(--primary-deep);
+      background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-light) 100%);
       color: var(--white);
-      padding: 5rem 4% 4rem;
+      padding: 4rem 4%;
       position: relative;
       overflow: hidden;
     }
     .page-header::before {
       content: ''; position: absolute;
-      top: 0; right: 0; width: 60%; height: 100%;
-      background: radial-gradient(circle at 70% 30%, rgba(0,212,255,0.15) 0%, transparent 60%),
-                  radial-gradient(circle at 80% 70%, rgba(255,184,0,0.08) 0%, transparent 50%);
+      top: 0; right: 0; width: 100%; height: 100%;
+      background: radial-gradient(circle at 70% 30%, rgba(0,212,255,0.12) 0%, transparent 60%),
+                  radial-gradient(circle at 20% 80%, rgba(255,184,0,0.08) 0%, transparent 50%);
     }
     .page-header-container {
       max-width: 1400px; margin: 0 auto;
       position: relative; z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
     }
-    .page-header h1 {
-      font-size: clamp(2.2rem, 4.5vw, 3.5rem);
-      line-height: 1.1; margin-bottom: 1rem;
+    .page-header-left h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 1rem;
     }
-    .page-header h1 .accent { color: var(--accent); }
-    .page-header p {
-      font-size: 1.15rem;
+    .page-header-left h1 .accent { color: var(--accent); }
+    .page-header-left p {
+      font-size: 1.1rem;
       color: var(--gray-light);
-      max-width: 750px;
+      max-width: 500px;
+      margin-bottom: 1.5rem;
+    }
+    .trainer-badge-header {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,184,0,0.15);
+      border: 1px solid rgba(255,184,0,0.3);
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin-top: 1rem;
+    }
+    .trainer-badge-header i { font-size: 1rem; }
+
+    /* Carte du formateur (côté droit) */
+    .trainer-card {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      padding: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+    }
+    .trainer-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      border-color: rgba(0,212,255,0.3);
+    }
+    .trainer-photo {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--accent);
+      box-shadow: 0 8px 25px rgba(0,212,255,0.3);
+    }
+    .trainer-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .trainer-card h3 {
+      font-size: 1.3rem;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+    .trainer-card .trainer-role {
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .trainer-card .trainer-desc {
+      color: var(--gray-light);
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+    .trainer-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    .trainer-skill {
+      background: rgba(0,212,255,0.15);
+      color: var(--accent);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
     }
 
     .btn-primary {
@@ -146,6 +234,7 @@
       color: var(--primary);
       border: none;
       cursor: pointer;
+      transition: all 0.2s;
     }
     .btn-primary:hover { background: var(--gold); transform: translateY(-2px); }
 
@@ -264,12 +353,6 @@
       color: var(--gray-mid);
     }
 
-    @keyframes float {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-    }
-    .logo-shield { animation: float 3s ease-in-out infinite; }
-
     @media (max-width: 768px) {
       .nav-links {
         position: fixed; top: 70px; right: 0;
@@ -283,6 +366,13 @@
       .nav-links.active { transform: translateX(0); }
       .menu-toggle { display: block; }
       .footer-grid { grid-template-columns: 1fr; }
+      .page-header-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+      }
+      .page-header-left p { margin-left: auto; margin-right: auto; }
+      .trainer-card { max-width: 300px; margin: 0 auto; }
     }
   </style>
 </head>
@@ -324,10 +414,29 @@
   </div>
 </nav>
 
+<!-- HEADER AVEC PHOTO DU FORMATEUR -->
 <section class="page-header">
   <div class="page-header-container">
-    <h1>Campus <span class="accent">Cyber</span><br>Espace formation privé</h1>
-    <p>Accès réservé aux élèves — supports de cours, vidéos et ressources techniques exclusives.</p>
+    <div class="page-header-left">
+      <h1>Campus <span class="accent">Cyber</span><br>Espace formation privé</h1>
+      <p>Accès réservé aux élèves — supports de cours, vidéos et ressources techniques exclusives.</p>
+      <div class="trainer-badge-header">
+        <i class="fas fa-certificate"></i> Formation par un expert Security Architect
+      </div>
+    </div>
+    <div class="trainer-card">
+      <div class="trainer-photo">
+        <img src="abdeljalil.jpg" alt="Abdeljalil Beniiche">
+      </div>
+      <h3>Abdeljalil Beniiche</h3>
+      <div class="trainer-role">Security Architect & Formateur</div>
+      <p class="trainer-desc">Expert en conception d'infrastructures sécurisées et responsable pédagogique de l'Academy.</p>
+      <div class="trainer-skills">
+        <span class="trainer-skill">Architecture</span>
+        <span class="trainer-skill">Formation</span>
+        <span class="trainer-skill">Cloud Security</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -339,7 +448,6 @@
       <p>Entrez votre mot de passe pour accéder aux ressources exclusives.</p>
       <input type="password" id="passwordInput" placeholder="Mot de passe">
       <button class="btn-primary" onclick="checkPassword()">Accéder</button>
-      
     </div>
   </div>
 </section>
@@ -434,6 +542,5 @@
   }
 </script>
 
-<!-- Chatbot (optionnel – reprends le tien ici si nécessaire) -->
 </body>
 </html>
