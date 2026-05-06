@@ -330,15 +330,6 @@ section { padding: 5rem 4%; }
 .service-card:hover .service-img img {
   transform: scale(1.05);
 }
-.service-img i {
-  font-size: 3.5rem;
-  color: var(--accent);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-}
 .service-img::after {
   content: '';
   position: absolute;
@@ -349,7 +340,6 @@ section { padding: 5rem 4%; }
   background: linear-gradient(135deg, rgba(10,22,40,0.2), rgba(10,22,40,0.05));
   pointer-events: none;
 }
-.service-card.gold .service-img i { color: var(--gold); }
 .service-content { padding: 1.5rem; }
 .service-content h3 { font-size: 1.15rem; color: var(--primary); margin-bottom: 0.5rem; }
 .service-content p { color: var(--gray-mid); font-size: 0.88rem; margin-bottom: 1rem; line-height: 1.5; }
@@ -775,10 +765,10 @@ const translations = {
       {title:"Academy & Formations", desc:"Programmes certifiants et formations sur mesure.", img:"Academy-Formations.jpg", link:"academy.html", gold:true}
     ],
     sectors: [
-      {title:"Banques & Finance", desc:"Conformité bancaire, protection contre la fraude, sécurisation des transactions.", icon:"fas fa-building-columns", link:"secteur-banques.html", gold:false},
-      {title:"E-commerce & Retail", desc:"Protection paiements, sécurité données clients, prévention fraude transactionnelle.", icon:"fas fa-cart-shopping", link:"secteur-ecommerce.html", gold:true},
-      {title:"Santé & Pharma", desc:"Protection données patients, conformité, sécurisation des dispositifs médicaux.", icon:"fas fa-heart-pulse", link:"secteur-sante.html", gold:false},
-      {title:"Industrie & Manufacture", desc:"Sécurisation OT/IT, protection des automates, continuité de production.", icon:"fas fa-industry", link:"secteur-industrie.html", gold:true}
+      {title:"Banques & Finance", desc:"Conformité bancaire, protection contre la fraude, sécurisation des transactions.", img:"banques-finance.jpg", link:"secteur-banques.html", gold:false},
+      {title:"E-commerce & Retail", desc:"Protection paiements, sécurité données clients, prévention fraude transactionnelle.", img:"ecommerce-retail.jpg", link:"secteur-ecommerce.html", gold:true},
+      {title:"Santé & Pharma", desc:"Protection données patients, conformité, sécurisation des dispositifs médicaux.", img:"sante-pharma.jpg", link:"secteur-sante.html", gold:false},
+      {title:"Industrie & Manufacture", desc:"Sécurisation OT/IT, protection des automates, continuité de production.", img:"industrie-manufacture.jpg", link:"secteur-industrie.html", gold:true}
     ],
     steps: [
       {num:"01", title:"Audit gratuit", desc:"30 minutes pour comprendre votre exposition. Aucun engagement."},
@@ -816,10 +806,10 @@ const translations = {
       {title:"Academy & Training", desc:"Certification programs and tailored training.", img:"Academy-Formations.jpg", link:"academy.html", gold:true}
     ],
     sectors: [
-      {title:"Banking & Finance", desc:"Banking compliance, fraud protection, transaction security.", icon:"fas fa-building-columns", link:"secteur-banques.html", gold:false},
-      {title:"E-commerce & Retail", desc:"Payment protection, customer data security.", icon:"fas fa-cart-shopping", link:"secteur-ecommerce.html", gold:true},
-      {title:"Healthcare & Pharma", desc:"Patient data protection, compliance.", icon:"fas fa-heart-pulse", link:"secteur-sante.html", gold:false},
-      {title:"Industry & Manufacturing", desc:"OT/IT security, production continuity.", icon:"fas fa-industry", link:"secteur-industrie.html", gold:true}
+      {title:"Banking & Finance", desc:"Banking compliance, fraud protection, transaction security.", img:"banques-finance.jpg", link:"secteur-banques.html", gold:false},
+      {title:"E-commerce & Retail", desc:"Payment protection, customer data security.", img:"ecommerce-retail.jpg", link:"secteur-ecommerce.html", gold:true},
+      {title:"Healthcare & Pharma", desc:"Patient data protection, compliance.", img:"sante-pharma.jpg", link:"secteur-sante.html", gold:false},
+      {title:"Industry & Manufacturing", desc:"OT/IT security, production continuity.", img:"industrie-manufacture.jpg", link:"secteur-industrie.html", gold:true}
     ],
     steps: [
       {num:"01", title:"Free audit", desc:"30 minutes to understand your exposure."},
@@ -857,10 +847,10 @@ const translations = {
       {title:"الأكاديمية والتكوين", desc:"برامج شهادات وتكوينات مخصصة.", img:"Academy-Formations.jpg", link:"academy.html", gold:true}
     ],
     sectors: [
-      {title:"البنوك والتمويل", desc:"الامتثال التنظيمي المصرفي، الحماية من الاحتيال.", icon:"fas fa-building-columns", link:"secteur-banques.html", gold:false},
-      {title:"التجارة الإلكترونية", desc:"حماية المدفوعات، أمن بيانات العملاء.", icon:"fas fa-cart-shopping", link:"secteur-ecommerce.html", gold:true},
-      {title:"الصحة والمستحضرات", desc:"حماية بيانات المرضى، الامتثال.", icon:"fas fa-heart-pulse", link:"secteur-sante.html", gold:false},
-      {title:"الصناعة والتصنيع", desc:"تأمين OT/IT، استمرارية الإنتاج.", icon:"fas fa-industry", link:"secteur-industrie.html", gold:true}
+      {title:"البنوك والتمويل", desc:"الامتثال التنظيمي المصرفي، الحماية من الاحتيال.", img:"banques-finance.jpg", link:"secteur-banques.html", gold:false},
+      {title:"التجارة الإلكترونية", desc:"حماية المدفوعات، أمن بيانات العملاء.", img:"ecommerce-retail.jpg", link:"secteur-ecommerce.html", gold:true},
+      {title:"الصحة والمستحضرات", desc:"حماية بيانات المرضى، الامتثال.", img:"sante-pharma.jpg", link:"secteur-sante.html", gold:false},
+      {title:"الصناعة والتصنيع", desc:"تأمين OT/IT، استمرارية الإنتاج.", img:"industrie-manufacture.jpg", link:"secteur-industrie.html", gold:true}
     ],
     steps: [
       {num:"٠١", title:"تدقيق مجاني", desc:"٣٠ دقيقة لفهم مدى تعرضك."},
@@ -926,7 +916,7 @@ function applyLanguage(lang) {
   const sectorsGrid = document.getElementById('sectorsGrid');
   sectorsGrid.innerHTML = '';
   t.sectors.forEach(s => {
-    sectorsGrid.innerHTML += `<a href="${s.link}" class="service-card ${s.gold?'gold':''}"><div class="service-img"><i class="${s.icon}"></i></div><div class="service-content"><h3>${s.title}</h3><p>${s.desc}</p><span class="service-link">${lang==='ar'?'اقرأ المزيد':'Découvrir'} <i class="fas ${lang==='ar'?'fa-arrow-left':'fa-arrow-right'}"></i></span></div></a>`;
+    sectorsGrid.innerHTML += `<a href="${s.link}" class="service-card ${s.gold?'gold':''}"><div class="service-img"><img src="${s.img}" alt="${s.title}"></div><div class="service-content"><h3>${s.title}</h3><p>${s.desc}</p><span class="service-link">${lang==='ar'?'اقرأ المزيد':'Découvrir'} <i class="fas ${lang==='ar'?'fa-arrow-left':'fa-arrow-right'}"></i></span></div></a>`;
   });
   
   const stepsGrid = document.getElementById('stepsGrid');
