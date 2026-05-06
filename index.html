@@ -42,7 +42,6 @@ h1, h2, h3, h4 {
 }
 a { text-decoration: none; }
 
-/* Top Bar */
 .top-bar {
   background: var(--primary-deep);
   color: var(--gray-light);
@@ -67,7 +66,6 @@ a { text-decoration: none; }
 .top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; transition: var(--transition); }
 .top-bar-social a:hover { color: var(--accent); transform: translateY(-2px); }
 
-/* Language Switcher */
 .lang-switch {
   display: flex;
   gap: 0.25rem;
@@ -97,7 +95,6 @@ a { text-decoration: none; }
   color: white;
 }
 
-/* Navigation */
 .nav {
   position: sticky; top: 0; z-index: 1000;
   padding: 1rem 4%;
@@ -174,7 +171,6 @@ a { text-decoration: none; }
 .nav-cta:hover { transform: translateY(-2px) !important; box-shadow: 0 8px 20px rgba(255,184,0,0.3) !important; }
 .menu-toggle { display: none; background: none; border: none; color: var(--primary); font-size: 1.5rem; cursor: pointer; }
 
-/* Hero Section */
 .hero {
   background: var(--primary-deep);
   color: var(--white);
@@ -254,7 +250,6 @@ a { text-decoration: none; }
   transform: translateY(-3px);
 }
 
-/* Stats Bar */
 .stats-bar {
   background: linear-gradient(135deg, var(--primary), var(--primary-light));
   padding: 2rem 4%;
@@ -278,7 +273,6 @@ a { text-decoration: none; }
   margin-top: 0.4rem;
 }
 
-/* Sections */
 section { padding: 5rem 4%; }
 .container { max-width: 1400px; margin: 0 auto; }
 .section-tag {
@@ -336,6 +330,15 @@ section { padding: 5rem 4%; }
 .service-card:hover .service-img img {
   transform: scale(1.05);
 }
+.service-img i {
+  font-size: 3.5rem;
+  color: var(--accent);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
 .service-img::after {
   content: '';
   position: absolute;
@@ -385,7 +388,6 @@ section { padding: 5rem 4%; }
 .step-card h4 { color: var(--primary); font-size: 1.1rem; margin-bottom: 0.6rem; }
 .step-card p { color: var(--gray-mid); font-size: 0.9rem; }
 
-/* CTA Block */
 .cta-block {
   background: linear-gradient(135deg, var(--primary), var(--primary-light));
   color: var(--white);
@@ -408,7 +410,6 @@ section { padding: 5rem 4%; }
 .cta-block h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--white); margin-bottom: 1rem; }
 .cta-block p { color: var(--gray-light); margin-bottom: 2rem; }
 
-/* Footer */
 footer {
   background: var(--primary-deep);
   color: var(--gray-light);
@@ -437,7 +438,6 @@ footer {
   font-size: 0.82rem; color: var(--gray-mid);
 }
 
-/* Chatbot */
 .chatbot-button {
   position: fixed; bottom: 25px; right: 25px;
   width: 60px; height: 60px;
@@ -748,7 +748,6 @@ footer {
 </div>
 
 <script>
-// ==================== TRANSLATIONS ====================
 const translations = {
   fr: {
     phone: "+212 728 31 28 01", city: "Casablanca",
@@ -767,13 +766,13 @@ const translations = {
     nav: { home: "Accueil", services: "Services", sectors: "Secteurs", academy: "Academy", about: "Qui sommes-nous", careers: "Carrières", threats: "Menaces", contact: "Contact", audit: "Audit gratuit" },
     services: [
       {title:"SOC Consultation", desc:"Conseil stratégique pour la mise en place et l'optimisation de votre SOC.", img:"soc-consultation.jpg", link:"soc-consultation.html", gold:false},
-      {title:"Managed Security Services", desc:"Surveillance et gestion continue de votre sécurité par notre équipe d'analystes.", img:"managed-security.jpg", link:"managed-security.html", gold:true},
-      {title:"VAPT", desc:"Tests d'intrusion et évaluation des vulnérabilités. Identifiez les failles avant les attaquants.", img:"vapt.webp", link:"vapt.html", gold:false},
-      {title:"Data Security Management", desc:"Protection complète de vos données : confidentialité, intégrité et disponibilité.", img:"data-security.jpg", link:"data-security.html", gold:true},
-      {title:"Cloud Security", desc:"Sécurisation de vos environnements cloud publics, privés et hybrides.", img:"cloud-security.jpg", link:"cloud-security.html", gold:false},
-      {title:"Sécurité Réseau", desc:"Architecture sécurisée, pare-feu nouvelle génération, segmentation, VPN.", img:"securite-reseau.jpg", link:"securite-reseau.html", gold:true},
-      {title:"Conformité & Régulation", desc:"Accompagnement réglementaire : réglementations en vigueur, ISO 27001, normes sectorielles.", img:"conformite.jpg", link:"conformite.html", gold:false},
-      {title:"Academy & Formations", desc:"Programmes certifiants et formations sur mesure pour vos équipes techniques et dirigeants.", img:"academy.jpg", link:"academy.html", gold:true}
+      {title:"Managed Security Services", desc:"Surveillance et gestion continue de votre sécurité.", img:"managed-security.jpg", link:"managed-security.html", gold:true},
+      {title:"VAPT", desc:"Tests d'intrusion et évaluation des vulnérabilités.", img:"vapt.webp", link:"vapt.html", gold:false},
+      {title:"Data Security Management", desc:"Protection complète de vos données.", img:"data-security.jpg", link:"data-security.html", gold:true},
+      {title:"Cloud Security", desc:"Sécurisation de vos environnements cloud.", img:"cloud-security.jpg", link:"cloud-security.html", gold:false},
+      {title:"Sécurité Réseau", desc:"Architecture sécurisée, pare-feu, segmentation.", img:"securite-reseau.jpg", link:"securite-reseau.html", gold:true},
+      {title:"Conformité & Régulation", desc:"Accompagnement réglementaire ISO 27001.", img:"conformite.jpg", link:"conformite.html", gold:false},
+      {title:"Academy & Formations", desc:"Programmes certifiants et formations sur mesure.", img:"Academy-Formations.jpg", link:"academy.html", gold:true}
     ],
     sectors: [
       {title:"Banques & Finance", desc:"Conformité bancaire, protection contre la fraude, sécurisation des transactions.", icon:"fas fa-building-columns", link:"secteur-banques.html", gold:false},
@@ -794,14 +793,14 @@ const translations = {
   en: {
     phone: "+212 728 31 28 01", city: "Casablanca",
     heroTitle: "Your <span class='accent'>cybersecurity</span><br>partner",
-    heroDesc: "Protection, consulting and training for businesses of all sizes. Comprehensive solutions adapted to your industry, maturity and challenges.",
+    heroDesc: "Protection, consulting and training for businesses of all sizes.",
     heroBtn1: "Free audit <i class='fas fa-arrow-right'></i>",
     heroBtn2: "View all services",
     stat1: "Active monitoring", stat2: "Incident response", stat3: "Sovereign data", stat4: "Expertise areas",
     servicesTag: "Our services", servicesTitle: "Complete expertise", servicesSub: "Professional cybersecurity solutions, vendor-agnostic, tailored to each need.",
-    sectorsTag: "Industries", sectorsTitle: "Industry expertise", sectorsSub: "Each sector has its own risks, regulatory constraints and challenges. We adapt our approach.",
+    sectorsTag: "Industries", sectorsTitle: "Industry expertise", sectorsSub: "Each sector has its own risks and challenges. We adapt our approach.",
     stepsTag: "Our approach", stepsTitle: "4 steps to protect you", stepsSub: "A proven and transparent methodology.",
-    ctaTitle: "Anticipate. Protect. Move forward with peace of mind", ctaDesc: "Start with a free audit. Clear view of your cyber exposure.", ctaBtn: "Book my free audit <i class='fas fa-arrow-right'></i>",
+    ctaTitle: "Anticipate. Protect. Move forward", ctaDesc: "Start with a free audit. Clear view of your cyber exposure.", ctaBtn: "Book my free audit <i class='fas fa-arrow-right'></i>",
     footerDesc: "Cybersecurity, consulting and training for businesses. Complete, accessible and independent protection.",
     footerCopyright: "© 2026 NextGen Technologies SARL · Casablanca",
     footerServicesTitle: "Services", footerSectorsTitle: "Sectors", footerCompanyTitle: "Company",
@@ -814,19 +813,19 @@ const translations = {
       {title:"Cloud Security", desc:"Securing your public, private and hybrid clouds.", img:"cloud-security.jpg", link:"cloud-security.html", gold:false},
       {title:"Network Security", desc:"Secure architecture, NGFW, segmentation, VPN.", img:"securite-reseau.jpg", link:"securite-reseau.html", gold:true},
       {title:"Compliance & Regulation", desc:"Regulatory support, ISO 27001, sector standards.", img:"conformite.jpg", link:"conformite.html", gold:false},
-      {title:"Academy & Training", desc:"Certification programs and tailored training.", img:"academy.jpg", link:"academy.html", gold:true}
+      {title:"Academy & Training", desc:"Certification programs and tailored training.", img:"Academy-Formations.jpg", link:"academy.html", gold:true}
     ],
     sectors: [
-      {title:"Banking & Finance", desc:"Banking compliance, fraud protection.", icon:"fas fa-building-columns", link:"secteur-banques.html", gold:false},
+      {title:"Banking & Finance", desc:"Banking compliance, fraud protection, transaction security.", icon:"fas fa-building-columns", link:"secteur-banques.html", gold:false},
       {title:"E-commerce & Retail", desc:"Payment protection, customer data security.", icon:"fas fa-cart-shopping", link:"secteur-ecommerce.html", gold:true},
       {title:"Healthcare & Pharma", desc:"Patient data protection, compliance.", icon:"fas fa-heart-pulse", link:"secteur-sante.html", gold:false},
       {title:"Industry & Manufacturing", desc:"OT/IT security, production continuity.", icon:"fas fa-industry", link:"secteur-industrie.html", gold:true}
     ],
     steps: [
-      {num:"01", title:"Free audit", desc:"30 minutes to understand your exposure. No commitment."},
-      {num:"02", title:"Custom plan", desc:"Recommendations adapted to your size and budget."},
-      {num:"03", title:"Deployment", desc:"Fast setup, no business interruption."},
-      {num:"04", title:"Continuous follow-up", desc:"Monitoring, optimization and human support."}
+      {num:"01", title:"Free audit", desc:"30 minutes to understand your exposure."},
+      {num:"02", title:"Custom plan", desc:"Recommendations adapted to your size."},
+      {num:"03", title:"Deployment", desc:"Fast setup, no interruption."},
+      {num:"04", title:"Continuous follow-up", desc:"Monitoring and human support."}
     ],
     footerServices: ["SOC Consulting","Managed Security","VAPT","Data Security","Cloud Security","Compliance"],
     footerSectors: ["Banking & Finance","E-commerce","Healthcare","Industry","Administrations"],
@@ -835,38 +834,38 @@ const translations = {
   ar: {
     phone: "+212 728 31 28 01", city: "الدار البيضاء",
     heroTitle: "<span class='accent'>شريكك</span><br>في الأمن السيبراني",
-    heroDesc: "الحماية والاستشارات والتكوين للشركات من جميع الأحجام. حلول شاملة تتكيف مع قطاعك ونضجك وتحدياتك.",
+    heroDesc: "الحماية والاستشارات والتكوين للشركات من جميع الأحجام.",
     heroBtn1: "تدقيق مجاني <i class='fas fa-arrow-left'></i>",
     heroBtn2: "جميع خدماتنا",
     stat1: "مراقبة نشطة", stat2: "استجابة للحوادث", stat3: "بيانات سيادية", stat4: "مجالات الخبرة",
-    servicesTag: "خدماتنا", servicesTitle: "خبرة شاملة", servicesSub: "حلول احترافية للأمن السيبراني، مستقلة عن البائعين، مصممة حسب كل احتياج.",
-    sectorsTag: "القطاعات", sectorsTitle: "خبرة حسب المجال", sectorsSub: "لكل قطاع مخاطره وقيوده التنظيمية وتحدياته. نكيف نهجنا.",
+    servicesTag: "خدماتنا", servicesTitle: "خبرة شاملة", servicesSub: "حلول احترافية للأمن السيبراني.",
+    sectorsTag: "القطاعات", sectorsTitle: "خبرة حسب المجال", sectorsSub: "لكل قطاع مخاطره وتحدياته.",
     stepsTag: "نهجنا", stepsTitle: "4 خطوات لحمايتك", stepsSub: "منهجية مثبتة وشفافة.",
-    ctaTitle: "توقع. احمِ. تقدم بثقة", ctaDesc: "ابدأ بتدقيق مجاني. رؤية واضحة لتعرضك الإلكتروني.", ctaBtn: "احجز تدقيقك المجاني <i class='fas fa-arrow-left'></i>",
-    footerDesc: "الأمن السيبراني والاستشارات والتكوين للشركات. حماية شاملة ومستقلة ويمكن الوصول إليها.",
+    ctaTitle: "توقع. احمِ. تقدم بثقة", ctaDesc: "ابدأ بتدقيق مجاني.", ctaBtn: "احجز تدقيقك المجاني <i class='fas fa-arrow-left'></i>",
+    footerDesc: "الأمن السيبراني والاستشارات والتكوين للشركات.",
     footerCopyright: "© 2026 نكستجن تكنولوجيز · الدار البيضاء",
     footerServicesTitle: "الخدمات", footerSectorsTitle: "القطاعات", footerCompanyTitle: "الشركة",
     nav: { home: "الرئيسية", services: "الخدمات", sectors: "القطاعات", academy: "الأكاديمية", about: "من نحن", careers: "وظائف", threats: "التهديدات", contact: "اتصل بنا", audit: "تدقيق مجاني" },
     services: [
       {title:"استشارات SOC", desc:"نصائح استراتيجية لإعداد وتحسين مركز عمليات الأمن الخاص بك.", img:"soc-consultation.jpg", link:"soc-consultation.html", gold:false},
-      {title:"خدمات الأمن المُدارة", desc:"مراقبة وإدارة مستمرة لأمنك من قبل فريق محللينا الخبراء.", img:"managed-security.jpg", link:"managed-security.html", gold:true},
-      {title:"VAPT", desc:"اختبار الاختراق وتقييم الثغرات. اكتشف الثغرات قبل المهاجمين.", img:"vapt.webp", link:"vapt.html", gold:false},
-      {title:"إدارة أمن البيانات", desc:"حماية كاملة لبياناتك: السرية والنزاهة والتوفر.", img:"data-security.jpg", link:"data-security.html", gold:true},
-      {title:"أمن السحابة", desc:"تأمين بيئات السحابة العامة والخاصة والهجينة.", img:"cloud-security.jpg", link:"cloud-security.html", gold:false},
-      {title:"أمن الشبكات", desc:"بنية آمنة، جدار ناري من الجيل التالي، تجزئة، VPN، شبكة لاسلكية آمنة.", img:"securite-reseau.jpg", link:"securite-reseau.html", gold:true},
-      {title:"الامتثال والتنظيم", desc:"دعم تنظيمي: القوانين المعمول بها، ISO 27001، المعايير القطاعية.", img:"conformite.jpg", link:"conformite.html", gold:false},
-      {title:"الأكاديمية والتكوين", desc:"برامج شهادات وتكوينات مخصصة لفرقك التقنية والقادة.", img:"academy.jpg", link:"academy.html", gold:true}
+      {title:"خدمات الأمن المُدارة", desc:"مراقبة وإدارة مستمرة لأمنك.", img:"managed-security.jpg", link:"managed-security.html", gold:true},
+      {title:"VAPT", desc:"اختبار الاختراق وتقييم الثغرات.", img:"vapt.webp", link:"vapt.html", gold:false},
+      {title:"إدارة أمن البيانات", desc:"حماية كاملة لبياناتك.", img:"data-security.jpg", link:"data-security.html", gold:true},
+      {title:"أمن السحابة", desc:"تأمين بيئات السحابة العامة والخاصة.", img:"cloud-security.jpg", link:"cloud-security.html", gold:false},
+      {title:"أمن الشبكات", desc:"بنية آمنة، جدار ناري، تجزئة، VPN.", img:"securite-reseau.jpg", link:"securite-reseau.html", gold:true},
+      {title:"الامتثال والتنظيم", desc:"دعم تنظيمي: ISO 27001، المعايير القطاعية.", img:"conformite.jpg", link:"conformite.html", gold:false},
+      {title:"الأكاديمية والتكوين", desc:"برامج شهادات وتكوينات مخصصة.", img:"Academy-Formations.jpg", link:"academy.html", gold:true}
     ],
     sectors: [
-      {title:"البنوك والتمويل", desc:"الامتثال التنظيمي المصرفي، الحماية من الاحتيال، تأمين المعاملات.", icon:"fas fa-building-columns", link:"secteur-banques.html", gold:false},
-      {title:"التجارة الإلكترونية", desc:"حماية المدفوعات، أمن بيانات العملاء، منع الاحتيال.", icon:"fas fa-cart-shopping", link:"secteur-ecommerce.html", gold:true},
-      {title:"الصحة والمستحضرات", desc:"حماية بيانات المرضى، الامتثال، تأمين الأجهزة الطبية.", icon:"fas fa-heart-pulse", link:"secteur-sante.html", gold:false},
-      {title:"الصناعة والتصنيع", desc:"تأمين OT/IT، حماية المتحكمات المنطقية القابلة للبرمجة، استمرارية الإنتاج.", icon:"fas fa-industry", link:"secteur-industrie.html", gold:true}
+      {title:"البنوك والتمويل", desc:"الامتثال التنظيمي المصرفي، الحماية من الاحتيال.", icon:"fas fa-building-columns", link:"secteur-banques.html", gold:false},
+      {title:"التجارة الإلكترونية", desc:"حماية المدفوعات، أمن بيانات العملاء.", icon:"fas fa-cart-shopping", link:"secteur-ecommerce.html", gold:true},
+      {title:"الصحة والمستحضرات", desc:"حماية بيانات المرضى، الامتثال.", icon:"fas fa-heart-pulse", link:"secteur-sante.html", gold:false},
+      {title:"الصناعة والتصنيع", desc:"تأمين OT/IT، استمرارية الإنتاج.", icon:"fas fa-industry", link:"secteur-industrie.html", gold:true}
     ],
     steps: [
-      {num:"٠١", title:"تدقيق مجاني", desc:"٣٠ دقيقة لفهم مدى تعرضك. بدون التزام."},
-      {num:"٠٢", title:"خطة مخصصة", desc:"توصيات تتكيف مع حجمك وميزانيتك."},
-      {num:"٠٣", title:"النشر", desc:"إعداد سريع دون تعطيل النشاط."},
+      {num:"٠١", title:"تدقيق مجاني", desc:"٣٠ دقيقة لفهم مدى تعرضك."},
+      {num:"٠٢", title:"خطة مخصصة", desc:"توصيات تتكيف مع حجمك."},
+      {num:"٠٣", title:"النشر", desc:"إعداد سريع دون تعطيل."},
       {num:"٠٤", title:"متابعة مستمرة", desc:"مراقبة وتحسين ودعم بشري."}
     ],
     footerServices: ["استشارات SOC","خدمات الأمن المُدارة","VAPT","إدارة أمن البيانات","أمن السحابة","الامتثال"],
@@ -923,16 +922,19 @@ function applyLanguage(lang) {
   t.services.forEach(s => {
     servicesGrid.innerHTML += `<a href="${s.link}" class="service-card ${s.gold?'gold':''}"><div class="service-img"><img src="${s.img}" alt="${s.title}"></div><div class="service-content"><h3>${s.title}</h3><p>${s.desc}</p><span class="service-link">${lang==='ar'?'اقرأ المزيد':'En savoir plus'} <i class="fas ${lang==='ar'?'fa-arrow-left':'fa-arrow-right'}"></i></span></div></a>`;
   });
+  
   const sectorsGrid = document.getElementById('sectorsGrid');
   sectorsGrid.innerHTML = '';
   t.sectors.forEach(s => {
     sectorsGrid.innerHTML += `<a href="${s.link}" class="service-card ${s.gold?'gold':''}"><div class="service-img"><i class="${s.icon}"></i></div><div class="service-content"><h3>${s.title}</h3><p>${s.desc}</p><span class="service-link">${lang==='ar'?'اقرأ المزيد':'Découvrir'} <i class="fas ${lang==='ar'?'fa-arrow-left':'fa-arrow-right'}"></i></span></div></a>`;
   });
+  
   const stepsGrid = document.getElementById('stepsGrid');
   stepsGrid.innerHTML = '';
   t.steps.forEach(s => {
     stepsGrid.innerHTML += `<div class="step-card"><div class="step-num">${s.num}</div><h4>${s.title}</h4><p>${s.desc}</p></div>`;
   });
+  
   const footerServicesList = document.getElementById('footerServicesList');
   footerServicesList.innerHTML = '';
   t.footerServices.forEach(s => { footerServicesList.innerHTML += `<li><a href="#">${s}</a></li>`; });
@@ -961,7 +963,6 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', () => { currentLang = btn.dataset.lang; applyLanguage(currentLang); });
 });
 
-// ==================== CHATBOT ====================
 let chatOpen = false;
 function closeChat() {
   const win = document.getElementById('chatbotWindow');
@@ -1012,7 +1013,7 @@ function toggleChat() {
               const reply = document.createElement('div');
               reply.className = 'chat-msg bot';
               if (opt.action === 'audit') {
-                reply.innerHTML = currentLang === 'ar' ? '👍 ممتاز! يمكنك حجز تدقيقك المجاني <a href="contact.html" style="color:#00D4FF">هنا</a> أو التواصل معنا واتساب.' : (currentLang === 'en' ? '👍 Great! You can book your free audit <a href="contact.html" style="color:#00D4FF">here</a> or contact us on WhatsApp.' : '👍 Excellent ! Vous pouvez réserver votre audit gratuit <a href="contact.html" style="color:#00D4FF">ici</a> ou nous contacter sur WhatsApp.');
+                reply.innerHTML = currentLang === 'ar' ? '👍 ممتاز! يمكنك حجز تدقيقك المجاني <a href="contact.html" style="color:#00D4FF">هنا</a>' : (currentLang === 'en' ? '👍 Great! You can book your free audit <a href="contact.html" style="color:#00D4FF">here</a>' : '👍 Excellent ! Vous pouvez réserver votre audit gratuit <a href="contact.html" style="color:#00D4FF">ici</a>');
               } else if (opt.action === 'protect') {
                 reply.innerHTML = currentLang === 'ar' ? '🛡️ نحن نقدم SOC, VAPT, أمن السحابة، إلخ. <a href="services.html" style="color:#00D4FF">اكتشف خدماتنا</a>' : (currentLang === 'en' ? '🛡️ We offer SOC, VAPT, Cloud Security, etc. <a href="services.html" style="color:#00D4FF">Discover our services</a>' : '🛡️ Nous proposons SOC, VAPT, Cloud Security, etc. <a href="services.html" style="color:#00D4FF">Découvrez nos services</a>');
               } else {
