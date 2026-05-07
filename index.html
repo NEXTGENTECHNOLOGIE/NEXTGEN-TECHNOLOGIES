@@ -433,48 +433,140 @@ a { text-decoration: none; }
 }
 .service-card:hover .service-link { gap: 0.8rem; color: var(--red); }
 
-.sectors-section {
+/* ===================================================== */
+/* STYLES CARTE KASPERSKY - INTEGRATION TOTALE */
+/* ===================================================== */
+
+.cyber-map-section {
   padding: 5rem 4%;
-  background: #071426;
-}
-.sectors-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-}
-.sector-card {
-  background: rgba(15, 42, 62, 0.6);
-  border-radius: 16px;
+  background: linear-gradient(135deg, #050B14, #071426);
+  position: relative;
   overflow: hidden;
-  border: 1px solid rgba(0,212,255,0.1);
-  transition: var(--transition);
-  display: block;
-  color: inherit;
-  text-decoration: none;
 }
-.sector-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--red);
-  box-shadow: 0 15px 30px rgba(239,68,68,0.1);
+.cyber-map-container {
+  max-width: 1400px;
+  margin: 0 auto;
 }
-.sector-card img {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
+.cyber-map-header {
+  text-align: center;
+  margin-bottom: 3rem;
 }
-.sector-card h4 {
+.cyber-map-header .section-tag {
+  margin-bottom: 1rem;
+}
+.cyber-map-header h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
   color: var(--white);
-  font-size: 1rem;
-  margin: 0.8rem 1rem 0.3rem;
+  margin-bottom: 1rem;
+  line-height: 1.15;
 }
-.sector-card p {
+.cyber-map-header p {
   color: var(--gray-light);
-  font-size: 0.75rem;
-  margin: 0 1rem 1rem;
-  line-height: 1.4;
+  font-size: 1.05rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.cyber-map-box {
+  position: relative;
+  height: 650px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(0,212,255,0.15);
+  background: #020817;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+.cyber-map-box iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: brightness(0.9) contrast(1.1);
+}
+.cyber-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: 
+    linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: gridMove 8s linear infinite;
+}
+@keyframes gridMove {
+  from { transform: translateY(0); }
+  to { transform: translateY(40px); }
+}
+.live-status {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 20;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(0,212,255,0.2);
+  padding: 1rem 1.2rem;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+.live-status h3 {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+.live-dot {
+  width: 10px;
+  height: 10px;
+  background: #EF4444;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.5rem;
+  animation: pulse 1s infinite;
+}
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.5; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.live-status p {
+  color: #94A3B8;
+  font-size: 0.85rem;
+}
+.cyber-stats {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  z-index: 20;
+}
+.cyber-stat {
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(0,212,255,0.2);
+  padding: 1rem;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  min-width: 180px;
+  text-align: center;
+}
+.cyber-stat h4 {
+  color: #00D4FF;
+  font-size: 1.8rem;
+  margin-bottom: 0.2rem;
+}
+.cyber-stat span {
+  color: #94A3B8;
+  font-size: 0.8rem;
 }
 @media (max-width: 768px) {
-  .sectors-grid { grid-template-columns: repeat(2, 1fr); }
+  .cyber-map-box { height: 500px; }
+  .cyber-stats { 
+    position: relative; 
+    bottom: auto; 
+    right: auto; 
+    margin-top: 1rem; 
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .banner-cta {
@@ -621,7 +713,6 @@ footer {
     padding-left: 1rem;
   }
   .values-grid, .stats-container, .services-grid { grid-template-columns: 1fr; }
-  .sectors-grid { grid-template-columns: repeat(2, 1fr); }
   .slider { height: 100vh; }
   .banner-cta { margin: 2rem 4% 2rem; padding: 2rem; }
 }
@@ -661,7 +752,6 @@ footer {
       <li><a href="index.html">Accueil</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="secteurs.html">Secteurs</a></li>
-      
       <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
       <li><a href="carrieres.html">Carrières</a></li>
       <li><a href="menaces.html">Menaces</a></li>
@@ -748,12 +838,43 @@ footer {
   </div>
 </section>
 
-<!-- SECTORS SECTION -->
-<section class="sectors-section">
-  <div class="container">
-    <span class="section-tag" id="sectorsTag">Secteurs d'activité</span>
-    <h2 class="section-title" id="sectorsTitle">Une expertise par métier</h2>
-    <div class="sectors-grid" id="sectorsGrid"></div>
+<!-- ===================================================== -->
+<!-- CARTE KASPERSKY - THREAT INTELLIGENCE -->
+<!-- ===================================================== -->
+
+<section class="cyber-map-section">
+  <div class="cyber-map-container">
+    <div class="cyber-map-header">
+      <span class="section-tag">Live Global Threat Intelligence</span>
+      <h2>Cyberattaques Mondiales en Temps Réel</h2>
+      <p>Surveillance des activités malveillantes, tentatives d'intrusion et menaces numériques observées à travers le monde.</p>
+    </div>
+    <div class="cyber-map-box">
+      <iframe src="https://cybermap.kaspersky.com/fr/widget/dynamic/dark" allowfullscreen></iframe>
+      <div class="cyber-overlay"></div>
+      <div class="live-status">
+        <h3><span class="live-dot"></span>LIVE MONITORING</h3>
+        <p>Surveillance active des menaces mondiales</p>
+      </div>
+      <div class="cyber-stats">
+        <div class="cyber-stat">
+          <h4 id="attackCounter1">12 482</h4>
+          <span>Intrusions bloquées</span>
+        </div>
+        <div class="cyber-stat">
+          <h4 id="attackCounter2">3 291</h4>
+          <span>IPs surveillées</span>
+        </div>
+        <div class="cyber-stat">
+          <h4 id="attackCounter3">247</h4>
+          <span>Alertes critiques</span>
+        </div>
+        <div class="cyber-stat">
+          <h4 id="attackCounter4">24/7</h4>
+          <span>SOC Monitoring</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -815,22 +936,6 @@ en: [
 ]
 };
 
-// SECTORS DATA (FR et EN) avec photos AVIF
-const sectorsData = {
-  fr: [
-    {title:"Banques & Finance", desc:"Conformité bancaire, protection contre la fraude", img:"banques-finance.avif", link:"secteur-banques.html"},
-    {title:"E-commerce & Retail", desc:"Protection paiements, sécurité données clients", img:"ecommerce-retail.avif", link:"secteur-ecommerce.html"},
-    {title:"Santé & Pharma", desc:"Protection données patients, conformité", img:"sante-pharma.avif", link:"secteur-sante.html"},
-    {title:"Industrie & Manufacture", desc:"Sécurisation OT/IT, continuité de production", img:"industrie-manufacture.avif", link:"secteur-industrie.html"}
-  ],
-  en: [
-    {title:"Banking & Finance", desc:"Banking compliance, fraud protection", img:"banques-finance.avif", link:"secteur-banques.html"},
-    {title:"E-commerce & Retail", desc:"Payment protection, customer data security", img:"ecommerce-retail.avif", link:"secteur-ecommerce.html"},
-    {title:"Healthcare & Pharma", desc:"Patient data protection, compliance", img:"sante-pharma.avif", link:"secteur-sante.html"},
-    {title:"Industry & Manufacturing", desc:"OT/IT security, production continuity", img:"industrie-manufacture.avif", link:"secteur-industrie.html"}
-  ]
-};
-
 // TRADUCTIONS FR/EN
 const translations = {
   fr: {
@@ -843,7 +948,6 @@ const translations = {
     value3Title: "Pédagogues", value3Desc: "On forme vos équipes. La sécurité se vit au quotidien, pas juste dans un rapport.",
     statLabels: ["Années d'expérience cumulées", "Talents fondateurs", "Surveillance 24/7", "Données souveraines (%)"],
     servicesTag: "Nos offres clés", servicesTitle: "Ce que nous faisons concrètement", servicesSub: "Pas de jargon, du concret. On identifie, on teste, on sécurise, on surveille, on forme.",
-    sectorsTag: "Secteurs d'activité", sectorsTitle: "Une expertise par métier",
     bannerTitle: "🔐 Évaluez votre niveau de sécurité dès maintenant", bannerText: "Audit gratuit de 30 minutes. Aucun engagement.", bannerBtn: "Demander mon audit",
     ctaTitle: "Prêt à sécuriser votre entreprise ?", ctaText: "Audit gratuit de 30 minutes pour évaluer vos besoins. Aucun engagement.", ctaBtn: "Demander un audit gratuit"
   },
@@ -857,7 +961,6 @@ const translations = {
     value3Title: "Educators", value3Desc: "We train your teams. Security is lived daily, not just in a report.",
     statLabels: ["Years of experience", "Founding talents", "24/7 Monitoring", "Sovereign data (%)"],
     servicesTag: "Our key offers", servicesTitle: "What we do concretely", servicesSub: "No jargon, just concrete. We identify, test, secure, monitor, train.",
-    sectorsTag: "Industries", sectorsTitle: "Industry expertise",
     bannerTitle: "🔐 Assess your security level now", bannerText: "30-minute free audit. No commitment.", bannerBtn: "Request my audit",
     ctaTitle: "Ready to secure your business?", ctaText: "30-minute free audit to assess your needs. No commitment.", ctaBtn: "Request free audit"
   }
@@ -869,12 +972,10 @@ function applyLanguage(lang) {
   const t = translations[lang];
   if (!t) return;
   
-  // Hero
   document.getElementById('heroTitle').innerHTML = t.heroTitle;
   document.getElementById('heroDesc').innerText = t.heroDesc;
   document.getElementById('heroBtn').innerHTML = t.heroBtn;
   
-  // Values
   document.getElementById('valuesTag').innerText = t.valuesTag;
   document.getElementById('valuesTitle').innerText = t.valuesTitle;
   document.getElementById('value1Title').innerText = t.value1Title;
@@ -884,32 +985,23 @@ function applyLanguage(lang) {
   document.getElementById('value3Title').innerText = t.value3Title;
   document.getElementById('value3Desc').innerText = t.value3Desc;
   
-  // Stats
   for (let i = 0; i < t.statLabels.length; i++) {
     const labelEl = document.getElementById(`statLabel${i+1}`);
     if (labelEl) labelEl.innerText = t.statLabels[i];
   }
   
-  // Services section
   document.getElementById('servicesTag').innerText = t.servicesTag;
   document.getElementById('servicesTitle').innerText = t.servicesTitle;
   document.getElementById('servicesSub').innerText = t.servicesSub;
   
-  // Sectors section
-  document.getElementById('sectorsTag').innerText = t.sectorsTag;
-  document.getElementById('sectorsTitle').innerText = t.sectorsTitle;
-  
-  // Banner
   document.getElementById('bannerTitle').innerHTML = t.bannerTitle;
   document.getElementById('bannerText').innerText = t.bannerText;
   document.getElementById('bannerBtn').innerHTML = t.bannerBtn + ' <i class="fas fa-arrow-right"></i>';
   
-  // CTA
   document.getElementById('ctaTitle').innerText = t.ctaTitle;
   document.getElementById('ctaText').innerText = t.ctaText;
   document.getElementById('ctaBtn').innerHTML = t.ctaBtn + ' <i class="fas fa-arrow-right"></i>';
   
-  // Services grid
   const servicesGrid = document.getElementById('servicesGrid');
   if (servicesGrid) {
     servicesGrid.innerHTML = '';
@@ -918,16 +1010,6 @@ function applyLanguage(lang) {
     });
   }
   
-  // Sectors grid
-  const sectorsGrid = document.getElementById('sectorsGrid');
-  if (sectorsGrid) {
-    sectorsGrid.innerHTML = '';
-    sectorsData[lang].forEach(s => {
-      sectorsGrid.innerHTML += `<a href="${s.link}" class="sector-card reveal"><img src="${s.img}" alt="${s.title}"><h4>${s.title}</h4><p>${s.desc}</p></a>`;
-    });
-  }
-  
-  // Active button
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.remove('active');
     if (btn.getAttribute('data-lang') === lang) {
@@ -997,6 +1079,26 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 document.getElementById('menuToggle')?.addEventListener('click', () => {
   document.getElementById('navLinks')?.classList.toggle('active');
 });
+
+// =====================================================
+// ANIMATION DES COMPTEURS CYBER (KASPERSKY)
+// =====================================================
+
+function animateCyberCounters() {
+  const counters = [
+    { id: 'attackCounter1', min: 12000, max: 15000 },
+    { id: 'attackCounter2', min: 3000, max: 5000 },
+    { id: 'attackCounter3', min: 150, max: 400 }
+  ];
+  counters.forEach(counter => {
+    setInterval(() => {
+      const randomValue = Math.floor(Math.random() * (counter.max - counter.min) + counter.min);
+      const element = document.getElementById(counter.id);
+      if (element) element.innerText = randomValue.toLocaleString();
+    }, 3000);
+  });
+}
+animateCyberCounters();
 
 applyLanguage(currentLang);
 </script>
