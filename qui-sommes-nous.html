@@ -22,15 +22,8 @@
   --border:rgba(255,255,255,0.08);
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 
 body{
   font-family:'Manrope',sans-serif;
@@ -43,9 +36,7 @@ h1,h2,h3,h4{
   font-family:'Space Grotesk',sans-serif;
 }
 
-a{
-  text-decoration:none;
-}
+a{text-decoration:none;}
 
 /* =========================
 TOP BAR
@@ -67,59 +58,42 @@ TOP BAR
   gap:1rem;
 }
 
-.top-bar-info{
-  display:flex;
-  gap:2rem;
-  flex-wrap:wrap;
-}
-
-.top-bar-info span{
-  font-size:.85rem;
-  color:#cbd5e1;
-}
-
-.top-bar-info i{
-  color:var(--accent);
-  margin-right:.4rem;
-}
+.top-bar-info{display:flex;gap:2rem;flex-wrap:wrap;}
+.top-bar-info span{font-size:.85rem;color:#cbd5e1;}
+.top-bar-info i{color:var(--accent);margin-right:.4rem;}
 
 .top-bar-social a{
   color:#cbd5e1;
   margin-left:1rem;
   transition:.3s;
 }
-
-.top-bar-social a:hover{
-  color:var(--accent);
-}
+.top-bar-social a:hover{color:var(--accent);}
 
 /* LANGUAGE SWITCH */
-.lang-switch {
-  display: flex;
-  gap: 0.25rem;
-  background: rgba(0,212,255,0.15);
-  padding: 0.2rem 0.6rem;
-  border-radius: 40px;
-  align-items: center;
+.lang-switch{
+  display:flex;
+  gap:.25rem;
+  background:rgba(0,212,255,0.15);
+  padding:.2rem .6rem;
+  border-radius:40px;
 }
-.lang-btn {
-  background: none;
-  border: none;
-  color: var(--muted);
-  font-size: 0.8rem;
-  font-weight: 600;
-  cursor: pointer;
-  padding: 0.2rem 0.6rem;
-  border-radius: 30px;
-  transition: all 0.3s;
-  font-family: inherit;
+.lang-btn{
+  background:none;
+  border:none;
+  color:var(--muted);
+  font-size:.8rem;
+  font-weight:600;
+  cursor:pointer;
+  padding:.2rem .6rem;
+  border-radius:30px;
+  transition:all .3s;
 }
-.lang-btn.active {
-  background: var(--accent);
-  color: var(--primary);
+.lang-btn.active{
+  background:var(--accent);
+  color:var(--primary);
 }
-.lang-btn:hover:not(.active) {
-  color: var(--accent);
+.lang-btn:hover:not(.active){
+  color:var(--accent);
 }
 
 /* =========================
@@ -222,6 +196,7 @@ HERO
   linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
   background-size:60px 60px;
   mask-image:linear-gradient(to bottom, rgba(0,0,0,1), transparent);
+  pointer-events:none;
 }
 
 .hero-content{
@@ -255,9 +230,7 @@ HERO
 }
 
 @keyframes shine{
-  to{
-    background-position:300% center;
-  }
+  to{background-position:300% center;}
 }
 
 .hero-left p{
@@ -305,106 +278,115 @@ HERO
   background:rgba(255,255,255,.08);
 }
 
-/* RIGHT PANEL */
+/* =========================
+PANEL SOC (STYLE PRO)
+========================= */
 
 .hero-panel{
   position:relative;
 }
 
 .glass-card{
-  position:relative;
   padding:2rem;
   border-radius:30px;
   background:rgba(255,255,255,.04);
   backdrop-filter:blur(20px);
   border:1px solid rgba(255,255,255,.08);
   overflow:hidden;
-  box-shadow:
-  0 0 80px rgba(0,212,255,.12),
-  inset 0 0 0 1px rgba(255,255,255,.02);
-}
-
-.glass-card::before{
-  content:'';
-  position:absolute;
-  inset:-100px;
-  background:conic-gradient(from 0deg, transparent, rgba(0,212,255,.15), transparent 30%);
-  animation:rotate 8s linear infinite;
-}
-
-@keyframes rotate{
-  to{
-    transform:rotate(360deg);
-  }
-}
-
-.card-inner{
-  position:relative;
-  z-index:2;
+  box-shadow:0 0 80px rgba(0,212,255,.12), inset 0 0 0 1px rgba(255,255,255,.02);
 }
 
 .panel-top{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:2rem;
+  margin-bottom:1.5rem;
 }
 
-.panel-top span{
-  color:#fff;
+.panel-title{
   font-weight:700;
+  color:#fff;
+  font-size:0.95rem;
 }
 
-.status{
-  width:12px;
-  height:12px;
+.panel-badge{
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+  font-size:.7rem;
+  color:#10B981;
+  font-weight:700;
+  letter-spacing:.05em;
+}
+
+.dot{
+  width:10px;
+  height:10px;
   border-radius:50%;
   background:#10B981;
-  box-shadow:0 0 20px #10B981;
+  box-shadow:0 0 15px #10B981;
+  animation:pulseDot 1.5s infinite;
 }
 
-.cyber-lines{
-  display:flex;
-  flex-direction:column;
-  gap:1rem;
+@keyframes pulseDot{
+  0%{transform:scale(.8);opacity:.5;}
+  50%{transform:scale(1.2);opacity:1;}
+  100%{transform:scale(.8);opacity:.5;}
 }
 
-.cyber-line{
-  height:70px;
-  border-radius:16px;
+.live-bar{
+  height:5px;
+  background:rgba(255,255,255,.05);
+  border-radius:10px;
+  overflow:hidden;
+  margin:1rem 0 1.5rem;
+}
+
+.live-bar span{
+  display:block;
+  height:100%;
+  width:70%;
+  background:linear-gradient(90deg,#00D4FF,#38bdf8,#FFB800);
+  animation:loadAnim 3s infinite;
+}
+
+@keyframes loadAnim{
+  0%{width:20%}
+  50%{width:90%}
+  100%{width:40%}
+}
+
+.threat-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:.8rem;
+}
+
+.threat{
+  padding:1rem;
+  border-radius:14px;
   background:rgba(255,255,255,.03);
   border:1px solid rgba(255,255,255,.06);
-  position:relative;
-  overflow:hidden;
+  font-size:.85rem;
+  color:#cbd5e1;
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  transition:.3s;
 }
 
-.cyber-line::before{
-  content:'';
-  position:absolute;
-  top:0;
-  left:-100%;
-  width:40%;
-  height:100%;
-  background:linear-gradient(90deg,transparent,rgba(0,212,255,.4),transparent);
-  animation:scan 3s linear infinite;
+.threat:hover{
+  border-color:rgba(0,212,255,.4);
+  background:rgba(0,212,255,.05);
 }
 
-.cyber-line:nth-child(2)::before{
-  animation-delay:1s;
-}
-
-.cyber-line:nth-child(3)::before{
-  animation-delay:2s;
-}
-
-@keyframes scan{
-  100%{
-    left:150%;
-  }
+.threat i{
+  color:var(--accent);
+  font-size:.9rem;
 }
 
 /* =========================
-STATS (CORRIGÉES)
+STATS
 ========================= */
 
 .stats{
@@ -473,7 +455,6 @@ TEAM
 }
 
 /* TEAM GRID */
-
 .team-grid{
   margin-top:4rem;
   display:grid;
@@ -670,8 +651,7 @@ CTA
   content:'';
   position:absolute;
   inset:0;
-  background:
-  radial-gradient(circle at center, rgba(0,212,255,.12), transparent 45%);
+  background:radial-gradient(circle at center, rgba(0,212,255,.12), transparent 45%);
 }
 
 .cta-content{
@@ -756,38 +736,24 @@ RESPONSIVE
 ========================= */
 
 @media(max-width:1200px){
-
   .team-grid,
   .values-grid{
     grid-template-columns:repeat(2,1fr);
   }
-
   .hero-grid,
   .story-grid{
     grid-template-columns:1fr;
   }
-
 }
 
 @media(max-width:768px){
-
-  .nav-links{
-    display:none;
-  }
-
-  .stats{
-    grid-template-columns:repeat(2,1fr);
-  }
-
+  .nav-links{display:none;}
+  .stats{grid-template-columns:repeat(2,1fr);}
   .team-grid,
-  .values-grid{
-    grid-template-columns:1fr;
-  }
-
-  .section{
-    padding:5rem 5%;
-  }
-
+  .values-grid{grid-template-columns:1fr;}
+  .section{padding:5rem 5%;}
+  .hero-panel{margin-top:2rem;}
+  .threat-grid{grid-template-columns:1fr;}
 }
 
 </style>
@@ -797,24 +763,20 @@ RESPONSIVE
 <!-- TOP BAR -->
 <div class="top-bar">
   <div class="top-bar-container">
-
     <div class="top-bar-info">
       <span><i class="fas fa-phone"></i> <span class="top-phone">+212 728 31 28 01</span></span>
       <span><i class="fas fa-envelope"></i> <span class="top-email">contact@nextgentechnologies.net</span></span>
       <span><i class="fas fa-location-dot"></i> <span class="top-location">Casablanca</span></span>
     </div>
-
     <div class="lang-switch">
       <button class="lang-btn active" data-lang="fr">🇫🇷 FR</button>
       <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
     </div>
-
     <div class="top-bar-social">
       <a href="#"><i class="fab fa-linkedin-in"></i></a>
       <a href="#"><i class="fab fa-x-twitter"></i></a>
       <a href="#"><i class="fab fa-instagram"></i></a>
     </div>
-
   </div>
 </div>
 
@@ -858,7 +820,7 @@ RESPONSIVE
       <div class="hero-left">
         <span class="section-tag" data-key="heroTag">NEXTGEN TECHNOLOGIES</span>
         <h1>
-          <span data-key="heroTitle1">Une équipe de spécialistes</span>
+          <span data-key="heroTitle1">Une équipe de spécialistes</span><br>
           <span data-key="heroTitleAccent">en cybersécurité</span>
           <span data-key="heroTitle2">au service des entreprises</span>
         </h1>
@@ -870,35 +832,37 @@ RESPONSIVE
         </p>
         <div class="hero-buttons">
           <a href="services.html" class="btn-primary" data-key="heroBtn1">
-            Découvrir nos services
-            <i class="fas fa-arrow-right"></i>
+            Découvrir nos services <i class="fas fa-arrow-right"></i>
           </a>
           <a href="contact.html" class="btn-secondary" data-key="heroBtn2">
             Nous contacter
           </a>
         </div>
 
-        <!-- STATS CORRIGÉES : 4 stats -->
         <div class="stats">
           <div class="stat"><h3 data-key="stat1">4</h3><p data-key="stat1Label">Les piliers</p></div>
           <div class="stat"><h3 data-key="stat2">15+</h3><p data-key="stat2Label">Années cumulées</p></div>
           <div class="stat"><h3 data-key="stat3">SOC</h3><p data-key="stat3Label">24/7 · Centre d'opération sécurité</p></div>
           <div class="stat"><h3 data-key="stat4">360°</h3><p data-key="stat4Label">Vision sécurité</p></div>
         </div>
-
       </div>
+
+      <!-- PANEL SOC - VERSION PRO -->
       <div class="hero-panel">
         <div class="glass-card">
-          <div class="card-inner">
-            <div class="panel-top">
-              <span data-key="panelTitle">Cyber Defense System</span>
-              <div class="status"></div>
+          <div class="panel-top">
+            <div class="panel-title" data-key="panelTitle">NextGen SOC · Threat Intelligence</div>
+            <div class="panel-badge">
+              <div class="dot"></div>
+              <span data-key="panelBadge">SYSTEM ONLINE</span>
             </div>
-            <div class="cyber-lines">
-              <div class="cyber-line"></div>
-              <div class="cyber-line"></div>
-              <div class="cyber-line"></div>
-            </div>
+          </div>
+          <div class="live-bar"><span></span></div>
+          <div class="threat-grid">
+            <div class="threat"><i class="fas fa-shield-alt"></i> <span data-key="threat1">Intrusion Detection</span></div>
+            <div class="threat"><i class="fas fa-network-wired"></i> <span data-key="threat2">Network Monitoring</span></div>
+            <div class="threat"><i class="fas fa-bug"></i> <span data-key="threat3">Vulnerability Scan</span></div>
+            <div class="threat"><i class="fas fa-lock"></i> <span data-key="threat4">Zero Trust Active</span></div>
           </div>
         </div>
       </div>
@@ -911,13 +875,10 @@ RESPONSIVE
   <div class="section-container">
     <span class="section-tag" data-key="teamTag">L'ÉQUIPE NEXTGEN</span>
     <h2 class="section-title">
-      <span data-key="teamTitle1">Des profils complémentaires,</span>
+      <span data-key="teamTitle1">Des profils complémentaires,</span><br>
       <span data-key="teamTitle2">une même mission</span>
     </h2>
-    <p class="section-desc" data-key="teamDesc">
-      Une structure construite autour de plusieurs expertises techniques afin
-      d'offrir aux entreprises une approche complète de la cybersécurité moderne.
-    </p>
+    <p class="section-desc" data-key="teamDesc">Une structure construite autour de plusieurs expertises techniques afin d'offrir aux entreprises une approche complète de la cybersécurité moderne.</p>
     <div class="team-grid">
       <div class="team-card">
         <div class="team-image"><img src="youssef.jpg" alt="Youssef"><div class="team-overlay"></div></div>
@@ -967,7 +928,7 @@ RESPONSIVE
       <div class="story-text">
         <span class="section-tag" data-key="storyTag">NOTRE HISTOIRE</span>
         <h2 class="section-title">
-          <span data-key="storyTitle1">Une vision moderne de la</span>
+          <span data-key="storyTitle1">Une vision moderne de la</span><br>
           <span data-key="storyTitle2">cybersécurité</span>
         </h2>
         <p data-key="storyP1">NextGen Technologies est née de la volonté de créer une entreprise capable d'offrir un niveau d'expertise élevé tout en restant proche des réalités des entreprises locales.</p>
@@ -983,13 +944,10 @@ RESPONSIVE
   <div class="section-container">
     <span class="section-tag" data-key="valuesTag">NOS VALEURS</span>
     <h2 class="section-title">
-      <span data-key="valuesTitle1">Ce qui construit</span>
+      <span data-key="valuesTitle1">Ce qui construit</span><br>
       <span data-key="valuesTitle2">NextGen</span>
     </h2>
-    <p class="section-desc" data-key="valuesDesc">
-      Notre manière de travailler repose sur des principes simples :
-      expertise, transparence, proximité et innovation continue.
-    </p>
+    <p class="section-desc" data-key="valuesDesc">Notre manière de travailler repose sur des principes simples : expertise, transparence, proximité et innovation continue.</p>
     <div class="values-grid">
       <div class="value-card"><div class="value-icon"><i class="fas fa-medal"></i></div><h4 data-key="val1Title">Excellence technique</h4><p data-key="val1Desc">Une veille permanente et des compétences avancées dans plusieurs domaines de la cybersécurité.</p></div>
       <div class="value-card"><div class="value-icon"><i class="fas fa-eye"></i></div><h4 data-key="val2Title">Transparence</h4><p data-key="val2Desc">Des explications claires, des rapports compréhensibles et une vraie relation de confiance.</p></div>
@@ -1015,15 +973,8 @@ RESPONSIVE
       <a href="index.html" class="logo">
         <svg class="logo-shield" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="shieldGradF" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#00D4FF"/>
-              <stop offset="100%" stop-color="#0891B2"/>
-            </linearGradient>
-            <linearGradient id="boltGradF" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#FEE2E2"/>
-              <stop offset="40%" stop-color="#EF4444"/>
-              <stop offset="100%" stop-color="#991B1B"/>
-            </linearGradient>
+            <linearGradient id="shieldGradF" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00D4FF"/><stop offset="100%" stop-color="#0891B2"/></linearGradient>
+            <linearGradient id="boltGradF" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#FEE2E2"/><stop offset="40%" stop-color="#EF4444"/><stop offset="100%" stop-color="#991B1B"/></linearGradient>
           </defs>
           <path d="M32 4 L8 12 V28 C8 42 18 54 32 60 C46 54 56 42 56 28 V12 Z" fill="url(#shieldGradF)" stroke="#FFB800" stroke-width="1.5"/>
           <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="url(#boltGradF)" stroke="#7F1D1D" stroke-width="1.5"/>
@@ -1043,7 +994,6 @@ RESPONSIVE
 </footer>
 
 <script>
-// TRADUCTIONS FR/EN
 const translations = {
   fr: {
     heroTag: "NEXTGEN TECHNOLOGIES",
@@ -1057,7 +1007,12 @@ const translations = {
     stat2Label: "Années cumulées",
     stat3Label: "24/7 · Centre d'opération sécurité",
     stat4Label: "Vision sécurité",
-    panelTitle: "Cyber Defense System",
+    panelTitle: "NextGen SOC · Threat Intelligence",
+    panelBadge: "SYSTEM ONLINE",
+    threat1: "Intrusion Detection",
+    threat2: "Network Monitoring",
+    threat3: "Vulnerability Scan",
+    threat4: "Zero Trust Active",
     teamTag: "L'ÉQUIPE NEXTGEN",
     teamTitle1: "Des profils complémentaires,",
     teamTitle2: "une même mission",
@@ -1111,7 +1066,12 @@ const translations = {
     stat2Label: "Combined years",
     stat3Label: "24/7 · Security Operations Center",
     stat4Label: "Security vision",
-    panelTitle: "Cyber Defense System",
+    panelTitle: "NextGen SOC · Threat Intelligence",
+    panelBadge: "SYSTEM ONLINE",
+    threat1: "Intrusion Detection",
+    threat2: "Network Monitoring",
+    threat3: "Vulnerability Scan",
+    threat4: "Zero Trust Active",
     teamTag: "NEXTGEN TEAM",
     teamTitle1: "Complementary profiles,",
     teamTitle2: "one mission",
@@ -1164,15 +1124,10 @@ function applyLanguage(lang) {
   document.querySelectorAll('[data-key]').forEach(el => {
     const key = el.getAttribute('data-key');
     if (t[key] !== undefined) {
-      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-        el.placeholder = t[key];
-      } else {
-        el.innerHTML = t[key];
-      }
+      el.innerHTML = t[key];
     }
   });
   
-  // Top bar elements
   const topPhone = document.querySelector('.top-phone');
   const topEmail = document.querySelector('.top-email');
   const topLocation = document.querySelector('.top-location');
