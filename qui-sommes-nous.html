@@ -404,7 +404,7 @@ HERO
 }
 
 /* =========================
-STATS
+STATS (CORRIGÉES)
 ========================= */
 
 .stats{
@@ -804,7 +804,6 @@ RESPONSIVE
       <span><i class="fas fa-location-dot"></i> <span class="top-location">Casablanca</span></span>
     </div>
 
-    <!-- LANGUAGE SWITCH AJOUTÉ -->
     <div class="lang-switch">
       <button class="lang-btn active" data-lang="fr">🇫🇷 FR</button>
       <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
@@ -859,13 +858,13 @@ RESPONSIVE
       <div class="hero-left">
         <span class="section-tag" data-key="heroTag">NEXTGEN TECHNOLOGIES</span>
         <h1>
-         <span data-key="heroTitle1">Votre sécurité numérique,</span>
-<span data-key="heroTitleAccent">notre mission</span>
-<span data-key="heroTitle2">quotidienne</span>
+          <span data-key="heroTitle1">Une équipe de spécialistes</span>
+          <span data-key="heroTitleAccent">en cybersécurité</span>
+          <span data-key="heroTitle2">au service des entreprises</span>
         </h1>
         <p data-key="heroDesc">
           NextGen Technologies rassemble des experts en cybersécurité,
-          infrastructure, SOC, cloud et architecture réseau afin d’accompagner
+          infrastructure, SOC, cloud et architecture réseau afin d'accompagner
           les entreprises marocaines avec une vision moderne, offensive et
           internationale de la sécurité informatique.
         </p>
@@ -878,27 +877,16 @@ RESPONSIVE
             Nous contacter
           </a>
         </div>
+
+        <!-- STATS CORRIGÉES : 4 stats -->
         <div class="stats">
-  <div class="stat">
-    <h3 data-key="stat1">24/7</h3>
-    <p data-key="stat1Label">Surveillance & réactivité</p>
-  </div>
+          <div class="stat"><h3 data-key="stat1">4</h3><p data-key="stat1Label">Les piliers</p></div>
+          <div class="stat"><h3 data-key="stat2">15+</h3><p data-key="stat2Label">Années cumulées</p></div>
+          <div class="stat"><h3 data-key="stat3">SOC</h3><p data-key="stat3Label">24/7 · Centre d'opération sécurité</p></div>
+          <div class="stat"><h3 data-key="stat4">360°</h3><p data-key="stat4Label">Vision sécurité</p></div>
+        </div>
 
-  <div class="stat">
-    <h3 data-key="stat2">15+</h3>
-    <p data-key="stat2Label">Années d’expérience cumulées</p>
-  </div>
-
-  <div class="stat">
-    <h3 data-key="stat3">360°</h3>
-    <p data-key="stat3Label">Protection cybersécurité</p>
-  </div>
-
-  <div class="stat">
-    <h3 data-key="stat4">SOC</h3>
-    <p data-key="stat4Label">Détection & réponse</p>
-  </div>
-</div>
+      </div>
       <div class="hero-panel">
         <div class="glass-card">
           <div class="card-inner">
@@ -1059,16 +1047,16 @@ RESPONSIVE
 const translations = {
   fr: {
     heroTag: "NEXTGEN TECHNOLOGIES",
-    heroTitle1: "Une équipe de",
-    heroTitleAccent: "specialistes en cybersécurité",
+    heroTitle1: "Une équipe de spécialistes",
+    heroTitleAccent: "en cybersécurité",
     heroTitle2: "au service des entreprises",
     heroDesc: "NextGen Technologies rassemble des experts en cybersécurité, infrastructure, SOC, cloud et architecture réseau afin d'accompagner les entreprises marocaines avec une vision moderne, offensive et internationale de la sécurité informatique.",
     heroBtn1: "Découvrir nos services",
     heroBtn2: "Nous contacter",
     stat1Label: "Les piliers",
     stat2Label: "Années cumulées",
-    stat3Label: "Vision sécurité",
-    stat4Label: "Continents",
+    stat3Label: "24/7 · Centre d'opération sécurité",
+    stat4Label: "Vision sécurité",
     panelTitle: "Cyber Defense System",
     teamTag: "L'ÉQUIPE NEXTGEN",
     teamTitle1: "Des profils complémentaires,",
@@ -1113,16 +1101,16 @@ const translations = {
   },
   en: {
     heroTag: "NEXTGEN TECHNOLOGIES",
-    heroTitle1: "A team of ",
-    heroTitleAccent: "cybersecurity engineers",
+    heroTitle1: "A team of specialists",
+    heroTitleAccent: "in cybersecurity",
     heroTitle2: "serving businesses",
     heroDesc: "NextGen Technologies brings together experts in cybersecurity, infrastructure, SOC, cloud and network architecture to support Moroccan companies with a modern, offensive and international vision of IT security.",
     heroBtn1: "Discover our services",
     heroBtn2: "Contact us",
-    stat1Label: "Co-founders",
+    stat1Label: "The pillars",
     stat2Label: "Combined years",
-    stat3Label: "Security vision",
-    stat4Label: "Continents",
+    stat3Label: "24/7 · Security Operations Center",
+    stat4Label: "Security vision",
     panelTitle: "Cyber Defense System",
     teamTag: "NEXTGEN TEAM",
     teamTitle1: "Complementary profiles,",
