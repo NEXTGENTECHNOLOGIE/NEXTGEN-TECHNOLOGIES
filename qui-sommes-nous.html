@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -49,14 +48,52 @@ a{text-decoration:none;}
 .nav-links a:hover,.nav-links a.active{background:rgba(255,255,255,.06);color:var(--accent);}
 .nav-cta{background:linear-gradient(135deg,var(--accent),#0ea5e9)!important;color:#02131d!important;font-weight:800!important;box-shadow:0 0 30px rgba(0,212,255,.3);}
 
-.hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;padding:0 4%;background:radial-gradient(circle at 20% 20%, rgba(0,212,255,.18), transparent 30%),radial-gradient(circle at 80% 40%, rgba(255,184,0,.12), transparent 35%),linear-gradient(180deg,#02050b 0%, #081120 60%, #02050b 100%);}
-.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);background-size:60px 60px;mask-image:linear-gradient(to bottom, rgba(0,0,0,1), transparent);pointer-events:none;}
+/* HERO — carreaux plus petits */
+.hero{
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  padding:0 4%;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,212,255,.18), transparent 30%),
+    radial-gradient(circle at 80% 40%, rgba(255,184,0,.12), transparent 35%),
+    linear-gradient(180deg,#02050b 0%, #081120 60%, #02050b 100%);
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size:28px 28px;
+  mask-image:linear-gradient(to bottom, rgba(0,0,0,1), transparent);
+  pointer-events:none;
+}
 .hero-content{max-width:1400px;margin:auto;width:100%;position:relative;z-index:2;}
 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:5rem;align-items:center;}
-.hero-left h1{font-size:clamp(3rem,7vw,6.5rem);line-height:1;margin-bottom:1.5rem;letter-spacing:-.04em;}
-.hero-left h1 span{background:linear-gradient(90deg,#00D4FF,#38bdf8,#FFB800,#00D4FF);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shine 8s linear infinite;}
+
+/* TITRE HERO — propre, espacement contrôlé */
+.hero-left h1{
+  font-size:clamp(2.4rem,5.5vw,5rem);
+  line-height:1.1;
+  margin-bottom:1.5rem;
+  letter-spacing:-.03em;
+  font-weight:700;
+}
+.hero-left h1 .line{display:block;}
+.hero-left h1 .gradient{
+  background:linear-gradient(90deg,#00D4FF,#38bdf8,#FFB800,#00D4FF);
+  background-size:300% auto;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:shine 8s linear infinite;
+}
 @keyframes shine{to{background-position:300% center;}}
-.hero-left p{color:#cbd5e1;font-size:1.15rem;line-height:1.9;max-width:700px;margin-bottom:2rem;}
+
+.hero-left p{color:#cbd5e1;font-size:1.1rem;line-height:1.8;max-width:680px;margin-bottom:2rem;}
 .hero-buttons{display:flex;gap:1rem;flex-wrap:wrap;}
 .btn-primary,.btn-secondary{padding:1rem 1.6rem;border-radius:16px;font-weight:700;display:inline-flex;align-items:center;gap:.6rem;transition:.3s;}
 .btn-primary{background:linear-gradient(135deg,var(--accent),#0ea5e9);color:#04111a;box-shadow:0 0 40px rgba(0,212,255,.25);}
@@ -91,27 +128,188 @@ a{text-decoration:none;}
 .section-title span{color:var(--gold);}
 .section-desc{color:#94a3b8;max-width:800px;line-height:1.9;font-size:1.05rem;}
 
-/* TEAM GRID */
-.team-grid{margin-top:4rem;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;}
-.team-grid .team-card-ceo{grid-column:1/-1;display:flex;justify-content:center;}
-.team-grid .team-card-ceo .team-card{max-width:340px;width:100%;border:2px solid rgba(0,212,255,.3);box-shadow:0 0 60px rgba(0,212,255,.15);}
-.team-card{position:relative;overflow:hidden;border-radius:28px;background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);transition:.45s;}
-.team-card:hover{transform:translateY(-12px);box-shadow:0 20px 80px rgba(0,0,0,.4);}
-.team-image{height:340px;overflow:hidden;position:relative;}
-.team-image img{width:100%;height:100%;object-fit:cover;transition:1s;}
-.team-card:hover img{transform:scale(1.08);}
-.team-overlay{position:absolute;inset:0;background:linear-gradient(to top, rgba(2,6,12,.95), transparent 60%);}
-.team-content{padding:1.8rem;}
-.team-content h3{font-size:1.4rem;margin-bottom:.4rem;}
-.team-role{color:var(--accent);font-weight:700;margin-bottom:1rem;font-size:.85rem;}
-.team-content p{color:#94a3b8;line-height:1.7;font-size:.92rem;}
-.skills{margin-top:1.2rem;display:flex;flex-wrap:wrap;gap:.5rem;}
-.skills span{padding:.45rem .8rem;border-radius:40px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.05);font-size:.72rem;color:#d7e3f1;}
+/* =============================================
+   TEAM — CEO en haut + co-founders
+   ============================================= */
+.team-section-wrapper{margin-top:4rem;}
 
+.ceo-row{
+  display:flex;
+  justify-content:center;
+  margin-bottom:2.5rem;
+}
+.ceo-row .team-card{
+  max-width:380px;
+  width:100%;
+  border:1.5px solid rgba(0,212,255,.35);
+  box-shadow:0 0 60px rgba(0,212,255,.12), 0 0 0 1px rgba(0,212,255,.08);
+}
+
+.cofounders-row{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0, 280px));
+  gap:2rem;
+  justify-content:center;
+}
+
+.team-card{
+  position:relative;
+  overflow:hidden;
+  border-radius:28px;
+  background:linear-gradient(160deg, rgba(0,212,255,.06), rgba(255,184,0,.04), rgba(10,22,40,.9));
+  border:1px solid rgba(0,212,255,.15);
+  transition:.5s cubic-bezier(.23,1,.32,1);
+  cursor:pointer;
+}
+.team-card::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:28px;
+  background:linear-gradient(135deg, rgba(0,212,255,.15) 0%, transparent 50%, rgba(255,184,0,.08) 100%);
+  opacity:0;
+  transition:.5s;
+  z-index:1;
+  pointer-events:none;
+}
+.team-card:hover{
+  transform:translateY(-16px) scale(1.02);
+  border-color:rgba(0,212,255,.5);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.5),
+    0 0 0 1px rgba(0,212,255,.2),
+    0 0 60px rgba(0,212,255,.15),
+    inset 0 1px 0 rgba(255,255,255,.1);
+}
+.team-card:hover::before{opacity:1;}
+
+.team-image{
+  height:340px;
+  overflow:hidden;
+  position:relative;
+}
+.team-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+  transition:transform 1s cubic-bezier(.23,1,.32,1), filter .5s;
+  filter:saturate(1.1) contrast(1.05);
+}
+.team-card:hover .team-image img{
+  transform:scale(1.1);
+  filter:saturate(1.3) contrast(1.1) brightness(1.05);
+}
+
+.team-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to top,
+    rgba(2,6,12,1) 0%,
+    rgba(2,6,12,.7) 30%,
+    rgba(2,6,12,.1) 65%,
+    transparent 100%
+  );
+  z-index:1;
+}
+
+/* Scan line effect on hover */
+.team-image::after{
+  content:'';
+  position:absolute;
+  top:-100%;
+  left:0;
+  right:0;
+  height:2px;
+  background:linear-gradient(90deg, transparent, var(--accent), transparent);
+  z-index:3;
+  transition:none;
+  opacity:0;
+}
+.team-card:hover .team-image::after{
+  animation:scanLine .8s ease forwards;
+}
+@keyframes scanLine{
+  0%{top:-5%;opacity:0;}
+  30%{opacity:.8;}
+  100%{top:105%;opacity:0;}
+}
+
+/* Petit corner accent */
+.team-image::before{
+  content:'';
+  position:absolute;
+  top:14px;
+  right:14px;
+  width:30px;
+  height:30px;
+  border-top:1.5px solid var(--accent);
+  border-right:1.5px solid var(--accent);
+  border-radius:0 6px 0 0;
+  z-index:4;
+  opacity:.5;
+  transition:.3s;
+}
+.team-card:hover .team-image::before{opacity:1;}
+
+.team-content{
+  padding:1.8rem;
+  position:relative;
+  z-index:2;
+}
+.team-content h3{
+  font-size:1.4rem;
+  margin-bottom:.4rem;
+  background:linear-gradient(90deg,#fff,#cbd5e1);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  transition:.3s;
+}
+.team-card:hover .team-content h3{
+  background:linear-gradient(90deg,#fff,var(--accent));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.team-role{
+  color:var(--accent);
+  font-weight:700;
+  margin-bottom:1rem;
+  font-size:.82rem;
+  letter-spacing:.03em;
+}
+.team-content p{color:#94a3b8;line-height:1.7;font-size:.92rem;}
+
+.team-name-line{
+  height:1px;
+  background:linear-gradient(90deg, var(--accent), transparent);
+  margin:.6rem 0 .8rem;
+  width:40px;
+  transition:.4s;
+}
+.team-card:hover .team-name-line{width:80px;}
+
+.skills{margin-top:1.2rem;display:flex;flex-wrap:wrap;gap:.5rem;}
+.skills span{
+  padding:.45rem .8rem;
+  border-radius:40px;
+  background:rgba(0,212,255,.06);
+  border:1px solid rgba(0,212,255,.15);
+  font-size:.72rem;
+  color:#a0c4d8;
+  transition:.3s;
+}
+.team-card:hover .skills span{
+  background:rgba(0,212,255,.1);
+  border-color:rgba(0,212,255,.3);
+  color:#e0f4ff;
+}
+
+/* STORY / VALUES / REST */
 .story{background:linear-gradient(180deg,#07111e,#02050b);}
 .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
 .story-box{height:520px;border-radius:32px;background:radial-gradient(circle at top left, rgba(0,212,255,.25), transparent 30%),linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);position:relative;overflow:hidden;}
-.story-box::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);background-size:40px 40px;}
+.story-box::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);background-size:24px 24px;}
 .story-icon{position:absolute;inset:0;display:flex;justify-content:center;align-items:center;font-size:8rem;color:rgba(0,212,255,.6);}
 .story-text p{margin-bottom:1.5rem;color:#cbd5e1;line-height:1.9;}
 
@@ -138,8 +336,25 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
 .footer-col a:hover{color:var(--accent);}
 .footer-bottom{max-width:1400px;margin:auto;border-top:1px solid rgba(255,255,255,.05);margin-top:3rem;padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:#64748b;font-size:.9rem;}
 
-@media(max-width:1200px){.team-grid,.values-grid{grid-template-columns:repeat(2,1fr);}.hero-grid,.story-grid{grid-template-columns:1fr;}}
-@media(max-width:768px){.nav-links{display:none;}.stats{grid-template-columns:repeat(2,1fr);}.team-grid,.values-grid{grid-template-columns:1fr;}.section{padding:5rem 5%;}.hero-panel{margin-top:2rem;}.threat-grid{grid-template-columns:1fr;}}
+@media(max-width:1300px){
+  .cofounders-row{
+    grid-template-columns:repeat(2, minmax(0, 320px));
+  }
+}
+@media(max-width:1200px){
+  .values-grid{grid-template-columns:repeat(2,1fr);}
+  .hero-grid,.story-grid{grid-template-columns:1fr;}
+}
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .stats{grid-template-columns:repeat(2,1fr);}
+  .cofounders-row{grid-template-columns:1fr;max-width:380px;margin:0 auto;}
+  .values-grid{grid-template-columns:1fr;}
+  .section{padding:5rem 5%;}
+  .hero-panel{margin-top:2rem;}
+  .threat-grid{grid-template-columns:1fr;}
+  .hero::before{background-size:20px 20px;}
+}
 </style>
 </head>
 <body>
@@ -195,9 +410,9 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
       <div class="hero-left">
         <span class="section-tag" data-key="heroTag">NEXTGEN TECHNOLOGIES</span>
         <h1>
-          <span data-key="heroTitle1">Une équipe de spécialistes</span><br>
-          <span data-key="heroTitleAccent">en cybersécurité</span>
-          <span data-key="heroTitle2">au service des entreprises</span>
+          <span class="line" data-key="heroTitle1">Une équipe de spécialistes</span>
+          <span class="line gradient" data-key="heroTitleAccent">en cybersécurité</span>
+          <span class="line" data-key="heroTitle2">au service des entreprises</span>
         </h1>
         <p data-key="heroDesc">NextGen Technologies rassemble des experts en cybersécurité, infrastructure, SOC, cloud et architecture réseau afin d'accompagner les entreprises marocaines avec une vision moderne, offensive et internationale de la sécurité informatique.</p>
         <div class="hero-buttons">
@@ -205,7 +420,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
           <a href="contact.html" class="btn-secondary" data-key="heroBtn2">Nous contacter</a>
         </div>
         <div class="stats">
-          <div class="stat"><h3 data-key="stat1">5</h3><p data-key="stat1Label">Les piliers</p></div>
+          <div class="stat"><h3 data-key="stat1">4</h3><p data-key="stat1Label">Les piliers</p></div>
           <div class="stat"><h3 data-key="stat2">15+</h3><p data-key="stat2Label">Années cumulées</p></div>
           <div class="stat"><h3 data-key="stat3">SOC</h3><p data-key="stat3Label">24/7 · Centre d'opération sécurité</p></div>
           <div class="stat"><h3 data-key="stat4">360°</h3><p data-key="stat4Label">Vision sécurité</p></div>
@@ -238,57 +453,88 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
       <span data-key="teamTitle2">une même mission</span>
     </h2>
     <p class="section-desc" data-key="teamDesc">Une structure construite autour de plusieurs expertises techniques afin d'offrir aux entreprises une approche complète de la cybersécurité moderne.</p>
-    <div class="team-grid">
-      <!-- YOUSSEF - CEO SEUL EN HAUT -->
-      <div class="team-card-ceo">
+
+    <div class="team-section-wrapper">
+
+      <!-- YOUSSEF — CEO seul en haut, centré -->
+      <div class="ceo-row">
         <div class="team-card">
-          <div class="team-image"><img src="youssef.jpg" alt="Youssef"><div class="team-overlay"></div></div>
+          <div class="team-image">
+            <img src="youssef.jpg" alt="Youssef">
+            <div class="team-overlay"></div>
+          </div>
           <div class="team-content">
             <h3>Youssef</h3>
+            <div class="team-name-line"></div>
             <div class="team-role" data-key="role1">Founder & CEO · Business Development Lead</div>
             <p data-key="desc1">Cybersécurité opérationnelle, développement commercial et stratégie. Coordination globale des opérations et relation client.</p>
             <div class="skills"><span>Cybersécurité</span><span>Business Dev</span><span>Bug Bounty</span></div>
           </div>
         </div>
       </div>
-      <!-- LES 4 CO-FOUNDERS EN BAS -->
-      <div class="team-card">
-        <div class="team-image"><img src="abdeljalil.jpg" alt="Abdeljalil"><div class="team-overlay"></div></div>
-        <div class="team-content">
-          <h3>Abdeljalil</h3>
-          <div class="team-role" data-key="role2">Co-Founder · Security & Training Architect</div>
-          <p data-key="desc2">Architectures sécurisées, cloud security et développement des formations techniques NextGen Academy.</p>
-          <div class="skills"><span>Architecture</span><span>Cloud</span><span>Formation</span></div>
+
+      <!-- 4 CO-FOUNDERS — centrés -->
+      <div class="cofounders-row">
+
+        <div class="team-card">
+          <div class="team-image">
+            <img src="abdeljalil.jpg" alt="Abdeljalil">
+            <div class="team-overlay"></div>
+          </div>
+          <div class="team-content">
+            <h3>Abdeljalil</h3>
+            <div class="team-name-line"></div>
+            <div class="team-role" data-key="role2">Co-Founder · Security & Training Architect</div>
+            <p data-key="desc2">Architectures sécurisées, cloud security et développement des formations techniques NextGen Academy.</p>
+            <div class="skills"><span>Architecture</span><span>Cloud</span><span>Formation</span></div>
+          </div>
         </div>
-      </div>
-      <div class="team-card">
-        <div class="team-image"><img src="marouan.png" alt="Marouan"><div class="team-overlay"></div></div>
-        <div class="team-content">
-          <h3>Marouan</h3>
-          <div class="team-role" data-key="role3">Co-Founder · CTO · Infrastructure Lead</div>
-          <p data-key="desc3">Expert infrastructures réseau, solutions Cisco et architecture technique des environnements sécurisés.</p>
-          <div class="skills"><span>Cisco</span><span>Infrastructure</span><span>Réseau</span></div>
+
+        <div class="team-card">
+          <div class="team-image">
+            <img src="marouan.png" alt="Marouan">
+            <div class="team-overlay"></div>
+          </div>
+          <div class="team-content">
+            <h3>Marouan</h3>
+            <div class="team-name-line"></div>
+            <div class="team-role" data-key="role3">Co-Founder · CTO · Infrastructure Lead</div>
+            <p data-key="desc3">Expert infrastructures réseau, solutions Cisco et architecture technique des environnements sécurisés.</p>
+            <div class="skills"><span>Cisco</span><span>Infrastructure</span><span>Réseau</span></div>
+          </div>
         </div>
-      </div>
-      <div class="team-card">
-        <div class="team-image"><img src="amine.png" alt="Amine"><div class="team-overlay"></div></div>
-        <div class="team-content">
-          <h3>Amine</h3>
-          <div class="team-role" data-key="role4">Co-Founder · SOC · Offensive Security Lead</div>
-          <p data-key="desc4">Détection, surveillance SOC, pentest et sécurité offensive pour les environnements critiques.</p>
-          <div class="skills"><span>SOC</span><span>Pentest</span><span>Security</span></div>
+
+        <div class="team-card">
+          <div class="team-image">
+            <img src="amine.png" alt="Amine">
+            <div class="team-overlay"></div>
+          </div>
+          <div class="team-content">
+            <h3>Amine</h3>
+            <div class="team-name-line"></div>
+            <div class="team-role" data-key="role4">Co-Founder · SOC · Offensive Security Lead</div>
+            <p data-key="desc4">Détection, surveillance SOC, pentest et sécurité offensive pour les environnements critiques.</p>
+            <div class="skills"><span>SOC</span><span>Pentest</span><span>Security</span></div>
+          </div>
         </div>
-      </div>
-      <div class="team-card">
-        <div class="team-image"><img src="mohssine.jpg" alt="Mohssine"><div class="team-overlay"></div></div>
-        <div class="team-content">
-          <h3>Mohssine</h3>
-          <div class="team-role" data-key="role5">Co-Founder · SOC · Pentest · Formation</div>
-          <p data-key="desc5">Expert en sécurité opérationnelle, tests d'intrusion et formation cyber. Renforce l'équipe sur les missions offensives et défensives.</p>
-          <div class="skills"><span>SOC</span><span>Pentest</span><span>Formation</span></div>
+
+        <div class="team-card">
+          <div class="team-image">
+            <img src="mohssine.jpg" alt="Mohssine">
+            <div class="team-overlay"></div>
+          </div>
+          <div class="team-content">
+            <h3>Mohssine</h3>
+            <div class="team-name-line"></div>
+            <div class="team-role" data-key="role5">Co-Founder · SOC · Pentest · Formation</div>
+            <p data-key="desc5">Expert en sécurité opérationnelle, tests d'intrusion et formation cyber. Renforce l'équipe sur les missions offensives et défensives.</p>
+            <div class="skills"><span>SOC</span><span>Pentest</span><span>Formation</span></div>
+          </div>
         </div>
-      </div>
-    </div>
+
+      </div><!-- /cofounders-row -->
+
+    </div><!-- /team-section-wrapper -->
   </div>
 </section>
 
@@ -370,7 +616,7 @@ const translations = {
     heroTitle2:"au service des entreprises",
     heroDesc:"NextGen Technologies rassemble des experts en cybersécurité, infrastructure, SOC, cloud et architecture réseau afin d'accompagner les entreprises marocaines avec une vision moderne, offensive et internationale de la sécurité informatique.",
     heroBtn1:"Découvrir nos services", heroBtn2:"Nous contacter",
-    stat1:"5", stat1Label:"Les piliers",
+    stat1:"4", stat1Label:"Les piliers",
     stat2:"15+", stat2Label:"Années cumulées",
     stat3:"SOC", stat3Label:"24/7 · Centre d'opération sécurité",
     stat4:"360°", stat4Label:"Vision sécurité",
@@ -413,7 +659,7 @@ const translations = {
     heroTitle2:"serving businesses",
     heroDesc:"NextGen Technologies brings together experts in cybersecurity, infrastructure, SOC, cloud and network architecture to support Moroccan companies with a modern, offensive and international vision of IT security.",
     heroBtn1:"Discover our services", heroBtn2:"Contact us",
-    stat1:"5", stat1Label:"The pillars",
+    stat1:"4", stat1Label:"The pillars",
     stat2:"15+", stat2Label:"Combined years",
     stat3:"SOC", stat3Label:"24/7 · Security Operations Center",
     stat4:"360°", stat4Label:"Security vision",
@@ -484,8 +730,3 @@ applyLanguage(currentLang);
 </script>
 </body>
 </html>
-HTMLEOF
-echo "Done!"
-Sortie
-
-Done!
