@@ -9,534 +9,333 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 <style>
-:root {
-  --primary: #0A1628;
-  --primary-deep: #050B14;
-  --primary-light: #1E3A5F;
-  --accent: #00D4FF;
-  --accent-dark: #0891B2;
-  --gold: #FFB800;
-  --gold-dark: #D97706;
-  --white: #FFFFFF;
-  --off-white: #F8FAFC;
-  --gray-light: #E2E8F0;
-  --gray-mid: #64748B;
-  --gray-dark: #334155;
-  --red: #EF4444;
-  --red-dark: #DC2626;
-  --transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+:root{
+  --primary:#050B14;
+  --secondary:#0A1628;
+  --accent:#00D4FF;
+  --gold:#FFB800;
+  --white:#fff;
+  --text:#D8E2F0;
+  --muted:#94A3B8;
+  --border:rgba(255,255,255,0.08);
 }
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Manrope', sans-serif;
-  color: var(--gray-dark);
-  line-height: 1.6;
-  overflow-x: hidden;
-  background: var(--white);
-}
-h1, h2, h3, h4 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-a { text-decoration: none; }
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Manrope',sans-serif;background:#030712;color:var(--white);overflow-x:hidden;}
+h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;}
+a{text-decoration:none;}
 
-.top-bar {
-  background: var(--primary-deep);
-  color: var(--gray-light);
-  padding: 0.5rem 4%;
-  font-size: 0.8rem;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-.top-bar-container {
-  max-width: 1400px; margin: 0 auto;
-  display: flex; justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-.top-bar-info { display: flex; gap: 2rem; flex-wrap: wrap; }
-.top-bar-info span { display: flex; align-items: center; gap: 0.4rem; }
-.top-bar-info i { color: var(--accent); }
-.top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; transition: var(--transition); }
-.top-bar-social a:hover { color: var(--accent); transform: translateY(-2px); }
+.top-bar{background:#02050b;border-bottom:1px solid rgba(255,255,255,0.04);padding:.7rem 4%;}
+.top-bar-container{max-width:1400px;margin:auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.top-bar-info{display:flex;gap:2rem;flex-wrap:wrap;}
+.top-bar-info span{font-size:.85rem;color:#cbd5e1;}
+.top-bar-info i{color:var(--accent);margin-right:.4rem;}
+.top-bar-social a{color:#cbd5e1;margin-left:1rem;transition:.3s;}
+.top-bar-social a:hover{color:var(--accent);}
 
-.lang-switch {
-  display: flex;
-  gap: 0.25rem;
-  background: rgba(0,212,255,0.15);
-  padding: 0.2rem 0.6rem;
-  border-radius: 40px;
-  align-items: center;
-}
-.lang-btn {
-  background: none;
-  border: none;
-  color: var(--gray-light);
-  font-size: 0.8rem;
-  font-weight: 600;
-  cursor: pointer;
-  padding: 0.2rem 0.6rem;
-  border-radius: 30px;
-  transition: var(--transition);
-  font-family: inherit;
-}
-.lang-btn.active {
-  background: var(--accent);
-  color: var(--primary);
-}
-.lang-btn:hover:not(.active) {
-  background: rgba(0,212,255,0.2);
-  color: white;
-}
+.lang-switch{display:flex;gap:.25rem;background:rgba(0,212,255,0.15);padding:.2rem .6rem;border-radius:40px;}
+.lang-btn{background:none;border:none;color:var(--muted);font-size:.8rem;font-weight:600;cursor:pointer;padding:.2rem .6rem;border-radius:30px;transition:all .3s;}
+.lang-btn.active{background:var(--accent);color:var(--primary);}
+.lang-btn:hover:not(.active){color:var(--accent);}
 
-.nav {
-  position: sticky; top: 0; z-index: 1000;
-  padding: 1rem 4%;
-  background: var(--white);
-  border-bottom: 1px solid var(--gray-light);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-}
-.nav-container {
-  max-width: 1400px; margin: 0 auto;
-  display: flex; align-items: center; justify-content: space-between;
-}
-.logo {
-  display: flex; align-items: center; gap: 0.6rem;
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700; font-size: 1.3rem;
-  color: var(--primary);
-  transition: var(--transition);
-}
-.logo:hover { transform: scale(1.02); }
-.logo-shield {
-  width: 32px; height: 32px;
-  fill: var(--accent) !important;
-  flex-shrink: 0;
-  animation: float 3s ease-in-out infinite;
-}
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-.logo-text-accent { color: var(--accent); }
+.nav{position:sticky;top:0;z-index:999;backdrop-filter:blur(16px);background:rgba(3,7,18,.75);border-bottom:1px solid rgba(255,255,255,0.06);padding:1rem 4%;}
+.nav-container{max-width:1400px;margin:auto;display:flex;justify-content:space-between;align-items:center;}
+.logo{display:flex;align-items:center;gap:.8rem;color:#fff;font-size:1.35rem;font-weight:700;}
+.logo-shield{width:42px;animation:float 4s ease-in-out infinite;}
+.logo-text-accent{color:var(--accent);}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
+.nav-links{display:flex;gap:.5rem;list-style:none;align-items:center;}
+.nav-links a{color:#dbe4ef;padding:.8rem 1rem;border-radius:12px;font-size:.92rem;font-weight:600;transition:.3s;}
+.nav-links a:hover,.nav-links a.active{background:rgba(255,255,255,.06);color:var(--accent);}
+.nav-cta{background:linear-gradient(135deg,var(--accent),#0ea5e9)!important;color:#02131d!important;font-weight:800!important;box-shadow:0 0 30px rgba(0,212,255,.3);}
 
-.nav-links { display: flex; gap: 0.4rem; list-style: none; align-items: center; }
-.nav-links > li { position: relative; }
-.nav-links > li > a {
-  color: var(--primary); font-size: 0.92rem; font-weight: 600;
-  padding: 0.6rem 1rem; border-radius: 4px;
-  transition: var(--transition);
-  display: flex; align-items: center; gap: 0.3rem;
+/* PAGE HEADER — style premium */
+.page-header{
+  position:relative;
+  padding:6rem 4% 4rem;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,212,255,.15), transparent 30%),
+    radial-gradient(circle at 80% 40%, rgba(255,184,0,.1), transparent 35%),
+    linear-gradient(180deg,#02050b 0%, #081120 60%, #02050b 100%);
 }
-.nav-links > li > a:hover { background: var(--off-white); color: var(--accent-dark); }
-.nav-links > li > a.active { color: var(--accent-dark); background: var(--off-white); }
+.page-header::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size:28px 28px;
+  mask-image:linear-gradient(to bottom, rgba(0,0,0,1), transparent);
+  pointer-events:none;
+}
+.page-header-container{max-width:1400px;margin:auto;position:relative;z-index:2;}
+.breadcrumb{color:#94a3b8;font-size:.85rem;margin-bottom:1rem;}
+.breadcrumb a{color:var(--accent);}
+.breadcrumb i{margin:0 .5rem;font-size:.7rem;}
+.page-header h1{font-size:clamp(2.2rem,4.5vw,3.8rem);line-height:1.1;margin-bottom:1rem;letter-spacing:-.02em;}
+.page-header h1 .accent{color:var(--accent);background:linear-gradient(90deg,#00D4FF,#38bdf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.page-header p{font-size:1.1rem;color:#cbd5e1;max-width:750px;line-height:1.6;}
 
-.dropdown-menu {
-  position: absolute; top: 100%; left: 0;
-  background: var(--white);
-  min-width: 280px;
-  box-shadow: 0 20px 40px rgba(10,22,40,0.15);
-  border-radius: 12px; padding: 0.6rem;
-  list-style: none;
-  opacity: 0; visibility: hidden; transform: translateY(10px);
-  transition: var(--transition);
-  border-top: 3px solid var(--accent);
-}
-.nav-links > li:hover > .dropdown-menu {
-  opacity: 1; visibility: visible; transform: translateY(0);
-}
-.dropdown-menu li a {
-  display: block; padding: 0.7rem 1rem;
-  color: var(--gray-dark); font-size: 0.88rem;
-  border-radius: 8px;
-  transition: var(--transition);
-}
-.dropdown-menu li a:hover {
-  background: var(--off-white); color: var(--accent-dark); padding-left: 1.4rem;
-}
-.dropdown-menu li a i { color: var(--accent); margin-right: 0.6rem; width: 18px; }
-.nav-cta {
-  background: linear-gradient(135deg, var(--gold), var(--gold-dark)) !important;
-  color: var(--primary) !important;
-  padding: 0.7rem 1.4rem !important;
-  border-radius: 40px !important;
-  font-weight: 700 !important;
-  box-shadow: 0 4px 10px rgba(255,184,0,0.2);
-}
-.nav-cta:hover { transform: translateY(-2px) !important; background: var(--accent) !important; color: var(--primary) !important; }
-.menu-toggle { display: none; background: none; border: none; color: var(--primary); font-size: 1.5rem; cursor: pointer; }
+/* SECTIONS */
+.section{padding:6rem 4%;position:relative;}
+.section-container{max-width:1400px;margin:auto;}
+.section-tag{display:inline-block;color:var(--accent);text-transform:uppercase;font-size:.8rem;letter-spacing:.2em;margin-bottom:1rem;font-weight:700;}
+.section-title{font-size:clamp(2rem,4vw,3rem);line-height:1.15;margin-bottom:1rem;color:var(--white);}
+.section-subtitle{color:#94a3b8;max-width:700px;margin-bottom:3rem;font-size:1.05rem;}
 
-.page-header {
-  background: var(--primary-deep);
-  color: var(--white);
-  padding: 5rem 4% 4rem;
-  position: relative;
-  overflow: hidden;
+/* SECTEURS GRID — effet glass premium */
+.sectors-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(310px, 1fr));
+  gap:2rem;
 }
-.page-header::before {
-  content: ''; position: absolute;
-  top: 0; right: 0; width: 60%; height: 100%;
-  background: radial-gradient(circle at 70% 30%, rgba(0,212,255,0.15) 0%, transparent 60%),
-              radial-gradient(circle at 80% 70%, rgba(255,184,0,0.08) 0%, transparent 50%);
+.sector-card{
+  position:relative;
+  border-radius:28px;
+  background:linear-gradient(160deg, rgba(0,212,255,.06), rgba(255,184,0,.04), rgba(10,22,40,.9));
+  border:1px solid rgba(0,212,255,.15);
+  backdrop-filter:blur(4px);
+  overflow:hidden;
+  transition:.5s cubic-bezier(.23,1,.32,1);
+  cursor:pointer;
+  display:block;
+  color:inherit;
 }
-.page-header::after {
-  content: ''; position: absolute; inset: 0;
-  background-image: linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
-  background-size: 40px 40px;
-  pointer-events: none;
+.sector-card::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:28px;
+  background:linear-gradient(135deg, rgba(0,212,255,.15) 0%, transparent 50%, rgba(255,184,0,.08) 100%);
+  opacity:0;
+  transition:.5s;
+  z-index:1;
+  pointer-events:none;
 }
-.page-header-container {
-  max-width: 1400px; margin: 0 auto;
-  position: relative; z-index: 2;
+.sector-card:hover{
+  transform:translateY(-12px) scale(1.02);
+  border-color:rgba(0,212,255,.5);
+  box-shadow:0 30px 80px rgba(0,0,0,.5), 0 0 0 1px rgba(0,212,255,.2), 0 0 60px rgba(0,212,255,.15);
 }
-.breadcrumb { color: var(--gray-light); font-size: 0.85rem; margin-bottom: 1rem; }
-.breadcrumb a { color: var(--accent); }
-.breadcrumb i { margin: 0 0.5rem; font-size: 0.7rem; opacity: 0.6; }
-.page-header h1 {
-  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
-  line-height: 1.1; margin-bottom: 1rem;
+.sector-card:hover::before{opacity:1;}
+.sector-img{
+  height:200px;
+  overflow:hidden;
+  position:relative;
+  background:linear-gradient(135deg, #0A1628, #050B14);
 }
-.page-header h1 .accent { color: var(--accent); }
-.page-header p {
-  font-size: 1.15rem; color: var(--gray-light); max-width: 750px;
+.sector-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform 1s cubic-bezier(.23,1,.32,1), filter .5s;
+  filter:saturate(1.1) contrast(1.05);
 }
+.sector-card:hover .sector-img img{
+  transform:scale(1.1);
+  filter:saturate(1.3) contrast(1.1);
+}
+.sector-img::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(2,6,12,.8) 0%, rgba(2,6,12,.2) 50%, transparent 100%);
+  pointer-events:none;
+}
+.sector-content{padding:1.8rem;position:relative;z-index:2;}
+.sector-content h3{font-size:1.3rem;margin-bottom:.5rem;background:linear-gradient(90deg,#fff,#cbd5e1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.sector-card:hover .sector-content h3{background:linear-gradient(90deg,#fff,var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.sector-content p{color:#94a3b8;line-height:1.6;font-size:.92rem;margin-bottom:1rem;}
+.sector-link{color:var(--accent);font-size:.85rem;font-weight:700;display:inline-flex;align-items:center;gap:.5rem;transition:.3s;}
+.sector-card:hover .sector-link{gap:.8rem;color:var(--gold);}
 
-.btn-primary {
-  padding: 1rem 2rem;
-  border-radius: 40px;
-  font-weight: 700;
-  font-size: 0.95rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  transition: var(--transition);
-  cursor: pointer;
-  border: none;
-  font-family: inherit;
-  background: linear-gradient(135deg, var(--red), var(--red-dark));
-  color: var(--white);
+/* STATS BANNER */
+.stats-banner{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1.5rem;
+  margin-top:3rem;
 }
-.btn-primary:hover {
-  background: var(--accent);
-  color: var(--primary);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(239,68,68,0.3);
+.stat-item{
+  padding:1.5rem;
+  border-radius:24px;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.06);
+  text-align:center;
 }
+.stat-number{font-size:2.2rem;font-weight:800;color:var(--accent);}
+.stat-label{color:#94a3b8;margin-top:.3rem;font-size:.85rem;}
 
-section { padding: 5rem 4%; }
-.container { max-width: 1400px; margin: 0 auto; }
-.section-tag {
-  display: inline-block;
-  color: var(--accent-dark);
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  margin-bottom: 0.8rem;
+/* CTA SECTION premium */
+.cta{
+  padding:6rem 4%;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(180deg,#07111e,#02050b);
 }
-.section-title {
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  color: var(--primary);
-  margin-bottom: 0.8rem;
-  line-height: 1.15;
+.cta::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at center, rgba(0,212,255,.12), transparent 45%);
 }
-.section-subtitle {
-  font-size: 1.05rem;
-  color: var(--gray-mid);
-  max-width: 700px;
-  margin-bottom: 3rem;
+.cta-content{max-width:850px;margin:auto;position:relative;z-index:2;}
+.cta h2{font-size:clamp(1.8rem,4vw,3rem);margin-bottom:1rem;}
+.cta p{color:#94a3b8;line-height:1.9;margin-bottom:2rem;}
+.btn-primary{
+  background:linear-gradient(135deg,var(--accent),#0ea5e9);
+  color:#04111a;
+  padding:1rem 2rem;
+  border-radius:40px;
+  font-weight:800;
+  display:inline-flex;
+  align-items:center;
+  gap:.8rem;
+  transition:.3s;
+  box-shadow:0 0 40px rgba(0,212,255,.25);
 }
+.btn-primary:hover{transform:translateY(-4px);gap:1rem;}
 
-/* Secteurs grid */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-  gap: 1.5rem;
-}
-.service-card {
-  background: var(--white);
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 5px 20px rgba(10,22,40,0.06);
-  transition: var(--transition);
-  color: inherit;
-  display: block;
-}
-.service-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 35px rgba(10,22,40,0.12);
-}
-.service-img {
-  height: 170px;
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
-}
-.service-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-.service-card:hover .service-img img {
-  transform: scale(1.05);
-}
-.service-img::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(10,22,40,0.2), rgba(10,22,40,0.05));
-  pointer-events: none;
-}
-.service-content { padding: 1.5rem; }
-.service-content h3 { font-size: 1.15rem; color: var(--primary); margin-bottom: 0.5rem; }
-.service-content p { color: var(--gray-mid); font-size: 0.88rem; margin-bottom: 1rem; line-height: 1.5; }
-.service-link {
-  color: var(--accent-dark);
-  font-size: 0.83rem;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  transition: var(--transition);
-}
-.service-card:hover .service-link { gap: 0.8rem; color: var(--red); }
-
-.cta-block {
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
-  color: var(--white);
-  text-align: center;
-  padding: 4rem 4%;
-  position: relative;
-  overflow: hidden;
-}
-.cta-block::before {
-  content: ''; position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%,-50%);
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(0,212,255,0.15) 0%, transparent 70%);
-}
-.cta-block-content {
-  max-width: 700px; margin: 0 auto;
-  position: relative; z-index: 2;
-}
-.cta-block h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--white); margin-bottom: 1rem; }
-.cta-block p { color: var(--gray-light); margin-bottom: 2rem; }
-
-footer {
-  background: var(--primary-deep);
-  color: var(--gray-light);
-  padding: 3rem 4% 1.5rem;
-  border-top: 1px solid rgba(255,255,255,0.05);
-}
-.footer-grid {
-  max-width: 1400px; margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-.footer-brand p { color: var(--gray-mid); font-size: 0.88rem; margin: 1rem 0; line-height: 1.6; }
-.footer-col h4 { color: var(--white); font-size: 0.92rem; margin-bottom: 1rem; text-transform: uppercase; }
-.footer-col ul { list-style: none; }
-.footer-col ul li { margin-bottom: 0.6rem; }
-.footer-col ul a { color: var(--gray-light); font-size: 0.88rem; transition: var(--transition); }
-.footer-col ul a:hover { color: var(--accent); padding-left: 5px; }
-.footer-bottom {
-  max-width: 1400px; margin: 0 auto;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(255,255,255,0.05);
-  display: flex; justify-content: space-between;
-  flex-wrap: wrap; gap: 1rem;
-  font-size: 0.82rem; color: var(--gray-mid);
-}
-
-/* Animations */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.service-card {
-  animation: fadeInUp 0.8s ease-out both;
-}
-.service-card:nth-child(1) { animation-delay: 0s; }
-.service-card:nth-child(2) { animation-delay: 0.1s; }
-.service-card:nth-child(3) { animation-delay: 0.2s; }
-.service-card:nth-child(4) { animation-delay: 0.3s; }
-.service-card:nth-child(5) { animation-delay: 0.4s; }
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+/* FOOTER */
+footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;background:#02050b;}
+.footer-grid{max-width:1400px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;}
+.footer-brand p{color:#94a3b8;margin-top:1rem;line-height:1.8;}
+.footer-col h4{margin-bottom:1.2rem;color:var(--white);}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:.8rem;}
+.footer-col a{color:#94a3b8;transition:.3s;}
+.footer-col a:hover{color:var(--accent);}
+.footer-bottom{max-width:1400px;margin:auto;border-top:1px solid rgba(255,255,255,.05);margin-top:3rem;padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:#64748b;font-size:.9rem;}
 
 /* CHATBOT */
-.chatbot-button {
-  position: fixed; bottom: 25px; right: 25px;
-  width: 60px; height: 60px;
-  background: linear-gradient(135deg, var(--red), var(--red-dark));
-  border-radius: 50%;
-  display: flex;
-  align-items: center; justify-content: center;
-  color: var(--white);
-  font-size: 1.6rem;
-  cursor: pointer;
-  box-shadow: 0 6px 25px rgba(239,68,68,0.5);
-  z-index: 998;
-  transition: var(--transition);
-  border: 2px solid rgba(255,255,255,0.2);
+.chatbot-button{
+  position:fixed;bottom:25px;right:25px;
+  width:60px;height:60px;
+  background:linear-gradient(135deg, #EF4444, #DC2626);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:white;font-size:1.6rem;
+  cursor:pointer;box-shadow:0 6px 25px rgba(239,68,68,0.5);
+  z-index:998;transition:.3s;border:2px solid rgba(255,255,255,0.2);
 }
-.chatbot-button:hover { transform: scale(1.1); }
-.chatbot-pulse {
-  position: absolute; top: -3px; right: -3px;
-  width: 14px; height: 14px;
-  background: #EF4444;
-  border-radius: 50%;
-  border: 2px solid white;
-  animation: chatPulse 2s infinite;
+.chatbot-button:hover{transform:scale(1.1);}
+.chatbot-pulse{
+  position:absolute;top:-3px;right:-3px;
+  width:14px;height:14px;
+  background:#EF4444;border-radius:50%;
+  border:2px solid white;
+  animation:chatPulse 2s infinite;
 }
-@keyframes chatPulse {
-  0%,100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.3); opacity: 0.7; }
+@keyframes chatPulse{
+  0%,100%{transform:scale(1);opacity:1;}
+  50%{transform:scale(1.3);opacity:0.7;}
 }
-.chatbot-window {
-  position: fixed; bottom: 100px; right: 25px;
-  width: 380px;
-  max-width: calc(100vw - 50px);
-  height: 540px;
-  background: #071426;
-  border-radius: 20px;
-  border: 1px solid rgba(0,212,255,0.2);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-  z-index: 999;
-  display: none;
-  flex-direction: column;
-  overflow: hidden;
+.chatbot-window{
+  position:fixed;bottom:100px;right:25px;
+  width:380px;max-width:calc(100vw - 50px);
+  height:540px;
+  background:#071426;
+  border-radius:24px;
+  border:1px solid rgba(0,212,255,0.3);
+  box-shadow:0 30px 60px rgba(0,0,0,0.6);
+  z-index:999;
+  display:none;
+  flex-direction:column;
+  overflow:hidden;
+  backdrop-filter:blur(8px);
 }
-.chatbot-window.open { display: flex; }
-.chatbot-header {
-  background: #0F2B4D;
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
+.chatbot-window.open{display:flex;}
+.chatbot-header{
+  background:rgba(0,212,255,0.1);
+  backdrop-filter:blur(12px);
+  padding:1rem;
+  display:flex;
+  align-items:center;
+  gap:0.8rem;
+  border-bottom:1px solid rgba(0,212,255,0.2);
 }
-.chatbot-avatar {
-  width: 44px; height: 44px;
-  background: var(--red);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-  color: var(--white);
+.chatbot-avatar{
+  width:44px;height:44px;
+  background:linear-gradient(135deg,var(--accent),#0891B2);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;color:white;
 }
-.chatbot-header-info .name { font-weight: 700; color: var(--white); }
-.chatbot-header-info .status { font-size: 0.75rem; color: var(--accent); }
-.chatbot-close {
-  background: none; border: none;
-  color: var(--white);
-  font-size: 1.4rem;
-  cursor: pointer;
+.chatbot-header-info .name{font-weight:700;color:white;}
+.chatbot-header-info .status{font-size:0.75rem;color:var(--accent);}
+.chatbot-close{
+  background:none;border:none;
+  color:white;font-size:1.5rem;
+  cursor:pointer;margin-left:auto;
 }
-.chatbot-body {
-  flex: 1;
-  overflow-y: auto;
-  padding: 1rem;
-  background: var(--primary-deep);
+.chatbot-body{
+  flex:1;
+  overflow-y:auto;
+  padding:1rem;
+  background:rgba(3,7,18,0.9);
 }
-.chat-msg {
-  max-width: 85%;
-  padding: 0.7rem 1rem;
-  border-radius: 18px;
-  font-size: 0.88rem;
-  margin-bottom: 0.8rem;
+.chat-msg{
+  max-width:85%;
+  padding:0.7rem 1rem;
+  border-radius:18px;
+  font-size:0.88rem;
+  margin-bottom:0.8rem;
 }
-.chat-msg.bot {
-  background: #0F2B4D;
-  color: var(--off-white);
-  border-bottom-left-radius: 4px;
+.chat-msg.bot{
+  background:#0F2B4D;
+  color:var(--off-white);
+  border-bottom-left-radius:4px;
 }
-.chat-msg.user {
-  background: var(--red);
-  color: var(--white);
-  margin-left: auto;
-  border-bottom-right-radius: 4px;
+.chat-msg.user{
+  background:linear-gradient(135deg,#EF4444,#DC2626);
+  color:white;
+  margin-left:auto;
+  border-bottom-right-radius:4px;
 }
-.chat-options {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin: 0.5rem 0;
+.chat-options{
+  display:flex;
+  flex-direction:column;
+  gap:0.5rem;
+  margin:0.5rem 0;
 }
-.chat-option {
-  background: #0F2B4D;
-  border: 1px solid rgba(0,212,255,0.2);
-  padding: 0.6rem 1rem;
-  border-radius: 12px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  color: var(--off-white);
-  transition: var(--transition);
+.chat-option{
+  background:rgba(0,212,255,0.08);
+  border:1px solid rgba(0,212,255,0.2);
+  padding:0.7rem 1rem;
+  border-radius:14px;
+  font-size:0.85rem;
+  font-weight:600;
+  cursor:pointer;
+  color:var(--off-white);
+  transition:.3s;
+  text-align:left;
 }
-.chat-option:hover {
-  border-color: var(--red);
-  background: rgba(239,68,68,0.1);
+.chat-option:hover{
+  border-color:var(--accent);
+  background:rgba(0,212,255,0.15);
+  transform:translateX(4px);
 }
-.chatbot-footer {
-  padding: 0.6rem;
-  border-top: 1px solid rgba(0,212,255,0.1);
-  background: var(--primary-deep);
-  font-size: 0.7rem;
-  text-align: center;
-  color: var(--gray-mid);
+.chatbot-footer{
+  padding:0.6rem;
+  border-top:1px solid rgba(0,212,255,0.1);
+  background:rgba(3,7,18,0.95);
+  font-size:0.7rem;
+  text-align:center;
+  color:#64748b;
 }
 
-@media (max-width: 1024px) {
-  .footer-grid { grid-template-columns: 1fr 1fr; }
+@media(max-width:1200px){
+  .stats-banner{grid-template-columns:repeat(2,1fr);}
 }
-@media (max-width: 768px) {
-  .nav-links {
-    position: fixed; top: 70px; right: 0;
-    flex-direction: column;
-    background: var(--white);
-    padding: 1.5rem;
-    width: 100%;
-    gap: 0.5rem;
-    transform: translateX(100%);
-    transition: transform 0.3s;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    align-items: stretch;
-  }
-  .nav-links.active { transform: translateX(0); }
-  .menu-toggle { display: block; }
-  .dropdown-menu {
-    position: static;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    box-shadow: none;
-    padding-left: 1rem;
-  }
-  .top-bar-info { gap: 1rem; }
-  .footer-grid { grid-template-columns: 1fr; }
-  .services-grid { grid-template-columns: 1fr; }
-}
-@media (max-width: 600px) {
-  .top-bar-social { display: none; }
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .stats-banner{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .sectors-grid{grid-template-columns:1fr;}
+  .section{padding:4rem 5%;}
 }
 </style>
 </head>
@@ -545,9 +344,9 @@ footer {
 <div class="top-bar">
   <div class="top-bar-container">
     <div class="top-bar-info">
-      <span><i class="fas fa-phone"></i> +212 728 31 28 01</span>
-      <span><i class="fas fa-envelope"></i> contact@nextgentechnologies.net</span>
-      <span><i class="fas fa-map-marker-alt"></i> Casablanca</span>
+      <span><i class="fas fa-phone"></i> <span class="top-phone">+212 728 31 28 01</span></span>
+      <span><i class="fas fa-envelope"></i> <span class="top-email">contact@nextgentechnologies.net</span></span>
+      <span><i class="fas fa-location-dot"></i> <span class="top-location">Casablanca</span></span>
     </div>
     <div class="lang-switch">
       <button class="lang-btn active" data-lang="fr">🇫🇷 FR</button>
@@ -564,109 +363,90 @@ footer {
 <nav class="nav">
   <div class="nav-container">
     <a href="index.html" class="logo">
-      <svg class="logo-shield" viewBox="0 0 64 64" width="32" height="32">
-        <path d="M32 4 L8 12 V28 C8 42 18 54 32 60 C46 54 56 42 56 28 V12 Z" fill="#00D4FF" stroke="#FFB800" stroke-width="1.5"/>
-        <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="#EF4444" stroke="#7F1D1D" stroke-width="1.5"/>
+      <svg class="logo-shield" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="shieldGradN" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00D4FF"/><stop offset="100%" stop-color="#0891B2"/></linearGradient>
+          <linearGradient id="boltGradN" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#FEE2E2"/><stop offset="40%" stop-color="#EF4444"/><stop offset="100%" stop-color="#991B1B"/></linearGradient>
+        </defs>
+        <path d="M32 4 L8 12 V28 C8 42 18 54 32 60 C46 54 56 42 56 28 V12 Z" fill="url(#shieldGradN)" stroke="#FFB800" stroke-width="1.5"/>
+        <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="url(#boltGradN)" stroke="#7F1D1D" stroke-width="1.5"/>
       </svg>
       <span>NextGen <span class="logo-text-accent">Technologies</span></span>
     </a>
-    <ul class="nav-links" id="navLinks">
+    <ul class="nav-links">
       <li><a href="index.html">Accueil</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="secteurs.html" class="active">Secteurs</a></li>
-      
       <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
       <li><a href="carrieres.html">Carrières</a></li>
-      
       <li><a href="campus-cyber.html">🎓 Campus Cyber</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="contact.html" class="nav-cta">Audit gratuit</a></li>
+      <li><a href="contact.html" class="nav-cta">Audit Gratuit</a></li>
     </ul>
-    <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
   </div>
 </nav>
 
 <section class="page-header">
   <div class="page-header-container">
     <div class="breadcrumb">
-      <a href="index.html">Accueil</a> <i class="fas fa-chevron-right"></i> <span style="color:var(--white)">Secteurs d'activité</span>
+      <a href="index.html">Accueil</a> <i class="fas fa-chevron-right"></i> <span style="color:var(--white)" data-key="breadcrumb">Secteurs d'activité</span>
     </div>
     <h1>Une expertise <span class="accent">par secteur</span><br>d'activité</h1>
-    <p id="pageDesc">Chaque secteur a ses risques spécifiques, ses contraintes réglementaires, ses enjeux. Nous adaptons notre approche pour répondre aux besoins de votre métier.</p>
+    <p data-key="pageDesc">Chaque secteur a ses risques spécifiques, ses contraintes réglementaires, ses enjeux. Nous adaptons notre approche pour répondre aux besoins de votre métier.</p>
   </div>
 </section>
 
-<section style="background: var(--off-white);">
-  <div class="container">
-    <span class="section-tag" id="sectorsTag">Secteurs couverts</span>
-    <h2 class="section-title" id="sectorsTitle">Cybersécurité par métier</h2>
-    <p class="section-subtitle" id="sectorsSub">Découvrez nos approches spécialisées par secteur d'activité.</p>
-    <div class="services-grid" id="sectorsGrid"></div>
+<section class="section" style="background:linear-gradient(180deg,#030712,#050B14);">
+  <div class="section-container">
+    <span class="section-tag" data-key="sectorsTag">Secteurs couverts</span>
+    <h2 class="section-title" data-key="sectorsTitle">Cybersécurité par métier</h2>
+    <p class="section-subtitle" data-key="sectorsSub">Découvrez nos approches spécialisées par secteur d'activité.</p>
+    <div class="sectors-grid" id="sectorsGrid"></div>
+    
+    <div class="stats-banner">
+      <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label" data-key="stat1Label">Conformité réglementaire</div></div>
+      <div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label" data-key="stat2Label">Surveillance SOC</div></div>
+      <div class="stat-item"><div class="stat-number">50+</div><div class="stat-label" data-key="stat3Label">Clients accompagnés</div></div>
+      <div class="stat-item"><div class="stat-number">15+</div><div class="stat-label" data-key="stat4Label">Années d'expertise cumulée</div></div>
+    </div>
   </div>
 </section>
 
-<section class="cta-block">
-  <div class="cta-block-content">
-    <h2 id="ctaTitle">Prêt à sécuriser votre entreprise ?</h2>
-    <p id="ctaText">Audit gratuit de 30 minutes pour évaluer vos besoins. Aucun engagement.</p>
-    <a href="contact.html" class="btn-primary" id="ctaBtn">Demander un audit gratuit <i class="fas fa-arrow-right"></i></a>
+<section class="cta">
+  <div class="cta-content">
+    <h2 data-key="ctaTitle">Prêt à sécuriser votre entreprise ?</h2>
+    <p data-key="ctaText">Audit gratuit de 30 minutes pour évaluer vos besoins. Aucun engagement.</p>
+    <a href="contact.html" class="btn-primary" data-key="ctaBtn">Demander un audit gratuit <i class="fas fa-arrow-right"></i></a>
   </div>
 </section>
 
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="index.html" class="logo" style="font-size:1.2rem;">
-        <svg class="logo-shield" viewBox="0 0 64 64" width="28" height="28">
+      <a href="index.html" class="logo">
+        <svg class="logo-shield" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
           <path d="M32 4 L8 12 V28 C8 42 18 54 32 60 C46 54 56 42 56 28 V12 Z" fill="#00D4FF" stroke="#FFB800" stroke-width="1.5"/>
           <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="#EF4444" stroke="#7F1D1D" stroke-width="1.5"/>
         </svg>
-        <span style="color:white">NextGen <span class="logo-text-accent">Technologies</span></span>
+        <span>NextGen <span class="logo-text-accent">Technologies</span></span>
       </a>
-      <p id="footerDesc">Cybersécurité opérationnelle au Maroc. SOC, Pentest, Sécurité Réseau, Formation.</p>
+      <p data-key="footerDesc">Cybersécurité opérationnelle au Maroc. SOC, Pentest, Sécurité Réseau, Formation.</p>
     </div>
-    <div class="footer-col">
-      <h4 id="footerServicesTitle">Services</h4>
-      <ul>
-        <li><a href="soc-consultation.html">SOC Consultation</a></li>
-        <li><a href="vapt.html">VAPT</a></li>
-        <li><a href="securite-reseau.html">Sécurité Réseau</a></li>
-        
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4 id="footerSectorsTitle">Secteurs</h4>
-      <ul>
-        <li><a href="secteur-banques.html">Banques & Finance</a></li>
-        <li><a href="secteur-ecommerce.html">E-commerce</a></li>
-        <li><a href="secteur-sante.html">Santé</a></li>
-        <li><a href="secteur-industrie.html">Industrie</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4 id="footerCompanyTitle">Entreprise</h4>
-      <ul>
-        
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
-      </ul>
-    </div>
+    <div class="footer-col"><h4 data-key="footerServices">Services</h4><ul><li><a href="soc-consultation.html">SOC Consultation</a></li><li><a href="vapt.html">VAPT</a></li><li><a href="cloud-security.html">Cloud Security</a></li></ul></div>
+    <div class="footer-col"><h4 data-key="footerSectors">Secteurs</h4><ul><li><a href="secteur-banques.html">Banques & Finance</a></li><li><a href="secteur-ecommerce.html">E-commerce</a></li><li><a href="secteur-sante.html">Santé</a></li><li><a href="secteur-industrie.html">Industrie</a></li></ul></div>
+    <div class="footer-col"><h4 data-key="footerCompany">Entreprise</h4><ul><li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li><li><a href="contact.html">Contact</a></li><li><a href="carrieres.html">Carrières</a></li></ul></div>
   </div>
   <div class="footer-bottom">
-    <span id="footerCopyright">© 2026 NextGen Technologies SARL · Casablanca</span>
+    <span data-key="footerCopyright">© 2026 NextGen Technologies SARL · Casablanca</span>
     <span>Excellence & Innovation</span>
   </div>
 </footer>
 
-<!-- CHATBOT -->
-<div id="chatbotBtn" class="chatbot-button"><i class="fas fa-comments"></i></div>
+<div id="chatbotBtn" class="chatbot-button"><i class="fas fa-comments"></i><div class="chatbot-pulse"></div></div>
 <div id="chatbotWindow" class="chatbot-window">
   <div class="chatbot-header">
     <div class="chatbot-avatar"><i class="fas fa-shield-halved"></i></div>
-    <div class="chatbot-header-info">
-      <div class="name">NextGen Helper</div>
-      <div class="status" id="chatStatus">En ligne</div>
-    </div>
+    <div class="chatbot-header-info"><div class="name">NextGen Helper</div><div class="status" id="chatStatus">En ligne</div></div>
     <button class="chatbot-close" id="chatbotCloseBtn">×</button>
   </div>
   <div class="chatbot-body" id="chatBody"></div>
@@ -674,41 +454,62 @@ footer {
 </div>
 
 <script>
-// DONNÉES SECTEURS (FR et EN) avec photos AVIF
+// DONNÉES SECTEURS
 const sectorsData = {
   fr: [
     {title:"Banques & Finance", desc:"Conformité régulateur bancaire, lutte anti-fraude, sécurisation des paiements et transactions.", img:"banques-finance.avif", link:"secteur-banques.html"},
     {title:"E-commerce & Retail", desc:"Sécurité des paiements, protection des données clients, prévention de la fraude.", img:"ecommerce-retail.avif", link:"secteur-ecommerce.html"},
-    {title:"Santé & Pharma", desc:"Protection des données patients, conformité, sécurisation des systèmes médicaux.", img:"sante-pharma.avif", link:"secteur-sante.html"},
+    {title:"Santé & Pharma", desc:"Protection des données patients, conformité GDPR/HIPAA, sécurisation des systèmes médicaux.", img:"sante-pharma.avif", link:"secteur-sante.html"},
     {title:"Industrie & Manufacture", desc:"Sécurisation OT/IT, protection des automates, continuité de production.", img:"industrie-manufacture.avif", link:"secteur-industrie.html"},
     {title:"Administrations", desc:"Conformité autorités cyber nationales, protection des données citoyens, souveraineté numérique.", img:"conformite.jpg", link:"secteur-administrations.html"}
   ],
   en: [
     {title:"Banking & Finance", desc:"Banking regulatory compliance, anti-fraud, payment and transaction security.", img:"banques-finance.avif", link:"secteur-banques.html"},
     {title:"E-commerce & Retail", desc:"Payment security, customer data protection, fraud prevention.", img:"ecommerce-retail.avif", link:"secteur-ecommerce.html"},
-    {title:"Healthcare & Pharma", desc:"Patient data protection, compliance, medical system security.", img:"sante-pharma.avif", link:"secteur-sante.html"},
+    {title:"Healthcare & Pharma", desc:"Patient data protection, GDPR/HIPAA compliance, medical system security.", img:"sante-pharma.avif", link:"secteur-sante.html"},
     {title:"Industry & Manufacturing", desc:"OT/IT security, PLC protection, production continuity.", img:"industrie-manufacture.avif", link:"secteur-industrie.html"},
     {title:"Administrations", desc:"National cyber authority compliance, citizen data protection, digital sovereignty.", img:"conformite.jpg", link:"secteur-administrations.html"}
   ]
 };
 
-// TRADUCTIONS
 const translations = {
   fr: {
+    breadcrumb:"Secteurs d'activité",
     pageDesc: "Chaque secteur a ses risques spécifiques, ses contraintes réglementaires, ses enjeux. Nous adaptons notre approche pour répondre aux besoins de votre métier.",
-    sectorsTag: "Secteurs couverts", sectorsTitle: "Cybersécurité par métier", sectorsSub: "Découvrez nos approches spécialisées par secteur d'activité.",
-    ctaTitle: "Prêt à sécuriser votre entreprise ?", ctaText: "Audit gratuit de 30 minutes pour évaluer vos besoins. Aucun engagement.", ctaBtn: "Demander un audit gratuit",
+    sectorsTag: "Secteurs couverts",
+    sectorsTitle: "Cybersécurité par métier",
+    sectorsSub: "Découvrez nos approches spécialisées par secteur d'activité.",
+    stat1Label: "Conformité réglementaire",
+    stat2Label: "Surveillance SOC",
+    stat3Label: "Clients accompagnés",
+    stat4Label: "Années d'expertise cumulée",
+    ctaTitle: "Prêt à sécuriser votre entreprise ?",
+    ctaText: "Audit gratuit de 30 minutes pour évaluer vos besoins. Aucun engagement.",
+    ctaBtn: "Demander un audit gratuit",
     footerDesc: "Cybersécurité opérationnelle au Maroc. SOC, Pentest, Sécurité Réseau, Formation.",
-    footerServicesTitle: "Services", footerSectorsTitle: "Secteurs", footerCompanyTitle: "Entreprise",
+    footerServices: "Services",
+    footerSectors: "Secteurs",
+    footerCompany: "Entreprise",
     footerCopyright: "© 2026 NextGen Technologies SARL · Casablanca",
     chatStatus: "En ligne"
   },
   en: {
+    breadcrumb:"Sectors",
     pageDesc: "Each sector has its specific risks, regulatory constraints and challenges. We adapt our approach to meet your business needs.",
-    sectorsTag: "Sectors covered", sectorsTitle: "Cybersecurity by industry", sectorsSub: "Discover our specialized approaches by sector of activity.",
-    ctaTitle: "Ready to secure your business?", ctaText: "30-minute free audit to assess your needs. No commitment.", ctaBtn: "Request free audit",
+    sectorsTag: "Sectors covered",
+    sectorsTitle: "Cybersecurity by industry",
+    sectorsSub: "Discover our specialized approaches by sector of activity.",
+    stat1Label: "Regulatory compliance",
+    stat2Label: "24/7 SOC Monitoring",
+    stat3Label: "Clients supported",
+    stat4Label: "Combined years of expertise",
+    ctaTitle: "Ready to secure your business?",
+    ctaText: "30-minute free audit to assess your needs. No commitment.",
+    ctaBtn: "Request free audit",
     footerDesc: "Operational cybersecurity in Morocco. SOC, Pentest, Network Security, Training.",
-    footerServicesTitle: "Services", footerSectorsTitle: "Sectors", footerCompanyTitle: "Company",
+    footerServices: "Services",
+    footerSectors: "Sectors",
+    footerCompany: "Company",
     footerCopyright: "© 2026 NextGen Technologies SARL · Casablanca",
     chatStatus: "Online"
   }
@@ -716,39 +517,45 @@ const translations = {
 
 let currentLang = localStorage.getItem('nextgen-lang') || 'fr';
 
+function renderSectors(lang) {
+  const grid = document.getElementById('sectorsGrid');
+  if(!grid) return;
+  grid.innerHTML = '';
+  sectorsData[lang].forEach(s => {
+    const card = document.createElement('a');
+    card.className = 'sector-card';
+    card.href = s.link;
+    card.innerHTML = `
+      <div class="sector-img"><img src="${s.img}" alt="${s.title}" onerror="this.src='https://placehold.co/600x400/0A1628/00D4FF?text=${encodeURIComponent(s.title)}'"></div>
+      <div class="sector-content">
+        <h3>${s.title}</h3>
+        <p>${s.desc}</p>
+        <span class="sector-link">${lang === 'fr' ? 'Découvrir' : 'Discover'} <i class="fas fa-arrow-right"></i></span>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
 function applyLanguage(lang) {
   const t = translations[lang];
-  if (!t) return;
-  
-  document.getElementById('pageDesc').innerText = t.pageDesc;
-  document.getElementById('sectorsTag').innerText = t.sectorsTag;
-  document.getElementById('sectorsTitle').innerText = t.sectorsTitle;
-  document.getElementById('sectorsSub').innerText = t.sectorsSub;
-  document.getElementById('ctaTitle').innerText = t.ctaTitle;
-  document.getElementById('ctaText').innerText = t.ctaText;
-  document.getElementById('ctaBtn').innerHTML = t.ctaBtn + ' <i class="fas fa-arrow-right"></i>';
-  document.getElementById('footerDesc').innerText = t.footerDesc;
-  document.getElementById('footerServicesTitle').innerText = t.footerServicesTitle;
-  document.getElementById('footerSectorsTitle').innerText = t.footerSectorsTitle;
-  document.getElementById('footerCompanyTitle').innerText = t.footerCompanyTitle;
-  document.getElementById('footerCopyright').innerText = t.footerCopyright;
+  if(!t) return;
+  document.querySelectorAll('[data-key]').forEach(el => {
+    const key = el.getAttribute('data-key');
+    if(t[key] !== undefined) el.innerHTML = t[key];
+  });
+  const topPhone = document.querySelector('.top-phone');
+  const topEmail = document.querySelector('.top-email');
+  const topLocation = document.querySelector('.top-location');
+  if(topPhone) topPhone.textContent = lang === 'fr' ? '+212 728 31 28 01' : '+212 728 31 28 01';
+  if(topEmail) topEmail.textContent = 'contact@nextgentechnologies.net';
+  if(topLocation) topLocation.textContent = 'Casablanca';
   document.getElementById('chatStatus').innerText = t.chatStatus;
-  
-  const sectorsGrid = document.getElementById('sectorsGrid');
-  if (sectorsGrid) {
-    sectorsGrid.innerHTML = '';
-    sectorsData[lang].forEach(s => {
-      sectorsGrid.innerHTML += `<a href="${s.link}" class="service-card"><div class="service-img"><img src="${s.img}" alt="${s.title}"></div><div class="service-content"><h3>${s.title}</h3><p>${s.desc}</p><span class="service-link">${lang === 'ar' ? 'اقرأ المزيد' : 'Découvrir'} <i class="fas ${lang === 'ar' ? 'fa-arrow-left' : 'fa-arrow-right'}"></i></span></div></a>`;
-    });
-  }
-  
+  renderSectors(lang);
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.remove('active');
-    if (btn.getAttribute('data-lang') === lang) {
-      btn.classList.add('active');
-    }
+    if(btn.getAttribute('data-lang') === lang) btn.classList.add('active');
   });
-  
   localStorage.setItem('nextgen-lang', lang);
 }
 
@@ -767,21 +574,19 @@ function showChatOptions() {
   const chatBody = document.getElementById('chatBody');
   const optionsDiv = document.createElement('div');
   optionsDiv.className = 'chat-options';
-  
   const options = lang === 'en' ? [
-    { text: "Request free audit", action: "audit", icon: "fa-chart-line", reply: "👍 Great! <a href='contact.html' style='color: #EF4444;'>Book your free audit here</a>" },
-    { text: "Protect my company", action: "protect", icon: "fa-shield-halved", reply: "🛡️ We offer SOC, Pentest, Network Security. <a href='services.html' style='color: #EF4444;'>Discover our services</a>" },
-    { text: "Talk to an advisor", action: "contact", icon: "fa-headset", reply: "📞 Contact us on WhatsApp: <a href='https://wa.me/212728312801' style='color: #25D366;'>+212 728 31 28 01</a>" }
+    { text: "Request free audit", reply: "👍 Great! <a href='contact.html' style='color:#00D4FF;'>Book your free audit here</a>" },
+    { text: "Protect my company", reply: "🛡️ We offer SOC, Pentest, Network Security. <a href='services.html' style='color:#00D4FF;'>Discover our services</a>" },
+    { text: "Talk to an advisor", reply: "📞 Contact us on WhatsApp: <a href='https://wa.me/212728312801' style='color:#25D366;'>+212 728 31 28 01</a>" }
   ] : [
-    { text: "Demander un audit gratuit", action: "audit", icon: "fa-chart-line", reply: "👍 Excellent ! <a href='contact.html' style='color: #EF4444;'>Réservez votre audit gratuit ici</a>" },
-    { text: "Protéger mon entreprise", action: "protect", icon: "fa-shield-halved", reply: "🛡️ Nous proposons SOC, Pentest, Sécurité Réseau. <a href='services.html' style='color: #EF4444;'>Découvrez nos services</a>" },
-    { text: "Parler à un conseiller", action: "contact", icon: "fa-headset", reply: "📞 Contactez-nous sur WhatsApp : <a href='https://wa.me/212728312801' style='color: #25D366;'>+212 728 31 28 01</a>" }
+    { text: "Demander un audit gratuit", reply: "👍 Excellent ! <a href='contact.html' style='color:#00D4FF;'>Réservez votre audit gratuit ici</a>" },
+    { text: "Protéger mon entreprise", reply: "🛡️ Nous proposons SOC, Pentest, Sécurité Réseau. <a href='services.html' style='color:#00D4FF;'>Découvrez nos services</a>" },
+    { text: "Parler à un conseiller", reply: "📞 Contactez-nous sur WhatsApp : <a href='https://wa.me/212728312801' style='color:#25D366;'>+212 728 31 28 01</a>" }
   ];
-  
   options.forEach(opt => {
     const btn = document.createElement('button');
     btn.className = 'chat-option';
-    btn.innerHTML = `<span class="icon"><i class="fas ${opt.icon}"></i></span> ${opt.text}`;
+    btn.innerHTML = opt.text;
     btn.onclick = () => {
       addChatMessage(opt.text, true);
       optionsDiv.remove();
@@ -820,33 +625,17 @@ function toggleChat() {
     }
   }
 }
-
-chatBtn?.addEventListener('click', toggleChat);
-chatCloseBtn?.addEventListener('click', () => chatWindow.classList.remove('open'));
-
-// MENU MOBILE
-document.getElementById('menuToggle')?.addEventListener('click', () => {
-  document.getElementById('navLinks')?.classList.toggle('active');
-});
-
-// REVEAL ANIMATIONS
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+if(chatBtn) chatBtn.addEventListener('click', toggleChat);
+if(chatCloseBtn) chatCloseBtn.addEventListener('click', () => chatWindow.classList.remove('open'));
 
 // LANGUE
 document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const lang = btn.getAttribute('data-lang');
-    if (lang) {
+    if(lang) {
       currentLang = lang;
       applyLanguage(currentLang);
-      if (chatWindow.classList.contains('open')) {
-        initChat();
-      }
+      if(chatWindow && chatWindow.classList.contains('open')) initChat();
     }
   });
 });
