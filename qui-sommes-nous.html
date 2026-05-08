@@ -461,6 +461,32 @@ TEAM
   grid-template-columns:repeat(4,1fr);
   gap:2rem;
 }
+.team-grid .team-card-ceo{
+  grid-column:1/-1;
+  display:flex;
+  justify-content:center;
+}
+.team-grid .team-card-ceo .team-card{
+  max-width:340px;
+  width:100%;
+  border:2px solid rgba(0,212,255,.3);
+  box-shadow:0 0 60px rgba(0,212,255,.15);
+}
+.ceo-badge{
+  position:absolute;
+  top:1rem;
+  left:50%;
+  transform:translateX(-50%);
+  background:linear-gradient(135deg,#00D4FF,#0891B2);
+  color:#02131d;
+  font-size:.7rem;
+  font-weight:800;
+  padding:.3rem 1rem;
+  border-radius:30px;
+  z-index:3;
+  white-space:nowrap;
+  letter-spacing:.1em;
+}
 
 .team-card{
   position:relative;
@@ -807,7 +833,7 @@ RESPONSIVE
       <li><a href="secteurs.html">Secteurs</a></li>
       <li><a href="qui-sommes-nous.html" class="active">Qui sommes-nous</a></li>
       <li><a href="carrieres.html">Carrières</a></li>
-      
+      <li><a href="menaces.html">Menaces</a></li>
       <li><a href="campus-cyber.html">🎓 Campus Cyber</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="contact.html" class="nav-cta">Audit Gratuit</a></li>
@@ -882,15 +908,20 @@ RESPONSIVE
     </h2>
     <p class="section-desc" data-key="teamDesc">Une structure construite autour de plusieurs expertises techniques afin d'offrir aux entreprises une approche complète de la cybersécurité moderne.</p>
     <div class="team-grid">
-      <div class="team-card">
-        <div class="team-image"><img src="youssef.jpg" alt="Youssef"><div class="team-overlay"></div></div>
-        <div class="team-content">
-          <h3>Youssef</h3>
-          <div class="team-role" data-key="role1">Founder & CEO · Business Development Lead</div>
-          <p data-key="desc1">Cybersécurité opérationnelle, développement commercial et stratégie. Coordination globale des opérations et relation client.</p>
-          <div class="skills"><span>Cybersécurité</span><span>Business Dev</span><span>Bug Bounty</span></div>
+      <!-- CEO ROW -->
+      <div class="team-card-ceo">
+        <div class="team-card">
+          <div class="ceo-badge">👑 FOUNDER & CEO</div>
+          <div class="team-image"><img src="youssef.jpg" alt="Youssef"><div class="team-overlay"></div></div>
+          <div class="team-content">
+            <h3>Youssef</h3>
+            <div class="team-role" data-key="role1">Founder & CEO · Business Development Lead</div>
+            <p data-key="desc1">Cybersécurité opérationnelle, développement commercial et stratégie. Coordination globale des opérations et relation client.</p>
+            <div class="skills"><span>Cybersécurité</span><span>Business Dev</span><span>Bug Bounty</span></div>
+          </div>
         </div>
       </div>
+      <!-- TEAM ROW -->
       <div class="team-card">
         <div class="team-image"><img src="abdeljalil.jpg" alt="Abdeljalil"><div class="team-overlay"></div></div>
         <div class="team-content">
@@ -916,6 +947,15 @@ RESPONSIVE
           <div class="team-role" data-key="role4">SOC · Offensive Security Lead</div>
           <p data-key="desc4">Détection, surveillance SOC, pentest et sécurité offensive pour les environnements critiques.</p>
           <div class="skills"><span>SOC</span><span>Pentest</span><span>Security</span></div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-image"><img src="mohssine.jpg" alt="Mohssine"><div class="team-overlay"></div></div>
+        <div class="team-content">
+          <h3>Mohssine</h3>
+          <div class="team-role" data-key="role5">SOC · Sécurité · Pentest · Formation</div>
+          <p data-key="desc5">Expert en sécurité opérationnelle, tests d'intrusion et formation cyber. Renforce l'équipe sur les missions offensives et défensives.</p>
+          <div class="skills"><span>SOC</span><span>Pentest</span><span>Formation</span></div>
         </div>
       </div>
     </div>
@@ -1023,6 +1063,8 @@ const translations = {
     role2: "Security & Training Architect",
     role3: "CTO · Infrastructure Lead",
     role4: "SOC · Offensive Security Lead",
+    role5: "SOC · Sécurité · Pentest · Formation",
+    desc5: "Expert en sécurité opérationnelle, tests d'intrusion et formation cyber. Renforce l'équipe sur les missions offensives et défensives.",
     desc1: "Cybersécurité opérationnelle, développement commercial et stratégie. Coordination globale des opérations et relation client.",
     desc2: "Architectures sécurisées, cloud security et développement des formations techniques NextGen Academy.",
     desc3: "Expert infrastructures réseau, solutions Cisco et architecture technique des environnements sécurisés.",
@@ -1082,6 +1124,10 @@ const translations = {
     role2: "Security & Training Architect",
     role3: "CTO · Infrastructure Lead",
     role4: "SOC · Offensive Security Lead",
+    role5: "SOC · Security · Pentest · Training",
+    desc5: "Operational security expert, penetration testing and cyber training. Strengthens the team on offensive and defensive missions.",
+    role5: "SOC · Sécurité · Pentest · Formation",
+    desc5: "Expert en sécurité opérationnelle, tests d'intrusion et formation cyber. Renforce l'équipe sur les missions offensives et défensives.",
     desc1: "Operational cybersecurity, business development and strategy. Global operations coordination and client relations.",
     desc2: "Secure architectures, cloud security and development of NextGen Academy technical training.",
     desc3: "Network infrastructure expert, Cisco solutions and secure environment technical architecture.",
