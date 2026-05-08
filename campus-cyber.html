@@ -103,10 +103,10 @@
     .header-stat .num { font-size: 1.8rem; font-weight: 700; color: var(--accent); font-family: 'Space Grotesk', sans-serif; }
     .header-stat .lbl { font-size: 0.78rem; color: var(--gray-light); }
 
-    /* TRAINER CARD */
+    /* TRAINER CARD - VERSION AMÉLIORÉE */
     .trainer-card {
       background: rgba(255,255,255,0.05); backdrop-filter: blur(10px);
-      border-radius: 24px; padding: 2rem; border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 28px; padding: 2rem; border: 1px solid rgba(255,255,255,0.1);
       text-align: center; transition: var(--transition);
     }
     .trainer-card:hover { transform: translateY(-5px); border-color: rgba(0,212,255,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
@@ -114,7 +114,7 @@
     .trainer-photo img { width: 100%; height: 100%; object-fit: cover; }
     .trainer-card h3 { font-size: 1.3rem; color: var(--white); margin-bottom: 0.3rem; }
     .trainer-role { color: var(--accent); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.8rem; }
-    .trainer-desc { color: var(--gray-light); font-size: 0.85rem; line-height: 1.6; }
+    .trainer-desc { color: var(--gray-light); font-size: 0.86rem; line-height: 1.7; margin-bottom: 1rem; text-align: left; }
     .trainer-skills { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-top: 1rem; }
     .trainer-skill { background: rgba(0,212,255,0.15); color: var(--accent); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600; }
 
@@ -326,16 +326,18 @@
     </div>
     <div class="trainer-card">
       <div class="trainer-photo">
-        <img src="abdeljalil.jpg" alt="Abdeljalil">
+        <img src="abdeljalil.jpg" alt="Abdeljalil Beniiche">
       </div>
       <h3>Abdeljalil Beniiche</h3>
-      <div class="trainer-role" id="trainerRole">Security Architect & Formateur</div>
-      <p class="trainer-desc" id="trainerDesc">Expert en conception d'infrastructures sécurisées et responsable pédagogique de l'Academy NextGen.</p>
+      <div class="trainer-role" id="trainerRole">Docteur en informatique & cybersécurité</div>
+      <p class="trainer-desc" id="trainerDesc">Docteur en informatique et cybersécurité et fin pédagogue, Abdeljalil intervient dans des thématiques aussi variées que l'architecture de sécurité, la sécurité du cloud, l'intégration de la cybersécurité dans les entreprises, la cybersécurité pour les dirigeants, la protection des données, la préparation à la certification CISSP et la formation générale en cybersécurité.</p>
       <div class="trainer-skills">
         <span class="trainer-skill">Architecture</span>
-        <span class="trainer-skill">Cloud Security</span>
+        <span class="trainer-skill">Sécurité cloud</span>
         <span class="trainer-skill">Formation</span>
-        <span class="trainer-skill">ISO 27001</span>
+        <span class="trainer-skill">CISSP</span>
+        <span class="trainer-skill">Protection données</span>
+        <span class="trainer-skill">Pédagogie</span>
       </div>
     </div>
   </div>
@@ -514,7 +516,6 @@
         <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
         <li><a href="carrieres.html">Carrières</a></li>
         <li><a href="contact.html">Contact</a></li>
-        
       </ul>
     </div>
     <div class="footer-col">
@@ -545,8 +546,8 @@ const translations = {
     heroSubtitle:"Espace formation privé",
     heroDesc:"Accès réservé aux élèves — supports de cours, vidéos et ressources techniques exclusives.",
     trainerBadge:"Formation par un expert Security Architect",
-    trainerRole:"Security Architect & Formateur",
-    trainerDesc:"Expert en conception d'infrastructures sécurisées et responsable pédagogique de l'Academy NextGen.",
+    trainerRole:"Docteur en informatique & cybersécurité",
+    trainerDesc:"Docteur en informatique et cybersécurité et fin pédagogue, Abdeljalil intervient dans des thématiques aussi variées que l'architecture de sécurité, la sécurité du cloud, l'intégration de la cybersécurité dans les entreprises, la cybersécurité pour les dirigeants, la protection des données, la préparation à la certification CISSP et la formation générale en cybersécurité.",
     statModules:"Modules actifs", statRessources:"Ressources", statAcces:"Accès continu",
     feat1:"Vidéos HD disponibles 24/7", feat2:"Supports PDF téléchargeables",
     feat3:"Labs pratiques inclus", feat4:"Support formateur direct",
@@ -585,8 +586,8 @@ const translations = {
     heroSubtitle:"Private learning space",
     heroDesc:"Access reserved for students — course materials, videos and exclusive technical resources.",
     trainerBadge:"Training by a Security Architect expert",
-    trainerRole:"Security Architect & Trainer",
-    trainerDesc:"Expert in secure infrastructure design and head of pedagogy at NextGen Academy.",
+    trainerRole:"PhD in Computer Science & Cybersecurity",
+    trainerDesc:"PhD in Computer Science and Cybersecurity, and a skilled educator, Abdeljalil works on topics as varied as security architecture, cloud security, integrating cybersecurity into businesses, cybersecurity for executives, data protection, CISSP certification preparation, and general cybersecurity training.",
     statModules:"Active modules", statRessources:"Resources", statAcces:"24/7 access",
     feat1:"HD videos available 24/7", feat2:"Downloadable PDF materials",
     feat3:"Practical labs included", feat4:"Direct trainer support",
