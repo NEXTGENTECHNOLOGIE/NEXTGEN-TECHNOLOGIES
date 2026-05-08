@@ -1,16 +1,16 @@
+bash
+
+cat > /mnt/user-data/outputs/qui-sommes-nous.html << 'HTMLEOF'
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Qui sommes-nous · NextGen Technologies</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-
 <style>
-
 :root{
   --primary:#050B14;
   --secondary:#0A1628;
@@ -21,772 +21,131 @@
   --muted:#94A3B8;
   --border:rgba(255,255,255,0.08);
 }
-
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-
-body{
-  font-family:'Manrope',sans-serif;
-  background:#030712;
-  color:var(--white);
-  overflow-x:hidden;
-}
-
-h1,h2,h3,h4{
-  font-family:'Space Grotesk',sans-serif;
-}
-
+body{font-family:'Manrope',sans-serif;background:#030712;color:var(--white);overflow-x:hidden;}
+h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;}
 a{text-decoration:none;}
 
-/* =========================
-TOP BAR
-========================= */
-
-.top-bar{
-  background:#02050b;
-  border-bottom:1px solid rgba(255,255,255,0.04);
-  padding:.7rem 4%;
-}
-
-.top-bar-container{
-  max-width:1400px;
-  margin:auto;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:1rem;
-}
-
+.top-bar{background:#02050b;border-bottom:1px solid rgba(255,255,255,0.04);padding:.7rem 4%;}
+.top-bar-container{max-width:1400px;margin:auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
 .top-bar-info{display:flex;gap:2rem;flex-wrap:wrap;}
 .top-bar-info span{font-size:.85rem;color:#cbd5e1;}
 .top-bar-info i{color:var(--accent);margin-right:.4rem;}
-
-.top-bar-social a{
-  color:#cbd5e1;
-  margin-left:1rem;
-  transition:.3s;
-}
+.top-bar-social a{color:#cbd5e1;margin-left:1rem;transition:.3s;}
 .top-bar-social a:hover{color:var(--accent);}
 
-/* LANGUAGE SWITCH */
-.lang-switch{
-  display:flex;
-  gap:.25rem;
-  background:rgba(0,212,255,0.15);
-  padding:.2rem .6rem;
-  border-radius:40px;
-}
-.lang-btn{
-  background:none;
-  border:none;
-  color:var(--muted);
-  font-size:.8rem;
-  font-weight:600;
-  cursor:pointer;
-  padding:.2rem .6rem;
-  border-radius:30px;
-  transition:all .3s;
-}
-.lang-btn.active{
-  background:var(--accent);
-  color:var(--primary);
-}
-.lang-btn:hover:not(.active){
-  color:var(--accent);
-}
+.lang-switch{display:flex;gap:.25rem;background:rgba(0,212,255,0.15);padding:.2rem .6rem;border-radius:40px;}
+.lang-btn{background:none;border:none;color:var(--muted);font-size:.8rem;font-weight:600;cursor:pointer;padding:.2rem .6rem;border-radius:30px;transition:all .3s;}
+.lang-btn.active{background:var(--accent);color:var(--primary);}
+.lang-btn:hover:not(.active){color:var(--accent);}
 
-/* =========================
-NAVBAR
-========================= */
+.nav{position:sticky;top:0;z-index:999;backdrop-filter:blur(16px);background:rgba(3,7,18,.75);border-bottom:1px solid rgba(255,255,255,0.06);padding:1rem 4%;}
+.nav-container{max-width:1400px;margin:auto;display:flex;justify-content:space-between;align-items:center;}
+.logo{display:flex;align-items:center;gap:.8rem;color:#fff;font-size:1.35rem;font-weight:700;}
+.logo-shield{width:42px;animation:float 4s ease-in-out infinite;}
+.logo-text-accent{color:var(--accent);}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
+.nav-links{display:flex;gap:.5rem;list-style:none;align-items:center;}
+.nav-links a{color:#dbe4ef;padding:.8rem 1rem;border-radius:12px;font-size:.92rem;font-weight:600;transition:.3s;}
+.nav-links a:hover,.nav-links a.active{background:rgba(255,255,255,.06);color:var(--accent);}
+.nav-cta{background:linear-gradient(135deg,var(--accent),#0ea5e9)!important;color:#02131d!important;font-weight:800!important;box-shadow:0 0 30px rgba(0,212,255,.3);}
 
-.nav{
-  position:sticky;
-  top:0;
-  z-index:999;
-  backdrop-filter:blur(16px);
-  background:rgba(3,7,18,.75);
-  border-bottom:1px solid rgba(255,255,255,0.06);
-  padding:1rem 4%;
-}
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;padding:0 4%;background:radial-gradient(circle at 20% 20%, rgba(0,212,255,.18), transparent 30%),radial-gradient(circle at 80% 40%, rgba(255,184,0,.12), transparent 35%),linear-gradient(180deg,#02050b 0%, #081120 60%, #02050b 100%);}
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);background-size:60px 60px;mask-image:linear-gradient(to bottom, rgba(0,0,0,1), transparent);pointer-events:none;}
+.hero-content{max-width:1400px;margin:auto;width:100%;position:relative;z-index:2;}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:5rem;align-items:center;}
+.hero-left h1{font-size:clamp(3rem,7vw,6.5rem);line-height:1;margin-bottom:1.5rem;letter-spacing:-.04em;}
+.hero-left h1 span{background:linear-gradient(90deg,#00D4FF,#38bdf8,#FFB800,#00D4FF);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shine 8s linear infinite;}
+@keyframes shine{to{background-position:300% center;}}
+.hero-left p{color:#cbd5e1;font-size:1.15rem;line-height:1.9;max-width:700px;margin-bottom:2rem;}
+.hero-buttons{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-primary,.btn-secondary{padding:1rem 1.6rem;border-radius:16px;font-weight:700;display:inline-flex;align-items:center;gap:.6rem;transition:.3s;}
+.btn-primary{background:linear-gradient(135deg,var(--accent),#0ea5e9);color:#04111a;box-shadow:0 0 40px rgba(0,212,255,.25);}
+.btn-primary:hover{transform:translateY(-4px);}
+.btn-secondary{border:1px solid rgba(255,255,255,.1);color:#fff;background:rgba(255,255,255,.04);}
+.btn-secondary:hover{background:rgba(255,255,255,.08);}
 
-.nav-container{
-  max-width:1400px;
-  margin:auto;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
+.hero-panel{position:relative;}
+.glass-card{padding:2rem;border-radius:30px;background:rgba(255,255,255,.04);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);overflow:hidden;box-shadow:0 0 80px rgba(0,212,255,.12), inset 0 0 0 1px rgba(255,255,255,.02);}
+.panel-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;}
+.panel-title{font-weight:700;color:#fff;font-size:0.95rem;}
+.panel-badge{display:flex;align-items:center;gap:.5rem;font-size:.7rem;color:#10B981;font-weight:700;letter-spacing:.05em;}
+.dot{width:10px;height:10px;border-radius:50%;background:#10B981;box-shadow:0 0 15px #10B981;animation:pulseDot 1.5s infinite;}
+@keyframes pulseDot{0%{transform:scale(.8);opacity:.5;}50%{transform:scale(1.2);opacity:1;}100%{transform:scale(.8);opacity:.5;}}
+.live-bar{height:5px;background:rgba(255,255,255,.05);border-radius:10px;overflow:hidden;margin:1rem 0 1.5rem;}
+.live-bar span{display:block;height:100%;width:70%;background:linear-gradient(90deg,#00D4FF,#38bdf8,#FFB800);animation:loadAnim 3s infinite;}
+@keyframes loadAnim{0%{width:20%}50%{width:90%}100%{width:40%}}
+.threat-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
+.threat{padding:1rem;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);font-size:.85rem;color:#cbd5e1;display:flex;align-items:center;gap:.6rem;transition:.3s;}
+.threat:hover{border-color:rgba(0,212,255,.4);background:rgba(0,212,255,.05);}
+.threat i{color:var(--accent);font-size:.9rem;}
 
-.logo{
-  display:flex;
-  align-items:center;
-  gap:.8rem;
-  color:#fff;
-  font-size:1.35rem;
-  font-weight:700;
-}
+.stats{margin-top:4rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
+.stat{padding:1.5rem;border-radius:24px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);}
+.stat h3{font-size:2.4rem;color:var(--accent);}
+.stat p{color:#94a3b8;margin-top:.3rem;}
 
-.logo-shield{
-  width:42px;
-  animation:float 4s ease-in-out infinite;
-}
-
-.logo-text-accent{
-  color:var(--accent);
-}
-
-@keyframes float{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-5px);}
-}
-
-.nav-links{
-  display:flex;
-  gap:.5rem;
-  list-style:none;
-  align-items:center;
-}
-
-.nav-links a{
-  color:#dbe4ef;
-  padding:.8rem 1rem;
-  border-radius:12px;
-  font-size:.92rem;
-  font-weight:600;
-  transition:.3s;
-}
-
-.nav-links a:hover,
-.nav-links a.active{
-  background:rgba(255,255,255,.06);
-  color:var(--accent);
-}
-
-.nav-cta{
-  background:linear-gradient(135deg,var(--accent),#0ea5e9)!important;
-  color:#02131d!important;
-  font-weight:800!important;
-  box-shadow:0 0 30px rgba(0,212,255,.3);
-}
-
-/* =========================
-HERO
-========================= */
-
-.hero{
-  min-height:100vh;
-  position:relative;
-  display:flex;
-  align-items:center;
-  overflow:hidden;
-  padding:0 4%;
-  background:
-  radial-gradient(circle at 20% 20%, rgba(0,212,255,.18), transparent 30%),
-  radial-gradient(circle at 80% 40%, rgba(255,184,0,.12), transparent 35%),
-  linear-gradient(180deg,#02050b 0%, #081120 60%, #02050b 100%);
-}
-
-.hero::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background-image:
-  linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-  linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-  background-size:60px 60px;
-  mask-image:linear-gradient(to bottom, rgba(0,0,0,1), transparent);
-  pointer-events:none;
-}
-
-.hero-content{
-  max-width:1400px;
-  margin:auto;
-  width:100%;
-  position:relative;
-  z-index:2;
-}
-
-.hero-grid{
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:5rem;
-  align-items:center;
-}
-
-.hero-left h1{
-  font-size:clamp(3rem,7vw,6.5rem);
-  line-height:1;
-  margin-bottom:1.5rem;
-  letter-spacing:-.04em;
-}
-
-.hero-left h1 span{
-  background:linear-gradient(90deg,#00D4FF,#38bdf8,#FFB800,#00D4FF);
-  background-size:300% auto;
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  animation:shine 8s linear infinite;
-}
-
-@keyframes shine{
-  to{background-position:300% center;}
-}
-
-.hero-left p{
-  color:#cbd5e1;
-  font-size:1.15rem;
-  line-height:1.9;
-  max-width:700px;
-  margin-bottom:2rem;
-}
-
-.hero-buttons{
-  display:flex;
-  gap:1rem;
-  flex-wrap:wrap;
-}
-
-.btn-primary,
-.btn-secondary{
-  padding:1rem 1.6rem;
-  border-radius:16px;
-  font-weight:700;
-  display:inline-flex;
-  align-items:center;
-  gap:.6rem;
-  transition:.3s;
-}
-
-.btn-primary{
-  background:linear-gradient(135deg,var(--accent),#0ea5e9);
-  color:#04111a;
-  box-shadow:0 0 40px rgba(0,212,255,.25);
-}
-
-.btn-primary:hover{
-  transform:translateY(-4px);
-}
-
-.btn-secondary{
-  border:1px solid rgba(255,255,255,.1);
-  color:#fff;
-  background:rgba(255,255,255,.04);
-}
-
-.btn-secondary:hover{
-  background:rgba(255,255,255,.08);
-}
-
-/* =========================
-PANEL SOC (STYLE PRO)
-========================= */
-
-.hero-panel{
-  position:relative;
-}
-
-.glass-card{
-  padding:2rem;
-  border-radius:30px;
-  background:rgba(255,255,255,.04);
-  backdrop-filter:blur(20px);
-  border:1px solid rgba(255,255,255,.08);
-  overflow:hidden;
-  box-shadow:0 0 80px rgba(0,212,255,.12), inset 0 0 0 1px rgba(255,255,255,.02);
-}
-
-.panel-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:1.5rem;
-}
-
-.panel-title{
-  font-weight:700;
-  color:#fff;
-  font-size:0.95rem;
-}
-
-.panel-badge{
-  display:flex;
-  align-items:center;
-  gap:.5rem;
-  font-size:.7rem;
-  color:#10B981;
-  font-weight:700;
-  letter-spacing:.05em;
-}
-
-.dot{
-  width:10px;
-  height:10px;
-  border-radius:50%;
-  background:#10B981;
-  box-shadow:0 0 15px #10B981;
-  animation:pulseDot 1.5s infinite;
-}
-
-@keyframes pulseDot{
-  0%{transform:scale(.8);opacity:.5;}
-  50%{transform:scale(1.2);opacity:1;}
-  100%{transform:scale(.8);opacity:.5;}
-}
-
-.live-bar{
-  height:5px;
-  background:rgba(255,255,255,.05);
-  border-radius:10px;
-  overflow:hidden;
-  margin:1rem 0 1.5rem;
-}
-
-.live-bar span{
-  display:block;
-  height:100%;
-  width:70%;
-  background:linear-gradient(90deg,#00D4FF,#38bdf8,#FFB800);
-  animation:loadAnim 3s infinite;
-}
-
-@keyframes loadAnim{
-  0%{width:20%}
-  50%{width:90%}
-  100%{width:40%}
-}
-
-.threat-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:.8rem;
-}
-
-.threat{
-  padding:1rem;
-  border-radius:14px;
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(255,255,255,.06);
-  font-size:.85rem;
-  color:#cbd5e1;
-  display:flex;
-  align-items:center;
-  gap:.6rem;
-  transition:.3s;
-}
-
-.threat:hover{
-  border-color:rgba(0,212,255,.4);
-  background:rgba(0,212,255,.05);
-}
-
-.threat i{
-  color:var(--accent);
-  font-size:.9rem;
-}
-
-/* =========================
-STATS
-========================= */
-
-.stats{
-  margin-top:4rem;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:1.5rem;
-}
-
-.stat{
-  padding:1.5rem;
-  border-radius:24px;
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(255,255,255,.06);
-}
-
-.stat h3{
-  font-size:2.4rem;
-  color:var(--accent);
-}
-
-.stat p{
-  color:#94a3b8;
-  margin-top:.3rem;
-}
-
-/* =========================
-TEAM
-========================= */
-
-.section{
-  padding:7rem 4%;
-  position:relative;
-}
-
-.section-container{
-  max-width:1400px;
-  margin:auto;
-}
-
-.section-tag{
-  display:inline-block;
-  color:var(--accent);
-  text-transform:uppercase;
-  font-size:.8rem;
-  letter-spacing:.2em;
-  margin-bottom:1rem;
-  font-weight:700;
-}
-
-.section-title{
-  font-size:clamp(2.5rem,5vw,4rem);
-  line-height:1.05;
-  margin-bottom:1.5rem;
-}
-
-.section-title span{
-  color:var(--gold);
-}
-
-.section-desc{
-  color:#94a3b8;
-  max-width:800px;
-  line-height:1.9;
-  font-size:1.05rem;
-}
+.section{padding:7rem 4%;position:relative;}
+.section-container{max-width:1400px;margin:auto;}
+.section-tag{display:inline-block;color:var(--accent);text-transform:uppercase;font-size:.8rem;letter-spacing:.2em;margin-bottom:1rem;font-weight:700;}
+.section-title{font-size:clamp(2.5rem,5vw,4rem);line-height:1.05;margin-bottom:1.5rem;}
+.section-title span{color:var(--gold);}
+.section-desc{color:#94a3b8;max-width:800px;line-height:1.9;font-size:1.05rem;}
 
 /* TEAM GRID */
-.team-grid{
-  margin-top:4rem;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:2rem;
-}
-.team-grid .team-card-ceo{
-  grid-column:1/-1;
-  display:flex;
-  justify-content:center;
-}
-.team-grid .team-card-ceo .team-card{
-  max-width:340px;
-  width:100%;
-  border:2px solid rgba(0,212,255,.3);
-  box-shadow:0 0 60px rgba(0,212,255,.15);
-}
-.ceo-badge{
-  position:absolute;
-  top:1rem;
-  left:50%;
-  transform:translateX(-50%);
-  background:linear-gradient(135deg,#00D4FF,#0891B2);
-  color:#02131d;
-  font-size:.7rem;
-  font-weight:800;
-  padding:.3rem 1rem;
-  border-radius:30px;
-  z-index:3;
-  white-space:nowrap;
-  letter-spacing:.1em;
-}
+.team-grid{margin-top:4rem;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;}
+.team-grid .team-card-ceo{grid-column:1/-1;display:flex;justify-content:center;}
+.team-grid .team-card-ceo .team-card{max-width:340px;width:100%;border:2px solid rgba(0,212,255,.3);box-shadow:0 0 60px rgba(0,212,255,.15);}
+.team-card{position:relative;overflow:hidden;border-radius:28px;background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);transition:.45s;}
+.team-card:hover{transform:translateY(-12px);box-shadow:0 20px 80px rgba(0,0,0,.4);}
+.team-image{height:340px;overflow:hidden;position:relative;}
+.team-image img{width:100%;height:100%;object-fit:cover;transition:1s;}
+.team-card:hover img{transform:scale(1.08);}
+.team-overlay{position:absolute;inset:0;background:linear-gradient(to top, rgba(2,6,12,.95), transparent 60%);}
+.team-content{padding:1.8rem;}
+.team-content h3{font-size:1.4rem;margin-bottom:.4rem;}
+.team-role{color:var(--accent);font-weight:700;margin-bottom:1rem;font-size:.85rem;}
+.team-content p{color:#94a3b8;line-height:1.7;font-size:.92rem;}
+.skills{margin-top:1.2rem;display:flex;flex-wrap:wrap;gap:.5rem;}
+.skills span{padding:.45rem .8rem;border-radius:40px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.05);font-size:.72rem;color:#d7e3f1;}
 
-.team-card{
-  position:relative;
-  overflow:hidden;
-  border-radius:28px;
-  background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-  border:1px solid rgba(255,255,255,.08);
-  transition:.45s;
-}
+.story{background:linear-gradient(180deg,#07111e,#02050b);}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.story-box{height:520px;border-radius:32px;background:radial-gradient(circle at top left, rgba(0,212,255,.25), transparent 30%),linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);position:relative;overflow:hidden;}
+.story-box::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);background-size:40px 40px;}
+.story-icon{position:absolute;inset:0;display:flex;justify-content:center;align-items:center;font-size:8rem;color:rgba(0,212,255,.6);}
+.story-text p{margin-bottom:1.5rem;color:#cbd5e1;line-height:1.9;}
 
-.team-card:hover{
-  transform:translateY(-12px);
-  box-shadow:0 20px 80px rgba(0,0,0,.4);
-}
+.values-grid{margin-top:4rem;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;}
+.value-card{padding:2rem;border-radius:28px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);transition:.35s;}
+.value-card:hover{transform:translateY(-10px);border-color:rgba(0,212,255,.35);}
+.value-icon{width:70px;height:70px;border-radius:20px;display:flex;justify-content:center;align-items:center;background:linear-gradient(135deg,var(--accent),#0284c7);margin-bottom:1.5rem;font-size:1.5rem;box-shadow:0 0 30px rgba(0,212,255,.2);}
+.value-card h4{font-size:1.2rem;margin-bottom:.8rem;}
+.value-card p{color:#94a3b8;line-height:1.8;}
 
-.team-image{
-  height:340px;
-  overflow:hidden;
-  position:relative;
-}
+.cta{padding:7rem 4%;text-align:center;position:relative;overflow:hidden;}
+.cta::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at center, rgba(0,212,255,.12), transparent 45%);}
+.cta-content{max-width:850px;margin:auto;position:relative;z-index:2;}
+.cta h2{font-size:clamp(2rem,4vw,4rem);margin-bottom:1rem;}
+.cta p{color:#94a3b8;line-height:1.9;margin-bottom:2rem;}
 
-.team-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:1s;
-}
+footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;background:#02050b;}
+.footer-grid{max-width:1400px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;}
+.footer-brand p{color:#94a3b8;margin-top:1rem;line-height:1.8;}
+.footer-col h4{margin-bottom:1.2rem;}
+.footer-col ul{list-style:none;}
+.footer-col li{margin-bottom:.8rem;}
+.footer-col a{color:#94a3b8;transition:.3s;}
+.footer-col a:hover{color:var(--accent);}
+.footer-bottom{max-width:1400px;margin:auto;border-top:1px solid rgba(255,255,255,.05);margin-top:3rem;padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:#64748b;font-size:.9rem;}
 
-.team-card:hover img{
-  transform:scale(1.08);
-}
-
-.team-overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to top, rgba(2,6,12,.95), transparent 60%);
-}
-
-.team-content{
-  padding:1.8rem;
-}
-
-.team-content h3{
-  font-size:1.4rem;
-  margin-bottom:.4rem;
-}
-
-.team-role{
-  color:var(--accent);
-  font-weight:700;
-  margin-bottom:1rem;
-  font-size:.85rem;
-}
-
-.team-content p{
-  color:#94a3b8;
-  line-height:1.7;
-  font-size:.92rem;
-}
-
-.skills{
-  margin-top:1.2rem;
-  display:flex;
-  flex-wrap:wrap;
-  gap:.5rem;
-}
-
-.skills span{
-  padding:.45rem .8rem;
-  border-radius:40px;
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.05);
-  font-size:.72rem;
-  color:#d7e3f1;
-}
-
-/* =========================
-STORY
-========================= */
-
-.story{
-  background:linear-gradient(180deg,#07111e,#02050b);
-}
-
-.story-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:4rem;
-  align-items:center;
-}
-
-.story-box{
-  height:520px;
-  border-radius:32px;
-  background:
-  radial-gradient(circle at top left, rgba(0,212,255,.25), transparent 30%),
-  linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-  border:1px solid rgba(255,255,255,.08);
-  position:relative;
-  overflow:hidden;
-}
-
-.story-box::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background-image:
-  linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
-  linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
-  background-size:40px 40px;
-}
-
-.story-icon{
-  position:absolute;
-  inset:0;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:8rem;
-  color:rgba(0,212,255,.6);
-}
-
-.story-text p{
-  margin-bottom:1.5rem;
-  color:#cbd5e1;
-  line-height:1.9;
-}
-
-/* =========================
-VALUES
-========================= */
-
-.values-grid{
-  margin-top:4rem;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:2rem;
-}
-
-.value-card{
-  padding:2rem;
-  border-radius:28px;
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(255,255,255,.08);
-  transition:.35s;
-}
-
-.value-card:hover{
-  transform:translateY(-10px);
-  border-color:rgba(0,212,255,.35);
-}
-
-.value-icon{
-  width:70px;
-  height:70px;
-  border-radius:20px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background:linear-gradient(135deg,var(--accent),#0284c7);
-  margin-bottom:1.5rem;
-  font-size:1.5rem;
-  box-shadow:0 0 30px rgba(0,212,255,.2);
-}
-
-.value-card h4{
-  font-size:1.2rem;
-  margin-bottom:.8rem;
-}
-
-.value-card p{
-  color:#94a3b8;
-  line-height:1.8;
-}
-
-/* =========================
-CTA
-========================= */
-
-.cta{
-  padding:7rem 4%;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-}
-
-.cta::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:radial-gradient(circle at center, rgba(0,212,255,.12), transparent 45%);
-}
-
-.cta-content{
-  max-width:850px;
-  margin:auto;
-  position:relative;
-  z-index:2;
-}
-
-.cta h2{
-  font-size:clamp(2rem,4vw,4rem);
-  margin-bottom:1rem;
-}
-
-.cta p{
-  color:#94a3b8;
-  line-height:1.9;
-  margin-bottom:2rem;
-}
-
-/* =========================
-FOOTER
-========================= */
-
-footer{
-  border-top:1px solid rgba(255,255,255,.05);
-  padding:5rem 4% 2rem;
-  background:#02050b;
-}
-
-.footer-grid{
-  max-width:1400px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr 1fr;
-  gap:3rem;
-}
-
-.footer-brand p{
-  color:#94a3b8;
-  margin-top:1rem;
-  line-height:1.8;
-}
-
-.footer-col h4{
-  margin-bottom:1.2rem;
-}
-
-.footer-col ul{
-  list-style:none;
-}
-
-.footer-col li{
-  margin-bottom:.8rem;
-}
-
-.footer-col a{
-  color:#94a3b8;
-  transition:.3s;
-}
-
-.footer-col a:hover{
-  color:var(--accent);
-}
-
-.footer-bottom{
-  max-width:1400px;
-  margin:auto;
-  border-top:1px solid rgba(255,255,255,.05);
-  margin-top:3rem;
-  padding-top:1.5rem;
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:1rem;
-  color:#64748b;
-  font-size:.9rem;
-}
-
-/* =========================
-RESPONSIVE
-========================= */
-
-@media(max-width:1200px){
-  .team-grid,
-  .values-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-  .hero-grid,
-  .story-grid{
-    grid-template-columns:1fr;
-  }
-}
-
-@media(max-width:768px){
-  .nav-links{display:none;}
-  .stats{grid-template-columns:repeat(2,1fr);}
-  .team-grid,
-  .values-grid{grid-template-columns:1fr;}
-  .section{padding:5rem 5%;}
-  .hero-panel{margin-top:2rem;}
-  .threat-grid{grid-template-columns:1fr;}
-}
-
+@media(max-width:1200px){.team-grid,.values-grid{grid-template-columns:repeat(2,1fr);}.hero-grid,.story-grid{grid-template-columns:1fr;}}
+@media(max-width:768px){.nav-links{display:none;}.stats{grid-template-columns:repeat(2,1fr);}.team-grid,.values-grid{grid-template-columns:1fr;}.section{padding:5rem 5%;}.hero-panel{margin-top:2rem;}.threat-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
 <div class="top-bar">
   <div class="top-bar-container">
     <div class="top-bar-info">
@@ -806,21 +165,13 @@ RESPONSIVE
   </div>
 </div>
 
-<!-- NAV -->
 <nav class="nav">
   <div class="nav-container">
     <a href="index.html" class="logo">
       <svg class="logo-shield" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <linearGradient id="shieldGradN" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#00D4FF"/>
-            <stop offset="100%" stop-color="#0891B2"/>
-          </linearGradient>
-          <linearGradient id="boltGradN" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#FEE2E2"/>
-            <stop offset="40%" stop-color="#EF4444"/>
-            <stop offset="100%" stop-color="#991B1B"/>
-          </linearGradient>
+          <linearGradient id="shieldGradN" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00D4FF"/><stop offset="100%" stop-color="#0891B2"/></linearGradient>
+          <linearGradient id="boltGradN" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#FEE2E2"/><stop offset="40%" stop-color="#EF4444"/><stop offset="100%" stop-color="#991B1B"/></linearGradient>
         </defs>
         <path d="M32 4 L8 12 V28 C8 42 18 54 32 60 C46 54 56 42 56 28 V12 Z" fill="url(#shieldGradN)" stroke="#FFB800" stroke-width="1.5"/>
         <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="url(#boltGradN)" stroke="#7F1D1D" stroke-width="1.5"/>
@@ -833,7 +184,6 @@ RESPONSIVE
       <li><a href="secteurs.html">Secteurs</a></li>
       <li><a href="qui-sommes-nous.html" class="active">Qui sommes-nous</a></li>
       <li><a href="carrieres.html">Carrières</a></li>
-      <li><a href="menaces.html">Menaces</a></li>
       <li><a href="campus-cyber.html">🎓 Campus Cyber</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="contact.html" class="nav-cta">Audit Gratuit</a></li>
@@ -841,7 +191,6 @@ RESPONSIVE
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
     <div class="hero-grid">
@@ -852,38 +201,23 @@ RESPONSIVE
           <span data-key="heroTitleAccent">en cybersécurité</span>
           <span data-key="heroTitle2">au service des entreprises</span>
         </h1>
-        <p data-key="heroDesc">
-          NextGen Technologies rassemble des experts en cybersécurité,
-          infrastructure, SOC, cloud et architecture réseau afin d'accompagner
-          les entreprises marocaines avec une vision moderne, offensive et
-          internationale de la sécurité informatique.
-        </p>
+        <p data-key="heroDesc">NextGen Technologies rassemble des experts en cybersécurité, infrastructure, SOC, cloud et architecture réseau afin d'accompagner les entreprises marocaines avec une vision moderne, offensive et internationale de la sécurité informatique.</p>
         <div class="hero-buttons">
-          <a href="services.html" class="btn-primary" data-key="heroBtn1">
-            Découvrir nos services <i class="fas fa-arrow-right"></i>
-          </a>
-          <a href="contact.html" class="btn-secondary" data-key="heroBtn2">
-            Nous contacter
-          </a>
+          <a href="services.html" class="btn-primary" data-key="heroBtn1">Découvrir nos services <i class="fas fa-arrow-right"></i></a>
+          <a href="contact.html" class="btn-secondary" data-key="heroBtn2">Nous contacter</a>
         </div>
-
         <div class="stats">
-          <div class="stat"><h3 data-key="stat1">4</h3><p data-key="stat1Label">Les piliers</p></div>
+          <div class="stat"><h3 data-key="stat1">5</h3><p data-key="stat1Label">Les piliers</p></div>
           <div class="stat"><h3 data-key="stat2">15+</h3><p data-key="stat2Label">Années cumulées</p></div>
           <div class="stat"><h3 data-key="stat3">SOC</h3><p data-key="stat3Label">24/7 · Centre d'opération sécurité</p></div>
           <div class="stat"><h3 data-key="stat4">360°</h3><p data-key="stat4Label">Vision sécurité</p></div>
         </div>
       </div>
-
-      <!-- PANEL SOC - VERSION PRO -->
       <div class="hero-panel">
         <div class="glass-card">
           <div class="panel-top">
             <div class="panel-title" data-key="panelTitle">NextGen SOC · Threat Intelligence</div>
-            <div class="panel-badge">
-              <div class="dot"></div>
-              <span data-key="panelBadge">SYSTEM ONLINE</span>
-            </div>
+            <div class="panel-badge"><div class="dot"></div><span data-key="panelBadge">SYSTEM ONLINE</span></div>
           </div>
           <div class="live-bar"><span></span></div>
           <div class="threat-grid">
@@ -898,7 +232,6 @@ RESPONSIVE
   </div>
 </section>
 
-<!-- TEAM -->
 <section class="section">
   <div class="section-container">
     <span class="section-tag" data-key="teamTag">L'ÉQUIPE NEXTGEN</span>
@@ -908,10 +241,9 @@ RESPONSIVE
     </h2>
     <p class="section-desc" data-key="teamDesc">Une structure construite autour de plusieurs expertises techniques afin d'offrir aux entreprises une approche complète de la cybersécurité moderne.</p>
     <div class="team-grid">
-      <!-- CEO ROW -->
+      <!-- YOUSSEF - CEO SEUL EN HAUT -->
       <div class="team-card-ceo">
         <div class="team-card">
-          
           <div class="team-image"><img src="youssef.jpg" alt="Youssef"><div class="team-overlay"></div></div>
           <div class="team-content">
             <h3>Youssef</h3>
@@ -921,12 +253,12 @@ RESPONSIVE
           </div>
         </div>
       </div>
-      <!-- TEAM ROW -->
+      <!-- LES 4 CO-FOUNDERS EN BAS -->
       <div class="team-card">
         <div class="team-image"><img src="abdeljalil.jpg" alt="Abdeljalil"><div class="team-overlay"></div></div>
         <div class="team-content">
           <h3>Abdeljalil</h3>
-          <div class="team-role" data-key="role2">Security & Training Architect</div>
+          <div class="team-role" data-key="role2">Co-Founder · Security & Training Architect</div>
           <p data-key="desc2">Architectures sécurisées, cloud security et développement des formations techniques NextGen Academy.</p>
           <div class="skills"><span>Architecture</span><span>Cloud</span><span>Formation</span></div>
         </div>
@@ -962,7 +294,6 @@ RESPONSIVE
   </div>
 </section>
 
-<!-- STORY -->
 <section class="section story">
   <div class="section-container">
     <div class="story-grid">
@@ -981,7 +312,6 @@ RESPONSIVE
   </div>
 </section>
 
-<!-- VALUES -->
 <section class="section">
   <div class="section-container">
     <span class="section-tag" data-key="valuesTag">NOS VALEURS</span>
@@ -999,7 +329,6 @@ RESPONSIVE
   </div>
 </section>
 
-<!-- CTA -->
 <section class="cta">
   <div class="cta-content">
     <h2 data-key="ctaTitle">Construisons une cybersécurité adaptée à votre entreprise</h2>
@@ -1008,7 +337,6 @@ RESPONSIVE
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
@@ -1038,128 +366,90 @@ RESPONSIVE
 <script>
 const translations = {
   fr: {
-    heroTag: "NEXTGEN TECHNOLOGIES",
-    heroTitle1: "Une équipe de spécialistes",
-    heroTitleAccent: "en cybersécurité",
-    heroTitle2: "au service des entreprises",
-    heroDesc: "NextGen Technologies rassemble des experts en cybersécurité, infrastructure, SOC, cloud et architecture réseau afin d'accompagner les entreprises marocaines avec une vision moderne, offensive et internationale de la sécurité informatique.",
-    heroBtn1: "Découvrir nos services",
-    heroBtn2: "Nous contacter",
-    stat1Label: "Les piliers",
-    stat2Label: "Années cumulées",
-    stat3Label: "24/7 · Centre d'opération sécurité",
-    stat4Label: "Vision sécurité",
-    panelTitle: "NextGen SOC · Threat Intelligence",
-    panelBadge: "SYSTEM ONLINE",
-    threat1: "Intrusion Detection",
-    threat2: "Network Monitoring",
-    threat3: "Vulnerability Scan",
-    threat4: "Zero Trust Active",
-    teamTag: "L'ÉQUIPE NEXTGEN",
-    teamTitle1: "Des profils complémentaires,",
-    teamTitle2: "une même mission",
-    teamDesc: "Une structure construite autour de plusieurs expertises techniques afin d'offrir aux entreprises une approche complète de la cybersécurité moderne.",
-    role1: "Founder & CEO · Business Development Lead",
-    role2: "Security & Training Architect",
-    role3: "Co-Founder · CTO · Infrastructure Lead",
-    role4: "SOC · Offensive Security Lead",
-    role5: "SOC · Sécurité · Pentest · Formation",
-    desc5: "Expert en sécurité opérationnelle, tests d'intrusion et formation cyber. Renforce l'équipe sur les missions offensives et défensives.",
-    desc1: "Cybersécurité opérationnelle, développement commercial et stratégie. Coordination globale des opérations et relation client.",
-    desc2: "Architectures sécurisées, cloud security et développement des formations techniques NextGen Academy.",
-    desc3: "Expert infrastructures réseau, solutions Cisco et architecture technique des environnements sécurisés.",
-    desc4: "Détection, surveillance SOC, pentest et sécurité offensive pour les environnements critiques.",
-    storyTag: "NOTRE HISTOIRE",
-    storyTitle1: "Une vision moderne de la",
-    storyTitle2: "cybersécurité",
-    storyP1: "NextGen Technologies est née de la volonté de créer une entreprise capable d'offrir un niveau d'expertise élevé tout en restant proche des réalités des entreprises locales.",
-    storyP2: "Notre équipe combine des expériences acquises au Maroc et à l'international afin d'apporter des standards modernes en matière d'infrastructure, sécurité offensive, défense SOC et gouvernance IT.",
-    storyP3: "Nous privilégions une approche claire, transparente et concrète : comprendre les enjeux réels de chaque entreprise et construire des solutions adaptées à ses besoins.",
-    valuesTag: "NOS VALEURS",
-    valuesTitle1: "Ce qui construit",
-    valuesTitle2: "NextGen",
-    valuesDesc: "Notre manière de travailler repose sur des principes simples : expertise, transparence, proximité et innovation continue.",
-    val1Title: "Excellence technique",
-    val1Desc: "Une veille permanente et des compétences avancées dans plusieurs domaines de la cybersécurité.",
-    val2Title: "Transparence",
-    val2Desc: "Des explications claires, des rapports compréhensibles et une vraie relation de confiance.",
-    val3Title: "Réactivité",
-    val3Desc: "Une équipe agile capable d'intervenir rapidement face aux enjeux de sécurité modernes.",
-    val4Title: "Collaboration",
-    val4Desc: "Nous travaillons avec nos clients comme de véritables partenaires stratégiques.",
-    ctaTitle: "Construisons une cybersécurité adaptée à votre entreprise",
-    ctaDesc: "Échangez avec notre équipe et découvrez comment renforcer vos infrastructures, vos réseaux et votre posture de sécurité.",
-    ctaBtn: "Demander un audit gratuit",
-    footerDesc: "Cybersécurité, conseil, SOC, infrastructure et sécurité offensive pour les entreprises modernes.",
-    footerServices: "Services",
-    footerCompany: "Entreprise",
-    footerLegal: "Légal",
-    topPhone: "+212 728 31 28 01",
-    topEmail: "contact@nextgentechnologies.net",
-    topLocation: "Casablanca"
+    heroTag:"NEXTGEN TECHNOLOGIES",
+    heroTitle1:"Une équipe de spécialistes",
+    heroTitleAccent:"en cybersécurité",
+    heroTitle2:"au service des entreprises",
+    heroDesc:"NextGen Technologies rassemble des experts en cybersécurité, infrastructure, SOC, cloud et architecture réseau afin d'accompagner les entreprises marocaines avec une vision moderne, offensive et internationale de la sécurité informatique.",
+    heroBtn1:"Découvrir nos services", heroBtn2:"Nous contacter",
+    stat1:"5", stat1Label:"Les piliers",
+    stat2:"15+", stat2Label:"Années cumulées",
+    stat3:"SOC", stat3Label:"24/7 · Centre d'opération sécurité",
+    stat4:"360°", stat4Label:"Vision sécurité",
+    panelTitle:"NextGen SOC · Threat Intelligence", panelBadge:"SYSTEM ONLINE",
+    threat1:"Intrusion Detection", threat2:"Network Monitoring", threat3:"Vulnerability Scan", threat4:"Zero Trust Active",
+    teamTag:"L'ÉQUIPE NEXTGEN",
+    teamTitle1:"Des profils complémentaires,", teamTitle2:"une même mission",
+    teamDesc:"Une structure construite autour de plusieurs expertises techniques afin d'offrir aux entreprises une approche complète de la cybersécurité moderne.",
+    role1:"Founder & CEO · Business Development Lead",
+    role2:"Co-Founder · Security & Training Architect",
+    role3:"Co-Founder · CTO · Infrastructure Lead",
+    role4:"Co-Founder · SOC · Offensive Security Lead",
+    role5:"Co-Founder · SOC · Pentest · Formation",
+    desc1:"Cybersécurité opérationnelle, développement commercial et stratégie. Coordination globale des opérations et relation client.",
+    desc2:"Architectures sécurisées, cloud security et développement des formations techniques NextGen Academy.",
+    desc3:"Expert infrastructures réseau, solutions Cisco et architecture technique des environnements sécurisés.",
+    desc4:"Détection, surveillance SOC, pentest et sécurité offensive pour les environnements critiques.",
+    desc5:"Expert en sécurité opérationnelle, tests d'intrusion et formation cyber. Renforce l'équipe sur les missions offensives et défensives.",
+    storyTag:"NOTRE HISTOIRE", storyTitle1:"Une vision moderne de la", storyTitle2:"cybersécurité",
+    storyP1:"NextGen Technologies est née de la volonté de créer une entreprise capable d'offrir un niveau d'expertise élevé tout en restant proche des réalités des entreprises locales.",
+    storyP2:"Notre équipe combine des expériences acquises au Maroc et à l'international afin d'apporter des standards modernes en matière d'infrastructure, sécurité offensive, défense SOC et gouvernance IT.",
+    storyP3:"Nous privilégions une approche claire, transparente et concrète : comprendre les enjeux réels de chaque entreprise et construire des solutions adaptées à ses besoins.",
+    valuesTag:"NOS VALEURS", valuesTitle1:"Ce qui construit", valuesTitle2:"NextGen",
+    valuesDesc:"Notre manière de travailler repose sur des principes simples : expertise, transparence, proximité et innovation continue.",
+    val1Title:"Excellence technique", val1Desc:"Une veille permanente et des compétences avancées dans plusieurs domaines de la cybersécurité.",
+    val2Title:"Transparence", val2Desc:"Des explications claires, des rapports compréhensibles et une vraie relation de confiance.",
+    val3Title:"Réactivité", val3Desc:"Une équipe agile capable d'intervenir rapidement face aux enjeux de sécurité modernes.",
+    val4Title:"Collaboration", val4Desc:"Nous travaillons avec nos clients comme de véritables partenaires stratégiques.",
+    ctaTitle:"Construisons une cybersécurité adaptée à votre entreprise",
+    ctaDesc:"Échangez avec notre équipe et découvrez comment renforcer vos infrastructures, vos réseaux et votre posture de sécurité.",
+    ctaBtn:"Demander un audit gratuit",
+    footerDesc:"Cybersécurité, conseil, SOC, infrastructure et sécurité offensive pour les entreprises modernes.",
+    footerServices:"Services", footerCompany:"Entreprise", footerLegal:"Légal",
+    topPhone:"+212 728 31 28 01", topEmail:"contact@nextgentechnologies.net", topLocation:"Casablanca"
   },
   en: {
-    heroTag: "NEXTGEN TECHNOLOGIES",
-    heroTitle1: "A team of specialists",
-    heroTitleAccent: "in cybersecurity",
-    heroTitle2: "serving businesses",
-    heroDesc: "NextGen Technologies brings together experts in cybersecurity, infrastructure, SOC, cloud and network architecture to support Moroccan companies with a modern, offensive and international vision of IT security.",
-    heroBtn1: "Discover our services",
-    heroBtn2: "Contact us",
-    stat1Label: "The pillars",
-    stat2Label: "Combined years",
-    stat3Label: "24/7 · Security Operations Center",
-    stat4Label: "Security vision",
-    panelTitle: "NextGen SOC · Threat Intelligence",
-    panelBadge: "SYSTEM ONLINE",
-    threat1: "Intrusion Detection",
-    threat2: "Network Monitoring",
-    threat3: "Vulnerability Scan",
-    threat4: "Zero Trust Active",
-    teamTag: "NEXTGEN TEAM",
-    teamTitle1: "Complementary profiles,",
-    teamTitle2: "one mission",
-    teamDesc: "A structure built around multiple technical expertise to offer companies a comprehensive approach to modern cybersecurity.",
-    role1: "Founder & CEO · Business Development Lead",
-role2: "Co-Founder · Security & Training Architect",
-role3: "Co-Founder · CTO · Infrastructure Lead",
-role4: "Co-Founder · SOC · Offensive Security Lead",
-role5: "Co-Founder · SOC · Pentest · Formation",
-    desc5: "Operational security expert, penetration testing and cyber training. Strengthens the team on offensive and defensive missions.",
-    role5: "SOC · Sécurité · Pentest · Formation",
-    desc5: "Expert en sécurité opérationnelle, tests d'intrusion et formation cyber. Renforce l'équipe sur les missions offensives et défensives.",
-    desc1: "Operational cybersecurity, business development and strategy. Global operations coordination and client relations.",
-    desc2: "Secure architectures, cloud security and development of NextGen Academy technical training.",
-    desc3: "Network infrastructure expert, Cisco solutions and secure environment technical architecture.",
-    desc4: "Detection, SOC monitoring, pentest and offensive security for critical environments.",
-    storyTag: "OUR STORY",
-    storyTitle1: "A modern vision of",
-    storyTitle2: "cybersecurity",
-    storyP1: "NextGen Technologies was born from the desire to create a company capable of offering a high level of expertise while staying close to the realities of local businesses.",
-    storyP2: "Our team combines experiences acquired in Morocco and internationally to bring modern standards in infrastructure, offensive security, SOC defense and IT governance.",
-    storyP3: "We favor a clear, transparent and concrete approach: understanding the real challenges of each company and building solutions adapted to their needs.",
-    valuesTag: "OUR VALUES",
-    valuesTitle1: "What builds",
-    valuesTitle2: "NextGen",
-    valuesDesc: "Our way of working is based on simple principles: expertise, transparency, proximity and continuous innovation.",
-    val1Title: "Technical excellence",
-    val1Desc: "Permanent monitoring and advanced skills in several cybersecurity domains.",
-    val2Title: "Transparency",
-    val2Desc: "Clear explanations, understandable reports and a real trust relationship.",
-    val3Title: "Responsiveness",
-    val3Desc: "An agile team able to intervene quickly on modern security issues.",
-    val4Title: "Collaboration",
-    val4Desc: "We work with our clients as true strategic partners.",
-    ctaTitle: "Let's build cybersecurity adapted to your business",
-    ctaDesc: "Chat with our team and discover how to strengthen your infrastructure, networks and security posture.",
-    ctaBtn: "Request a free audit",
-    footerDesc: "Cybersecurity, consulting, SOC, infrastructure and offensive security for modern businesses.",
-    footerServices: "Services",
-    footerCompany: "Company",
-    footerLegal: "Legal",
-    topPhone: "+212 728 31 28 01",
-    topEmail: "contact@nextgentechnologies.net",
-    topLocation: "Casablanca"
+    heroTag:"NEXTGEN TECHNOLOGIES",
+    heroTitle1:"A team of specialists",
+    heroTitleAccent:"in cybersecurity",
+    heroTitle2:"serving businesses",
+    heroDesc:"NextGen Technologies brings together experts in cybersecurity, infrastructure, SOC, cloud and network architecture to support Moroccan companies with a modern, offensive and international vision of IT security.",
+    heroBtn1:"Discover our services", heroBtn2:"Contact us",
+    stat1:"5", stat1Label:"The pillars",
+    stat2:"15+", stat2Label:"Combined years",
+    stat3:"SOC", stat3Label:"24/7 · Security Operations Center",
+    stat4:"360°", stat4Label:"Security vision",
+    panelTitle:"NextGen SOC · Threat Intelligence", panelBadge:"SYSTEM ONLINE",
+    threat1:"Intrusion Detection", threat2:"Network Monitoring", threat3:"Vulnerability Scan", threat4:"Zero Trust Active",
+    teamTag:"NEXTGEN TEAM",
+    teamTitle1:"Complementary profiles,", teamTitle2:"one mission",
+    teamDesc:"A structure built around multiple technical expertise to offer companies a comprehensive approach to modern cybersecurity.",
+    role1:"Founder & CEO · Business Development Lead",
+    role2:"Co-Founder · Security & Training Architect",
+    role3:"Co-Founder · CTO · Infrastructure Lead",
+    role4:"Co-Founder · SOC · Offensive Security Lead",
+    role5:"Co-Founder · SOC · Pentest · Training",
+    desc1:"Operational cybersecurity, business development and strategy. Global operations coordination and client relations.",
+    desc2:"Secure architectures, cloud security and development of NextGen Academy technical training.",
+    desc3:"Network infrastructure expert, Cisco solutions and secure environment technical architecture.",
+    desc4:"Detection, SOC monitoring, pentest and offensive security for critical environments.",
+    desc5:"Operational security expert, penetration testing and cyber training. Strengthens the team on offensive and defensive missions.",
+    storyTag:"OUR STORY", storyTitle1:"A modern vision of", storyTitle2:"cybersecurity",
+    storyP1:"NextGen Technologies was born from the desire to create a company capable of offering a high level of expertise while staying close to the realities of local businesses.",
+    storyP2:"Our team combines experiences acquired in Morocco and internationally to bring modern standards in infrastructure, offensive security, SOC defense and IT governance.",
+    storyP3:"We favor a clear, transparent and concrete approach: understanding the real challenges of each company and building solutions adapted to their needs.",
+    valuesTag:"OUR VALUES", valuesTitle1:"What builds", valuesTitle2:"NextGen",
+    valuesDesc:"Our way of working is based on simple principles: expertise, transparency, proximity and continuous innovation.",
+    val1Title:"Technical excellence", val1Desc:"Permanent monitoring and advanced skills in several cybersecurity domains.",
+    val2Title:"Transparency", val2Desc:"Clear explanations, understandable reports and a real trust relationship.",
+    val3Title:"Responsiveness", val3Desc:"An agile team able to intervene quickly on modern security issues.",
+    val4Title:"Collaboration", val4Desc:"We work with our clients as true strategic partners.",
+    ctaTitle:"Let's build cybersecurity adapted to your business",
+    ctaDesc:"Chat with our team and discover how to strengthen your infrastructure, networks and security posture.",
+    ctaBtn:"Request a free audit",
+    footerDesc:"Cybersecurity, consulting, SOC, infrastructure and offensive security for modern businesses.",
+    footerServices:"Services", footerCompany:"Company", footerLegal:"Legal",
+    topPhone:"+212 728 31 28 01", topEmail:"contact@nextgentechnologies.net", topLocation:"Casablanca"
   }
 };
 
@@ -1168,41 +458,36 @@ let currentLang = localStorage.getItem('nextgen-lang') || 'fr';
 function applyLanguage(lang) {
   const t = translations[lang];
   if (!t) return;
-  
   document.querySelectorAll('[data-key]').forEach(el => {
     const key = el.getAttribute('data-key');
-    if (t[key] !== undefined) {
-      el.innerHTML = t[key];
-    }
+    if (t[key] !== undefined) el.innerHTML = t[key];
   });
-  
   const topPhone = document.querySelector('.top-phone');
   const topEmail = document.querySelector('.top-email');
   const topLocation = document.querySelector('.top-location');
   if (topPhone) topPhone.textContent = t.topPhone;
   if (topEmail) topEmail.textContent = t.topEmail;
   if (topLocation) topLocation.textContent = t.topLocation;
-  
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.remove('active');
     if (btn.getAttribute('data-lang') === lang) btn.classList.add('active');
   });
-  
   localStorage.setItem('nextgen-lang', lang);
 }
 
 document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const lang = btn.getAttribute('data-lang');
-    if (lang) {
-      currentLang = lang;
-      applyLanguage(currentLang);
-    }
+    if (lang) { currentLang = lang; applyLanguage(currentLang); }
   });
 });
 
 applyLanguage(currentLang);
 </script>
-
 </body>
 </html>
+HTMLEOF
+echo "Done!"
+Sortie
+
+Done!
