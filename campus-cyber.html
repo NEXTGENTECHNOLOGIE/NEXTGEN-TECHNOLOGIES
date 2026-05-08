@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Espace formation privé NextGen Technologies — Accès réservé aux élèves.">
+  <meta name="description" content="Campus Cyber NextGen Technologies — Espace formation privé réservé aux élèves.">
   <title>Campus Cyber · NextGen Technologies</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,378 +12,263 @@
     :root {
       --primary: #0A1628;
       --primary-deep: #050B14;
-      --primary-light: #1E3A5F;
+      --primary-light: #0F2B4D;
       --accent: #00D4FF;
       --accent-dark: #0891B2;
       --gold: #FFB800;
-      --gold-dark: #D97706;
+      --red: #EF4444;
+      --red-dark: #DC2626;
       --white: #FFFFFF;
-      --off-white: #F8FAFC;
-      --gray-light: #E2E8F0;
+      --off-white: #E2E8F0;
+      --gray-light: #94A3B8;
       --gray-mid: #64748B;
-      --gray-dark: #334155;
       --success: #10B981;
-      --danger: #EF4444;
+      --transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Manrope', sans-serif;
-      color: var(--gray-dark);
-      line-height: 1.6;
-      overflow-x: hidden;
-      background: var(--white);
-    }
-    h1, h2, h3, h4 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
+    body { font-family: 'Manrope', sans-serif; color: var(--off-white); line-height: 1.6; overflow-x: hidden; background: var(--primary-deep); }
+    h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
     a { text-decoration: none; }
 
-    .top-bar {
-      background: var(--primary-deep);
-      color: var(--gray-light);
-      padding: 0.5rem 4%;
-      font-size: 0.8rem;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-    .top-bar-container {
-      max-width: 1400px; margin: 0 auto;
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 0.5rem;
-    }
+    /* TOP BAR */
+    .top-bar { background: rgba(5,11,20,0.95); backdrop-filter: blur(10px); color: var(--gray-light); padding: 0.5rem 4%; font-size: 0.8rem; border-bottom: 1px solid rgba(0,212,255,0.2); }
+    .top-bar-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
     .top-bar-info { display: flex; gap: 2rem; flex-wrap: wrap; }
     .top-bar-info span { display: flex; align-items: center; gap: 0.4rem; }
     .top-bar-info i { color: var(--accent); }
-    .top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; transition: color 0.2s; }
+    .top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; transition: var(--transition); }
     .top-bar-social a:hover { color: var(--accent); }
 
-    .nav {
-      position: sticky; top: 0; z-index: 1000;
-      padding: 1rem 4%;
-      background: var(--white);
-      border-bottom: 1px solid var(--gray-light);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-    }
-    .nav-container {
-      max-width: 1400px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .logo {
-      display: flex; align-items: center; gap: 0.6rem;
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700; font-size: 1.3rem;
-      color: var(--primary);
-    }
-    .logo-shield {
-      width: 32px; height: 32px;
-      fill: var(--accent) !important;
-      flex-shrink: 0;
-      animation: float 3s ease-in-out infinite;
-    }
-    @keyframes float {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-    }
-    .logo-shield path { fill: var(--accent) !important; }
+    .lang-switch { display: flex; gap: 0.25rem; background: rgba(0,212,255,0.15); padding: 0.2rem 0.6rem; border-radius: 40px; align-items: center; }
+    .lang-btn { background: none; border: none; color: var(--gray-light); font-size: 0.8rem; font-weight: 600; cursor: pointer; padding: 0.2rem 0.6rem; border-radius: 30px; transition: var(--transition); font-family: inherit; }
+    .lang-btn.active { background: var(--accent); color: var(--primary); }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 1000; padding: 1rem 4%; background: rgba(7,20,38,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,212,255,0.15); }
+    .nav-container { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .logo { display: flex; align-items: center; gap: 0.6rem; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.3rem; color: var(--white); }
+    .logo-shield { width: 32px; height: 32px; flex-shrink: 0; animation: float 3s ease-in-out infinite; }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
     .logo-text-accent { color: var(--accent); }
-
     .nav-links { display: flex; gap: 0.4rem; list-style: none; align-items: center; }
-    .nav-links > li { position: relative; }
-    .nav-links > li > a {
-      color: var(--primary); font-size: 0.92rem; font-weight: 600;
-      padding: 0.6rem 1rem; border-radius: 4px;
-      display: flex; align-items: center; gap: 0.3rem;
-      transition: all 0.2s;
-    }
-    .nav-links > li > a:hover { background: var(--off-white); color: var(--accent-dark); }
-    .nav-cta {
-      background: var(--gold) !important;
-      color: var(--primary) !important;
-      padding: 0.7rem 1.4rem !important;
-      border-radius: 4px !important;
-      font-weight: 700 !important;
-    }
-    .menu-toggle {
-      display: none;
-      background: none; border: none;
-      color: var(--primary); font-size: 1.5rem;
-      cursor: pointer;
-    }
+    .nav-links > li > a { color: var(--off-white); font-size: 0.92rem; font-weight: 600; padding: 0.6rem 1rem; border-radius: 4px; transition: var(--transition); display: flex; align-items: center; gap: 0.3rem; }
+    .nav-links > li > a:hover, .nav-links > li > a.active { background: rgba(0,212,255,0.1); color: var(--accent); }
+    .nav-cta { background: linear-gradient(135deg, var(--red), var(--red-dark)) !important; color: var(--white) !important; padding: 0.7rem 1.4rem !important; border-radius: 40px !important; font-weight: 700 !important; }
+    .nav-cta:hover { background: var(--accent) !important; color: var(--primary) !important; }
+    .menu-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
 
-    /* Page Header avec photo du formateur */
+    /* PAGE HEADER */
     .page-header {
-      background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-light) 100%);
-      color: var(--white);
-      padding: 4rem 4%;
-      position: relative;
-      overflow: hidden;
+      position: relative; padding: 5rem 4% 4rem; overflow: hidden;
+      background: var(--primary-deep);
     }
     .page-header::before {
-      content: ''; position: absolute;
-      top: 0; right: 0; width: 100%; height: 100%;
-      background: radial-gradient(circle at 70% 30%, rgba(0,212,255,0.12) 0%, transparent 60%),
-                  radial-gradient(circle at 20% 80%, rgba(255,184,0,0.08) 0%, transparent 50%);
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 20% 30%, rgba(0,212,255,0.15), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(255,184,0,0.08), transparent 40%);
+      pointer-events: none;
+    }
+    .page-header::after {
+      content: ''; position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
+      background-size: 50px 50px; pointer-events: none;
     }
     .page-header-container {
-      max-width: 1400px; margin: 0 auto;
-      position: relative; z-index: 2;
-      display: grid;
-      grid-template-columns: 1fr 0.8fr;
-      gap: 3rem;
-      align-items: center;
+      max-width: 1400px; margin: 0 auto; position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 0.8fr; gap: 3rem; align-items: center;
     }
-    .page-header-left h1 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.1;
-      margin-bottom: 1rem;
+    .breadcrumb { color: var(--gray-light); font-size: 0.85rem; margin-bottom: 1.2rem; }
+    .breadcrumb a { color: var(--accent); }
+    .breadcrumb i { margin: 0 0.5rem; font-size: 0.7rem; opacity: 0.6; }
+    .page-header-left h1 { font-size: clamp(2.2rem, 4.5vw, 3.5rem); line-height: 1.1; margin-bottom: 1rem; color: var(--white); }
+    .page-header-left h1 .accent {
+      background: linear-gradient(90deg, #00D4FF, #38bdf8, #FFB800, #00D4FF);
+      background-size: 300% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      animation: shine 8s linear infinite;
     }
-    .page-header-left h1 .accent { color: var(--accent); }
-    .page-header-left p {
-      font-size: 1.1rem;
-      color: var(--gray-light);
-      max-width: 500px;
-      margin-bottom: 1.5rem;
-    }
-    .trainer-badge-header {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(255,184,0,0.15);
-      border: 1px solid rgba(255,184,0,0.3);
-      padding: 0.5rem 1.2rem;
-      border-radius: 40px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--gold);
-      margin-top: 1rem;
-    }
-    .trainer-badge-header i { font-size: 1rem; }
+    @keyframes shine { to { background-position: 300% center; } }
+    .page-header-left p { font-size: 1.1rem; color: var(--gray-light); max-width: 500px; margin-bottom: 1.5rem; line-height: 1.8; }
 
-    /* Carte du formateur (côté droit) */
+    .trainer-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(255,184,0,0.15); border: 1px solid rgba(255,184,0,0.3);
+      padding: 0.5rem 1.2rem; border-radius: 40px;
+      font-size: 0.85rem; font-weight: 600; color: var(--gold);
+    }
+
+    /* STATS HEADER */
+    .header-stats { display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
+    .header-stat { text-align: center; }
+    .header-stat .num { font-size: 1.8rem; font-weight: 700; color: var(--accent); font-family: 'Space Grotesk', sans-serif; }
+    .header-stat .lbl { font-size: 0.78rem; color: var(--gray-light); }
+
+    /* TRAINER CARD */
     .trainer-card {
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(10px);
-      border-radius: 24px;
-      padding: 1.5rem;
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
+      background: rgba(255,255,255,0.05); backdrop-filter: blur(10px);
+      border-radius: 24px; padding: 2rem; border: 1px solid rgba(255,255,255,0.1);
+      text-align: center; transition: var(--transition);
+    }
+    .trainer-card:hover { transform: translateY(-5px); border-color: rgba(0,212,255,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+    .trainer-photo { width: 140px; height: 140px; margin: 0 auto 1rem; border-radius: 50%; overflow: hidden; border: 3px solid var(--accent); box-shadow: 0 8px 25px rgba(0,212,255,0.3); }
+    .trainer-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .trainer-card h3 { font-size: 1.3rem; color: var(--white); margin-bottom: 0.3rem; }
+    .trainer-role { color: var(--accent); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.8rem; }
+    .trainer-desc { color: var(--gray-light); font-size: 0.85rem; line-height: 1.6; }
+    .trainer-skills { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-top: 1rem; }
+    .trainer-skill { background: rgba(0,212,255,0.15); color: var(--accent); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600; }
+
+    /* FEATURES STRIP */
+    .features-strip { background: rgba(0,212,255,0.06); border-top: 1px solid rgba(0,212,255,0.1); border-bottom: 1px solid rgba(0,212,255,0.1); padding: 2rem 4%; }
+    .features-strip-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; }
+    .feature-item { display: flex; align-items: center; gap: 0.8rem; }
+    .feature-item i { color: var(--accent); font-size: 1.4rem; flex-shrink: 0; }
+    .feature-item span { font-size: 0.88rem; color: var(--off-white); font-weight: 600; }
+
+    /* LOGIN SECTION */
+    .login-section { padding: 5rem 4%; }
+    .container { max-width: 900px; margin: 0 auto; }
+
+    .login-card {
+      background: rgba(255,255,255,0.04); backdrop-filter: blur(10px);
+      border-radius: 24px; padding: 3rem; border: 1px solid rgba(0,212,255,0.15);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
       text-align: center;
     }
-    .trainer-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-      border-color: rgba(0,212,255,0.3);
-    }
-    .trainer-photo {
-      width: 140px;
-      height: 140px;
-      margin: 0 auto 1rem;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 3px solid var(--accent);
-      box-shadow: 0 8px 25px rgba(0,212,255,0.3);
-    }
-    .trainer-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .trainer-card h3 {
-      font-size: 1.3rem;
-      color: var(--white);
-      margin-bottom: 0.3rem;
-    }
-    .trainer-card .trainer-role {
-      color: var(--accent);
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-    .trainer-card .trainer-desc {
-      color: var(--gray-light);
-      font-size: 0.85rem;
-      line-height: 1.5;
-    }
-    .trainer-skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      justify-content: center;
-      margin-top: 1rem;
-    }
-    .trainer-skill {
-      background: rgba(0,212,255,0.15);
-      color: var(--accent);
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.7rem;
-      font-weight: 600;
-    }
+    .login-icon { font-size: 3.5rem; margin-bottom: 1rem; color: var(--accent); }
+    .login-card h2 { color: var(--white); font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .login-card p { color: var(--gray-light); margin-bottom: 2rem; }
 
-    .btn-primary {
-      padding: 1rem 2rem;
-      border-radius: 4px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: var(--accent);
-      color: var(--primary);
-      border: none;
-      cursor: pointer;
+    .login-input-wrap { display: flex; gap: 0.8rem; max-width: 420px; margin: 0 auto 1rem; }
+    .login-input-wrap input {
+      flex: 1; padding: 0.9rem 1.2rem;
+      border: 1.5px solid rgba(0,212,255,0.2); border-radius: 10px;
+      font-family: inherit; font-size: 1rem;
+      background: rgba(255,255,255,0.06); color: var(--white);
       transition: all 0.2s;
     }
-    .btn-primary:hover { background: var(--gold); transform: translateY(-2px); }
+    .login-input-wrap input::placeholder { color: var(--gray-mid); }
+    .login-input-wrap input:focus { outline: none; border-color: var(--accent); background: rgba(0,212,255,0.08); }
 
-    .login-section, .protected-section {
-      padding: 4rem 4%;
-      background: var(--off-white);
-    }
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .login-card, .content-card {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 2.5rem;
-      box-shadow: 0 20px 35px rgba(0,0,0,0.05);
-      border-top: 4px solid var(--accent);
-    }
-    .login-card h2, .content-card h2 {
-      color: var(--primary);
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-    }
-    .login-card p, .content-card p {
-      color: var(--gray-mid);
-      margin-bottom: 1.5rem;
-    }
-    .login-card input {
-      width: 100%;
-      max-width: 300px;
-      padding: 0.8rem 1rem;
-      font-size: 1rem;
-      border: 1.5px solid var(--gray-light);
-      border-radius: 8px;
-      font-family: inherit;
-      margin-right: 0.5rem;
-      margin-bottom: 1rem;
-    }
-    .login-card input:focus {
-      outline: none;
-      border-color: var(--accent);
-    }
+    .btn-primary { padding: 0.9rem 1.8rem; border-radius: 10px; font-weight: 700; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 0.6rem; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: var(--primary); border: none; cursor: pointer; transition: var(--transition); font-family: inherit; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,212,255,0.3); }
 
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    .video-card {
-      background: var(--off-white);
-      padding: 1rem;
-      border-radius: 12px;
-      transition: all 0.3s;
-    }
-    .video-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    }
-    .video-card h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-    }
-    iframe {
-      width: 100%;
-      aspect-ratio: 16/9;
-      border-radius: 8px;
-    }
-    .video-card a {
-      color: var(--accent-dark);
+    .login-hint { font-size: 0.8rem; color: var(--gray-mid); margin-top: 1rem; }
+    .login-error { color: var(--red); font-size: 0.88rem; margin-top: 0.8rem; display: none; }
+
+    /* PROTECTED SECTION */
+    .protected-section { padding: 3rem 4% 5rem; display: none; }
+    .protected-container { max-width: 1200px; margin: 0 auto; }
+
+    .welcome-bar {
+      background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3);
+      border-radius: 14px; padding: 1rem 1.5rem;
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 2.5rem; color: var(--success);
       font-weight: 600;
-      text-decoration: none;
     }
-    .video-card a:hover {
-      color: var(--gold-dark);
-    }
+    .welcome-bar i { font-size: 1.4rem; }
 
-    footer {
-      background: var(--primary-deep);
-      color: var(--gray-light);
-      padding: 3rem 4% 1.5rem;
+    .modules-header { margin-bottom: 2rem; }
+    .modules-header h2 { color: var(--white); font-size: 1.8rem; margin-bottom: 0.4rem; }
+    .modules-header p { color: var(--gray-light); }
+
+    .progress-bar-wrap { background: rgba(255,255,255,0.08); border-radius: 10px; height: 8px; margin: 1rem 0 2rem; overflow: hidden; }
+    .progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--success)); border-radius: 10px; width: 33%; transition: width 1s ease; }
+    .progress-label { font-size: 0.82rem; color: var(--gray-light); margin-bottom: 0.3rem; }
+
+    .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+    .video-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px; overflow: hidden; transition: var(--transition);
     }
-    .footer-grid {
-      max-width: 1400px; margin: 0 auto;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 3rem;
-      margin-bottom: 2.5rem;
-    }
-    .footer-brand p {
-      color: var(--gray-mid);
-      font-size: 0.88rem;
-      margin: 1rem 0;
-    }
-    .footer-col h4 {
-      color: var(--white);
-      font-size: 0.92rem;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-    }
+    .video-card:hover { transform: translateY(-6px); border-color: rgba(0,212,255,0.3); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
+    .video-card-header { padding: 1.2rem 1.2rem 0.5rem; display: flex; align-items: center; gap: 0.8rem; }
+    .module-num { width: 36px; height: 36px; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: var(--primary); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
+    .module-num.locked { background: rgba(255,255,255,0.1); color: var(--gray-mid); }
+    .video-card-header h3 { color: var(--white); font-size: 1rem; }
+    .video-card-header .badge { font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 20px; font-weight: 700; margin-left: auto; flex-shrink: 0; }
+    .badge.new { background: rgba(16,185,129,0.2); color: var(--success); }
+    .badge.soon { background: rgba(255,184,0,0.15); color: var(--gold); }
+    .badge.done { background: rgba(0,212,255,0.15); color: var(--accent); }
+
+    iframe { width: 100%; aspect-ratio: 16/9; border: none; }
+    .video-locked { aspect-ratio: 16/9; background: rgba(255,255,255,0.03); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; color: var(--gray-mid); }
+    .video-locked i { font-size: 2rem; }
+    .video-locked span { font-size: 0.85rem; }
+
+    .video-card-footer { padding: 1rem 1.2rem 1.2rem; display: flex; gap: 0.8rem; flex-wrap: wrap; }
+    .dl-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.55rem 1rem; border-radius: 8px; font-size: 0.82rem; font-weight: 600; transition: var(--transition); }
+    .dl-btn.pdf { background: rgba(239,68,68,0.15); color: #EF4444; border: 1px solid rgba(239,68,68,0.2); }
+    .dl-btn.pdf:hover { background: rgba(239,68,68,0.25); }
+    .dl-btn.quiz { background: rgba(255,184,0,0.15); color: var(--gold); border: 1px solid rgba(255,184,0,0.2); }
+    .dl-btn.quiz:hover { background: rgba(255,184,0,0.25); }
+    .dl-btn.disabled { opacity: 0.4; cursor: not-allowed; pointer-events: none; }
+
+    /* RESSOURCES SECTION */
+    .ressources-section { margin-bottom: 3rem; }
+    .ressources-section h3 { color: var(--white); font-size: 1.3rem; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.6rem; }
+    .ressources-section h3 i { color: var(--accent); }
+    .ressources-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+    .ressource-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.2rem; display: flex; align-items: center; gap: 1rem; transition: var(--transition); }
+    .ressource-card:hover { border-color: rgba(0,212,255,0.3); background: rgba(0,212,255,0.06); transform: translateX(4px); }
+    .ressource-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+    .ressource-icon.pdf { background: rgba(239,68,68,0.15); color: #EF4444; }
+    .ressource-icon.link { background: rgba(0,212,255,0.15); color: var(--accent); }
+    .ressource-icon.tool { background: rgba(255,184,0,0.15); color: var(--gold); }
+    .ressource-info h4 { color: var(--white); font-size: 0.92rem; margin-bottom: 0.2rem; }
+    .ressource-info span { color: var(--gray-light); font-size: 0.78rem; }
+
+    /* CONTACT TUTOR */
+    .tutor-cta { background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.15); border-radius: 18px; padding: 2rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+    .tutor-cta-text h3 { color: var(--white); margin-bottom: 0.3rem; }
+    .tutor-cta-text p { color: var(--gray-light); font-size: 0.9rem; }
+    .tutor-cta-btns { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-left: auto; }
+    .btn-whatsapp { padding: 0.8rem 1.4rem; border-radius: 10px; font-weight: 700; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 0.5rem; background: #25D366; color: white; transition: var(--transition); }
+    .btn-whatsapp:hover { background: #128C7E; transform: translateY(-2px); }
+    .btn-email { padding: 0.8rem 1.4rem; border-radius: 10px; font-weight: 700; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.08); color: var(--off-white); border: 1px solid rgba(255,255,255,0.12); transition: var(--transition); }
+    .btn-email:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* FOOTER */
+    footer { background: var(--primary-deep); border-top: 1px solid rgba(0,212,255,0.1); padding: 3rem 4% 1.5rem; }
+    .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+    .footer-brand p { color: var(--gray-mid); font-size: 0.88rem; margin: 1rem 0; }
+    .footer-col h4 { color: var(--white); font-size: 0.92rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.08em; }
     .footer-col ul { list-style: none; }
     .footer-col ul li { margin-bottom: 0.6rem; }
-    .footer-col ul a {
-      color: var(--gray-light);
-      font-size: 0.88rem;
-    }
+    .footer-col ul a { color: var(--gray-light); font-size: 0.88rem; transition: var(--transition); }
     .footer-col ul a:hover { color: var(--accent); }
-    .footer-bottom {
-      max-width: 1400px; margin: 0 auto;
-      padding-top: 1.5rem;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      font-size: 0.82rem;
-      color: var(--gray-mid);
-    }
+    .footer-bottom { max-width: 1400px; margin: 0 auto; padding-top: 1.5rem; border-top: 1px solid rgba(0,212,255,0.1); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; color: var(--gray-mid); }
 
+    /* RESPONSIVE */
+    @media (max-width: 1024px) { .features-strip-container { grid-template-columns: repeat(2,1fr); } .footer-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 768px) {
-      .nav-links {
-        position: fixed; top: 70px; right: 0;
-        flex-direction: column;
-        background: var(--white);
-        padding: 1.5rem;
-        width: 100%;
-        transform: translateX(100%);
-        transition: transform 0.3s;
-      }
+      .nav-links { position: fixed; top: 70px; right: 0; flex-direction: column; background: #071426; padding: 1.5rem; width: 100%; gap: 0.5rem; transform: translateX(100%); transition: transform 0.3s; }
       .nav-links.active { transform: translateX(0); }
       .menu-toggle { display: block; }
+      .page-header-container { grid-template-columns: 1fr; }
+      .features-strip-container { grid-template-columns: 1fr 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
-      .page-header-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        text-align: center;
-      }
-      .page-header-left p { margin-left: auto; margin-right: auto; }
-      .trainer-card { max-width: 300px; margin: 0 auto; }
+      .tutor-cta { flex-direction: column; }
+      .tutor-cta-btns { margin-left: 0; }
+      .header-stats { gap: 1.5rem; }
     }
+    @media (max-width: 480px) { .features-strip-container { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
 
+<!-- TOP BAR -->
 <div class="top-bar">
   <div class="top-bar-container">
     <div class="top-bar-info">
       <span><i class="fas fa-phone"></i> +212 728 31 28 01</span>
       <span><i class="fas fa-envelope"></i> contact@nextgentechnologies.net</span>
       <span><i class="fas fa-map-marker-alt"></i> Casablanca</span>
+    </div>
+    <div class="lang-switch">
+      <button class="lang-btn active" data-lang="fr">🇫🇷 FR</button>
+      <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
     </div>
     <div class="top-bar-social">
       <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -393,115 +278,238 @@
   </div>
 </div>
 
+<!-- NAV -->
 <nav class="nav">
   <div class="nav-container">
     <a href="index.html" class="logo">
       <svg class="logo-shield" viewBox="0 0 64 64" width="32" height="32">
         <path d="M32 4 L8 12 V28 C8 42 18 54 32 60 C46 54 56 42 56 28 V12 Z" fill="#00D4FF" stroke="#FFB800" stroke-width="1.5"/>
-        <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="#EF4444" stroke="#7F1D1D" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="#EF4444" stroke="#7F1D1D" stroke-width="1.5"/>
       </svg>
       <span>NextGen <span class="logo-text-accent">Technologies</span></span>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="academy.html">Academy</a></li>
-      <li><a href="carrieres.html">Carrières</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="contact.html" class="nav-cta">Audit gratuit</a></li>
+      <li><a href="index.html" id="navAccueil">Accueil</a></li>
+      <li><a href="services.html" id="navServices">Services</a></li>
+      <li><a href="secteurs.html" id="navSecteurs">Secteurs</a></li>
+      <li><a href="qui-sommes-nous.html" id="navQuiSommesNous">Qui sommes-nous</a></li>
+      <li><a href="carrieres.html" id="navCarrieres">Carrières</a></li>
+      <li><a href="menaces.html" id="navMenaces">Menaces</a></li>
+      <li><a href="campus-cyber.html" class="active" id="navCampus">🎓 Campus Cyber</a></li>
+      <li><a href="contact.html" id="navContact">Contact</a></li>
+      <li><a href="contact.html" class="nav-cta" id="navCta">Audit gratuit</a></li>
     </ul>
     <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
   </div>
 </nav>
 
-<!-- HEADER AVEC PHOTO DU FORMATEUR -->
+<!-- PAGE HEADER -->
 <section class="page-header">
   <div class="page-header-container">
     <div class="page-header-left">
-      <h1>Campus <span class="accent">Cyber</span><br>Espace formation privé</h1>
-      <p>Accès réservé aux élèves — supports de cours, vidéos et ressources techniques exclusives.</p>
-      <div class="trainer-badge-header">
-        <i class="fas fa-certificate"></i> Formation par un expert Security Architect
+      <div class="breadcrumb">
+        <a href="index.html" id="breadHome">Accueil</a>
+        <i class="fas fa-chevron-right"></i>
+        <span style="color:white" id="breadCampus">Campus Cyber</span>
+      </div>
+      <h1 id="heroTitle">Campus <span class="accent">Cyber</span><br><span id="heroSubtitle">Espace formation privé</span></h1>
+      <p id="heroDesc">Accès réservé aux élèves — supports de cours, vidéos et ressources techniques exclusives.</p>
+      <div class="trainer-badge">
+        <i class="fas fa-certificate"></i>
+        <span id="trainerBadge">Formation par un expert Security Architect</span>
+      </div>
+      <div class="header-stats">
+        <div class="header-stat"><div class="num">3</div><div class="lbl" id="statModules">Modules actifs</div></div>
+        <div class="header-stat"><div class="num">12+</div><div class="lbl" id="statRessources">Ressources</div></div>
+        <div class="header-stat"><div class="num">24/7</div><div class="lbl" id="statAcces">Accès continu</div></div>
       </div>
     </div>
     <div class="trainer-card">
       <div class="trainer-photo">
-        <img src="abdeljalil.jpg" alt="Abdeljalil Beniiche">
+        <img src="abdeljalil.jpg" alt="Abdeljalil">
       </div>
       <h3>Abdeljalil Beniiche</h3>
-      <div class="trainer-role">Security Architect & Formateur</div>
-      <p class="trainer-desc">Expert en conception d'infrastructures sécurisées et responsable pédagogique de l'Academy.</p>
+      <div class="trainer-role" id="trainerRole">Security Architect & Formateur</div>
+      <p class="trainer-desc" id="trainerDesc">Expert en conception d'infrastructures sécurisées et responsable pédagogique de l'Academy NextGen.</p>
       <div class="trainer-skills">
         <span class="trainer-skill">Architecture</span>
-        <span class="trainer-skill">Formation</span>
         <span class="trainer-skill">Cloud Security</span>
+        <span class="trainer-skill">Formation</span>
+        <span class="trainer-skill">ISO 27001</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Partie protégée par mot de passe -->
+<!-- FEATURES STRIP -->
+<div class="features-strip">
+  <div class="features-strip-container">
+    <div class="feature-item"><i class="fas fa-video"></i><span id="feat1">Vidéos HD disponibles 24/7</span></div>
+    <div class="feature-item"><i class="fas fa-file-pdf"></i><span id="feat2">Supports PDF téléchargeables</span></div>
+    <div class="feature-item"><i class="fas fa-flask"></i><span id="feat3">Labs pratiques inclus</span></div>
+    <div class="feature-item"><i class="fas fa-headset"></i><span id="feat4">Support formateur direct</span></div>
+  </div>
+</div>
+
+<!-- LOGIN SECTION -->
 <section class="login-section" id="loginSection">
   <div class="container">
-    <div class="login-card" id="loginForm">
-      <h2>📚 Bibliothèque technique NextGen</h2>
-      <p>Entrez votre mot de passe pour accéder aux ressources exclusives.</p>
-      <input type="password" id="passwordInput" placeholder="Mot de passe">
-      <button class="btn-primary" onclick="checkPassword()">Accéder</button>
+    <div class="login-card">
+      <div class="login-icon"><i class="fas fa-shield-halved"></i></div>
+      <h2 id="loginTitle">Espace élève sécurisé</h2>
+      <p id="loginDesc">Entrez votre mot de passe pour accéder à vos ressources de formation.</p>
+      <div class="login-input-wrap">
+        <input type="password" id="passwordInput" placeholder="••••••••" onkeydown="if(event.key==='Enter') checkPassword()">
+        <button class="btn-primary" onclick="checkPassword()">
+          <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+      <p class="login-error" id="loginError">Mot de passe incorrect. Contactez votre formateur.</p>
+      <p class="login-hint" id="loginHint">🔒 Accès réservé aux élèves inscrits à la formation NextGen Academy</p>
     </div>
   </div>
 </section>
 
-<section class="protected-section" id="protectedSection" style="display: none;">
-  <div class="container">
-    <div class="content-card">
-      <h2>📘 Mes ressources techniques</h2>
-      <p>Bienvenue — voici vos supports de formation actifs.</p>
+<!-- PROTECTED SECTION -->
+<section class="protected-section" id="protectedSection">
+  <div class="protected-container">
 
-      <div class="video-grid">
-        <div class="video-card">
-          <h3>🎥 Module 1 – Introduction à la cybersécurité</h3>
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen></iframe>
-          <p><a href="docs/module1.pdf" download>Télécharger le support PDF</a></p>
+    <div class="welcome-bar">
+      <i class="fas fa-circle-check"></i>
+      <span id="welcomeMsg">Bienvenue ! Vous êtes connecté à votre espace de formation.</span>
+    </div>
+
+    <!-- PROGRESS -->
+    <div class="modules-header">
+      <h2 id="modulesTitle">📘 Mes modules de formation</h2>
+      <p id="modulesDesc">Progressez à votre rythme — chaque module contient une vidéo, un support PDF et un quiz d'évaluation.</p>
+      <p class="progress-label" id="progressLabel">Progression : Module 1 complété sur 3</p>
+      <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressBar"></div></div>
+    </div>
+
+    <!-- VIDEOS -->
+    <div class="video-grid">
+
+      <div class="video-card">
+        <div class="video-card-header">
+          <div class="module-num">01</div>
+          <h3 id="mod1Title">Introduction à la cybersécurité</h3>
+          <span class="badge done" id="mod1Badge">✓ Fait</span>
         </div>
-        <div class="video-card">
-          <h3>🎥 Module 2 – Sécurité réseau & NGFW</h3>
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen></iframe>
-          <p><a href="docs/module2.pdf" download>Télécharger le support PDF</a></p>
-        </div>
-        <div class="video-card">
-          <h3>📄 Quiz & évaluation</h3>
-          <p><a href="quiz/module1.pdf" target="_blank">Accéder au quiz (PDF)</a></p>
-          <p><a href="reponse.html" target="_blank">Formulaire de remédiation</a></p>
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen></iframe>
+        <div class="video-card-footer">
+          <a href="docs/module1.pdf" download class="dl-btn pdf"><i class="fas fa-file-pdf"></i> <span id="dlPdf1">Support PDF</span></a>
+          <a href="quiz/module1.pdf" target="_blank" class="dl-btn quiz"><i class="fas fa-question-circle"></i> <span id="dlQuiz1">Quiz</span></a>
         </div>
       </div>
+
+      <div class="video-card">
+        <div class="video-card-header">
+          <div class="module-num">02</div>
+          <h3 id="mod2Title">Sécurité réseau & NGFW</h3>
+          <span class="badge new" id="mod2Badge">Nouveau</span>
+        </div>
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen></iframe>
+        <div class="video-card-footer">
+          <a href="docs/module2.pdf" download class="dl-btn pdf"><i class="fas fa-file-pdf"></i> <span id="dlPdf2">Support PDF</span></a>
+          <a href="quiz/module2.pdf" target="_blank" class="dl-btn quiz"><i class="fas fa-question-circle"></i> <span id="dlQuiz2">Quiz</span></a>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-card-header">
+          <div class="module-num locked">03</div>
+          <h3 id="mod3Title">SOC & détection d'intrusion</h3>
+          <span class="badge soon" id="mod3Badge">Bientôt</span>
+        </div>
+        <div class="video-locked">
+          <i class="fas fa-lock"></i>
+          <span id="comingSoon">Module disponible prochainement</span>
+        </div>
+        <div class="video-card-footer">
+          <a class="dl-btn pdf disabled"><i class="fas fa-file-pdf"></i> <span id="dlPdf3">Support PDF</span></a>
+          <a class="dl-btn quiz disabled"><i class="fas fa-question-circle"></i> <span id="dlQuiz3">Quiz</span></a>
+        </div>
+      </div>
+
     </div>
+
+    <!-- RESSOURCES -->
+    <div class="ressources-section">
+      <h3><i class="fas fa-folder-open"></i> <span id="ressourcesTitle">Ressources complémentaires</span></h3>
+      <div class="ressources-grid">
+        <a href="docs/glossaire-cyber.pdf" download class="ressource-card">
+          <div class="ressource-icon pdf"><i class="fas fa-file-pdf"></i></div>
+          <div class="ressource-info"><h4 id="res1Title">Glossaire cybersécurité</h4><span id="res1Desc">PDF · 45 termes essentiels</span></div>
+        </a>
+        <a href="docs/cheatsheet-linux.pdf" download class="ressource-card">
+          <div class="ressource-icon pdf"><i class="fas fa-terminal"></i></div>
+          <div class="ressource-info"><h4 id="res2Title">Cheatsheet Linux</h4><span id="res2Desc">PDF · Commandes essentielles</span></div>
+        </a>
+        <a href="https://tryhackme.com" target="_blank" class="ressource-card">
+          <div class="ressource-icon link"><i class="fas fa-shield-halved"></i></div>
+          <div class="ressource-info"><h4 id="res3Title">TryHackMe</h4><span id="res3Desc">Plateforme de labs pratiques</span></div>
+        </a>
+        <a href="https://attack.mitre.org" target="_blank" class="ressource-card">
+          <div class="ressource-icon link"><i class="fas fa-diagram-project"></i></div>
+          <div class="ressource-info"><h4 id="res4Title">MITRE ATT&CK</h4><span id="res4Desc">Framework des techniques d'attaque</span></div>
+        </a>
+        <a href="docs/outils-pentest.pdf" download class="ressource-card">
+          <div class="ressource-icon tool"><i class="fas fa-bug"></i></div>
+          <div class="ressource-info"><h4 id="res5Title">Outils pentest</h4><span id="res5Desc">PDF · Liste des outils recommandés</span></div>
+        </a>
+        <a href="reponse.html" target="_blank" class="ressource-card">
+          <div class="ressource-icon tool"><i class="fas fa-clipboard-list"></i></div>
+          <div class="ressource-info"><h4 id="res6Title">Formulaire de remédiation</h4><span id="res6Desc">Soumettre vos exercices</span></div>
+        </a>
+      </div>
+    </div>
+
+    <!-- CONTACT TUTOR -->
+    <div class="tutor-cta">
+      <div>
+        <i class="fas fa-graduation-cap" style="font-size:2rem; color:var(--accent); margin-bottom:.5rem; display:block;"></i>
+      </div>
+      <div class="tutor-cta-text">
+        <h3 id="tutorTitle">Une question sur le cours ?</h3>
+        <p id="tutorDesc">Abdeljalil répond à toutes vos questions techniques sous 24h.</p>
+      </div>
+      <div class="tutor-cta-btns">
+        <a href="https://wa.me/212728312801" target="_blank" class="btn-whatsapp">
+          <i class="fab fa-whatsapp"></i> <span id="btnWhatsapp">WhatsApp</span>
+        </a>
+        <a href="mailto:contact@nextgentechnologies.net" class="btn-email">
+          <i class="fas fa-envelope"></i> <span id="btnEmail">Email</span>
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="index.html" class="logo" style="font-size: 1.4rem;">
-        <svg class="logo-shield" viewBox="0 0 64 64" width="28" height="28">
+      <a href="index.html" class="logo" style="font-size:1.2rem;margin-bottom:.8rem;display:inline-flex;">
+        <svg viewBox="0 0 64 64" width="28" height="28">
           <path d="M32 4 L8 12 V28 C8 42 18 54 32 60 C46 54 56 42 56 28 V12 Z" fill="#00D4FF" stroke="#FFB800" stroke-width="1.5"/>
           <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="#EF4444" stroke="#7F1D1D" stroke-width="1.5"/>
         </svg>
-        <span style="color: white;">NextGen <span class="logo-text-accent">Technologies</span></span>
+        <span style="color:white;margin-left:.5rem;">NextGen <span class="logo-text-accent">Technologies</span></span>
       </a>
-      <p>Cybersécurité, conseil et formation au service des entreprises. Une protection complète, accessible et indépendante.</p>
+      <p id="footerDesc">Cybersécurité, conseil, SOC, infrastructure et sécurité offensive pour les entreprises modernes.</p>
     </div>
     <div class="footer-col">
-      <h4>Services</h4>
+      <h4 id="footerServices">Services</h4>
       <ul>
         <li><a href="soc-consultation.html">SOC Consultation</a></li>
         <li><a href="vapt.html">VAPT</a></li>
         <li><a href="cloud-security.html">Cloud Security</a></li>
-        <li><a href="academy.html">Academy</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Entreprise</h4>
+      <h4 id="footerCompany">Entreprise</h4>
       <ul>
         <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
         <li><a href="carrieres.html">Carrières</a></li>
@@ -510,37 +518,154 @@
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Légal</h4>
+      <h4 id="footerLegal">Légal</h4>
       <ul>
         <li><a href="#">Mentions légales</a></li>
         <li><a href="#">Confidentialité</a></li>
+        <li><a href="#">CGV</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
     <span>© 2026 NextGen Technologies SARL · Casablanca</span>
-    <span>Excellence & Innovation</span>
+    <span>Cybersecurity · Infrastructure · Innovation</span>
   </div>
 </footer>
 
 <script>
-  function checkPassword() {
-    const pwd = document.getElementById("passwordInput").value;
-    if (pwd === "youssef") {
-      document.getElementById("protectedSection").style.display = "block";
-      document.getElementById("loginSection").style.display = "none";
-    } else {
-      alert("Mot de passe incorrect");
-    }
+// ========================
+// TRADUCTIONS FR / EN
+// ========================
+const translations = {
+  fr: {
+    navAccueil:"Accueil", navServices:"Services", navSecteurs:"Secteurs",
+    navQuiSommesNous:"Qui sommes-nous", navCarrieres:"Carrières", navMenaces:"Menaces",
+    navCampus:"🎓 Campus Cyber", navContact:"Contact", navCta:"Audit gratuit",
+    breadHome:"Accueil", breadCampus:"Campus Cyber",
+    heroSubtitle:"Espace formation privé",
+    heroDesc:"Accès réservé aux élèves — supports de cours, vidéos et ressources techniques exclusives.",
+    trainerBadge:"Formation par un expert Security Architect",
+    trainerRole:"Security Architect & Formateur",
+    trainerDesc:"Expert en conception d'infrastructures sécurisées et responsable pédagogique de l'Academy NextGen.",
+    statModules:"Modules actifs", statRessources:"Ressources", statAcces:"Accès continu",
+    feat1:"Vidéos HD disponibles 24/7", feat2:"Supports PDF téléchargeables",
+    feat3:"Labs pratiques inclus", feat4:"Support formateur direct",
+    loginTitle:"Espace élève sécurisé",
+    loginDesc:"Entrez votre mot de passe pour accéder à vos ressources de formation.",
+    loginHint:"🔒 Accès réservé aux élèves inscrits à la formation NextGen Academy",
+    loginError:"Mot de passe incorrect. Contactez votre formateur.",
+    welcomeMsg:"Bienvenue ! Vous êtes connecté à votre espace de formation.",
+    modulesTitle:"📘 Mes modules de formation",
+    modulesDesc:"Progressez à votre rythme — chaque module contient une vidéo, un support PDF et un quiz d'évaluation.",
+    progressLabel:"Progression : Module 1 complété sur 3",
+    mod1Title:"Introduction à la cybersécurité", mod1Badge:"✓ Fait",
+    mod2Title:"Sécurité réseau & NGFW", mod2Badge:"Nouveau",
+    mod3Title:"SOC & détection d'intrusion", mod3Badge:"Bientôt",
+    comingSoon:"Module disponible prochainement",
+    dlPdf1:"Support PDF", dlQuiz1:"Quiz", dlPdf2:"Support PDF", dlQuiz2:"Quiz",
+    dlPdf3:"Support PDF", dlQuiz3:"Quiz",
+    ressourcesTitle:"Ressources complémentaires",
+    res1Title:"Glossaire cybersécurité", res1Desc:"PDF · 45 termes essentiels",
+    res2Title:"Cheatsheet Linux", res2Desc:"PDF · Commandes essentielles",
+    res3Title:"TryHackMe", res3Desc:"Plateforme de labs pratiques",
+    res4Title:"MITRE ATT&CK", res4Desc:"Framework des techniques d'attaque",
+    res5Title:"Outils pentest", res5Desc:"PDF · Liste des outils recommandés",
+    res6Title:"Formulaire de remédiation", res6Desc:"Soumettre vos exercices",
+    tutorTitle:"Une question sur le cours ?",
+    tutorDesc:"Abdeljalil répond à toutes vos questions techniques sous 24h.",
+    btnWhatsapp:"WhatsApp", btnEmail:"Email",
+    footerDesc:"Cybersécurité, conseil, SOC, infrastructure et sécurité offensive pour les entreprises modernes.",
+    footerServices:"Services", footerCompany:"Entreprise", footerLegal:"Légal"
+  },
+  en: {
+    navAccueil:"Home", navServices:"Services", navSecteurs:"Sectors",
+    navQuiSommesNous:"About us", navCarrieres:"Careers", navMenaces:"Threats",
+    navCampus:"🎓 Cyber Campus", navContact:"Contact", navCta:"Free audit",
+    breadHome:"Home", breadCampus:"Cyber Campus",
+    heroSubtitle:"Private learning space",
+    heroDesc:"Access reserved for students — course materials, videos and exclusive technical resources.",
+    trainerBadge:"Training by a Security Architect expert",
+    trainerRole:"Security Architect & Trainer",
+    trainerDesc:"Expert in secure infrastructure design and head of pedagogy at NextGen Academy.",
+    statModules:"Active modules", statRessources:"Resources", statAcces:"24/7 access",
+    feat1:"HD videos available 24/7", feat2:"Downloadable PDF materials",
+    feat3:"Practical labs included", feat4:"Direct trainer support",
+    loginTitle:"Secure student area",
+    loginDesc:"Enter your password to access your training resources.",
+    loginHint:"🔒 Access reserved for students enrolled in NextGen Academy",
+    loginError:"Incorrect password. Please contact your trainer.",
+    welcomeMsg:"Welcome! You are now connected to your training space.",
+    modulesTitle:"📘 My training modules",
+    modulesDesc:"Learn at your own pace — each module includes a video, a PDF handout and an assessment quiz.",
+    progressLabel:"Progress: Module 1 completed out of 3",
+    mod1Title:"Introduction to cybersecurity", mod1Badge:"✓ Done",
+    mod2Title:"Network security & NGFW", mod2Badge:"New",
+    mod3Title:"SOC & intrusion detection", mod3Badge:"Coming soon",
+    comingSoon:"Module available soon",
+    dlPdf1:"PDF Handout", dlQuiz1:"Quiz", dlPdf2:"PDF Handout", dlQuiz2:"Quiz",
+    dlPdf3:"PDF Handout", dlQuiz3:"Quiz",
+    ressourcesTitle:"Additional resources",
+    res1Title:"Cybersecurity glossary", res1Desc:"PDF · 45 essential terms",
+    res2Title:"Linux cheatsheet", res2Desc:"PDF · Essential commands",
+    res3Title:"TryHackMe", res3Desc:"Practical labs platform",
+    res4Title:"MITRE ATT&CK", res4Desc:"Attack techniques framework",
+    res5Title:"Pentest tools", res5Desc:"PDF · Recommended tools list",
+    res6Title:"Remediation form", res6Desc:"Submit your exercises",
+    tutorTitle:"A question about the course?",
+    tutorDesc:"Abdeljalil answers all your technical questions within 24h.",
+    btnWhatsapp:"WhatsApp", btnEmail:"Email",
+    footerDesc:"Cybersecurity, consulting, SOC, infrastructure and offensive security for modern businesses.",
+    footerServices:"Services", footerCompany:"Company", footerLegal:"Legal"
   }
+};
 
-  // Menu mobile
-  const menuToggle = document.getElementById('menuToggle');
-  const navLinks = document.getElementById('navLinks');
-  if (menuToggle && navLinks) {
-    menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+let currentLang = localStorage.getItem('nextgen-lang') || 'fr';
+
+function applyLanguage(lang) {
+  const t = translations[lang];
+  if (!t) return;
+  Object.keys(t).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = t[id];
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+  });
+  localStorage.setItem('nextgen-lang', lang);
+}
+
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    currentLang = btn.getAttribute('data-lang');
+    applyLanguage(currentLang);
+  });
+});
+
+// Menu mobile
+document.getElementById('menuToggle')?.addEventListener('click', () => {
+  document.getElementById('navLinks')?.classList.toggle('active');
+});
+
+// LOGIN
+function checkPassword() {
+  const pwd = document.getElementById('passwordInput').value;
+  const error = document.getElementById('loginError');
+  if (pwd === 'youssef') {
+    document.getElementById('loginSection').style.display = 'none';
+    document.getElementById('protectedSection').style.display = 'block';
+    document.getElementById('protectedSection').scrollIntoView({ behavior: 'smooth' });
+  } else {
+    error.style.display = 'block';
+    document.getElementById('passwordInput').style.borderColor = '#EF4444';
+    setTimeout(() => {
+      error.style.display = 'none';
+      document.getElementById('passwordInput').style.borderColor = '';
+    }, 3000);
   }
+}
+
+// Init
+applyLanguage(currentLang);
 </script>
-
 </body>
 </html>
