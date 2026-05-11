@@ -547,12 +547,8 @@ function applyLanguage(lang) {
     }
   });
   
-  // Changer l'image selon la langue (optionnel)
-  if (lang === 'en') {
-    document.getElementById('pageImage').src = "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=500&fit=crop";
-  } else {
-    document.getElementById('pageImage').src = "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=500&fit=crop";
-  }
+ // Garder l'image locale
+  document.getElementById('pageImage').src = "crime.jpg";
   
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
