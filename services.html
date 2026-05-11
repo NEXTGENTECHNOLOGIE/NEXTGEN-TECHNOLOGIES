@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Services clés NextGen Technologies — SOC, VAPT, Sécurité Réseau, Academy.">
+<meta name="description" content="Services clés NextGen Technologies — SOC, VAPT, Sécurité Réseau, Academy, Cybercrime.">
 <title>Nos services · NextGen Technologies</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -95,6 +95,7 @@ a { text-decoration: none; }
 .service-card:nth-child(3) { animation-delay: 0.2s; }
 .service-card:nth-child(4) { animation-delay: 0.3s; }
 .service-card:nth-child(5) { animation-delay: 0.4s; }
+.service-card:nth-child(6) { animation-delay: 0.5s; }
 
 @keyframes fadeInUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
 
@@ -389,7 +390,7 @@ footer { background: var(--primary-deep); border-top: 1px solid rgba(0,212,255,0
       <a href="index.html">Accueil</a> <i class="fas fa-chevron-right"></i> <span style="color:white" id="breadLabel">Nos services</span>
     </div>
     <h1>Nos <span class="accent">services</span><br><span id="headerSub">cybersécurité</span></h1>
-    <p id="pageDesc">5 domaines d'expertise complémentaires. Une approche neutre, indépendante des constructeurs.</p>
+    <p id="pageDesc">6 domaines d'expertise complémentaires. Une approche neutre, indépendante des constructeurs.</p>
   </div>
 </section>
 
@@ -423,7 +424,7 @@ footer { background: var(--primary-deep); border-top: 1px solid rgba(0,212,255,0
         </svg>
         <span style="color:white;margin-left:.5rem;">NextGen <span class="logo-text-accent">Technologies</span></span>
       </a>
-      <p id="footerDesc">Cybersécurité opérationnelle au Maroc. SOC, Pentest, Sécurité Réseau, Formation.</p>
+      <p id="footerDesc">Cybersécurité opérationnelle au Maroc. SOC, Pentest, Sécurité Réseau, Formation, Cybercrime.</p>
     </div>
     <div class="footer-col">
       <h4 id="footerServicesTitle">Services</h4>
@@ -431,6 +432,7 @@ footer { background: var(--primary-deep); border-top: 1px solid rgba(0,212,255,0
         <li><a href="soc-consultation.html">SOC Consultation</a></li>
         <li><a href="vapt.html">VAPT</a></li>
         <li><a href="securite-reseau.html">Sécurité Réseau</a></li>
+        <li><a href="cybercrime.html">Cybercrime</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -500,7 +502,7 @@ footer { background: var(--primary-deep); border-top: 1px solid rgba(0,212,255,0
 
 <script>
 // ========================
-// DONNÉES SERVICES
+// DONNÉES SERVICES (6 SERVICES)
 // ========================
 const servicesData = {
   fr: [
@@ -563,6 +565,25 @@ const servicesData = {
       stats: [{num:"12+", lbl:"Formations"},{num:"CompTIA", lbl:"Certifications"},{num:"100%", lbl:"Pratique"}],
       features: ["Bootcamps SOC Analyst & Pentester","Préparation certifications (Security+, CEH, CISSP)","Formation Cloud Security (Azure, AWS)","Sensibilisation cybersécurité pour tous les employés","Formations sur mesure selon vos besoins"],
       tags: ["Certification", "Bootcamp", "Pratique"]
+    },
+    {
+      title: "Cybercrime & Investigation Numérique",
+      badge: "Forensique",
+      desc: "Enquête technique sur fraudes, phishing, ransomware. Analyse forensique approfondie.",
+      img: "cybercrime.jpg",
+      link: "cybercrime.html",
+      tag: "Investigation technique",
+      longDesc: "🔍 Vos experts en investigation numérique interviennent pour : analyser la faille, retracer le cheminement de l'attaque, collecter les preuves techniques, identifier les indicateurs de compromission (IoC) et restaurer la sécurité de votre système.",
+      stats: [{num:"24h", lbl:"Intervention"},{num:"100%", lbl:"Analyse forensique"},{num:"Traçable", lbl:"Chaîne d'analyse"}],
+      features: [
+        "🕵️ Investigation post-incident (ransomware, hacking, exfiltration de données)",
+        "💻 Analyse forensique des systèmes, serveurs et postes de travail",
+        "📱 Investigation sur mobile, emails et logs cloud",
+        "📊 Rapport technique détaillé avec chronologie de l'attaque",
+        "🔍 Recherche d'indicateurs de compromission (IoC)",
+        "🛡️ Recommandations techniques pour durcir votre infrastructure"
+      ],
+      tags: ["Investigation", "Forensique", "IoC", "Incident"]
     }
   ],
   en: [
@@ -625,6 +646,25 @@ const servicesData = {
       stats: [{num:"12+", lbl:"Trainings"},{num:"CompTIA", lbl:"Certifications"},{num:"100%", lbl:"Hands-on"}],
       features: ["SOC Analyst & Pentester bootcamps","Certification prep (Security+, CEH, CISSP)","Cloud Security training (Azure, AWS)","Cybersecurity awareness for all employees","Custom training based on your needs"],
       tags: ["Certification", "Bootcamp", "Hands-on"]
+    },
+    {
+      title: "Cybercrime & Digital Investigation",
+      badge: "Forensics",
+      desc: "Technical investigation on fraud, phishing, ransomware. In-depth forensic analysis.",
+      img: "cybercrime.jpg",
+      link: "cybercrime.html",
+      tag: "Technical investigation",
+      longDesc: "🔍 Our digital investigation experts intervene to: analyze the breach, trace the attack path, collect technical evidence, identify Indicators of Compromise (IoC) and restore your system security.",
+      stats: [{num:"24h", lbl:"Response"},{num:"100%", lbl:"Forensic analysis"},{num:"Traceable", lbl:"Chain of custody"}],
+      features: [
+        "🕵️ Post-incident investigation (ransomware, hacking, data exfiltration)",
+        "💻 Forensic analysis of systems, servers and workstations",
+        "📱 Mobile, email and cloud logs investigation",
+        "📊 Detailed technical report with attack timeline",
+        "🔍 Indicators of Compromise (IoC) research",
+        "🛡️ Technical recommendations to harden your infrastructure"
+      ],
+      tags: ["Investigation", "Forensics", "IoC", "Incident"]
     }
   ]
 };
@@ -633,13 +673,13 @@ const servicesData = {
 const translations = {
   fr: {
     breadLabel: "Nos services", headerSub: "cybersécurité",
-    pageDesc: "5 domaines d'expertise complémentaires. Une approche neutre, indépendante des constructeurs.",
+    pageDesc: "6 domaines d'expertise complémentaires. Une approche neutre, indépendante des constructeurs.",
     servicesTag: "Nos offres clés", servicesTitle: "Une expertise par besoin",
     servicesSub: "Cliquez sur un service pour découvrir le détail et la méthodologie.",
     ctaTitle: "Prêt à sécuriser votre entreprise ?",
     ctaText: "Audit gratuit de 30 minutes pour évaluer vos besoins. Aucun engagement.",
     ctaBtn: "Demander un audit gratuit",
-    footerDesc: "Cybersécurité opérationnelle au Maroc. SOC, Pentest, Sécurité Réseau, Formation.",
+    footerDesc: "Cybersécurité opérationnelle au Maroc. SOC, Pentest, Sécurité Réseau, Formation, Cybercrime.",
     footerServicesTitle: "Services", footerSectorsTitle: "Secteurs", footerCompanyTitle: "Entreprise",
     footerCopyright: "© 2026 NextGen Technologies SARL · Casablanca",
     chatStatus: "En ligne",
@@ -648,13 +688,13 @@ const translations = {
   },
   en: {
     breadLabel: "Our services", headerSub: "cybersecurity",
-    pageDesc: "5 complementary areas of expertise. A neutral, vendor-agnostic approach.",
+    pageDesc: "6 complementary areas of expertise. A neutral, vendor-agnostic approach.",
     servicesTag: "Our key offers", servicesTitle: "Expertise by need",
     servicesSub: "Click on a service to discover details and methodology.",
     ctaTitle: "Ready to secure your business?",
     ctaText: "30-minute free audit to assess your needs. No commitment.",
     ctaBtn: "Request free audit",
-    footerDesc: "Operational cybersecurity in Morocco. SOC, Pentest, Network Security, Training.",
+    footerDesc: "Operational cybersecurity in Morocco. SOC, Pentest, Network Security, Training, Cybercrime.",
     footerServicesTitle: "Services", footerSectorsTitle: "Sectors", footerCompanyTitle: "Company",
     footerCopyright: "© 2026 NextGen Technologies SARL · Casablanca",
     chatStatus: "Online",
@@ -708,15 +748,13 @@ function openModal(index) {
   document.getElementById('modalImg').src = s.img;
   document.getElementById('modalTag').textContent = s.tag;
   document.getElementById('modalTitle').textContent = s.title;
-  document.getElementById('modalDesc').textContent = s.longDesc;
+  document.getElementById('modalDesc').innerHTML = s.longDesc;
   document.getElementById('modalCtaBtn').textContent = translations[currentLang].modalCtaBtn;
   document.getElementById('modalBackBtn').textContent = translations[currentLang].modalBackBtn;
 
-  // Stats
   const statsEl = document.getElementById('modalStats');
   statsEl.innerHTML = s.stats.map(st => `<div class="modal-stat"><div class="num">${st.num}</div><div class="lbl">${st.lbl}</div></div>`).join('');
 
-  // Features
   const featEl = document.getElementById('modalFeatures');
   featEl.innerHTML = s.features.map(f => `<li><i class="fas fa-check-circle"></i> ${f}</li>`).join('');
 
