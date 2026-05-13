@@ -161,14 +161,52 @@ a { text-decoration: none; }
 .nav-cta:hover { transform: translateY(-2px) !important; background: var(--accent) !important; color: var(--primary) !important; }
 .menu-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
 
+/* ===================================================== */
+/* SLIDER PREMIUM 2029 - EFFETS WOW */
+/* ===================================================== */
+
+.particle-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+
 .slider {
   position: relative;
   width: 100%;
-  height: 85vh;
-  min-height: 550px;
+  height: 90vh;
+  min-height: 600px;
+  overflow: hidden;
+  background: #050B14;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1), visibility 0.8s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
   overflow: hidden;
 }
-.slide {
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slide-bg {
   position: absolute;
   top: 0;
   left: 0;
@@ -176,81 +214,162 @@ a { text-decoration: none; }
   height: 100%;
   background-size: cover;
   background-position: center;
-  opacity: 0;
-  transition: opacity 0.8s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
+  transition: transform 0.3s ease-out;
+  z-index: 1;
 }
+
+.slide.active .slide-bg {
+  transform: scale(1.08);
+  animation: slowZoom 8s ease-out forwards;
+}
+
+@keyframes slowZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.12); }
+}
+
 .slide::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(5,11,20,0.85), rgba(7,20,38,0.7));
+  background: linear-gradient(135deg, rgba(5,11,20,0.75), rgba(7,20,38,0.65));
+  backdrop-filter: blur(2px);
+  z-index: 2;
 }
-.slide.active { opacity: 1; }
+
 .slide .caption {
   position: relative;
-  z-index: 2;
-  max-width: 800px;
+  z-index: 25;
+  max-width: 900px;
   padding: 2rem;
-}
-.slide .caption h1 {
-  font-size: clamp(2rem, 4.5vw, 3.5rem);
-  margin-bottom: 1rem;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-}
-.slide .caption h1 .accent-text { color: var(--accent); }
-.slide .caption p {
-  font-size: 1.1rem;
-  color: var(--gray-light);
-  margin-bottom: 1.5rem;
-}
-.slide .caption .btn-hero {
-  background: linear-gradient(135deg, var(--red), var(--red-dark));
-  color: var(--white);
-  padding: 0.8rem 2rem;
+  background: rgba(5,11,20,0.35);
+  backdrop-filter: blur(12px);
   border-radius: 40px;
-  font-weight: 700;
-  transition: var(--transition);
+  border: 1px solid rgba(0,212,255,0.25);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3), 0 0 30px rgba(0,212,255,0.1);
+  animation: captionFloat 0.6s ease-out;
+}
+
+@keyframes captionFloat {
+  0% { opacity: 0; transform: translateY(40px) scale(0.96); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.slide .caption h1 {
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 20px rgba(0,212,255,0.3);
+}
+
+.slide .caption h1 .accent-text {
+  color: var(--accent);
+  text-shadow: 0 0 15px rgba(0,212,255,0.5);
+  position: relative;
   display: inline-block;
 }
-.slide .caption .btn-hero:hover {
+
+.slide .caption h1 .accent-text::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  animation: linePulse 2s infinite;
+}
+
+@keyframes linePulse {
+  0%, 100% { width: 0%; opacity: 0; }
+  50% { width: 100%; opacity: 1; }
+}
+
+.hero-desc {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 1.8rem;
+  letter-spacing: 0.3px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-hero {
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
+  color: var(--white);
+  padding: 0.9rem 2rem;
+  border-radius: 40px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  box-shadow: 0 5px 20px rgba(239,68,68,0.3);
+}
+
+.btn-hero:hover {
   transform: translateY(-3px);
   background: var(--accent);
   color: var(--primary);
+  box-shadow: 0 10px 30px rgba(0,212,255,0.4);
 }
+
+.btn-hero-outline {
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  padding: 0.85rem 2rem;
+  border-radius: 40px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.btn-hero-outline:hover {
+  background: var(--accent);
+  color: var(--primary);
+  transform: translateY(-3px);
+}
+
 .controls {
   position: absolute;
   top: 50%;
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 30px;
   transform: translateY(-50%);
-  z-index: 10;
+  z-index: 30;
 }
+
 .controls div {
-  background: rgba(0,212,255,0.2);
-  backdrop-filter: blur(5px);
-  color: white;
-  width: 45px;
-  height: 45px;
+  background: rgba(0,212,255,0.15);
+  backdrop-filter: blur(8px);
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: var(--transition);
-  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,212,255,0.3);
 }
+
 .controls div:hover {
   background: var(--red);
-  color: var(--white);
-  transform: scale(1.1);
+  border-color: var(--red);
+  transform: scale(1.15);
 }
+
 .indicator {
   position: absolute;
   bottom: 30px;
@@ -258,20 +377,40 @@ a { text-decoration: none; }
   transform: translateX(-50%);
   display: flex;
   gap: 12px;
-  z-index: 10;
+  z-index: 30;
 }
+
 .indicator div {
   width: 10px;
   height: 10px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.4);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.3);
+  transition: all 0.4s ease;
   cursor: pointer;
-  transition: var(--transition);
 }
+
 .indicator div.active {
   background: var(--red);
-  width: 25px;
-  border-radius: 10px;
+  width: 30px;
+  box-shadow: 0 0 12px rgba(239,68,68,0.6);
+}
+
+.custom-cursor {
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: all 0.05s linear;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  box-shadow: 0 0 15px rgba(0,212,255,0.5);
+}
+
+body:hover .custom-cursor {
+  opacity: 1;
 }
 
 .values-section {
@@ -432,10 +571,6 @@ a { text-decoration: none; }
   transition: var(--transition);
 }
 .service-card:hover .service-link { gap: 0.8rem; color: var(--red); }
-
-/* ===================================================== */
-/* STYLES CARTE KASPERSKY - INTEGRATION TOTALE */
-/* ===================================================== */
 
 .cyber-map-section {
   padding: 5rem 4%;
@@ -715,6 +850,9 @@ footer {
   .values-grid, .stats-container, .services-grid { grid-template-columns: 1fr; }
   .slider { height: 100vh; }
   .banner-cta { margin: 2rem 4% 2rem; padding: 2rem; }
+  .hero-buttons { flex-direction: column; align-items: center; }
+  .slide .caption { margin: 0 1rem; padding: 1.5rem; }
+  .controls div { width: 40px; height: 40px; }
 }
 </style>
 </head>
@@ -754,7 +892,6 @@ footer {
       <li><a href="secteurs.html">Secteurs</a></li>
       <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
       <li><a href="carrieres.html">Carrières</a></li>
-     
       <li><a href="campus-cyber.html">🎓 Campus Cyber</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="contact.html" class="nav-cta">Audit gratuit</a></li>
@@ -763,34 +900,55 @@ footer {
   </div>
 </nav>
 
-<!-- SLIDER HERO -->
+<!-- ===================================================== -->
+<!-- SLIDER HERO PREMIUM 2029 - CYBERPUNK + HOLOGRAM -->
+<!-- ===================================================== -->
 <div class="slider" id="heroSlider">
-  <div class="slide active" style="background-image: url('cyber.jpg');">
+  
+  <canvas id="particleCanvas" class="particle-canvas"></canvas>
+  
+  <div class="slide active" data-speed="0.05" data-image="https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg">
+    <div class="slide-bg"></div>
     <div class="caption">
-      <h1 id="heroTitle">Dans un monde <span class="accent-text">connecté</span>, chaque entreprise devient une cible</h1>
-      <p id="heroDesc">SOC, Sécurité Réseau et Pentest pour les entreprises marocaines.</p>
-      <a href="contact.html" class="btn-hero" id="heroBtn">Audit gratuit <i class="fas fa-arrow-right"></i></a>
+      <h1 id="heroTitle">Dans un monde <span class="accent-text">connecté</span>,<br>chaque entreprise devient une cible</h1>
+      <p id="heroDesc" class="hero-desc">SOC, Sécurité Réseau et Pentest pour les entreprises marocaines.</p>
+      <div class="hero-buttons">
+        <a href="contact.html" class="btn-hero" id="heroBtn">Audit gratuit <i class="fas fa-arrow-right"></i></a>
+        <a href="services.html" class="btn-hero-outline">Découvrir nos offres</a>
+      </div>
     </div>
   </div>
-  <div class="slide" style="background-image: url('main.jpg');">
+  
+  <div class="slide" data-speed="0.03" data-image="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg">
+    <div class="slide-bg"></div>
     <div class="caption">
-      <h1>Nous transformons les <span class="accent-text">vulnérabilités</span> en forces</h1>
-      <p>Surveillance 24/7 de votre infrastructure critique.</p>
-      <a href="contact.html" class="btn-hero">En savoir plus</a>
+      <h1>Surveillance <span class="accent-text">24/7</span> de votre infrastructure critique</h1>
+      <p class="hero-desc">Notre SOC veille jour et nuit sur vos données sensibles.</p>
+      <div class="hero-buttons">
+        <a href="contact.html" class="btn-hero">Demander un audit <i class="fas fa-shield-alt"></i></a>
+      </div>
     </div>
   </div>
-  <div class="slide" style="background-image: url('top.jpg');">
+  
+  <div class="slide" data-speed="0.07" data-image="https://images.pexels.com/photos/5474285/pexels-photo-5474285.jpeg">
+    <div class="slide-bg"></div>
     <div class="caption">
-      <h1>Sécuriser <span class="accent-text">aujourd'hui</span> pour performer demain</h1>
-      <p>Pentest et audit de vulnérabilités pour valider votre sécurité.</p>
-      <a href="contact.html" class="btn-hero">Demander un audit</a>
+      <h1>Sécuriser <span class="accent-text">aujourd'hui</span><br>pour performer demain</h1>
+      <p class="hero-desc">Pentest, audit et cyberdéfense nouvelle génération.</p>
+      <div class="hero-buttons">
+        <a href="contact.html" class="btn-hero">Réserver un audit <i class="fas fa-chart-line"></i></a>
+      </div>
     </div>
   </div>
+
   <div class="controls">
-    <div class="prev" id="prevSlide">❮</div>
-    <div class="next" id="nextSlide">❯</div>
+    <div class="prev" id="prevSlide"><i class="fas fa-chevron-left"></i></div>
+    <div class="next" id="nextSlide"><i class="fas fa-chevron-right"></i></div>
   </div>
+  
   <div class="indicator" id="slideIndicator"></div>
+  
+  <div class="custom-cursor"></div>
 </div>
 
 <!-- VALUES SECTION -->
@@ -838,10 +996,7 @@ footer {
   </div>
 </section>
 
-<!-- ===================================================== -->
 <!-- CARTE KASPERSKY - THREAT INTELLIGENCE -->
-<!-- ===================================================== -->
-
 <section class="cyber-map-section">
   <div class="cyber-map-container">
     <div class="cyber-map-header">
@@ -927,21 +1082,21 @@ const servicesData = {
   {title:"Pentest / VAPT", desc:"On teste votre système comme un hacker.", img:"vapt.webp", link:"vapt.html"},
   {title:"Sécurité Réseau", desc:"On protège votre infrastructure contre les intrusions.", img:"securite-reseau.jpg", link:"securite-reseau.html"},
   {title:"SOC Consultation", desc:"On surveille votre système 24/7 après sécurisation.", img:"soc-consultation.jpg", link:"soc-consultation.html"},
-{title:"Cybercrime & Investigation Numérique", desc:"Enquête fraude, phishing, ransomware. Preuves recevables devant les juridictions marocaines.", img:"cybercrime.jpg", link:"cybercrime.html"}
+  {title:"Cybercrime & Investigation Numérique", desc:"Enquête fraude, phishing, ransomware. Preuves recevables devant les juridictions marocaines.", img:"cybercrime.jpg", link:"cybercrime.html"}
 ],
 en: [
   {title:"Audit & Diagnostic", desc:"We identify your critical flaws in a few days.", img:"audit-diagnostic.jpg", link:"contact.html"},
   {title:"Pentest / VAPT", desc:"We test your system like a hacker.", img:"vapt.webp", link:"vapt.html"},
   {title:"Network Security", desc:"We protect your infrastructure against intrusions.", img:"securite-reseau.jpg", link:"securite-reseau.html"},
   {title:"SOC Consulting", desc:"We monitor your system 24/7 after securing it.", img:"soc-consultation.jpg", link:"soc-consultation.html"},
-{title:"Cybercrime & Private Investigation", desc:"Fraud, phishing, ransomware investigation. Evidence admissible before Moroccan courts.", img:"cybercrime.jpg", link:"cybercrime.html"}
+  {title:"Cybercrime & Private Investigation", desc:"Fraud, phishing, ransomware investigation. Evidence admissible before Moroccan courts.", img:"cybercrime.jpg", link:"cybercrime.html"}
 ]
 };
 
 // TRADUCTIONS FR/EN
 const translations = {
   fr: {
-    heroTitle: "Dans un monde <span class='accent-text'>connecté</span>, chaque entreprise devient une cible",
+    heroTitle: "Dans un monde <span class='accent-text'>connecté</span>,<br>chaque entreprise devient une cible",
     heroDesc: "SOC, Sécurité Réseau et Pentest pour les entreprises marocaines.",
     heroBtn: "Audit gratuit <i class='fas fa-arrow-right'></i>",
     valuesTag: "Nos valeurs", valuesTitle: "Pourquoi nous faire confiance ?",
@@ -954,7 +1109,7 @@ const translations = {
     ctaTitle: "Prêt à sécuriser votre entreprise ?", ctaText: "Audit gratuit de 30 minutes pour évaluer vos besoins. Aucun engagement.", ctaBtn: "Demander un audit gratuit"
   },
   en: {
-    heroTitle: "In a <span class='accent-text'>connected</span> world, every company becomes a target",
+    heroTitle: "In a <span class='accent-text'>connected</span> world,<br>every company becomes a target",
     heroDesc: "SOC, Network Security and Pentest for Moroccan companies.",
     heroBtn: "Free audit <i class='fas fa-arrow-right'></i>",
     valuesTag: "Our values", valuesTitle: "Why trust us?",
@@ -974,35 +1129,55 @@ function applyLanguage(lang) {
   const t = translations[lang];
   if (!t) return;
   
-  document.getElementById('heroTitle').innerHTML = t.heroTitle;
-  document.getElementById('heroDesc').innerText = t.heroDesc;
-  document.getElementById('heroBtn').innerHTML = t.heroBtn;
+  const heroTitle = document.getElementById('heroTitle');
+  if (heroTitle) heroTitle.innerHTML = t.heroTitle;
+  const heroDesc = document.getElementById('heroDesc');
+  if (heroDesc) heroDesc.innerText = t.heroDesc;
+  const heroBtn = document.getElementById('heroBtn');
+  if (heroBtn) heroBtn.innerHTML = t.heroBtn;
   
-  document.getElementById('valuesTag').innerText = t.valuesTag;
-  document.getElementById('valuesTitle').innerText = t.valuesTitle;
-  document.getElementById('value1Title').innerText = t.value1Title;
-  document.getElementById('value1Desc').innerText = t.value1Desc;
-  document.getElementById('value2Title').innerText = t.value2Title;
-  document.getElementById('value2Desc').innerText = t.value2Desc;
-  document.getElementById('value3Title').innerText = t.value3Title;
-  document.getElementById('value3Desc').innerText = t.value3Desc;
+  const valuesTag = document.getElementById('valuesTag');
+  if (valuesTag) valuesTag.innerText = t.valuesTag;
+  const valuesTitle = document.getElementById('valuesTitle');
+  if (valuesTitle) valuesTitle.innerText = t.valuesTitle;
+  const value1Title = document.getElementById('value1Title');
+  if (value1Title) value1Title.innerText = t.value1Title;
+  const value1Desc = document.getElementById('value1Desc');
+  if (value1Desc) value1Desc.innerText = t.value1Desc;
+  const value2Title = document.getElementById('value2Title');
+  if (value2Title) value2Title.innerText = t.value2Title;
+  const value2Desc = document.getElementById('value2Desc');
+  if (value2Desc) value2Desc.innerText = t.value2Desc;
+  const value3Title = document.getElementById('value3Title');
+  if (value3Title) value3Title.innerText = t.value3Title;
+  const value3Desc = document.getElementById('value3Desc');
+  if (value3Desc) value3Desc.innerText = t.value3Desc;
   
   for (let i = 0; i < t.statLabels.length; i++) {
     const labelEl = document.getElementById(`statLabel${i+1}`);
     if (labelEl) labelEl.innerText = t.statLabels[i];
   }
   
-  document.getElementById('servicesTag').innerText = t.servicesTag;
-  document.getElementById('servicesTitle').innerText = t.servicesTitle;
-  document.getElementById('servicesSub').innerText = t.servicesSub;
+  const servicesTag = document.getElementById('servicesTag');
+  if (servicesTag) servicesTag.innerText = t.servicesTag;
+  const servicesTitle = document.getElementById('servicesTitle');
+  if (servicesTitle) servicesTitle.innerText = t.servicesTitle;
+  const servicesSub = document.getElementById('servicesSub');
+  if (servicesSub) servicesSub.innerText = t.servicesSub;
   
-  document.getElementById('bannerTitle').innerHTML = t.bannerTitle;
-  document.getElementById('bannerText').innerText = t.bannerText;
-  document.getElementById('bannerBtn').innerHTML = t.bannerBtn + ' <i class="fas fa-arrow-right"></i>';
+  const bannerTitle = document.getElementById('bannerTitle');
+  if (bannerTitle) bannerTitle.innerHTML = t.bannerTitle;
+  const bannerText = document.getElementById('bannerText');
+  if (bannerText) bannerText.innerText = t.bannerText;
+  const bannerBtn = document.getElementById('bannerBtn');
+  if (bannerBtn) bannerBtn.innerHTML = t.bannerBtn + ' <i class="fas fa-arrow-right"></i>';
   
-  document.getElementById('ctaTitle').innerText = t.ctaTitle;
-  document.getElementById('ctaText').innerText = t.ctaText;
-  document.getElementById('ctaBtn').innerHTML = t.ctaBtn + ' <i class="fas fa-arrow-right"></i>';
+  const ctaTitle = document.getElementById('ctaTitle');
+  if (ctaTitle) ctaTitle.innerText = t.ctaTitle;
+  const ctaText = document.getElementById('ctaText');
+  if (ctaText) ctaText.innerText = t.ctaText;
+  const ctaBtn = document.getElementById('ctaBtn');
+  if (ctaBtn) ctaBtn.innerHTML = t.ctaBtn + ' <i class="fas fa-arrow-right"></i>';
   
   const servicesGrid = document.getElementById('servicesGrid');
   if (servicesGrid) {
@@ -1035,14 +1210,110 @@ if (slides.length && indicator) {
   function goToSlide(index) { slides[currentSlide].classList.remove('active'); currentSlide = (index + slides.length) % slides.length; slides[currentSlide].classList.add('active'); updateIndicators(); }
   function nextSlide() { goToSlide(currentSlide + 1); }
   function prevSlide() { goToSlide(currentSlide - 1); }
-  prevBtn?.addEventListener('click', prevSlide);
-  nextBtn?.addEventListener('click', nextSlide);
+  if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+  if (nextBtn) nextBtn.addEventListener('click', nextSlide);
   setInterval(nextSlide, 6000);
   updateIndicators();
 }
 
+// Chargement dynamique des images de fond
+document.querySelectorAll('.slide').forEach(slide => {
+  const imgUrl = slide.getAttribute('data-image');
+  if (imgUrl) {
+    const bgDiv = slide.querySelector('.slide-bg');
+    if (bgDiv) bgDiv.style.backgroundImage = `url('${imgUrl}')`;
+  }
+});
+
+// Système de particules Canvas
+const canvas = document.getElementById('particleCanvas');
+if (canvas) {
+  let ctx = canvas.getContext('2d');
+  let particles = [];
+  let particleCount = 80;
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    const slider = document.querySelector('.slider');
+    canvas.height = slider ? slider.offsetHeight : 600;
+  }
+
+  function initParticles() {
+    particles = [];
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 2 + 1,
+        speedX: (Math.random() - 0.5) * 0.5,
+        speedY: (Math.random() - 0.5) * 0.3,
+        opacity: Math.random() * 0.5 + 0.2
+      });
+    }
+  }
+
+  function drawParticles() {
+    if (!ctx) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let p of particles) {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(0, 212, 255, ${p.opacity})`;
+      ctx.fill();
+      
+      p.x += p.speedX;
+      p.y += p.speedY;
+      
+      if (p.x < 0) p.x = canvas.width;
+      if (p.x > canvas.width) p.x = 0;
+      if (p.y < 0) p.y = canvas.height;
+      if (p.y > canvas.height) p.y = 0;
+    }
+    requestAnimationFrame(drawParticles);
+  }
+
+  window.addEventListener('resize', () => {
+    resizeCanvas();
+    initParticles();
+  });
+  
+  resizeCanvas();
+  initParticles();
+  drawParticles();
+}
+
+// Effet parallax au mouvement de la souris
+document.querySelectorAll('.slide').forEach(slide => {
+  const bg = slide.querySelector('.slide-bg');
+  if (bg) {
+    slide.addEventListener('mousemove', (e) => {
+      if (!slide.classList.contains('active')) return;
+      const rect = slide.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
+      const speed = parseFloat(slide.getAttribute('data-speed') || 0.05);
+      const moveX = (x - 0.5) * 30 * speed;
+      const moveY = (y - 0.5) * 20 * speed;
+      bg.style.transform = `scale(1.08) translate(${moveX}px, ${moveY}px)`;
+    });
+    slide.addEventListener('mouseleave', () => {
+      bg.style.transform = 'scale(1.08) translate(0, 0)';
+    });
+  }
+});
+
+// Curseur personnalisé
+const cursor = document.querySelector('.custom-cursor');
+if (cursor) {
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+}
+
 // COMPTEURS ANIMÉS
 function animateNumber(element, target) {
+  if (!element) return;
   let current = 0, increment = target / 50;
   const timer = setInterval(() => {
     current += increment;
@@ -1058,7 +1329,8 @@ const statObserver = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.3 });
-statObserver.observe(document.querySelector('.stats-section'));
+const statsSection = document.querySelector('.stats-section');
+if (statsSection) statObserver.observe(statsSection);
 
 // REVEAL ANIMATIONS
 const revealObserver = new IntersectionObserver((entries) => {
@@ -1078,14 +1350,15 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 });
 
 // MENU MOBILE
-document.getElementById('menuToggle')?.addEventListener('click', () => {
-  document.getElementById('navLinks')?.classList.toggle('active');
-});
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+}
 
-// =====================================================
-// ANIMATION DES COMPTEURS CYBER (KASPERSKY)
-// =====================================================
-
+// ANIMATION DES COMPTEURS CYBER
 function animateCyberCounters() {
   const counters = [
     { id: 'attackCounter1', min: 12000, max: 15000 },
