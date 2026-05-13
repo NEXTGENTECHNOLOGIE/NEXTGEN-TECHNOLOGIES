@@ -162,9 +162,8 @@ a { text-decoration: none; }
 .menu-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
 
 /* ===================================================== */
-/* SLIDER PREMIUM 2029 - EFFETS WOW */
+/* SLIDER PREMIUM 2029 */
 /* ===================================================== */
-
 .particle-canvas {
   position: absolute;
   top: 0;
@@ -174,16 +173,14 @@ a { text-decoration: none; }
   z-index: 5;
   pointer-events: none;
 }
-
 .slider {
   position: relative;
   width: 100%;
-  height: 90vh;
-  min-height: 600px;
+  height: 85vh;
+  min-height: 550px;
   overflow: hidden;
   background: #050B14;
 }
-
 .slide {
   position: absolute;
   top: 0;
@@ -200,12 +197,10 @@ a { text-decoration: none; }
   color: white;
   overflow: hidden;
 }
-
 .slide.active {
   opacity: 1;
   visibility: visible;
 }
-
 .slide-bg {
   position: absolute;
   top: 0;
@@ -217,17 +212,14 @@ a { text-decoration: none; }
   transition: transform 0.3s ease-out;
   z-index: 1;
 }
-
 .slide.active .slide-bg {
   transform: scale(1.08);
   animation: slowZoom 8s ease-out forwards;
 }
-
 @keyframes slowZoom {
   0% { transform: scale(1); }
   100% { transform: scale(1.12); }
 }
-
 .slide::before {
   content: '';
   position: absolute;
@@ -236,7 +228,6 @@ a { text-decoration: none; }
   backdrop-filter: blur(2px);
   z-index: 2;
 }
-
 .slide .caption {
   position: relative;
   z-index: 25;
@@ -249,96 +240,68 @@ a { text-decoration: none; }
   box-shadow: 0 20px 50px rgba(0,0,0,0.3), 0 0 30px rgba(0,212,255,0.1);
   animation: captionFloat 0.6s ease-out;
 }
-
 @keyframes captionFloat {
   0% { opacity: 0; transform: translateY(40px) scale(0.96); }
   100% { opacity: 1; transform: translateY(0) scale(1); }
 }
-
 .slide .caption h1 {
-  font-size: clamp(2rem, 5vw, 3.8rem);
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
   font-weight: 800;
   letter-spacing: -0.02em;
   margin-bottom: 1rem;
-  text-shadow: 0 0 20px rgba(0,212,255,0.3);
+  line-height: 1.3;
 }
-
 .slide .caption h1 .accent-text {
   color: var(--accent);
   text-shadow: 0 0 15px rgba(0,212,255,0.5);
-  position: relative;
-  display: inline-block;
 }
-
-.slide .caption h1 .accent-text::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  animation: linePulse 2s infinite;
-}
-
-@keyframes linePulse {
-  0%, 100% { width: 0%; opacity: 0; }
-  50% { width: 100%; opacity: 1; }
-}
-
-.hero-desc {
-  font-size: 1.1rem;
+.slide-desc {
+  font-size: 1rem;
   color: rgba(255,255,255,0.85);
   margin-bottom: 1.8rem;
   letter-spacing: 0.3px;
 }
-
-.hero-buttons {
+.slide-buttons {
   display: flex;
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
 }
-
-.btn-hero {
+.btn-slide {
   background: linear-gradient(135deg, var(--red), var(--red-dark));
   color: var(--white);
-  padding: 0.9rem 2rem;
+  padding: 0.7rem 1.5rem;
   border-radius: 40px;
-  font-weight: 700;
+  font-weight: 600;
   transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  box-shadow: 0 5px 20px rgba(239,68,68,0.3);
+  gap: 0.5rem;
+  font-size: 0.9rem;
 }
-
-.btn-hero:hover {
-  transform: translateY(-3px);
+.btn-slide:hover {
+  transform: translateY(-2px);
   background: var(--accent);
   color: var(--primary);
-  box-shadow: 0 10px 30px rgba(0,212,255,0.4);
 }
-
-.btn-hero-outline {
+.btn-slide-outline {
   background: transparent;
   border: 2px solid var(--accent);
   color: var(--accent);
-  padding: 0.85rem 2rem;
+  padding: 0.65rem 1.5rem;
   border-radius: 40px;
-  font-weight: 700;
+  font-weight: 600;
   transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.5rem;
+  font-size: 0.9rem;
 }
-
-.btn-hero-outline:hover {
+.btn-slide-outline:hover {
   background: var(--accent);
   color: var(--primary);
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
-
 .controls {
   position: absolute;
   top: 50%;
@@ -349,7 +312,6 @@ a { text-decoration: none; }
   transform: translateY(-50%);
   z-index: 30;
 }
-
 .controls div {
   background: rgba(0,212,255,0.15);
   backdrop-filter: blur(8px);
@@ -363,13 +325,11 @@ a { text-decoration: none; }
   transition: all 0.3s ease;
   border: 1px solid rgba(0,212,255,0.3);
 }
-
 .controls div:hover {
   background: var(--red);
   border-color: var(--red);
   transform: scale(1.15);
 }
-
 .indicator {
   position: absolute;
   bottom: 30px;
@@ -379,7 +339,6 @@ a { text-decoration: none; }
   gap: 12px;
   z-index: 30;
 }
-
 .indicator div {
   width: 10px;
   height: 10px;
@@ -388,31 +347,15 @@ a { text-decoration: none; }
   transition: all 0.4s ease;
   cursor: pointer;
 }
-
 .indicator div.active {
   background: var(--red);
   width: 30px;
   box-shadow: 0 0 12px rgba(239,68,68,0.6);
 }
 
-.custom-cursor {
-  width: 30px;
-  height: 30px;
-  border: 2px solid var(--accent);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  transition: all 0.05s linear;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  box-shadow: 0 0 15px rgba(0,212,255,0.5);
-}
-
-body:hover .custom-cursor {
-  opacity: 1;
-}
-
+/* ===================================================== */
+/* SECTIONS PRINCIPALES */
+/* ===================================================== */
 .values-section {
   padding: 5rem 4%;
   background: #071426;
@@ -450,16 +393,169 @@ body:hover .custom-cursor {
   color: var(--white);
   font-size: 1.8rem;
 }
-.value-card h3 {
-  color: var(--white);
-  font-size: 1.3rem;
-  margin-bottom: 0.8rem;
+.value-card h3 { color: var(--white); font-size: 1.3rem; margin-bottom: 0.8rem; }
+.value-card p { color: var(--gray-light); font-size: 0.9rem; }
+
+/* ===================================================== */
+/* SECTION PREMIUM 2090 - PROACTIVE CYBER DEFENSE */
+/* ===================================================== */
+.cyber-defense-premium {
+  padding: 5rem 4%;
+  background: linear-gradient(135deg, #050B14, #0A1628);
+  position: relative;
+  overflow: hidden;
 }
-.value-card p {
+.cyber-defense-premium::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 50%, rgba(0,212,255,0.08), transparent 70%);
+  animation: rotateGlow 20s linear infinite;
+  pointer-events: none;
+}
+@keyframes rotateGlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.cyber-defense-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 5;
+}
+.cyber-defense-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.defense-badge {
+  display: inline-block;
+  background: rgba(0,212,255,0.15);
+  border: 1px solid rgba(0,212,255,0.3);
+  padding: 0.3rem 1rem;
+  border-radius: 40px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+.defense-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  color: var(--white);
+  margin-bottom: 1.2rem;
+  line-height: 1.2;
+}
+.defense-desc {
   color: var(--gray-light);
-  font-size: 0.9rem;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+.defense-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.defense-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(0,212,255,0.2);
+  padding: 0.5rem 1.2rem;
+  border-radius: 40px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.defense-feature i { color: var(--accent); font-size: 0.9rem; }
+.defense-feature:hover {
+  background: rgba(0,212,255,0.1);
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+.defense-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
+  color: var(--white);
+  padding: 0.8rem 2rem;
+  border-radius: 40px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+.defense-btn:hover {
+  transform: translateY(-3px);
+  background: var(--accent);
+  color: var(--primary);
+  box-shadow: 0 10px 30px rgba(0,212,255,0.3);
+}
+.cyber-defense-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hologram-globe {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.globe-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(0,212,255,0.5);
+  border-radius: 50%;
+  animation: pulseRing 3s ease-out infinite;
+}
+.globe-ring2 {
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  border: 2px solid rgba(239,68,68,0.4);
+  border-radius: 50%;
+  animation: pulseRing2 2.5s ease-out infinite 0.5s;
+}
+.globe-core {
+  width: 40%;
+  height: 40%;
+  background: radial-gradient(circle, var(--accent), rgba(0,212,255,0.2));
+  border-radius: 50%;
+  box-shadow: 0 0 40px rgba(0,212,255,0.4);
+  animation: corePulse 2s ease-in-out infinite;
+}
+@keyframes pulseRing {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(1.2); opacity: 0; }
+}
+@keyframes pulseRing2 {
+  0% { transform: scale(0.8); opacity: 0.6; }
+  100% { transform: scale(1.3); opacity: 0; }
+}
+@keyframes corePulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+@media (max-width: 768px) {
+  .cyber-defense-grid { grid-template-columns: 1fr; text-align: center; }
+  .defense-features { justify-content: center; }
+  .hologram-globe { margin-top: 2rem; }
 }
 
+/* ===================================================== */
+/* STATS SECTION */
+/* ===================================================== */
 .stats-section {
   background: linear-gradient(135deg, var(--primary), var(--primary-light));
   padding: 4rem 4%;
@@ -479,20 +575,16 @@ body:hover .custom-cursor {
   color: var(--accent);
   line-height: 1;
 }
-.stat-item .stat-label {
-  color: var(--gray-light);
-  font-size: 0.85rem;
-  margin-top: 0.4rem;
-}
+.stat-item .stat-label { color: var(--gray-light); font-size: 0.85rem; margin-top: 0.4rem; }
 
+/* ===================================================== */
+/* SERVICES SECTION */
+/* ===================================================== */
 .services-section {
   padding: 5rem 4%;
   background: var(--primary-deep);
 }
-.container {
-  max-width: 1400px;
-  margin: 0 auto;
-}
+.container { max-width: 1400px; margin: 0 auto; }
 .section-tag {
   display: inline-block;
   color: var(--accent);
@@ -545,16 +637,11 @@ body:hover .custom-cursor {
   object-fit: cover;
   transition: transform 0.5s ease;
 }
-.service-card:hover .service-img img {
-  transform: scale(1.05);
-}
+.service-card:hover .service-img img { transform: scale(1.05); }
 .service-img::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: linear-gradient(135deg, rgba(239,68,68,0.2), rgba(0,0,0,0.4));
   pointer-events: none;
 }
@@ -572,35 +659,23 @@ body:hover .custom-cursor {
 }
 .service-card:hover .service-link { gap: 0.8rem; color: var(--red); }
 
+/* ===================================================== */
+/* CARTE KASPERSKY */
+/* ===================================================== */
 .cyber-map-section {
   padding: 5rem 4%;
   background: linear-gradient(135deg, #050B14, #071426);
   position: relative;
   overflow: hidden;
 }
-.cyber-map-container {
-  max-width: 1400px;
-  margin: 0 auto;
-}
-.cyber-map-header {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-.cyber-map-header .section-tag {
-  margin-bottom: 1rem;
-}
+.cyber-map-container { max-width: 1400px; margin: 0 auto; }
+.cyber-map-header { text-align: center; margin-bottom: 3rem; }
 .cyber-map-header h2 {
   font-size: clamp(1.8rem, 3.5vw, 2.6rem);
   color: var(--white);
   margin-bottom: 1rem;
-  line-height: 1.15;
 }
-.cyber-map-header p {
-  color: var(--gray-light);
-  font-size: 1.05rem;
-  max-width: 700px;
-  margin: 0 auto;
-}
+.cyber-map-header p { color: var(--gray-light); font-size: 1.05rem; max-width: 700px; margin: 0 auto; }
 .cyber-map-box {
   position: relative;
   height: 650px;
@@ -620,9 +695,8 @@ body:hover .custom-cursor {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: 
-    linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
+  background: linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
   background-size: 40px 40px;
   animation: gridMove 8s linear infinite;
 }
@@ -641,13 +715,7 @@ body:hover .custom-cursor {
   border-radius: 16px;
   backdrop-filter: blur(10px);
 }
-.live-status h3 {
-  color: #fff;
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-  display: flex;
-  align-items: center;
-}
+.live-status h3 { color: #fff; font-size: 1rem; margin-bottom: 0.5rem; display: flex; align-items: center; }
 .live-dot {
   width: 10px;
   height: 10px;
@@ -662,10 +730,7 @@ body:hover .custom-cursor {
   50% { transform: scale(1.5); opacity: 0.5; }
   100% { transform: scale(1); opacity: 1; }
 }
-.live-status p {
-  color: #94A3B8;
-  font-size: 0.85rem;
-}
+.live-status p { color: #94A3B8; font-size: 0.85rem; }
 .cyber-stats {
   position: absolute;
   bottom: 20px;
@@ -684,26 +749,16 @@ body:hover .custom-cursor {
   min-width: 180px;
   text-align: center;
 }
-.cyber-stat h4 {
-  color: #00D4FF;
-  font-size: 1.8rem;
-  margin-bottom: 0.2rem;
-}
-.cyber-stat span {
-  color: #94A3B8;
-  font-size: 0.8rem;
-}
+.cyber-stat h4 { color: #00D4FF; font-size: 1.8rem; margin-bottom: 0.2rem; }
+.cyber-stat span { color: #94A3B8; font-size: 0.8rem; }
 @media (max-width: 768px) {
   .cyber-map-box { height: 500px; }
-  .cyber-stats { 
-    position: relative; 
-    bottom: auto; 
-    right: auto; 
-    margin-top: 1rem; 
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .cyber-stats { position: relative; bottom: auto; right: auto; margin-top: 1rem; grid-template-columns: repeat(2, 1fr); }
 }
 
+/* ===================================================== */
+/* BANNER & CTA */
+/* ===================================================== */
 .banner-cta {
   background: var(--white);
   margin: 0 4% 4rem;
@@ -713,19 +768,13 @@ body:hover .custom-cursor {
   border: 1px solid rgba(0,0,0,0.1);
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
-.banner-cta-content {
-  position: relative;
-  z-index: 2;
-}
+.banner-cta-content { position: relative; z-index: 2; }
 .banner-cta h2 {
   font-size: clamp(1.6rem, 3vw, 2.2rem);
   color: var(--primary);
   margin-bottom: 0.5rem;
 }
-.banner-cta p {
-  color: var(--gray-mid);
-  margin-bottom: 1.5rem;
-}
+.banner-cta p { color: var(--gray-mid); margin-bottom: 1.5rem; }
 .banner-cta .btn-banner {
   background: var(--primary);
   color: var(--white);
@@ -741,7 +790,6 @@ body:hover .custom-cursor {
   transform: translateY(-3px);
   background: var(--accent);
   color: var(--primary);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
 .cta-block {
@@ -749,10 +797,7 @@ body:hover .custom-cursor {
   text-align: center;
   padding: 4rem 4%;
 }
-.cta-block-content {
-  max-width: 700px;
-  margin: 0 auto;
-}
+.cta-block-content { max-width: 700px; margin: 0 auto; }
 .cta-block h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--white); margin-bottom: 1rem; }
 .cta-block p { color: var(--gray-light); margin-bottom: 2rem; }
 .btn-primary {
@@ -770,7 +815,6 @@ body:hover .custom-cursor {
   background: var(--accent);
   color: var(--primary);
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(239,68,68,0.3);
 }
 
 footer {
@@ -778,53 +822,17 @@ footer {
   border-top: 1px solid rgba(0,212,255,0.1);
   padding: 3rem 4% 1.5rem;
 }
-.footer-content {
-  max-width: 1400px;
-  margin: 0 auto;
-  text-align: center;
-}
-.footer-brand {
-  margin-bottom: 1.5rem;
-}
-.footer-brand .logo {
-  display: inline-flex;
-  justify-content: center;
-  margin-bottom: 1rem;
-}
-.footer-brand p {
-  color: var(--gray-mid);
-  font-size: 0.88rem;
-  max-width: 400px;
-  margin: 0 auto;
-}
-.footer-contact {
-  margin: 1.5rem 0;
-}
-.footer-contact p {
-  color: var(--gray-light);
-  font-size: 0.85rem;
-  margin: 0.3rem 0;
-}
-.footer-contact i {
-  color: var(--accent);
-  margin-right: 0.5rem;
-}
-.footer-bottom {
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(0,212,255,0.1);
-  font-size: 0.75rem;
-  color: var(--gray-mid);
-}
+.footer-content { max-width: 1400px; margin: 0 auto; text-align: center; }
+.footer-brand { margin-bottom: 1.5rem; }
+.footer-brand .logo { display: inline-flex; justify-content: center; margin-bottom: 1rem; }
+.footer-brand p { color: var(--gray-mid); font-size: 0.88rem; max-width: 400px; margin: 0 auto; }
+.footer-contact { margin: 1.5rem 0; }
+.footer-contact p { color: var(--gray-light); font-size: 0.85rem; margin: 0.3rem 0; }
+.footer-contact i { color: var(--accent); margin-right: 0.5rem; }
+.footer-bottom { padding-top: 1.5rem; border-top: 1px solid rgba(0,212,255,0.1); font-size: 0.75rem; color: var(--gray-mid); }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
 
 @media (max-width: 768px) {
   .nav-links {
@@ -850,8 +858,6 @@ footer {
   .values-grid, .stats-container, .services-grid { grid-template-columns: 1fr; }
   .slider { height: 100vh; }
   .banner-cta { margin: 2rem 4% 2rem; padding: 2rem; }
-  .hero-buttons { flex-direction: column; align-items: center; }
-  .slide .caption { margin: 0 1rem; padding: 1.5rem; }
   .controls div { width: 40px; height: 40px; }
 }
 </style>
@@ -901,42 +907,40 @@ footer {
 </nav>
 
 <!-- ===================================================== -->
-<!-- SLIDER HERO PREMIUM 2029 - CYBERPUNK + HOLOGRAM -->
+<!-- SLIDER PREMIUM 2029 -->
 <!-- ===================================================== -->
 <div class="slider" id="heroSlider">
-  
   <canvas id="particleCanvas" class="particle-canvas"></canvas>
   
-  <div class="slide active" data-speed="0.05" data-image="https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg">
+  <div class="slide active" data-speed="0.05" data-image="https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg">
     <div class="slide-bg"></div>
     <div class="caption">
-      <h1 id="heroTitle">Dans un monde <span class="accent-text">connecté</span>,<br>chaque entreprise devient une cible</h1>
-      <p id="heroDesc" class="hero-desc">SOC, Sécurité Réseau et Pentest pour les entreprises marocaines.</p>
-      <div class="hero-buttons">
-        <a href="contact.html" class="btn-hero" id="heroBtn">Audit gratuit <i class="fas fa-arrow-right"></i></a>
-        <a href="services.html" class="btn-hero-outline">Découvrir nos offres</a>
+      <h1 id="slide1Title">Chaque seconde compte. <span class="accent-text">Nous détectons, corrélons et neutralisons</span> les menaces en temps réel.</h1>
+      <p class="slide-desc" id="slide1Desc">Surveillance 24/7 • Analyse comportementale • Réponse automatisée aux incidents</p>
+      <div class="slide-buttons">
+        <a href="contact.html" class="btn-slide" id="slide1Btn">Demander une évaluation <i class="fas fa-arrow-right"></i></a>
       </div>
     </div>
   </div>
   
-  <div class="slide" data-speed="0.03" data-image="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg">
+  <div class="slide" data-speed="0.03" data-image="https://images.pexels.com/photos/5380642/pexels-photo-5380642.jpeg">
     <div class="slide-bg"></div>
     <div class="caption">
-      <h1>Surveillance <span class="accent-text">24/7</span> de votre infrastructure critique</h1>
-      <p class="hero-desc">Notre SOC veille jour et nuit sur vos données sensibles.</p>
-      <div class="hero-buttons">
-        <a href="contact.html" class="btn-hero">Demander un audit <i class="fas fa-shield-alt"></i></a>
+      <h1 id="slide2Title">Nous pensons comme <span class="accent-text">un attaquant</span> pour exposer ce que vos systèmes ne voient pas.</h1>
+      <p class="slide-desc" id="slide2Desc">Tests d'intrusion avancés • Exploitation contrôlée • Rapports exploitables pour remédiation immédiate</p>
+      <div class="slide-buttons">
+        <a href="contact.html" class="btn-slide" id="slide2Btn">Découvrir nos pentests <i class="fas fa-arrow-right"></i></a>
       </div>
     </div>
   </div>
   
-  <div class="slide" data-speed="0.07" data-image="https://images.pexels.com/photos/5474285/pexels-photo-5474285.jpeg">
+  <div class="slide" data-speed="0.07" data-image="https://images.pexels.com/photos/33433724/pexels-photo-33433724.jpeg">
     <div class="slide-bg"></div>
     <div class="caption">
-      <h1>Sécuriser <span class="accent-text">aujourd'hui</span><br>pour performer demain</h1>
-      <p class="hero-desc">Pentest, audit et cyberdéfense nouvelle génération.</p>
-      <div class="hero-buttons">
-        <a href="contact.html" class="btn-hero">Réserver un audit <i class="fas fa-chart-line"></i></a>
+      <h1 id="slide3Title">Une défense moderne ne se limite pas à bloquer. <span class="accent-text">Elle anticipe, détecte et apprend.</span></h1>
+      <p class="slide-desc" id="slide3Desc">SOC • Threat Hunting • DFIR • GRC intégrée</p>
+      <div class="slide-buttons">
+        <a href="contact.html" class="btn-slide" id="slide3Btn">Construire ma cyberdéfense <i class="fas fa-arrow-right"></i></a>
       </div>
     </div>
   </div>
@@ -947,11 +951,11 @@ footer {
   </div>
   
   <div class="indicator" id="slideIndicator"></div>
-  
-  <div class="custom-cursor"></div>
 </div>
 
-<!-- VALUES SECTION -->
+<!-- ===================================================== -->
+<!-- VALEURS SECTION -->
+<!-- ===================================================== -->
 <section class="values-section">
   <div style="text-align: center; margin-bottom: 3rem;">
     <span class="section-tag" id="valuesTag">Nos valeurs</span>
@@ -976,7 +980,39 @@ footer {
   </div>
 </section>
 
+<!-- ===================================================== -->
+<!-- SECTION PREMIUM 2090 - PROACTIVE CYBER DEFENSE -->
+<!-- ===================================================== -->
+<section class="cyber-defense-premium">
+  <div class="cyber-defense-container">
+    <div class="cyber-defense-grid">
+      <div class="cyber-defense-content">
+        <span class="defense-badge" id="defenseBadge">⚡ NEXT-GEN CYBER DEFENSE</span>
+        <h2 class="defense-title" id="defenseTitle">Proactive Cyber Defense <span class="accent-text">for Critical Environments</span></h2>
+        <p class="defense-desc" id="defenseDesc">Advanced threat detection, realistic penetration testing, and incident response — designed for businesses that can't afford a breach.</p>
+        <div class="defense-features">
+          <div class="defense-feature"><i class="fas fa-shield-alt"></i> <span id="defenseFeat1">24/7 Monitoring</span></div>
+          <div class="defense-feature"><i class="fas fa-bolt"></i> <span id="defenseFeat2">Incident Response</span></div>
+          <div class="defense-feature"><i class="fas fa-brain"></i> <span id="defenseFeat3">Threat Intelligence</span></div>
+          <div class="defense-feature"><i class="fas fa-skull"></i> <span id="defenseFeat4">Offensive Pentesting</span></div>
+          <div class="defense-feature"><i class="fas fa-chart-line"></i> <span id="defenseFeat5">Compliance & GRC</span></div>
+        </div>
+        <a href="contact.html" class="defense-btn" id="defenseBtn">Commencez maintenant <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="cyber-defense-visual">
+        <div class="hologram-globe">
+          <div class="globe-ring"></div>
+          <div class="globe-ring2"></div>
+          <div class="globe-core"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== -->
 <!-- STATS SECTION -->
+<!-- ===================================================== -->
 <section class="stats-section">
   <div class="stats-container">
     <div class="stat-item"><div class="stat-number" id="stat1" data-target="15">0</div><div class="stat-label" id="statLabel1">Années d'expérience cumulées</div></div>
@@ -986,7 +1022,9 @@ footer {
   </div>
 </section>
 
+<!-- ===================================================== -->
 <!-- SERVICES SECTION -->
+<!-- ===================================================== -->
 <section class="services-section">
   <div class="container">
     <span class="section-tag" id="servicesTag">Nos offres clés</span>
@@ -996,7 +1034,9 @@ footer {
   </div>
 </section>
 
-<!-- CARTE KASPERSKY - THREAT INTELLIGENCE -->
+<!-- ===================================================== -->
+<!-- CARTE KASPERSKY -->
+<!-- ===================================================== -->
 <section class="cyber-map-section">
   <div class="cyber-map-container">
     <div class="cyber-map-header">
@@ -1012,28 +1052,18 @@ footer {
         <p>Surveillance active des menaces mondiales</p>
       </div>
       <div class="cyber-stats">
-        <div class="cyber-stat">
-          <h4 id="attackCounter1">12 482</h4>
-          <span>Intrusions bloquées</span>
-        </div>
-        <div class="cyber-stat">
-          <h4 id="attackCounter2">3 291</h4>
-          <span>IPs surveillées</span>
-        </div>
-        <div class="cyber-stat">
-          <h4 id="attackCounter3">247</h4>
-          <span>Alertes critiques</span>
-        </div>
-        <div class="cyber-stat">
-          <h4 id="attackCounter4">24/7</h4>
-          <span>SOC Monitoring</span>
-        </div>
+        <div class="cyber-stat"><h4 id="attackCounter1">12 482</h4><span>Intrusions bloquées</span></div>
+        <div class="cyber-stat"><h4 id="attackCounter2">3 291</h4><span>IPs surveillées</span></div>
+        <div class="cyber-stat"><h4 id="attackCounter3">247</h4><span>Alertes critiques</span></div>
+        <div class="cyber-stat"><h4 id="attackCounter4">24/7</h4><span>SOC Monitoring</span></div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ===================================================== -->
 <!-- BANNER CTA -->
+<!-- ===================================================== -->
 <div class="banner-cta reveal">
   <div class="banner-cta-content">
     <h2 id="bannerTitle">🔐 Évaluez votre niveau de sécurité dès maintenant</h2>
@@ -1042,7 +1072,9 @@ footer {
   </div>
 </div>
 
+<!-- ===================================================== -->
 <!-- CTA BLOCK -->
+<!-- ===================================================== -->
 <section class="cta-block">
   <div class="cta-block-content">
     <h2 id="ctaTitle">Prêt à sécuriser votre entreprise ?</h2>
@@ -1051,6 +1083,9 @@ footer {
   </div>
 </section>
 
+<!-- ===================================================== -->
+<!-- FOOTER -->
+<!-- ===================================================== -->
 <footer>
   <div class="footer-content">
     <div class="footer-brand">
@@ -1075,51 +1110,105 @@ footer {
 </footer>
 
 <script>
-// SERVICES DATA (FR et EN)
+// =====================================================
+// SERVICES DATA
+// =====================================================
 const servicesData = {
   fr: [
-  {title:"Audit & Diagnostic", desc:"On identifie vos failles critiques en quelques jours.", img:"audit-diagnostic.jpg", link:"contact.html"},
-  {title:"Pentest / VAPT", desc:"On teste votre système comme un hacker.", img:"vapt.webp", link:"vapt.html"},
-  {title:"Sécurité Réseau", desc:"On protège votre infrastructure contre les intrusions.", img:"securite-reseau.jpg", link:"securite-reseau.html"},
-  {title:"SOC Consultation", desc:"On surveille votre système 24/7 après sécurisation.", img:"soc-consultation.jpg", link:"soc-consultation.html"},
-  {title:"Cybercrime & Investigation Numérique", desc:"Enquête fraude, phishing, ransomware. Preuves recevables devant les juridictions marocaines.", img:"cybercrime.jpg", link:"cybercrime.html"}
-],
-en: [
-  {title:"Audit & Diagnostic", desc:"We identify your critical flaws in a few days.", img:"audit-diagnostic.jpg", link:"contact.html"},
-  {title:"Pentest / VAPT", desc:"We test your system like a hacker.", img:"vapt.webp", link:"vapt.html"},
-  {title:"Network Security", desc:"We protect your infrastructure against intrusions.", img:"securite-reseau.jpg", link:"securite-reseau.html"},
-  {title:"SOC Consulting", desc:"We monitor your system 24/7 after securing it.", img:"soc-consultation.jpg", link:"soc-consultation.html"},
-  {title:"Cybercrime & Private Investigation", desc:"Fraud, phishing, ransomware investigation. Evidence admissible before Moroccan courts.", img:"cybercrime.jpg", link:"cybercrime.html"}
-]
+    {title:"Audit & Diagnostic", desc:"On identifie vos failles critiques en quelques jours.", img:"audit-diagnostic.jpg", link:"contact.html"},
+    {title:"Pentest / VAPT", desc:"On teste votre système comme un hacker.", img:"vapt.webp", link:"vapt.html"},
+    {title:"Sécurité Réseau", desc:"On protège votre infrastructure contre les intrusions.", img:"securite-reseau.jpg", link:"securite-reseau.html"},
+    {title:"SOC Consultation", desc:"On surveille votre système 24/7 après sécurisation.", img:"soc-consultation.jpg", link:"soc-consultation.html"},
+    {title:"Cybercrime & Investigation Numérique", desc:"Enquête fraude, phishing, ransomware. Preuves recevables devant les juridictions marocaines.", img:"cybercrime.jpg", link:"cybercrime.html"}
+  ],
+  en: [
+    {title:"Audit & Diagnostic", desc:"We identify your critical flaws in a few days.", img:"audit-diagnostic.jpg", link:"contact.html"},
+    {title:"Pentest / VAPT", desc:"We test your system like a hacker.", img:"vapt.webp", link:"vapt.html"},
+    {title:"Network Security", desc:"We protect your infrastructure against intrusions.", img:"securite-reseau.jpg", link:"securite-reseau.html"},
+    {title:"SOC Consulting", desc:"We monitor your system 24/7 after securing it.", img:"soc-consultation.jpg", link:"soc-consultation.html"},
+    {title:"Cybercrime & Private Investigation", desc:"Fraud, phishing, ransomware investigation. Evidence admissible before Moroccan courts.", img:"cybercrime.jpg", link:"cybercrime.html"}
+  ]
 };
 
-// TRADUCTIONS FR/EN
+// =====================================================
+// TRADUCTIONS COMPLÈTES
+// =====================================================
 const translations = {
   fr: {
-    heroTitle: "Dans un monde <span class='accent-text'>connecté</span>,<br>chaque entreprise devient une cible",
-    heroDesc: "SOC, Sécurité Réseau et Pentest pour les entreprises marocaines.",
-    heroBtn: "Audit gratuit <i class='fas fa-arrow-right'></i>",
-    valuesTag: "Nos valeurs", valuesTitle: "Pourquoi nous faire confiance ?",
-    value1Title: "Engagés", value1Desc: "Nous sommes des talents terrain, pas des commerciaux. Votre sécurité est notre priorité absolue.",
-    value2Title: "Proactifs", value2Desc: "On anticipe les menaces, on ne les subit pas. Notre SOC veille 24/7 sur vos infrastructures.",
-    value3Title: "Pédagogues", value3Desc: "On forme vos équipes. La sécurité se vit au quotidien, pas juste dans un rapport.",
+    slide1Title: "Chaque seconde compte. <span class='accent-text'>Nous détectons, corrélons et neutralisons</span> les menaces en temps réel.",
+    slide1Desc: "Surveillance 24/7 • Analyse comportementale • Réponse automatisée aux incidents",
+    slide1Btn: "Demander une évaluation <i class='fas fa-arrow-right'></i>",
+    slide2Title: "Nous pensons comme <span class='accent-text'>un attaquant</span> pour exposer ce que vos systèmes ne voient pas.",
+    slide2Desc: "Tests d'intrusion avancés • Exploitation contrôlée • Rapports exploitables pour remédiation immédiate",
+    slide2Btn: "Découvrir nos pentests <i class='fas fa-arrow-right'></i>",
+    slide3Title: "Une défense moderne ne se limite pas à bloquer. <span class='accent-text'>Elle anticipe, détecte et apprend.</span>",
+    slide3Desc: "SOC • Threat Hunting • DFIR • GRC intégrée",
+    slide3Btn: "Construire ma cyberdéfense <i class='fas fa-arrow-right'></i>",
+    valuesTag: "Nos valeurs",
+    valuesTitle: "Pourquoi nous faire confiance ?",
+    value1Title: "Engagés",
+    value1Desc: "Nous sommes des talents terrain, pas des commerciaux. Votre sécurité est notre priorité absolue.",
+    value2Title: "Proactifs",
+    value2Desc: "On anticipe les menaces, on ne les subit pas. Notre SOC veille 24/7 sur vos infrastructures.",
+    value3Title: "Pédagogues",
+    value3Desc: "On forme vos équipes. La sécurité se vit au quotidien, pas juste dans un rapport.",
+    defenseBadge: "⚡ CYBERDÉFENSE NEW GEN",
+    defenseTitle: "Cyberdéfense <span class='accent-text'>Proactive</span> pour Environnements Critiques",
+    defenseDesc: "Détection avancée des menaces, tests d'intrusion réalistes et réponse aux incidents — conçus pour les entreprises qui ne peuvent pas se permettre une faille.",
+    defenseFeat1: "24/7 Monitoring",
+    defenseFeat2: "Réponse aux incidents",
+    defenseFeat3: "Threat Intelligence",
+    defenseFeat4: "Pentesting offensif",
+    defenseFeat5: "Conformité & GRC",
+    defenseBtn: "Commencez maintenant <i class='fas fa-arrow-right'></i>",
     statLabels: ["Années d'expérience cumulées", "Talents fondateurs", "Surveillance 24/7", "Données souveraines (%)"],
-    servicesTag: "Nos offres clés", servicesTitle: "Ce que nous faisons concrètement", servicesSub: "Pas de jargon, du concret. On identifie, on teste, on sécurise, on surveille, on forme.",
-    bannerTitle: "🔐 Évaluez votre niveau de sécurité dès maintenant", bannerText: "Audit gratuit de 30 minutes. Aucun engagement.", bannerBtn: "Demander mon audit",
-    ctaTitle: "Prêt à sécuriser votre entreprise ?", ctaText: "Audit gratuit de 30 minutes pour évaluer vos besoins. Aucun engagement.", ctaBtn: "Demander un audit gratuit"
+    servicesTag: "Nos offres clés",
+    servicesTitle: "Ce que nous faisons concrètement",
+    servicesSub: "Pas de jargon, du concret. On identifie, on teste, on sécurise, on surveille, on forme.",
+    bannerTitle: "🔐 Évaluez votre niveau de sécurité dès maintenant",
+    bannerText: "Audit gratuit de 30 minutes. Aucun engagement.",
+    bannerBtn: "Demander mon audit",
+    ctaTitle: "Prêt à sécuriser votre entreprise ?",
+    ctaText: "Audit gratuit de 30 minutes pour évaluer vos besoins. Aucun engagement.",
+    ctaBtn: "Demander un audit gratuit"
   },
   en: {
-    heroTitle: "In a <span class='accent-text'>connected</span> world,<br>every company becomes a target",
-    heroDesc: "SOC, Network Security and Pentest for Moroccan companies.",
-    heroBtn: "Free audit <i class='fas fa-arrow-right'></i>",
-    valuesTag: "Our values", valuesTitle: "Why trust us?",
-    value1Title: "Committed", value1Desc: "We are field talents, not salespeople. Your security is our absolute priority.",
-    value2Title: "Proactive", value2Desc: "We anticipate threats, we don't suffer them. Our SOC monitors your infrastructure 24/7.",
-    value3Title: "Educators", value3Desc: "We train your teams. Security is lived daily, not just in a report.",
+    slide1Title: "Every second counts. <span class='accent-text'>We detect, correlate and neutralize</span> threats in real time.",
+    slide1Desc: "24/7 Monitoring • Behavioral Analysis • Automated Incident Response",
+    slide1Btn: "Request an assessment <i class='fas fa-arrow-right'></i>",
+    slide2Title: "We think like <span class='accent-text'>an attacker</span> to expose what your systems can't see.",
+    slide2Desc: "Advanced intrusion tests • Controlled exploitation • Actionable reports for immediate remediation",
+    slide2Btn: "Discover our pentests <i class='fas fa-arrow-right'></i>",
+    slide3Title: "Modern defense isn't just about blocking. <span class='accent-text'>It anticipates, detects and learns.</span>",
+    slide3Desc: "SOC • Threat Hunting • DFIR • Integrated GRC",
+    slide3Btn: "Build my cyber defense <i class='fas fa-arrow-right'></i>",
+    valuesTag: "Our values",
+    valuesTitle: "Why trust us?",
+    value1Title: "Committed",
+    value1Desc: "We are field talents, not salespeople. Your security is our absolute priority.",
+    value2Title: "Proactive",
+    value2Desc: "We anticipate threats, we don't suffer them. Our SOC monitors your infrastructure 24/7.",
+    value3Title: "Educators",
+    value3Desc: "We train your teams. Security is lived daily, not just in a report.",
+    defenseBadge: "⚡ NEXT-GEN CYBER DEFENSE",
+    defenseTitle: "Proactive Cyber Defense <span class='accent-text'>for Critical Environments</span>",
+    defenseDesc: "Advanced threat detection, realistic penetration testing, and incident response — designed for businesses that can't afford a breach.",
+    defenseFeat1: "24/7 Monitoring",
+    defenseFeat2: "Incident Response",
+    defenseFeat3: "Threat Intelligence",
+    defenseFeat4: "Offensive Pentesting",
+    defenseFeat5: "Compliance & GRC",
+    defenseBtn: "Start now <i class='fas fa-arrow-right'></i>",
     statLabels: ["Years of experience", "Founding talents", "24/7 Monitoring", "Sovereign data (%)"],
-    servicesTag: "Our key offers", servicesTitle: "What we do concretely", servicesSub: "No jargon, just concrete. We identify, test, secure, monitor, train.",
-    bannerTitle: "🔐 Assess your security level now", bannerText: "30-minute free audit. No commitment.", bannerBtn: "Request my audit",
-    ctaTitle: "Ready to secure your business?", ctaText: "30-minute free audit to assess your needs. No commitment.", ctaBtn: "Request free audit"
+    servicesTag: "Our key offers",
+    servicesTitle: "What we do concretely",
+    servicesSub: "No jargon, just concrete. We identify, test, secure, monitor, train.",
+    bannerTitle: "🔐 Assess your security level now",
+    bannerText: "30-minute free audit. No commitment.",
+    bannerBtn: "Request my audit",
+    ctaTitle: "Ready to secure your business?",
+    ctaText: "30-minute free audit to assess your needs. No commitment.",
+    ctaBtn: "Request free audit"
   }
 };
 
@@ -1129,56 +1218,58 @@ function applyLanguage(lang) {
   const t = translations[lang];
   if (!t) return;
   
-  const heroTitle = document.getElementById('heroTitle');
-  if (heroTitle) heroTitle.innerHTML = t.heroTitle;
-  const heroDesc = document.getElementById('heroDesc');
-  if (heroDesc) heroDesc.innerText = t.heroDesc;
-  const heroBtn = document.getElementById('heroBtn');
-  if (heroBtn) heroBtn.innerHTML = t.heroBtn;
+  // Slides
+  document.getElementById('slide1Title').innerHTML = t.slide1Title;
+  document.getElementById('slide1Desc').innerText = t.slide1Desc;
+  document.getElementById('slide1Btn').innerHTML = t.slide1Btn;
+  document.getElementById('slide2Title').innerHTML = t.slide2Title;
+  document.getElementById('slide2Desc').innerText = t.slide2Desc;
+  document.getElementById('slide2Btn').innerHTML = t.slide2Btn;
+  document.getElementById('slide3Title').innerHTML = t.slide3Title;
+  document.getElementById('slide3Desc').innerText = t.slide3Desc;
+  document.getElementById('slide3Btn').innerHTML = t.slide3Btn;
   
-  const valuesTag = document.getElementById('valuesTag');
-  if (valuesTag) valuesTag.innerText = t.valuesTag;
-  const valuesTitle = document.getElementById('valuesTitle');
-  if (valuesTitle) valuesTitle.innerText = t.valuesTitle;
-  const value1Title = document.getElementById('value1Title');
-  if (value1Title) value1Title.innerText = t.value1Title;
-  const value1Desc = document.getElementById('value1Desc');
-  if (value1Desc) value1Desc.innerText = t.value1Desc;
-  const value2Title = document.getElementById('value2Title');
-  if (value2Title) value2Title.innerText = t.value2Title;
-  const value2Desc = document.getElementById('value2Desc');
-  if (value2Desc) value2Desc.innerText = t.value2Desc;
-  const value3Title = document.getElementById('value3Title');
-  if (value3Title) value3Title.innerText = t.value3Title;
-  const value3Desc = document.getElementById('value3Desc');
-  if (value3Desc) value3Desc.innerText = t.value3Desc;
+  // Values
+  document.getElementById('valuesTag').innerText = t.valuesTag;
+  document.getElementById('valuesTitle').innerText = t.valuesTitle;
+  document.getElementById('value1Title').innerText = t.value1Title;
+  document.getElementById('value1Desc').innerText = t.value1Desc;
+  document.getElementById('value2Title').innerText = t.value2Title;
+  document.getElementById('value2Desc').innerText = t.value2Desc;
+  document.getElementById('value3Title').innerText = t.value3Title;
+  document.getElementById('value3Desc').innerText = t.value3Desc;
   
+  // Defense section
+  document.getElementById('defenseBadge').innerText = t.defenseBadge;
+  document.getElementById('defenseTitle').innerHTML = t.defenseTitle;
+  document.getElementById('defenseDesc').innerText = t.defenseDesc;
+  document.getElementById('defenseFeat1').innerText = t.defenseFeat1;
+  document.getElementById('defenseFeat2').innerText = t.defenseFeat2;
+  document.getElementById('defenseFeat3').innerText = t.defenseFeat3;
+  document.getElementById('defenseFeat4').innerText = t.defenseFeat4;
+  document.getElementById('defenseFeat5').innerText = t.defenseFeat5;
+  document.getElementById('defenseBtn').innerHTML = t.defenseBtn;
+  
+  // Stats labels
   for (let i = 0; i < t.statLabels.length; i++) {
     const labelEl = document.getElementById(`statLabel${i+1}`);
     if (labelEl) labelEl.innerText = t.statLabels[i];
   }
   
-  const servicesTag = document.getElementById('servicesTag');
-  if (servicesTag) servicesTag.innerText = t.servicesTag;
-  const servicesTitle = document.getElementById('servicesTitle');
-  if (servicesTitle) servicesTitle.innerText = t.servicesTitle;
-  const servicesSub = document.getElementById('servicesSub');
-  if (servicesSub) servicesSub.innerText = t.servicesSub;
+  // Services
+  document.getElementById('servicesTag').innerText = t.servicesTag;
+  document.getElementById('servicesTitle').innerText = t.servicesTitle;
+  document.getElementById('servicesSub').innerText = t.servicesSub;
   
-  const bannerTitle = document.getElementById('bannerTitle');
-  if (bannerTitle) bannerTitle.innerHTML = t.bannerTitle;
-  const bannerText = document.getElementById('bannerText');
-  if (bannerText) bannerText.innerText = t.bannerText;
-  const bannerBtn = document.getElementById('bannerBtn');
-  if (bannerBtn) bannerBtn.innerHTML = t.bannerBtn + ' <i class="fas fa-arrow-right"></i>';
+  // Banner & CTA
+  document.getElementById('bannerTitle').innerHTML = t.bannerTitle;
+  document.getElementById('bannerText').innerText = t.bannerText;
+  document.getElementById('bannerBtn').innerHTML = t.bannerBtn + ' <i class="fas fa-arrow-right"></i>';
+  document.getElementById('ctaTitle').innerText = t.ctaTitle;
+  document.getElementById('ctaText').innerText = t.ctaText;
+  document.getElementById('ctaBtn').innerHTML = t.ctaBtn + ' <i class="fas fa-arrow-right"></i>';
   
-  const ctaTitle = document.getElementById('ctaTitle');
-  if (ctaTitle) ctaTitle.innerText = t.ctaTitle;
-  const ctaText = document.getElementById('ctaText');
-  if (ctaText) ctaText.innerText = t.ctaText;
-  const ctaBtn = document.getElementById('ctaBtn');
-  if (ctaBtn) ctaBtn.innerHTML = t.ctaBtn + ' <i class="fas fa-arrow-right"></i>';
-  
+  // Services grid
   const servicesGrid = document.getElementById('servicesGrid');
   if (servicesGrid) {
     servicesGrid.innerHTML = '';
@@ -1187,17 +1278,18 @@ function applyLanguage(lang) {
     });
   }
   
+  // Active language button
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.remove('active');
-    if (btn.getAttribute('data-lang') === lang) {
-      btn.classList.add('active');
-    }
+    if (btn.getAttribute('data-lang') === lang) btn.classList.add('active');
   });
   
   localStorage.setItem('nextgen-lang', lang);
 }
 
-// SLIDER
+// =====================================================
+// SLIDER LOGIC
+// =====================================================
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 const indicator = document.getElementById('slideIndicator');
@@ -1205,18 +1297,35 @@ const prevBtn = document.getElementById('prevSlide');
 const nextBtn = document.getElementById('nextSlide');
 
 if (slides.length && indicator) {
-  slides.forEach((_, i) => { const dot = document.createElement('div'); dot.onclick = () => goToSlide(i); indicator.appendChild(dot); });
-  function updateIndicators() { indicator.querySelectorAll('div').forEach((dot, i) => dot.classList.toggle('active', i === currentSlide)); }
-  function goToSlide(index) { slides[currentSlide].classList.remove('active'); currentSlide = (index + slides.length) % slides.length; slides[currentSlide].classList.add('active'); updateIndicators(); }
+  slides.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.onclick = () => goToSlide(i);
+    indicator.appendChild(dot);
+  });
+  
+  function updateIndicators() {
+    indicator.querySelectorAll('div').forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
+  }
+  
+  function goToSlide(index) {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (index + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+    updateIndicators();
+  }
+  
   function nextSlide() { goToSlide(currentSlide + 1); }
   function prevSlide() { goToSlide(currentSlide - 1); }
+  
   if (prevBtn) prevBtn.addEventListener('click', prevSlide);
   if (nextBtn) nextBtn.addEventListener('click', nextSlide);
   setInterval(nextSlide, 6000);
   updateIndicators();
 }
 
-// Chargement dynamique des images de fond
+// =====================================================
+// LOAD SLIDE BACKGROUNDS
+// =====================================================
 document.querySelectorAll('.slide').forEach(slide => {
   const imgUrl = slide.getAttribute('data-image');
   if (imgUrl) {
@@ -1225,19 +1334,21 @@ document.querySelectorAll('.slide').forEach(slide => {
   }
 });
 
-// Système de particules Canvas
+// =====================================================
+// PARTICLES CANVAS
+// =====================================================
 const canvas = document.getElementById('particleCanvas');
 if (canvas) {
   let ctx = canvas.getContext('2d');
   let particles = [];
   let particleCount = 80;
-
+  
   function resizeCanvas() {
     canvas.width = window.innerWidth;
     const slider = document.querySelector('.slider');
     canvas.height = slider ? slider.offsetHeight : 600;
   }
-
+  
   function initParticles() {
     particles = [];
     for (let i = 0; i < particleCount; i++) {
@@ -1251,7 +1362,7 @@ if (canvas) {
       });
     }
   }
-
+  
   function drawParticles() {
     if (!ctx) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -1260,10 +1371,8 @@ if (canvas) {
       ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(0, 212, 255, ${p.opacity})`;
       ctx.fill();
-      
       p.x += p.speedX;
       p.y += p.speedY;
-      
       if (p.x < 0) p.x = canvas.width;
       if (p.x > canvas.width) p.x = 0;
       if (p.y < 0) p.y = canvas.height;
@@ -1271,7 +1380,7 @@ if (canvas) {
     }
     requestAnimationFrame(drawParticles);
   }
-
+  
   window.addEventListener('resize', () => {
     resizeCanvas();
     initParticles();
@@ -1282,7 +1391,9 @@ if (canvas) {
   drawParticles();
 }
 
-// Effet parallax au mouvement de la souris
+// =====================================================
+// PARALLAX EFFECT
+// =====================================================
 document.querySelectorAll('.slide').forEach(slide => {
   const bg = slide.querySelector('.slide-bg');
   if (bg) {
@@ -1302,43 +1413,51 @@ document.querySelectorAll('.slide').forEach(slide => {
   }
 });
 
-// Curseur personnalisé
-const cursor = document.querySelector('.custom-cursor');
-if (cursor) {
-  document.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-  });
-}
-
-// COMPTEURS ANIMÉS
+// =====================================================
+// ANIMATE STATS COUNTERS
+// =====================================================
 function animateNumber(element, target) {
   if (!element) return;
   let current = 0, increment = target / 50;
   const timer = setInterval(() => {
     current += increment;
-    if (current >= target) { element.textContent = target; clearInterval(timer); }
-    else { element.textContent = Math.floor(current); }
+    if (current >= target) {
+      element.textContent = target;
+      clearInterval(timer);
+    } else {
+      element.textContent = Math.floor(current);
+    }
   }, 30);
 }
+
 const statObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      document.querySelectorAll('.stat-number').forEach(el => { if (el.textContent == '0') animateNumber(el, parseInt(el.dataset.target)); });
+      document.querySelectorAll('.stat-number').forEach(el => {
+        if (el.textContent == '0') animateNumber(el, parseInt(el.dataset.target));
+      });
       statObserver.disconnect();
     }
   });
 }, { threshold: 0.3 });
+
 const statsSection = document.querySelector('.stats-section');
 if (statsSection) statObserver.observe(statsSection);
 
+// =====================================================
 // REVEAL ANIMATIONS
+// =====================================================
 const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
 }, { threshold: 0.1 });
+
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// LANGUE
+// =====================================================
+// LANGUAGE SWITCH
+// =====================================================
 document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const lang = btn.getAttribute('data-lang');
@@ -1349,7 +1468,9 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
   });
 });
 
-// MENU MOBILE
+// =====================================================
+// MOBILE MENU
+// =====================================================
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
 if (menuToggle && navLinks) {
@@ -1358,7 +1479,9 @@ if (menuToggle && navLinks) {
   });
 }
 
-// ANIMATION DES COMPTEURS CYBER
+// =====================================================
+// CYBER COUNTERS ANIMATION (KASPERSKY)
+// =====================================================
 function animateCyberCounters() {
   const counters = [
     { id: 'attackCounter1', min: 12000, max: 15000 },
@@ -1375,6 +1498,9 @@ function animateCyberCounters() {
 }
 animateCyberCounters();
 
+// =====================================================
+// INITIAL LANGUAGE
+// =====================================================
 applyLanguage(currentLang);
 </script>
 </body>
