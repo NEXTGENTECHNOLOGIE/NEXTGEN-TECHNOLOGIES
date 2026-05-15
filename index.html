@@ -39,6 +39,9 @@ h1, h2, h3, h4 {
 }
 a { text-decoration: none; }
 
+/* ===================================================== */
+/* TOP BAR PREMIUM */
+/* ===================================================== */
 .top-bar {
   background: rgba(5, 11, 20, 0.95);
   backdrop-filter: blur(10px);
@@ -56,6 +59,28 @@ a { text-decoration: none; }
   align-items: center;
   flex-wrap: wrap;
   gap: 0.5rem;
+}
+.partner-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(239,68,68,0.08));
+  padding: 0.3rem 1rem;
+  border-radius: 40px;
+  border-left: 2px solid var(--accent);
+}
+.partner-badge i {
+  color: var(--accent);
+  font-size: 0.8rem;
+}
+.partner-badge span {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  background: linear-gradient(135deg, #fff, var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 .top-bar-info { display: flex; gap: 2rem; flex-wrap: wrap; }
 .top-bar-info span { display: flex; align-items: center; gap: 0.4rem; }
@@ -864,8 +889,16 @@ footer {
 </head>
 <body>
 
+<!-- ===================================================== -->
+<!-- TOP BAR PREMIUM -->
+<!-- ===================================================== -->
 <div class="top-bar">
   <div class="top-bar-container">
+    <div class="partner-badge">
+      <i class="fas fa-shield-haltered"></i>
+      <span id="partnerBadgeText">Votre partenaire cybersécurité</span>
+      <i class="fas fa-bolt"></i>
+    </div>
     <div class="top-bar-info">
       <span><i class="fas fa-phone"></i> +212 728 31 28 01</span>
       <span><i class="fas fa-envelope"></i> contact@nextgentechnologies.net</span>
@@ -893,14 +926,14 @@ footer {
       <span>NextGen <span class="logo-text-accent">Technologies</span></span>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="secteurs.html">Secteurs</a></li>
-      <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
-      <li><a href="carrieres.html">Carrières</a></li>
-      <li><a href="campus-cyber.html">🎓 Campus Cyber</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="contact.html" class="nav-cta">Audit gratuit</a></li>
+      <li><a href="index.html" id="menuAccueil">Accueil</a></li>
+      <li><a href="services.html" id="menuServices">Services</a></li>
+      <li><a href="secteurs.html" id="menuSecteurs">Secteurs</a></li>
+      <li><a href="qui-sommes-nous.html" id="menuQuiSommesNous">Qui sommes-nous</a></li>
+      <li><a href="carrieres.html" id="menuCarrieres">Carrières</a></li>
+      <li><a href="campus-cyber.html" id="menuCampus">🎓 Campus Cyber</a></li>
+      <li><a href="contact.html" id="menuContact">Contact</a></li>
+      <li><a href="contact.html" class="nav-cta" id="navCtaText">Audit gratuit</a></li>
     </ul>
     <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
   </div>
@@ -1131,10 +1164,19 @@ const servicesData = {
 };
 
 // =====================================================
-// TRADUCTIONS COMPLÈTES
+// TRADUCTIONS COMPLÈTES AVEC MENU
 // =====================================================
 const translations = {
   fr: {
+    partnerBadgeText: "Votre partenaire cybersécurité",
+    menuAccueil: "Accueil",
+    menuServices: "Services",
+    menuSecteurs: "Secteurs",
+    menuQuiSommesNous: "Qui sommes-nous",
+    menuCarrieres: "Carrières",
+    menuCampus: "🎓 Campus Cyber",
+    menuContact: "Contact",
+    navCtaText: "Audit gratuit",
     slide1Title: "Chaque seconde compte. <span class='accent-text'>Nous détectons, corrélons et neutralisons</span> les menaces en temps réel.",
     slide1Desc: "Surveillance 24/7 • Analyse comportementale • Réponse automatisée aux incidents",
     slide1Btn: "Demander une évaluation <i class='fas fa-arrow-right'></i>",
@@ -1173,6 +1215,15 @@ const translations = {
     ctaBtn: "Demander un audit gratuit"
   },
   en: {
+    partnerBadgeText: "Your cybersecurity partner",
+    menuAccueil: "Home",
+    menuServices: "Services",
+    menuSecteurs: "Sectors",
+    menuQuiSommesNous: "About Us",
+    menuCarrieres: "Careers",
+    menuCampus: "🎓 Cyber Campus",
+    menuContact: "Contact",
+    navCtaText: "Free Audit",
     slide1Title: "Every second counts. <span class='accent-text'>We detect, correlate and neutralize</span> threats in real time.",
     slide1Desc: "24/7 Monitoring • Behavioral Analysis • Automated Incident Response",
     slide1Btn: "Request an assessment <i class='fas fa-arrow-right'></i>",
@@ -1217,6 +1268,20 @@ let currentLang = localStorage.getItem('nextgen-lang') || 'fr';
 function applyLanguage(lang) {
   const t = translations[lang];
   if (!t) return;
+  
+  // TOP BAR BADGE
+  const partnerBadge = document.getElementById('partnerBadgeText');
+  if (partnerBadge) partnerBadge.innerText = t.partnerBadgeText;
+  
+  // MENU LINKS
+  document.getElementById('menuAccueil').innerText = t.menuAccueil;
+  document.getElementById('menuServices').innerText = t.menuServices;
+  document.getElementById('menuSecteurs').innerText = t.menuSecteurs;
+  document.getElementById('menuQuiSommesNous').innerText = t.menuQuiSommesNous;
+  document.getElementById('menuCarrieres').innerText = t.menuCarrieres;
+  document.getElementById('menuCampus').innerHTML = t.menuCampus;
+  document.getElementById('menuContact').innerText = t.menuContact;
+  document.getElementById('navCtaText').innerText = t.navCtaText;
   
   // Slides
   document.getElementById('slide1Title').innerHTML = t.slide1Title;
