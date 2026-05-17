@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="description" content="NextGen Technologies — SOC, Sécurité Réseau, Pentest au Maroc.">
 <title>NextGen Technologies · SOC & Réseau</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,9 +39,7 @@ h1, h2, h3, h4 {
 }
 a { text-decoration: none; }
 
-/* ===================================================== */
-/* TOP BAR PREMIUM */
-/* ===================================================== */
+/* TOP BAR */
 .top-bar {
   background: rgba(5, 11, 20, 0.95);
   backdrop-filter: blur(10px);
@@ -69,10 +67,7 @@ a { text-decoration: none; }
   border-radius: 40px;
   border-left: 2px solid var(--accent);
 }
-.partner-badge i {
-  color: var(--accent);
-  font-size: 0.8rem;
-}
+.partner-badge i { color: var(--accent); font-size: 0.8rem; }
 .partner-badge span {
   font-size: 0.7rem;
   font-weight: 700;
@@ -186,9 +181,7 @@ a { text-decoration: none; }
 .nav-cta:hover { transform: translateY(-2px) !important; background: var(--accent) !important; color: var(--primary) !important; }
 .menu-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
 
-/* ===================================================== */
-/* SLIDER PREMIUM 2029 */
-/* ===================================================== */
+/* SLIDER */
 .particle-canvas {
   position: absolute;
   top: 0;
@@ -378,9 +371,7 @@ a { text-decoration: none; }
   box-shadow: 0 0 12px rgba(239,68,68,0.6);
 }
 
-/* ===================================================== */
-/* SECTIONS PRINCIPALES */
-/* ===================================================== */
+/* VALUES SECTION */
 .values-section {
   padding: 5rem 4%;
   background: #071426;
@@ -421,9 +412,7 @@ a { text-decoration: none; }
 .value-card h3 { color: var(--white); font-size: 1.3rem; margin-bottom: 0.8rem; }
 .value-card p { color: var(--gray-light); font-size: 0.9rem; }
 
-/* ===================================================== */
-/* SECTION PREMIUM 2090 - PROACTIVE CYBER DEFENSE */
-/* ===================================================== */
+/* CYBER DEFENSE PREMIUM */
 .cyber-defense-premium {
   padding: 5rem 4%;
   background: linear-gradient(135deg, #050B14, #0A1628);
@@ -572,15 +561,8 @@ a { text-decoration: none; }
   0%, 100% { transform: scale(1); opacity: 0.8; }
   50% { transform: scale(1.1); opacity: 1; }
 }
-@media (max-width: 768px) {
-  .cyber-defense-grid { grid-template-columns: 1fr; text-align: center; }
-  .defense-features { justify-content: center; }
-  .hologram-globe { margin-top: 2rem; }
-}
 
-/* ===================================================== */
 /* STATS SECTION */
-/* ===================================================== */
 .stats-section {
   background: linear-gradient(135deg, var(--primary), var(--primary-light));
   padding: 4rem 4%;
@@ -602,9 +584,7 @@ a { text-decoration: none; }
 }
 .stat-item .stat-label { color: var(--gray-light); font-size: 0.85rem; margin-top: 0.4rem; }
 
-/* ===================================================== */
 /* SERVICES SECTION */
-/* ===================================================== */
 .services-section {
   padding: 5rem 4%;
   background: var(--primary-deep);
@@ -684,9 +664,7 @@ a { text-decoration: none; }
 }
 .service-card:hover .service-link { gap: 0.8rem; color: var(--red); }
 
-/* ===================================================== */
-/* CARTE KASPERSKY */
-/* ===================================================== */
+/* CYBER MAP SECTION */
 .cyber-map-section {
   padding: 5rem 4%;
   background: linear-gradient(135deg, #050B14, #071426);
@@ -776,14 +754,8 @@ a { text-decoration: none; }
 }
 .cyber-stat h4 { color: #00D4FF; font-size: 1.8rem; margin-bottom: 0.2rem; }
 .cyber-stat span { color: #94A3B8; font-size: 0.8rem; }
-@media (max-width: 768px) {
-  .cyber-map-box { height: 500px; }
-  .cyber-stats { position: relative; bottom: auto; right: auto; margin-top: 1rem; grid-template-columns: repeat(2, 1fr); }
-}
 
-/* ===================================================== */
 /* BANNER & CTA */
-/* ===================================================== */
 .banner-cta {
   background: var(--white);
   margin: 0 4% 4rem;
@@ -859,7 +831,11 @@ footer {
 .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
+/* ===================================================== */
+/* RESPONSIVE MOBILE - STYLE DATA PROTECT */
+/* ===================================================== */
 @media (max-width: 768px) {
+  /* Navigation mobile */
   .nav-links {
     position: fixed; top: 70px; right: 0;
     flex-direction: column;
@@ -869,6 +845,7 @@ footer {
     gap: 0.5rem;
     transform: translateX(100%);
     transition: transform 0.3s;
+    z-index: 999;
   }
   .nav-links.active { transform: translateX(0); }
   .menu-toggle { display: block; }
@@ -880,18 +857,101 @@ footer {
     box-shadow: none;
     padding-left: 1rem;
   }
-  .values-grid, .stats-container, .services-grid { grid-template-columns: 1fr; }
+  
+  /* Slider mobile */
   .slider { height: 100vh; }
-  .banner-cta { margin: 2rem 4% 2rem; padding: 2rem; }
   .controls div { width: 40px; height: 40px; }
+  .controls { padding: 0 15px; }
+  .caption { margin: 0 1rem; padding: 1.5rem; }
+  .slide-buttons { flex-direction: column; align-items: center; gap: 0.8rem; }
+  .btn-slide, .btn-slide-outline { width: auto; min-width: 200px; justify-content: center; }
+  
+  /* Top bar mobile */
+  .top-bar-container { flex-direction: column; text-align: center; gap: 0.6rem; }
+  .top-bar-info { justify-content: center; flex-wrap: wrap; gap: 0.8rem; }
+  .top-bar-social { margin-top: 0.2rem; }
+  
+  /* Grids en 1 colonne */
+  .values-grid, .stats-container, .services-grid, .cyber-defense-grid { grid-template-columns: 1fr; }
+  
+  /* Services cards - version centrée style Data Protect */
+  .services-grid { gap: 1.5rem; padding: 0 0.5rem; }
+  .service-card {
+    text-align: center;
+    background: linear-gradient(145deg, rgba(15, 42, 62, 0.8), rgba(10, 22, 40, 0.9));
+    border-radius: 24px;
+    padding: 0;
+  }
+  .service-img { height: 180px; border-radius: 24px 24px 0 0; }
+  .service-content { padding: 1.5rem; text-align: center; }
+  .service-content h3 { font-size: 1.3rem; margin-bottom: 0.75rem; }
+  .service-content p { font-size: 0.9rem; margin-bottom: 1.25rem; }
+  .service-link {
+    display: inline-flex;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--red), var(--red-dark));
+    color: var(--white);
+    padding: 0.6rem 1.2rem;
+    border-radius: 40px;
+    font-size: 0.85rem;
+  }
+  .service-link i { transition: transform 0.3s ease; }
+  .service-card:hover .service-link { background: var(--accent); color: var(--primary); }
+  .service-card:hover .service-link i { transform: translateX(5px); }
+  
+  /* Values cards centrées */
+  .values-grid { gap: 1.5rem; padding: 0 0.5rem; }
+  .value-card { text-align: center; padding: 1.8rem; border-radius: 24px; }
+  .value-icon { margin: 0 auto 1.2rem; width: 65px; height: 65px; }
+  .value-card h3 { font-size: 1.25rem; margin-bottom: 0.6rem; }
+  
+  /* Cyber defense mobile */
+  .cyber-defense-grid { text-align: center; }
+  .defense-features { justify-content: center; flex-wrap: wrap; }
+  .defense-btn { display: inline-flex; margin: 0 auto; }
+  
+  /* Cyber map mobile */
+  .cyber-map-box { height: auto; min-height: 450px; }
+  .cyber-map-box iframe { height: 450px; }
+  .live-status { position: relative; top: auto; left: auto; margin: 1rem; text-align: center; }
+  .cyber-stats { position: relative; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; margin: 1rem; }
+  .cyber-stat { padding: 0.8rem; text-align: center; }
+  .cyber-stat h4 { font-size: 1.4rem; }
+  
+  /* Banner CTA mobile */
+  .banner-cta { margin: 1rem; padding: 1.8rem; }
+  .banner-cta h2 { font-size: 1.3rem; }
+  .banner-cta .btn-banner { width: 100%; justify-content: center; }
+  
+  /* Section titles centrés */
+  .section-title, .section-subtitle { text-align: center; margin-left: auto; margin-right: auto; }
+  
+  /* Stats mobile */
+  .stats-container { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+  .stat-number { font-size: 2rem; }
+  
+  /* Footer mobile */
+  .footer-brand .logo { justify-content: center; }
+  .footer-brand p { padding: 0 1rem; }
+  .cta-block .btn-primary { width: 100%; justify-content: center; }
+}
+
+/* Très petits écrans */
+@media (max-width: 480px) {
+  .stats-container { grid-template-columns: 1fr; gap: 1rem; }
+  .service-content { padding: 1.2rem; }
+  .service-content h3 { font-size: 1.15rem; }
+  .defense-features { gap: 0.6rem; }
+  .defense-feature { font-size: 0.75rem; padding: 0.4rem 0.8rem; }
+  .cyber-stats { grid-template-columns: 1fr; }
+  .top-bar-info { flex-direction: column; gap: 0.3rem; }
+  .lang-switch { justify-content: center; }
 }
 </style>
 </head>
 <body>
 
-<!-- ===================================================== -->
-<!-- TOP BAR PREMIUM -->
-<!-- ===================================================== -->
+<!-- TOP BAR -->
 <div class="top-bar">
   <div class="top-bar-container">
     <div class="partner-badge">
@@ -939,9 +999,7 @@ footer {
   </div>
 </nav>
 
-<!-- ===================================================== -->
-<!-- SLIDER PREMIUM 2029 -->
-<!-- ===================================================== -->
+<!-- SLIDER -->
 <div class="slider" id="heroSlider">
   <canvas id="particleCanvas" class="particle-canvas"></canvas>
   
@@ -986,9 +1044,7 @@ footer {
   <div class="indicator" id="slideIndicator"></div>
 </div>
 
-<!-- ===================================================== -->
-<!-- VALEURS SECTION -->
-<!-- ===================================================== -->
+<!-- VALUES SECTION -->
 <section class="values-section">
   <div style="text-align: center; margin-bottom: 3rem;">
     <span class="section-tag" id="valuesTag">Nos valeurs</span>
@@ -1013,9 +1069,7 @@ footer {
   </div>
 </section>
 
-<!-- ===================================================== -->
-<!-- SECTION PREMIUM 2090 - PROACTIVE CYBER DEFENSE -->
-<!-- ===================================================== -->
+<!-- CYBER DEFENSE PREMIUM -->
 <section class="cyber-defense-premium">
   <div class="cyber-defense-container">
     <div class="cyber-defense-grid">
@@ -1043,9 +1097,7 @@ footer {
   </div>
 </section>
 
-<!-- ===================================================== -->
 <!-- STATS SECTION -->
-<!-- ===================================================== -->
 <section class="stats-section">
   <div class="stats-container">
     <div class="stat-item"><div class="stat-number" id="stat1" data-target="15">0</div><div class="stat-label" id="statLabel1">Années d'expérience cumulées</div></div>
@@ -1055,9 +1107,7 @@ footer {
   </div>
 </section>
 
-<!-- ===================================================== -->
 <!-- SERVICES SECTION -->
-<!-- ===================================================== -->
 <section class="services-section">
   <div class="container">
     <span class="section-tag" id="servicesTag">Nos offres clés</span>
@@ -1067,9 +1117,7 @@ footer {
   </div>
 </section>
 
-<!-- ===================================================== -->
-<!-- CARTE KASPERSKY -->
-<!-- ===================================================== -->
+<!-- CYBER MAP SECTION -->
 <section class="cyber-map-section">
   <div class="cyber-map-container">
     <div class="cyber-map-header">
@@ -1094,9 +1142,7 @@ footer {
   </div>
 </section>
 
-<!-- ===================================================== -->
 <!-- BANNER CTA -->
-<!-- ===================================================== -->
 <div class="banner-cta reveal">
   <div class="banner-cta-content">
     <h2 id="bannerTitle">🔐 Évaluez votre niveau de sécurité dès maintenant</h2>
@@ -1105,9 +1151,7 @@ footer {
   </div>
 </div>
 
-<!-- ===================================================== -->
 <!-- CTA BLOCK -->
-<!-- ===================================================== -->
 <section class="cta-block">
   <div class="cta-block-content">
     <h2 id="ctaTitle">Prêt à sécuriser votre entreprise ?</h2>
@@ -1116,9 +1160,7 @@ footer {
   </div>
 </section>
 
-<!-- ===================================================== -->
 <!-- FOOTER -->
-<!-- ===================================================== -->
 <footer>
   <div class="footer-content">
     <div class="footer-brand">
@@ -1143,9 +1185,7 @@ footer {
 </footer>
 
 <script>
-// =====================================================
 // SERVICES DATA
-// =====================================================
 const servicesData = {
   fr: [
     {title:"Audit & Diagnostic", desc:"On identifie vos failles critiques en quelques jours.", img:"audit-diagnostic.jpg", link:"contact.html"},
@@ -1163,9 +1203,7 @@ const servicesData = {
   ]
 };
 
-// =====================================================
-// TRADUCTIONS COMPLÈTES AVEC MENU
-// =====================================================
+// TRADUCTIONS
 const translations = {
   fr: {
     partnerBadgeText: "Votre partenaire cybersécurité",
@@ -1269,11 +1307,7 @@ function applyLanguage(lang) {
   const t = translations[lang];
   if (!t) return;
   
-  // TOP BAR BADGE
-  const partnerBadge = document.getElementById('partnerBadgeText');
-  if (partnerBadge) partnerBadge.innerText = t.partnerBadgeText;
-  
-  // MENU LINKS
+  document.getElementById('partnerBadgeText').innerText = t.partnerBadgeText;
   document.getElementById('menuAccueil').innerText = t.menuAccueil;
   document.getElementById('menuServices').innerText = t.menuServices;
   document.getElementById('menuSecteurs').innerText = t.menuSecteurs;
@@ -1282,8 +1316,6 @@ function applyLanguage(lang) {
   document.getElementById('menuCampus').innerHTML = t.menuCampus;
   document.getElementById('menuContact').innerText = t.menuContact;
   document.getElementById('navCtaText').innerText = t.navCtaText;
-  
-  // Slides
   document.getElementById('slide1Title').innerHTML = t.slide1Title;
   document.getElementById('slide1Desc').innerText = t.slide1Desc;
   document.getElementById('slide1Btn').innerHTML = t.slide1Btn;
@@ -1293,8 +1325,6 @@ function applyLanguage(lang) {
   document.getElementById('slide3Title').innerHTML = t.slide3Title;
   document.getElementById('slide3Desc').innerText = t.slide3Desc;
   document.getElementById('slide3Btn').innerHTML = t.slide3Btn;
-  
-  // Values
   document.getElementById('valuesTag').innerText = t.valuesTag;
   document.getElementById('valuesTitle').innerText = t.valuesTitle;
   document.getElementById('value1Title').innerText = t.value1Title;
@@ -1303,8 +1333,6 @@ function applyLanguage(lang) {
   document.getElementById('value2Desc').innerText = t.value2Desc;
   document.getElementById('value3Title').innerText = t.value3Title;
   document.getElementById('value3Desc').innerText = t.value3Desc;
-  
-  // Defense section
   document.getElementById('defenseBadge').innerText = t.defenseBadge;
   document.getElementById('defenseTitle').innerHTML = t.defenseTitle;
   document.getElementById('defenseDesc').innerText = t.defenseDesc;
@@ -1314,19 +1342,13 @@ function applyLanguage(lang) {
   document.getElementById('defenseFeat4').innerText = t.defenseFeat4;
   document.getElementById('defenseFeat5').innerText = t.defenseFeat5;
   document.getElementById('defenseBtn').innerHTML = t.defenseBtn;
-  
-  // Stats labels
   for (let i = 0; i < t.statLabels.length; i++) {
     const labelEl = document.getElementById(`statLabel${i+1}`);
     if (labelEl) labelEl.innerText = t.statLabels[i];
   }
-  
-  // Services
   document.getElementById('servicesTag').innerText = t.servicesTag;
   document.getElementById('servicesTitle').innerText = t.servicesTitle;
   document.getElementById('servicesSub').innerText = t.servicesSub;
-  
-  // Banner & CTA
   document.getElementById('bannerTitle').innerHTML = t.bannerTitle;
   document.getElementById('bannerText').innerText = t.bannerText;
   document.getElementById('bannerBtn').innerHTML = t.bannerBtn + ' <i class="fas fa-arrow-right"></i>';
@@ -1334,7 +1356,6 @@ function applyLanguage(lang) {
   document.getElementById('ctaText').innerText = t.ctaText;
   document.getElementById('ctaBtn').innerHTML = t.ctaBtn + ' <i class="fas fa-arrow-right"></i>';
   
-  // Services grid
   const servicesGrid = document.getElementById('servicesGrid');
   if (servicesGrid) {
     servicesGrid.innerHTML = '';
@@ -1343,7 +1364,6 @@ function applyLanguage(lang) {
     });
   }
   
-  // Active language button
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.remove('active');
     if (btn.getAttribute('data-lang') === lang) btn.classList.add('active');
@@ -1352,9 +1372,7 @@ function applyLanguage(lang) {
   localStorage.setItem('nextgen-lang', lang);
 }
 
-// =====================================================
-// SLIDER LOGIC
-// =====================================================
+// SLIDER
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 const indicator = document.getElementById('slideIndicator');
@@ -1388,9 +1406,7 @@ if (slides.length && indicator) {
   updateIndicators();
 }
 
-// =====================================================
-// LOAD SLIDE BACKGROUNDS
-// =====================================================
+// SLIDE BACKGROUNDS
 document.querySelectorAll('.slide').forEach(slide => {
   const imgUrl = slide.getAttribute('data-image');
   if (imgUrl) {
@@ -1399,9 +1415,7 @@ document.querySelectorAll('.slide').forEach(slide => {
   }
 });
 
-// =====================================================
 // PARTICLES CANVAS
-// =====================================================
 const canvas = document.getElementById('particleCanvas');
 if (canvas) {
   let ctx = canvas.getContext('2d');
@@ -1456,9 +1470,7 @@ if (canvas) {
   drawParticles();
 }
 
-// =====================================================
-// PARALLAX EFFECT
-// =====================================================
+// PARALLAX
 document.querySelectorAll('.slide').forEach(slide => {
   const bg = slide.querySelector('.slide-bg');
   if (bg) {
@@ -1478,9 +1490,7 @@ document.querySelectorAll('.slide').forEach(slide => {
   }
 });
 
-// =====================================================
-// ANIMATE STATS COUNTERS
-// =====================================================
+// STATS COUNTERS
 function animateNumber(element, target) {
   if (!element) return;
   let current = 0, increment = target / 50;
@@ -1509,9 +1519,7 @@ const statObserver = new IntersectionObserver((entries) => {
 const statsSection = document.querySelector('.stats-section');
 if (statsSection) statObserver.observe(statsSection);
 
-// =====================================================
 // REVEAL ANIMATIONS
-// =====================================================
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -1520,9 +1528,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// =====================================================
 // LANGUAGE SWITCH
-// =====================================================
 document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const lang = btn.getAttribute('data-lang');
@@ -1533,9 +1539,7 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
   });
 });
 
-// =====================================================
 // MOBILE MENU
-// =====================================================
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
 if (menuToggle && navLinks) {
@@ -1544,9 +1548,7 @@ if (menuToggle && navLinks) {
   });
 }
 
-// =====================================================
-// CYBER COUNTERS ANIMATION (KASPERSKY)
-// =====================================================
+// CYBER COUNTERS
 function animateCyberCounters() {
   const counters = [
     { id: 'attackCounter1', min: 12000, max: 15000 },
@@ -1563,9 +1565,7 @@ function animateCyberCounters() {
 }
 animateCyberCounters();
 
-// =====================================================
 // INITIAL LANGUAGE
-// =====================================================
 applyLanguage(currentLang);
 </script>
 </body>
