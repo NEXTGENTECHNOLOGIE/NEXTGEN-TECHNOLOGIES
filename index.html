@@ -158,7 +158,7 @@ a { text-decoration: none; }
   color: var(--white) !important; padding: 0.7rem 1.4rem !important;
   border-radius: 40px !important; font-weight: 700 !important;
 }
-.nav-cta:hover { transform: translateY(-2px) !important; background: var(--accent) !important; color: var(--primary) !important; }
+.nav-cta:hover { transform: translateY(-2px) !important; background: var(--accent) !important; color: var(--primary) !important; box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3) !important; }
 
 /* MOBILE HAMBURGER MENU */
 .menu-toggle {
@@ -173,6 +173,10 @@ a { text-decoration: none; }
   transition: right 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
 .mobile-nav-overlay.active { right: 0; }
+.mobile-nav-overlay a {
+  color: var(--off-white); font-size: 1.1rem; font-weight: 600; transition: var(--transition);
+}
+.mobile-nav-overlay a:hover { color: var(--accent); }
 
 /* HERO SLIDER AVEC INTELLIGENCE GRAPHIQUE CYBER */
 .slider {
@@ -346,7 +350,6 @@ a { text-decoration: none; }
   background: rgba(15, 43, 77, 0.3); border-radius: 24px; overflow: hidden;
   border: 1px solid rgba(0,212,255,0.1); transition: transform 0.1s ease, box-shadow 0.4s ease, border-color 0.4s ease;
   display: flex; flex-direction: column; transform-style: preserve-3d; perspective: 1000px;
-  /* Configuration initiale requise pour l'effet cascade */
   opacity: 0; transform: translateY(40px);
 }
 .service-card:hover { border-color: var(--accent); box-shadow: 0 15px 35px rgba(0, 212, 255, 0.15); }
@@ -508,7 +511,7 @@ a { text-decoration: none; }
     </ul>
 
     <div class="nav-actions">
-      <a href="contact.html" class="nav-cta" data-i18n="nav_audit">Audit gratuit</a>
+      <a href="support.html" class="nav-cta" data-i18n="nav_support"><i class="fas fa-headset"></i> Support</a>
       <button class="menu-toggle" id="menuToggle">
         <i class="fa-solid fa-bars"></i>
       </button>
@@ -516,7 +519,7 @@ a { text-decoration: none; }
   </div>
 </nav>
 
- <div class="mobile-nav-overlay" id="mobileNav">
+<div class="mobile-nav-overlay" id="mobileNav">
   <a href="index.html" data-i18n="nav_home">Accueil</a>
   <a href="services.html" data-i18n="nav_services">Services</a>
   <a href="secteurs.html" data-i18n="nav_sectors">Secteurs</a>
@@ -524,7 +527,7 @@ a { text-decoration: none; }
   <a href="carrieres.html" data-i18n="nav_careers">Carrières</a>
   <a href="campus-cyber.html" data-i18n="nav_campus">🎓 Campus Cyber</a>
   <a href="contact.html" data-i18n="nav_contact">Contact</a>
-  <a href="support.html" class="nav-cta" style="background: #EF4444 !important; color: #FFFFFF !important; text-align: center; margin-top: 1.5rem;" data-i18n="nav_support"><i class="fas fa-headset"></i> Support</a>
+  <a href="support.html" class="nav-cta" style="background: linear-gradient(135deg, var(--red), var(--red-dark)) !important; color: #FFFFFF !important; text-align: center; margin-top: 1.5rem;" data-i18n="nav_support"><i class="fas fa-headset"></i> Support</a>
 </div>
 
 <div class="slider">
@@ -600,7 +603,7 @@ a { text-decoration: none; }
     <div class="value-card">
       <div class="value-icon"><i class="fa-solid fa-headset"></i></div>
       <h3 data-i18n="val_4_title">Support Dédié</h3>
-      <p data-i18n="val_4_desc">Assistance réactive en continu 24/7/365 avec une équipe de crise mobilisable à tout instant.</p>
+      <p data-i18n="val_4_desc">Assistance réactive en continu 24/7/365 avec une équipe de crisis mobilisable à tout instant.</p>
     </div>
   </div>
 </section>
@@ -610,8 +613,7 @@ a { text-decoration: none; }
     <h2 class="wow-gradient-title" data-i18n="services_section_title">Nos Domaines d'Expertise Cyber</h2>
     <p data-i18n="services_section_desc">Des solutions ultra-spécifiques et modulaires adaptées aux menaces contemporaines complexes.</p>
   </div>
-  <div class="services-grid" id="servicesGrid">
-    </div>
+  <div class="services-grid" id="servicesGrid"></div>
 </section>
 
 <section class="cyber-defense-premium">
@@ -690,43 +692,6 @@ a { text-decoration: none; }
 
   <div class="footer-bottom">
     <p>&copy; 2026 NextGen Technologies. Tous droits réservés.</p>
-    <p>Powered by NextGen Infrastructure</p>
-  </div>
-</footer>
-
-<script>
-// COMPTEURS CYBER STATS DYNAMIQUES DE LA CARTE KASPERSKY
-function animateCyberCounters() {
-  const counters = [
-    { id: 'attackCounter1', min: 12000, max: 15000 },
-    { id: 'attackCounter2', min: 3000, max: 5000 },
-    { id: 'attackCounter3', min: 150, max: 400 }
-  ];
-  counters.forEach(counter => {
-    setInterval(() => {
-      const randomValue = Math.floor(Math.random() * (counter.max - counter.min) + counter.min);
-      const element = document.getElementById(counter.id);
-      if (element) element.innerText = randomValue.toLocaleString();
-    }, 3000);
-  });
-}
-animateCyberCounters();
-
-// Gestion du menu mobile (Burger)
-const menuToggle = document.getElementById('menuToggle');
-const mobileNav = document.getElementById('mobileNav');
-if (menuToggle && mobileNav) {
-  menuToggle.addEventListener('click', () => {
-    mobileNav.classList.toggle('active');
-  });
-}
-</script>
-
-</body>
-</html>
-  
-  <div class="footer-bottom">
-    <p>&copy; 2026 NextGen Technologies. Tous droits réservés.</p>
     <p data-i18n="footer_sub_text">Conçu avec excellence opérationnelle au Maroc.</p>
   </div>
 </footer>
@@ -743,7 +708,7 @@ const translations = {
     nav_careers: "Carrières",
     nav_campus: "🎓 Campus Cyber",
     nav_contact: "Contact",
-    nav_audit: "Audit gratuit",
+    nav_support: "Support",
     slide1_title_sub: "Cyber Defense Platform",
     slide1_desc: "Anticipez les cyberattaques grâce à notre expertise en Threat Intelligence et réponse globale immédiate.",
     btn_audit_req: "Demander un Audit",
@@ -800,7 +765,7 @@ const translations = {
     nav_careers: "Careers",
     nav_campus: "🎓 Cyber Campus",
     nav_contact: "Contact",
-    nav_audit: "Free Audit",
+    nav_support: "Support",
     slide1_title_sub: "Cyber Defense Platform",
     slide1_desc: "Anticipate cyberattacks with our advanced Threat Intelligence and instant global incident response.",
     btn_audit_req: "Request an Audit",
@@ -850,7 +815,7 @@ const translations = {
   }
 };
 
-// Tableau dynamique unique relié aux clés de traduction (Image NOC mise à jour)
+// Tableau dynamique unique relié aux clés de traduction
 const servicesData = [
   { id: 1, titleKey: "srv_1_title", descKey: "srv_1_desc", link: "contact.html", icon: "fa-solid fa-clipboard-check", img: "audit-diagnostic.jpg" },
   { id: 2, titleKey: "srv_2_title", descKey: "srv_2_desc", link: "vapt.html", icon: "fa-solid fa-terminal", img: "vapt.webp" },
@@ -1062,6 +1027,5 @@ function animateCyberCounters() {
 }
 animateCyberCounters();
 </script>
-
 </body>
 </html>
