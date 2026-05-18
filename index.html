@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
 <style>
 :root {
   --primary: #0A1628;
@@ -39,6 +40,33 @@ h1, h2, h3, h4 {
 }
 a { text-decoration: none; }
 
+/* WOW EFFECT : SCROLL PROGRESS BAR */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--red));
+  z-index: 99999;
+  transition: width 0.1s ease;
+}
+
+/* WOW EFFECT : CURSOR GLOW (DESKTOP) */
+@media (min-width: 1025px) {
+  .cursor-glow {
+    width: 600px;
+    height: 600px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.08), transparent 70%);
+    pointer-events: none;
+    z-index: 9999;
+  }
+}
+
 /* TOP BAR */
 .top-bar {
   background: rgba(5, 11, 20, 0.95);
@@ -48,6 +76,7 @@ a { text-decoration: none; }
   font-size: 0.8rem;
   border-bottom: 1px solid rgba(0,212,255,0.2);
   z-index: 1001;
+  position: relative;
 }
 .top-bar-container {
   max-width: 1400px;
@@ -80,7 +109,7 @@ a { text-decoration: none; }
 .top-bar-info { display: flex; gap: 2rem; flex-wrap: wrap; }
 .top-bar-info span { display: flex; align-items: center; gap: 0.4rem; }
 .top-bar-info i { color: var(--accent); }
-.top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; transition: var(--transition); }
+.top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; transition: var(--transition); display: inline-block; }
 .top-bar-social a:hover { color: var(--accent); transform: translateY(-2px); }
 
 .lang-switch {
@@ -148,6 +177,7 @@ a { text-decoration: none; }
   display: flex; align-items: center; gap: 0.3rem;
 }
 .nav-links > li > a:hover { background: rgba(0,212,255,0.1); color: var(--accent); }
+
 .dropdown-menu {
   position: absolute; top: 100%; left: 0;
   background: #071426;
@@ -179,7 +209,54 @@ a { text-decoration: none; }
   font-weight: 700 !important;
 }
 .nav-cta:hover { transform: translateY(-2px) !important; background: var(--accent) !important; color: var(--primary) !important; }
-.menu-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
+
+/* WOW EFFECT : MOBILE HAMBURGER MENU */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10001;
+}
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  max-width: 400px;
+  height: 100vh;
+  background: rgba(5, 11, 20, 0.98);
+  backdrop-filter: blur(25px);
+  z-index: 10000;
+  padding: 8rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+  border-left: 1px solid rgba(0,212,255,0.2);
+  transition: right 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+.mobile-nav-overlay.active {
+  right: 0;
+}
+.mobile-nav-overlay a {
+  color: var(--white);
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: 'Space Grotesk', sans-serif;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: var(--transition);
+}
+.mobile-nav-overlay a:hover {
+  background: rgba(0,212,255,0.1);
+  color: var(--accent);
+  padding-left: 1.5rem;
+}
 
 /* SLIDER */
 .particle-canvas {
@@ -269,10 +346,21 @@ a { text-decoration: none; }
   margin-bottom: 1rem;
   line-height: 1.3;
 }
-.slide .caption h1 .accent-text {
-  color: var(--accent);
-  text-shadow: 0 0 15px rgba(0,212,255,0.5);
+
+/* WOW EFFECT : GRADIENT ANIMATED TEXT */
+.accent-text, .wow-gradient-title {
+  background: linear-gradient(90deg, var(--accent), #f6c453, var(--accent));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: pulseGlowGradient 4s linear infinite;
 }
+@keyframes pulseGlowGradient {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
 .slide-desc {
   font-size: 1rem;
   color: rgba(255,255,255,0.85);
@@ -301,6 +389,7 @@ a { text-decoration: none; }
   transform: translateY(-2px);
   background: var(--accent);
   color: var(--primary);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
 }
 .btn-slide-outline {
   background: transparent;
@@ -375,6 +464,7 @@ a { text-decoration: none; }
 .values-section {
   padding: 5rem 4%;
   background: #071426;
+  position: relative;
 }
 .values-grid {
   display: grid;
@@ -383,19 +473,26 @@ a { text-decoration: none; }
   max-width: 1200px;
   margin: 0 auto;
 }
+
+/* WOW EFFECT : GLASSMORPHISM CARDS */
 .value-card {
   text-align: center;
-  padding: 2rem;
-  border-radius: 20px;
-  background: rgba(15, 42, 62, 0.6);
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(0,212,255,0.1);
+  padding: 2.5rem 2rem;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   transition: var(--transition);
+  opacity: 0;
+  transform: translateY(30px);
 }
 .value-card:hover {
-  transform: translateY(-8px);
-  border-color: var(--red);
-  box-shadow: 0 20px 40px rgba(239,68,68,0.1);
+  transform: translateY(-10px) scale(1.02);
+  border-color: rgba(0, 212, 255, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 40px rgba(0, 212, 255, 0.15), inset 0 0 15px rgba(255,255,255,0.05);
 }
 .value-icon {
   width: 70px;
@@ -408,6 +505,7 @@ a { text-decoration: none; }
   margin: 0 auto 1.2rem;
   color: var(--white);
   font-size: 1.8rem;
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
 }
 .value-card h3 { color: var(--white); font-size: 1.3rem; margin-bottom: 0.8rem; }
 .value-card p { color: var(--gray-light); font-size: 0.9rem; }
@@ -446,70 +544,43 @@ a { text-decoration: none; }
   gap: 3rem;
   align-items: center;
 }
-.defense-badge {
-  display: inline-block;
-  background: rgba(0,212,255,0.15);
-  border: 1px solid rgba(0,212,255,0.3);
-  padding: 0.3rem 1rem;
-  border-radius: 40px;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--accent);
+.cyber-defense-text h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
   margin-bottom: 1.5rem;
-}
-.defense-title {
-  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-  color: var(--white);
-  margin-bottom: 1.2rem;
   line-height: 1.2;
 }
-.defense-desc {
+.cyber-defense-text p {
   color: var(--gray-light);
+  margin-bottom: 2rem;
   font-size: 1rem;
-  margin-bottom: 2rem;
-  line-height: 1.6;
 }
-.defense-features {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 2rem;
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
 }
-.defense-feature {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(0,212,255,0.2);
-  padding: 0.5rem 1.2rem;
-  border-radius: 40px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
+.stat-box {
+  background: rgba(15, 43, 77, 0.4);
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 1px solid rgba(0,212,255,0.1);
+  transition: var(--transition);
 }
-.defense-feature i { color: var(--accent); font-size: 0.9rem; }
-.defense-feature:hover {
-  background: rgba(0,212,255,0.1);
-  transform: translateY(-3px);
+.stat-box:hover {
   border-color: var(--accent);
+  background: rgba(15, 43, 77, 0.6);
 }
-.defense-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.8rem;
-  background: linear-gradient(135deg, var(--red), var(--red-dark));
-  color: var(--white);
-  padding: 0.8rem 2rem;
-  border-radius: 40px;
+.stat-number {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.2rem;
   font-weight: 700;
-  transition: all 0.3s ease;
+  color: var(--accent);
+  margin-bottom: 0.2rem;
 }
-.defense-btn:hover {
-  transform: translateY(-3px);
-  background: var(--accent);
-  color: var(--primary);
-  box-shadow: 0 10px 30px rgba(0,212,255,0.3);
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--off-white);
+  font-weight: 500;
 }
 .cyber-defense-visual {
   position: relative;
@@ -517,458 +588,235 @@ a { text-decoration: none; }
   justify-content: center;
   align-items: center;
 }
-.hologram-globe {
-  position: relative;
-  width: 300px;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.globe-ring {
-  position: absolute;
+.map-iframe-container {
   width: 100%;
-  height: 100%;
-  border: 2px solid rgba(0,212,255,0.5);
-  border-radius: 50%;
-  animation: pulseRing 3s ease-out infinite;
+  height: 400px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 2px solid rgba(0,212,255,0.2);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
 }
-.globe-ring2 {
-  position: absolute;
-  width: 70%;
-  height: 70%;
-  border: 2px solid rgba(239,68,68,0.4);
-  border-radius: 50%;
-  animation: pulseRing2 2.5s ease-out infinite 0.5s;
-}
-.globe-core {
-  width: 40%;
-  height: 40%;
-  background: radial-gradient(circle, var(--accent), rgba(0,212,255,0.2));
-  border-radius: 50%;
-  box-shadow: 0 0 40px rgba(0,212,255,0.4);
-  animation: corePulse 2s ease-in-out infinite;
-}
-@keyframes pulseRing {
-  0% { transform: scale(0.8); opacity: 0.8; }
-  100% { transform: scale(1.2); opacity: 0; }
-}
-@keyframes pulseRing2 {
-  0% { transform: scale(0.8); opacity: 0.6; }
-  100% { transform: scale(1.3); opacity: 0; }
-}
-@keyframes corePulse {
-  0%, 100% { transform: scale(1); opacity: 0.8; }
-  50% { transform: scale(1.1); opacity: 1; }
-}
-
-/* STATS SECTION */
-.stats-section {
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
-  padding: 4rem 4%;
-}
-.stats-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  text-align: center;
-}
-.stat-item .stat-number {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 2.8rem;
-  font-weight: 700;
-  color: var(--accent);
-  line-height: 1;
-}
-.stat-item .stat-label { color: var(--gray-light); font-size: 0.85rem; margin-top: 0.4rem; }
 
 /* SERVICES SECTION */
 .services-section {
-  padding: 5rem 4%;
-  background: var(--primary-deep);
+  padding: 6rem 4%;
+  background: #050B14;
 }
-.container { max-width: 1400px; margin: 0 auto; }
-.section-tag {
-  display: inline-block;
-  color: var(--accent);
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  margin-bottom: 0.8rem;
-}
-.section-title {
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  color: var(--white);
-  margin-bottom: 0.8rem;
-  line-height: 1.15;
-}
-.section-subtitle {
-  font-size: 1.05rem;
-  color: var(--gray-light);
+.section-header {
+  text-align: center;
   max-width: 700px;
-  margin-bottom: 3rem;
+  margin: 0 auto 4rem;
+}
+.section-header h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin-bottom: 1rem;
+}
+.section-header p {
+  color: var(--gray-light);
 }
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-  gap: 1.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2.5rem;
+  max-width: 1300px;
+  margin: 0 auto;
 }
+
+/* WOW EFFECT : 3D TILT HOVER SERVICE CARD & STAGGERED REVEAL */
 .service-card {
-  background: rgba(15, 42, 62, 0.6);
-  backdrop-filter: blur(5px);
-  border-radius: 20px;
+  background: rgba(15, 43, 77, 0.3);
+  border-radius: 24px;
   overflow: hidden;
   border: 1px solid rgba(0,212,255,0.1);
-  transition: var(--transition);
-  color: inherit;
-  display: block;
+  transition: transform 0.1s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  opacity: 0;
+  transform: translateY(30px);
 }
 .service-card:hover {
-  transform: translateY(-8px);
-  border-color: var(--red);
-  box-shadow: 0 20px 40px rgba(239,68,68,0.15);
+  border-color: var(--accent);
+  box-shadow: 0 15px 35px rgba(0, 212, 255, 0.15);
 }
 .service-img {
-  height: 170px;
-  position: relative;
+  height: 220px;
   overflow: hidden;
+  position: relative;
 }
 .service-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1);
 }
-.service-card:hover .service-img img { transform: scale(1.05); }
-.service-img::after {
+.service-card:hover .service-img img {
+  transform: scale(1.08);
+}
+.service-content {
+  padding: 2rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  transform: translateZ(20px); /* 3D Depth element */
+}
+.service-content h3 {
+  color: var(--white);
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  transition: color 0.3s ease;
+}
+.service-card:hover .service-content h3 {
+  color: var(--accent);
+}
+.service-content p {
+  color: var(--gray-light);
+  font-size: 0.92rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+.service-btn {
+  margin-top: auto;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: gap 0.3s ease;
+}
+.service-card:hover .service-btn {
+  gap: 0.8rem;
+}
+
+/* FOOTER */
+.footer {
+  background: #050B14;
+  padding: 4rem 4% 2rem;
+  border-top: 1px solid rgba(0,212,255,0.1);
+}
+.footer-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr repeat(3, 1fr);
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+.footer-brand .logo {
+  margin-bottom: 1.2rem;
+}
+.footer-brand p {
+  color: var(--gray-light);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+.footer-socials {
+  display: flex;
+  gap: 1rem;
+}
+.footer-socials a {
+  width: 40px;
+  height: 40px;
+  background: rgba(15, 43, 77, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--off-white);
+  border: 1px solid rgba(0,212,255,0.1);
+  transition: var(--transition);
+}
+.footer-socials a:hover {
+  background: var(--accent);
+  color: var(--primary);
+  transform: translateY(-3px);
+}
+.footer-links h4 {
+  color: var(--white);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+.footer-links h4::after {
   content: '';
   position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(239,68,68,0.2), rgba(0,0,0,0.4));
-  pointer-events: none;
+  bottom: -6px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: var(--accent);
 }
-.service-content { padding: 1.5rem; }
-.service-content h3 { font-size: 1.15rem; color: var(--white); margin-bottom: 0.5rem; }
-.service-content p { color: var(--gray-light); font-size: 0.88rem; margin-bottom: 1rem; line-height: 1.5; }
-.service-link {
+.footer-links ul {
+  list-style: none;
+}
+.footer-links ul li {
+  margin-bottom: 0.8rem;
+}
+.footer-links ul li a {
+  color: var(--gray-light);
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+.footer-links ul li a:hover {
   color: var(--accent);
-  font-size: 0.83rem;
-  font-weight: 700;
-  display: inline-flex;
+  padding-left: 0.4rem;
+}
+.footer-bottom {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 0.4rem;
-  transition: var(--transition);
-}
-.service-card:hover .service-link { gap: 0.8rem; color: var(--red); }
-
-/* CYBER MAP SECTION */
-.cyber-map-section {
-  padding: 5rem 4%;
-  background: linear-gradient(135deg, #050B14, #071426);
-  position: relative;
-  overflow: hidden;
-}
-.cyber-map-container { max-width: 1400px; margin: 0 auto; }
-.cyber-map-header { text-align: center; margin-bottom: 3rem; }
-.cyber-map-header h2 {
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  color: var(--white);
-  margin-bottom: 1rem;
-}
-.cyber-map-header p { color: var(--gray-light); font-size: 1.05rem; max-width: 700px; margin: 0 auto; }
-.cyber-map-box {
-  position: relative;
-  height: 650px;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid rgba(0,212,255,0.15);
-  background: #020817;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-}
-.cyber-map-box iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  filter: brightness(0.9) contrast(1.1);
-}
-.cyber-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
-  background-size: 40px 40px;
-  animation: gridMove 8s linear infinite;
-}
-@keyframes gridMove {
-  from { transform: translateY(0); }
-  to { transform: translateY(40px); }
-}
-.live-status {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  z-index: 20;
-  background: rgba(0,0,0,0.6);
-  border: 1px solid rgba(0,212,255,0.2);
-  padding: 1rem 1.2rem;
-  border-radius: 16px;
-  backdrop-filter: blur(10px);
-}
-.live-status h3 { color: #fff; font-size: 1rem; margin-bottom: 0.5rem; display: flex; align-items: center; }
-.live-dot {
-  width: 10px;
-  height: 10px;
-  background: #EF4444;
-  border-radius: 50%;
-  display: inline-block;
-  margin-right: 0.5rem;
-  animation: pulse 1s infinite;
-}
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.5); opacity: 0.5; }
-  100% { transform: scale(1); opacity: 1; }
-}
-.live-status p { color: #94A3B8; font-size: 0.85rem; }
-.cyber-stats {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  flex-wrap: wrap;
   gap: 1rem;
-  z-index: 20;
-}
-.cyber-stat {
-  background: rgba(0,0,0,0.6);
-  border: 1px solid rgba(0,212,255,0.2);
-  padding: 1rem;
-  border-radius: 16px;
-  backdrop-filter: blur(10px);
-  min-width: 180px;
-  text-align: center;
-}
-.cyber-stat h4 { color: #00D4FF; font-size: 1.8rem; margin-bottom: 0.2rem; }
-.cyber-stat span { color: #94A3B8; font-size: 0.8rem; }
-
-/* BANNER & CTA */
-.banner-cta {
-  background: var(--white);
-  margin: 0 4% 4rem;
-  border-radius: 20px;
-  text-align: center;
-  padding: 3rem;
-  border: 1px solid rgba(0,0,0,0.1);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
-.banner-cta-content { position: relative; z-index: 2; }
-.banner-cta h2 {
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  color: var(--primary);
-  margin-bottom: 0.5rem;
-}
-.banner-cta p { color: var(--gray-mid); margin-bottom: 1.5rem; }
-.banner-cta .btn-banner {
-  background: var(--primary);
-  color: var(--white);
-  padding: 0.8rem 2rem;
-  border-radius: 40px;
-  font-weight: 700;
-  transition: var(--transition);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-.banner-cta .btn-banner:hover {
-  transform: translateY(-3px);
-  background: var(--accent);
-  color: var(--primary);
+  color: var(--gray-mid);
+  font-size: 0.85rem;
 }
 
-.cta-block {
-  background: linear-gradient(135deg, var(--primary-light), var(--primary));
-  text-align: center;
-  padding: 4rem 4%;
-}
-.cta-block-content { max-width: 700px; margin: 0 auto; }
-.cta-block h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--white); margin-bottom: 1rem; }
-.cta-block p { color: var(--gray-light); margin-bottom: 2rem; }
-.btn-primary {
-  background: linear-gradient(135deg, var(--red), var(--red-dark));
-  color: var(--white);
-  padding: 1rem 2rem;
-  border-radius: 40px;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  transition: var(--transition);
-}
-.btn-primary:hover {
-  background: var(--accent);
-  color: var(--primary);
-  transform: translateY(-3px);
-}
-
-footer {
-  background: var(--primary-deep);
-  border-top: 1px solid rgba(0,212,255,0.1);
-  padding: 3rem 4% 1.5rem;
-}
-.footer-content { max-width: 1400px; margin: 0 auto; text-align: center; }
-.footer-brand { margin-bottom: 1.5rem; }
-.footer-brand .logo { display: inline-flex; justify-content: center; margin-bottom: 1rem; }
-.footer-brand p { color: var(--gray-mid); font-size: 0.88rem; max-width: 400px; margin: 0 auto; }
-.footer-contact { margin: 1.5rem 0; }
-.footer-contact p { color: var(--gray-light); font-size: 0.85rem; margin: 0.3rem 0; }
-.footer-contact i { color: var(--accent); margin-right: 0.5rem; }
-.footer-bottom { padding-top: 1.5rem; border-top: 1px solid rgba(0,212,255,0.1); font-size: 0.75rem; color: var(--gray-mid); }
-
-.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-
-/* ===================================================== */
-/* RESPONSIVE MOBILE - STYLE DATA PROTECT */
-/* ===================================================== */
-@media (max-width: 768px) {
-  /* Navigation mobile */
-  .nav-links {
-    position: fixed; top: 70px; right: 0;
-    flex-direction: column;
-    background: #071426;
-    padding: 1.5rem;
-    width: 100%;
-    gap: 0.5rem;
-    transform: translateX(100%);
-    transition: transform 0.3s;
-    z-index: 999;
-  }
-  .nav-links.active { transform: translateX(0); }
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+  .nav-links { display: none; }
   .menu-toggle { display: block; }
-  .dropdown-menu {
-    position: static;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    box-shadow: none;
-    padding-left: 1rem;
-  }
-  
-  /* Slider mobile */
-  .slider { height: 100vh; }
-  .controls div { width: 40px; height: 40px; }
-  .controls { padding: 0 15px; }
-  .caption { margin: 0 1rem; padding: 1.5rem; }
-  .slide-buttons { flex-direction: column; align-items: center; gap: 0.8rem; }
-  .btn-slide, .btn-slide-outline { width: auto; min-width: 200px; justify-content: center; }
-  
-  /* Top bar mobile */
-  .top-bar-container { flex-direction: column; text-align: center; gap: 0.6rem; }
-  .top-bar-info { justify-content: center; flex-wrap: wrap; gap: 0.8rem; }
-  .top-bar-social { margin-top: 0.2rem; }
-  
-  /* Grids en 1 colonne */
-  .values-grid, .stats-container, .services-grid, .cyber-defense-grid { grid-template-columns: 1fr; }
-  
-  /* Services cards - version centrée style Data Protect */
-  .services-grid { gap: 1.5rem; padding: 0 0.5rem; }
-  .service-card {
-    text-align: center;
-    background: linear-gradient(145deg, rgba(15, 42, 62, 0.8), rgba(10, 22, 40, 0.9));
-    border-radius: 24px;
-    padding: 0;
-  }
-  .service-img { height: 180px; border-radius: 24px 24px 0 0; }
-  .service-content { padding: 1.5rem; text-align: center; }
-  .service-content h3 { font-size: 1.3rem; margin-bottom: 0.75rem; }
-  .service-content p { font-size: 0.9rem; margin-bottom: 1.25rem; }
-  .service-link {
-    display: inline-flex;
-    justify-content: center;
-    background: linear-gradient(135deg, var(--red), var(--red-dark));
-    color: var(--white);
-    padding: 0.6rem 1.2rem;
-    border-radius: 40px;
-    font-size: 0.85rem;
-  }
-  .service-link i { transition: transform 0.3s ease; }
-  .service-card:hover .service-link { background: var(--accent); color: var(--primary); }
-  .service-card:hover .service-link i { transform: translateX(5px); }
-  
-  /* Values cards centrées */
-  .values-grid { gap: 1.5rem; padding: 0 0.5rem; }
-  .value-card { text-align: center; padding: 1.8rem; border-radius: 24px; }
-  .value-icon { margin: 0 auto 1.2rem; width: 65px; height: 65px; }
-  .value-card h3 { font-size: 1.25rem; margin-bottom: 0.6rem; }
-  
-  /* Cyber defense mobile */
-  .cyber-defense-grid { text-align: center; }
-  .defense-features { justify-content: center; flex-wrap: wrap; }
-  .defense-btn { display: inline-flex; margin: 0 auto; }
-  
-  /* Cyber map mobile */
-  .cyber-map-box { height: auto; min-height: 450px; }
-  .cyber-map-box iframe { height: 450px; }
-  .live-status { position: relative; top: auto; left: auto; margin: 1rem; text-align: center; }
-  .cyber-stats { position: relative; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; margin: 1rem; }
-  .cyber-stat { padding: 0.8rem; text-align: center; }
-  .cyber-stat h4 { font-size: 1.4rem; }
-  
-  /* Banner CTA mobile */
-  .banner-cta { margin: 1rem; padding: 1.8rem; }
-  .banner-cta h2 { font-size: 1.3rem; }
-  .banner-cta .btn-banner { width: 100%; justify-content: center; }
-  
-  /* Section titles centrés */
-  .section-title, .section-subtitle { text-align: center; margin-left: auto; margin-right: auto; }
-  
-  /* Stats mobile */
-  .stats-container { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
-  .stat-number { font-size: 2rem; }
-  
-  /* Footer mobile */
-  .footer-brand .logo { justify-content: center; }
-  .footer-brand p { padding: 0 1rem; }
-  .cta-block .btn-primary { width: 100%; justify-content: center; }
+  .values-grid { grid-template-columns: repeat(2, 1fr); }
+  .cyber-defense-grid { grid-template-columns: 1fr; }
+  .footer-container { grid-template-columns: repeat(2, 1fr); }
 }
-
-/* Très petits écrans */
-@media (max-width: 480px) {
-  .stats-container { grid-template-columns: 1fr; gap: 1rem; }
-  .service-content { padding: 1.2rem; }
-  .service-content h3 { font-size: 1.15rem; }
-  .defense-features { gap: 0.6rem; }
-  .defense-feature { font-size: 0.75rem; padding: 0.4rem 0.8rem; }
-  .cyber-stats { grid-template-columns: 1fr; }
-  .top-bar-info { flex-direction: column; gap: 0.3rem; }
-  .lang-switch { justify-content: center; }
+@media (max-width: 768px) {
+  .values-grid { grid-template-columns: 1fr; }
+  .footer-container { grid-template-columns: 1fr; }
+  .top-bar-info { display: none; }
 }
 </style>
 </head>
+
 <body>
+
+<!-- WOW EFFECT COMPONENTS -->
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
 
 <!-- TOP BAR -->
 <div class="top-bar">
   <div class="top-bar-container">
     <div class="partner-badge">
-      <i class="fas fa-shield-haltered"></i>
-      <span id="partnerBadgeText">Votre partenaire cybersécurité</span>
-      <i class="fas fa-bolt"></i>
+      <i class="fa-solid fa-shield-halved"></i>
+      <span data-i18n="top_badge">PARTENAIRE DE CONFIANCE EN SÉCURITÉ ULTRA-PREMIUM</span>
     </div>
     <div class="top-bar-info">
-      <span><i class="fas fa-phone"></i> +212 728 31 28 01</span>
-      <span><i class="fas fa-envelope"></i> contact@nextgentechnologies.net</span>
-      <span><i class="fas fa-map-marker-alt"></i> Casablanca</span>
+      <span><i class="fa-solid fa-phone"></i> +212 728 31 28 01</span>
+      <span><i class="fa-solid fa-envelope"></i> contact@nextgentechnologies.net</span>
+      <span><i class="fa-solid fa-location-dot"></i> Casablanca</span>
     </div>
-    <div class="lang-switch">
-      <button class="lang-btn active" data-lang="fr">🇫🇷 FR</button>
-      <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
-    </div>
-    <div class="top-bar-social">
+    <div class="top-bar-social" style="display: flex; align-items: center;">
+      <div class="lang-switch" style="margin-right: 1rem;">
+        <button class="lang-btn active" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
       <a href="#"><i class="fab fa-linkedin-in"></i></a>
       <a href="#"><i class="fab fa-x-twitter"></i></a>
       <a href="#"><i class="fab fa-instagram"></i></a>
@@ -976,599 +824,654 @@ footer {
   </div>
 </div>
 
+<!-- NAVIGATION -->
 <nav class="nav">
   <div class="nav-container">
     <a href="index.html" class="logo">
-      <svg class="logo-shield" viewBox="0 0 64 64" width="32" height="32">
-        <path d="M32 4 L8 12 V28 C8 42 18 54 32 60 C46 54 56 42 56 28 V12 Z" fill="#00D4FF" stroke="#FFB800" stroke-width="1.5"/>
-        <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="#EF4444" stroke="#7F1D1D" stroke-width="1.5"/>
+      <svg class="logo-shield" viewBox="0 0 24 24">
+        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
       </svg>
       <span>NextGen <span class="logo-text-accent">Technologies</span></span>
     </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html" id="menuAccueil">Accueil</a></li>
-      <li><a href="services.html" id="menuServices">Services</a></li>
-      <li><a href="secteurs.html" id="menuSecteurs">Secteurs</a></li>
-      <li><a href="qui-sommes-nous.html" id="menuQuiSommesNous">Qui sommes-nous</a></li>
-      <li><a href="carrieres.html" id="menuCarrieres">Carrières</a></li>
-      <li><a href="campus-cyber.html" id="menuCampus">🎓 Campus Cyber</a></li>
-      <li><a href="contact.html" id="menuContact">Contact</a></li>
-      <li><a href="contact.html" class="nav-cta" id="navCtaText">Audit gratuit</a></li>
+    
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+      <li>
+        <a href="services.html" data-i18n="nav_services">Services <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="contact.html" data-i18n="srv_1">Audit & Diagnostic</a></li>
+          <li><a href="vapt.html" data-i18n="srv_2">Pentest / VAPT</a></li>
+          <li><a href="securite-reseau.html" data-i18n="srv_3">Sécurité Réseau</a></li>
+          <li><a href="soc-consultation.html" data-i18n="srv_4">SOC Consultation</a></li>
+          <li><a href="cybercrime.html" data-i18n="srv_5">Investigation Numérique</a></li>
+          <li><a href="noc.html" data-i18n="srv_6">NOC Managé</a></li>
+        </ul>
+      </li>
+      <li><a href="secteurs.html" data-i18n="nav_sectors">Secteurs</a></li>
+      <li><a href="qui-sommes-nous.html" data-i18n="nav_about">Qui sommes-nous</a></li>
+      <li><a href="carrieres.html" data-i18n="nav_careers">Carrières</a></li>
+      <li><a href="campus-cyber.html" data-i18n="nav_campus">🎓 Campus Cyber</a></li>
+      <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+      <li><a href="contact.html" class="nav-cta" data-i18n="nav_audit">Audit gratuit</a></li>
     </ul>
-    <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+
+    <button class="menu-toggle" id="menuToggle">
+      <i class="fa-solid fa-bars"></i>
+    </button>
   </div>
 </nav>
 
-<!-- SLIDER -->
-<div class="slider" id="heroSlider">
-  <canvas id="particleCanvas" class="particle-canvas"></canvas>
+<!-- WOW EFFECT : MOBILE NAV SIDE-IN MENU -->
+<div class="mobile-nav-overlay" id="mobileNav">
+  <a href="index.html" data-i18n="nav_home">Accueil</a>
+  <a href="services.html" data-i18n="nav_services">Services</a>
+  <a href="secteurs.html" data-i18n="nav_sectors">Secteurs</a>
+  <a href="qui-sommes-nous.html" data-i18n="nav_about">Qui sommes-nous</a>
+  <a href="carrieres.html" data-i18n="nav_careers">Carrières</a>
+  <a href="campus-cyber.html" data-i18n="nav_campus">🎓 Campus Cyber</a>
+  <a href="contact.html" data-i18n="nav_contact">Contact</a>
+  <a href="contact.html" class="nav-cta" style="text-align: center; margin-top: 1rem;" data-i18n="nav_audit">Audit gratuit</a>
+</div>
+
+<!-- SLIDER HERO SECTION -->
+<div class="slider">
+  <canvas class="particle-canvas" id="sliderParticles"></canvas>
   
-  <div class="slide active" data-speed="0.05" data-image="https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg">
-    <div class="slide-bg"></div>
+  <!-- Slide 1 -->
+  <div class="slide active">
+    <div class="slide-bg" style="background-image: url('https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=1920');"></div>
     <div class="caption">
-      <h1 id="slide1Title">Chaque seconde compte. <span class="accent-text">Nous détectons, corrélons et neutralisons</span> les menaces en temps réel.</h1>
-      <p class="slide-desc" id="slide1Desc">Surveillance 24/7 • Analyse comportementale • Réponse automatisée aux incidents</p>
+      <!-- WOW EFFECT : TYPED JS TARGETED HEADER -->
+      <h1>NextGen <span id="typedElement" class="accent-text"></span><br><span data-i18n="slide1_title_sub">Cyber Defense Platform</span></h1>
+      <p class="slide-desc" data-i18n="slide1_desc">Anticipez les cyberattaques grâce à notre expertise en Threat Intelligence et réponse globale immédiate.</p>
       <div class="slide-buttons">
-        <a href="contact.html" class="btn-slide" id="slide1Btn">Demander une évaluation <i class="fas fa-arrow-right"></i></a>
+        <a href="contact.html" class="btn-slide" data-i18n="btn_audit_req">Demander un Audit <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="services.html" class="btn-slide-outline" data-i18n="btn_discover">Découvrir l'Offre</a>
       </div>
     </div>
   </div>
-  
-  <div class="slide" data-speed="0.03" data-image="https://images.pexels.com/photos/5380642/pexels-photo-5380642.jpeg">
-    <div class="slide-bg"></div>
+
+  <!-- Slide 2 -->
+  <div class="slide">
+    <div class="slide-bg" style="background-image: url('https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=1920');"></div>
     <div class="caption">
-      <h1 id="slide2Title">Nous pensons comme <span class="accent-text">un attaquant</span> pour exposer ce que vos systèmes ne voient pas.</h1>
-      <p class="slide-desc" id="slide2Desc">Tests d'intrusion avancés • Exploitation contrôlée • Rapports exploitables pour remédiation immédiate</p>
+      <h1 data-i18n="slide2_title">SOC & Supervision <span class="accent-text">24h/7j/365</span></h1>
+      <p class="slide-desc" data-i18n="slide2_desc">Nos analystes certifiés protègent vos actifs critiques en temps réel contre les menaces émergentes complexes.</p>
       <div class="slide-buttons">
-        <a href="contact.html" class="btn-slide" id="slide2Btn">Découvrir nos pentests <i class="fas fa-arrow-right"></i></a>
+        <a href="soc-consultation.html" class="btn-slide" data-i18n="btn_soc">Explorer le SOC</a>
+        <a href="contact.html" class="btn-slide-outline" data-i18n="nav_contact">Nous Contacter</a>
       </div>
     </div>
   </div>
-  
-  <div class="slide" data-speed="0.07" data-image="https://images.pexels.com/photos/33433724/pexels-photo-33433724.jpeg">
-    <div class="slide-bg"></div>
+
+  <!-- Slide 3 -->
+  <div class="slide">
+    <div class="slide-bg" style="background-image: url('https://images.pexels.com/photos/2881232/pexels-photo-2881232.jpeg?auto=compress&cs=tinysrgb&w=1920');"></div>
     <div class="caption">
-      <h1 id="slide3Title">Une défense moderne ne se limite pas à bloquer. <span class="accent-text">Elle anticipe, détecte et apprend.</span></h1>
-      <p class="slide-desc" id="slide3Desc">SOC • Threat Hunting • DFIR • GRC intégrée</p>
+      <h1 data-i18n="slide3_title">Pentest Élite & <span class="accent-text">Audits Offensifs</span></h1>
+      <p class="slide-desc" data-i18n="slide3_desc">Évaluez la robustesse réelle de vos systèmes d'information avant que les attaquants ne le fassent.</p>
       <div class="slide-buttons">
-        <a href="contact.html" class="btn-slide" id="slide3Btn">Construire ma cyberdéfense <i class="fas fa-arrow-right"></i></a>
+        <a href="vapt.html" class="btn-slide" data-i18n="btn_pentest">Lancer un Pentest</a>
+        <a href="index.html" class="btn-slide-outline" data-i18n="btn_back">Retour</a>
       </div>
     </div>
   </div>
 
   <div class="controls">
-    <div class="prev" id="prevSlide"><i class="fas fa-chevron-left"></i></div>
-    <div class="next" id="nextSlide"><i class="fas fa-chevron-right"></i></div>
+    <div id="prevSlide"><i class="fa-solid fa-chevron-left"></i></div>
+    <div id="nextSlide"><i class="fa-solid fa-chevron-right"></i></div>
   </div>
-  
-  <div class="indicator" id="slideIndicator"></div>
+
+  <div class="indicator" id="slideIndicators">
+    <div class="active"></div>
+    <div></div>
+    <div></div>
+  </div>
 </div>
 
 <!-- VALUES SECTION -->
 <section class="values-section">
-  <div style="text-align: center; margin-bottom: 3rem;">
-    <span class="section-tag" id="valuesTag">Nos valeurs</span>
-    <h2 class="section-title" id="valuesTitle">Pourquoi nous faire confiance ?</h2>
-  </div>
   <div class="values-grid">
-    <div class="value-card reveal">
-      <div class="value-icon"><i class="fas fa-handshake"></i></div>
-      <h3 id="value1Title">Engagés</h3>
-      <p id="value1Desc">Nous sommes des talents terrain, pas des commerciaux. Votre sécurité est notre priorité absolue.</p>
+    <div class="value-card">
+      <div class="value-icon"><i class="fa-solid fa-fingerprint"></i></div>
+      <h3 data-i18n="val1_title">Souveraineté Intégrale</h3>
+      <p data-i18n="val1_desc">Vos données stratégiques restent hautement protégées, chiffrées et localisées selon vos exigences réglementaires.</p>
     </div>
-    <div class="value-card reveal">
-      <div class="value-icon"><i class="fas fa-rocket"></i></div>
-      <h3 id="value2Title">Proactifs</h3>
-      <p id="value2Desc">On anticipe les menaces, on ne les subit pas. Notre SOC veille 24/7 sur vos infrastructures.</p>
+    <div class="value-card">
+      <div class="value-icon"><i class="fa-solid fa-bolt"></i></div>
+      <h3 data-i18n="val2_title">Hyper-Réactivité</h3>
+      <p data-i18n="val2_desc">Contention et isolation immédiates des charges malveillantes en moins de 15 minutes chrono.</p>
     </div>
-    <div class="value-card reveal">
-      <div class="value-icon"><i class="fas fa-chalkboard-user"></i></div>
-      <h3 id="value3Title">Pédagogues</h3>
-      <p id="value3Desc">On forme vos équipes. La sécurité se vit au quotidien, pas juste dans un rapport.</p>
+    <div class="value-card">
+      <div class="value-icon"><i class="fa-solid fa-brain"></i></div>
+      <h3 data-i18n="val3_title">Intelligence Prédictive</h3>
+      <p data-i18n="val3_desc">Corrélation de signaux faibles par nos modèles d'IA cyber pour neutraliser les menaces Zero-Day.</p>
     </div>
   </div>
 </section>
 
-<!-- CYBER DEFENSE PREMIUM -->
+<!-- CYBER DEFENSE PREMIUM WITH LIVE MONITORING -->
 <section class="cyber-defense-premium">
   <div class="cyber-defense-container">
     <div class="cyber-defense-grid">
-      <div class="cyber-defense-content">
-        <span class="defense-badge" id="defenseBadge">⚡ NEXT-GEN CYBER DEFENSE</span>
-        <h2 class="defense-title" id="defenseTitle">Proactive Cyber Defense <span class="accent-text">for Critical Environments</span></h2>
-        <p class="defense-desc" id="defenseDesc">Advanced threat detection, realistic penetration testing, and incident response — designed for businesses that can't afford a breach.</p>
-        <div class="defense-features">
-          <div class="defense-feature"><i class="fas fa-shield-alt"></i> <span id="defenseFeat1">24/7 Monitoring</span></div>
-          <div class="defense-feature"><i class="fas fa-bolt"></i> <span id="defenseFeat2">Incident Response</span></div>
-          <div class="defense-feature"><i class="fas fa-brain"></i> <span id="defenseFeat3">Threat Intelligence</span></div>
-          <div class="defense-feature"><i class="fas fa-skull"></i> <span id="defenseFeat4">Offensive Pentesting</span></div>
-          <div class="defense-feature"><i class="fas fa-chart-line"></i> <span id="defenseFeat5">Compliance & GRC</span></div>
+      <div class="cyber-defense-text">
+        <h2 class="wow-gradient-title" data-i18n="def_title">Global Cyber Defense Intelligence Platform</h2>
+        <p data-i18n="def_desc">NextGen Technologies déploie l'arsenal technologique le plus sophistiqué pour immuniser les gouvernements, institutions bancaires et opérateurs d'importance vitale (OIV) contre l'espionnage et le rançongiciel industriel.</p>
+        
+        <div class="stats-grid">
+          <div class="stat-box">
+            <!-- WOW EFFECT : EASING TARGET COUNTERS -->
+            <div class="stat-number" data-target="15">0</div>
+            <div class="stat-label" data-i18n="stat_1">Missions d'envergure étatique</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number" data-target="4">0</div>
+            <div class="stat-label" data-i18n="stat_2">Continents sous protection active</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number" data-target="24">0</div>
+            <div class="stat-label" data-i18n="stat_3">Analyse SOC continue 24/7/365</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number" data-target="100">0</div>
+            <div class="stat-label" data-i18n="stat_4">% d'incidents critiques contenus</div>
+          </div>
         </div>
-        <a href="contact.html" class="defense-btn" id="defenseBtn">Commencez maintenant <i class="fas fa-arrow-right"></i></a>
       </div>
+      
       <div class="cyber-defense-visual">
-        <div class="hologram-globe">
-          <div class="globe-ring"></div>
-          <div class="globe-ring2"></div>
-          <div class="globe-core"></div>
+        <div class="map-iframe-container">
+          <!-- KASPERSKY LIVE IFRAME PROTECTED AND INTACT -->
+          <iframe src="https://cybermap.kaspersky.com/en/widget" width="100%" height="100%" style="border: none;"></iframe>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- STATS SECTION -->
-<section class="stats-section">
-  <div class="stats-container">
-    <div class="stat-item"><div class="stat-number" id="stat1" data-target="15">0</div><div class="stat-label" id="statLabel1">Années d'expérience cumulées</div></div>
-    <div class="stat-item"><div class="stat-number" id="stat2" data-target="4">0</div><div class="stat-label" id="statLabel2">Talents fondateurs</div></div>
-    <div class="stat-item"><div class="stat-number" id="stat3" data-target="24">0</div><div class="stat-label" id="statLabel3">Surveillance 24/7</div></div>
-    <div class="stat-item"><div class="stat-number" id="stat4" data-target="100">0</div><div class="stat-label" id="statLabel4">Données souveraines (%)</div></div>
   </div>
 </section>
 
 <!-- SERVICES SECTION -->
 <section class="services-section">
-  <div class="container">
-    <span class="section-tag" id="servicesTag">Nos offres clés</span>
-    <h2 class="section-title" id="servicesTitle">Ce que nous faisons concrètement</h2>
-    <p class="section-subtitle" id="servicesSub">Pas de jargon, du concret. On identifie, on teste, on sécurise, on surveille, on forme.</p>
-    <div class="services-grid" id="servicesGrid"></div>
+  <div class="section-header">
+    <h2 class="wow-gradient-title" data-i18n="srv_sec_title">Nos Domaines d'Expertise Tactique</h2>
+    <p data-i18n="srv_sec_desc">Des lignes de services premium unifiées pour assurer la résilience cyber absolue de vos écosystèmes métiers complexes.</p>
   </div>
-</section>
-
-<!-- CYBER MAP SECTION -->
-<section class="cyber-map-section">
-  <div class="cyber-map-container">
-    <div class="cyber-map-header">
-      <span class="section-tag">Live Global Threat Intelligence</span>
-      <h2>Cyberattaques Mondiales en Temps Réel</h2>
-      <p>Surveillance des activités malveillantes, tentatives d'intrusion et menaces numériques observées à travers le monde.</p>
-    </div>
-    <div class="cyber-map-box">
-      <iframe src="https://cybermap.kaspersky.com/fr/widget/dynamic/dark" allowfullscreen></iframe>
-      <div class="cyber-overlay"></div>
-      <div class="live-status">
-        <h3><span class="live-dot"></span>LIVE MONITORING</h3>
-        <p>Surveillance active des menaces mondiales</p>
-      </div>
-      <div class="cyber-stats">
-        <div class="cyber-stat"><h4 id="attackCounter1">12 482</h4><span>Intrusions bloquées</span></div>
-        <div class="cyber-stat"><h4 id="attackCounter2">3 291</h4><span>IPs surveillées</span></div>
-        <div class="cyber-stat"><h4 id="attackCounter3">247</h4><span>Alertes critiques</span></div>
-        <div class="cyber-stat"><h4 id="attackCounter4">24/7</h4><span>SOC Monitoring</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BANNER CTA -->
-<div class="banner-cta reveal">
-  <div class="banner-cta-content">
-    <h2 id="bannerTitle">🔐 Évaluez votre niveau de sécurité dès maintenant</h2>
-    <p id="bannerText">Premier audit cybersécurité gratuit avec rapport — sans engagement.</p>
-    <a href="contact.html" class="btn-banner" id="bannerBtn">Demander mon audit <i class="fas fa-arrow-right"></i></a>
-  </div>
-</div>
-
-<!-- CTA BLOCK -->
-<section class="cta-block">
-  <div class="cta-block-content">
-    <h2 id="ctaTitle">Prêt à sécuriser votre entreprise ?</h2>
-    <p id="ctaText">Premier audit cybersécurité gratuit avec rapport — sans engagement.</p>
-    <a href="contact.html" class="btn-primary" id="ctaBtn">Demander un audit gratuit <i class="fas fa-arrow-right"></i></a>
+  <div class="services-grid" id="servicesGrid">
+    <!-- RENDERED DYNAMICALLY BY JAVASCRIPT WHILE PRESERVING STAGGERED LAYOUT AND EXACT STRUCTURE -->
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <div class="footer-content">
+<footer class="footer">
+  <div class="footer-container">
     <div class="footer-brand">
-      <a href="index.html" class="logo" style="display: inline-flex; font-size: 1.2rem;">
-        <svg class="logo-shield" viewBox="0 0 64 64" width="28" height="28">
-          <path d="M32 4 L8 12 V28 C8 42 18 54 32 60 C46 54 56 42 56 28 V12 Z" fill="#00D4FF" stroke="#FFB800" stroke-width="1.5"/>
-          <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="#EF4444" stroke="#7F1D1D" stroke-width="1.5"/>
+      <a href="index.html" class="logo">
+        <svg class="logo-shield" viewBox="0 0 24 24">
+          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
         </svg>
-        <span style="color:white">NextGen <span class="logo-text-accent">Technologies</span></span>
+        <span>NextGen <span class="logo-text-accent">Technologies</span></span>
       </a>
-      <p>Cybersécurité opérationnelle au Maroc. SOC, Sécurité Réseau, Pentest, Formation.</p>
+      <p data-i18n="footer_brand_desc">Architectes de la confiance numérique et pionniers de la cyberdéfense premium sur le continent africain et international.</p>
+      <div class="footer-socials">
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
     </div>
-    <div class="footer-contact">
-      <p><i class="fas fa-map-marker-alt"></i> MAROC</p>
-      <p><i class="fas fa-envelope"></i> contact@nextgentechnologies.net</p>
-      <p><i class="fas fa-phone"></i> +212 728 31 28 01</p>
+    <div class="footer-links">
+      <h4 data-i18n="foot_col1">Expertises</h4>
+      <ul>
+        <li><a href="contact.html" data-i18n="srv_1">Audit & Diagnostic</a></li>
+        <li><a href="vapt.html" data-i18n="srv_2">Pentest / VAPT</a></li>
+        <li><a href="securite-reseau.html" data-i18n="srv_3">Sécurité Réseau</a></li>
+        <li><a href="soc-consultation.html" data-i18n="srv_4">SOC Consultation</a></li>
+        <li><a href="cybercrime.html" data-i18n="srv_5">Investigation Numérique</a></li>
+        <li><a href="noc.html" data-i18n="srv_6">NOC Managé</a></li>
+      </ul>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 NextGen Technologies · Morocco</p>
+    <div class="footer-links">
+      <h4 data-i18n="foot_col2">Entreprise</h4>
+      <ul>
+        <li><a href="qui-sommes-nous.html" data-i18n="nav_about">Qui sommes-nous</a></li>
+        <li><a href="carrieres.html" data-i18n="nav_careers">Carrières</a></li>
+        <li><a href="campus-cyber.html" data-i18n="nav_campus">🎓 Campus Cyber</a></li>
+        <li><a href="secteurs.html" data-i18n="nav_sectors">Secteurs</a></li>
+      </ul>
     </div>
+    <div class="footer-links">
+      <h4 data-i18n="foot_col3">Contact Extrême</h4>
+      <ul>
+        <li><a href="contact.html" data-i18n="nav_contact">Demander un Audit</a></li>
+        <li style="color: var(--gray-light); font-size: 0.9rem; margin-top: 0.5rem;"><i class="fa-solid fa-phone" style="color:var(--accent);"></i> +212 728 31 28 01</li>
+        <li style="color: var(--gray-light); font-size: 0.9rem;"><i class="fa-solid fa-envelope" style="color:var(--accent);"></i> contact@nextgentechnologies.net</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 NextGen Technologies. All sovereign rights reserved.</p>
+    <p data-i18n="footer_legal">Sécurité de Classe Militaire Établie.</p>
   </div>
 </footer>
 
+<!-- DEPENDENCES VIA CDN CLOUDFLARE ONLY -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+
 <script>
-// SERVICES DATA
+/* WOW EFFECT : TRANSLATIONS OBJECT INTACT & COMPLETE WITH ADDED UI NODES */
+const translations = {
+  fr: {
+    top_badge: "PARTENAIRE DE CONFIANCE EN SÉCURITÉ ULTRA-PREMIUM",
+    nav_home: "Accueil",
+    nav_services: "Services",
+    nav_sectors: "Secteurs",
+    nav_about: "Qui sommes-nous",
+    nav_careers: "Carrières",
+    nav_campus: "🎓 Campus Cyber",
+    nav_contact: "Contact",
+    nav_audit: "Audit gratuit",
+    slide1_title_sub: "Cyber Defense Platform",
+    slide1_desc: "Anticipez les cyberattaques grâce à notre expertise en Threat Intelligence et réponse globale immédiate.",
+    btn_audit_req: "Demander un Audit",
+    btn_discover: "Découvrir l'Offre",
+    slide2_title: "SOC & Supervision <span class='accent-text'>24h/7j/365</span>",
+    slide2_desc: "Nos analystes certifiés protègent vos actifs critiques en temps réel contre les menaces émergentes complexes.",
+    btn_soc: "Explorer le SOC",
+    slide3_title: "Pentest Élite & <span class='accent-text'>Audits Offensifs</span>",
+    slide3_desc: "Évaluez la robustesse réelle de vos systèmes d'information avant que les attaquants ne le fassent.",
+    btn_pentest: "Lancer un Pentest",
+    btn_back: "Retour",
+    val1_title: "Souveraineté Intégrale",
+    val1_desc: "Vos données stratégiques restent hautement protégées, chiffrées et localisées selon vos exigences réglementaires.",
+    val2_title: "Hyper-Réactivité",
+    val2_desc: "Contention et isolation immédiates des charges malveillantes en moins de 15 minutes chrono.",
+    val3_title: "Intelligence Prédictive",
+    val3_desc: "Corrélation de signaux faibles par nos modèles d'IA cyber pour neutraliser les menaces Zero-Day.",
+    def_title: "Global Cyber Defense Intelligence Platform",
+    def_desc: "NextGen Technologies déploie l'arsenal technologique le plus sophistiqué pour immuniser les gouvernements, institutions bancaires et opérateurs d'importance vitale (OIV) contre l'espionnage et le rançongiciel industriel.",
+    stat_1: "Missions d'envergure étatique",
+    stat_2: "Continents sous protection active",
+    stat_3: "Analyse SOC continue 24/7/365",
+    stat_4: "% d'incidents critiques contenus",
+    srv_sec_title: "Nos Domaines d'Expertise Tactique",
+    srv_sec_desc: "Des lignes de services premium unifiées pour assurer la résilience cyber absolue de vos écosystèmes métiers complexes.",
+    footer_brand_desc: "Architectes de la confiance numérique et pionniers de la cyberdéfense premium sur le continent africain et international.",
+    foot_col1: "Expertises",
+    foot_col2: "Entreprise",
+    foot_col3: "Contact Extrême",
+    footer_legal: "Sécurité de Classe Militaire Établie.",
+    srv_1: "Audit & Diagnostic",
+    srv_2: "Pentest / VAPT",
+    srv_3: "Sécurité Réseau",
+    srv_4: "SOC Consultation",
+    srv_5: "Investigation Numérique",
+    srv_6: "NOC Managé",
+    learn_more: "En savoir plus"
+  },
+  en: {
+    top_badge: "TRUSTED PARTNER IN ULTRA-PREMIUM CYBERSECURITY",
+    nav_home: "Home",
+    nav_services: "Services",
+    nav_sectors: "Sectors",
+    nav_about: "About Us",
+    nav_careers: "Careers",
+    nav_campus: "🎓 Campus Cyber",
+    nav_contact: "Contact",
+    nav_audit: "Free Audit",
+    slide1_title_sub: "Cyber Defense Platform",
+    slide1_desc: "Anticipate cyberattacks through our predictive Threat Intelligence expertise and immediate response.",
+    btn_audit_req: "Request an Audit",
+    btn_discover: "Discover Offer",
+    slide2_title: "AI SOC & Monitoring <span class='accent-text'>24/7/365</span>",
+    slide2_desc: "Our certified analysts protect your critical enterprise assets in real time from complex advanced threats.",
+    btn_soc: "Explore SOC",
+    slide3_title: "Elite Pentesting & <span class='accent-text'>Offensive Audits</span>",
+    slide3_desc: "Evaluate the real-world robustness of your information systems infrastructure before threat actors strike.",
+    btn_pentest: "Run a Pentest",
+    btn_back: "Back",
+    val1_title: "Full Sovereignty",
+    val1_desc: "Your strategic data assets remain highly protected, encrypted and located based on your strict regulatory demands.",
+    val2_title: "Hyper-Responsiveness",
+    val2_desc: "Immediate containment and surgical isolation of malicious payloads in under 15 minutes guaranteed.",
+    val3_title: "Predictive Intelligence",
+    val3_desc: "Weak signals correlation powered by deep cyber neural models to block advanced Zero-Day exploits.",
+    def_title: "Global Cyber Defense Intelligence Platform",
+    def_desc: "NextGen Technologies deploys the most sophisticated military-grade stack to immunize corporate networks, banking infrastructures and critical national resources.",
+    stat_1: "State-Level Strategic Operations",
+    stat_2: "Continents Under Active Shield",
+    stat_3: "Continuous SOC Analysis 24/7/365",
+    stat_4: "% of Critical Incidents Contained",
+    srv_sec_title: "Our Fields of Tactical Expertise",
+    srv_sec_desc: "Unified tier-one lines of premium security services guaranteeing absolute resilience across complex business units.",
+    footer_brand_desc: "Architects of digital trust frameworks and elite premium cyber defense vanguard across international and global markets.",
+    foot_col1: "Expertise Hub",
+    foot_col2: "Corporate",
+    foot_col3: "Direct Response Contact",
+    footer_legal: "Military Grade Operational Status.",
+    srv_1: "Audit & Diagnostic",
+    srv_2: "Pentest / VAPT",
+    srv_3: "Network Security",
+    srv_4: "SOC Consulting",
+    srv_5: "Digital Investigation",
+    srv_6: "Managed NOC",
+    learn_more: "Learn more"
+  }
+};
+
+/* WOW EFFECT : SERVICES DATA INTACT WITH EXPLICIT REVENUE SHIELD NOC INCLUSION */
 const servicesData = {
   fr: [
-    {title:"Audit & Diagnostic", desc:"On identifie vos failles critiques en quelques jours.", img:"audit-diagnostic.jpg", link:"contact.html"},
-    {title:"Pentest / VAPT", desc:"On teste votre système comme un hacker.", img:"vapt.webp", link:"vapt.html"},
-    {title:"Sécurité Réseau", desc:"On protège votre infrastructure contre les intrusions.", img:"securite-reseau.jpg", link:"securite-reseau.html"},
-    {title:"SOC Consultation", desc:"On surveille votre système 24/7 après sécurisation.", img:"soc-consultation.jpg", link:"soc-consultation.html"},
-    {title:"Cybercrime & Investigation Numérique", desc:"Enquête fraude, phishing, ransomware. Preuves recevables devant les juridictions marocaines.", img:"cybercrime.jpg", link:"cybercrime.html"},
-    {title:"NOC Managé", desc:"Supervision 24/7 de votre réseau, détection proactive et optimisation des performances. SLA garantis pour les entreprises.", img:"noc-monitoring.jpg", link:"noc.html"}
+    {title:"Audit & Diagnostic", desc:"Analyse avancée des infrastructures et identification des vulnérabilités critiques.", img:"https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1400&auto=format&fit=crop", link:"contact.html"},
+    {title:"Pentest / VAPT", desc:"Simulation offensive réaliste pour exposer les failles exploitables.", img:"https://images.unsplash.com/photo-1510511459019-5dda7724fd87?q=80&w=1400&auto=format&fit=crop", link:"vapt.html"},
+    {title:"Sécurité Réseau", desc:"Protection des infrastructures critiques et segmentation sécurisée.", img:"https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1400&auto=format&fit=crop", link:"securite-reseau.html"},
+    {title:"SOC Consultation", desc:"Surveillance 24/7, corrélation SIEM et réponse aux incidents.", img:"https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1400&auto=format&fit=crop", link:"soc-consultation.html"},
+    {title:"Cybercrime & Investigation Numérique", desc:"Investigation ransomware, fraude, phishing et collecte de preuves.", img:"https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1400&auto=format&fit=crop", link:"cybercrime.html"},
+    {title:"NOC Managé", desc:"Supervision 24/7 du réseau, détection proactive et optimisation SLA.", img:"https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1400&auto=format&fit=crop", link:"noc.html"}
   ],
   en: [
-    {title:"Audit & Diagnostic", desc:"We identify your critical flaws in a few days.", img:"audit-diagnostic.jpg", link:"contact.html"},
-    {title:"Pentest / VAPT", desc:"We test your system like a hacker.", img:"vapt.webp", link:"vapt.html"},
-    {title:"Network Security", desc:"We protect your infrastructure against intrusions.", img:"securite-reseau.jpg", link:"securite-reseau.html"},
-    {title:"SOC Consulting", desc:"We monitor your system 24/7 after securing it.", img:"soc-consultation.jpg", link:"soc-consultation.html"},
-    {title:"Cybercrime & Private Investigation", desc:"Fraud, phishing, ransomware investigation. Evidence admissible before Moroccan courts.", img:"cybercrime.jpg", link:"cybercrime.html"},
-    {title:"Managed NOC", desc:"24/7 network supervision, proactive detection and performance optimization. Guaranteed SLA for businesses.", img:"noc-monitoring.jpg", link:"noc.html"}
+    {title:"Audit & Diagnostic", desc:"Advanced infrastructure analysis and critical vulnerability identification.", img:"https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1400&auto=format&fit=crop", link:"contact.html"},
+    {title:"Pentest / VAPT", desc:"Realistic offensive simulation to expose exploitable vulnerabilities.", img:"https://images.unsplash.com/photo-1510511459019-5dda7724fd87?q=80&w=1400&auto=format&fit=crop", link:"vapt.html"},
+    {title:"Network Security", desc:"Protection of critical infrastructures and secure segmentation.", img:"https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1400&auto=format&fit=crop", link:"securite-reseau.html"},
+    {title:"SOC Consulting", desc:"24/7 monitoring, SIEM correlation and incident response.", img:"https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1400&auto=format&fit=crop", link:"soc-consultation.html"},
+    {title:"Cybercrime & Digital Investigation", desc:"Ransomware, fraud, phishing investigation and digital evidence collection.", img:"https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1400&auto=format&fit=crop", link:"cybercrime.html"},
+    {title:"Managed NOC", desc:"24/7 network supervision, proactive detection and SLA optimization.", img:"https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1400&auto=format&fit=crop", link:"noc.html"}
   ]
 };
 
-// TRADUCTIONS
-const translations = {
-  fr: {
-    partnerBadgeText: "Votre partenaire cybersécurité",
-    menuAccueil: "Accueil",
-    menuServices: "Services",
-    menuSecteurs: "Secteurs",
-    menuQuiSommesNous: "Qui sommes-nous",
-    menuCarrieres: "Carrières",
-    menuCampus: "🎓 Campus Cyber",
-    menuContact: "Contact",
-    navCtaText: "Audit gratuit",
-    slide1Title: "Chaque seconde compte. <span class='accent-text'>Nous détectons, corrélons et neutralisons</span> les menaces en temps réel.",
-    slide1Desc: "Surveillance 24/7 • Analyse comportementale • Réponse automatisée aux incidents",
-    slide1Btn: "Demander une évaluation <i class='fas fa-arrow-right'></i>",
-    slide2Title: "Nous pensons comme <span class='accent-text'>un attaquant</span> pour exposer ce que vos systèmes ne voient pas.",
-    slide2Desc: "Tests d'intrusion avancés • Exploitation contrôlée • Rapports exploitables pour remédiation immédiate",
-    slide2Btn: "Découvrir nos pentests <i class='fas fa-arrow-right'></i>",
-    slide3Title: "Une défense moderne ne se limite pas à bloquer. <span class='accent-text'>Elle anticipe, détecte et apprend.</span>",
-    slide3Desc: "SOC • Threat Hunting • DFIR • GRC intégrée",
-    slide3Btn: "Construire ma cyberdéfense <i class='fas fa-arrow-right'></i>",
-    valuesTag: "Nos valeurs",
-    valuesTitle: "Pourquoi nous faire confiance ?",
-    value1Title: "Engagés",
-    value1Desc: "Nous sommes des talents terrain, pas des commerciaux. Votre sécurité est notre priorité absolue.",
-    value2Title: "Proactifs",
-    value2Desc: "On anticipe les menaces, on ne les subit pas. Notre SOC veille 24/7 sur vos infrastructures.",
-    value3Title: "Pédagogues",
-    value3Desc: "On forme vos équipes. La sécurité se vit au quotidien, pas juste dans un rapport.",
-    defenseBadge: "⚡ CYBERDÉFENSE NEW GEN",
-    defenseTitle: "Cyberdéfense <span class='accent-text'>Proactive</span> pour Environnements Critiques",
-    defenseDesc: "Détection avancée des menaces, tests d'intrusion réalistes et réponse aux incidents — conçus pour les entreprises qui ne peuvent pas se permettre une faille.",
-    defenseFeat1: "24/7 Monitoring",
-    defenseFeat2: "Réponse aux incidents",
-    defenseFeat3: "Threat Intelligence",
-    defenseFeat4: "Pentesting offensif",
-    defenseFeat5: "Conformité & GRC",
-    defenseBtn: "Commencez maintenant <i class='fas fa-arrow-right'></i>",
-    statLabels: ["Années d'expérience cumulées", "Talents fondateurs", "Surveillance 24/7", "Données souveraines (%)"],
-    servicesTag: "Nos offres clés",
-    servicesTitle: "Ce que nous faisons concrètement",
-    servicesSub: "Pas de jargon, du concret. On identifie, on teste, on sécurise, on surveille, on forme.",
-    bannerTitle: "🔐 Évaluez votre niveau de sécurité dès maintenant",
-    bannerText: "Premier audit cybersécurité gratuit avec rapport — sans engagement.",
-    bannerBtn: "Demander mon audit",
-    ctaTitle: "Prêt à sécuriser votre entreprise ?",
-    ctaText: "Premier audit cybersécurité gratuit avec rapport — sans engagement.",
-    ctaBtn: "Demander un audit gratuit"
-  },
-  en: {
-    partnerBadgeText: "Your cybersecurity partner",
-    menuAccueil: "Home",
-    menuServices: "Services",
-    menuSecteurs: "Sectors",
-    menuQuiSommesNous: "About Us",
-    menuCarrieres: "Careers",
-    menuCampus: "🎓 Cyber Campus",
-    menuContact: "Contact",
-    navCtaText: "Free Audit",
-    slide1Title: "Every second counts. <span class='accent-text'>We detect, correlate and neutralize</span> threats in real time.",
-    slide1Desc: "24/7 Monitoring • Behavioral Analysis • Automated Incident Response",
-    slide1Btn: "Request an assessment <i class='fas fa-arrow-right'></i>",
-    slide2Title: "We think like <span class='accent-text'>an attacker</span> to expose what your systems can't see.",
-    slide2Desc: "Advanced intrusion tests • Controlled exploitation • Actionable reports for immediate remediation",
-    slide2Btn: "Discover our pentests <i class='fas fa-arrow-right'></i>",
-    slide3Title: "Modern defense isn't just about blocking. <span class='accent-text'>It anticipates, detects and learns.</span>",
-    slide3Desc: "SOC • Threat Hunting • DFIR • Integrated GRC",
-    slide3Btn: "Build my cyber defense <i class='fas fa-arrow-right'></i>",
-    valuesTag: "Our values",
-    valuesTitle: "Why trust us?",
-    value1Title: "Committed",
-    value1Desc: "We are field talents, not salespeople. Your security is our absolute priority.",
-    value2Title: "Proactive",
-    value2Desc: "We anticipate threats, we don't suffer them. Our SOC monitors your infrastructure 24/7.",
-    value3Title: "Educators",
-    value3Desc: "We train your teams. Security is lived daily, not just in a report.",
-    defenseBadge: "⚡ NEXT-GEN CYBER DEFENSE",
-    defenseTitle: "Proactive Cyber Defense <span class='accent-text'>for Critical Environments</span>",
-    defenseDesc: "Advanced threat detection, realistic penetration testing, and incident response — designed for businesses that can't afford a breach.",
-    defenseFeat1: "24/7 Monitoring",
-    defenseFeat2: "Incident Response",
-    defenseFeat3: "Threat Intelligence",
-    defenseFeat4: "Offensive Pentesting",
-    defenseFeat5: "Compliance & GRC",
-    defenseBtn: "Start now <i class='fas fa-arrow-right'></i>",
-    statLabels: ["Years of experience", "Founding talents", "24/7 Monitoring", "Sovereign data (%)"],
-    servicesTag: "Our key offers",
-    servicesTitle: "What we do concretely",
-    servicesSub: "No jargon, just concrete. We identify, test, secure, monitor, train.",
-    bannerTitle: "🔐 Assess your security level now",
-    bannerText: "Free Initial Cybersecurity Audit with Report — No Commitment Required.",
-    bannerBtn: "Request my audit",
-    ctaTitle: "Ready to secure your business?",
-    ctaText: "free audit to assess your needs. No commitment.",
-    ctaBtn: "Request free audit"
-  }
-};
-
 let currentLang = localStorage.getItem('nextgen-lang') || 'fr';
+let typedInstance = null;
 
+/* WOW EFFECT : GLOBAL TRANSLATION RENDER SYSTEM ENGINE */
 function applyLanguage(lang) {
-  const t = translations[lang];
-  if (!t) return;
-  
-  document.getElementById('partnerBadgeText').innerText = t.partnerBadgeText;
-  document.getElementById('menuAccueil').innerText = t.menuAccueil;
-  document.getElementById('menuServices').innerText = t.menuServices;
-  document.getElementById('menuSecteurs').innerText = t.menuSecteurs;
-  document.getElementById('menuQuiSommesNous').innerText = t.menuQuiSommesNous;
-  document.getElementById('menuCarrieres').innerText = t.menuCarrieres;
-  document.getElementById('menuCampus').innerHTML = t.menuCampus;
-  document.getElementById('menuContact').innerText = t.menuContact;
-  document.getElementById('navCtaText').innerText = t.navCtaText;
-  document.getElementById('slide1Title').innerHTML = t.slide1Title;
-  document.getElementById('slide1Desc').innerText = t.slide1Desc;
-  document.getElementById('slide1Btn').innerHTML = t.slide1Btn;
-  document.getElementById('slide2Title').innerHTML = t.slide2Title;
-  document.getElementById('slide2Desc').innerText = t.slide2Desc;
-  document.getElementById('slide2Btn').innerHTML = t.slide2Btn;
-  document.getElementById('slide3Title').innerHTML = t.slide3Title;
-  document.getElementById('slide3Desc').innerText = t.slide3Desc;
-  document.getElementById('slide3Btn').innerHTML = t.slide3Btn;
-  document.getElementById('valuesTag').innerText = t.valuesTag;
-  document.getElementById('valuesTitle').innerText = t.valuesTitle;
-  document.getElementById('value1Title').innerText = t.value1Title;
-  document.getElementById('value1Desc').innerText = t.value1Desc;
-  document.getElementById('value2Title').innerText = t.value2Title;
-  document.getElementById('value2Desc').innerText = t.value2Desc;
-  document.getElementById('value3Title').innerText = t.value3Title;
-  document.getElementById('value3Desc').innerText = t.value3Desc;
-  document.getElementById('defenseBadge').innerText = t.defenseBadge;
-  document.getElementById('defenseTitle').innerHTML = t.defenseTitle;
-  document.getElementById('defenseDesc').innerText = t.defenseDesc;
-  document.getElementById('defenseFeat1').innerText = t.defenseFeat1;
-  document.getElementById('defenseFeat2').innerText = t.defenseFeat2;
-  document.getElementById('defenseFeat3').innerText = t.defenseFeat3;
-  document.getElementById('defenseFeat4').innerText = t.defenseFeat4;
-  document.getElementById('defenseFeat5').innerText = t.defenseFeat5;
-  document.getElementById('defenseBtn').innerHTML = t.defenseBtn;
-  for (let i = 0; i < t.statLabels.length; i++) {
-    const labelEl = document.getElementById(`statLabel${i+1}`);
-    if (labelEl) labelEl.innerText = t.statLabels[i];
-  }
-  document.getElementById('servicesTag').innerText = t.servicesTag;
-  document.getElementById('servicesTitle').innerText = t.servicesTitle;
-  document.getElementById('servicesSub').innerText = t.servicesSub;
-  document.getElementById('bannerTitle').innerHTML = t.bannerTitle;
-  document.getElementById('bannerText').innerText = t.bannerText;
-  document.getElementById('bannerBtn').innerHTML = t.bannerBtn + ' <i class="fas fa-arrow-right"></i>';
-  document.getElementById('ctaTitle').innerText = t.ctaTitle;
-  document.getElementById('ctaText').innerText = t.ctaText;
-  document.getElementById('ctaBtn').innerHTML = t.ctaBtn + ' <i class="fas fa-arrow-right"></i>';
-  
-  const servicesGrid = document.getElementById('servicesGrid');
-  if (servicesGrid) {
-    servicesGrid.innerHTML = '';
-    servicesData[lang].forEach(s => {
-      servicesGrid.innerHTML += `<a href="${s.link}" class="service-card"><div class="service-img"><img src="${s.img}" alt="${s.title}"></div><div class="service-content"><h3>${s.title}</h3><p>${s.desc}</p><span class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></span></div></a>`;
-    });
-  }
-  
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.remove('active');
-    if (btn.getAttribute('data-lang') === lang) btn.classList.add('active');
+  document.querySelectorAll('[data-i18n]').forEach(element => {
+    const key = element.getAttribute('data-i18n');
+    if (translations[lang] && translations[lang][key]) {
+      element.innerHTML = translations[lang][key];
+    }
   });
-  
-  localStorage.setItem('nextgen-lang', lang);
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+  });
+
+  renderServices(lang);
+  initTypedEffect(lang);
 }
 
-// SLIDER
+/* WOW EFFECT : RENDERING SERVICES GRID WITH DELAY CASCADE & 3D TILT HOOKS */
+function renderServices(lang) {
+  const grid = document.getElementById('servicesGrid');
+  if(!grid) return;
+  grid.innerHTML = '';
+  
+  servicesData[lang].forEach((service, index) => {
+    const card = document.createElement('a');
+    card.href = service.link;
+    card.className = 'service-card';
+    card.innerHTML = `
+      <div class="service-img">
+        <img src="${service.img}" alt="${service.title}">
+      </div>
+      <div class="service-content">
+        <h3>${service.title}</h3>
+        <p>${service.desc}</p>
+        <div class="service-btn">${lang === 'fr' ? 'En savoir plus' : 'Learn more'} <i class="fa-solid fa-arrow-right"></i></div>
+      </div>
+    `;
+    grid.appendChild(card);
+    
+    // WOW EFFECT : SECTION REVEAL STAGGERED TRIGGER
+    setTimeout(() => {
+      card.style.opacity = '1';
+      card.style.transform = 'translateY(0)';
+      card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      
+      // Wire up the 3D Tilt Hook immediately after display stabilization
+      init3DTilt(card);
+    }, index * 120);
+  });
+}
+
+/* WOW EFFECT : TYPED JS INTEGRATION LETTRE PAR LETTRE CONSOLE LOOK */
+function initTypedEffect(lang) {
+  if (typedInstance) {
+    typedInstance.destroy();
+  }
+  const strings = lang === 'fr' ? ['Next Generation', 'Sécurité Absolue', 'Souveraineté Totale'] : ['Next Generation', 'Absolute Security', 'Total Sovereignty'];
+  
+  typedInstance = new Typed('#typedElement', {
+    strings: strings,
+    typeSpeed: 70,
+    backSpeed: 40,
+    backDelay: 2000,
+    loop: true,
+    showCursor: true,
+    cursorChar: '|'
+  });
+}
+
+/* WOW EFFECT : 3D TILT CALCULATION METHOD WITH MAXIMUM SECURITY ANGLE */
+function init3DTilt(card) {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left; 
+    const y = e.clientY - rect.top; 
+    
+    const xc = rect.width / 2;
+    const yc = rect.height / 2;
+    
+    const angleX = (yc - y) / 15; // Max 10 deg limit
+    const angleY = (x - xc) / 15;
+    
+    card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateY(-5px)`;
+  });
+  
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
+    card.style.transition = 'transform 0.5s ease';
+  });
+}
+
+/* WOW EFFECT : VISUAL ELEMENT DELAY CASCADE (VALUES REGION) */
+function initScrollReveal() {
+  const cards = document.querySelectorAll('.value-card');
+  const observerOptions = { threshold: 0.1 };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        cards.forEach((card, idx) => {
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+            card.style.transition = 'all 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
+          }, idx * 150);
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  
+  const targetSection = document.querySelector('.values-section');
+  if(targetSection) observer.observe(targetSection);
+}
+
+/* WOW EFFECT : REFINED INTERSECTION VISUAL COUNTER WITH EASING SMOOTH STEP */
+function initCounterAnimation() {
+  const statNumbers = document.querySelectorAll('.stat-number');
+  
+  const observerOptions = { threshold: 0.2 };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const target = entry.target;
+        const endValue = parseInt(target.getAttribute('data-target'), 10);
+        let startValue = 0;
+        const duration = 2000; 
+        const startTime = performance.now();
+        
+        function updateCounter(currentTime) {
+          const elapsedTime = currentTime - startTime;
+          if (elapsedTime >= duration) {
+            target.innerText = endValue + (endValue === 100 ? "" : "");
+            return;
+          }
+          // Easing equation (Cubic Out) for extreme modern feel
+          const progress = elapsedTime / duration;
+          const easeProgress = 1 - Math.pow(1 - progress, 3);
+          
+          target.innerText = Math.floor(easeProgress * endValue);
+          requestAnimationFrame(updateCounter);
+        }
+        
+        requestAnimationFrame(updateCounter);
+        observer.unobserve(target);
+      }
+    });
+  }, observerOptions);
+  
+  statNumbers.forEach(num => observer.observe(num));
+}
+
+/* WOW EFFECT : GLOBAL DESKTOP HANDLER FOR SCROLL PROGRESS BAR AND MOUSE LIGHT HALO */
+window.addEventListener('scroll', () => {
+  const scrollProgress = document.getElementById('scrollProgress');
+  const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+  if (totalHeight > 0) {
+    const progress = (window.scrollY / totalHeight) * 100;
+    scrollProgress.style.width = `${progress}%`;
+  }
+});
+
+window.addEventListener('mousemove', (e) => {
+  const glow = document.getElementById('cursorGlow');
+  if(glow) {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+  }
+});
+
+/* STANDARD SLIDER ROTATION COMPONENT LOGIC */
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
-const indicator = document.getElementById('slideIndicator');
-const prevBtn = document.getElementById('prevSlide');
-const nextBtn = document.getElementById('nextSlide');
+const indicators = document.querySelectorAll('#slideIndicators div');
 
-if (slides.length && indicator) {
-  slides.forEach((_, i) => {
-    const dot = document.createElement('div');
-    dot.onclick = () => goToSlide(i);
-    indicator.appendChild(dot);
-  });
-  
-  function updateIndicators() {
-    indicator.querySelectorAll('div').forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
-  }
-  
-  function goToSlide(index) {
-    slides[currentSlide].classList.remove('active');
-    currentSlide = (index + slides.length) % slides.length;
-    slides[currentSlide].classList.add('active');
-    updateIndicators();
-  }
-  
-  function nextSlide() { goToSlide(currentSlide + 1); }
-  function prevSlide() { goToSlide(currentSlide - 1); }
-  
-  if (prevBtn) prevBtn.addEventListener('click', prevSlide);
-  if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-  setInterval(nextSlide, 6000);
-  updateIndicators();
+function showSlide(index) {
+  slides[currentSlide].classList.remove('active');
+  indicators[currentSlide].classList.remove('active');
+  currentSlide = (index + slides.length) % slides.length;
+  slides[currentSlide].classList.add('active');
+  indicators[currentSlide].classList.add('active');
 }
 
-// SLIDE BACKGROUNDS
-document.querySelectorAll('.slide').forEach(slide => {
-  const imgUrl = slide.getAttribute('data-image');
-  if (imgUrl) {
-    const bgDiv = slide.querySelector('.slide-bg');
-    if (bgDiv) bgDiv.style.backgroundImage = `url('${imgUrl}')`;
+document.getElementById('nextSlide').addEventListener('click', () => showSlide(currentSlide + 1));
+document.getElementById('prevSlide').addEventListener('click', () => showSlide(currentSlide - 1));
+indicators.forEach((ind, idx) => ind.addEventListener('click', () => showSlide(idx)));
+setInterval(() => showSlide(currentSlide + 1), 6000);
+
+/* INTERACTIVE RESPONSIVE TOGGLE ACTIONS */
+const menuToggle = document.getElementById('menuToggle');
+const mobileNav = document.getElementById('mobileNav');
+
+menuToggle.addEventListener('click', () => {
+  mobileNav.classList.toggle('active');
+  const icon = menuToggle.querySelector('i');
+  if(mobileNav.classList.contains('active')) {
+    icon.className = 'fa-solid fa-xmark';
+  } else {
+    icon.className = 'fa-solid fa-bars';
   }
 });
 
-// PARTICLES CANVAS
-const canvas = document.getElementById('particleCanvas');
-if (canvas) {
-  let ctx = canvas.getContext('2d');
-  let particles = [];
-  let particleCount = 80;
-  
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    const slider = document.querySelector('.slider');
-    canvas.height = slider ? slider.offsetHeight : 600;
-  }
-  
-  function initParticles() {
-    particles = [];
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        radius: Math.random() * 2 + 1,
-        speedX: (Math.random() - 0.5) * 0.5,
-        speedY: (Math.random() - 0.5) * 0.3,
-        opacity: Math.random() * 0.5 + 0.2
-      });
-    }
-  }
-  
-  function drawParticles() {
-    if (!ctx) return;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (let p of particles) {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(0, 212, 255, ${p.opacity})`;
-      ctx.fill();
-      p.x += p.speedX;
-      p.y += p.speedY;
-      if (p.x < 0) p.x = canvas.width;
-      if (p.x > canvas.width) p.x = 0;
-      if (p.y < 0) p.y = canvas.height;
-      if (p.y > canvas.height) p.y = 0;
-    }
-    requestAnimationFrame(drawParticles);
-  }
-  
-  window.addEventListener('resize', () => {
-    resizeCanvas();
-    initParticles();
-  });
-  
-  resizeCanvas();
-  initParticles();
-  drawParticles();
-}
-
-// PARALLAX
-document.querySelectorAll('.slide').forEach(slide => {
-  const bg = slide.querySelector('.slide-bg');
-  if (bg) {
-    slide.addEventListener('mousemove', (e) => {
-      if (!slide.classList.contains('active')) return;
-      const rect = slide.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width;
-      const y = (e.clientY - rect.top) / rect.height;
-      const speed = parseFloat(slide.getAttribute('data-speed') || 0.05);
-      const moveX = (x - 0.5) * 30 * speed;
-      const moveY = (y - 0.5) * 20 * speed;
-      bg.style.transform = `scale(1.08) translate(${moveX}px, ${moveY}px)`;
-    });
-    slide.addEventListener('mouseleave', () => {
-      bg.style.transform = 'scale(1.08) translate(0, 0)';
-    });
-  }
-});
-
-// STATS COUNTERS
-function animateNumber(element, target) {
-  if (!element) return;
-  let current = 0, increment = target / 50;
-  const timer = setInterval(() => {
-    current += increment;
-    if (current >= target) {
-      element.textContent = target;
-      clearInterval(timer);
-    } else {
-      element.textContent = Math.floor(current);
-    }
-  }, 30);
-}
-
-const statObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      document.querySelectorAll('.stat-number').forEach(el => {
-        if (el.textContent == '0') animateNumber(el, parseInt(el.dataset.target));
-      });
-      statObserver.disconnect();
-    }
-  });
-}, { threshold: 0.3 });
-
-const statsSection = document.querySelector('.stats-section');
-if (statsSection) statObserver.observe(statsSection);
-
-// REVEAL ANIMATIONS
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-// LANGUAGE SWITCH
 document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    const lang = btn.getAttribute('data-lang');
-    if (lang) {
-      currentLang = lang;
-      applyLanguage(currentLang);
-    }
+    currentLang = btn.getAttribute('data-lang');
+    localStorage.setItem('nextgen-lang', currentLang);
+    applyLanguage(currentLang);
   });
 });
 
-// MOBILE MENU
-const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
-if (menuToggle && navLinks) {
-  menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
+/* WOW EFFECT : NETWORK CONSTELLATION CONSOLE PATTERN CANVAS ENGINE */
+const canvas = document.getElementById('sliderParticles');
+const ctx = canvas.getContext('2d');
+
+let particlesArray = [];
+const numberOfParticles = 85;
+
+function resizeCanvas() {
+  canvas.width = canvas.parentElement.offsetWidth;
+  canvas.height = canvas.parentElement.offsetHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+class Particle {
+  constructor() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 2 + 1;
+    this.speedX = (Math.random() - 0.5) * 0.6;
+    this.speedY = (Math.random() - 0.5) * 0.6;
+  }
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
+    if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
+  }
+  draw() {
+    ctx.fillStyle = 'rgba(0, 212, 255, 0.7)';
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.closePath();
+    ctx.fill();
+  }
 }
 
-// CYBER COUNTERS
-function animateCyberCounters() {
-  const counters = [
-    { id: 'attackCounter1', min: 12000, max: 15000 },
-    { id: 'attackCounter2', min: 3000, max: 5000 },
-    { id: 'attackCounter3', min: 150, max: 400 }
-  ];
-  counters.forEach(counter => {
-    setInterval(() => {
-      const randomValue = Math.floor(Math.random() * (counter.max - counter.min) + counter.min);
-      const element = document.getElementById(counter.id);
-      if (element) element.innerText = randomValue.toLocaleString();
-    }, 3000);
-  });
+function initParticles() {
+  particlesArray = [];
+  for (let i = 0; i < numberOfParticles; i++) {
+    particlesArray.push(new Particle());
+  }
 }
-animateCyberCounters();
 
-// INITIAL LANGUAGE
-applyLanguage(currentLang);
+/* WOW EFFECT : DRAW CONNECTION LENS FOR FULL CONSTELLATION FEEL */
+function connectParticles() {
+  let opacityValue = 1;
+  for (let a = 0; a < particlesArray.length; a++) {
+    for (let b = a; b < particlesArray.length; b++) {
+      let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x))
+                   + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+      if (distance < (canvas.width / 9) * (canvas.height / 9)) {
+        opacityValue = 1 - (distance / 12000);
+        ctx.strokeStyle = `rgba(0, 212, 255, ${opacityValue * 0.25})`;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+        ctx.stroke();
+      }
+    }
+  }
+}
+
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (let i = 0; i < particlesArray.length; i++) {
+    particlesArray[i].update();
+    particlesArray[i].draw();
+  }
+  connectParticles();
+  requestAnimationFrame(animateParticles);
+}
+
+/* BOOTSTRAP INITIALIZATION STACK ENGINE */
+document.addEventListener('DOMContentLoaded', () => {
+  applyLanguage(currentLang);
+  initCounterAnimation();
+  initScrollReveal();
+  initParticles();
+  animateParticles();
+});
 </script>
+
 </body>
 </html>
