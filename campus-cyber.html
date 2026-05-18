@@ -103,7 +103,7 @@
     .header-stat .num { font-size: 1.8rem; font-weight: 700; color: var(--accent); font-family: 'Space Grotesk', sans-serif; }
     .header-stat .lbl { font-size: 0.78rem; color: var(--gray-light); }
 
-    /* TRAINER CARD - VERSION AMÉLIORÉE */
+    /* TRAINER CARD */
     .trainer-card {
       background: rgba(255,255,255,0.05); backdrop-filter: blur(10px);
       border-radius: 28px; padding: 2rem; border: 1px solid rgba(255,255,255,0.1);
@@ -174,7 +174,7 @@
     .modules-header p { color: var(--gray-light); }
 
     .progress-bar-wrap { background: rgba(255,255,255,0.08); border-radius: 10px; height: 8px; margin: 1rem 0 2rem; overflow: hidden; }
-    .progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--success)); border-radius: 10px; width: 33%; transition: width 1s ease; }
+    .progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--success)); border-radius: 10px; width: 66%; transition: width 1s ease; }
     .progress-label { font-size: 0.82rem; color: var(--gray-light); margin-bottom: 0.3rem; }
 
     .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
@@ -258,7 +258,6 @@
 </head>
 <body>
 
-<!-- TOP BAR -->
 <div class="top-bar">
   <div class="top-bar-container">
     <div class="top-bar-info">
@@ -278,7 +277,6 @@
   </div>
 </div>
 
-<!-- NAV -->
 <nav class="nav">
   <div class="nav-container">
     <a href="index.html" class="logo">
@@ -294,7 +292,6 @@
       <li><a href="secteurs.html" id="navSecteurs">Secteurs</a></li>
       <li><a href="qui-sommes-nous.html" id="navQuiSommesNous">Qui sommes-nous</a></li>
       <li><a href="carrieres.html" id="navCarrieres">Carrières</a></li>
-      <li><a href="menaces.html" id="navMenaces">Menaces</a></li>
       <li><a href="campus-cyber.html" class="active" id="navCampus">🎓 Campus Cyber</a></li>
       <li><a href="contact.html" id="navContact">Contact</a></li>
       <li><a href="contact.html" class="nav-cta" id="navCta">Audit gratuit</a></li>
@@ -303,7 +300,6 @@
   </div>
 </nav>
 
-<!-- PAGE HEADER -->
 <section class="page-header">
   <div class="page-header-container">
     <div class="page-header-left">
@@ -343,7 +339,6 @@
   </div>
 </section>
 
-<!-- FEATURES STRIP -->
 <div class="features-strip">
   <div class="features-strip-container">
     <div class="feature-item"><i class="fas fa-video"></i><span id="feat1">Vidéos HD disponibles 24/7</span></div>
@@ -353,7 +348,6 @@
   </div>
 </div>
 
-<!-- LOGIN SECTION -->
 <section class="login-section" id="loginSection">
   <div class="container">
     <div class="login-card">
@@ -372,7 +366,6 @@
   </div>
 </section>
 
-<!-- PROTECTED SECTION -->
 <section class="protected-section" id="protectedSection">
   <div class="protected-container">
 
@@ -381,24 +374,22 @@
       <span id="welcomeMsg">Bienvenue ! Vous êtes connecté à votre espace de formation.</span>
     </div>
 
-    <!-- PROGRESS -->
     <div class="modules-header">
       <h2 id="modulesTitle">📘 Mes modules de formation</h2>
       <p id="modulesDesc">Progressez à votre rythme — chaque module contient une vidéo, un support PDF et un quiz d'évaluation.</p>
-      <p class="progress-label" id="progressLabel">Progression : Module 1 complété sur 3</p>
+      <p class="progress-label" id="progressLabel">Progression : Modules de formation débloqués</p>
       <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressBar"></div></div>
     </div>
 
-    <!-- VIDEOS -->
     <div class="video-grid">
 
       <div class="video-card">
         <div class="video-card-header">
           <div class="module-num">01</div>
-          <h3 id="mod1Title">Introduction à la cybersécurité</h3>
-          <span class="badge done" id="mod1Badge">✓ Fait</span>
+          <h3 id="mod1Title">Introduction à la Cybersécurité</h3>
+          <span class="badge done" id="mod1Badge">✓ Disponible</span>
         </div>
-        <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/3K3vG67id8g" allowfullscreen></iframe>
         <div class="video-card-footer">
           <a href="docs/module1.pdf" download class="dl-btn pdf"><i class="fas fa-file-pdf"></i> <span id="dlPdf1">Support PDF</span></a>
           <a href="quiz/module1.pdf" target="_blank" class="dl-btn quiz"><i class="fas fa-question-circle"></i> <span id="dlQuiz1">Quiz</span></a>
@@ -408,10 +399,10 @@
       <div class="video-card">
         <div class="video-card-header">
           <div class="module-num">02</div>
-          <h3 id="mod2Title">Sécurité réseau & NGFW</h3>
+          <h3 id="mod2Title">Sécurité Réseau, Pare-feu & NGFW</h3>
           <span class="badge new" id="mod2Badge">Nouveau</span>
         </div>
-        <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/lbyK7Xm_9w0" allowfullscreen></iframe>
         <div class="video-card-footer">
           <a href="docs/module2.pdf" download class="dl-btn pdf"><i class="fas fa-file-pdf"></i> <span id="dlPdf2">Support PDF</span></a>
           <a href="quiz/module2.pdf" target="_blank" class="dl-btn quiz"><i class="fas fa-question-circle"></i> <span id="dlQuiz2">Quiz</span></a>
@@ -420,23 +411,19 @@
 
       <div class="video-card">
         <div class="video-card-header">
-          <div class="module-num locked">03</div>
-          <h3 id="mod3Title">SOC & détection d'intrusion</h3>
-          <span class="badge soon" id="mod3Badge">Bientôt</span>
+          <div class="module-num">03</div>
+          <h3 id="mod3Title">Fonctionnement d'un SOC & Détection</h3>
+          <span class="badge new" id="mod3Badge">Nouveau</span>
         </div>
-        <div class="video-locked">
-          <i class="fas fa-lock"></i>
-          <span id="comingSoon">Module disponible prochainement</span>
-        </div>
+        <iframe src="https://www.youtube.com/embed/J7Z_b6Z6mno" allowfullscreen></iframe>
         <div class="video-card-footer">
-          <a class="dl-btn pdf disabled"><i class="fas fa-file-pdf"></i> <span id="dlPdf3">Support PDF</span></a>
-          <a class="dl-btn quiz disabled"><i class="fas fa-question-circle"></i> <span id="dlQuiz3">Quiz</span></a>
+          <a href="docs/module3.pdf" download class="dl-btn pdf"><i class="fas fa-file-pdf"></i> <span id="dlPdf3">Support PDF</span></a>
+          <a href="quiz/module3.pdf" target="_blank" class="dl-btn quiz"><i class="fas fa-question-circle"></i> <span id="dlQuiz3">Quiz</span></a>
         </div>
       </div>
 
     </div>
 
-    <!-- RESSOURCES -->
     <div class="ressources-section">
       <h3><i class="fas fa-folder-open"></i> <span id="ressourcesTitle">Ressources complémentaires</span></h3>
       <div class="ressources-grid">
@@ -467,7 +454,6 @@
       </div>
     </div>
 
-    <!-- CONTACT TUTOR -->
     <div class="tutor-cta">
       <div>
         <i class="fas fa-graduation-cap" style="font-size:2rem; color:var(--accent); margin-bottom:.5rem; display:block;"></i>
@@ -489,7 +475,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
@@ -534,139 +519,77 @@
 </footer>
 
 <script>
+// =====================================================
+// MOT DE PASSE DE PROTECTION
+// =====================================================
+function checkPassword() {
+  const passwordInput = document.getElementById('passwordInput').value;
+  const loginError = document.getElementById('loginError');
+  const loginSection = document.getElementById('loginSection');
+  const protectedSection = document.getElementById('protectedSection');
+
+  if (passwordInput === 'youssef') {
+    loginError.style.display = 'none';
+    loginSection.style.display = 'none';
+    protectedSection.style.display = 'block';
+    
+    setTimeout(() => {
+      document.getElementById('progressBar').style.width = '100%';
+    }, 200);
+  } else {
+    loginError.style.display = 'block';
+  }
+}
+
 // ========================
 // TRADUCTIONS FR / EN
 // ========================
 const translations = {
   fr: {
     navAccueil:"Accueil", navServices:"Services", navSecteurs:"Secteurs",
-    navQuiSommesNous:"Qui sommes-nous", navCarrieres:"Carrières", navMenaces:"Menaces",
-    navCampus:"🎓 Campus Cyber", navContact:"Contact", navCta:"Audit gratuit",
-    breadHome:"Accueil", breadCampus:"Campus Cyber",
-    heroSubtitle:"Centre de Formation Corporate",
-    heroDesc:"Accès réservé aux membres inscrits aux formations — supports de cours, vidéos et ressources techniques exclusives.",
-    trainerBadge:"Formation par un expert Security Architect",
-    trainerRole:"Docteur en informatique & cybersécurité",
-    trainerDesc:"Docteur en informatique et cybersécurité et fin pédagogue, Abdeljalil intervient dans des thématiques aussi variées que l'architecture de sécurité, la sécurité du cloud, l'intégration de la cybersécurité dans les entreprises, la cybersécurité pour les dirigeants, la protection des données, la préparation à la certification CISSP et la formation générale en cybersécurité.",
-    statModules:"Modules actifs", statRessources:"Ressources", statAcces:"Accès continu",
-    feat1:"Vidéos HD disponibles 24/7", feat2:"Supports PDF téléchargeables",
-    feat3:"Labs pratiques inclus", feat4:"Support formateur direct",
-    loginTitle:"Centre de Formation Corporate",
-    loginDesc:"Entrez votre mot de passe pour accéder à vos ressources de formation.",
-    loginHint:"🔒 Accès réservé aux membres inscrits à la formation NextGen Academy",
-    loginError:"Mot de passe incorrect. Contactez votre formateur.",
-    welcomeMsg:"Bienvenue ! Vous êtes connecté à votre espace de formation.",
-    modulesTitle:"📘 Mes modules de formation",
-    modulesDesc:"Progressez à votre rythme — chaque module contient une vidéo, un support PDF et un quiz d'évaluation.",
-    progressLabel:"Progression : Module 1 complété sur 3",
-    mod1Title:"Introduction à la cybersécurité", mod1Badge:"✓ Fait",
-    mod2Title:"Sécurité réseau & NGFW", mod2Badge:"Nouveau",
-    mod3Title:"SOC & détection d'intrusion", mod3Badge:"Bientôt",
-    comingSoon:"Module disponible prochainement",
-    dlPdf1:"Support PDF", dlQuiz1:"Quiz", dlPdf2:"Support PDF", dlQuiz2:"Quiz",
-    dlPdf3:"Support PDF", dlQuiz3:"Quiz",
-    ressourcesTitle:"Ressources complémentaires",
-    res1Title:"Glossaire cybersécurité", res1Desc:"PDF · 45 termes essentiels",
-    res2Title:"Cheatsheet Linux", res2Desc:"PDF · Commandes essentielles",
-    res3Title:"TryHackMe", res3Desc:"Plateforme de labs pratiques",
-    res4Title:"MITRE ATT&CK", res4Desc:"Framework des techniques d'attaque",
-    res5Title:"Outils pentest", res5Desc:"PDF · Liste des outils recommandés",
-    res6Title:"Formulaire de remédiation", res6Desc:"Soumettre vos exercices",
-    tutorTitle:"Une question sur le cours ?",
-    tutorDesc:"Abdeljalil répond à toutes vos questions techniques sous 24h.",
-    btnWhatsapp:"WhatsApp", btnEmail:"Email",
-    footerDesc:"Cybersécurité, conseil, SOC, infrastructure et sécurité offensive pour les entreprises modernes.",
-    footerServices:"Services", footerCompany:"Entreprise", footerLegal:"Légal"
+    navQuiSommesNous:"Qui sommes-nous", navCarrieres:"Carrières",
+    navCampus:"🎓 Campus Cyber", navContact:"Contact", navCta:"Audit gratuit"
   },
   en: {
     navAccueil:"Home", navServices:"Services", navSecteurs:"Sectors",
-    navQuiSommesNous:"About us", navCarrieres:"Careers", navMenaces:"Threats",
-    navCampus:"🎓 Cyber Campus", navContact:"Contact", navCta:"Free audit",
-    breadHome:"Home", breadCampus:"Cyber Campus",
-    heroSubtitle:"Private learning space",
-    heroDesc:"Access reserved for authorized training members — course materials, videos and exclusive technical resources.",
-    trainerBadge:"Training by a Security Architect expert",
-    trainerRole:"PhD in Computer Science & Cybersecurity",
-    trainerDesc:"PhD in Computer Science and Cybersecurity, and a skilled educator, Abdeljalil works on topics as varied as security architecture, cloud security, integrating cybersecurity into businesses, cybersecurity for executives, data protection, CISSP certification preparation, and general cybersecurity training.",
-    statModules:"Active modules", statRessources:"Resources", statAcces:"24/7 access",
-    feat1:"HD videos available 24/7", feat2:"Downloadable PDF materials",
-    feat3:"Practical labs included", feat4:"Direct trainer support",
-    loginTitle:"Secure student area",
-    loginDesc:"Enter your password to access your training resources.",
-    loginHint:"🔒 Access reserved for authorized training members enrolled in NextGen Academy",
-    loginError:"Incorrect password. Please contact your trainer.",
-    welcomeMsg:"Welcome! You are now connected to your training space.",
-    modulesTitle:"📘 My training modules",
-    modulesDesc:"Learn at your own pace — each module includes a video, a PDF handout and an assessment quiz.",
-    progressLabel:"Progress: Module 1 completed out of 3",
-    mod1Title:"Introduction to cybersecurity", mod1Badge:"✓ Done",
-    mod2Title:"Network security & NGFW", mod2Badge:"New",
-    mod3Title:"SOC & intrusion detection", mod3Badge:"Coming soon",
-    comingSoon:"Module available soon",
-    dlPdf1:"PDF Handout", dlQuiz1:"Quiz", dlPdf2:"PDF Handout", dlQuiz2:"Quiz",
-    dlPdf3:"PDF Handout", dlQuiz3:"Quiz",
-    ressourcesTitle:"Additional resources",
-    res1Title:"Cybersecurity glossary", res1Desc:"PDF · 45 essential terms",
-    res2Title:"Linux cheatsheet", res2Desc:"PDF · Essential commands",
-    res3Title:"TryHackMe", res3Desc:"Practical labs platform",
-    res4Title:"MITRE ATT&CK", res4Desc:"Attack techniques framework",
-    res5Title:"Pentest tools", res5Desc:"PDF · Recommended tools list",
-    res6Title:"Remediation form", res6Desc:"Submit your exercises",
-    tutorTitle:"A question about the course?",
-    tutorDesc:"Abdeljalil answers all your technical questions within 24h.",
-    btnWhatsapp:"WhatsApp", btnEmail:"Email",
-    footerDesc:"Cybersecurity, consulting, SOC, infrastructure and offensive security for modern businesses.",
-    footerServices:"Services", footerCompany:"Company", footerLegal:"Legal"
+    navQuiSommesNous:"About Us", navCarrieres:"Careers",
+    navCampus:"🎓 Cyber Campus", navContact:"Contact", navCta:"Free Audit"
   }
 };
 
-let currentLang = localStorage.getItem('nextgen-lang') || 'fr';
-
+let currentLang = 'fr';
 function applyLanguage(lang) {
   const t = translations[lang];
   if (!t) return;
-  Object.keys(t).forEach(id => {
+  for (const id in t) {
     const el = document.getElementById(id);
-    if (el) el.innerHTML = t[id];
-  });
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-  });
-  localStorage.setItem('nextgen-lang', lang);
+    if (el) el.innerText = t[id];
+  }
 }
 
 document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    currentLang = btn.getAttribute('data-lang');
-    applyLanguage(currentLang);
+    const lang = btn.getAttribute('data-lang');
+    if (lang) {
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentLang = lang;
+      applyLanguage(currentLang);
+    }
   });
 });
 
-// Menu mobile
-document.getElementById('menuToggle')?.addEventListener('click', () => {
-  document.getElementById('navLinks')?.classList.toggle('active');
-});
-
-// LOGIN
-function checkPassword() {
-  const pwd = document.getElementById('passwordInput').value;
-  const error = document.getElementById('loginError');
-  if (pwd === 'youssef') {
-    document.getElementById('loginSection').style.display = 'none';
-    document.getElementById('protectedSection').style.display = 'block';
-    document.getElementById('protectedSection').scrollIntoView({ behavior: 'smooth' });
-  } else {
-    error.style.display = 'block';
-    document.getElementById('passwordInput').style.borderColor = '#EF4444';
-    setTimeout(() => {
-      error.style.display = 'none';
-      document.getElementById('passwordInput').style.borderColor = '';
-    }, 3000);
-  }
+// =====================================================
+// MOBILE MENU
+// =====================================================
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
 }
-
-// Init
-applyLanguage(currentLang);
 </script>
+
 </body>
 </html>
