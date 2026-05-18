@@ -129,25 +129,13 @@ a{text-decoration:none;}
 .section-desc{color:#94a3b8;max-width:800px;line-height:1.9;font-size:1.05rem;}
 
 /* =============================================
-   TEAM — CEO en haut + co-founders
+   TEAM — 3 cards horizontal (Youssef, Marouan, Mohssine)
    ============================================= */
 .team-section-wrapper{margin-top:4rem;}
 
-.ceo-row{
-  display:flex;
-  justify-content:center;
-  margin-bottom:2.5rem;
-}
-.ceo-row .team-card{
-  max-width:380px;
-  width:100%;
-  border:1.5px solid rgba(0,212,255,.35);
-  box-shadow:0 0 60px rgba(0,212,255,.12), 0 0 0 1px rgba(0,212,255,.08);
-}
-
 .cofounders-row{
   display:grid;
-  grid-template-columns:repeat(4, minmax(0, 280px));
+  grid-template-columns:repeat(3, minmax(0, 320px));
   gap:2rem;
   justify-content:center;
 }
@@ -450,9 +438,8 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
     <p class="section-desc" data-key="teamDesc">Une structure construite autour de plusieurs expertises techniques afin d'offrir aux entreprises une approche complète de la cybersécurité moderne.</p>
 
     <div class="team-section-wrapper">
+      <div class="cofounders-row">
 
-      <!-- YOUSSEF — CEO seul en haut, centré -->
-      <div class="ceo-row">
         <div class="team-card">
           <div class="team-image">
             <img src="youssef.jpg" alt="Youssef">
@@ -464,24 +451,6 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
             <div class="team-role" data-key="role1">Founder & CEO · Business Development Lead</div>
             <p data-key="desc1">Cybersécurité opérationnelle, développement commercial et stratégie. Coordination globale des opérations et relation client.</p>
             <div class="skills"><span>Cybersécurité</span><span>Business Dev</span><span>Bug Bounty</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 4 CO-FOUNDERS — centrés -->
-      <div class="cofounders-row">
-
-        <div class="team-card">
-          <div class="team-image">
-            <img src="abdeljalil.jpg" alt="Dr. Abdeljalil">
-            <div class="team-overlay"></div>
-          </div>
-          <div class="team-content">
-            <h3>Dr. Abdeljalil</h3>
-            <div class="team-name-line"></div>
-            <div class="team-role" data-key="role2">Co-Founder · Security & Training Architect</div>
-            <p data-key="desc2">Architectures sécurisées, cloud security et développement des formations techniques NextGen Academy.</p>
-            <div class="skills"><span>Architecture</span><span>Cloud</span><span>Formation</span></div>
           </div>
         </div>
 
@@ -501,20 +470,6 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
 
         <div class="team-card">
           <div class="team-image">
-            <img src="amine.png" alt="Amine">
-            <div class="team-overlay"></div>
-          </div>
-          <div class="team-content">
-            <h3>Amine</h3>
-            <div class="team-name-line"></div>
-            <div class="team-role" data-key="role4">Co-Founder · SOC · Offensive Security Lead</div>
-            <p data-key="desc4">Détection, surveillance SOC, pentest et sécurité offensive pour les environnements critiques.</p>
-            <div class="skills"><span>SOC</span><span>Pentest</span><span>Security</span></div>
-          </div>
-        </div>
-
-        <div class="team-card">
-          <div class="team-image">
             <img src="mohssine.jpg" alt="Mohssine">
             <div class="team-overlay"></div>
           </div>
@@ -527,9 +482,8 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
           </div>
         </div>
 
-      </div><!-- /cofounders-row -->
-
-    </div><!-- /team-section-wrapper -->
+      </div>
+    </div>
   </div>
 </section>
 
@@ -621,15 +575,11 @@ const translations = {
     teamTitle1:"Des profils complémentaires,", teamTitle2:"une même mission",
     teamDesc:"Une structure construite autour de plusieurs expertises techniques afin d'offrir aux entreprises une approche complète de la cybersécurité moderne.",
     role1:"Founder & CEO · Business Development Lead",
-    role2:"Co-Founder · Security & Training Architect",
     role3:"Co-Founder · CTO · Infrastructure Lead",
-    role4:"Co-Founder · SOC · Offensive Security Lead",
     role5:"Co-Founder · SOC · Pentest · Formation",
     desc1:"Cybersécurité opérationnelle, développement commercial et stratégie. Coordination globale des opérations et relation client.",
-    desc2:"Architectures sécurisées, cloud security et développement des formations techniques NextGen Academy.",
     desc3:"Expert infrastructures réseau, solutions Cisco et architecture technique des environnements sécurisés.",
-    desc4:"Détection, surveillance SOC, pentest et sécurité offensive pour les environnements critiques.",
-    desc5:"Expert en sécurité opérationnelle, tests d'intrusion et formation cyber. Renforce l'équipe sur les missions offensives et défensives.",
+    desc5:"Expert en sécurité opérationnelle, tests d'intrusion, ISO 27001 et formation cyber. Renforce les équipes sur les missions offensives et défensives.",
     storyTag:"NOTRE HISTOIRE", storyTitle1:"Une vision moderne de la", storyTitle2:"cybersécurité",
     storyP1:"NextGen Technologies est née de la volonté de créer une entreprise capable d'offrir un niveau d'expertise élevé tout en restant proche des réalités des entreprises locales.",
     storyP2:"Notre équipe combine des expériences acquises au Maroc et à l'international afin d'apporter des standards modernes en matière d'infrastructure, sécurité offensive, défense SOC et gouvernance IT.",
@@ -664,15 +614,11 @@ const translations = {
     teamTitle1:"Complementary profiles,", teamTitle2:"one mission",
     teamDesc:"A structure built around multiple technical expertise to offer companies a comprehensive approach to modern cybersecurity.",
     role1:"Founder & CEO · Business Development Lead",
-    role2:"Co-Founder · Security & Training Architect",
     role3:"Co-Founder · CTO · Infrastructure Lead",
-    role4:"Co-Founder · SOC · Offensive Security Lead",
     role5:"Co-Founder · SOC · Pentest · Training",
     desc1:"Operational cybersecurity, business development and strategy. Global operations coordination and client relations.",
-    desc2:"Secure architectures, cloud security and development of NextGen Academy technical training.",
     desc3:"Network infrastructure expert, Cisco solutions and secure environment technical architecture.",
-    desc4:"Detection, SOC monitoring, pentest and offensive security for critical environments.",
-    desc5:"Operational security expert, penetration testing and cyber training. Strengthens the team on offensive and defensive missions.",
+    desc5:"Operational security expert, penetration testing, ISO 27001 and cyber training. Strengthens the team on offensive and defensive missions.",
     storyTag:"OUR STORY", storyTitle1:"A modern vision of", storyTitle2:"cybersecurity",
     storyP1:"NextGen Technologies was born from the desire to create a company capable of offering a high level of expertise while staying close to the realities of local businesses.",
     storyP2:"Our team combines experiences acquired in Morocco and internationally to bring modern standards in infrastructure, offensive security, SOC defense and IT governance.",
