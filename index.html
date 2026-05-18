@@ -40,7 +40,7 @@ h1, h2, h3, h4 {
 }
 a { text-decoration: none; }
 
-/* WOW EFFECT : SCROLL PROGRESS BAR */
+/* PROGRESS BAR */
 .scroll-progress {
   position: fixed;
   top: 0;
@@ -52,7 +52,7 @@ a { text-decoration: none; }
   transition: width 0.1s ease;
 }
 
-/* WOW EFFECT : CURSOR GLOW (DESKTOP) */
+/* CURSOR GLOW */
 @media (min-width: 1025px) {
   .cursor-glow {
     width: 600px;
@@ -137,6 +137,7 @@ a { text-decoration: none; }
   color: var(--primary);
 }
 
+/* NAVIGATION */
 .nav {
   position: sticky; top: 0; z-index: 1000;
   padding: 1rem 4%;
@@ -201,6 +202,12 @@ a { text-decoration: none; }
 .dropdown-menu li a:hover {
   background: rgba(0,212,255,0.1); color: var(--accent); padding-left: 1.4rem;
 }
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
 .nav-cta {
   background: linear-gradient(135deg, var(--red), var(--red-dark)) !important;
   color: var(--white) !important;
@@ -210,7 +217,7 @@ a { text-decoration: none; }
 }
 .nav-cta:hover { transform: translateY(-2px) !important; background: var(--accent) !important; color: var(--primary) !important; }
 
-/* WOW EFFECT : MOBILE HAMBURGER MENU */
+/* MOBILE HAMBURGER MENU */
 .menu-toggle {
   display: none;
   background: none;
@@ -258,7 +265,7 @@ a { text-decoration: none; }
   padding-left: 1.5rem;
 }
 
-/* SLIDER */
+/* HERO SLIDER (ANIMATED BACK TO PEXELS) */
 .particle-canvas {
   position: absolute;
   top: 0;
@@ -328,7 +335,7 @@ a { text-decoration: none; }
   z-index: 25;
   max-width: 900px;
   padding: 2rem;
-  background: rgba(5,11,20,0.35);
+  background: rgba(5, 11, 20, 0.35);
   backdrop-filter: blur(12px);
   border-radius: 40px;
   border: 1px solid rgba(0,212,255,0.25);
@@ -347,7 +354,7 @@ a { text-decoration: none; }
   line-height: 1.3;
 }
 
-/* WOW EFFECT : GRADIENT ANIMATED TEXT */
+/* GRADIENT ANIMATED TEXT */
 .accent-text, .wow-gradient-title {
   background: linear-gradient(90deg, var(--accent), #f6c453, var(--accent));
   background-size: 200% auto;
@@ -473,8 +480,6 @@ a { text-decoration: none; }
   max-width: 1200px;
   margin: 0 auto;
 }
-
-/* WOW EFFECT : GLASSMORPHISM CARDS */
 .value-card {
   text-align: center;
   padding: 2.5rem 2rem;
@@ -485,14 +490,12 @@ a { text-decoration: none; }
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   transition: var(--transition);
-  opacity: 0;
-  transform: translateY(30px);
 }
 .value-card:hover {
   transform: translateY(-10px) scale(1.02);
   border-color: rgba(0, 212, 255, 0.5);
   background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 20px 40px rgba(0, 212, 255, 0.15), inset 0 0 15px rgba(255,255,255,0.05);
+  box-shadow: 0 20px 40px rgba(0, 212, 255, 0.15);
 }
 .value-icon {
   width: 70px;
@@ -509,93 +512,6 @@ a { text-decoration: none; }
 }
 .value-card h3 { color: var(--white); font-size: 1.3rem; margin-bottom: 0.8rem; }
 .value-card p { color: var(--gray-light); font-size: 0.9rem; }
-
-/* CYBER DEFENSE PREMIUM */
-.cyber-defense-premium {
-  padding: 5rem 4%;
-  background: linear-gradient(135deg, #050B14, #0A1628);
-  position: relative;
-  overflow: hidden;
-}
-.cyber-defense-premium::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at 50% 50%, rgba(0,212,255,0.08), transparent 70%);
-  animation: rotateGlow 20s linear infinite;
-  pointer-events: none;
-}
-@keyframes rotateGlow {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-.cyber-defense-container {
-  max-width: 1300px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 5;
-}
-.cyber-defense-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
-}
-.cyber-defense-text h2 {
-  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-  margin-bottom: 1.5rem;
-  line-height: 1.2;
-}
-.cyber-defense-text p {
-  color: var(--gray-light);
-  margin-bottom: 2rem;
-  font-size: 1rem;
-}
-.stats-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-}
-.stat-box {
-  background: rgba(15, 43, 77, 0.4);
-  padding: 1.5rem;
-  border-radius: 16px;
-  border: 1px solid rgba(0,212,255,0.1);
-  transition: var(--transition);
-}
-.stat-box:hover {
-  border-color: var(--accent);
-  background: rgba(15, 43, 77, 0.6);
-}
-.stat-number {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: var(--accent);
-  margin-bottom: 0.2rem;
-}
-.stat-label {
-  font-size: 0.85rem;
-  color: var(--off-white);
-  font-weight: 500;
-}
-.cyber-defense-visual {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.map-iframe-container {
-  width: 100%;
-  height: 400px;
-  border-radius: 24px;
-  overflow: hidden;
-  border: 2px solid rgba(0,212,255,0.2);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-}
 
 /* SERVICES SECTION */
 .services-section {
@@ -622,7 +538,7 @@ a { text-decoration: none; }
   margin: 0 auto;
 }
 
-/* WOW EFFECT : 3D TILT HOVER SERVICE CARD & STAGGERED REVEAL */
+/* 3D TILT SERVICE CARD */
 .service-card {
   background: rgba(15, 43, 77, 0.3);
   border-radius: 24px;
@@ -659,13 +575,12 @@ a { text-decoration: none; }
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  transform: translateZ(20px); /* 3D Depth element */
+  transform: translateZ(20px);
 }
 .service-content h3 {
   color: var(--white);
   font-size: 1.4rem;
   margin-bottom: 0.8rem;
-  transition: color 0.3s ease;
 }
 .service-card:hover .service-content h3 {
   color: var(--accent);
@@ -690,6 +605,82 @@ a { text-decoration: none; }
   gap: 0.8rem;
 }
 
+/* CYBER DEFENSE CENTRÉE AU MILIEU (MODIFIÉ) */
+.cyber-defense-premium {
+  padding: 6rem 4%;
+  background: linear-gradient(135deg, #050B14, #0A1628);
+  position: relative;
+  overflow: hidden;
+}
+.cyber-defense-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 5;
+  text-align: center;
+}
+.cyber-defense-text h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+.cyber-defense-text p {
+  color: var(--gray-light);
+  margin-bottom: 3rem;
+  font-size: 1.05rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.map-iframe-container {
+  width: 100%;
+  height: 550px; /* Plus grand et imposant au centre */
+  border-radius: 24px;
+  overflow: hidden;
+  border: 2px solid rgba(0,212,255,0.2);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.6), 0 0 30px rgba(0,212,255,0.1);
+  margin-bottom: 4rem;
+}
+.stats-grid-centered {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+@media (max-width: 992px) {
+  .stats-grid-centered { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 568px) {
+  .stats-grid-centered { grid-template-columns: 1fr; }
+  .map-iframe-container { height: 350px; }
+}
+
+.stat-box {
+  background: rgba(15, 43, 77, 0.4);
+  padding: 1.8rem;
+  border-radius: 16px;
+  border: 1px solid rgba(0,212,255,0.1);
+  transition: var(--transition);
+}
+.stat-box:hover {
+  border-color: var(--accent);
+  background: rgba(15, 43, 77, 0.6);
+  transform: translateY(-5px);
+}
+.stat-number {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.2rem;
+}
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--off-white);
+  font-weight: 500;
+}
+
 /* FOOTER */
 .footer {
   background: #050B14;
@@ -712,10 +703,7 @@ a { text-decoration: none; }
   font-size: 0.9rem;
   margin-bottom: 1.5rem;
 }
-.footer-socials {
-  display: flex;
-  gap: 1rem;
-}
+.footer-socials { display: flex; gap: 1rem; }
 .footer-socials a {
   width: 40px;
   height: 40px;
@@ -749,12 +737,8 @@ a { text-decoration: none; }
   height: 2px;
   background: var(--accent);
 }
-.footer-links ul {
-  list-style: none;
-}
-.footer-links ul li {
-  margin-bottom: 0.8rem;
-}
+.footer-links ul { list-style: none; }
+.footer-links ul li { margin-bottom: 0.8rem; }
 .footer-links ul li a {
   color: var(--gray-light);
   font-size: 0.9rem;
@@ -778,12 +762,10 @@ a { text-decoration: none; }
   font-size: 0.85rem;
 }
 
-/* RESPONSIVE DESIGN */
 @media (max-width: 1024px) {
   .nav-links { display: none; }
   .menu-toggle { display: block; }
   .values-grid { grid-template-columns: repeat(2, 1fr); }
-  .cyber-defense-grid { grid-template-columns: 1fr; }
   .footer-container { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
@@ -796,7 +778,6 @@ a { text-decoration: none; }
 
 <body>
 
-<!-- WOW EFFECT COMPONENTS -->
 <div class="scroll-progress" id="scrollProgress"></div>
 <div class="cursor-glow" id="cursorGlow"></div>
 
@@ -839,12 +820,12 @@ a { text-decoration: none; }
       <li>
         <a href="services.html" data-i18n="nav_services">Services <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;"></i></a>
         <ul class="dropdown-menu">
-          <li><a href="contact.html" data-i18n="srv_1">Audit & Diagnostic</a></li>
-          <li><a href="vapt.html" data-i18n="srv_2">Pentest / VAPT</a></li>
-          <li><a href="securite-reseau.html" data-i18n="srv_3">Sécurité Réseau</a></li>
-          <li><a href="soc-consultation.html" data-i18n="srv_4">SOC Consultation</a></li>
-          <li><a href="cybercrime.html" data-i18n="srv_5">Investigation Numérique</a></li>
-          <li><a href="noc.html" data-i18n="srv_6">NOC Managé</a></li>
+          <li><a href="contact.html" data-i18n="srv_1_title">Audit & Diagnostic</a></li>
+          <li><a href="vapt.html" data-i18n="srv_2_title">Pentest / VAPT</a></li>
+          <li><a href="securite-reseau.html" data-i18n="srv_3_title">Sécurité Réseau</a></li>
+          <li><a href="soc-consultation.html" data-i18n="srv_4_title">SOC Consultation</a></li>
+          <li><a href="cybercrime.html" data-i18n="srv_5_title">Investigation Numérique</a></li>
+          <li><a href="noc.html" data-i18n="srv_6_title">NOC Managé</a></li>
         </ul>
       </li>
       <li><a href="secteurs.html" data-i18n="nav_sectors">Secteurs</a></li>
@@ -852,16 +833,18 @@ a { text-decoration: none; }
       <li><a href="carrieres.html" data-i18n="nav_careers">Carrières</a></li>
       <li><a href="campus-cyber.html" data-i18n="nav_campus">🎓 Campus Cyber</a></li>
       <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
-      <li><a href="contact.html" class="nav-cta" data-i18n="nav_audit">Audit gratuit</a></li>
     </ul>
 
-    <button class="menu-toggle" id="menuToggle">
-      <i class="fa-solid fa-bars"></i>
-    </button>
+    <div class="nav-actions">
+      <a href="contact.html" class="nav-cta" data-i18n="nav_audit">Audit gratuit</a>
+      <button class="menu-toggle" id="menuToggle">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
   </div>
 </nav>
 
-<!-- WOW EFFECT : MOBILE NAV SIDE-IN MENU -->
+<!-- MOBILE NAV OVERLAY -->
 <div class="mobile-nav-overlay" id="mobileNav">
   <a href="index.html" data-i18n="nav_home">Accueil</a>
   <a href="services.html" data-i18n="nav_services">Services</a>
@@ -870,18 +853,16 @@ a { text-decoration: none; }
   <a href="carrieres.html" data-i18n="nav_careers">Carrières</a>
   <a href="campus-cyber.html" data-i18n="nav_campus">🎓 Campus Cyber</a>
   <a href="contact.html" data-i18n="nav_contact">Contact</a>
-  <a href="contact.html" class="nav-cta" style="text-align: center; margin-top: 1rem;" data-i18n="nav_audit">Audit gratuit</a>
+  <a href="contact.html" class="nav-cta" style="text-align: center; margin-top: 0.5rem;" data-i18n="nav_audit">Audit gratuit</a>
 </div>
 
-<!-- SLIDER HERO SECTION -->
+<!-- SLIDER HERO SECTION (REMIS LES IMAGES D'ANIMATION ORIGINALES) -->
 <div class="slider">
   <canvas class="particle-canvas" id="sliderParticles"></canvas>
   
-  <!-- Slide 1 -->
   <div class="slide active">
-    <div class="slide-bg" style="background-image: url('https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=1920');"></div>
+    <div class="slide-bg" style="background-image: url('https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
     <div class="caption">
-      <!-- WOW EFFECT : TYPED JS TARGETED HEADER -->
       <h1>NextGen <span id="typedElement" class="accent-text"></span><br><span data-i18n="slide1_title_sub">Cyber Defense Platform</span></h1>
       <p class="slide-desc" data-i18n="slide1_desc">Anticipez les cyberattaques grâce à notre expertise en Threat Intelligence et réponse globale immédiate.</p>
       <div class="slide-buttons">
@@ -891,11 +872,10 @@ a { text-decoration: none; }
     </div>
   </div>
 
-  <!-- Slide 2 -->
   <div class="slide">
-    <div class="slide-bg" style="background-image: url('https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=1920');"></div>
+    <div class="slide-bg" style="background-image: url('https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
     <div class="caption">
-      <h1 data-i18n="slide2_title">SOC & Supervision <span class="accent-text">24h/7j/365</span></h1>
+      <h1><span data-i18n="slide2_title_part1:">SOC IA & Supervision</span> <span class="accent-text" data-i18n="slide2_title_part2">24h/7j/365</span></h1>
       <p class="slide-desc" data-i18n="slide2_desc">Nos analystes certifiés protègent vos actifs critiques en temps réel contre les menaces émergentes complexes.</p>
       <div class="slide-buttons">
         <a href="soc-consultation.html" class="btn-slide" data-i18n="btn_soc">Explorer le SOC</a>
@@ -904,11 +884,10 @@ a { text-decoration: none; }
     </div>
   </div>
 
-  <!-- Slide 3 -->
   <div class="slide">
-    <div class="slide-bg" style="background-image: url('https://images.pexels.com/photos/2881232/pexels-photo-2881232.jpeg?auto=compress&cs=tinysrgb&w=1920');"></div>
+    <div class="slide-bg" style="background-image: url('https://images.pexels.com/photos/5380642/pexels-photo-5380642.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
     <div class="caption">
-      <h1 data-i18n="slide3_title">Pentest Élite & <span class="accent-text">Audits Offensifs</span></h1>
+      <h1><span data-i18n="slide3_title_part1">Pentest Élite &</span> <span class="accent-text" data-i18n="slide3_title_part2">Audits Offensifs</span></h1>
       <p class="slide-desc" data-i18n="slide3_desc">Évaluez la robustesse réelle de vos systèmes d'information avant que les attaquants ne le fassent.</p>
       <div class="slide-buttons">
         <a href="vapt.html" class="btn-slide" data-i18n="btn_pentest">Lancer un Pentest</a>
@@ -950,53 +929,49 @@ a { text-decoration: none; }
   </div>
 </section>
 
-<!-- CYBER DEFENSE PREMIUM WITH LIVE MONITORING -->
-<section class="cyber-defense-premium">
-  <div class="cyber-defense-container">
-    <div class="cyber-defense-grid">
-      <div class="cyber-defense-text">
-        <h2 class="wow-gradient-title" data-i18n="def_title">Global Cyber Defense Intelligence Platform</h2>
-        <p data-i18n="def_desc">NextGen Technologies déploie l'arsenal technologique le plus sophistiqué pour immuniser les gouvernements, institutions bancaires et opérateurs d'importance vitale (OIV) contre l'espionnage et le rançongiciel industriel.</p>
-        
-        <div class="stats-grid">
-          <div class="stat-box">
-            <!-- WOW EFFECT : EASING TARGET COUNTERS -->
-            <div class="stat-number" data-target="15">0</div>
-            <div class="stat-label" data-i18n="stat_1">Missions d'envergure étatique</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-number" data-target="4">0</div>
-            <div class="stat-label" data-i18n="stat_2">Continents sous protection active</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-number" data-target="24">0</div>
-            <div class="stat-label" data-i18n="stat_3">Analyse SOC continue 24/7/365</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-number" data-target="100">0</div>
-            <div class="stat-label" data-i18n="stat_4">% d'incidents critiques contenus</div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="cyber-defense-visual">
-        <div class="map-iframe-container">
-          <!-- KASPERSKY LIVE IFRAME PROTECTED AND INTACT -->
-          <iframe src="https://cybermap.kaspersky.com/en/widget" width="100%" height="100%" style="border: none;"></iframe>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- SERVICES SECTION -->
 <section class="services-section">
   <div class="section-header">
-    <h2 class="wow-gradient-title" data-i18n="srv_sec_title">Nos Domaines d'Expertise Tactique</h2>
-    <p data-i18n="srv_sec_desc">Des lignes de services premium unifiées pour assurer la résilience cyber absolue de vos écosystèmes métiers complexes.</p>
+    <h2 class="wow-gradient-title" id="srv_sec_title" data-i18n="srv_sec_title">Nos Domaines d'Expertise Tactique</h2>
+    <p id="srv_sec_desc" data-i18n="srv_sec_desc">Des lignes de services premium unifiées pour assurer la résilience cyber absolue de vos écosystèmes métiers complexes.</p>
   </div>
   <div class="services-grid" id="servicesGrid">
-    <!-- RENDERED DYNAMICALLY BY JAVASCRIPT WHILE PRESERVING STAGGERED LAYOUT AND EXACT STRUCTURE -->
+    <!-- JAVASCRIPT LOADED -->
+  </div>
+</section>
+
+<!-- MAP CYBER DEFENSE CENTRÉE AU MILIEU -->
+<section class="cyber-defense-premium">
+  <div class="cyber-defense-container">
+    <div class="cyber-defense-text">
+      <h2 class="wow-gradient-title" data-i18n="def_title">Global Cyber Defense Intelligence Platform</h2>
+      <p data-i18n="def_desc">NextGen Technologies déploie l'arsenal technologique le plus sophistiqué pour immuniser les gouvernements, institutions bancaires et opérateurs d'importance vitale (OIV) contre l'espionnage et le rançongiciel industriel.</p>
+    </div>
+    
+    <!-- LA CARTE PREND TOUT LE MILIEU ICI -->
+    <div class="map-iframe-container">
+      <iframe src="https://threatmap.checkpoint.com/" width="100%" height="100%" style="border: none;"></iframe>
+    </div>
+    
+    <!-- LES STATS EN AVANT EN DESSOUS DE LA CARTE -->
+    <div class="stats-grid-centered">
+      <div class="stat-box">
+        <div class="stat-number" data-target="15">0</div>
+        <div class="stat-label" data-i18n="stat_1">Missions d'envergure étatique</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number" data-target="4">0</div>
+        <div class="stat-label" data-i18n="stat_2">Continents sous protection active</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number" data-target="24">0</div>
+        <div class="stat-label" data-i18n="stat_3">Analyse SOC continue 24/7/365</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number" data-target="100">0</div>
+        <div class="stat-label" data-i18n="stat_4">% d'incidents critiques contenus</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1020,12 +995,12 @@ a { text-decoration: none; }
     <div class="footer-links">
       <h4 data-i18n="foot_col1">Expertises</h4>
       <ul>
-        <li><a href="contact.html" data-i18n="srv_1">Audit & Diagnostic</a></li>
-        <li><a href="vapt.html" data-i18n="srv_2">Pentest / VAPT</a></li>
-        <li><a href="securite-reseau.html" data-i18n="srv_3">Sécurité Réseau</a></li>
-        <li><a href="soc-consultation.html" data-i18n="srv_4">SOC Consultation</a></li>
-        <li><a href="cybercrime.html" data-i18n="srv_5">Investigation Numérique</a></li>
-        <li><a href="noc.html" data-i18n="srv_6">NOC Managé</a></li>
+        <li><a href="contact.html" data-i18n="srv_1_title">Audit & Diagnostic</a></li>
+        <li><a href="vapt.html" data-i18n="srv_2_title">Pentest / VAPT</a></li>
+        <li><a href="securite-reseau.html" data-i18n="srv_3_title">Sécurité Réseau</a></li>
+        <li><a href="soc-consultation.html" data-i18n="srv_4_title">SOC Consultation</a></li>
+        <li><a href="cybercrime.html" data-i18n="srv_5_title">Investigation Numérique</a></li>
+        <li><a href="noc.html" data-i18n="srv_6_title">NOC Managé</a></li>
       </ul>
     </div>
     <div class="footer-links">
@@ -1052,11 +1027,9 @@ a { text-decoration: none; }
   </div>
 </footer>
 
-<!-- DEPENDENCES VIA CDN CLOUDFLARE ONLY -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
 
 <script>
-/* WOW EFFECT : TRANSLATIONS OBJECT INTACT & COMPLETE WITH ADDED UI NODES */
 const translations = {
   fr: {
     top_badge: "PARTENAIRE DE CONFIANCE EN SÉCURITÉ ULTRA-PREMIUM",
@@ -1072,10 +1045,12 @@ const translations = {
     slide1_desc: "Anticipez les cyberattaques grâce à notre expertise en Threat Intelligence et réponse globale immédiate.",
     btn_audit_req: "Demander un Audit",
     btn_discover: "Découvrir l'Offre",
-    slide2_title: "SOC & Supervision <span class='accent-text'>24h/7j/365</span>",
+    slide2_title_part1: "SOC IA & Supervision",
+    slide2_title_part2: "24h/7j/365",
     slide2_desc: "Nos analystes certifiés protègent vos actifs critiques en temps réel contre les menaces émergentes complexes.",
     btn_soc: "Explorer le SOC",
-    slide3_title: "Pentest Élite & <span class='accent-text'>Audits Offensifs</span>",
+    slide3_title_part1: "Pentest Élite &",
+    slide3_title_part2: "Audits Offensifs",
     slide3_desc: "Évaluez la robustesse réelle de vos systèmes d'information avant que les attaquants ne le fassent.",
     btn_pentest: "Lancer un Pentest",
     btn_back: "Retour",
@@ -1093,18 +1068,24 @@ const translations = {
     stat_4: "% d'incidents critiques contenus",
     srv_sec_title: "Nos Domaines d'Expertise Tactique",
     srv_sec_desc: "Des lignes de services premium unifiées pour assurer la résilience cyber absolue de vos écosystèmes métiers complexes.",
-    footer_brand_desc: "Architectes de la confiance numérique et pionniers de la cyberdéfense premium sur le continent africain et international.",
     foot_col1: "Expertises",
     foot_col2: "Entreprise",
     foot_col3: "Contact Extrême",
+    footer_brand_desc: "Architectes de la confiance numérique et pionniers de la cyberdéfense premium sur le continent africain et international.",
     footer_legal: "Sécurité de Classe Militaire Établie.",
-    srv_1: "Audit & Diagnostic",
-    srv_2: "Pentest / VAPT",
-    srv_3: "Sécurité Réseau",
-    srv_4: "SOC Consultation",
-    srv_5: "Investigation Numérique",
-    srv_6: "NOC Managé",
-    learn_more: "En savoir plus"
+    btn_more: "En savoir plus",
+    srv_1_title: "Audit & Diagnostic",
+    srv_1_desc: "Évaluation complète de votre posture de sécurité, identification des failles de gouvernance et alignement ISO 27001.",
+    srv_2_title: "Pentest / VAPT",
+    srv_2_desc: "Simulations d'attaques réalistes sur vos applications, API et infrastructures pour corriger les vulnérables exploitables.",
+    srv_3_title: "Sécurité Réseau",
+    srv_3_desc: "Architecture Zero-Trust, micro-segmentation avancée et déploiement de pare-feu de nouvelle génération (NGFW).",
+    srv_4_title: "SOC Consultation",
+    srv_4_desc: "Ingénierie SIEM/XDR personnalisée, création de playbooks de réponse et orchestration SOC de pointe.",
+    srv_5_title: "Investigation Numérique",
+    srv_5_desc: "Analyse Forensics post-incident, collecte de preuves numériques certifiées et rétro-ingénierie de malwares.",
+    srv_6_title: "NOC Managé",
+    srv_6_desc: "Supervision proactive de vos performances réseau, détection des anomalies de trafic et maintien en condition opérationnelle."
   },
   en: {
     top_badge: "TRUSTED PARTNER IN ULTRA-PREMIUM CYBERSECURITY",
@@ -1113,365 +1094,241 @@ const translations = {
     nav_sectors: "Sectors",
     nav_about: "About Us",
     nav_careers: "Careers",
-    nav_campus: "🎓 Campus Cyber",
+    nav_campus: "🎓 Cyber Campus",
     nav_contact: "Contact",
     nav_audit: "Free Audit",
     slide1_title_sub: "Cyber Defense Platform",
-    slide1_desc: "Anticipate cyberattacks through our predictive Threat Intelligence expertise and immediate response.",
+    slide1_desc: "Anticipate cyberattacks with our elite Threat Intelligence and immediate global response capabilities.",
     btn_audit_req: "Request an Audit",
-    btn_discover: "Discover Offer",
-    slide2_title: "AI SOC & Monitoring <span class='accent-text'>24/7/365</span>",
-    slide2_desc: "Our certified analysts protect your critical enterprise assets in real time from complex advanced threats.",
+    btn_discover: "Discover Offerings",
+    slide2_title_part1: "AI SOC & Monitoring",
+    slide2_title_part2: "24/7/365",
+    slide2_desc: "Our certified analysts safeguard your critical assets in real-time against advanced emerging threats.",
     btn_soc: "Explore SOC",
-    slide3_title: "Elite Pentesting & <span class='accent-text'>Offensive Audits</span>",
-    slide3_desc: "Evaluate the real-world robustness of your information systems infrastructure before threat actors strike.",
-    btn_pentest: "Run a Pentest",
+    slide3_title_part1: "Elite Pentesting &",
+    slide3_title_part2: "Offensive Audits",
+    slide3_desc: "Evaluate the real-world robustness of your information systems before threat actors do.",
+    btn_pentest: "Launch a Pentest",
     btn_back: "Back",
     val1_title: "Full Sovereignty",
-    val1_desc: "Your strategic data assets remain highly protected, encrypted and located based on your strict regulatory demands.",
+    val1_desc: "Your strategic data remains highly secured, encrypted, and localized according to regulatory standards.",
     val2_title: "Hyper-Responsiveness",
-    val2_desc: "Immediate containment and surgical isolation of malicious payloads in under 15 minutes guaranteed.",
+    val2_desc: "Immediate containment and isolation of malicious payloads within 15 minutes flat.",
     val3_title: "Predictive Intelligence",
-    val3_desc: "Weak signals correlation powered by deep cyber neural models to block advanced Zero-Day exploits.",
+    val3_desc: "Weak signal correlation driven by cyber AI models to neutralize Zero-Day threats.",
     def_title: "Global Cyber Defense Intelligence Platform",
-    def_desc: "NextGen Technologies deploys the most sophisticated military-grade stack to immunize corporate networks, banking infrastructures and critical national resources.",
-    stat_1: "State-Level Strategic Operations",
-    stat_2: "Continents Under Active Shield",
-    stat_3: "Continuous SOC Analysis 24/7/365",
-    stat_4: "% of Critical Incidents Contained",
-    srv_sec_title: "Our Fields of Tactical Expertise",
-    srv_sec_desc: "Unified tier-one lines of premium security services guaranteeing absolute resilience across complex business units.",
-    footer_brand_desc: "Architects of digital trust frameworks and elite premium cyber defense vanguard across international and global markets.",
-    foot_col1: "Expertise Hub",
-    foot_col2: "Corporate",
-    foot_col3: "Direct Response Contact",
-    footer_legal: "Military Grade Operational Status.",
-    srv_1: "Audit & Diagnostic",
-    srv_2: "Pentest / VAPT",
-    srv_3: "Network Security",
-    srv_4: "SOC Consulting",
-    srv_5: "Digital Investigation",
-    srv_6: "Managed NOC",
-    learn_more: "Learn more"
+    def_desc: "NextGen Technologies deploys the most sophisticated technological arsenal to immunize governments, banks, and critical infrastructure against cyber espionage and ransomware.",
+    stat_1: "State-level defense operations",
+    stat_2: "Continents under active defense",
+    stat_3: "Continuous 24/7/365 SOC analysis",
+    stat_4: "% critical incidents neutralized",
+    srv_sec_title: "Our Tactical Areas of Expertise",
+    srv_sec_desc: "Unified premium service tracks engineered to enforce absolute resilience across your business infrastructures.",
+    foot_col1: "Expertise",
+    foot_col2: "Company",
+    foot_col3: "Extreme Contact",
+    footer_brand_desc: "Architects of digital trust and pioneers of premium cyber defense across regional and global markets.",
+    footer_legal: "Military-Grade Security Enforced.",
+    btn_more: "Learn more",
+    srv_1_title: "Audit & Risk Assessment",
+    srv_1_desc: "Full evaluation of your security posture, identifying governance flaws and enforcing ISO 27001 alignment.",
+    srv_2_title: "Pentesting / VAPT",
+    srv_2_desc: "Real-world attack simulations targeting your apps, APIs, and networks to remediate critical vulnerabilities.",
+    srv_3_title: "Network Security",
+    srv_3_desc: "Zero-Trust architecture design, advanced micro-segmentation, and Next-Gen Firewall (NGFW) deployment.",
+    srv_4_title: "SOC Consultation",
+    srv_4_desc: "Custom SIEM/XDR engineering, emergency response playbook development, and bleeding-edge SOC design.",
+    srv_5_title: "Digital Forensics & IR",
+    srv_5_desc: "Post-incident forensic analysis, legally certified evidence collection, and deep malware reverse-engineering.",
+    srv_6_title: "Managed NOC",
+    srv_6_desc: "Proactive infrastructure monitoring, advanced traffic anomaly detection, and continuous high-availability maintenance."
   }
 };
 
-/* WOW EFFECT : SERVICES DATA INTACT WITH EXPLICIT REVENUE SHIELD NOC INCLUSION */
-const servicesData = {
-  fr: [
-    {title:"Audit & Diagnostic", desc:"Analyse avancée des infrastructures et identification des vulnérabilités critiques.", img:"https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1400&auto=format&fit=crop", link:"contact.html"},
-    {title:"Pentest / VAPT", desc:"Simulation offensive réaliste pour exposer les failles exploitables.", img:"https://images.unsplash.com/photo-1510511459019-5dda7724fd87?q=80&w=1400&auto=format&fit=crop", link:"vapt.html"},
-    {title:"Sécurité Réseau", desc:"Protection des infrastructures critiques et segmentation sécurisée.", img:"https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1400&auto=format&fit=crop", link:"securite-reseau.html"},
-    {title:"SOC Consultation", desc:"Surveillance 24/7, corrélation SIEM et réponse aux incidents.", img:"https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1400&auto=format&fit=crop", link:"soc-consultation.html"},
-    {title:"Cybercrime & Investigation Numérique", desc:"Investigation ransomware, fraude, phishing et collecte de preuves.", img:"https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1400&auto=format&fit=crop", link:"cybercrime.html"},
-    {title:"NOC Managé", desc:"Supervision 24/7 du réseau, détection proactive et optimisation SLA.", img:"https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1400&auto=format&fit=crop", link:"noc.html"}
-  ],
-  en: [
-    {title:"Audit & Diagnostic", desc:"Advanced infrastructure analysis and critical vulnerability identification.", img:"https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1400&auto=format&fit=crop", link:"contact.html"},
-    {title:"Pentest / VAPT", desc:"Realistic offensive simulation to expose exploitable vulnerabilities.", img:"https://images.unsplash.com/photo-1510511459019-5dda7724fd87?q=80&w=1400&auto=format&fit=crop", link:"vapt.html"},
-    {title:"Network Security", desc:"Protection of critical infrastructures and secure segmentation.", img:"https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1400&auto=format&fit=crop", link:"securite-reseau.html"},
-    {title:"SOC Consulting", desc:"24/7 monitoring, SIEM correlation and incident response.", img:"https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1400&auto=format&fit=crop", link:"soc-consultation.html"},
-    {title:"Cybercrime & Digital Investigation", desc:"Ransomware, fraud, phishing investigation and digital evidence collection.", img:"https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1400&auto=format&fit=crop", link:"cybercrime.html"},
-    {title:"Managed NOC", desc:"24/7 network supervision, proactive detection and SLA optimization.", img:"https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1400&auto=format&fit=crop", link:"noc.html"}
-  ]
-};
+/* RAW DATA SERVICES MODULE - UNIQUE CONFIGURATION POUR TES IMAGES LOCALES */
+const servicesData = [
+  { id: 1, key: "srv_1", link: "contact.html", img: "audit-diagnostic.jpg" },
+  { id: 2, key: "srv_2", link: "vapt.html", img: "VAPT.jpg" },
+  { id: 3, key: "srv_3", link: "securite-reseau.html", img: "Securite-Reseau.jpg" },
+  { id: 4, key: "srv_4", link: "soc-consultation.html", img: "soc.jpg" },
+  { id: 5, key: "srv_5", link: "cybercrime.html", img: "cybercrime.jpg" },
+  { id: 6, key: "srv_6", link: "noc.html", img: "noc-monitoring.jpg" }
+];
 
-let currentLang = localStorage.getItem('nextgen-lang') || 'fr';
-let typedInstance = null;
+let currentLang = 'fr';
 
-/* WOW EFFECT : GLOBAL TRANSLATION RENDER SYSTEM ENGINE */
-function applyLanguage(lang) {
-  document.querySelectorAll('[data-i18n]').forEach(element => {
-    const key = element.getAttribute('data-i18n');
-    if (translations[lang] && translations[lang][key]) {
-      element.innerHTML = translations[lang][key];
-    }
-  });
-
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-  });
-
-  renderServices(lang);
-  initTypedEffect(lang);
-}
-
-/* WOW EFFECT : RENDERING SERVICES GRID WITH DELAY CASCADE & 3D TILT HOOKS */
-function renderServices(lang) {
+function renderServices() {
   const grid = document.getElementById('servicesGrid');
   if(!grid) return;
   grid.innerHTML = '';
   
-  servicesData[lang].forEach((service, index) => {
-    const card = document.createElement('a');
-    card.href = service.link;
+  servicesData.forEach((srv, index) => {
+    const card = document.createElement('div');
     card.className = 'service-card';
+    card.style.animationDelay = `${index * 0.1}s`;
+    
     card.innerHTML = `
       <div class="service-img">
-        <img src="${service.img}" alt="${service.title}">
+        <img src="${srv.img}" alt="NextGen Services">
       </div>
       <div class="service-content">
-        <h3>${service.title}</h3>
-        <p>${service.desc}</p>
-        <div class="service-btn">${lang === 'fr' ? 'En savoir plus' : 'Learn more'} <i class="fa-solid fa-arrow-right"></i></div>
+        <h3 data-i18n="${srv.key}_title">${translations[currentLang][srv.key+'_title']}</h3>
+        <p data-i18n="${srv.key}_desc">${translations[currentLang][srv.key+'_desc']}</p>
+        <a href="${srv.link}" class="service-btn">
+          <span data-i18n="btn_more">${translations[currentLang]['btn_more']}</span> <i class="fa-solid fa-arrow-right-long"></i>
+        </a>
       </div>
     `;
     grid.appendChild(card);
     
-    // WOW EFFECT : SECTION REVEAL STAGGERED TRIGGER
     setTimeout(() => {
       card.style.opacity = '1';
       card.style.transform = 'translateY(0)';
-      card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-      
-      // Wire up the 3D Tilt Hook immediately after display stabilization
-      init3DTilt(card);
-    }, index * 120);
-  });
-}
-
-/* WOW EFFECT : TYPED JS INTEGRATION LETTRE PAR LETTRE CONSOLE LOOK */
-function initTypedEffect(lang) {
-  if (typedInstance) {
-    typedInstance.destroy();
-  }
-  const strings = lang === 'fr' ? ['Next Generation', 'Sécurité Absolue', 'Souveraineté Totale'] : ['Next Generation', 'Absolute Security', 'Total Sovereignty'];
-  
-  typedInstance = new Typed('#typedElement', {
-    strings: strings,
-    typeSpeed: 70,
-    backSpeed: 40,
-    backDelay: 2000,
-    loop: true,
-    showCursor: true,
-    cursorChar: '|'
-  });
-}
-
-/* WOW EFFECT : 3D TILT CALCULATION METHOD WITH MAXIMUM SECURITY ANGLE */
-function init3DTilt(card) {
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left; 
-    const y = e.clientY - rect.top; 
-    
-    const xc = rect.width / 2;
-    const yc = rect.height / 2;
-    
-    const angleX = (yc - y) / 15; // Max 10 deg limit
-    const angleY = (x - xc) / 15;
-    
-    card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateY(-5px)`;
+    }, 100);
   });
   
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
-    card.style.transition = 'transform 0.5s ease';
-  });
+  initTiltEffect();
 }
 
-/* WOW EFFECT : VISUAL ELEMENT DELAY CASCADE (VALUES REGION) */
-function initScrollReveal() {
-  const cards = document.querySelectorAll('.value-card');
-  const observerOptions = { threshold: 0.1 };
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting) {
-        cards.forEach((card, idx) => {
-          setTimeout(() => {
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-            card.style.transition = 'all 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
-          }, idx * 150);
-        });
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-  
-  const targetSection = document.querySelector('.values-section');
-  if(targetSection) observer.observe(targetSection);
-}
-
-/* WOW EFFECT : REFINED INTERSECTION VISUAL COUNTER WITH EASING SMOOTH STEP */
-function initCounterAnimation() {
-  const statNumbers = document.querySelectorAll('.stat-number');
-  
-  const observerOptions = { threshold: 0.2 };
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const target = entry.target;
-        const endValue = parseInt(target.getAttribute('data-target'), 10);
-        let startValue = 0;
-        const duration = 2000; 
-        const startTime = performance.now();
-        
-        function updateCounter(currentTime) {
-          const elapsedTime = currentTime - startTime;
-          if (elapsedTime >= duration) {
-            target.innerText = endValue + (endValue === 100 ? "" : "");
-            return;
-          }
-          // Easing equation (Cubic Out) for extreme modern feel
-          const progress = elapsedTime / duration;
-          const easeProgress = 1 - Math.pow(1 - progress, 3);
-          
-          target.innerText = Math.floor(easeProgress * endValue);
-          requestAnimationFrame(updateCounter);
-        }
-        
-        requestAnimationFrame(updateCounter);
-        observer.unobserve(target);
-      }
-    });
-  }, observerOptions);
-  
-  statNumbers.forEach(num => observer.observe(num));
-}
-
-/* WOW EFFECT : GLOBAL DESKTOP HANDLER FOR SCROLL PROGRESS BAR AND MOUSE LIGHT HALO */
-window.addEventListener('scroll', () => {
-  const scrollProgress = document.getElementById('scrollProgress');
-  const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-  if (totalHeight > 0) {
-    const progress = (window.scrollY / totalHeight) * 100;
-    scrollProgress.style.width = `${progress}%`;
-  }
-});
-
-window.addEventListener('mousemove', (e) => {
-  const glow = document.getElementById('cursorGlow');
-  if(glow) {
-    glow.style.left = e.clientX + 'px';
-    glow.style.top = e.clientY + 'px';
-  }
-});
-
-/* STANDARD SLIDER ROTATION COMPONENT LOGIC */
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
-const indicators = document.querySelectorAll('#slideIndicators div');
-
-function showSlide(index) {
-  slides[currentSlide].classList.remove('active');
-  indicators[currentSlide].classList.remove('active');
-  currentSlide = (index + slides.length) % slides.length;
-  slides[currentSlide].classList.add('active');
-  indicators[currentSlide].classList.add('active');
-}
-
-document.getElementById('nextSlide').addEventListener('click', () => showSlide(currentSlide + 1));
-document.getElementById('prevSlide').addEventListener('click', () => showSlide(currentSlide - 1));
-indicators.forEach((ind, idx) => ind.addEventListener('click', () => showSlide(idx)));
-setInterval(() => showSlide(currentSlide + 1), 6000);
-
-/* INTERACTIVE RESPONSIVE TOGGLE ACTIONS */
-const menuToggle = document.getElementById('menuToggle');
-const mobileNav = document.getElementById('mobileNav');
-
-menuToggle.addEventListener('click', () => {
-  mobileNav.classList.toggle('active');
-  const icon = menuToggle.querySelector('i');
-  if(mobileNav.classList.contains('active')) {
-    icon.className = 'fa-solid fa-xmark';
-  } else {
-    icon.className = 'fa-solid fa-bars';
-  }
-});
-
-document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    currentLang = btn.getAttribute('data-lang');
-    localStorage.setItem('nextgen-lang', currentLang);
-    applyLanguage(currentLang);
-  });
-});
-
-/* WOW EFFECT : NETWORK CONSTELLATION CONSOLE PATTERN CANVAS ENGINE */
-const canvas = document.getElementById('sliderParticles');
-const ctx = canvas.getContext('2d');
-
-let particlesArray = [];
-const numberOfParticles = 85;
-
-function resizeCanvas() {
-  canvas.width = canvas.parentElement.offsetWidth;
-  canvas.height = canvas.parentElement.offsetHeight;
-}
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
-
-class Particle {
-  constructor() {
-    this.x = Math.random() * canvas.width;
-    this.y = Math.random() * canvas.height;
-    this.size = Math.random() * 2 + 1;
-    this.speedX = (Math.random() - 0.5) * 0.6;
-    this.speedY = (Math.random() - 0.5) * 0.6;
-  }
-  update() {
-    this.x += this.speedX;
-    this.y += this.speedY;
-    if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
-    if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
-  }
-  draw() {
-    ctx.fillStyle = 'rgba(0, 212, 255, 0.7)';
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.closePath();
-    ctx.fill();
-  }
-}
-
-function initParticles() {
-  particlesArray = [];
-  for (let i = 0; i < numberOfParticles; i++) {
-    particlesArray.push(new Particle());
-  }
-}
-
-/* WOW EFFECT : DRAW CONNECTION LENS FOR FULL CONSTELLATION FEEL */
-function connectParticles() {
-  let opacityValue = 1;
-  for (let a = 0; a < particlesArray.length; a++) {
-    for (let b = a; b < particlesArray.length; b++) {
-      let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x))
-                   + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
-      if (distance < (canvas.width / 9) * (canvas.height / 9)) {
-        opacityValue = 1 - (distance / 12000);
-        ctx.strokeStyle = `rgba(0, 212, 255, ${opacityValue * 0.25})`;
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-        ctx.stroke();
-      }
+function updateLanguage(lang) {
+  currentLang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang] && translations[lang][key]) {
+      el.innerHTML = translations[lang][key];
     }
-  }
+  });
+  renderServices();
 }
 
-function animateParticles() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  for (let i = 0; i < particlesArray.length; i++) {
-    particlesArray[i].update();
-    particlesArray[i].draw();
-  }
-  connectParticles();
-  requestAnimationFrame(animateParticles);
-}
+document.addEventListener("DOMContentLoaded", () => {
+  renderServices();
 
-/* BOOTSTRAP INITIALIZATION STACK ENGINE */
-document.addEventListener('DOMContentLoaded', () => {
-  applyLanguage(currentLang);
-  initCounterAnimation();
-  initScrollReveal();
-  initParticles();
-  animateParticles();
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      updateLanguage(this.getAttribute('data-lang'));
+    });
+  });
+
+  window.addEventListener('scroll', () => {
+    const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    const bar = document.getElementById("scrollProgress");
+    if(bar) bar.style.width = scrolled + "%";
+    
+    handleStatsCounters();
+  });
+
+  const glow = document.getElementById('cursorGlow');
+  if (glow) {
+    window.addEventListener('mousemove', (e) => {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    });
+  }
+
+  const toggle = document.getElementById('menuToggle');
+  const navOverlay = document.getElementById('mobileNav');
+  if(toggle && navOverlay) {
+    toggle.addEventListener('click', () => {
+      navOverlay.classList.toggle('active');
+      toggle.querySelector('i').classList.toggle('fa-bars');
+      toggle.querySelector('i').classList.toggle('fa-xmark');
+    });
+  }
+
+  if(document.getElementById('typedElement')) {
+    new Typed('#typedElement', {
+      strings: ['Cyber Intelligence', 'SOC Operations', 'Offensive Security'],
+      typeSpeed: 60,
+      backSpeed: 40,
+      loop: true
+    });
+  }
+
+  initSliderLogic();
 });
-</script>
 
+function initSliderLogic() {
+  const slides = document.querySelectorAll('.slide');
+  const indicators = document.querySelectorAll('.indicator div');
+  let currentSlide = 0;
+  let slideInterval = setInterval(nextSlideAction, 6000);
+
+  function changeSlide(index) {
+    slides[currentSlide].classList.remove('active');
+    indicators[currentSlide].classList.remove('active');
+    currentSlide = (index + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+    indicators[currentSlide].classList.add('active');
+  }
+
+  function nextSlideAction() { changeSlide(currentSlide + 1); }
+
+  const nextBtn = document.getElementById('nextSlide');
+  const prevBtn = document.getElementById('prevSlide');
+  if(nextBtn && prevBtn) {
+    nextBtn.addEventListener('click', () => { changeSlide(currentSlide + 1); resetSliderTimer(); });
+    prevBtn.addEventListener('click', () => { changeSlide(currentSlide - 1); resetSliderTimer(); });
+  }
+
+  indicators.forEach((ind, i) => {
+    ind.addEventListener('click', () => { changeSlide(i); resetSliderTimer(); });
+  });
+
+  function resetSliderTimer() {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlideAction, 6000);
+  }
+}
+
+function initTiltEffect() {
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const xc = rect.width / 2;
+      const yc = rect.height / 2;
+      const angleX = (yc - y) / 15;
+      const angleY = (x - xc) / 15;
+      card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) scale(1.02)`;
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+    });
+  });
+}
+
+let counterAnimated = false;
+function handleStatsCounters() {
+  const container = document.querySelector('.stats-grid-centered');
+  if (!container || counterAnimated) return;
+  
+  const rect = container.getBoundingClientRect();
+  if (rect.top < window.innerHeight && rect.bottom >= 0) {
+    counterAnimated = true;
+    document.querySelectorAll('.stat-number').forEach(num => {
+      const target = +num.getAttribute('data-target');
+      let count = 0;
+      const speed = target / 50;
+      const updateCount = () => {
+        if (count < target) {
+          count += speed;
+          num.innerText = Math.ceil(count);
+          setTimeout(updateCount, 20);
+        } else {
+          num.innerText = target;
+        }
+      };
+      updateCount();
+    });
+  }
+}
+</script>
 </body>
 </html>
