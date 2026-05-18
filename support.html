@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NextGen Technologies · Portail de Soutien & Assistance</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<style>
+:root {
+  --primary: #0A1628;
+  --primary-deep: #050B14;
+  --accent: #00D4FF;
+  --red: #EF4444;
+  --white: #FFFFFF;
+  --gray-light: #94A3B8;
+}
+body {
+  font-family: 'Manrope', sans-serif;
+  background-color: var(--primary-deep);
+  color: var(--white);
+  margin: 0; padding: 0;
+  display: flex; justify-content: center; align-items: center;
+  min-height: 100vh;
+}
+.support-container {
+  width: 100%; max-width: 750px;
+  background: rgba(10, 22, 40, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 24px; padding: 3rem 2rem;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  text-align: center; margin: 2rem;
+}
+.section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--red); font-size: 1.6rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2rem;
+}
+.support-methods {
+  display: flex; flex-direction: column; gap: 1.5rem;
+  max-width: 500px; margin: 0 auto 3rem;
+}
+.method-item {
+  display: flex; align-items: center; gap: 1rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  padding: 1rem 1.5rem; border-radius: 12px;
+  transition: all 0.3s ease; text-decoration: none; color: inherit;
+}
+.method-item:hover {
+  border-color: var(--accent); background: rgba(0, 212, 255, 0.05);
+  transform: translateY(-2px);
+}
+.method-item i { color: var(--accent); font-size: 1.5rem; width: 30px; }
+.method-text { text-align: left; font-size: 0.95rem; }
+.method-text strong { color: var(--gray-light); text-transform: uppercase; font-size: 0.8rem; display: block; }
+
+.divider {
+  border-top: 1px dashed rgba(0, 212, 255, 0.2);
+  margin: 3rem 0;
+}
+.tech-connection-zone { background: rgba(0, 212, 255, 0.02); padding: 2.5rem 2rem; border-radius: 16px; border: 1px dashed rgba(0, 212, 255, 0.3); }
+
+.download-box {
+  display: flex; gap: 1rem; justify-content: center;
+  flex-wrap: wrap; margin-top: 2rem;
+}
+.btn-download {
+  display: inline-flex; align-items: center; gap: 0.8rem;
+  background: linear-gradient(135deg, var(--accent), #0891B2);
+  color: var(--primary); border: none; padding: 0.9rem 1.8rem;
+  border-radius: 10px; font-weight: 700; font-size: 0.95rem;
+  cursor: pointer; transition: all 0.3s; text-decoration: none;
+}
+.btn-download:hover {
+  transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,212,255,0.3);
+}
+.btn-download.anydesk {
+  background: linear-gradient(135deg, var(--red), #DC2626);
+  color: white;
+}
+.btn-download.anydesk:hover {
+  box-shadow: 0 10px 25px rgba(239,68,68,0.3);
+}
+</style>
+</head>
+<body>
+
+<div class="support-container">
+  
+  <div class="support-channels">
+    <div class="section-title"><i class="fas fa-headset"></i> Ouvrir une demande de soutien</div>
+    
+    <div class="support-methods">
+      <a href="mailto:support@nextgentechnologies.net" class="method-item">
+        <i class="fas fa-envelope-open-text"></i>
+        <div class="method-text">
+          <strong>Par courriel</strong> support@nextgentechnologies.net
+        </div>
+      </a>
+      
+      <a href="contact.html" class="method-item">
+        <i class="fas fa-wpforms"></i>
+        <div class="method-text">
+          <strong>Via notre formulaire</strong> Cliquez ici pour soumettre un ticket
+        </div>
+      </a>
+      
+      <div class="method-item">
+        <i class="fas fa-phone-alt"></i>
+        <div class="method-text">
+          <strong>Par téléphone</strong> +212 728 31 28 01
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="tech-connection-zone">
+    <div class="section-title" style="color: var(--accent); margin-bottom: 1rem;"><i class="fas fa-desktop"></i> Téléassistance en direct</div>
+    <p style="color: var(--gray-light); font-size: 0.92rem; margin: 0 0 1.5rem 0; line-height: 1.6;">
+      Pour permettre à un expert de se connecter en toute sécurité à votre écran, veuillez télécharger l'un de nos outils d'assistance rapide ci-dessous, puis communiquez-nous votre <strong>ID et mot de passe</strong> par téléphone.
+    </p>
+    
+    <div class="download-box">
+      <a href="https://rustdesk.com/download" target="_blank" class="btn-download">
+        <i class="fas fa-download"></i> Télécharger RustDesk
+      </a>
+
+      <a href="https://anydesk.com/fr/downloads" target="_blank" class="btn-download anydesk">
+        <i class="fab fa-windows"></i> Télécharger AnyDesk
+      </a>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
