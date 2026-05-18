@@ -683,11 +683,47 @@ a { text-decoration: none; }
       <h4 data-i18n="footer_col3">Légal</h4>
       <ul>
         <li><a href="mentions-legales.html" data-i18n="leg_mentions">Mentions Légales</a></li>
-        <li><a href="confidentialite.html" data-i18n="leg_privacy">Politique de Confidentialité</a></li>
         <li><a href="cookies.html" data-i18n="leg_cookies">Gestion des Cookies</a></li>
       </ul>
     </div>
   </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 NextGen Technologies. Tous droits réservés.</p>
+    <p>Powered by NextGen Infrastructure</p>
+  </div>
+</footer>
+
+<script>
+// COMPTEURS CYBER STATS DYNAMIQUES DE LA CARTE KASPERSKY
+function animateCyberCounters() {
+  const counters = [
+    { id: 'attackCounter1', min: 12000, max: 15000 },
+    { id: 'attackCounter2', min: 3000, max: 5000 },
+    { id: 'attackCounter3', min: 150, max: 400 }
+  ];
+  counters.forEach(counter => {
+    setInterval(() => {
+      const randomValue = Math.floor(Math.random() * (counter.max - counter.min) + counter.min);
+      const element = document.getElementById(counter.id);
+      if (element) element.innerText = randomValue.toLocaleString();
+    }, 3000);
+  });
+}
+animateCyberCounters();
+
+// Gestion du menu mobile (Burger)
+const menuToggle = document.getElementById('menuToggle');
+const mobileNav = document.getElementById('mobileNav');
+if (menuToggle && mobileNav) {
+  menuToggle.addEventListener('click', () => {
+    mobileNav.classList.toggle('active');
+  });
+}
+</script>
+
+</body>
+</html>
   
   <div class="footer-bottom">
     <p>&copy; 2026 NextGen Technologies. Tous droits réservés.</p>
