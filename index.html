@@ -248,24 +248,8 @@ a { text-decoration: none; }
 .mobile-nav-overlay.active {
   right: 0;
 }
-.mobile-nav-overlay a {
-  color: var(--white);
-  font-size: 1.2rem;
-  font-weight: 600;
-  font-family: 'Space Grotesk', sans-serif;
-  padding: 0.8rem 1rem;
-  border-radius: 8px;
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.05);
-  transition: var(--transition);
-}
-.mobile-nav-overlay a:hover {
-  background: rgba(0,212,255,0.1);
-  color: var(--accent);
-  padding-left: 1.5rem;
-}
 
-/* HERO SLIDER (ANIMATED BACK TO PEXELS) */
+/* HERO SLIDER AVEC EFFET WOW OPTIMISÉ */
 .particle-canvas {
   position: absolute;
   top: 0;
@@ -291,13 +275,12 @@ a { text-decoration: none; }
   height: 100%;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1), visibility 0.8s ease;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: white;
-  overflow: hidden;
 }
 .slide.active {
   opacity: 1;
@@ -311,40 +294,59 @@ a { text-decoration: none; }
   height: 100%;
   background-size: cover;
   background-position: center;
-  transition: transform 0.3s ease-out;
   z-index: 1;
+  transform: scale(1);
 }
+/* Animation Wow de Zoom lent combiné à une impulsion lumineuse */
 .slide.active .slide-bg {
-  transform: scale(1.08);
-  animation: slowZoom 8s ease-out forwards;
+  animation: wowZoomGlow 10s ease-out forwards;
 }
-@keyframes slowZoom {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.12); }
+@keyframes wowZoomGlow {
+  0% { transform: scale(1.02); filter: brightness(0.8) contrast(1); }
+  50% { filter: brightness(0.9) contrast(1.05); }
+  100% { transform: scale(1.15); filter: brightness(0.7) contrast(1.1); }
 }
+/* Balayage de lueur futuriste et calque cyber de confiance */
 .slide::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(5,11,20,0.75), rgba(7,20,38,0.65));
-  backdrop-filter: blur(2px);
+  background: linear-gradient(135deg, rgba(5,11,20,0.8), rgba(7,20,38,0.65)),
+              linear-gradient(to bottom, transparent 50%, rgba(0, 212, 255, 0.05) 50%);
+  background-size: 100% 100%, 100% 4px; /* Grille scanline subtile */
+  backdrop-filter: blur(1px);
   z-index: 2;
 }
+/* Effet de lueur qui traverse l'écran à chaque changement de slide */
+.slide.active::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; width: 50%; height: 100%;
+  background: linear-gradient(to right, transparent, rgba(0, 212, 255, 0.15), transparent);
+  transform: skewX(-25deg);
+  z-index: 3;
+  animation: laserSweep 1.5s ease-out forwards;
+}
+@keyframes laserSweep {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+
 .slide .caption {
   position: relative;
   z-index: 25;
   max-width: 900px;
-  padding: 2rem;
-  background: rgba(5, 11, 20, 0.35);
-  backdrop-filter: blur(12px);
+  padding: 2.5rem;
+  background: rgba(5, 11, 20, 0.55);
+  backdrop-filter: blur(16px);
   border-radius: 40px;
-  border: 1px solid rgba(0,212,255,0.25);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.3), 0 0 30px rgba(0,212,255,0.1);
-  animation: captionFloat 0.6s ease-out;
+  border: 1px solid rgba(0,212,255,0.3);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 40px rgba(0,212,255,0.15);
+  animation: captionWowIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
-@keyframes captionFloat {
-  0% { opacity: 0; transform: translateY(40px) scale(0.96); }
-  100% { opacity: 1; transform: translateY(0) scale(1); }
+@keyframes captionWowIn {
+  0% { opacity: 0; transform: translateY(60px) scale(0.93); filter: blur(4px); }
+  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
 }
 .slide .caption h1 {
   font-size: clamp(1.6rem, 4vw, 2.8rem);
@@ -370,7 +372,7 @@ a { text-decoration: none; }
 
 .slide-desc {
   font-size: 1rem;
-  color: rgba(255,255,255,0.85);
+  color: rgba(255,255,255,0.9);
   margin-bottom: 1.8rem;
   letter-spacing: 0.3px;
 }
@@ -486,7 +488,6 @@ a { text-decoration: none; }
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   transition: var(--transition);
@@ -605,7 +606,7 @@ a { text-decoration: none; }
   gap: 0.8rem;
 }
 
-/* CYBER DEFENSE CENTRÉE AU MILIEU (MODIFIÉ) */
+/* CYBER DEFENSE CENTRÉE AU MILIEU */
 .cyber-defense-premium {
   padding: 6rem 4%;
   background: linear-gradient(135deg, #050B14, #0A1628);
@@ -634,13 +635,15 @@ a { text-decoration: none; }
 }
 .map-iframe-container {
   width: 100%;
-  height: 550px; /* Plus grand et imposant au centre */
+  height: 550px;
   border-radius: 24px;
   overflow: hidden;
   border: 2px solid rgba(0,212,255,0.2);
   box-shadow: 0 25px 50px rgba(0,0,0,0.6), 0 0 30px rgba(0,212,255,0.1);
   margin-bottom: 4rem;
 }
+
+/* SECTION STATISTIQUES RESTRUCTURÉE ET COHÉRENTE */
 .stats-grid-centered {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -856,7 +859,7 @@ a { text-decoration: none; }
   <a href="contact.html" class="nav-cta" style="text-align: center; margin-top: 0.5rem;" data-i18n="nav_audit">Audit gratuit</a>
 </div>
 
-<!-- SLIDER HERO SECTION (REMIS LES IMAGES D'ANIMATION ORIGINALES) -->
+<!-- SLIDER HERO SECTION AVEC EFFET WOW RESTAURÉ -->
 <div class="slider">
   <canvas class="particle-canvas" id="sliderParticles"></canvas>
   
@@ -945,31 +948,31 @@ a { text-decoration: none; }
   <div class="cyber-defense-container">
     <div class="cyber-defense-text">
       <h2 class="wow-gradient-title" data-i18n="def_title">Global Cyber Defense Intelligence Platform</h2>
-      <p data-i18n="def_desc">NextGen Technologies déploie l'arsenal technologique le plus sophistiqué pour immuniser les gouvernements, institutions bancaires et opérateurs d'importance vitale (OIV) contre l'espionnage et le rançongiciel industriel.</p>
+      <p data-i18n="def_desc">NextGen Technologies déploie l'arsenal technologique le plus sophistiqué pour immuniser les infrastructures critiques, PME et grandes institutions face au rançongiciel et à l'espionnage industriel.</p>
     </div>
     
-    <!-- LA CARTE PREND TOUT LE MILIEU ICI -->
+    <!-- CARTE DE THREAT MAP -->
     <div class="map-iframe-container">
       <iframe src="https://threatmap.checkpoint.com/" width="100%" height="100%" style="border: none;"></iframe>
     </div>
     
-    <!-- LES STATS EN AVANT EN DESSOUS DE LA CARTE -->
+    <!-- STATISTIQUES RÉAJUSTÉES POUR LA SÉCURITÉ ET LA COHÉRENCE -->
     <div class="stats-grid-centered">
       <div class="stat-box">
         <div class="stat-number" data-target="15">0</div>
-        <div class="stat-label" data-i18n="stat_1">Missions d'envergure étatique</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-number" data-target="4">0</div>
-        <div class="stat-label" data-i18n="stat_2">Continents sous protection active</div>
+        <div class="stat-label" data-i18n="stat_1">Ans d'expérience cumulée</div>
       </div>
       <div class="stat-box">
         <div class="stat-number" data-target="24">0</div>
-        <div class="stat-label" data-i18n="stat_3">Analyse SOC continue 24/7/365</div>
+        <div class="stat-label" data-i18n="stat_2">Supervision SOC active 24/7</div>
       </div>
       <div class="stat-box">
         <div class="stat-number" data-target="100">0</div>
-        <div class="stat-label" data-i18n="stat_4">% d'incidents critiques contenus</div>
+        <div class="stat-label" data-i18n="stat_3">% d'incidents critiques maîtrisés</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number" data-target="365">0</div>
+        <div class="stat-label" data-i18n="stat_4">Jours de conformité et veille par an</div>
       </div>
     </div>
   </div>
@@ -1061,11 +1064,11 @@ const translations = {
     val3_title: "Intelligence Prédictive",
     val3_desc: "Corrélation de signaux faibles par nos modèles d'IA cyber pour neutraliser les menaces Zero-Day.",
     def_title: "Global Cyber Defense Intelligence Platform",
-    def_desc: "NextGen Technologies déploie l'arsenal technologique le plus sophistiqué pour immuniser les gouvernements, institutions bancaires et opérateurs d'importance vitale (OIV) contre l'espionnage et le rançongiciel industriel.",
-    stat_1: "Missions d'envergure étatique",
-    stat_2: "Continents sous protection active",
-    stat_3: "Analyse SOC continue 24/7/365",
-    stat_4: "% d'incidents critiques contenus",
+    def_desc: "NextGen Technologies déploie l'arsenal technologique le plus sophistiqué pour immuniser les infrastructures critiques, PME et grandes institutions face au rançongiciel et à l'espionnage industriel.",
+    stat_1: "Ans d'expérience cumulée",
+    stat_2: "Supervision SOC active 24/7",
+    stat_3: "% d'incidents critiques maîtrisés",
+    stat_4: "Jours de conformité et veille par an",
     srv_sec_title: "Nos Domaines d'Expertise Tactique",
     srv_sec_desc: "Des lignes de services premium unifiées pour assurer la résilience cyber absolue de vos écosystèmes métiers complexes.",
     foot_col1: "Expertises",
@@ -1117,11 +1120,11 @@ const translations = {
     val3_title: "Predictive Intelligence",
     val3_desc: "Weak signal correlation driven by cyber AI models to neutralize Zero-Day threats.",
     def_title: "Global Cyber Defense Intelligence Platform",
-    def_desc: "NextGen Technologies deploys the most sophisticated technological arsenal to immunize governments, banks, and critical infrastructure against cyber espionage and ransomware.",
-    stat_1: "State-level defense operations",
-    stat_2: "Continents under active defense",
-    stat_3: "Continuous 24/7/365 SOC analysis",
-    stat_4: "% critical incidents neutralized",
+    def_desc: "NextGen Technologies deploys the most sophisticated technological arsenal to immunize critical infrastructure, SMBs, and major enterprises against ransomware and industrial espionage.",
+    stat_1: "Years of cumulative experience",
+    stat_2: "24/7 Active SOC Monitoring",
+    stat_3: "% Critical incidents contained",
+    stat_4: "Days of compliance & advisory / year",
     srv_sec_title: "Our Tactical Areas of Expertise",
     srv_sec_desc: "Unified premium service tracks engineered to enforce absolute resilience across your business infrastructures.",
     foot_col1: "Expertise",
@@ -1145,7 +1148,6 @@ const translations = {
   }
 };
 
-/* RAW DATA SERVICES MODULE - UNIQUE CONFIGURATION POUR TES IMAGES LOCALES */
 const servicesData = [
   { id: 1, key: "srv_1", link: "contact.html", img: "audit-diagnostic.jpg" },
   { id: 2, key: "srv_2", link: "vapt.html", img: "VAPT.jpg" },
