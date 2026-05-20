@@ -109,6 +109,34 @@
       transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,212,255,0.3);
     }
 
+    .support-footer {
+      text-align: center;
+      padding: 1.5rem 2rem;
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(0, 163, 196, 0.05));
+      border-top: 1px solid rgba(0, 212, 255, 0.15);
+      margin-top: auto;
+    }
+    .support-footer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--accent), #0891B2);
+      color: var(--primary-deep);
+      padding: 0.6rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+    }
+    .support-footer-badge i {
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
     @media (max-width: 600px) {
       .steps-container { grid-template-columns: 1fr; gap: 2rem; }
     }
@@ -199,6 +227,12 @@
     </div>
   </div>
 
+  <div class="support-footer">
+    <div class="support-footer-badge" data-i18n="support_24_7">
+      <i class="fas fa-headset"></i> Support Technique 24/7
+    </div>
+  </div>
+
   <script>
     const translations = {
       fr: {
@@ -219,7 +253,8 @@
         support_step3_title: "Installation automatique",
         support_step3_desc: "Attendez que l'installation se termine automatiquement (1 à 2 minutes).",
         support_step4_title: "Connexion établie",
-        support_step4_desc: "Informez votre expert NextGen que l'agent est installé, il se connecte automatiquement."
+        support_step4_desc: "Informez votre expert NextGen que l'agent est installé, il se connecte automatiquement.",
+        support_24_7: "Support Technique 24/7"
       },
       en: {
         support_page_title: "NextGen Technologies · Support & Assistance Portal",
@@ -239,7 +274,8 @@
         support_step3_title: "Automatic installation",
         support_step3_desc: "Wait for the installation to complete automatically (1-2 minutes).",
         support_step4_title: "Connection established",
-        support_step4_desc: "Inform your NextGen expert that the agent is installed, it connects automatically."
+        support_step4_desc: "Inform your NextGen expert that the agent is installed, it connects automatically.",
+        support_24_7: "24/7 Technical Support"
       }
     };
 
