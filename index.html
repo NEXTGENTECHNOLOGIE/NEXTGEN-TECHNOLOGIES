@@ -138,44 +138,36 @@ a { text-decoration: none; }
 }
 .nav-links > li > a:hover { background: rgba(0,212,255,0.1); color: var(--accent); }
 
-/* BOUTON SUPPORT TECHNIQUE GROS ET ATTIRANT EN ROUGE (WEB) */
-.nav-links > li > a.btn-support-premium {
-  background: linear-gradient(135deg, var(--red), var(--red-dark));
-  color: var(--white) !important;
-  padding: 0.75rem 1.4rem;
-  border-radius: 30px;
-  font-size: 0.95rem;
+/* BOUTON ESPACE CLIENT (WEB) */
+.nav-links > li > a.btn-espace-client {
+  background: linear-gradient(135deg, #00D4FF, #0891B2);
+  color: #050B14 !important;
   font-weight: 700;
-  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
   transition: var(--transition);
 }
-.nav-links > li > a.btn-support-premium:hover {
-  background: linear-gradient(135deg, var(--red-dark), #B91C1C);
+.nav-links > li > a.btn-espace-client:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.6), 0 0 10px rgba(239, 68, 68, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
 }
 
-/* BOUTON SUPPORT TECHNIQUE GROS ET ATTIRANT EN ROUGE (MOBILE) */
-.mobile-nav-overlay a.btn-support-mobile {
-  background: linear-gradient(135deg, var(--red), var(--red-dark));
-  color: var(--white) !important;
-  padding: 1rem 1.5rem;
-  border-radius: 30px;
-  font-size: 1.1rem;
+/* BOUTON ESPACE CLIENT (MOBILE) */
+.mobile-nav-overlay a.btn-espace-client-mobile {
+  background: linear-gradient(135deg, #00D4FF, #0891B2);
+  color: #050B14 !important;
   font-weight: 700;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
   text-align: center;
-  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
-  margin-top: 1rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 1rem;
 }
-.mobile-nav-overlay a.btn-support-mobile:active {
+.mobile-nav-overlay a.btn-espace-client-mobile:active {
   transform: scale(0.98);
-  background: var(--red-dark);
 }
 
 .dropdown-menu {
@@ -536,8 +528,8 @@ a { text-decoration: none; }
       <li><a href="qui-sommes-nous.html" data-i18n="nav_about">Qui sommes-nous</a></li>
       <li><a href="carrieres.html" data-i18n="nav_careers">Carrières</a></li>
       <li><a href="campus-cyber.html" data-i18n="nav_campus">🎓 Campus Cyber</a></li>
-      <li><a href="support.html" class="btn-support-premium" data-i18n="nav_support"><i class="fas fa-headset fa-bounce" style="--fa-animation-duration: 2.5s; margin-right: 4px;"></i> Support Technique</a></li>
       <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+      <li><a href="support.html" class="btn-espace-client" data-i18n="nav_espace_client"><i class="fa-solid fa-user-circle"></i> Espace Client</a></li>
     </ul>
 
     <div class="nav-actions">
@@ -556,7 +548,7 @@ a { text-decoration: none; }
   <a href="carrieres.html" data-i18n="nav_careers">Carrières</a>
   <a href="campus-cyber.html" data-i18n="nav_campus">🎓 Campus Cyber</a>
   <a href="contact.html" data-i18n="nav_contact">Contact</a>
-  <a href="support.html" class="btn-support-mobile" data-i18n="nav_support"><i class="fas fa-headset"></i> Support Technique</a>
+  <a href="support.html" class="btn-espace-client-mobile" data-i18n="nav_espace_client"><i class="fa-solid fa-user-circle"></i> Espace Client</a>
 </div>
 
 <div class="slider">
@@ -737,7 +729,7 @@ const translations = {
     nav_careers: "Carrières",
     nav_campus: "🎓 Campus Cyber",
     nav_contact: "Contact",
-    nav_support: "Support Technique",
+    nav_espace_client: "Espace Client",
     slide1_title_sub: "Cyber Defense Platform",
     slide1_desc: "Anticipez les cyberattaques grâce à notre expertise en Threat Intelligence et réponse globale immédiate.",
     btn_audit_req: "Demander un Audit",
@@ -796,7 +788,7 @@ const translations = {
     nav_careers: "Careers",
     nav_campus: "🎓 Cyber Campus",
     nav_contact: "Contact",
-    nav_support: "Technical Support",
+    nav_espace_client: "Client Area",
     slide1_title_sub: "Cyber Defense Platform",
     slide1_desc: "Anticipate cyberattacks with our advanced Threat Intelligence and instant global incident response.",
     btn_audit_req: "Request an Audit",
