@@ -220,8 +220,7 @@
             <button onclick="copyCommand()" class="btn-download-primary">
               <i class="fas fa-copy"></i> <span data-i18n="support_download_btn">Copier la commande d'installation</span>
             </button>
-            <p id="installCmd" style="display:none;">powershell -NoProfile -ExecutionPolicy Bypass -Command "Invoke-WebRequest -Uri 'https://rmm.nextgentechnologies.net/install.ps1' -OutFile '$env:TEMP\install.ps1'; & '$env:TEMP\install.ps1'"</p>
-          </div>
+            <p id="installCmd" style="display:none;">powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://rmm.nextgentechnologies.net/dl/install.ps1 | iex"</p>
 
           <div class="step-card">
             <div class="step-num">2</div>
