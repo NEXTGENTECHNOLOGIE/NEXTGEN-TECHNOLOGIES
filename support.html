@@ -44,7 +44,7 @@
     .exit-btn {
       border-color: rgba(0, 212, 255, 0.3);
       color: var(--accent);
-      margin-left: 1rem; /* Espace le bouton quitter des boutons de langue */
+      margin-left: 1rem;
     }
     .exit-btn:hover {
       border-color: var(--accent);
@@ -153,7 +153,7 @@
 
     @media (max-width: 600px) {
       .top-lang-bar { justify-content: center; padding: 1rem; }
-      .exit-btn { margin-left: auto; } /* Pousse le bouton à droite sur mobile si nécessaire */
+      .exit-btn { margin-left: auto; }
       .steps-container { grid-template-columns: 1fr; gap: 2rem; }
     }
   </style>
@@ -216,28 +216,29 @@
           <div class="step-card">
             <div class="step-num">1</div>
             <h4 data-i18n="support_step1_title">Télécharger l'agent</h4>
-            <p data-i18n="support_step1_desc">Cliquez ci-dessous pour télécharger notre agent sécurisé NextGen Remote Agent.</p>
-            <a href="https://nextgentechnologies.ma/trmm-nextgentechnologies-casablanca-workstation-amd64.exe" target="_blank" class="btn-download-primary" data-i18n="support_download_btn">
-              <i class="fas fa-download"></i> Télécharger NextGen Remote Agent
-            </a>
+            <p data-i18n="support_step1_desc">Cliquez ci-dessous pour copier la commande d'installation.</p>
+            <button onclick="copyCommand()" class="btn-download-primary">
+              <i class="fas fa-copy"></i> <span data-i18n="support_download_btn">Copier la commande d'installation</span>
+            </button>
+            <p id="installCmd" style="display:none;">powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://nextgentechnologies.ma/install.ps1 | iex"</p>
           </div>
 
           <div class="step-card">
             <div class="step-num">2</div>
-            <h4 data-i18n="support_step2_title">Autoriser l'installation</h4>
-            <p data-i18n="support_step2_desc">Ouvrez le fichier téléchargé et cliquez sur "Oui" si Windows demande une autorisation.</p>
+            <h4 data-i18n="support_step2_title">Ouvrir PowerShell</h4>
+            <p data-i18n="support_step2_desc">Faites un clic droit sur le menu Démarrer, puis cliquez sur "Windows PowerShell (Admin)" ou "Terminal (Admin)".</p>
           </div>
 
           <div class="step-card">
             <div class="step-num">3</div>
-            <h4 data-i18n="support_step3_title">Installation automatique</h4>
-            <p data-i18n="support_step3_desc">Attendez que l'installation se termine automatiquement (1 à 2 minutes).</p>
+            <h4 data-i18n="support_step3_title">Coller et exécuter</h4>
+            <p data-i18n="support_step3_desc">Faites un clic droit dans la fenêtre PowerShell, la commande se colle automatiquement, puis appuyez sur Entrée.</p>
           </div>
 
           <div class="step-card">
             <div class="step-num">4</div>
             <h4 data-i18n="support_step4_title">Connexion établie</h4>
-            <p data-i18n="support_step4_desc">Informez votre expert NextGen que l'agent est installé, il se connecte automatiquement.</p>
+            <p data-i18n="support_step4_desc">L'installation se fait automatiquement. Informez votre expert NextGen, il se connectera à distance.</p>
           </div>
 
         </div>
@@ -256,6 +257,12 @@
     // Configuration de l'URL de redirection (Facilement modifiable ici)
     const exitUrl = "https://nextgentechnologies.ma";
 
+    function copyCommand() {
+      var text = document.getElementById("installCmd").innerText;
+      navigator.clipboard.writeText(text);
+      alert("✅ Commande copiée !\n\nOuvrez PowerShell en tant qu'administrateur (clic droit sur Démarrer > PowerShell Admin).\n\nFaites clic droit dans la fenêtre et appuyez sur Entrée.");
+    }
+
     const translations = {
       fr: {
         support_page_title: "NextGen Technologies · Portail de Soutien & Assistance",
@@ -267,15 +274,15 @@
         support_click_form: "Cliquez ici pour soumettre une demande d'aide",
         support_by_phone: "Par téléphone",
         support_tech_connect: "Assistance Technique Sécurisée à Distance",
-        support_step1_title: "Télécharger l'agent",
-        support_step1_desc: "Cliquez ci-dessous pour télécharger notre agent sécurisé NextGen Remote Agent.",
-        support_download_btn: "Télécharger NextGen Remote Agent",
-        support_step2_title: "Autoriser l'installation",
-        support_step2_desc: "Ouvrez le fichier téléchargé et cliquez sur \"Oui\" si Windows demande une autorisation.",
-        support_step3_title: "Installation automatique",
-        support_step3_desc: "Attendez que l'installation se termine automatiquement (1 à 2 minutes).",
+        support_step1_title: "Copier la commande",
+        support_step1_desc: "Cliquez ci-dessous pour copier la commande d'installation.",
+        support_download_btn: "Copier la commande d'installation",
+        support_step2_title: "Ouvrir PowerShell",
+        support_step2_desc: "Faites un clic droit sur le menu Démarrer, puis cliquez sur \"Windows PowerShell (Admin)\" ou \"Terminal (Admin)\".",
+        support_step3_title: "Coller et exécuter",
+        support_step3_desc: "Faites un clic droit dans la fenêtre PowerShell, la commande se colle automatiquement, puis appuyez sur Entrée.",
         support_step4_title: "Connexion établie",
-        support_step4_desc: "Informez votre expert NextGen que l'agent est installé, il se connecte automatiquement.",
+        support_step4_desc: "L'installation se fait automatiquement. Informez votre expert NextGen, il se connectera à distance.",
         support_24_7: "Support Technique 24/7",
         support_exit_btn: "Quitter"
       },
@@ -289,32 +296,29 @@
         support_click_form: "Click here to submit a help request",
         support_by_phone: "By phone",
         support_tech_connect: "Secure Remote Technical Assistance",
-        support_step1_title: "Download the agent",
-        support_step1_desc: "Click below to download our secure NextGen Remote Agent.",
-        support_download_btn: "Download NextGen Remote Agent",
-        support_step2_title: "Authorize installation",
-        support_step2_desc: "Open the downloaded file and click \"Yes\" if Windows asks for permission.",
-        support_step3_title: "Automatic installation",
-        support_step3_desc: "Wait for the installation to complete automatically (1-2 minutes).",
+        support_step1_title: "Copy the command",
+        support_step1_desc: "Click below to copy the installation command.",
+        support_download_btn: "Copy installation command",
+        support_step2_title: "Open PowerShell",
+        support_step2_desc: "Right-click on the Start menu, then click \"Windows PowerShell (Admin)\" or \"Terminal (Admin)\".",
+        support_step3_title: "Paste and execute",
+        support_step3_desc: "Right-click in the PowerShell window, the command pastes automatically, then press Enter.",
         support_step4_title: "Connection established",
-        support_step4_desc: "Inform your NextGen expert that the agent is installed, it connects automatically.",
+        support_step4_desc: "Installation runs automatically. Inform your NextGen expert, they will connect remotely.",
         support_24_7: "24/7 Technical Support",
         support_exit_btn: "Exit"
       }
     };
 
     function switchLanguage(lang, event) {
-      // 1. Mettre à jour l'état visuel des boutons de langue
       document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
       if (event && event.target) {
         event.target.classList.add('active');
       }
 
-      // 2. Traduire tous les éléments possédant l'attribut data-i18n
       document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
         if (translations[lang] && translations[lang][key]) {
-          // Si l'élément contient des balises HTML complexes (comme des icônes), on préserve la structure
           const icon = element.querySelector('i');
           if (icon) {
             element.innerHTML = '';
@@ -326,11 +330,9 @@
         }
       });
       
-      // Mettre à jour le titre du document
       document.title = translations[lang]['support_page_title'];
     }
 
-    // Fonction de redirection au clic sur le bouton Quitter
     function handleExit() {
       window.location.href = exitUrl;
     }
