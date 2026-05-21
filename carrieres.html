@@ -30,7 +30,15 @@ h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; let
 a { text-decoration: none; }
 
 .top-bar { background: rgba(5,11,20,0.95); backdrop-filter: blur(10px); color: var(--gray-light); padding: 0.5rem 4%; font-size: 0.8rem; border-bottom: 1px solid rgba(0,212,255,0.2); z-index: 1001; }
-.top-bar-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+.top-bar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
 .top-bar-info { display: flex; gap: 2rem; flex-wrap: wrap; }
 .top-bar-info span { display: flex; align-items: center; gap: 0.4rem; }
 .top-bar-info i { color: var(--accent); }
@@ -52,6 +60,16 @@ a { text-decoration: none; }
 .nav-links > li > a:hover, .nav-links > li > a.active { background: rgba(0,212,255,0.1); color: var(--accent); }
 .nav-cta { background: linear-gradient(135deg, var(--red), var(--red-dark)) !important; color: var(--white) !important; padding: 0.7rem 1.4rem !important; border-radius: 40px !important; font-weight: 700 !important; }
 .nav-cta:hover { background: var(--accent) !important; color: var(--primary) !important; }
+.btn-espace-client {
+  background: linear-gradient(135deg, #00D4FF, #0891B2) !important;
+  color: #050B14 !important;
+  font-weight: 700 !important;
+  padding: 0.5rem 1.2rem !important;
+  border-radius: 6px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
 .menu-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
 
 .page-header {
@@ -147,6 +165,17 @@ footer { background: var(--primary-deep); border-top: 1px solid rgba(0,212,255,0
 
 @media (max-width: 1024px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 768px) {
+  .top-bar-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .top-bar-info {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+  }
   .nav-links { position: fixed; top: 70px; right: 0; flex-direction: column; background: #071426; padding: 1.5rem; width: 100%; gap: 0.5rem; transform: translateX(100%); transition: transform 0.3s; }
   .nav-links.active { transform: translateX(0); }
   .menu-toggle { display: block; }
@@ -199,7 +228,7 @@ footer { background: var(--primary-deep); border-top: 1px solid rgba(0,212,255,0
     
       <li><a href="campus-cyber.html">🎓 Campus Cyber</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="contact.html" class="nav-cta">Audit gratuit</a></li>
+      <li><a href="support.html" class="btn-espace-client"><i class="fa-solid fa-user-circle"></i> Espace Client</a></li>
     </ul>
     <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
   </div>
@@ -434,7 +463,7 @@ footer { background: var(--primary-deep); border-top: 1px solid rgba(0,212,255,0
           <div class="form-group">
             <label id="lblMeetingEn">Pouvez-vous tenir des réunions techniques en anglais ?</label>
             <div class="radio-group">
-              <label class="radio-option"><input type="radio" name="reunions_anglais" value="Oui sans difficulté"><span id="mtg1">Oui, sans difficulté</span></label>
+              <label class="radio-option"><input type="radio" name="reunions_anglais" value="Oui sans difficulty"><span id="mtg1">Oui, sans difficulté</span></label>
               <label class="radio-option"><input type="radio" name="reunions_anglais" value="Oui avec effort"><span id="mtg2">Oui, avec un peu d'effort</span></label>
               <label class="radio-option"><input type="radio" name="reunions_anglais" value="Difficile"><span id="mtg3">Difficilement</span></label>
               <label class="radio-option"><input type="radio" name="reunions_anglais" value="Non"><span id="mtg4">Non</span></label>
