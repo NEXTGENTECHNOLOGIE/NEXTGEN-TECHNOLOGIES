@@ -26,7 +26,15 @@ h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;}
 a{text-decoration:none;}
 
 .top-bar{background:#02050b;border-bottom:1px solid rgba(255,255,255,0.04);padding:.7rem 4%;}
-.top-bar-container{max-width:1400px;margin:auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.top-bar-container {
+  max-width: 1400px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
 .top-bar-info{display:flex;gap:2rem;flex-wrap:wrap;}
 .top-bar-info span{font-size:.85rem;color:#cbd5e1;}
 .top-bar-info i{color:var(--accent);margin-right:.4rem;}
@@ -48,6 +56,16 @@ a{text-decoration:none;}
 .nav-links a{color:#dbe4ef;padding:.8rem 1rem;border-radius:12px;font-size:.92rem;font-weight:600;transition:.3s;}
 .nav-links a:hover,.nav-links a.active{background:rgba(255,255,255,.06);color:var(--accent);}
 .nav-cta{background:linear-gradient(135deg,var(--accent),#0ea5e9)!important;color:#02131d!important;font-weight:800!important;box-shadow:0 0 30px rgba(0,212,255,.3);}
+.btn-espace-client {
+  background: linear-gradient(135deg, #00D4FF, #0891B2) !important;
+  color: #050B14 !important;
+  font-weight: 700 !important;
+  padding: 0.5rem 1.2rem !important;
+  border-radius: 6px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
 
 /* PAGE HEADER — style premium */
 .page-header{
@@ -331,6 +349,17 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
   .stats-banner{grid-template-columns:repeat(2,1fr);}
 }
 @media(max-width:768px){
+  .top-bar-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .top-bar-info {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+  }
   .nav-links{display:none;}
   .stats-banner{grid-template-columns:1fr;}
   .footer-grid{grid-template-columns:1fr;}
@@ -381,7 +410,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
       <li><a href="carrieres.html">Carrières</a></li>
       <li><a href="campus-cyber.html">🎓 Campus Cyber</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="contact.html" class="nav-cta">Audit Gratuit</a></li>
+      <li><a href="support.html" class="btn-espace-client"><i class="fa-solid fa-user-circle"></i> Espace Client</a></li>
     </ul>
   </div>
 </nav>
@@ -410,6 +439,9 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
       <div class="stat-item"><div class="stat-number">15+</div><div class="stat-label" data-key="stat4Label">Années d'expertise cumulée</div></div>
     </div>
   </div>
+</section>
+
+<section class="section">
 </section>
 
 <section class="cta">
