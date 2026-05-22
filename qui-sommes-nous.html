@@ -24,7 +24,8 @@ body{font-family:'Manrope',sans-serif;background:#030712;color:var(--white);over
 h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;}
 a{text-decoration:none;}
 
-.top-bar{background:#02050b;border-bottom:1px solid rgba(255,255,255,0.04);padding:.7rem 4%;}
+/* TOP BAR & NAV */
+.top-bar{background:#02050b;border-bottom:1px solid rgba(255,255,255,0.04);padding:.7rem 4%;position:relative;z-index:10;}
 .top-bar-container {
   max-width: 1400px;
   margin: auto;
@@ -54,7 +55,6 @@ a{text-decoration:none;}
 .nav-links{display:flex;gap:.5rem;list-style:none;align-items:center;}
 .nav-links a{color:#dbe4ef;padding:.8rem 1rem;border-radius:12px;font-size:.92rem;font-weight:600;transition:.3s;}
 .nav-links a:hover,.nav-links a.active{background:rgba(255,255,255,.06);color:var(--accent);}
-.nav-cta{background:linear-gradient(135deg,var(--accent),#0ea5e9)!important;color:#02131d!important;font-weight:800!important;box-shadow:0 0 30px rgba(0,212,255,.3);}
 .btn-espace-client {
   background: linear-gradient(135deg, #00D4FF, #0891B2) !important;
   color: #050B14 !important;
@@ -66,36 +66,30 @@ a{text-decoration:none;}
   gap: 0.5rem !important;
 }
 
-/* HERO — carreaux plus petits */
+/* BACKGROUND ANIMÉ CYBER (TOP EFFECT) */
+#cyber-canvas {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6;
+}
+
+/* HERO SECTION */
 .hero{
-  min-height:100vh;
+  min-height:80vh;
   position:relative;
   display:flex;
   align-items:center;
   overflow:hidden;
-  padding:0 4%;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(0,212,255,.18), transparent 30%),
-    radial-gradient(circle at 80% 40%, rgba(255,184,0,.12), transparent 35%),
-    linear-gradient(180deg,#02050b 0%, #081120 60%, #02050b 100%);
-}
-.hero::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-  background-size:28px 28px;
-  mask-image:linear-gradient(to bottom, rgba(0,0,0,1), transparent);
-  pointer-events:none;
+  padding:5rem 4%;
+  background: linear-gradient(180deg, #02050b 0%, #060d1a 100%);
 }
 .hero-content{max-width:1400px;margin:auto;width:100%;position:relative;z-index:2;}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:5rem;align-items:center;}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:5rem;align-items:center;}
 
-/* TITRE HERO — propre, espacement contrôlé */
 .hero-left h1{
-  font-size:clamp(2.4rem,5.5vw,5rem);
+  font-size:clamp(2.4rem,5vw,4.5rem);
   line-height:1.1;
   margin-bottom:1.5rem;
   letter-spacing:-.03em;
@@ -110,216 +104,223 @@ a{text-decoration:none;}
   animation:shine 8s linear infinite;
 }
 @keyframes shine{to{background-position:300% center;}}
-
-.hero-left p{color:#cbd5e1;font-size:1.1rem;line-height:1.8;max-width:680px;margin-bottom:2rem;}
-.hero-buttons{display:flex;gap:1rem;flex-wrap:wrap;}
-.btn-primary,.btn-secondary{padding:1rem 1.6rem;border-radius:16px;font-weight:700;display:inline-flex;align-items:center;gap:.6rem;transition:.3s;}
-.btn-primary{background:linear-gradient(135deg,var(--accent),#0ea5e9);color:#04111a;box-shadow:0 0 40px rgba(0,212,255,.25);}
-.btn-primary:hover{transform:translateY(-4px);}
-.btn-secondary{border:1px solid rgba(255,255,255,.1);color:#fff;background:rgba(255,255,255,.04);}
-.btn-secondary:hover{background:rgba(255,255,255,.08);}
+.hero-left p{color:#cbd5e1;font-size:1.15rem;line-height:1.8;max-width:720px;margin-bottom:2rem;}
 
 .hero-panel{position:relative;}
-.glass-card{padding:2rem;border-radius:30px;background:rgba(255,255,255,.04);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);overflow:hidden;box-shadow:0 0 80px rgba(0,212,255,.12), inset 0 0 0 1px rgba(255,255,255,.02);}
+.glass-card{padding:2.5rem;border-radius:30px;background:rgba(10, 22, 40, 0.4);backdrop-filter:blur(20px);border:1px solid rgba(0, 212, 255, 0.15);overflow:hidden;box-shadow:0 0 80px rgba(0,212,255,0.1), inset 0 0 0 1px rgba(255,255,255,0.02);position:relative;}
+
+/* TOP Effect: Radar Matrix Scan Line */
+.glass-card::after {
+  content: '';
+  position: absolute;
+  top: -100%; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  animation: radarScan 4s linear infinite;
+}
+@keyframes radarScan {
+  0% { top: -5%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 105%; opacity: 0; }
+}
+
 .panel-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;}
-.panel-title{font-weight:700;color:#fff;font-size:0.95rem;}
-.panel-badge{display:flex;align-items:center;gap:.5rem;font-size:.7rem;color:#10B981;font-weight:700;letter-spacing:.05em;}
+.panel-title{font-weight:700;color:#fff;font-size:1.1rem;letter-spacing: 0.05em;}
+.panel-badge{display:flex;align-items:center;gap:.5rem;font-size:.75rem;color:#10B981;font-weight:700;letter-spacing:.05em;}
 .dot{width:10px;height:10px;border-radius:50%;background:#10B981;box-shadow:0 0 15px #10B981;animation:pulseDot 1.5s infinite;}
 @keyframes pulseDot{0%{transform:scale(.8);opacity:.5;}50%{transform:scale(1.2);opacity:1;}100%{transform:scale(.8);opacity:.5;}}
-.live-bar{height:5px;background:rgba(255,255,255,.05);border-radius:10px;overflow:hidden;margin:1rem 0 1.5rem;}
-.live-bar span{display:block;height:100%;width:70%;background:linear-gradient(90deg,#00D4FF,#38bdf8,#FFB800);animation:loadAnim 3s infinite;}
-@keyframes loadAnim{0%{width:20%}50%{width:90%}100%{width:40%}}
-.threat-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
-.threat{padding:1rem;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);font-size:.85rem;color:#cbd5e1;display:flex;align-items:center;gap:.6rem;transition:.3s;}
-.threat:hover{border-color:rgba(0,212,255,.4);background:rgba(0,212,255,.05);}
-.threat i{color:var(--accent);font-size:.9rem;}
 
-.stats{margin-top:4rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
-.stat{padding:1.5rem;border-radius:24px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);}
-.stat h3{font-size:2.4rem;color:var(--accent);}
-.stat p{color:#94a3b8;margin-top:.3rem;}
+.stats-pillar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+.pillar-item {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  padding: 1.2rem;
+  border-radius: 16px;
+  transition: all 0.4s ease;
+}
+.pillar-item:hover {
+  background: rgba(0,212,255,0.05);
+  border-color: rgba(0,212,255,0.3);
+  transform: translateX(8px);
+}
+.pillar-item h3 {
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.pillar-item h3 span { color: var(--gold); font-size: 1.2rem; }
+.pillar-item p { font-size: 0.9rem; color: #94a3b8; line-height: 1.6; }
 
-.section{padding:7rem 4%;position:relative;}
+/* GENERAL SECTION SPECIFICATIONS */
+.section{padding:7rem 4%;position:relative; z-index: 2;}
 .section-container{max-width:1400px;margin:auto;}
 .section-tag{display:inline-block;color:var(--accent);text-transform:uppercase;font-size:.8rem;letter-spacing:.2em;margin-bottom:1rem;font-weight:700;}
-.section-title{font-size:clamp(2.5rem,5vw,4rem);line-height:1.05;margin-bottom:1.5rem;}
+.section-title{font-size:clamp(2.2rem,4.5vw,3.8rem);line-height:1.1;margin-bottom:1.5rem;}
 .section-title span{color:var(--gold);}
-.section-desc{color:#94a3b8;max-width:800px;line-height:1.9;font-size:1.05rem;}
+.section-desc{color:#94a3b8;max-width:900px;line-height:1.9;font-size:1.1rem;margin-bottom:3rem;}
 
-/* =============================================
-   TEAM — 3 cards horizontal (Youssef, Marouan, Mohssine)
-   ============================================= */
-.team-section-wrapper{margin-top:4rem;}
+/* THE 3 PILLARS */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 4rem;
+}
+.pillar-card {
+  background: linear-gradient(145deg, rgba(10,22,40,0.8), rgba(5,11,20,0.98));
+  border: 1px solid rgba(0,212,255,0.12);
+  border-radius: 24px;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(.23,1,.32,1);
+}
+.pillar-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(0,212,255,0.18), transparent 60%);
+  opacity: 0; transition: opacity 0.4s ease;
+}
+.pillar-card:hover {
+  transform: translateY(-12px);
+  border-color: var(--accent);
+  box-shadow: 0 20px 50px rgba(0,212,255,0.2);
+}
+.pillar-card:hover::before { opacity: 1; }
 
-.cofounders-row{
-  display:grid;
-  grid-template-columns:repeat(3, minmax(0, 320px));
-  gap:2rem;
-  justify-content:center;
+.pillar-icon-wrap {
+  width: 60px; height: 60px;
+  border-radius: 16px;
+  background: rgba(0,212,255,0.08);
+  border: 1px solid rgba(0,212,255,0.2);
+  display: flex; justify-content: center; align-items: center;
+  font-size: 1.5rem; color: var(--accent);
+  margin-bottom: 1.8rem;
+  transition: all 0.4s ease;
 }
+.pillar-card:hover .pillar-icon-wrap {
+  background: var(--accent);
+  color: var(--primary);
+  box-shadow: 0 0 25px var(--accent);
+  transform: scale(1.05);
+}
+.pillar-card h3 { font-size: 1.4rem; margin-bottom: 1rem; color: var(--white); }
+.pillar-card p { color: #cbd5e1; line-height: 1.8; font-size: 0.98rem; text-align: justify;}
 
-.team-card{
-  position:relative;
-  overflow:hidden;
-  border-radius:28px;
-  background:linear-gradient(160deg, rgba(0,212,255,.06), rgba(255,184,0,.04), rgba(10,22,40,.9));
-  border:1px solid rgba(0,212,255,.15);
-  transition:.5s cubic-bezier(.23,1,.32,1);
-  cursor:pointer;
+/* HIGHLIGHTS & STATS */
+.highlights-section {
+  background: linear-gradient(180deg, #040914 0%, #02050b 100%);
 }
-.team-card::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  border-radius:28px;
-  background:linear-gradient(135deg, rgba(0,212,255,.15) 0%, transparent 50%, rgba(255,184,0,.08) 100%);
-  opacity:0;
-  transition:.5s;
-  z-index:1;
-  pointer-events:none;
+.highlights-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
 }
-.team-card:hover{
-  transform:translateY(-16px) scale(1.02);
-  border-color:rgba(0,212,255,.5);
-  box-shadow:
-    0 30px 80px rgba(0,0,0,.5),
-    0 0 0 1px rgba(0,212,255,.2),
-    0 0 60px rgba(0,212,255,.15),
-    inset 0 1px 0 rgba(255,255,255,.1);
-}
-.team-card:hover::before{opacity:1;}
+.highlights-left h2 { font-size: clamp(2.2rem, 4vw, 3.5rem); margin-bottom: 1.5rem; }
+.highlights-left p { color: #cbd5e1; line-height: 1.9; font-size: 1.1rem; margin-bottom: 1.5rem; text-align: justify; }
 
-.team-image{
-  height:340px;
-  overflow:hidden;
-  position:relative;
+.highlights-stats-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
 }
-.team-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center top;
-  transition:transform 1s cubic-bezier(.23,1,.32,1), filter .5s;
-  filter:saturate(1.1) contrast(1.05);
+.h-stat-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+  transition: all 0.4s ease;
 }
-.team-card:hover .team-image img{
-  transform:scale(1.1);
-  filter:saturate(1.3) contrast(1.1) brightness(1.05);
+.h-stat-card:hover {
+  border-color: rgba(255,184,0,0.4);
+  background: rgba(255,184,0,0.02);
+  transform: scale(1.03);
 }
+.h-stat-card h3 {
+  font-size: 3rem;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.h-stat-card.gold-style h3 { color: var(--gold); }
+.h-stat-card p { color: #94a3b8; font-size: 0.95rem; line-height: 1.5; }
 
-/* OVERLAY SANS OMBRE EN BAS — plus de dégradé sombre */
-.team-overlay{
-  position:absolute;
-  inset:0;
-  background:transparent;
-  z-index:1;
+/* MISSION & INFOGERANCE PANEL */
+.mission-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 4rem;
 }
+.glass-panel-box {
+  background: rgba(10, 22, 40, 0.5);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 24px;
+  padding: 2.5rem;
+  backdrop-filter: blur(10px);
+  transition: border-color 0.3s;
+}
+.glass-panel-box:hover {
+  border-color: var(--accent);
+}
+.glass-panel-box h3 {
+  font-size: 1.5rem; margin-bottom: 1.2rem;
+  display: flex; align-items: center; gap: 0.8rem;
+  color: var(--white);
+}
+.glass-panel-box h3 i { color: var(--accent); }
+.glass-panel-box p { color: #cbd5e1; line-height: 1.8; font-size: 1rem; }
 
-/* Scan line effect on hover */
-.team-image::after{
-  content:'';
-  position:absolute;
-  top:-100%;
-  left:0;
-  right:0;
-  height:2px;
-  background:linear-gradient(90deg, transparent, var(--accent), transparent);
-  z-index:3;
-  transition:none;
-  opacity:0;
+/* CORE VALUES */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 3.5rem;
 }
-.team-card:hover .team-image::after{
-  animation:scanLine .8s ease forwards;
+.value-card {
+  padding: 2.5rem 2rem;
+  border-radius: 24px;
+  background: rgba(255,255,255,.01);
+  border: 1px solid rgba(255,255,255,.05);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(.23,1,.32,1);
 }
-@keyframes scanLine{
-  0%{top:-5%;opacity:0;}
-  30%{opacity:.8;}
-  100%{top:105%;opacity:0;}
+.value-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0,212,255,0.4);
+  background: rgba(0,212,255,0.02);
 }
-
-/* Petit corner accent */
-.team-image::before{
-  content:'';
-  position:absolute;
-  top:14px;
-  right:14px;
-  width:30px;
-  height:30px;
-  border-top:1.5px solid var(--accent);
-  border-right:1.5px solid var(--accent);
-  border-radius:0 6px 0 0;
-  z-index:4;
-  opacity:.5;
-  transition:.3s;
+.value-icon {
+  width: 55px; height: 55px;
+  border-radius: 14px;
+  display: flex; justify-content: center; align-items: center;
+  background: linear-gradient(135deg, rgba(0,212,255,0.1), rgba(2,132,199,0.2));
+  border: 1px solid rgba(0,212,255,0.2);
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem; color: var(--accent);
+  transition: .3s;
 }
-.team-card:hover .team-image::before{opacity:1;}
-
-.team-content{
-  padding:1.8rem;
-  position:relative;
-  z-index:2;
+.value-card:hover .value-icon {
+  background: linear-gradient(135deg, var(--accent), #0ea5e9);
+  color: var(--primary);
+  box-shadow: 0 0 20px rgba(0,212,255,0.5);
 }
-.team-content h3{
-  font-size:1.4rem;
-  margin-bottom:.4rem;
-  background:linear-gradient(90deg,#fff,#cbd5e1);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  transition:.3s;
-}
-.team-card:hover .team-content h3{
-  background:linear-gradient(90deg,#fff,var(--accent));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.team-role{
-  color:var(--accent);
-  font-weight:700;
-  margin-bottom:1rem;
-  font-size:.82rem;
-  letter-spacing:.03em;
-}
-.team-content p{color:#94a3b8;line-height:1.7;font-size:.92rem;}
-
-.team-name-line{
-  height:1px;
-  background:linear-gradient(90deg, var(--accent), transparent);
-  margin:.6rem 0 .8rem;
-  width:40px;
-  transition:.4s;
-}
-.team-card:hover .team-name-line{width:80px;}
-
-.skills{margin-top:1.2rem;display:flex;flex-wrap:wrap;gap:.5rem;}
-.skills span{
-  padding:.45rem .8rem;
-  border-radius:40px;
-  background:rgba(0,212,255,.06);
-  border:1px solid rgba(0,212,255,.15);
-  font-size:.72rem;
-  color:#a0c4d8;
-  transition:.3s;
-}
-.team-card:hover .skills span{
-  background:rgba(0,212,255,.1);
-  border-color:rgba(0,212,255,.3);
-  color:#e0f4ff;
-}
-
-/* STORY / VALUES / REST */
-.story{background:linear-gradient(180deg,#07111e,#02050b);}
-.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
-.story-box{height:520px;border-radius:32px;background:radial-gradient(circle at top left, rgba(0,212,255,.25), transparent 30%),linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);position:relative;overflow:hidden;}
-.story-box::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);background-size:24px 24px;}
-.story-icon{position:absolute;inset:0;display:flex;justify-content:center;align-items:center;font-size:8rem;color:rgba(0,212,255,.6);}
-.story-text p{margin-bottom:1.5rem;color:#cbd5e1;line-height:1.9;}
-
-.values-grid{margin-top:4rem;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;}
-.value-card{padding:2rem;border-radius:28px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);transition:.35s;}
-.value-card:hover{transform:translateY(-10px);border-color:rgba(0,212,255,.35);}
-.value-icon{width:70px;height:70px;border-radius:20px;display:flex;justify-content:center;align-items:center;background:linear-gradient(135deg,var(--accent),#0284c7);margin-bottom:1.5rem;font-size:1.5rem;box-shadow:0 0 30px rgba(0,212,255,.2);}
-.value-card h4{font-size:1.2rem;margin-bottom:.8rem;}
-.value-card p{color:#94a3b8;line-height:1.8;}
+.value-card h4 { font-size: 1.2rem; margin-bottom: .8rem; font-weight: 600; }
+.value-card p { color: #94a3b8; line-height: 1.7; font-size: .92rem; }
 
 .cta{padding:7rem 4%;text-align:center;position:relative;overflow:hidden;}
 .cta::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at center, rgba(0,212,255,.12), transparent 45%);}
@@ -327,7 +328,7 @@ a{text-decoration:none;}
 .cta h2{font-size:clamp(2rem,4vw,4rem);margin-bottom:1rem;}
 .cta p{color:#94a3b8;line-height:1.9;margin-bottom:2rem;}
 
-footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;background:#02050b;}
+footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;background:#02050b;position:relative;z-index:10;}
 .footer-grid{max-width:1400px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;}
 .footer-brand p{color:#94a3b8;margin-top:1rem;line-height:1.8;}
 .footer-col h4{margin-bottom:1.2rem;}
@@ -337,39 +338,23 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
 .footer-col a:hover{color:var(--accent);}
 .footer-bottom{max-width:1400px;margin:auto;border-top:1px solid rgba(255,255,255,.05);margin-top:3rem;padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:#64748b;font-size:.9rem;}
 
-@media(max-width:1300px){
-  .cofounders-row{
-    grid-template-columns:repeat(2, minmax(0, 320px));
-  }
-}
 @media(max-width:1200px){
   .values-grid{grid-template-columns:repeat(2,1fr);}
-  .hero-grid,.story-grid{grid-template-columns:1fr;}
+  .hero-grid, .highlights-grid, .mission-row{grid-template-columns:1fr; gap:3rem;}
+  .pillars-grid { grid-template-columns: 1fr; gap: 2rem; }
 }
-@media(max-width:768px){
-  .top-bar-container {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-  .top-bar-info {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.4rem;
-  }
+@media(max-width:768px) {
+  .top-bar-container { flex-direction: column; text-align: center; }
+  .top-bar-info { flex-direction: column; gap: 0.4rem; }
   .nav-links{display:none;}
-  .stats{grid-template-columns:repeat(2,1fr);}
-  .cofounders-row{grid-template-columns:1fr;max-width:380px;margin:0 auto;}
-  .values-grid{grid-template-columns:1fr;}
+  .values-grid, .highlights-stats-box{grid-template-columns:1fr;}
   .section{padding:5rem 5%;}
-  .hero-panel{margin-top:2rem;}
-  .threat-grid{grid-template-columns:1fr;}
-  .hero::before{background-size:20px 20px;}
 }
 </style>
 </head>
 <body>
+
+<canvas id="cyber-canvas"></canvas>
 
 <div class="top-bar">
   <div class="top-bar-container">
@@ -420,38 +405,103 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
   <div class="hero-content">
     <div class="hero-grid">
       <div class="hero-left">
-        <span class="section-tag" data-key="heroTag">NEXTGEN TECHNOLOGIES</span>
+        <span class="section-tag" data-key="heroTag">NOTRE ADN</span>
         <h1>
-          <span class="line" data-key="heroTitle1">Une équipe de spécialistes</span>
-          <span class="line gradient" data-key="heroTitleAccent">en cybersécurité</span>
-          <span class="line" data-key="heroTitle2">au service des entreprises</span>
+          <span class="line" data-key="heroTitle1">Une expertise globale</span>
+          <span class="line gradient" data-key="heroTitleAccent">Infogérance & Sécurité</span>
+          <span class="line" data-key="heroTitle2">Infrastructures Hautes Performances</span>
         </h1>
-        <p data-key="heroDesc">NextGen Technologies rassemble des experts en cybersécurité, infrastructure, SOC, cloud et architecture réseau afin d'accompagner les entreprises marocaines avec une vision moderne, offensive et internationale de la sécurité informatique.</p>
-        <div class="hero-buttons">
-          <a href="services.html" class="btn-primary" data-key="heroBtn1">Découvrir nos services <i class="fas fa-arrow-right"></i></a>
-          <a href="contact.html" class="btn-secondary" data-key="heroBtn2">Nous contacter</a>
-        </div>
-        <div class="stats">
-          <div class="stat"><h3 data-key="stat1">3</h3><p data-key="stat1Label">Les piliers</p></div>
-          <div class="stat"><h3 data-key="stat2">15+</h3><p data-key="stat2Label">Années cumulées</p></div>
-          <div class="stat"><h3 data-key="stat3">SOC</h3><p data-key="stat3Label">24/7 · Centre d'opération sécurité</p></div>
-          <div class="stat"><h3 data-key="stat4">360°</h3><p data-key="stat4Label">Vision sécurité</p></div>
-        </div>
+        <p data-key="heroDesc">NextGen Technologies s'impose comme un partenaire d'élite pour l'architecture, la gestion et la protection de vos parcs technologiques. Notre collectif d'ingénieurs certifiés combine ingénierie système avancée et défense cyber rigoureuse pour garantir une continuité opérationnelle absolue à votre organisation.</p>
       </div>
       <div class="hero-panel">
         <div class="glass-card">
           <div class="panel-top">
-            <div class="panel-title" data-key="panelTitle">NextGen SOC · Threat Intelligence</div>
-            <div class="panel-badge"><div class="dot"></div><span data-key="panelBadge">SYSTEM ONLINE</span></div>
+            <div class="panel-title" data-key="panelTitle">NextGen Scope</div>
+            <div class="panel-badge"><div class="dot"></div><span data-key="panelBadge">360° MANAGEMENT</span></div>
           </div>
-          <div class="live-bar"><span></span></div>
-          <div class="threat-grid">
-            <div class="threat"><i class="fas fa-shield-alt"></i> <span data-key="threat1">Intrusion Detection</span></div>
-            <div class="threat"><i class="fas fa-network-wired"></i> <span data-key="threat2">Network Monitoring</span></div>
-            <div class="threat"><i class="fas fa-bug"></i> <span data-key="threat3">Vulnerability Scan</span></div>
-            <div class="threat"><i class="fas fa-lock"></i> <span data-key="threat4">Zero Trust Active</span></div>
+          <div class="stats-pillar-list">
+            <div class="pillar-item">
+              <h3 data-key="hPillar1Title"><span>01.</span> Infogérance & Systèmes</h3>
+              <p data-key="hPillar1Desc">Supervision complète, maintenance préventive et optimisation continue de vos réseaux pour des performances maximales au quotidien.</p>
+            </div>
+            <div class="pillar-item">
+              <h3 data-key="hPillar2Title"><span>02.</span> Immunité Cyber</h3>
+              <p data-key="hPillar2Desc">Audits intrusifs réguliers et déploiement de contre-mesures technologiques pour blinder vos infrastructures critiques contre toute intrusion.</p>
+            </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:#040914;">
+  <div class="section-container">
+    <span class="section-tag" data-key="pillarsTag">NOS FONDATIONS</span>
+    <h2 class="section-title">
+      <span data-key="pillarsTitle1">Les piliers de notre</span> <span>savoir-faire</span>
+    </h2>
+    <p class="section-desc" data-key="pillarsDesc">La culture technique de NextGen Technologies s'organise autour de trois engagements cardinaux pour propulser et sécuriser les architectures métiers de nos clients.</p>
+    
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-icon-wrap"><i class="fas fa-gears"></i></div>
+        <h3 data-key="pCard1Title">Rigueur Opérationnelle</h3>
+        <p data-key="pCard1Desc">Nous gérons vos systèmes informatiques complexes avec une précision mathématique. De la gestion de serveurs au cloud, nous assurons une fluidité technique parfaite alignée sur vos impératifs de croissance.</p>
+      </div>
+      
+      <div class="pillar-card">
+        <div class="pillar-icon-wrap"><i class="fas fa-satellite-dish"></i></div>
+        <h3 data-key="pCard2Title">Vigilance Continue</h3>
+        <p data-key="pCard2Desc">Nos outils analysent en temps réel le comportement de vos liaisons informatiques. Cette visibilité à 360 degrés nous permet d'isoler toute anomalie de charge ou de sécurité bien avant qu'elle n'impacte vos équipes.</p>
+      </div>
+      
+      <div class="pillar-card">
+        <div class="pillar-icon-wrap"><i class="fas fa-user-shield"></i></div>
+        <h3 data-key="pCard3Title">Expertise Multi-Technologique</h3>
+        <p data-key="pCard3Desc">Un pôle de compétences d'ingénieurs chevronnés intervient pour structurer vos politiques SI, durcir vos configurations logicielles et sanctuariser durablement vos bases de données stratégiques.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section highlights-section">
+  <div class="section-container">
+    <div class="highlights-grid">
+      <div class="highlights-left">
+        <span class="section-tag" data-key="highTag">FAITS MARQUANTS</span>
+        <h2 class="section-title" data-key="highTitle">Une capacité globale de réalisation</h2>
+        <p data-key="highP1">Notre trajectoire intègre de nombreux déploiements complexes réussis, alliant l'infogérance stratégique à la sécurité applicative de pointe. NextGen Technologies conçoit des environnements résilients capables de résister aux charges les plus denses.</p>
+        <p data-key="highP2">Grâce à une maîtrise complète du cycle de vie des infrastructures informatiques, nous supprimons les goulots d'étranglement techniques et armons les organisations contre l'ensemble des menaces modernes.</p>
+      </div>
+      <div class="highlights-stats-box">
+        <div class="h-stat-card">
+          <h3 data-key="stat1">15+</h3>
+          <p data-key="stat1Label">Années d'Expérience Cumulées</p>
+        </div>
+        <div class="h-stat-card gold-style">
+          <h3 data-key="stat2">360°</h3>
+          <p data-key="stat2Label">Gestion Systèmes & Sécurité</p>
+        </div>
+        <div class="h-stat-card gold-style">
+          <h3 data-key="stat3">24/7</h3>
+          <p data-key="stat3Label">Supervision & Monitoring Actif</p>
+        </div>
+        <div class="h-stat-card">
+          <h3 data-key="stat4">100%</h3>
+          <p data-key="stat4Label">Transparence & Rigueur d'Exécution</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="mission-row">
+      <div class="glass-panel-box">
+        <h3><i class="fas fa-display"></i> <span data-key="box1Title">Notre Vocation</span></h3>
+        <p data-key="box1Desc">Piloter et sécuriser vos solutions technologiques de bout en bout, en apportant une ingénierie de pointe pour transformer votre écosystème informatique en un accélérateur de confiance commerciale.</p>
+      </div>
+      <div class="glass-panel-box">
+        <h3><i class="fas fa-check-double"></i> <span data-key="box2Title">Standards d'Ingénierie</span></h3>
+        <p data-key="box2Desc">Nos processus s'inspirent des référentiels internationaux les plus stricts en matière de gestion des services IT et d'audits de vulnérabilités, assurant une conformité parfaite à chaque étape.</p>
       </div>
     </div>
   </div>
@@ -459,103 +509,43 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
 
 <section class="section">
   <div class="section-container">
-    <span class="section-tag" data-key="teamTag">L'ÉQUIPE NEXTGEN</span>
+    <span class="section-tag" data-key="valuesTag">CULTURE D'ENTREPRISE</span>
     <h2 class="section-title">
-      <span data-key="teamTitle1">Des profils complémentaires,</span><br>
-      <span data-key="teamTitle2">une même mission</span>
+      <span data-key="valuesTitle1">Les valeurs qui cimentent</span><br>
+      <span data-key="valuesTitle2">notre équipe</span>
     </h2>
-    <p class="section-desc" data-key="teamDesc">Une structure construite autour de plusieurs expertises techniques afin d'offrir aux entreprises une approche complète de la cybersécurité moderne.</p>
-
-    <div class="team-section-wrapper">
-      <div class="cofounders-row">
-
-        <div class="team-card">
-          <div class="team-image">
-            <img src="youssef.jpg" alt="Youssef">
-            <div class="team-overlay"></div>
-          </div>
-          <div class="team-content">
-            <h3>Youssef</h3>
-            <div class="team-name-line"></div>
-            <div class="team-role" data-key="role1">Founder & CEO · Business Development Lead</div>
-            <p data-key="desc1">Cybersécurité opérationnelle, développement commercial et stratégie. Coordination globale des opérations et relation client.</p>
-            <div class="skills"><span>Cybersécurité</span><span>Business Dev</span><span>Bug Bounty</span></div>
-          </div>
-        </div>
-
-        <div class="team-card">
-          <div class="team-image">
-            <img src="marouan.png" alt="Marouan">
-            <div class="team-overlay"></div>
-          </div>
-          <div class="team-content">
-            <h3>Marouan</h3>
-            <div class="team-name-line"></div>
-            <div class="team-role" data-key="role3">Co-Founder · CTO · Infrastructure Lead</div>
-            <p data-key="desc3">Expert infrastructures réseau, solutions Cisco et architecture technique des environnements sécurisés.</p>
-            <div class="skills"><span>Cisco</span><span>Infrastructure</span><span>Réseau</span></div>
-          </div>
-        </div>
-
-        <div class="team-card">
-          <div class="team-image">
-            <img src="mohssine.jpg" alt="Mohssine">
-            <div class="team-overlay"></div>
-          </div>
-          <div class="team-content">
-            <h3>Mohssine</h3>
-            <div class="team-name-line"></div>
-            <div class="team-role" data-key="role5">Co-Founder · SOC · Pentest · Formation</div>
-            <p data-key="desc5">Expert en sécurité opérationnelle, tests d&rsquo;intrusion, ISO 27001 et formation cyber. Renforce les équipes sur les missions offensives et défensives.</p>
-            <div class="skills"><span>SOC</span><span>Pentest</span><span>Formation</span></div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section story">
-  <div class="section-container">
-    <div class="story-grid">
-      <div class="story-box"><div class="story-icon"><i class="fas fa-shield-halved"></i></div></div>
-      <div class="story-text">
-        <span class="section-tag" data-key="storyTag">NOTRE HISTOIRE</span>
-        <h2 class="section-title">
-          <span data-key="storyTitle1">Une vision moderne de la</span><br>
-          <span data-key="storyTitle2">cybersécurité</span>
-        </h2>
-        <p data-key="storyP1">NextGen Technologies est née de la volonté de créer une entreprise capable d'offrir un niveau d'expertise élevé tout en restant proche des réalités des entreprises locales.</p>
-        <p data-key="storyP2">Notre équipe combine des expériences acquises au Maroc et à l'international afin d'apporter des standards modernes en matière d'infrastructure, sécurité offensive, défense SOC et gouvernance IT.</p>
-        <p data-key="storyP3">Nous privilégions une approche claire, transparente et concrète : comprendre les enjeux réels de chaque entreprise et construire des solutions adaptées à ses besoins.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="section-container">
-    <span class="section-tag" data-key="valuesTag">NOS VALEURS</span>
-    <h2 class="section-title">
-      <span data-key="valuesTitle1">Ce qui construit</span><br>
-      <span data-key="valuesTitle2">NextGen</span>
-    </h2>
-    <p class="section-desc" data-key="valuesDesc">Notre manière de travailler repose sur des principes simples : expertise, transparence, proximité et innovation continue.</p>
+    <p class="section-desc" data-key="valuesDesc">L'ingénierie moderne exige de la cohésion, du pragmatisme et de l'éthique. Notre charte interne guide l'intégralité de nos interventions d'infogérance et de cyber-défense.</p>
+    
     <div class="values-grid">
-      <div class="value-card"><div class="value-icon"><i class="fas fa-medal"></i></div><h4 data-key="val1Title">Excellence technique</h4><p data-key="val1Desc">Une veille permanente et des compétences avancées dans plusieurs domaines de la cybersécurité.</p></div>
-      <div class="value-card"><div class="value-icon"><i class="fas fa-eye"></i></div><h4 data-key="val2Title">Transparence</h4><p data-key="val2Desc">Des explications claires, des rapports compréhensibles et une vraie relation de confiance.</p></div>
-      <div class="value-card"><div class="value-icon"><i class="fas fa-bolt"></i></div><h4 data-key="val3Title">Réactivité</h4><p data-key="val3Desc">Une équipe agile capable d'intervenir rapidement face aux enjeux de sécurité modernes.</p></div>
-      <div class="value-card"><div class="value-icon"><i class="fas fa-users"></i></div><h4 data-key="val4Title">Collaboration</h4><p data-key="val4Desc">Nous travaillons avec nos clients comme de véritables partenaires stratégiques.</p></div>
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-circle-nodes"></i></div>
+        <h4 data-key="val1Title">Culture du Résultat</h4>
+        <p data-key="val1Desc">Garantir une disponibilité maximale de vos infrastructures et des architectures hautement réactives.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-handshake-angle"></i></div>
+        <h4 data-key="val2Title">Éthique & Partenariat</h4>
+        <p data-key="val2Desc">Bâtir une relation transparente et de confiance absolue pour devenir le prolongement naturel de vos équipes.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-microchip"></i></div>
+        <h4 data-key="val3Title">Innovation Systèmes</h4>
+        <p data-key="val3Desc">Intégrer les meilleures technologies de virtualisation, de cloud et d'automatisation informatique.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><i class="fas fa-shield-halved"></i></div>
+        <h4 data-key="val4Title">Haute Technicité</h4>
+        <p data-key="val4Desc">Maintenir une exigence absolue sur la qualité de nos codes de configuration et de nos rapports d'audits.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="cta">
   <div class="cta-content">
-    <h2 data-key="ctaTitle">Construisons une cybersécurité adaptée à votre entreprise</h2>
-    <p data-key="ctaDesc">Échangez avec notre équipe et découvrez comment renforcer vos infrastructures, vos réseaux et votre posture de sécurité.</p>
-    <a href="contact.html" class="btn-primary" data-key="ctaBtn">Demander un audit gratuit <i class="fas fa-arrow-right"></i></a>
+    <h2 data-key="ctaTitle">Optimisons et sécurisons ensemble vos infrastructures numériques</h2>
+    <p data-key="ctaDesc">Prenez contact avec nos ingénieurs pour évaluer la performance de vos réseaux et planifier un audit global.</p>
+    <a href="contact.html" class="btn-primary" data-key="ctaBtn">Planifier une analyse technique <i class="fas fa-arrow-right"></i></a>
   </div>
 </section>
 
@@ -573,95 +563,92 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
         </svg>
         <span>NextGen <span class="logo-text-accent">Technologies</span></span>
       </a>
-      <p data-key="footerDesc">Cybersécurité, conseil, SOC, infrastructure et sécurité offensive pour les entreprises modernes.</p>
+      <p data-key="footerDesc">Ingénierie système, infogérance sur-mesure, cloud de confiance et sécurité offensive avancée.</p>
     </div>
-    <div class="footer-col"><h4 data-key="footerServices">Services</h4><ul><li><a href="soc-consultation.html">SOC Consultation</a></li><li><a href="vapt.html">VAPT</a></li><li><a href="cloud-security.html">Cloud Security</a></li></ul></div>
+    <div class="footer-col"><h4 data-key="footerServices">Services</h4><ul><li><a href="soc-consultation.html">Gestion Infrastructures</a></li><li><a href="vapt.html">VAPT</a></li><li><a href="cloud-security.html">Cloud Security</a></li></ul></div>
     <div class="footer-col"><h4 data-key="footerCompany">Entreprise</h4><ul><li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li><li><a href="carrieres.html">Carrières</a></li><li><a href="contact.html">Contact</a></li></ul></div>
     <div class="footer-col"><h4 data-key="footerLegal">Légal</h4><ul><li><a href="#">Confidentialité</a></li><li><a href="#">CGV</a></li><li><a href="#">Mentions légales</a></li></ul></div>
   </div>
   <div class="footer-bottom">
     <span>© 2026 NextGen Technologies · Casablanca</span>
-    <span>Cybersecurity · Infrastructure · Innovation</span>
+    <span>Infrastructure · Cybersecurity · Innovation</span>
   </div>
 </footer>
 
 <script>
+// SCRIPTS DE TRADUCTION SANS LE TERME SOC
 const translations = {
   fr: {
-    heroTag:"NEXTGEN TECHNOLOGIES",
-    heroTitle1:"Une équipe de spécialistes",
-    heroTitleAccent:"en cybersécurité",
-    heroTitle2:"au service des entreprises",
-    heroDesc:"NextGen Technologies rassemble des experts en cybersécurité, infrastructure, SOC, cloud et architecture réseau afin d'accompagner les entreprises marocaines avec une vision moderne, offensive et internationale de la sécurité informatique.",
-    heroBtn1:"Découvrir nos services", heroBtn2:"Nous contacter",
-    stat1:"3", stat1Label:"Les piliers",
-    stat2:"15+", stat2Label:"Années cumulées",
-    stat3:"SOC", stat3Label:"24/7 · Centre d'opération sécurité",
-    stat4:"360°", stat4Label:"Vision sécurité",
-    panelTitle:"NextGen SOC · Threat Intelligence", panelBadge:"SYSTEM ONLINE",
-    threat1:"Intrusion Detection", threat2:"Network Monitoring", threat3:"Vulnerability Scan", threat4:"Zero Trust Active",
-    teamTag:"L'ÉQUIPE NEXTGEN",
-    teamTitle1:"Des profils complémentaires,", teamTitle2:"une même mission",
-    teamDesc:"Une structure construite autour de plusieurs expertises techniques afin d'offrir aux entreprises une approche complète de la cybersécurité moderne.",
-    role1:"Founder & CEO · Business Development Lead",
-    role3:"Co-Founder · CTO · Infrastructure Lead",
-    role5:"Co-Founder · SOC · Pentest · Formation",
-    desc1:"Cybersécurité opérationnelle, développement commercial et stratégie. Coordination globale des opérations et relation client.",
-    desc3:"Expert infrastructures réseau, solutions Cisco et architecture technique des environnements sécurisés.",
-    desc5:"Expert en sécurité opérationnelle, tests d'intrusion, ISO 27001 et formation cyber. Renforce les équipes sur les missions offensives et défensives.",
-    storyTag:"NOTRE HISTOIRE", storyTitle1:"Une vision moderne de la", storyTitle2:"cybersécurité",
-    storyP1:"NextGen Technologies est née de la volonté de créer une entreprise capable d'offrir un niveau d'expertise élevé tout en restant proche des réalités des entreprises locales.",
-    storyP2:"Notre équipe combine des expériences acquises au Maroc et à l'international afin d'apporter des standards modernes en matière d'infrastructure, sécurité offensive, défense SOC et gouvernance IT.",
-    storyP3:"Nous privilégions une approche claire, transparente et concrète : comprendre les enjeux réels de chaque entreprise et construire des solutions adaptés à ses besoins.",
-    valuesTag:"NOS VALEURS", valuesTitle1:"Ce qui construit", valuesTitle2:"NextGen",
-    valuesDesc:"Notre manière de travailler repose sur des principes simples : expertise, transparence, proximité et innovation continue.",
-    val1Title:"Excellence technique", val1Desc:"Une veille permanente et des compétences avancées dans plusieurs domaines de la cybersécurité.",
-    val2Title:"Transparence", val2Desc:"Des explications claires, des rapports compréhensibles et une vraie relation de confiance.",
-    val3Title:"Réactivité", val3Desc:"Une équipe agile capable d'intervenir rapidement face aux enjeux de sécurité modernes.",
-    val4Title:"Collaboration", val4Desc:"Nous travaillons avec nos clients comme de véritables partenaires stratégiques.",
-    ctaTitle:"Construisons une cybersécurité adaptée à votre entreprise",
-    ctaDesc:"Échangez avec notre équipe et découvrez comment renforcer vos infrastructures, vos réseaux et votre posture de sécurité.",
-    ctaBtn:"Demander un audit gratuit",
-    footerDesc:"Cybersécurité, conseil, SOC, infrastructure et sécurité offensive pour les entreprises modernes.",
+    heroTag:"NOTRE ADN",
+    heroTitle1:"Une expertise globale",
+    heroTitleAccent:"Infogérance & Sécurité",
+    heroTitle2:"Infrastructures Hautes Performances",
+    heroDesc:"NextGen Technologies s'impose comme un partenaire d'élite pour l'architecture, la gestion et la protection de vos parcs technologiques. Notre collectif d'ingénieurs certifiés combine ingénierie système avancée et défense cyber rigoureuse pour garantir une continuité opérationnelle absolue à votre organisation.",
+    panelTitle:"NextGen Scope", panelBadge:"360° MANAGEMENT",
+    hPillar1Title:"<span>01.</span> Infogérance & Systèmes", hPillar1Desc:"Supervision complète, maintenance préventive et optimisation continue de vos réseaux pour des performances maximales au quotidien.",
+    hPillar2Title:"<span>02.</span> Immunité Cyber", hPillar2Desc:"Audits intrusifs réguliers et déploiement de contre-mesures technologiques pour blinder vos infrastructures critiques contre toute intrusion.",
+    pillarsTag:"NOS FONDATIONS",
+    pillarsTitle1:"Les piliers de notre", 
+    pillarsDesc:"La culture technique de NextGen Technologies s'organise autour de trois engagements cardinaux pour propulser et sécuriser les architectures métiers de nos clients.",
+    pCard1Title:"Rigueur Opérationnelle", pCard1Desc:"Nous gérons vos systèmes informatiques complexes avec une précision mathématique. De la gestion de serveurs au cloud, nous assurons une fluidité technique parfaite alignée sur vos impératifs de croissance.",
+    pCard2Title:"Vigilance Continue", pCard2Desc:"Nos outils analysent en temps réel le comportement de vos liaisons informatiques. Cette visibilité à 360 degrés nous permet d'isoler toute anomalie de charge ou de sécurité bien avant qu'elle n'impacte vos équipes.",
+    pCard3Title:"Expertise Multi-Technologique", pCard3Desc:"Un pôle de compétences d'ingénieurs chevronnés intervient pour structurer vos politiques SI, durcir vos configurations logicielles et sanctuariser durablement vos bases de données stratégiques.",
+    highTag:"FAITS MARQUANTS", highTitle:"Une capacité globale de réalisation",
+    highP1:"Notre parcours intègre de nombreux déploiements complexes réussis, alliant l'infogérance stratégique à la sécurité applicative de pointe. NextGen Technologies conçoit des environnements résilients capables de résister aux charges les plus denses.",
+    highP2:"Grâce à une maîtrise complète du cycle de vie des infrastructures informatiques, nous supprimons les goulots d'étranglement techniques et armons les organisations contre l'ensemble des menaces modernes.",
+    stat1:"15+", stat1Label:"Années d'Expérience Cumulées",
+    stat2:"360°", stat2Label:"Gestion Systèmes & Sécurité",
+    stat3:"24/7", stat3Label:"Supervision & Monitoring Actif",
+    stat4:"100%", stat4Label:"Transparence & Rigueur d'Exécution",
+    box1Title:"Notre Vocation", box1Desc:"Piloter et sécuriser vos solutions technologiques de bout en bout, en apportant une ingénierie de pointe pour transformer votre écosystème informatique en un accélérateur de confiance commerciale.",
+    box2Title:"Standards d'Ingénierie", box2Desc:"Nos processus s'inspirent des référentiels internationaux les plus stricts en matière de gestion des services IT et d'audits de vulnérabilités, assurant une conformité parfaite à chaque étape.",
+    valuesTag:"CULTURE D'ENTREPRISE", valuesTitle1:"Les valeurs qui cimentent", valuesTitle2:"notre équipe",
+    valuesDesc:"L'ingénierie moderne exige de la cohésion, du pragmatisme et de l'éthique. Notre charte interne guide l'intégralité de nos interventions d'infogérance et de cyber-défense.",
+    val1Title:"Culture du Résultat", val1Desc:"Garantir une disponibilité maximale de vos infrastructures et des architectures hautement réactives.",
+    val2Title:"Éthique & Partenariat", val2Desc:"Bâtir une relation transparente et de confiance absolue pour devenir le prolongement naturel de vos équipes.",
+    val3Title:"Innovation Systèmes", val3Desc:"Intégrer les meilleures technologies de virtualisation, de cloud et d'automatisation informatique.",
+    val4Title:"Haute Technicité", val4Desc:"Maintenir une exigence absolue sur la qualité de nos codes de configuration et de nos rapports d'audits.",
+    ctaTitle:"Optimisons et sécurisons ensemble vos infrastructures numériques",
+    ctaDesc:"Prenez contact avec nos ingénieurs pour évaluer la performance de vos réseaux et planifier un audit global.",
+    ctaBtn:"Planifier une analyse technique",
+    footerDesc:"Ingénierie système, infogérance sur-mesure, cloud de confiance et sécurité offensive avancée.",
     footerServices:"Services", footerCompany:"Entreprise", footerLegal:"Légal",
     topPhone:"+212 728 31 28 01", topEmail:"contact@nextgentechnologies.net", topLocation:"Casablanca"
   },
   en: {
-    heroTag:"NEXTGEN TECHNOLOGIES",
-    heroTitle1:"A team of specialists",
-    heroTitleAccent:"in cybersecurity",
-    heroTitle2:"serving businesses",
-    heroDesc:"NextGen Technologies brings together experts in cybersecurity, infrastructure, SOC, cloud and network architecture to support Moroccan companies with a modern, offensive and international vision of IT security.",
-    heroBtn1:"Discover our services", heroBtn2:"Contact us",
-    stat1:"4", stat1Label:"The pillars",
-    stat2:"15+", stat2Label:"Combined years",
-    stat3:"SOC", stat3Label:"24/7 · Security Operations Center",
-    stat4:"360°", stat4Label:"Security vision",
-    panelTitle:"NextGen SOC · Threat Intelligence", panelBadge:"SYSTEM ONLINE",
-    threat1:"Intrusion Detection", threat2:"Network Monitoring", threat3:"Vulnerability Scan", threat4:"Zero Trust Active",
-    teamTag:"NEXTGEN TEAM",
-    teamTitle1:"Complementary profiles,", teamTitle2:"one mission",
-    teamDesc:"A structure built around multiple technical expertise to offer companies a comprehensive approach to modern cybersecurity.",
-    role1:"Founder & CEO · Business Development Lead",
-    role3:"Co-Founder · CTO · Infrastructure Lead",
-    role5:"Co-Founder · SOC · Pentest · Training",
-    desc1:"Operational cybersecurity, business development and strategy. Global operations coordination and client relations.",
-    desc3:"Network infrastructure expert, Cisco solutions and secure environment technical architecture.",
-    desc5:"Operational security expert, penetration testing, ISO 27001 and cyber training. Strengthens the team on offensive and defensive missions.",
-    storyTag:"OUR STORY", storyTitle1:"A modern vision of", storyTitle2:"cybersecurity",
-    storyP1:"NextGen Technologies was born from the desire to create a company capable of offering a high level of expertise while staying close to the realities of local businesses.",
-    storyP2:"Our team combines experiences acquired in Morocco and internationally to bring modern standards in infrastructure, offensive security, SOC defense and IT governance.",
-    storyP3:"We favor a clear, transparent and concrete approach: understanding the real challenges of each company and building solutions adapted to their needs.",
-    valuesTag:"OUR VALUES", valuesTitle1:"What builds", valuesTitle2:"NextGen",
-    valuesDesc:"Our way of working is based on simple principles: expertise, transparency, proximity and continuous innovation.",
-    val1Title:"Technical excellence", val1Desc:"Permanent monitoring and advanced skills in several cybersecurity domains.",
-    val2Title:"Transparency", val2Desc:"Clear explanations, understandable reports and a real trust relationship.",
-    val3Title:"Responsiveness", val3Desc:"An agile team able to intervene quickly on modern security issues.",
-    val4Title:"Collaboration", val4Desc:"We work with our clients as true strategic partners.",
-    ctaTitle:"Let's build cybersecurity adapted to your business",
-    ctaDesc:"Chat with our team and discover how to strengthen your infrastructure, networks and security posture.",
-    ctaBtn:"Request a free audit",
-    footerDesc:"Cybersecurity, consulting, SOC, infrastructure and offensive security for modern businesses.",
+    heroTag:"OUR DNA",
+    heroTitle1:"Global Expertise",
+    heroTitleAccent:"Managed Services & Security",
+    heroTitle2:"High-Performance Infrastructures",
+    heroDesc:"NextGen Technologies establishes itself as an elite partner for the architecture, management, and protection of your technology assets. Our collective of certified engineers combines advanced systems engineering and rigorous cyber defense to guarantee absolute operational continuity for your organization.",
+    panelTitle:"NextGen Scope", panelBadge:"360° MANAGEMENT",
+    hPillar1Title:"<span>01.</span> Managed Services", hPillar1Desc:"Complete supervision, preventive maintenance, and continuous optimization of your networks for maximum daily performance.",
+    hPillar2Title:"<span>02.</span> Cyber Immunity", hPillar2Desc:"Regular intrusive audits and technological countermeasure deployment to shield your critical infrastructures against any intrusion.",
+    pillarsTag:"OUR FOUNDATIONS",
+    pillarsTitle1:"The Pillars of Our", 
+    pillarsDesc:"The technical culture of NextGen Technologies revolves around three cardinal commitments to propel and secure the business architectures of our clients.",
+    pCard1Title:"Operational Rigor", pCard1Desc:"We manage your complex computer systems with mathematical precision. From server management to cloud solutions, we ensure perfect technical fluidity aligned with your growth imperatives.",
+    pCard2Title:"Continuous Vigilance", pCard2Desc:"Our tools analyze the behavior of your IT connections in real time. This 360-degree visibility allows us to isolate any load or security anomaly long before it impacts your teams.",
+    pCard3Title:"Multi-Tech Expertise", pCard3Desc:"A dedicated skills core of seasoned engineers intervenes to structure your IT policies, harden software configurations, and permanently shield your strategic databases.",
+    highTag:"HIGHLIGHTS", highTitle:"A Global Delivery Capability",
+    highP1:"Our trajectory includes many successful complex deployments, combining strategic managed services with cutting-edge application security. NextGen Technologies designs resilient environments capable of withstanding the densest loads.",
+    highP2:"Thanks to complete mastery of the IT infrastructure lifecycle, we eliminate technical bottlenecks and arm organizations against modern threats.",
+    stat1:"15+", stat1Label:"Combined Years of Experience",
+    stat2:"360°", stat2Label:"Systems & Security Management",
+    stat3:"24/7", stat3Label:"Active Monitoring & Supervision",
+    stat4:"100%", stat4Label:"Transparency & Execution Rigor",
+    box1Title:"Our Vocation", box1Desc:"To pilot and secure your technological solutions from end to end, bringing top engineering to transform your IT ecosystem into an accelerator of commercial trust.",
+    box2Title:"Engineering Standards", box2Desc:"Our processes draw inspiration from the strictest international frameworks regarding IT service management and vulnerability audits, ensuring perfect compliance at every stage.",
+    valuesTag:"CORPORATE CULTURE", valuesTitle1:"The Core Values", valuesTitle2:"Cementing Our Team",
+    valuesDesc:"Modern engineering demands cohesion, pragmatism, and ethics. Our internal charter guides the entirety of our managed services and cyber defense interventions.",
+    val1Title:"Results Culture", val1Desc:"Guaranteeing maximum availability of your infrastructures and highly responsive architectures.",
+    val2Title:"Ethics & Partnership", val2Desc:"Building a transparent relationship of absolute trust to become the natural extension of your teams.",
+    val3Title:"Systems Innovation", val3Desc:"Integrating the best technologies for virtualization, cloud deployment, and computing automation.",
+    val4Title:"High Technicality", val4Desc:"Maintaining an absolute requirement on the quality of our configuration codes and audit reports.",
+    ctaTitle:"Let's optimize and secure your digital infrastructures together",
+    ctaDesc:"Get in touch with our engineers to evaluate your networks' performance and schedule a global audit.",
+    ctaBtn:"Schedule a technical analysis",
+    footerDesc:"Systems engineering, tailored managed services, trusted cloud, and advanced offensive security.",
     footerServices:"Services", footerCompany:"Company", footerLegal:"Legal",
     topPhone:"+212 728 31 28 01", topEmail:"contact@nextgentechnologies.net", topLocation:"Casablanca"
   }
@@ -697,6 +684,70 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 });
 
 applyLanguage(currentLang);
+
+// CANVAS INTERACTIF ET ANIMÉ CYBER (TOP EFFECT)
+const canvas = document.getElementById('cyber-canvas');
+const ctx = canvas.getContext('2d');
+
+let width = canvas.width = window.innerWidth;
+let height = canvas.height = window.innerHeight;
+
+window.addEventListener('resize', () => {
+  width = canvas.width = window.innerWidth;
+  height = canvas.height = window.innerHeight;
+});
+
+class CyberNode {
+  constructor() {
+    this.x = Math.random() * width;
+    this.y = Math.random() * height;
+    this.vx = (Math.random() - 0.5) * 0.4;
+    this.vy = (Math.random() - 0.5) * 0.4;
+    this.radius = Math.random() * 2 + 1;
+  }
+  update() {
+    this.x += this.vx;
+    this.y += this.vy;
+    if (this.x < 0 || this.x > width) this.vx *= -1;
+    if (this.y < 0 || this.y > height) this.vy *= -1;
+  }
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(0, 212, 255, 0.4)';
+    ctx.fill();
+  }
+}
+
+const nodes = [];
+const maxNodes = 65;
+for(let i = 0; i < maxNodes; i++) {
+  nodes.push(new CyberNode());
+}
+
+function animateCyberBackground() {
+  ctx.clearRect(0, 0, width, height);
+  
+  // Tracé des mailles réseau
+  for(let i = 0; i < nodes.length; i++) {
+    nodes[i].update();
+    nodes[i].draw();
+    
+    for(let j = i + 1; j < nodes.length; j++) {
+      const dist = Math.hypot(nodes[i].x - nodes[j].x, nodes[i].y - nodes[j].y);
+      if (dist < 130) {
+        ctx.beginPath();
+        ctx.moveTo(nodes[i].x, nodes[i].y);
+        ctx.lineTo(nodes[j].x, nodes[j].y);
+        ctx.strokeStyle = `rgba(0, 212, 255, ${0.15 * (1 - dist/130)})`;
+        ctx.lineWidth = 0.8;
+        ctx.stroke();
+      }
+    }
+  }
+  requestAnimationFrame(animateCyberBackground);
+}
+animateCyberBackground();
 </script>
 </body>
 </html>
