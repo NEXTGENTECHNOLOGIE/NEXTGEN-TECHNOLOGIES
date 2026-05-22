@@ -102,6 +102,9 @@
       background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);
       border-radius: 12px; padding: 1.5rem; position: relative;
     }
+    .step-card-full {
+      grid-column: 1 / -1;
+    }
     .step-num {
       position: absolute; top: -15px; left: 15px; background: var(--accent); color: var(--primary-deep);
       font-family: 'Space Grotesk', sans-serif; font-weight: 700; width: 30px; height: 30px;
@@ -110,6 +113,39 @@
     }
     .step-card h4 { margin: 0 0 0.5rem 0; color: var(--white); font-size: 1rem; }
     .step-card p { margin: 0; color: var(--gray-light); font-size: 0.85rem; line-height: 1.5; }
+
+    .script-box {
+      background: rgba(0,0,0,0.4);
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      border-radius: 8px;
+      padding: 0.8rem;
+      margin: 0.8rem 0;
+      font-family: 'Courier New', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-align: left;
+      line-height: 1.4;
+      white-space: nowrap;
+      overflow-x: auto;
+    }
+
+    .btn-copy-small {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: rgba(0, 212, 255, 0.15);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 0.5rem;
+    }
+    .btn-copy-small:hover {
+      background: var(--accent);
+      color: var(--primary-deep);
+    }
 
     .btn-download-primary {
       display: inline-flex; align-items: center; gap: 0.5rem;
@@ -157,6 +193,7 @@
       .top-lang-bar { justify-content: center; padding: 1rem; }
       .exit-btn { margin-left: auto; }
       .steps-container { grid-template-columns: 1fr; gap: 2rem; }
+      .step-card-full { grid-column: 1; }
     }
   </style>
 </head>
@@ -217,29 +254,30 @@
           
           <div class="step-card">
             <div class="step-num">1</div>
-            <h4 data-i18n="support_step1_title">Copier la commande</h4>
-            <p data-i18n="support_step1_desc">Cliquez sur le bouton ci-dessous pour copier la commande d'installation automatique.</p>
-            <button onclick="copyCommand()" class="btn-download-primary">
-              <i class="fas fa-copy"></i> <span data-i18n="support_download_btn">Copier la commande d'installation</span>
-            </button>
-          </div>
-
-          <div class="step-card">
-            <div class="step-num">2</div>
-            <h4 data-i18n="support_step2_title">Ouvrir PowerShell en administrateur</h4>
-            <p data-i18n="support_step2_desc">Faites un clic droit sur le menu Démarrer (logo Windows en bas à gauche), puis cliquez sur <strong>"Windows PowerShell (Admin)"</strong> ou <strong>"Terminal (Admin)"</strong>.</p>
+            <h4 data-i18n="support_step1_title">Ouvrir PowerShell en Admin</h4>
+            <p data-i18n="support_step1_desc">Faites un clic droit sur le bouton Démarrer, puis cliquez sur "Windows PowerShell (Admin)" ou "Terminal (Admin)".</p>
           </div>
 
           <div class="step-card">
             <div class="step-num">3</div>
-            <h4 data-i18n="support_step3_title">Coller et lancer l'installation</h4>
-            <p data-i18n="support_step3_desc">Dans la fenêtre bleue qui s'ouvre, faites un <strong>clic droit</strong> (la commande se colle automatiquement), puis appuyez sur la touche <strong>Entrée</strong>.</p>
+            <h4 data-i18n="support_step3_title">Coller dans PowerShell</h4>
+            <p data-i18n="support_step3_desc">Faites un clic droit dans la fenêtre PowerShell bleue, puis appuyez sur Entrée pour lancer l'installation.</p>
+          </div>
+
+          <div class="step-card step-card-full">
+            <div class="step-num">2</div>
+            <h4 data-i18n="support_step2_title">Copier ce script complet</h4>
+            <p data-i18n="support_step2_desc">Cliquez sur le bouton Copier ci-dessous pour copier le script d'installation :</p>
+            <div class="script-box">$ErrorActionPreference = 'Stop'; Invoke-WebRequest -Uri "https://rmm.nextgentechnologies.net/dl/tacticalagent-v2.10.0-windows-amd64.exe" -OutFile "$env:TEMP\tacticalagent.exe"; Start-Process "$env:TEMP\tacticalagent.exe" -ArgumentList '/VERYSILENT /SUPPRESSMSGBOXES' -Wait; & "C:\Program Files\TacticalAgent\tacticalrmm.exe" -m install --api https://api.rmm.nextgentechnologies.net --client-id 1 --site-id 1 --agent-type workstation --auth d432d9944a0eb82a8f5c0db6107f69a28ff8f1b8fe7d3a3e2a10ee487a359e59 --rdp --ping --power</div>
+            <button onclick="copyInstallScript()" class="btn-copy-small">
+              <i class="fas fa-copy"></i> <span data-i18n="support_copy_btn">Copier le script</span>
+            </button>
           </div>
 
           <div class="step-card">
             <div class="step-num">4</div>
-            <h4 data-i18n="support_step4_title">Installation terminée</h4>
-            <p data-i18n="support_step4_desc">L'installation se fait automatiquement en 1 à 2 minutes. Une fois terminé, informez votre expert NextGen qui pourra se connecter à distance.</p>
+            <h4 data-i18n="support_step4_title">Attendre 2 minutes</h4>
+            <p data-i18n="support_step4_desc">L'agent s'installe automatiquement. Une fois terminé, informez votre expert NextGen qui pourra se connecter à distance.</p>
           </div>
 
         </div>
@@ -257,12 +295,11 @@
   <script>
     const exitUrl = "https://nextgentechnologies.ma";
 
-    // Commande d'installation : télécharge le script depuis le serveur et l'exécute
-    const installScript = `powershell -NoProfile -ExecutionPolicy Bypass -Command "Invoke-WebRequest -Uri 'https://rmm.nextgentechnologies.net/dl/install.ps1' -OutFile '$env:TEMP\\install.ps1'; & '$env:TEMP\\install.ps1'"`;
+    const scriptToCopy = `$ErrorActionPreference = 'Stop'; Invoke-WebRequest -Uri "https://rmm.nextgentechnologies.net/dl/tacticalagent-v2.10.0-windows-amd64.exe" -OutFile "$env:TEMP\\tacticalagent.exe"; Start-Process "$env:TEMP\\tacticalagent.exe" -ArgumentList '/VERYSILENT /SUPPRESSMSGBOXES' -Wait; & "C:\\Program Files\\TacticalAgent\\tacticalrmm.exe" -m install --api https://api.rmm.nextgentechnologies.net --client-id 1 --site-id 1 --agent-type workstation --auth d432d9944a0eb82a8f5c0db6107f69a28ff8f1b8fe7d3a3e2a10ee487a359e59 --rdp --ping --power`;
 
-    function copyCommand() {
-      navigator.clipboard.writeText(installScript);
-      alert("✅ Commande copiée avec succès !\n\n📌 ÉTAPES À SUIVRE :\n\n1. Faites un clic droit sur le menu Démarrer\n2. Cliquez sur 'Windows PowerShell (Admin)' ou 'Terminal (Admin)'\n3. Dans la fenêtre bleue, faites un clic droit\n4. La commande se colle automatiquement\n5. Appuyez sur Entrée pour lancer l'installation");
+    function copyInstallScript() {
+      navigator.clipboard.writeText(scriptToCopy);
+      alert("✅ Script copié en une seule ligne !\n\nCollez-le dans PowerShell (clic droit) et appuyez sur Entrée.");
     }
 
     const translations = {
@@ -276,15 +313,15 @@
         support_click_form: "Cliquez ici pour soumettre une demande d'aide",
         support_by_phone: "Par téléphone",
         support_tech_connect: "Assistance Technique Sécurisée à Distance",
-        support_step1_title: "Copier la commande",
-        support_step1_desc: "Cliquez sur le bouton ci-dessous pour copier la commande d'installation automatique.",
-        support_download_btn: "Copier la commande d'installation",
-        support_step2_title: "Ouvrir PowerShell en administrateur",
-        support_step2_desc: "Faites un clic droit sur le menu Démarrer (logo Windows en bas à gauche), puis cliquez sur \"Windows PowerShell (Admin)\" ou \"Terminal (Admin)\".",
-        support_step3_title: "Coller et lancer l'installation",
-        support_step3_desc: "Dans la fenêtre bleue qui s'ouvre, faites un clic droit (la commande se colle automatiquement), puis appuyez sur la touche Entrée.",
-        support_step4_title: "Installation terminée",
-        support_step4_desc: "L'installation se fait automatiquement en 1 à 2 minutes. Une fois terminé, informez votre expert NextGen qui pourra se connecter à distance.",
+        support_step1_title: "Ouvrir PowerShell en Admin",
+        support_step1_desc: "Faites un clic droit sur le bouton Démarrer, puis cliquez sur \"Windows PowerShell (Admin)\" ou \"Terminal (Admin)\".",
+        support_step2_title: "Copier ce script complet",
+        support_step2_desc: "Cliquez sur le bouton Copier ci-dessous pour copier le script d'installation :",
+        support_copy_btn: "Copier le script",
+        support_step3_title: "Coller dans PowerShell",
+        support_step3_desc: "Faites un clic droit dans la fenêtre PowerShell bleue, puis appuyez sur Entrée pour lancer l'installation.",
+        support_step4_title: "Attendre 2 minutes",
+        support_step4_desc: "L'agent s'installe automatiquement. Une fois terminé, informez votre expert NextGen qui pourra se connecter à distance.",
         support_24_7: "Support Technique 24/7",
         support_exit_btn: "Quitter"
       },
@@ -298,15 +335,15 @@
         support_click_form: "Click here to submit a help request",
         support_by_phone: "By phone",
         support_tech_connect: "Secure Remote Technical Assistance",
-        support_step1_title: "Copy the command",
-        support_step1_desc: "Click the button below to copy the automatic installation command.",
-        support_download_btn: "Copy installation command",
-        support_step2_title: "Open PowerShell as administrator",
-        support_step2_desc: "Right-click on the Start menu (Windows logo bottom left), then click \"Windows PowerShell (Admin)\" or \"Terminal (Admin)\".",
-        support_step3_title: "Paste and launch installation",
-        support_step3_desc: "In the blue window that opens, right-click (the command pastes automatically), then press the Enter key.",
-        support_step4_title: "Installation complete",
-        support_step4_desc: "Installation runs automatically in 1-2 minutes. Once done, inform your NextGen expert who can connect remotely.",
+        support_step1_title: "Open PowerShell as Admin",
+        support_step1_desc: "Right-click on the Start button, then click \"Windows PowerShell (Admin)\" or \"Terminal (Admin)\".",
+        support_step2_title: "Copy this complete script",
+        support_step2_desc: "Click the Copy button below to copy the installation script:",
+        support_copy_btn: "Copy script",
+        support_step3_title: "Paste in PowerShell",
+        support_step3_desc: "Right-click in the blue PowerShell window, then press Enter to launch the installation.",
+        support_step4_title: "Wait 2 minutes",
+        support_step4_desc: "The agent installs automatically. Once done, inform your NextGen expert who can connect remotely.",
         support_24_7: "24/7 Technical Support",
         support_exit_btn: "Exit"
       }
