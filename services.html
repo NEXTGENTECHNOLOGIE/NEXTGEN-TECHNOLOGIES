@@ -266,6 +266,16 @@ a { text-decoration: none; }
 }
 .modal-features li:last-child { border-bottom: none; }
 .modal-features li i { color: var(--accent); margin-top: 0.15rem; flex-shrink: 0; }
+/* Style personnalisé pour les images miniatures dans les features */
+.modal-features li img.feature-card-img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  margin-top: 0.5rem;
+  display: block;
+}
 
 .modal-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-bottom: 2rem; }
 .modal-stat { background: rgba(0,212,255,0.06); border: 1px solid rgba(0,212,255,0.1); border-radius: 14px; padding: 1rem; text-align: center; }
@@ -525,7 +535,7 @@ footer {
 
 <script>
 // ========================
-// DONNÉES SERVICES (7 SERVICES)
+// DONNÉES SERVICES (8 SERVICES)
 // ========================
 const servicesData = {
   fr: [
@@ -544,7 +554,7 @@ const servicesData = {
     {
       title: "Pentest / VAPT",
       badge: "Offensif",
-      desc: "On teste votre système comme un hacker.",
+      desc: "On teste votre systeme comme un hacker.",
       img: "vapt.webp",
       link: "vapt.html",
       tag: "Sécurité offensive",
@@ -627,7 +637,27 @@ const servicesData = {
       ],
       tags: ["Supervision", "NOC", "SLA", "Monitoring"]
     },
-    { title: "Support IT & Infogérance", badge: "Managé", desc: "Supervision, maintenance et support de votre infrastructure IT. Forfaits mensuels adaptés aux PME.", img: "support-distance.jpg", link: "infogerance.html", tag: "Services Managés", longDesc: "Nous accompagnons les entreprises dans la gestion, la maintenance et la sécurisation de leur infrastructure informatique. Nos services incluent : support technique à distance, maintenance des postes et serveurs, gestion réseau et surveillance des systèmes, assistance utilisateurs et helpdesk, gestion Microsoft 365 et services cloud, sauvegarde et protection des données, monitoring et supervision proactive, cybersécurité et protection des accès. Notre objectif est d'assurer la stabilité, la performance et la sécurité des environnements informatiques de nos clients grâce à un support réactif et des services managés adaptés à leurs besoins.", stats: [{num:"24/7", lbl:"Supervision"},{num:"<1h", lbl:"Temps de réponse"},{num:"100%", lbl:"À distance"}], features: ["Support technique à distance","Maintenance des postes et serveurs","Gestion réseau et surveillance des systèmes","Assistance utilisateurs et helpdesk","Gestion Microsoft 365 et services cloud","Sauvegarde et protection des données","Monitoring et supervision proactive","Cybersécurité et protection des accès"], tags: ["RMM", "Helpdesk", "Infogérance"] }
+    { 
+      title: "Support IT & Infogérance", 
+      badge: "Managé", 
+      desc: "Supervision, maintenance et support de votre infrastructure IT. Forfaits mensuels adaptés aux PME.", 
+      img: "Support IT-Infogérance.jpg", 
+      link: "infogerance.html", 
+      tag: "Services Managés", 
+      longDesc: "Nous accompagnons les entreprises dans la gestion, la maintenance et la sécurisation de leur infrastructure informatique. Notre objectif est d'assurer la stabilité, la performance et la sécurité des environnements informatiques de nos clients grâce à un support réactif et des services managés adaptés à leurs besoins.", 
+      stats: [{num:"24/7", lbl:"Supervision"},{num:"<1h", lbl:"Temps de réponse"},{num:"100%", lbl:"À distance"}], 
+      features: [
+        "<div style='display:flex; flex-direction:column;'><span>Support technique à distance</span><img src='support-distance.jpg' alt='Support technique à distance' class='feature-card-img'></div>",
+        "Maintenance des postes et serveurs",
+        "Gestion réseau et surveillance des systèmes",
+        "Assistance utilisateurs et helpdesk",
+        "Gestion Microsoft 365 et services cloud",
+        "Sauvegarde et protection des données",
+        "Monitoring et supervision proactive",
+        "Cybersécurité et protection des accès"
+      ], 
+      tags: ["RMM", "Helpdesk", "Infogérance"] 
+    }
   ],
   en: [
     {
@@ -687,7 +717,7 @@ const servicesData = {
       tag: "Training & Academy",
       longDesc: "Professional cybersecurity training programs for your teams and future experts. Intensive bootcamps, international certifications and user awareness.",
       stats: [{num:"12+", lbl:"Trainings"},{num:"CompTIA", lbl:"Certifications"},{num:"100%", lbl:"Hands-on"}],
-      features: ["SOC Analyst & Pentester bootcamps","Certification prep (Security+, CEH, CISSP)","Cloud Security training (Azure, AWS)","Cybersecurity awareness for all employees","Custom training based on your needs"],
+      features: ["SOC Analyst & Pentester bootcamps","Certification prep (Security+, CCNA, CISSP)","Cloud Security training (Azure, AWS)","Cybersecurity awareness for all employees","Custom training based on your needs"],
       tags: ["Certification", "Bootcamp", "Hands-on"]
     },
     {
@@ -728,7 +758,27 @@ const servicesData = {
       ],
       tags: ["Monitoring", "NOC", "SLA", "24/7"]
     },
-    { title: "IT Support & Managed Services", badge: "Managed", desc: "Supervision, maintenance and support for your IT infrastructure. Monthly packages for SMBs.", img: "Support IT-Infogérance.jpg", link: "infogerance.html", tag: "Managed Services", longDesc: "We support businesses in managing, maintaining and securing their IT infrastructure. Our services include: remote technical support, workstation and server maintenance, network management and system monitoring, user assistance and helpdesk, Microsoft 365 and cloud services management, data backup and protection, proactive monitoring and supervision, cybersecurity and access protection. Our goal is to ensure the stability, performance and security of our clients IT environments through responsive support and managed services tailored to their needs.", stats: [{num:"24/7", lbl:"Monitoring"},{num:"<1h", lbl:"Response time"},{num:"100%", lbl:"Remote"}], features: ["Remote technical support","Workstation and server maintenance","Network management and system monitoring","User assistance and helpdesk","Microsoft 365 and cloud services management","Data backup and protection","Proactive monitoring and supervision","Cybersecurity and access protection"], tags: ["RMM", "Helpdesk", "Managed IT"] }
+    { 
+      title: "IT Support & Managed Services", 
+      badge: "Managed", 
+      desc: "Supervision, maintenance and support for your IT infrastructure. Monthly packages for SMBs.", 
+      img: "Support IT-Infogérance.jpg", 
+      link: "infogerance.html", 
+      tag: "Managed Services", 
+      longDesc: "We support businesses in managing, maintaining and securing their IT infrastructure. Our goal is to ensure the stability, performance and security of our clients IT environments through responsive support and managed services tailored to their needs.", 
+      stats: [{num:"24/7", lbl:"Monitoring"},{num:"<1h", lbl:"Response time"},{num:"100%", lbl:"Remote"}], 
+      features: [
+        "<div style='display:flex; flex-direction:column;'><span>Remote technical support</span><img src='support-distance.jpg' alt='Remote technical support' class='feature-card-img'></div>",
+        "Workstation and server maintenance",
+        "Network management and system monitoring",
+        "User assistance and helpdesk",
+        "Microsoft 365 and cloud services management",
+        "Data backup and protection",
+        "Proactive monitoring and supervision",
+        "Cybersecurity and access protection"
+      ], 
+      tags: ["RMM", "Helpdesk", "Managed IT"] 
+    }
   ]
 };
 
@@ -819,7 +869,13 @@ function openModal(index) {
   statsEl.innerHTML = s.stats.map(st => `<div class="modal-stat"><div class="num">${st.num}</div><div class="lbl">${st.lbl}</div></div>`).join('');
 
   const featEl = document.getElementById('modalFeatures');
-  featEl.innerHTML = s.features.map(f => `<li><i class="fas fa-check-circle"></i> ${f}</li>`).join('');
+  // Injecte la feature de façon brute si elle contient une balise (comme l'image), ou avec l'icône de liste par défaut
+  featEl.innerHTML = s.features.map(f => {
+    if (f.includes('<div') || f.includes('<img')) {
+      return `<li style="display:flex; align-items:flex-start; gap:0.8rem;"><i class="fas fa-check-circle" style="margin-top:0.25rem;"></i> ${f}</li>`;
+    }
+    return `<li><i class="fas fa-check-circle"></i> ${f}</li>`;
+  }).join('');
 
   document.getElementById('modalBackdrop').classList.add('open');
   document.body.style.overflow = 'hidden';
