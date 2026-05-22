@@ -218,7 +218,7 @@
           <div class="step-card">
             <div class="step-num">1</div>
             <h4 data-i18n="support_step1_title">Copier la commande</h4>
-            <p data-i18n="support_step1_desc">Cliquez ci-dessous pour copier la commande d'installation.</p>
+            <p data-i18n="support_step1_desc">Cliquez sur le bouton ci-dessous pour copier la commande d'installation automatique.</p>
             <button onclick="copyCommand()" class="btn-download-primary">
               <i class="fas fa-copy"></i> <span data-i18n="support_download_btn">Copier la commande d'installation</span>
             </button>
@@ -226,20 +226,20 @@
 
           <div class="step-card">
             <div class="step-num">2</div>
-            <h4 data-i18n="support_step2_title">Ouvrir PowerShell</h4>
-            <p data-i18n="support_step2_desc">Faites un clic droit sur le menu Démarrer, puis cliquez sur "Windows PowerShell (Admin)" ou "Terminal (Admin)".</p>
+            <h4 data-i18n="support_step2_title">Ouvrir PowerShell en administrateur</h4>
+            <p data-i18n="support_step2_desc">Faites un clic droit sur le menu Démarrer (logo Windows en bas à gauche), puis cliquez sur <strong>"Windows PowerShell (Admin)"</strong> ou <strong>"Terminal (Admin)"</strong>.</p>
           </div>
 
           <div class="step-card">
             <div class="step-num">3</div>
-            <h4 data-i18n="support_step3_title">Coller et exécuter</h4>
-            <p data-i18n="support_step3_desc">Faites un clic droit dans la fenêtre PowerShell, la commande se colle automatiquement, puis appuyez sur Entrée.</p>
+            <h4 data-i18n="support_step3_title">Coller et lancer l'installation</h4>
+            <p data-i18n="support_step3_desc">Dans la fenêtre bleue qui s'ouvre, faites un <strong>clic droit</strong> (la commande se colle automatiquement), puis appuyez sur la touche <strong>Entrée</strong>.</p>
           </div>
 
           <div class="step-card">
             <div class="step-num">4</div>
-            <h4 data-i18n="support_step4_title">Connexion établie</h4>
-            <p data-i18n="support_step4_desc">L'installation se fait automatiquement. Informez votre expert NextGen, il se connectera à distance.</p>
+            <h4 data-i18n="support_step4_title">Installation terminée</h4>
+            <p data-i18n="support_step4_desc">L'installation se fait automatiquement en 1 à 2 minutes. Une fois terminé, informez votre expert NextGen qui pourra se connecter à distance.</p>
           </div>
 
         </div>
@@ -257,69 +257,12 @@
   <script>
     const exitUrl = "https://nextgentechnologies.ma";
 
-    const installScript = `@'
-# author: https://github.com/bradhawkins85
-$innosetup = 'tacticalagent-v2.10.0-windows-amd64.exe'
-$api = '"https://rmm.nextgentechnologies.net"'
-$clientid = '1'
-$siteid = '1'
-$agenttype = '"workstation"'
-$power = 0
-$rdp = 1
-$ping = 0
-$auth = '"c3b631abe9ea24977e565cf4d934240ff425f6ff5f764d1cc00c6ab169f67da0"'
-$downloadlink = 'https://github.com/amidaware/rmmagent/releases/download/v2.10.0/tacticalagent-v2.10.0-windows-amd64.exe'
-$apilink = $downloadlink.split('/')
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-$serviceName = 'tacticalrmm'
-If (Get-Service $serviceName -ErrorAction SilentlyContinue) {
-    write-host ('Tactical RMM Is Already Installed')
-} Else {
-    $OutPath = $env:TMP
-    $output = $innosetup
-    $installArgs = @('-m install --api ', "$api", '--client-id', $clientid, '--site-id', $siteid, '--agent-type', "$agenttype", '--auth', "$auth")
-    if ($power) { $installArgs += "--power" }
-    if ($rdp) { $installArgs += "--rdp" }
-    if ($ping) { $installArgs += "--ping" }
-    Try {
-        $DefenderStatus = Get-MpComputerStatus | select AntivirusEnabled
-        if ($DefenderStatus -match "True") {
-            Add-MpPreference -ExclusionPath 'C:\\Program Files\\TacticalAgent\\*'
-            Add-MpPreference -ExclusionPath 'C:\\Program Files\\Mesh Agent\\*'
-            Add-MpPreference -ExclusionPath 'C:\\ProgramData\\TacticalRMM\\*'
-        }
-    } Catch { }
-    $X = 0
-    do {
-      Write-Output "Waiting for network"
-      Start-Sleep -s 5
-      $X += 1
-    } until(($connectresult = Test-NetConnection $apilink[2] -Port 443 | ? { $_.TcpTestSucceeded }) -or $X -eq 3)
-    if ($connectresult.TcpTestSucceeded -eq $true){
-        Try {
-            Invoke-WebRequest -Uri $downloadlink -OutFile $OutPath\\$output
-            Start-Process -FilePath $OutPath\\$output -ArgumentList ('/VERYSILENT /SUPPRESSMSGBOXES') -Wait
-            write-host ('Extracting...')
-            Start-Sleep -s 5
-            Start-Process -FilePath "C:\\Program Files\\TacticalAgent\\tacticalrmm.exe" -ArgumentList $installArgs -Wait
-            exit 0
-        } Catch {
-            $ErrorMessage = $_.Exception.Message
-            $FailedItem = $_.Exception.ItemName
-            Write-Error -Message "$ErrorMessage $FailedItem"
-            exit 1
-        } Finally {
-            Remove-Item -Path $OutPath\\$output
-        }
-    } else {
-        Write-Output "Unable to connect to server"
-    }
-}
-'@ | Out-File -FilePath $env:TEMP\\install.ps1 -Encoding ASCII; powershell -NoProfile -ExecutionPolicy Bypass -File $env:TEMP\\install.ps1`;
+    // Commande d'installation : télécharge le script depuis le serveur et l'exécute
+    const installScript = `powershell -NoProfile -ExecutionPolicy Bypass -Command "Invoke-WebRequest -Uri 'https://rmm.nextgentechnologies.net/dl/install.ps1' -OutFile '$env:TEMP\\install.ps1'; & '$env:TEMP\\install.ps1'"`;
 
     function copyCommand() {
       navigator.clipboard.writeText(installScript);
-      alert("✅ Commande copiée !\n\nOuvrez PowerShell en tant qu'administrateur (clic droit sur Démarrer > PowerShell Admin).\n\nFaites clic droit dans la fenêtre et appuyez sur Entrée.");
+      alert("✅ Commande copiée avec succès !\n\n📌 ÉTAPES À SUIVRE :\n\n1. Faites un clic droit sur le menu Démarrer\n2. Cliquez sur 'Windows PowerShell (Admin)' ou 'Terminal (Admin)'\n3. Dans la fenêtre bleue, faites un clic droit\n4. La commande se colle automatiquement\n5. Appuyez sur Entrée pour lancer l'installation");
     }
 
     const translations = {
@@ -334,14 +277,14 @@ If (Get-Service $serviceName -ErrorAction SilentlyContinue) {
         support_by_phone: "Par téléphone",
         support_tech_connect: "Assistance Technique Sécurisée à Distance",
         support_step1_title: "Copier la commande",
-        support_step1_desc: "Cliquez ci-dessous pour copier la commande d'installation.",
+        support_step1_desc: "Cliquez sur le bouton ci-dessous pour copier la commande d'installation automatique.",
         support_download_btn: "Copier la commande d'installation",
-        support_step2_title: "Ouvrir PowerShell",
-        support_step2_desc: "Faites un clic droit sur le menu Démarrer, puis cliquez sur \"Windows PowerShell (Admin)\" ou \"Terminal (Admin)\".",
-        support_step3_title: "Coller et exécuter",
-        support_step3_desc: "Faites un clic droit dans la fenêtre PowerShell, la commande se colle automatiquement, puis appuyez sur Entrée.",
-        support_step4_title: "Connexion établie",
-        support_step4_desc: "L'installation se fait automatiquement. Informez votre expert NextGen, il se connectera à distance.",
+        support_step2_title: "Ouvrir PowerShell en administrateur",
+        support_step2_desc: "Faites un clic droit sur le menu Démarrer (logo Windows en bas à gauche), puis cliquez sur \"Windows PowerShell (Admin)\" ou \"Terminal (Admin)\".",
+        support_step3_title: "Coller et lancer l'installation",
+        support_step3_desc: "Dans la fenêtre bleue qui s'ouvre, faites un clic droit (la commande se colle automatiquement), puis appuyez sur la touche Entrée.",
+        support_step4_title: "Installation terminée",
+        support_step4_desc: "L'installation se fait automatiquement en 1 à 2 minutes. Une fois terminé, informez votre expert NextGen qui pourra se connecter à distance.",
         support_24_7: "Support Technique 24/7",
         support_exit_btn: "Quitter"
       },
@@ -356,14 +299,14 @@ If (Get-Service $serviceName -ErrorAction SilentlyContinue) {
         support_by_phone: "By phone",
         support_tech_connect: "Secure Remote Technical Assistance",
         support_step1_title: "Copy the command",
-        support_step1_desc: "Click below to copy the installation command.",
+        support_step1_desc: "Click the button below to copy the automatic installation command.",
         support_download_btn: "Copy installation command",
-        support_step2_title: "Open PowerShell",
-        support_step2_desc: "Right-click on the Start menu, then click \"Windows PowerShell (Admin)\" or \"Terminal (Admin)\".",
-        support_step3_title: "Paste and execute",
-        support_step3_desc: "Right-click in the PowerShell window, the command pastes automatically, then press Enter.",
-        support_step4_title: "Connection established",
-        support_step4_desc: "Installation runs automatically. Inform your NextGen expert, they will connect remotely.",
+        support_step2_title: "Open PowerShell as administrator",
+        support_step2_desc: "Right-click on the Start menu (Windows logo bottom left), then click \"Windows PowerShell (Admin)\" or \"Terminal (Admin)\".",
+        support_step3_title: "Paste and launch installation",
+        support_step3_desc: "In the blue window that opens, right-click (the command pastes automatically), then press the Enter key.",
+        support_step4_title: "Installation complete",
+        support_step4_desc: "Installation runs automatically in 1-2 minutes. Once done, inform your NextGen expert who can connect remotely.",
         support_24_7: "24/7 Technical Support",
         support_exit_btn: "Exit"
       }
