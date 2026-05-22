@@ -296,7 +296,6 @@ a { text-decoration: none; }
 
 /* CTA SECTION */
 .cta-block { background: linear-gradient(135deg, var(--primary-light), var(--primary)); text-align: center; padding: 5rem 4%; position: relative; overflow: hidden; }
-.cta-block::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(0,212,255,0.1) 0%, transparent 60%); }
 .cta-block-content { max-width: 700px; margin: 0 auto; position: relative; z-index: 2; }
 .cta-block h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--white); margin-bottom: 1rem; }
 .cta-block p { color: var(--gray-light); margin-bottom: 2rem; }
@@ -304,61 +303,71 @@ a { text-decoration: none; }
 .btn-primary:hover { background: var(--accent); color: var(--primary); transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,212,255,0.3); }
 
 /* FOOTER */
-footer { background: var(--primary-deep); border-top: 1px solid rgba(0,212,255,0.1); padding: 3rem 4% 1.5rem; }
-.footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
-.footer-brand p { color: var(--gray-mid); font-size: 0.88rem; margin: 1rem 0; }
-.footer-col h4 { color: var(--white); font-size: 0.92rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.08em; }
-.footer-col ul { list-style: none; }
-.footer-col ul li { margin-bottom: 0.6rem; }
-.footer-col ul a { color: var(--gray-light); font-size: 0.88rem; transition: var(--transition); }
-.footer-col ul a:hover { color: var(--accent); }
-.footer-bottom { max-width: 1400px; margin: 0 auto; padding-top: 1.5rem; border-top: 1px solid rgba(0,212,255,0.1); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; color: var(--gray-mid); }
-
-/* CHATBOT */
-.chatbot-button { position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.6rem; cursor: pointer; box-shadow: 0 6px 25px rgba(0,212,255,0.5); z-index: 998; transition: var(--transition); border: 2px solid rgba(255,255,255,0.2); }
-.chatbot-button:hover { transform: scale(1.1); }
-.chatbot-pulse { position: absolute; top: -3px; right: -3px; width: 14px; height: 14px; background: var(--red); border-radius: 50%; border: 2px solid white; animation: chatPulse 2s infinite; }
-@keyframes chatPulse { 0%,100%{transform:scale(1);opacity:1;} 50%{transform:scale(1.3);opacity:0.7;} }
-.chatbot-window { position: fixed; bottom: 100px; right: 25px; width: 380px; max-width: calc(100vw - 50px); height: 540px; background: #071426; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.4); z-index: 999; display: none; flex-direction: column; overflow: hidden; border: 1px solid rgba(0,212,255,0.15); }
-.chatbot-window.open { display: flex; }
-.chatbot-header { background: linear-gradient(135deg, #0A1628, #1E3A5F); color: white; padding: 1rem; display: flex; align-items: center; gap: 0.8rem; border-bottom: 1px solid rgba(0,212,255,0.1); }
-.chatbot-avatar { width: 44px; height: 44px; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: var(--primary); }
-.chatbot-header-info { flex: 1; }
-.chatbot-header-info .name { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; }
-.chatbot-header-info .status { font-size: 0.78rem; color: var(--accent); display: flex; align-items: center; gap: 0.4rem; }
-.chatbot-header-info .status::before { content: ''; width: 8px; height: 8px; background: #10B981; border-radius: 50%; animation: chatPulse 2s infinite; }
-.chatbot-close { background: none; border: none; color: white; font-size: 1.4rem; cursor: pointer; opacity: 0.7; transition: opacity 0.2s; }
-.chatbot-close:hover { opacity: 1; }
-.chatbot-body { flex: 1; overflow-y: auto; padding: 1rem; background: rgba(5,11,20,0.8); }
-.chatbot-body::-webkit-scrollbar { width: 4px; }
-.chatbot-body::-webkit-scrollbar-thumb { background: rgba(0,212,255,0.2); border-radius: 2px; }
-.chat-msg { max-width: 85%; padding: 0.7rem 1rem; border-radius: 18px; font-size: 0.88rem; margin-bottom: 0.8rem; line-height: 1.5; }
-.chat-msg.bot { background: rgba(255,255,255,0.08); color: var(--off-white); border-bottom-left-radius: 4px; border: 1px solid rgba(255,255,255,0.06); }
-.chat-msg.user { background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: var(--primary); margin-left: auto; border-bottom-right-radius: 4px; font-weight: 600; }
-.chat-options { display: flex; flex-direction: column; gap: 0.5rem; margin: 0.5rem 0; }
-.chat-option { background: rgba(255,255,255,0.05); border: 1px solid rgba(0,212,255,0.15); padding: 0.7rem 1rem; border-radius: 10px; font-size: 0.85rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 0.6rem; transition: var(--transition); color: var(--off-white); font-family: inherit; text-align: left; }
-.chat-option:hover { border-color: var(--accent); background: rgba(0,212,255,0.1); transform: translateX(3px); color: var(--accent); }
-.chat-link { background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: var(--primary); padding: 0.7rem 1rem; border-radius: 10px; font-size: 0.85rem; font-weight: 700; text-align: center; display: block; margin-top: 0.5rem; transition: var(--transition); }
-.chat-link.whatsapp { background: #25D366; color: white; }
-.chat-link:hover { transform: translateY(-2px); opacity: 0.9; }
-.chatbot-footer { padding: 0.6rem; border-top: 1px solid rgba(0,212,255,0.08); background: rgba(5,11,20,0.9); font-size: 0.7rem; text-align: center; color: var(--gray-mid); }
-
-/* RESPONSIVE */
-@media (max-width: 1024px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 768px) {
-  .nav-links { position: fixed; top: 70px; right: 0; flex-direction: column; background: #071426; padding: 1.5rem; width: 100%; gap: 0.5rem; transform: translateX(100%); transition: transform 0.3s; }
-  .nav-links.active { transform: translateX(0); }
-  .menu-toggle { display: block; }
-  .footer-grid { grid-template-columns: 1fr; }
-  .modal-stats { grid-template-columns: 1fr 1fr; }
-  .modal-cta { flex-direction: column; }
+footer {
+  background: var(--primary-deep);
+  padding: 5rem 4% 2rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
 }
-@media (max-width: 600px) { .top-bar-social { display: none; } }
+.footer-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 1fr);
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+@media (max-width: 968px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+}
+@media (max-width: 576px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+.footer-brand p {
+  color: var(--gray-light);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  max-width: 320px;
+  margin-top: 1rem;
+}
+.footer-col h4 {
+  color: var(--white);
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.footer-col ul {
+  list-style: none;
+}
+.footer-col ul li {
+  margin-bottom: 0.8rem;
+}
+.footer-col ul li a {
+  color: var(--gray-light);
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+.footer-col ul li a:hover {
+  color: var(--accent);
+  padding-left: 4px;
+}
+.footer-bottom {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--gray-mid);
+}
 </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
 <div class="top-bar">
   <div class="top-bar-container">
     <div class="top-bar-info">
@@ -378,7 +387,6 @@ footer { background: var(--primary-deep); border-top: 1px solid rgba(0,212,255,0
   </div>
 </div>
 
-<!-- NAV -->
 <nav class="nav">
   <div class="nav-container">
     <a href="index.html" class="logo">
@@ -402,37 +410,34 @@ footer { background: var(--primary-deep); border-top: 1px solid rgba(0,212,255,0
   </div>
 </nav>
 
-<!-- PAGE HEADER -->
-<section class="page-header">
+<header class="page-header">
   <div class="page-header-container">
     <div class="breadcrumb">
-      <a href="index.html">Accueil</a> <i class="fas fa-chevron-right"></i> <span style="color:white" id="breadLabel">Nos services</span>
+      <a href="index.html">Accueil</a> <i class="fas fa-chevron-right"></i> <span id="breadLabel">Nos services</span>
     </div>
-    <h1>Nos <span class="accent">services</span><br><span id="headerSub">cybersécurité</span></h1>
+    <h1>Expertise <span class="accent" id="headerSub">cybersécurité</span></h1>
     <p id="pageDesc">7 domaines d'expertise complémentaires. Une approche neutre, indépendante des constructeurs.</p>
   </div>
-</section>
+</header>
 
-<!-- SERVICES -->
 <section class="services-section">
   <div class="container">
     <span class="section-tag" id="servicesTag">Nos offres clés</span>
     <h2 class="section-title" id="servicesTitle">Une expertise par besoin</h2>
     <p class="section-subtitle" id="servicesSub">Cliquez sur un service pour découvrir le détail et la méthodologie.</p>
+    
     <div class="services-grid" id="servicesGrid"></div>
   </div>
 </section>
 
-<!-- CTA -->
 <section class="cta-block">
   <div class="cta-block-content">
     <h2 id="ctaTitle">Prêt à sécuriser votre entreprise ?</h2>
     <p id="ctaText">Audit gratuit de 30 minutes pour évaluer vos besoins. Aucun engagement.</p>
-    <a href="contact.html" class="btn-primary" id="ctaBtn">Demander un audit gratuit <i class="fas fa-arrow-right"></i></a>
+    <a href="contact.html" class="btn-primary" id="ctaBtn"><i class="fas fa-shield-halved"></i> Demander un audit gratuit</a>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
@@ -479,7 +484,6 @@ footer { background: var(--primary-deep); border-top: 1px solid rgba(0,212,255,0
   </div>
 </footer>
 
-<!-- MODAL -->
 <div class="modal-backdrop" id="modalBackdrop" onclick="closeModalOutside(event)">
   <div class="modal-card" id="modalCard">
     <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
@@ -502,7 +506,6 @@ footer { background: var(--primary-deep); border-top: 1px solid rgba(0,212,255,0
   </div>
 </div>
 
-<!-- CHATBOT -->
 <div id="chatbotBtn" class="chatbot-button">
   <i class="fas fa-comments"></i>
   <div class="chatbot-pulse"></div>
@@ -623,7 +626,8 @@ const servicesData = {
         "SLA contractuels adaptés à vos besoins"
       ],
       tags: ["Supervision", "NOC", "SLA", "Monitoring"]
-    }
+    },
+    { title: "Support IT & Infogérance", badge: "Managé", desc: "Supervision, maintenance et support de votre infrastructure IT. Forfaits mensuels adaptés aux PME.", img: "Support IT-Infogérance.jpg", link: "infogerance.html", tag: "Services Managés", longDesc: "Nous accompagnons les entreprises dans la gestion, la maintenance et la sécurisation de leur infrastructure informatique. Nos services incluent : support technique à distance, maintenance des postes et serveurs, gestion réseau et surveillance des systèmes, assistance utilisateurs et helpdesk, gestion Microsoft 365 et services cloud, sauvegarde et protection des données, monitoring et supervision proactive, cybersécurité et protection des accès. Notre objectif est d'assurer la stabilité, la performance et la sécurité des environnements informatiques de nos clients grâce à un support réactif et des services managés adaptés à leurs besoins.", stats: [{num:"24/7", lbl:"Supervision"},{num:"<1h", lbl:"Temps de réponse"},{num:"100%", lbl:"À distance"}], features: ["Support technique à distance","Maintenance des postes et serveurs","Gestion réseau et surveillance des systèmes","Assistance utilisateurs et helpdesk","Gestion Microsoft 365 et services cloud","Sauvegarde et protection des données","Monitoring et supervision proactive","Cybersécurité et protection des accès"], tags: ["RMM", "Helpdesk", "Infogérance"] }
   ],
   en: [
     {
@@ -723,7 +727,8 @@ const servicesData = {
         "Custom SLA tailored to your needs"
       ],
       tags: ["Monitoring", "NOC", "SLA", "24/7"]
-    }
+    },
+    { title: "IT Support & Managed Services", badge: "Managed", desc: "Supervision, maintenance and support for your IT infrastructure. Monthly packages for SMBs.", img: "Support IT-Infogérance.jpg", link: "infogerance.html", tag: "Managed Services", longDesc: "We support businesses in managing, maintaining and securing their IT infrastructure. Our services include: remote technical support, workstation and server maintenance, network management and system monitoring, user assistance and helpdesk, Microsoft 365 and cloud services management, data backup and protection, proactive monitoring and supervision, cybersecurity and access protection. Our goal is to ensure the stability, performance and security of our clients IT environments through responsive support and managed services tailored to their needs.", stats: [{num:"24/7", lbl:"Monitoring"},{num:"<1h", lbl:"Response time"},{num:"100%", lbl:"Remote"}], features: ["Remote technical support","Workstation and server maintenance","Network management and system monitoring","User assistance and helpdesk","Microsoft 365 and cloud services management","Data backup and protection","Proactive monitoring and supervision","Cybersecurity and access protection"], tags: ["RMM", "Helpdesk", "Managed IT"] }
   ]
 };
 
@@ -869,6 +874,7 @@ function showChatOptions() {
   chatBody.scrollTop = chatBody.scrollHeight;
 }
 
+// INIT
 function initChat() {
   document.getElementById('chatBody').innerHTML = '';
   const msg = currentLang === 'en' ? 'Hello 👋 I\'m <strong>NextGen Helper</strong>. How can I help you?' : 'Bonjour 👋 Je suis <strong>NextGen Helper</strong>. Comment puis-je vous aider ?';
