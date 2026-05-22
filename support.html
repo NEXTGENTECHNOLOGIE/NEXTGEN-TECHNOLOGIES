@@ -115,19 +115,66 @@
     .step-card p { margin: 0; color: var(--gray-light); font-size: 0.85rem; line-height: 1.5; }
 
     .script-box {
-      background: rgba(0,0,0,0.4);
-      border: 1px solid rgba(0, 212, 255, 0.3);
-      border-radius: 8px;
-      padding: 0.8rem;
-      margin: 0.8rem 0;
-      font-family: 'Courier New', monospace;
-      font-size: 0.75rem;
-      color: var(--accent);
-      text-align: left;
-      line-height: 1.4;
-      white-space: nowrap;
-      overflow-x: auto;
+      display: none;
     }
+
+    /* Agent Container */
+    .agent-container {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      margin: 1rem 0;
+    }
+    
+    /* Tooltip */
+    .agent-tooltip {
+      position: absolute;
+      top: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary);
+      color: var(--accent);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      white-space: nowrap;
+      border: 1px solid var(--accent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+    .agent-tooltip::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid var(--accent);
+    }
+    .agent-container:hover .agent-tooltip {
+      opacity: 1;
+    }
+
+    /* Agent SVG */
+    .agent-svg {
+      width: 160px;
+      height: 240px;
+      transition: all 0.3s ease;
+      filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.4));
+    }
+    .agent-container:hover .agent-svg {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.8));
+    }
+    .agent-svg .body { fill: #1a2a3a; stroke: #00D4FF; stroke-width: 2; }
+    .agent-svg .armor { fill: none; stroke: #00D4FF; stroke-width: 1.5; }
+    .agent-svg .accent { fill: #00D4FF; }
+    .agent-svg .eye { fill: #FFFFFF; }
 
     .btn-copy-small {
       display: inline-flex; align-items: center; gap: 0.4rem;
@@ -267,8 +314,107 @@
           <div class="step-card step-card-full">
             <div class="step-num">2</div>
             <h4 data-i18n="support_step2_title">Copier ce script complet</h4>
-            <p data-i18n="support_step2_desc">Cliquez sur le bouton Copier ci-dessous pour copier le script d'installation :</p>
+            <p data-i18n="support_step2_desc">Cliquez sur l'agent ci-dessous pour copier automatiquement le script d'installation :</p>
             <div class="script-box">$ErrorActionPreference = 'Stop'; Invoke-WebRequest -Uri "https://rmm.nextgentechnologies.net/dl/tacticalagent-v2.10.0-windows-amd64.exe" -OutFile "$env:TEMP\tacticalagent.exe"; Start-Process "$env:TEMP\tacticalagent.exe" -ArgumentList '/VERYSILENT /SUPPRESSMSGBOXES' -Wait; & "C:\Program Files\TacticalAgent\tacticalrmm.exe" -m install --api https://api.rmm.nextgentechnologies.net --client-id 1 --site-id 1 --agent-type workstation --auth d432d9944a0eb82a8f5c0db6107f69a28ff8f1b8fe7d3a3e2a10ee487a359e59 --rdp --ping --power</div>
+            
+            <!-- Agent NextGen -->
+            <div class="agent-container" onclick="copyInstallScript()">
+              <div class="agent-tooltip">Cliquez sur l'agent pour copier le script</div>
+              <svg class="agent-svg" viewBox="0 0 200 300" width="160px" height="240px" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient id="auraGrad" cx="50%" cy="45%" r="50%">
+                    <stop offset="0%" stop-color="#00D4FF" stop-opacity="0.25"/>
+                    <stop offset="100%" stop-color="#00D4FF" stop-opacity="0"/>
+                  </radialGradient>
+                  <linearGradient id="visorGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#00D4FF" stop-opacity="0.9"/>
+                    <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.8"/>
+                    <stop offset="100%" stop-color="#00D4FF" stop-opacity="0.9"/>
+                  </linearGradient>
+                  <linearGradient id="armorShine" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#0A1628"/>
+                    <stop offset="100%" stop-color="#050B14"/>
+                  </linearGradient>
+                </defs>
+                
+                <!-- Aura lumineuse -->
+                <ellipse cx="100" cy="150" rx="95" ry="145" fill="url(#auraGrad)"/>
+                
+                <!-- Ombre au sol -->
+                <ellipse cx="100" cy="285" rx="45" height="8" fill="#00D4FF" opacity="0.15"/>
+                
+                <!-- Jambes -->
+                <rect x="68" y="195" width="22" height="75" rx="4" fill="#0A1628" stroke="#00D4FF" stroke-width="1.2"/>
+                <rect x="110" y="195" width="22" height="75" rx="4" fill="#0A1628" stroke="#00D4FF" stroke-width="1.2"/>
+                
+                <!-- Bottes -->
+                <path d="M 63 262 L 95 262 L 95 278 L 63 278 Z" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
+                <path d="M 105 262 L 137 262 L 137 278 L 105 278 Z" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
+                
+                <!-- Genouillères -->
+                <rect x="70" y="228" width="18" height="10" rx="3" fill="#00D4FF" opacity="0.3"/>
+                <rect x="112" y="228" width="18" height="10" rx="3" fill="#00D4FF" opacity="0.3"/>
+                
+                <!-- Corps / Torse -->
+                <path d="M 50 105 L 150 105 L 155 210 L 45 210 Z" fill="url(#armorShine)" stroke="#00D4FF" stroke-width="1.5"/>
+                
+                <!-- Plaques d'armure poitrine -->
+                <path d="M 55 115 L 145 115 L 140 165 L 60 165 Z" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
+                <line x1="100" y1="115" x2="100" y2="165" stroke="#00D4FF" stroke-width="1.2"/>
+                <rect x="62" y="125" width="34" height="12" rx="2" fill="#00D4FF" opacity="0.1"/>
+                <rect x="104" y="125" width="34" height="12" rx="2" fill="#00D4FF" opacity="0.1"/>
+                
+                <!-- Logo NG sur la poitrine -->
+                <text x="100" y="147" text-anchor="middle" fill="#00D4FF" font-size="16" font-weight="bold" font-family="Arial">NG</text>
+                
+                <!-- Ceinture -->
+                <rect x="50" y="195" width="100" height="14" rx="3" fill="#0A1628" stroke="#00D4FF" stroke-width="2"/>
+                <circle cx="100" cy="202" r="7" fill="#0A1628" stroke="#00D4FF" stroke-width="2"/>
+                <circle cx="100" cy="202" r="3" fill="#00D4FF"/>
+                
+                <!-- Bras GAUCHE (croisé) -->
+                <path d="M 50 115 L 28 170 L 40 185 L 55 140" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
+                <!-- Plaque épaule gauche -->
+                <ellipse cx="48" cy="120" rx="16" ry="8" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5" transform="rotate(-15 48 120)"/>
+                
+                <!-- Bras DROIT (croisé) -->
+                <path d="M 150 115 L 172 170 L 160 185 L 145 140" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
+                <!-- Plaque épaule droite -->
+                <ellipse cx="152" cy="120" rx="16" ry="8" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5" transform="rotate(15 152 120)"/>
+                
+                <!-- Avant-bras croisés -->
+                <path d="M 40 185 L 65 175 L 80 178 L 60 190 Z" fill="#0A1628" stroke="#00D4FF" stroke-width="1.2"/>
+                <path d="M 160 185 L 135 175 L 120 178 L 140 190 Z" fill="#0A1628" stroke="#00D4FF" stroke-width="1.2"/>
+                
+                <!-- Gants -->
+                <rect x="55" y="182" width="18" height="12" rx="3" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
+                <rect x="127" y="182" width="18" height="12" rx="3" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
+                
+                <!-- Cou -->
+                <rect x="85" y="85" width="30" height="20" fill="#0A1628"/>
+                
+                <!-- Tête -->
+                <ellipse cx="100" cy="65" rx="28" ry="30" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
+                
+                <!-- Casque -->
+                <path d="M 72 65 Q 75 35 100 38 Q 125 35 128 65" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
+                <path d="M 75 55 L 125 55 L 120 45 L 80 45 Z" fill="#00D4FF" opacity="0.2"/>
+                
+                <!-- Visière -->
+                <path d="M 78 58 L 122 58 L 126 68 L 74 68 Z" fill="url(#visorGlow)" stroke="#00D4FF" stroke-width="1"/>
+                <!-- Reflet visière -->
+                <line x1="82" y1="62" x2="118" y2="62" stroke="#FFFFFF" stroke-width="0.8" opacity="0.6"/>
+                
+                <!-- Oreillettes tactiques -->
+                <rect x="68" y="55" width="8" height="15" rx="2" fill="#0A1628" stroke="#00D4FF" stroke-width="1"/>
+                <rect x="124" y="55" width="8" height="15" rx="2" fill="#0A1628" stroke="#00D4FF" stroke-width="1"/>
+                
+                <!-- Détails armure supplémentaires -->
+                <circle cx="80" cy="170" r="3" fill="#00D4FF" opacity="0.4"/>
+                <circle cx="120" cy="170" r="3" fill="#00D4FF" opacity="0.4"/>
+              </svg>
+            </div>
+
             <button onclick="copyInstallScript()" class="btn-copy-small">
               <i class="fas fa-copy"></i> <span data-i18n="support_copy_btn">Copier le script</span>
             </button>
@@ -316,7 +462,7 @@
         support_step1_title: "Ouvrir PowerShell en Admin",
         support_step1_desc: "Faites un clic droit sur le bouton Démarrer, puis cliquez sur \"Windows PowerShell (Admin)\" ou \"Terminal (Admin)\".",
         support_step2_title: "Copier ce script complet",
-        support_step2_desc: "Cliquez sur le bouton Copier ci-dessous pour copier le script d'installation :",
+        support_step2_desc: "Cliquez sur l'agent ci-dessous pour copier automatiquement le script d'installation :",
         support_copy_btn: "Copier le script",
         support_step3_title: "Coller dans PowerShell",
         support_step3_desc: "Faites un clic droit dans la fenêtre PowerShell bleue, puis appuyez sur Entrée pour lancer l'installation.",
@@ -338,7 +484,7 @@
         support_step1_title: "Open PowerShell as Admin",
         support_step1_desc: "Right-click on the Start button, then click \"Windows PowerShell (Admin)\" or \"Terminal (Admin)\".",
         support_step2_title: "Copy this complete script",
-        support_step2_desc: "Click the Copy button below to copy the installation script:",
+        support_step2_desc: "Click the agent below to automatically copy the installation script:",
         support_copy_btn: "Copy script",
         support_step3_title: "Paste in PowerShell",
         support_step3_desc: "Right-click in the blue PowerShell window, then press Enter to launch the installation.",
