@@ -361,6 +361,72 @@ a { text-decoration: none; }
 .value-card h3 { color: var(--white); font-size: 1.3rem; margin-bottom: 0.8rem; }
 .value-card p { color: var(--gray-light); font-size: 0.9rem; }
 
+/* BRAND PARTNERS SECTION */
+.partners-section {
+  padding: 5rem 4%;
+  background: #060d1a;
+  position: relative;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.08);
+  text-align: center;
+}
+.partners-container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.partners-title {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin-bottom: 3.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+.partner-tile {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  transition: var(--transition);
+}
+.partner-tile img {
+  max-height: 48px;
+  max-width: 85%;
+  object-fit: contain;
+  filter: brightness(0.9) grayscale(15%);
+  transition: var(--transition);
+}
+.partner-tile:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(0, 212, 255, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 212, 255, 0.1);
+}
+.partner-tile:hover img {
+  transform: scale(1.05);
+  filter: brightness(1) grayscale(0%);
+}
+@media (max-width: 992px) {
+  .partners-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .partner-tile {
+    height: 110px;
+  }
+  .partner-tile img {
+    max-height: 38px;
+  }
+}
+
 /* SERVICES SECTION */
 .services-section { padding: 6rem 4%; background: #050B14; }
 .section-header { text-align: center; max-width: 700px; margin: 0 auto 4rem; }
@@ -630,6 +696,22 @@ a { text-decoration: none; }
   </div>
 </section>
 
+<section class="partners-section">
+  <div class="partners-container">
+    <h2 class="partners-title wow-gradient-title" data-i18n="partners_section_title">Nos Partenaires Technologiques</h2>
+    <div class="partners-grid">
+      <div class="partner-tile"><img src="img/partners/fortinet.svg" alt="Fortinet"></div>
+      <div class="partner-tile"><img src="img/partners/cisco.svg" alt="Cisco"></div>
+      <div class="partner-tile"><img src="img/partners/paloalto.svg" alt="Palo Alto"></div>
+      <div class="partner-tile"><img src="img/partners/wazuh.svg" alt="Wazuh"></div>
+      <div class="partner-tile"><img src="img/partners/crowdstrike.svg" alt="CrowdStrike"></div>
+      <div class="partner-tile"><img src="img/partners/kaspersky.svg" alt="Kaspersky"></div>
+      <div class="partner-tile"><img src="img/partners/vmware.svg" alt="VMware"></div>
+      <div class="partner-tile"><img src="img/partners/microsoft.svg" alt="Microsoft"></div>
+    </div>
+  </div>
+</section>
+
 <section class="services-section">
   <div class="section-header">
     <h2 class="wow-gradient-title" data-i18n="services_section_title">Nos Domaines d'Expertise Cyber</h2>
@@ -752,6 +834,7 @@ const translations = {
     val_3_desc: "Une équipe d'élite certifiée CEH, CISSP, OSCP et dotée de compétences militaires.",
     val_4_title: "Support Dédié",
     val_4_desc: "Assistance réactive en continu 24/7/365 avec une équipe de crise mobilisable à tout instant.",
+    partners_section_title: "Nos Partenaires Technologiques",
     services_section_title: "Nos Domaines d'Expertise Cyber",
     services_section_desc: "Des solutions ultra-spécifiques et modulaires adaptées aux menaces contemporaines complexes.",
     srv_1_title: "Audit & Diagnostic",
@@ -813,6 +896,7 @@ const translations = {
     val_3_desc: "An elite cybersecurity team holding CEH, CISSP, OSCP and specialized defensive credentials.",
     val_4_title: "Dedicated Support",
     val_4_desc: "24/7/365 continuous assistance with a specialized crisis response team ready at any moment.",
+    partners_section_title: "Our Technology Partners",
     services_section_title: "Our Cyber Expertise Domains",
     services_section_desc: "Highly specific and modular defensive solutions tailored to modern complex threat landscapes.",
     srv_1_title: "Audit & Diagnostics",
