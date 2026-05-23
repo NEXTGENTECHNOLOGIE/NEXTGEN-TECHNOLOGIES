@@ -99,7 +99,6 @@
 
     /* STATS HEADER */
     .header-stats { display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
-    .header-stats { display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
     .header-stat { text-align: center; }
     .header-stat .num { font-size: 1.8rem; font-weight: 700; color: var(--accent); font-family: 'Space Grotesk', sans-serif; }
     .header-stat .lbl { font-size: 0.78rem; color: var(--gray-light); }
@@ -264,7 +263,7 @@
     <div class="top-bar-info">
       <span><i class="fas fa-phone"></i> +212 728 31 28 01</span>
       <span><i class="fas fa-envelope"></i> contact@nextgentechnologies.ma</span>
-      <span><i class="fas fa-map-marker-alt"></i> Casablanca</span>
+      <span id="topBarCity"><i class="fas fa-map-marker-alt"></i> Casablanca</span>
     </div>
     <div class="lang-switch">
       <button class="lang-btn active" data-lang="fr">🇫🇷 FR</button>
@@ -329,12 +328,12 @@
       <div class="trainer-role" id="trainerRole">Docteur en informatique & cybersécurité</div>
       <p class="trainer-desc" id="trainerDesc">Docteur en informatique et cybersécurité et fin pédagogue, Abdeljalil intervient dans des thématiques aussi variées que l'architecture de sécurité, la sécurité du cloud, l'intégration de la cybersécurité dans les entreprises, la cybersécurité pour les dirigeants, la protection des données, la préparation à la certification CISSP et la formation générale en cybersécurité.</p>
       <div class="trainer-skills">
-        <span class="trainer-skill">Architecture</span>
-        <span class="trainer-skill">Sécurité cloud</span>
-        <span class="trainer-skill">Formation</span>
+        <span class="trainer-skill" id="skill1">Architecture</span>
+        <span class="trainer-skill" id="skill2">Sécurité cloud</span>
+        <span class="trainer-skill" id="skill3">Formation</span>
         <span class="trainer-skill">CISSP</span>
-        <span class="trainer-skill">Protection données</span>
-        <span class="trainer-skill">Pédagogie</span>
+        <span class="trainer-skill" id="skill4">Protection données</span>
+        <span class="trainer-skill" id="skill5">Pédagogie</span>
       </div>
     </div>
   </div>
@@ -386,15 +385,15 @@
       <div class="video-card">
         <div class="video-card-header">
           <div class="module-num">01</div>
-          <h3>Introduction à l'Architecture de Sécurité</h3>
-          <span class="badge done">Complété</span>
+          <h3 id="m1Title">Introduction à l'Architecture de Sécurité</h3>
+          <span class="badge done" id="m1Badge">Complété</span>
         </div>
         <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
         <div class="video-card-footer">
-          <a href="docs/module1-support.pdf" download class="dl-btn pdf">
+          <a href="docs/module1-support.pdf" download class="dl-btn pdf" id="m1Pdf">
             <i class="fas fa-file-pdf"></i> Support PDF
           </a>
-          <a href="quiz1.html" class="dl-btn quiz">
+          <a href="quiz1.html" class="dl-btn quiz" id="m1Quiz">
             <i class="fas fa-clipboard-question"></i> Quiz 01
           </a>
         </div>
@@ -403,15 +402,15 @@
       <div class="video-card">
         <div class="video-card-header">
           <div class="module-num">02</div>
-          <h3>Fondamentaux de la Sécurité Cloud</h3>
-          <span class="badge new">En cours</span>
+          <h3 id="m2Title">Fondamentaux de la Sécurité Cloud</h3>
+          <span class="badge new" id="m2Badge">En cours</span>
         </div>
         <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
         <div class="video-card-footer">
-          <a href="docs/module2-support.pdf" download class="dl-btn pdf">
+          <a href="docs/module2-support.pdf" download class="dl-btn pdf" id="m2Pdf">
             <i class="fas fa-file-pdf"></i> Support PDF
           </a>
-          <a href="quiz2.html" class="dl-btn quiz">
+          <a href="quiz2.html" class="dl-btn quiz" id="m2Quiz">
             <i class="fas fa-clipboard-question"></i> Quiz 02
           </a>
         </div>
@@ -420,18 +419,18 @@
       <div class="video-card">
         <div class="video-card-header">
           <div class="module-num locked">03</div>
-          <h3>Gouvernance et Préparation CISSP</h3>
-          <span class="badge soon">Bientôt</span>
+          <h3 id="m3Title">Gouvernance et Préparation CISSP</h3>
+          <span class="badge soon" id="m3Badge">Bientôt</span>
         </div>
         <div class="video-locked">
           <i class="fas fa-lock"></i>
-          <span>Ce module sera débloqué prochainement</span>
+          <span id="m3LockedText">Ce module sera débloqué prochainement</span>
         </div>
         <div class="video-card-footer">
-          <a href="#" class="dl-btn pdf disabled">
+          <a href="#" class="dl-btn pdf disabled" id="m3Pdf">
             <i class="fas fa-file-pdf"></i> Indisponible
           </a>
-          <a href="#" class="dl-btn quiz disabled">
+          <a href="#" class="dl-btn quiz disabled" id="m3Quiz">
             <i class="fas fa-clipboard-question"></i> Verrouillé
           </a>
         </div>
@@ -512,22 +511,22 @@
     <div class="footer-col">
       <h4 id="footerCompany">Entreprise</h4>
       <ul>
-        <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
-        <li><a href="carrieres.html">Carrières</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="qui-sommes-nous.html" id="footLinkAbout">Qui sommes-nous</a></li>
+        <li><a href="carrieres.html" id="footLinkCareers">Carrières</a></li>
+        <li><a href="contact.html" id="footLinkContact">Contact</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4 id="footerLegal">Légal</h4>
       <ul>
-        <li><a href="#">Mentions légales</a></li>
-        <li><a href="#">Confidentialité</a></li>
+        <li><a href="#" id="footLinkLegal">Mentions légales</a></li>
+        <li><a href="#" id="footLinkPrivacy">Confidentialité</a></li>
         <li><a href="#">CGV</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 NextGen Technologies SARL · Casablanca</span>
+    <span id="footCopyright">© 2026 NextGen Technologies SARL · Casablanca</span>
     <span>Cybersecurity · Infrastructure · Innovation</span>
   </div>
 </footer>
@@ -560,14 +559,72 @@ function checkPassword() {
 // ========================
 const translations = {
   fr: {
-    navAccueil:"Accueil", navServices:"Services", navSecteurs:"Secteurs",
-    navQuiSommesNous:"Qui sommes-nous", navCarrieres:"Carrières",
-    navCampus:"🎓 Campus Cyber", navContact:"Contact", navCta:"Audit gratuit"
+    navAccueil: "Accueil", navServices: "Services", navSecteurs: "Secteurs",
+    navQuiSommesNous: "Qui sommes-nous", navCarrieres: "Carrières",
+    navCampus: "🎓 Campus Cyber", navContact: "Contact", navCta: "Audit gratuit",
+    breadHome: "Accueil", breadCampus: "Campus Cyber",
+    heroTitle: 'Campus <span class="accent">Cyber</span><br><span>Centre de Formation Corporate</span>',
+    heroDesc: "Accès réservé — supports de cours, vidéos et ressources techniques exclusives.",
+    trainerBadge: "Formation par un expert Security Architect",
+    statModules: "Modules actifs", statRessources: "Ressources", statAcces: "Accès continu",
+    trainerRole: "Docteur en informatique & cybersécurité",
+    trainerDesc: "Docteur en informatique et cybersécurité et fin pédagogue, Abdeljalil intervient dans des thématiques aussi variées que l'architecture de sécurité, la sécurité du cloud, l'intégration de la cybersécurité dans les entreprises, la cybersécurité pour les dirigeants, la protection des données, la préparation à la certification CISSP et la formation générale en cybersécurité.",
+    skill1: "Architecture", skill2: "Sécurité cloud", skill3: "Formation", skill4: "Protection données", skill5: "Pédagogie",
+    feat1: "Vidéos HD disponibles 24/7", feat2: "Supports PDF téléchargeables", feat3: "Labs pratiques inclus", feat4: "Support formateur direct",
+    loginTitle: "Centre de Formation Corporate", loginDesc: "Entrez votre mot de passe pour accéder à vos ressources de formation.",
+    loginError: "Mot de passe incorrect. Contactez votre formateur.", loginHint: "🔒 Accès réservé aux membres inscrits aux formations NextGen Academy",
+    welcomeMsg: "Bienvenue ! Vous êtes connecté à votre espace de formation.",
+    modulesTitle: "📘 Mes modules de formation", modulesDesc: "Progressez à votre rythme — chaque module contient une vidéo, un support PDF et un quiz d'évaluation.",
+    progressLabel: "Progression : Modules de formation débloqués",
+    m1Title: "Introduction à l'Architecture de Sécurité", m1Badge: "Complété", m1Pdf: "<i class='fas fa-file-pdf'></i> Support PDF", m1Quiz: "<i class='fas fa-clipboard-question'></i> Quiz 01",
+    m2Title: "Fondamentaux de la Sécurité Cloud", m2Badge: "En cours", m2Pdf: "<i class='fas fa-file-pdf'></i> Support PDF", m2Quiz: "<i class='fas fa-clipboard-question'></i> Quiz 02",
+    m3Title: "Gouvernance et Préparation CISSP", m3Badge: "Bientôt", m3LockedText: "Ce module sera débloqué prochainement", m3Pdf: "<i class='fas fa-file-pdf'></i> Indisponible", m3Quiz: "<i class='fas fa-clipboard-question'></i> Verrouillé",
+    ressourcesTitle: "Ressources complémentaires",
+    res1Title: "Glossaire cybersécurité", res1Desc: "PDF · 45 termes essentiels",
+    res2Title: "Cheatsheet Linux", res2Desc: "PDF · Commandes essentielles",
+    res3Title: "TryHackMe", res3Desc: "Plateforme de labs pratiques",
+    res4Title: "MITRE ATT&CK", res4Desc: "Framework des techniques d'attaque",
+    res5Title: "Outils pentest", res5Desc: "PDF · Liste des outils recommandés",
+    res6Title: "Formulaire de remédiation", res6Desc: "Soumettre vos exercices",
+    tutorTitle: "Une question sur le cours ?", tutorDesc: "Abdeljalil répond à toutes vos questions techniques sous 24h.",
+    footerDesc: "Cybersécurité, conseil, SOC, infrastructure et sécurité offensive pour les entreprises modernes.",
+    footerServices: "Services", footerCompany: "Entreprise", footerLegal: "Légal",
+    footLinkAbout: "Qui sommes-nous", footLinkCareers: "Carrières", footLinkContact: "Contact",
+    footLinkLegal: "Mentions légales", footLinkPrivacy: "Confidentialité", footCopyright: "© 2026 NextGen Technologies SARL · Casablanca"
   },
   en: {
-    navAccueil:"Home", navServices:"Services", navSecteurs:"Sectors",
-    navQuiSommesNous:"About Us", navCarrieres:"Careers",
-    navCampus:"🎓 Cyber Campus", navContact:"Contact", navCta:"Free Audit"
+    navAccueil: "Home", navServices: "Services", navSecteurs: "Sectors",
+    navQuiSommesNous: "About Us", navCarrieres: "Careers",
+    navCampus: "🎓 Cyber Campus", navContact: "Contact", navCta: "Free Audit",
+    breadHome: "Home", breadCampus: "Cyber Campus",
+    heroTitle: 'Cyber <span class="accent">Campus</span><br><span>Corporate Training Center</span>',
+    heroDesc: "Restricted access — course materials, videos, and exclusive technical resources.",
+    trainerBadge: "Training by a Security Architect expert",
+    statModules: "Active modules", statRessources: "Resources", statAcces: "Continuous access",
+    trainerRole: "PhD in Computer Science & Cybersecurity",
+    trainerDesc: "A PhD holder in Computer Science and Cybersecurity and an excellent educator, Abdeljalil specializes in security architecture, cloud security, business cybersecurity integration, executive training, data protection, CISSP preparation, and general cybersecurity education.",
+    skill1: "Architecture", skill2: "Cloud Security", skill3: "Training", skill4: "Data Protection", skill5: "Pedagogy",
+    feat1: "24/7 HD Videos Available", feat2: "Downloadable PDF Materials", feat3: "Practical Labs Included", feat4: "Direct Instructor Support",
+    loginTitle: "Corporate Training Center", loginDesc: "Enter your password to access your training resources.",
+    loginError: "Incorrect password. Please contact your instructor.", loginHint: "🔒 Access restricted to registered NextGen Academy members",
+    welcomeMsg: "Welcome! You are connected to your training portal.",
+    modulesTitle: "📘 My Training Modules", modulesDesc: "Progress at your own pace — each module includes a video, a PDF support, and an assessment quiz.",
+    progressLabel: "Progress: Training modules unlocked",
+    m1Title: "Introduction to Security Architecture", m1Badge: "Completed", m1Pdf: "<i class='fas fa-file-pdf'></i> PDF Support", m1Quiz: "<i class='fas fa-clipboard-question'></i> Quiz 01",
+    m2Title: "Cloud Security Fundamentals", m2Badge: "In Progress", m2Pdf: "<i class='fas fa-file-pdf'></i> PDF Support", m2Quiz: "<i class='fas fa-clipboard-question'></i> Quiz 02",
+    m3Title: "Governance & CISSP Preparation", m3Badge: "Soon", m3LockedText: "This module will be unlocked soon", m3Pdf: "<i class='fas fa-file-pdf'></i> Unavailable", m3Quiz: "<i class='fas fa-clipboard-question'></i> Locked",
+    ressourcesTitle: "Additional Resources",
+    res1Title: "Cybersecurity Glossary", res1Desc: "PDF · 45 essential terms",
+    res2Title: "Linux Cheatsheet", res2Desc: "PDF · Essential commands",
+    res3Title: "TryHackMe", res3Desc: "Hands-on lab platform",
+    res4Title: "MITRE ATT&CK", res4Desc: "Attack techniques framework",
+    res5Title: "Pentest Tools", res5Desc: "PDF · Recommended tools list",
+    res6Title: "Remediation Form", res6Desc: "Submit your exercises",
+    tutorTitle: "Any question about the course?", tutorDesc: "Abdeljalil answers all your technical questions within 24 hours.",
+    footerDesc: "Cybersecurity, consulting, SOC, infrastructure, and offensive security for modern businesses.",
+    footerServices: "Services", footerCompany: "Company", footerLegal: "Legal",
+    footLinkAbout: "About Us", footLinkCareers: "Careers", footLinkContact: "Contact",
+    footLinkLegal: "Legal Notice", footLinkPrivacy: "Privacy Policy", footCopyright: "© 2026 NextGen Technologies SARL · Casablanca"
   }
 };
 
@@ -577,7 +634,16 @@ function applyLanguage(lang) {
   if (!t) return;
   for (const id in t) {
     const el = document.getElementById(id);
-    if (el) el.innerText = t[id];
+    if (el) {
+      if (id === 'heroTitle') {
+        el.innerHTML = t[id];
+      } else if (id.startsWith('m1') || id.startsWith('m2') || id.startsWith('m3')) {
+        if (el.tagName === 'A') el.innerHTML = t[id];
+        else el.innerText = t[id];
+      } else {
+        el.innerText = t[id];
+      }
+    }
   }
 }
 
