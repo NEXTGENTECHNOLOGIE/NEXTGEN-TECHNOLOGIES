@@ -99,6 +99,7 @@
 
     /* STATS HEADER */
     .header-stats { display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
+    .header-stats { display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
     .header-stat { text-align: center; }
     .header-stat .num { font-size: 1.8rem; font-weight: 700; color: var(--accent); font-family: 'Space Grotesk', sans-serif; }
     .header-stat .lbl { font-size: 0.78rem; color: var(--gray-light); }
@@ -382,7 +383,60 @@
     </div>
 
     <div class="video-grid">
+      <div class="video-card">
+        <div class="video-card-header">
+          <div class="module-num">01</div>
+          <h3>Introduction à l'Architecture de Sécurité</h3>
+          <span class="badge done">Complété</span>
+        </div>
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+        <div class="video-card-footer">
+          <a href="docs/module1-support.pdf" download class="dl-btn pdf">
+            <i class="fas fa-file-pdf"></i> Support PDF
+          </a>
+          <a href="quiz1.html" class="dl-btn quiz">
+            <i class="fas fa-clipboard-question"></i> Quiz 01
+          </a>
+        </div>
       </div>
+
+      <div class="video-card">
+        <div class="video-card-header">
+          <div class="module-num">02</div>
+          <h3>Fondamentaux de la Sécurité Cloud</h3>
+          <span class="badge new">En cours</span>
+        </div>
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+        <div class="video-card-footer">
+          <a href="docs/module2-support.pdf" download class="dl-btn pdf">
+            <i class="fas fa-file-pdf"></i> Support PDF
+          </a>
+          <a href="quiz2.html" class="dl-btn quiz">
+            <i class="fas fa-clipboard-question"></i> Quiz 02
+          </a>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-card-header">
+          <div class="module-num locked">03</div>
+          <h3>Gouvernance et Préparation CISSP</h3>
+          <span class="badge soon">Bientôt</span>
+        </div>
+        <div class="video-locked">
+          <i class="fas fa-lock"></i>
+          <span>Ce module sera débloqué prochainement</span>
+        </div>
+        <div class="video-card-footer">
+          <a href="#" class="dl-btn pdf disabled">
+            <i class="fas fa-file-pdf"></i> Indisponible
+          </a>
+          <a href="#" class="dl-btn quiz disabled">
+            <i class="fas fa-clipboard-question"></i> Verrouillé
+          </a>
+        </div>
+      </div>
+    </div>
 
     <div class="ressources-section">
       <h3><i class="fas fa-folder-open"></i> <span id="ressourcesTitle">Ressources complémentaires</span></h3>
