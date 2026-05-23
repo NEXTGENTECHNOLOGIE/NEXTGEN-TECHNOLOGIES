@@ -541,12 +541,44 @@ a { text-decoration: none; }
   .stats-grid-centered { grid-template-columns: 1fr; } 
   .map-iframe-container { height: 400px; }
   
+  /* CORRECTION DU PROBLÈME DE VISIBILITÉ SUR MOBILE POUR LES TEXTES ET BACKGROUNDS DU SLIDER */
+  .slider {
+    height: auto;
+    min-height: auto;
+    padding: 3rem 0;
+  }
+  .slide {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    display: none;
+    padding: 0 4%;
+  }
+  .slide.active {
+    display: flex;
+  }
+  .slide-bg-wrapper {
+    position: absolute;
+    inset: 0;
+  }
   .slide-bg {
     transform: scale(1) !important;
     background-size: cover !important;
     background-position: center !important;
     width: 100% !important;
     height: 100% !important;
+    animation: none !important;
+  }
+  .slide .caption {
+    padding: 2.5rem 1.5rem;
+    border-radius: 20px;
+    background: rgba(5, 11, 20, 0.85);
+    margin: 1rem 0;
+  }
+  .slide h1, .slide .slide-desc, .slide .slide-buttons {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
   }
 }
 
@@ -701,7 +733,7 @@ a { text-decoration: none; }
       <h1><span data-i18n="slide3_title_part1">Cyber-résilience :</span> <span class="accent-text" data-i18n="slide3_title_part2">réagissez avec précision face aux incidents</span></h1>
       <p class="slide-desc" data-i18n="slide3_desc">Restaurez rapidement vos opérations après une attaque grâce à notre expertise en investigation numérique et nos stratégies de continuité d'activité.</p>
       <div class="slide-buttons">
-        <a href="cybercrime.html" class="btn-slide" data-i18n="btn_pentest">Préparer votre réponse</a>
+        <a href="cybercrime.html" class="btn-slide" data-i18n="btn_pentest">Préparer votre response</a>
         <a href="index.html" class="btn-slide-outline" data-i18n="btn_back">Retour</a>
       </div>
     </div>
@@ -1126,13 +1158,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function changeSlide(n) {
-      slides[index].classList.remove('active');
+      // Gestion de la visibilité sur mobile (display block/none) et desktop (classes active)
+      if (window.innerWidth <= 768) {
+        slides[index].style.display = 'none';
+        index = (n + slides.length) % slides.length;
+        slides[index].style.display = 'flex';
+      } else {
+        slides[index].classList.remove('active');
+        index = (n + slides.length) % slides.length;
+        slides[index].classList.add('active');
+      }
+      
       const dots = indicatorContainer ? indicatorContainer.querySelectorAll('div') : [];
-      if(dots.length > index) dots[index].classList.remove('active');
-      
-      index = (n + slides.length) % slides.length;
-      
-      slides[index].classList.add('active');
+      dots.forEach(dot => dot.classList.remove('active'));
       if(dots.length > index) dots[index].classList.add('active');
     }
 
