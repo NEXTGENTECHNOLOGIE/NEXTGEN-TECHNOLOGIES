@@ -953,6 +953,7 @@ const quizData = {
 // Variables globales de gestion d'état des quiz
 let activeQuestionIndices = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
 let quizScores = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+let currentLang = 'fr';
 
 // Rendu interactif d'une question de quiz
 function renderQuizQuestion(moduleNum) {
@@ -961,7 +962,10 @@ function renderQuizQuestion(moduleNum) {
   const currentIndex = activeQuestionIndices[moduleNum];
   const qBox = document.getElementById(`quizBox${moduleNum}`);
   
-  if (!qBox) return;
+  if (!qBox) {
+    console.warn(`Quiz box quizBox${moduleNum} not found in DOM`);
+    return;
+  }
 
   // Si toutes les questions ont été traitées, afficher le score final
   if (currentIndex >= questions.length) {
@@ -1019,6 +1023,9 @@ function handleQuizAnswer(moduleNum, chosenLetter, buttonElement) {
   const currentQ = quizData[lang][moduleNum][currentIndex];
   const feedbackEl = document.getElementById(`feedbackElement${moduleNum}`);
   const qBox = document.getElementById(`quizBox${moduleNum}`);
+  
+  if (!qBox || !feedbackEl) return;
+  
   const options = qBox.querySelectorAll('.quiz-option');
 
   // Bloquer de nouveaux choix
@@ -1077,8 +1084,10 @@ function checkPassword() {
     loginSection.style.display = 'none';
     protectedSection.style.display = 'block';
     
-    // Initialiser le système interactif de quiz une fois connecté
-    initAllQuizzes();
+    // Utiliser un petit délai pour s'assurer que le DOM est bien rendu avant d'initialiser les quiz
+    setTimeout(() => {
+      initAllQuizzes();
+    }, 100);
 
     setTimeout(() => {
       document.getElementById('progressBar').style.width = '100%';
@@ -1165,7 +1174,7 @@ const translations = {
       <li><i class="fas fa-check"></i> Interpréter les indicateurs cyber complexes sous forme de tableaux de bord financiers.</li>
       <li><i class="fas fa-check"></i> Piloter efficacement une cellule de crise corporative face à une attaque d'envergure.</li>
       <li><i class="fas fa-check"></i> Structurer les investissements cyber selon des calculs rigoureux de ROI sur risques.</li>
-      <li><i class="fas fa-check"></i> Égualer l'exposition de l'entreprise aux risques juridiques et de réputation.</li>
+      <li><i class="fas fa-check"></i> Évaluer l'exposition de l'entreprise aux risques juridiques et de réputation.</li>
       <li><i class="fas fa-check"></i> Définir une gouvernance claire répartissant les rôles entre DSI, RSSI et Direction.</li>
       <li><i class="fas fa-check"></i> Intégrer les clauses de cyber-assurance adéquates au profil de l'organisation.</li>
     `,
@@ -1429,7 +1438,7 @@ const translations = {
     m2FullDesc: "This module sets the fundamental pillars of security architecture for enterprise networks and core systems. By exploring standard industry blueprints, you will design robust infrastructures that effectively isolate lateral threats.",
     m3FullDesc: "Cloud migration completely reshapes technical perimeters. This module delivers expert-level understanding of security inside public, hybrid, and multi-cloud environments, highlighting bulletproof misconfiguration management.",
     m4FullDesc: "Tailored for senior leadership and board positions, this course translates deep technical cyber risks into clear corporate governance metrics. Learn how to allocate budgets, assess liabilities, and lead executive crisis cells.",
-    m5FullDesc: "This module focuses on strict regulatory IT compliance frameworks. You will deeply explore local Law 09-08 (CNDP) prerequisites as well as mandatory mapping with international standards like GDPR.",
+    m5FullDesc: "This module focuses on strict regulatory compliance IT frameworks. You will deeply explore local Law 09-08 (CNDP) prerequisites as well as mandatory mapping with international standards like GDPR.",
 
     // Objectives Lists
     m1Objectives: `
@@ -1692,8 +1701,8 @@ const translations = {
   }
 };
 
-let currentLang = 'fr';
 function applyLanguage(lang) {
+  currentLang = lang;
   const t = translations[lang];
   if (!t) return;
   
@@ -1712,7 +1721,7 @@ function applyLanguage(lang) {
     }
   }
 
-  // Si le panneau de formation est actif, régénérer la question en cours avec la langue adéquate
+  // Si le panneau de formation est actif, régénérer les quiz avec la nouvelle langue
   const protectedSection = document.getElementById('protectedSection');
   if (protectedSection && protectedSection.style.display === 'block') {
     initAllQuizzes();
@@ -1725,8 +1734,7 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
     if (lang) {
       document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      currentLang = lang;
-      applyLanguage(currentLang);
+      applyLanguage(lang);
     }
   });
 });
