@@ -367,7 +367,6 @@ a { text-decoration: none; }
   grid-template-columns: repeat(4, 1fr);
   gap: 2.2rem;
 }
-/* Tuile modifiée : Fond blanc pur ultra-clean fixe pour faire ressortir tous les types de logos (sombre/clair) */
 .partner-tile {
   background: rgba(255, 255, 255, 0.95);
   border: 1px solid rgba(0, 212, 255, 0.2);
@@ -382,7 +381,6 @@ a { text-decoration: none; }
   position: relative;
   overflow: hidden;
 }
-/* Animation de lueur cyber au survol */
 .partner-tile::before {
   content: '';
   position: absolute;
@@ -400,10 +398,9 @@ a { text-decoration: none; }
   max-height: 52px;
   max-width: 90%;
   object-fit: contain;
-  filter: contrast(1) brightness(1); /* Plus de filtre de gris pour garder les vraies couleurs éclatantes des marques */
+  filter: contrast(1) brightness(1);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-/* Animation Pro au Hover */
 .partner-tile:hover {
   background: #ffffff;
   transform: translateY(-8px) scale(1.03);
@@ -628,10 +625,10 @@ a { text-decoration: none; }
       <div class="slide-bg" style="background-image: url('https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
     </div>
     <div class="caption">
-      <h1>NextGen <span id="typedElement" class="accent-text"></span><br><span data-i18n="slide1_title_sub">Cyber Defense Platform</span></h1>
-      <p class="slide-desc" data-i18n="slide1_desc">Anticipez les cyberattaques grâce à notre expertise en Threat Intelligence et réponse globale immédiate.</p>
+      <h1>NextGen <span id="typedElement" class="accent-text"></span><br><span data-i18n="slide1_title_sub">Anticipez les menaces avec une cyberdéfense proactive robuste</span></h1>
+      <p class="slide-desc" data-i18n="slide1_desc">Sécurisez vos actifs critiques avec des audits offensifs et une protection continue adaptée aux enjeux de votre infrastructure numérique.</p>
       <div class="slide-buttons">
-        <a href="contact.html" class="btn-slide" data-i18n="btn_audit_req">Demander un Audit <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="contact.html" class="btn-slide" data-i18n="btn_audit_req">Évaluer votre sécurité <i class="fa-solid fa-arrow-right"></i></a>
         <a href="services.html" class="btn-slide-outline" data-i18n="btn_discover">Découvrir l'Offre</a>
       </div>
     </div>
@@ -642,10 +639,10 @@ a { text-decoration: none; }
       <div class="slide-bg" style="background-image: url('https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
     </div>
     <div class="caption">
-      <h1><span data-i18n="slide2_title_part1">SOC & Supervision</span> <span class="accent-text" data-i18n="slide2_title_part2">24h/7j/365</span></h1>
-      <p class="slide-desc" data-i18n="slide2_desc">Nos analystes certifiés protègent vos actifs critiques en temps réel contre les menaces émergentes complexes.</p>
+      <h1><span data-i18n="slide2_title_part1">Pilotez votre croissance avec</span> <span class="accent-text" data-i18n="slide2_title_part2">une infogérance haute performance</span></h1>
+      <p class="slide-desc" data-i18n="slide2_desc">Maximisez la disponibilité de vos systèmes grâce à un support technique réactif et une gestion sereine de votre parc informatique.</p>
       <div class="slide-buttons">
-        <a href="soc-consultation.html" class="btn-slide" data-i18n="btn_soc">Explorer le SOC</a>
+        <a href="infogerance.html" class="btn-slide" data-i18n="btn_soc">Découvrir nos services</a>
         <a href="contact.html" class="btn-slide-outline" data-i18n="nav_contact">Nous Contacter</a>
       </div>
     </div>
@@ -656,10 +653,10 @@ a { text-decoration: none; }
       <div class="slide-bg" style="background-image: url('https://images.pexels.com/photos/5380642/pexels-photo-5380642.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
     </div>
     <div class="caption">
-      <h1><span data-i18n="slide3_title_part1">Pentest Élite &</span> <span class="accent-text" data-i18n="slide3_title_part2">Audits Offensifs</span></h1>
-      <p class="slide-desc" data-i18n="slide3_desc">Évaluez la robustesse réelle de vos systèmes d'information avant que les attaquants ne le fassent.</p>
+      <h1><span data-i18n="slide3_title_part1">Cyber-résilience :</span> <span class="accent-text" data-i18n="slide3_title_part2">réagissez avec précision face aux incidents</span></h1>
+      <p class="slide-desc" data-i18n="slide3_desc">Restaurez rapidement vos opérations après une attaque grâce à notre expertise en investigation numérique et nos stratégies de continuité d'activité.</p>
       <div class="slide-buttons">
-        <a href="vapt.html" class="btn-slide" data-i18n="btn_pentest">Lancer un Pentest</a>
+        <a href="cybercrime.html" class="btn-slide" data-i18n="btn_pentest">Préparer votre réponse</a>
         <a href="index.html" class="btn-slide-outline" data-i18n="btn_back">Retour</a>
       </div>
     </div>
@@ -815,18 +812,18 @@ const translations = {
     nav_campus: "🎓 Campus Cyber",
     nav_contact: "Contact",
     nav_espace_client: "Espace Client",
-    slide1_title_sub: "Cyber Defense Platform",
-    slide1_desc: "Anticipez les cyberattaques grâce à notre expertise en Threat Intelligence et réponse globale immédiate.",
-    btn_audit_req: "Demander un Audit",
+    slide1_title_sub: "Anticipez les menaces avec une cyberdéfense proactive robuste",
+    slide1_desc: "Sécurisez vos actifs critiques avec des audits offensifs et une protection continue adaptée aux enjeux de votre infrastructure numérique.",
+    btn_audit_req: "Évaluer votre sécurité",
     btn_discover: "Découvrir l'Offre",
-    slide2_title_part1: "SOC & Supervision",
-    slide2_title_part2: "24h/7j/365",
-    slide2_desc: "Nos analystes certifiés protègent vos actifs critiques en temps réel contre les menaces émergentes complexes.",
-    btn_soc: "Explorer le SOC",
-    slide3_title_part1: "Pentest Élite &",
-    slide3_title_part2: "Audits Offensifs",
-    slide3_desc: "Évaluez la robustesse réelle de vos systèmes d'information avant que les attaquants ne le fassent.",
-    btn_pentest: "Lancer un Pentest",
+    slide2_title_part1: "Pilotez votre croissance avec",
+    slide2_title_part2: "une infogérance haute performance",
+    slide2_desc: "Maximisez la disponibilité de vos systèmes grâce à un support technique réactif et une gestion sereine de votre parc informatique.",
+    btn_soc: "Découvrir nos services",
+    slide3_title_part1: "Cyber-résilience :",
+    slide3_title_part2: "réagissez avec précision face aux incidents",
+    slide3_desc: "Restaurez rapidement vos opérations après une attaque grâce à notre expertise en investigation numérique et nos stratégies de continuité d'activité.",
+    btn_pentest: "Préparer votre réponse",
     btn_back: "Retour",
     val_1_title: "Sécurité Maximale",
     val_1_desc: "Une approche proactive de pointe pour neutraliser les ransomwares avant tout impact.",
@@ -877,18 +874,18 @@ const translations = {
     nav_campus: "🎓 Cyber Campus",
     nav_contact: "Contact",
     nav_espace_client: "Client Area",
-    slide1_title_sub: "Cyber Defense Platform",
-    slide1_desc: "Anticipate cyberattacks with our advanced Threat Intelligence and instant global incident response.",
-    btn_audit_req: "Request an Audit",
+    slide1_title_sub: "Anticipate threats with robust proactive cyber defense",
+    slide1_desc: "Secure your critical digital assets with offensive audits and continuous protection tailored to your infrastructure.",
+    btn_audit_req: "Assess your security",
     btn_discover: "Discover Offer",
-    slide2_title_part1: "SOC & Monitoring",
-    slide2_title_part2: "24/7/365",
-    slide2_desc: "Our certified analysts safeguard your critical digital assets in real-time against emerging threats.",
-    btn_soc: "Explore SOC",
-    slide3_title_part1: "Elite Pentesting &",
-    slide3_title_part2: "Offensive Audits",
-    slide3_desc: "Assess the actual resilience of your information systems before malicious actors exploit them.",
-    btn_pentest: "Launch a Pentest",
+    slide2_title_part1: "Drive your business growth with",
+    slide2_title_part2: "high-performance managed IT solutions",
+    slide2_desc: "Maximize system uptime with reactive IT support and hassle-free infrastructure management.",
+    btn_soc: "Discover our services",
+    slide3_title_part1: "Cyber resilience:",
+    slide3_title_part2: "respond to incidents with extreme precision",
+    slide3_desc: "Recover your core operations swiftly post-attack using digital forensics and business continuity roadmaps.",
+    btn_pentest: "Prepare your response",
     btn_back: "Back",
     val_1_title: "Maximum Security",
     val_1_desc: "A cutting-edge proactive approach to neutralize ransomware threats before any business impact.",
