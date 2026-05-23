@@ -59,43 +59,19 @@
     .menu-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
 
     /* PAGE HEADER */
-    .page-header {
-      position: relative; padding: 5rem 4% 4rem; overflow: hidden;
-      background: var(--primary-deep);
-    }
-    .page-header::before {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(circle at 20% 30%, rgba(0,212,255,0.15), transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(255,184,0,0.08), transparent 40%);
-      pointer-events: none;
-    }
-    .page-header::after {
-      content: ''; position: absolute; inset: 0;
-      background-image: linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
-      background-size: 50px 50px; pointer-events: none;
-    }
-    .page-header-container {
-      max-width: 1400px; margin: 0 auto; position: relative; z-index: 2;
-      display: grid; grid-template-columns: 1fr 0.8fr; gap: 3rem; align-items: center;
-    }
+    .page-header { position: relative; padding: 5rem 4% 4rem; overflow: hidden; background: var(--primary-deep); }
+    .page-header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 20% 30%, rgba(0,212,255,0.15), transparent 40%), radial-gradient(circle at 80% 70%, rgba(255,184,0,0.08), transparent 40%); pointer-events: none; }
+    .page-header::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px); background-size: 50px 50px; pointer-events: none; }
+    .page-header-container { max-width: 1400px; margin: 0 auto; position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 0.8fr; gap: 3rem; align-items: center; }
     .breadcrumb { color: var(--gray-light); font-size: 0.85rem; margin-bottom: 1.2rem; }
     .breadcrumb a { color: var(--accent); }
     .breadcrumb i { margin: 0 0.5rem; font-size: 0.7rem; opacity: 0.6; }
     .page-header-left h1 { font-size: clamp(2.2rem, 4.5vw, 3.5rem); line-height: 1.1; margin-bottom: 1rem; color: var(--white); }
-    .page-header-left h1 .accent {
-      background: linear-gradient(90deg, #00D4FF, #38bdf8, #FFB800, #00D4FF);
-      background-size: 300% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      animation: shine 8s linear infinite;
-    }
+    .page-header-left h1 .accent { background: linear-gradient(90deg, #00D4FF, #38bdf8, #FFB800, #00D4FF); background-size: 300% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shine 8s linear infinite; }
     @keyframes shine { to { background-position: 300% center; } }
     .page-header-left p { font-size: 1.1rem; color: var(--gray-light); max-width: 500px; margin-bottom: 1.5rem; line-height: 1.8; }
 
-    .trainer-badge {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(255,184,0,0.15); border: 1px solid rgba(255,184,0,0.3);
-      padding: 0.5rem 1.2rem; border-radius: 40px;
-      font-size: 0.85rem; font-weight: 600; color: var(--gold);
-    }
+    .trainer-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,184,0,0.15); border: 1px solid rgba(255,184,0,0.3); padding: 0.5rem 1.2rem; border-radius: 40px; font-size: 0.85rem; font-weight: 600; color: var(--gold); }
 
     /* STATS HEADER */
     .header-stats { display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
@@ -104,11 +80,7 @@
     .header-stat .lbl { font-size: 0.78rem; color: var(--gray-light); }
 
     /* TRAINER CARD */
-    .trainer-card {
-      background: rgba(255,255,255,0.05); backdrop-filter: blur(10px);
-      border-radius: 28px; padding: 2rem; border: 1px solid rgba(255,255,255,0.1);
-      text-align: center; transition: var(--transition);
-    }
+    .trainer-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border-radius: 28px; padding: 2rem; border: 1px solid rgba(255,255,255,0.1); text-align: center; transition: var(--transition); }
     .trainer-card:hover { transform: translateY(-5px); border-color: rgba(0,212,255,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
     .trainer-photo { width: 140px; height: 140px; margin: 0 auto 1rem; border-radius: 50%; overflow: hidden; border: 3px solid var(--accent); box-shadow: 0 8px 25px rgba(0,212,255,0.3); }
     .trainer-photo img { width: 100%; height: 100%; object-fit: cover; }
@@ -128,60 +100,34 @@
     /* LOGIN SECTION */
     .login-section { padding: 5rem 4%; }
     .container { max-width: 900px; margin: 0 auto; }
-
-    .login-card {
-      background: rgba(255,255,255,0.04); backdrop-filter: blur(10px);
-      border-radius: 24px; padding: 3rem; border: 1px solid rgba(0,212,255,0.15);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-      text-align: center;
-    }
+    .login-card { background: rgba(255,255,255,0.04); backdrop-filter: blur(10px); border-radius: 24px; padding: 3rem; border: 1px solid rgba(0,212,255,0.15); box-shadow: 0 20px 60px rgba(0,0,0,0.3); text-align: center; }
     .login-icon { font-size: 3.5rem; margin-bottom: 1rem; color: var(--accent); }
     .login-card h2 { color: var(--white); font-size: 1.8rem; margin-bottom: 0.5rem; }
     .login-card p { color: var(--gray-light); margin-bottom: 2rem; }
-
     .login-input-wrap { display: flex; gap: 0.8rem; max-width: 420px; margin: 0 auto 1rem; }
-    .login-input-wrap input {
-      flex: 1; padding: 0.9rem 1.2rem;
-      border: 1.5px solid rgba(0,212,255,0.2); border-radius: 10px;
-      font-family: inherit; font-size: 1rem;
-      background: rgba(255,255,255,0.06); color: var(--white);
-      transition: all 0.2s;
-    }
+    .login-input-wrap input { flex: 1; padding: 0.9rem 1.2rem; border: 1.5px solid rgba(0,212,255,0.2); border-radius: 10px; font-family: inherit; font-size: 1rem; background: rgba(255,255,255,0.06); color: var(--white); transition: all 0.2s; }
     .login-input-wrap input::placeholder { color: var(--gray-mid); }
     .login-input-wrap input:focus { outline: none; border-color: var(--accent); background: rgba(0,212,255,0.08); }
-
     .btn-primary { padding: 0.9rem 1.8rem; border-radius: 10px; font-weight: 700; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 0.6rem; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: var(--primary); border: none; cursor: pointer; transition: var(--transition); font-family: inherit; }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,212,255,0.3); }
-
     .login-hint { font-size: 0.8rem; color: var(--gray-mid); margin-top: 1rem; }
     .login-error { color: var(--red); font-size: 0.88rem; margin-top: 0.8rem; display: none; }
 
     /* PROTECTED SECTION */
     .protected-section { padding: 3rem 4% 5rem; display: none; }
     .protected-container { max-width: 1200px; margin: 0 auto; }
-
-    .welcome-bar {
-      background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3);
-      border-radius: 14px; padding: 1rem 1.5rem;
-      display: flex; align-items: center; gap: 1rem;
-      margin-bottom: 2.5rem; color: var(--success);
-      font-weight: 600;
-    }
+    .welcome-bar { background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); border-radius: 14px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; margin-bottom: 2.5rem; color: var(--success); font-weight: 600; }
     .welcome-bar i { font-size: 1.4rem; }
-
     .modules-header { margin-bottom: 2rem; }
     .modules-header h2 { color: var(--white); font-size: 1.8rem; margin-bottom: 0.4rem; }
     .modules-header p { color: var(--gray-light); }
-
     .progress-bar-wrap { background: rgba(255,255,255,0.08); border-radius: 10px; height: 8px; margin: 1rem 0 2rem; overflow: hidden; }
-    .progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--success)); border-radius: 10px; width: 66%; transition: width 1s ease; }
+    .progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--success)); border-radius: 10px; width: 33%; transition: width 1s ease; }
     .progress-label { font-size: 0.82rem; color: var(--gray-light); margin-bottom: 0.3rem; }
 
+    /* VIDEO GRID */
     .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
-    .video-card {
-      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px; overflow: hidden; transition: var(--transition);
-    }
+    .video-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; overflow: hidden; transition: var(--transition); }
     .video-card:hover { transform: translateY(-6px); border-color: rgba(0,212,255,0.3); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
     .video-card-header { padding: 1.2rem 1.2rem 0.5rem; display: flex; align-items: center; gap: 0.8rem; }
     .module-num { width: 36px; height: 36px; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: var(--primary); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
@@ -263,7 +209,7 @@
     <div class="top-bar-info">
       <span><i class="fas fa-phone"></i> +212 728 31 28 01</span>
       <span><i class="fas fa-envelope"></i> contact@nextgentechnologies.ma</span>
-      <span id="topBarCity"><i class="fas fa-map-marker-alt"></i> Casablanca</span>
+      <span><i class="fas fa-map-marker-alt"></i> Casablanca</span>
     </div>
     <div class="lang-switch">
       <button class="lang-btn active" data-lang="fr">🇫🇷 FR</button>
@@ -309,7 +255,7 @@
         <span style="color:white" id="breadCampus">Campus Cyber</span>
       </div>
       <h1 id="heroTitle">Campus <span class="accent">Cyber</span><br><span id="heroSubtitle">Centre de Formation Corporate</span></h1>
-      <p id="heroDesc">Accès réservé  — supports de cours, vidéos et ressources techniques exclusives.</p>
+      <p id="heroDesc">Accès réservé — supports de cours, vidéos et ressources techniques exclusives.</p>
       <div class="trainer-badge">
         <i class="fas fa-certificate"></i>
         <span id="trainerBadge">Formation par un expert Security Architect</span>
@@ -385,15 +331,15 @@
       <div class="video-card">
         <div class="video-card-header">
           <div class="module-num">01</div>
-          <h3 id="m1Title">Introduction à l'Architecture de Sécurité</h3>
-          <span class="badge done" id="m1Badge">Complété</span>
+          <h3 id="m1Title">Sensibilisation Cybersécurité & Anti-Phishing</h3>
+          <span class="badge new" id="m1Badge">En cours</span>
         </div>
         <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
         <div class="video-card-footer">
-          <a href="docs/module1-support.pdf" download class="dl-btn pdf" id="m1Pdf">
+          <a href="#docs/sensibilisation-phishing.pdf" onclick="alert('Téléchargement du support de cours de sensibilisation...')" class="dl-btn pdf" id="m1Pdf">
             <i class="fas fa-file-pdf"></i> Support PDF
           </a>
-          <a href="quiz1.html" class="dl-btn quiz" id="m1Quiz">
+          <a href="#quiz/quiz-phishing" onclick="alert('Lancement du Quiz de Sensibilisation...')" class="dl-btn quiz" id="m1Quiz">
             <i class="fas fa-clipboard-question"></i> Quiz 01
           </a>
         </div>
@@ -402,15 +348,15 @@
       <div class="video-card">
         <div class="video-card-header">
           <div class="module-num">02</div>
-          <h3 id="m2Title">Fondamentaux de la Sécurité Cloud</h3>
-          <span class="badge new" id="m2Badge">En cours</span>
+          <h3 id="m2Title">Introduction à l'Architecture de Sécurité</h3>
+          <span class="badge soon" id="m2Badge">Suivant</span>
         </div>
         <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
         <div class="video-card-footer">
-          <a href="docs/module2-support.pdf" download class="dl-btn pdf" id="m2Pdf">
+          <a href="#docs/architecture-securite.pdf" onclick="alert('Téléchargement du support d\'architecture...')" class="dl-btn pdf" id="m2Pdf">
             <i class="fas fa-file-pdf"></i> Support PDF
           </a>
-          <a href="quiz2.html" class="dl-btn quiz" id="m2Quiz">
+          <a href="#quiz/quiz-architecture" onclick="alert('Lancement du Quiz Architecture...')" class="dl-btn quiz" id="m2Quiz">
             <i class="fas fa-clipboard-question"></i> Quiz 02
           </a>
         </div>
@@ -419,7 +365,7 @@
       <div class="video-card">
         <div class="video-card-header">
           <div class="module-num locked">03</div>
-          <h3 id="m3Title">Gouvernance et Préparation CISSP</h3>
+          <h3 id="m3Title">Fondamentaux de la Sécurité Cloud</h3>
           <span class="badge soon" id="m3Badge">Bientôt</span>
         </div>
         <div class="video-locked">
@@ -440,11 +386,11 @@
     <div class="ressources-section">
       <h3><i class="fas fa-folder-open"></i> <span id="ressourcesTitle">Ressources complémentaires</span></h3>
       <div class="ressources-grid">
-        <a href="docs/glossaire-cyber.pdf" download class="ressource-card">
+        <a href="#docs/glossaire" onclick="alert('Téléchargement du Glossaire...')" class="ressource-card">
           <div class="ressource-icon pdf"><i class="fas fa-file-pdf"></i></div>
           <div class="ressource-info"><h4 id="res1Title">Glossaire cybersécurité</h4><span id="res1Desc">PDF · 45 termes essentiels</span></div>
         </a>
-        <a href="docs/cheatsheet-linux.pdf" download class="ressource-card">
+        <a href="#docs/cheatsheet" onclick="alert('Téléchargement de la Cheatsheet Linux...')" class="ressource-card">
           <div class="ressource-icon pdf"><i class="fas fa-terminal"></i></div>
           <div class="ressource-info"><h4 id="res2Title">Cheatsheet Linux</h4><span id="res2Desc">PDF · Commandes essentielles</span></div>
         </a>
@@ -456,11 +402,11 @@
           <div class="ressource-icon link"><i class="fas fa-diagram-project"></i></div>
           <div class="ressource-info"><h4 id="res4Title">MITRE ATT&CK</h4><span id="res4Desc">Framework des techniques d'attaque</span></div>
         </a>
-        <a href="docs/outils-pentest.pdf" download class="ressource-card">
+        <a href="#docs/outils" onclick="alert('Téléchargement du catalogue d\'outils pentest...')" class="ressource-card">
           <div class="ressource-icon tool"><i class="fas fa-bug"></i></div>
           <div class="ressource-info"><h4 id="res5Title">Outils pentest</h4><span id="res5Desc">PDF · Liste des outils recommandés</span></div>
         </a>
-        <a href="reponse.html" target="_blank" class="ressource-card">
+        <a href="#reponse" onclick="alert('Redirection vers le formulaire...')" class="ressource-card">
           <div class="ressource-icon tool"><i class="fas fa-clipboard-list"></i></div>
           <div class="ressource-info"><h4 id="res6Title">Formulaire de remédiation</h4><span id="res6Desc">Soumettre vos exercices</span></div>
         </a>
@@ -576,9 +522,9 @@ const translations = {
     welcomeMsg: "Bienvenue ! Vous êtes connecté à votre espace de formation.",
     modulesTitle: "📘 Mes modules de formation", modulesDesc: "Progressez à votre rythme — chaque module contient une vidéo, un support PDF et un quiz d'évaluation.",
     progressLabel: "Progression : Modules de formation débloqués",
-    m1Title: "Introduction à l'Architecture de Sécurité", m1Badge: "Complété", m1Pdf: "<i class='fas fa-file-pdf'></i> Support PDF", m1Quiz: "<i class='fas fa-clipboard-question'></i> Quiz 01",
-    m2Title: "Fondamentaux de la Sécurité Cloud", m2Badge: "En cours", m2Pdf: "<i class='fas fa-file-pdf'></i> Support PDF", m2Quiz: "<i class='fas fa-clipboard-question'></i> Quiz 02",
-    m3Title: "Gouvernance et Préparation CISSP", m3Badge: "Bientôt", m3LockedText: "Ce module sera débloqué prochainement", m3Pdf: "<i class='fas fa-file-pdf'></i> Indisponible", m3Quiz: "<i class='fas fa-clipboard-question'></i> Verrouillé",
+    m1Title: "Sensibilisation Cybersécurité & Anti-Phishing", m1Badge: "En cours", m1Pdf: "<i class='fas fa-file-pdf'></i> Support PDF", m1Quiz: "<i class='fas fa-clipboard-question'></i> Quiz 01",
+    m2Title: "Introduction à l'Architecture de Sécurité", m2Badge: "Suivant", m2Pdf: "<i class='fas fa-file-pdf'></i> Support PDF", m2Quiz: "<i class='fas fa-clipboard-question'></i> Quiz 02",
+    m3Title: "Fondamentaux de la Sécurité Cloud", m3Badge: "Bientôt", m3LockedText: "Ce module sera débloqué prochainement", m3Pdf: "<i class='fas fa-file-pdf'></i> Indisponible", m3Quiz: "<i class='fas fa-clipboard-question'></i> Verrouillé",
     ressourcesTitle: "Ressources complémentaires",
     res1Title: "Glossaire cybersécurité", res1Desc: "PDF · 45 termes essentiels",
     res2Title: "Cheatsheet Linux", res2Desc: "PDF · Commandes essentielles",
@@ -610,9 +556,9 @@ const translations = {
     welcomeMsg: "Welcome! You are connected to your training portal.",
     modulesTitle: "📘 My Training Modules", modulesDesc: "Progress at your own pace — each module includes a video, a PDF support, and an assessment quiz.",
     progressLabel: "Progress: Training modules unlocked",
-    m1Title: "Introduction to Security Architecture", m1Badge: "Completed", m1Pdf: "<i class='fas fa-file-pdf'></i> PDF Support", m1Quiz: "<i class='fas fa-clipboard-question'></i> Quiz 01",
-    m2Title: "Cloud Security Fundamentals", m2Badge: "In Progress", m2Pdf: "<i class='fas fa-file-pdf'></i> PDF Support", m2Quiz: "<i class='fas fa-clipboard-question'></i> Quiz 02",
-    m3Title: "Governance & CISSP Preparation", m3Badge: "Soon", m3LockedText: "This module will be unlocked soon", m3Pdf: "<i class='fas fa-file-pdf'></i> Unavailable", m3Quiz: "<i class='fas fa-clipboard-question'></i> Locked",
+    m1Title: "Cybersecurity Awareness & Anti-Phishing", m1Badge: "In Progress", m1Pdf: "<i class='fas fa-file-pdf'></i> PDF Support", m1Quiz: "<i class='fas fa-clipboard-question'></i> Quiz 01",
+    m2Title: "Introduction to Security Architecture", m2Badge: "Next", m2Pdf: "<i class='fas fa-file-pdf'></i> PDF Support", m2Quiz: "<i class='fas fa-clipboard-question'></i> Quiz 02",
+    m3Title: "Cloud Security Fundamentals", m3Badge: "Soon", m3LockedText: "This module will be unlocked soon", m3Pdf: "<i class='fas fa-file-pdf'></i> Unavailable", m3Quiz: "<i class='fas fa-clipboard-question'></i> Locked",
     ressourcesTitle: "Additional Resources",
     res1Title: "Cybersecurity Glossary", res1Desc: "PDF · 45 essential terms",
     res2Title: "Linux Cheatsheet", res2Desc: "PDF · Essential commands",
