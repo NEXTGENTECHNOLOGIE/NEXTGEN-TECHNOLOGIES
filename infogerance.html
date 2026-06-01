@@ -23,6 +23,7 @@
   --gray-light: #94A3B8;
   --gray-mid: #64748B;
   --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  --gold: #F59E0B;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -252,6 +253,238 @@ a { text-decoration: none; }
 .feature-card h3 { color: var(--white); font-size: 1.25rem; margin-bottom: 0.8rem; }
 .feature-card p { color: var(--gray-light); font-size: 0.92rem; line-height: 1.6; }
 
+/* PREMIUM PRICING SECTION */
+.pricing-section {
+  padding: 6rem 4%;
+  background: linear-gradient(180deg, #050B14 0%, #071426 50%, #050B14 100%);
+  border-top: 1px solid rgba(0, 212, 255, 0.1);
+  position: relative;
+}
+.grid-pricing {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+.pricing-card {
+  background: rgba(15, 43, 77, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 3rem 2.2rem 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+}
+.pricing-card:hover {
+  transform: translateY(-8px);
+  background: rgba(15, 43, 77, 0.25);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+.pricing-card.popular {
+  background: rgba(15, 43, 77, 0.3);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.05);
+  transform: scale(1.03);
+}
+.pricing-card.popular:hover {
+  transform: translateY(-8px) scale(1.03);
+  border-color: var(--accent);
+  box-shadow: 0 20px 45px rgba(0, 212, 255, 0.15);
+}
+.pricing-card.premium-gold {
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+.pricing-card.premium-gold:hover {
+  border-color: var(--gold);
+  box-shadow: 0 20px 45px rgba(245, 158, 11, 0.12);
+}
+.card-badge {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
+  padding: 0.35rem 1rem;
+  border-radius: 40px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.badge-essentiel {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--gray-light);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.badge-popular {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(8, 145, 178, 0.4));
+  color: var(--accent);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+}
+.badge-premium {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(245, 158, 11, 0.3));
+  color: var(--gold);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+.pricing-header {
+  margin-bottom: 2rem;
+}
+.pricing-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+.pricing-icon.essentiel { color: var(--gray-light); }
+.pricing-icon.popular { color: var(--accent); }
+.pricing-icon.premium { color: var(--gold); }
+.pricing-header h3 {
+  font-size: 1.6rem;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+.pricing-header .price-details {
+  font-size: 0.9rem;
+  color: var(--gray-light);
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+.pricing-features {
+  list-style: none;
+  margin-bottom: 2.5rem;
+  flex-grow: 1;
+}
+.pricing-features li {
+  font-size: 0.92rem;
+  color: var(--off-white);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+.pricing-features li i {
+  color: var(--accent);
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+.pricing-card.premium-gold .pricing-features li i {
+  color: var(--gold);
+}
+.pricing-cta {
+  display: block;
+  text-align: center;
+  padding: 0.9rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+.cta-essentiel {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.cta-essentiel:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+.cta-popular {
+  background: linear-gradient(135deg, #00D4FF, #0891B2);
+  color: #050B14;
+}
+.cta-popular:hover {
+  box-shadow: 0 5px 20px rgba(0, 212, 255, 0.35);
+  transform: translateY(-2px);
+}
+.cta-premium {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+}
+.cta-premium:hover {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.2));
+  transform: translateY(-2px);
+}
+.pricing-footer-banner {
+  max-width: 850px;
+  margin: 5rem auto 0;
+  background: linear-gradient(135deg, rgba(15, 43, 77, 0.3), rgba(5, 11, 20, 0.6));
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transform: translateY(30px);
+}
+.pricing-footer-banner p {
+  color: var(--off-white);
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+.pricing-footer-banner .banner-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, #00D4FF, #EF4444);
+  color: var(--white);
+  font-weight: 700;
+  padding: 0.9rem 2.2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
+}
+.pricing-footer-banner .banner-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+}
+
+@media (max-width: 1100px) {
+  .grid-pricing {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  .pricing-card.popular {
+    transform: none;
+    grid-column: span 1;
+  }
+  .pricing-card.popular:hover {
+    transform: translateY(-8px);
+  }
+  .pricing-card.premium-gold {
+    grid-column: span 2;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .grid-pricing {
+    grid-template-columns: 1fr;
+  }
+  .pricing-card.popular {
+    transform: none;
+  }
+  .pricing-card.popular:hover {
+    transform: translateY(-8px);
+  }
+  .pricing-card.premium-gold {
+    grid-column: span 1;
+    max-width: 100%;
+  }
+  .pricing-footer-banner {
+    padding: 2rem 1.5rem;
+  }
+}
+
 /* FOOTER */
 .footer { background: #050B14; padding: 4rem 4% 2rem; border-top: 1px solid rgba(0,212,255,0.1); }
 .footer-container { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 3rem; margin-bottom: 3rem; }
@@ -450,6 +683,76 @@ a { text-decoration: none; }
   </div>
 </section>
 
+<section class="pricing-section">
+  <div class="section-title-center">
+    <h2 data-i18n="pricing_title">Choisissez Votre Forfait</h2>
+    <p data-i18n="pricing_subtitle">Des plans adaptés aux PME marocaines. Tarification sur mesure après audit gratuit.</p>
+  </div>
+
+  <div class="grid-pricing">
+    <div class="pricing-card animation-trigger">
+      <span class="card-badge badge-essentiel" data-i18n="pack1_badge">Démarrage</span>
+      <div class="pricing-header">
+        <div class="pricing-icon essentiel"><i class="fa-solid fa-shield"></i></div>
+        <h3 data-i18n="pack1_name">Pack Essentiel</h3>
+        <div class="price-details" data-i18n="pack_tailored">Sur mesure</div>
+      </div>
+      <ul class="pricing-features">
+        <li><i class="fa-solid fa-check"></i> <span data-i18n="p1_f1">Support technique à distance</span></li>
+        <li><i class="fa-solid fa-check"></i> <span data-i18n="p1_f2">Monitoring & supervision proactive</span></li>
+        <li><i class="fa-solid fa-check"></i> <span data-i18n="p1_f3">Helpdesk & gestion des tickets</span></li>
+        <li><i class="fa-solid fa-check"></i> <span data-i18n="p1_f4">Rapport mensuel détaillé</span></li>
+        <li><i class="fa-solid fa-check"></i> <span data-i18n="p1_f5">Temps de réponse : 4h ouvrables</span></li>
+      </ul>
+      <a href="contact.html" class="pricing-cta cta-essentiel" data-i18n="pricing_cta_text">Demander un audit gratuit</a>
+    </div>
+
+    <div class="pricing-card popular animation-trigger">
+      <span class="card-badge badge-popular" data-i18n="pack2_badge">Le Plus Populaire</span>
+      <div class="pricing-header">
+        <div class="pricing-icon popular"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3 data-i18n="pack2_name">Pack Business</h3>
+        <div class="price-details" data-i18n="pack_tailored">Sur mesure</div>
+      </div>
+      <ul class="pricing-features">
+        <li><i class="fa-solid fa-check"></i> <strong data-i18n="p2_f1">Tout le Pack Essentiel</strong></li>
+        <li><i class="fa-solid fa-check"></i> <span data-i18n="p2_f2">Backup & protection des données</span></li>
+        <li><i class="fa-solid fa-check"></i> <span data-i18n="p2_f3">Gestion Microsoft 365</span></li>
+        <li><i class="fa-solid fa-check"></i> <span data-i18n="p2_f4">Patch Management automatisé</span></li>
+        <li><i class="fa-solid fa-check"></i> <span data-i18n="p2_f5">Maintenance postes & serveurs</span></li>
+        <li><i class="fa-solid fa-check"></i> <span data-i18n="p2_f6">Temps de réponse : 2h ouvrables</span></li>
+      </ul>
+      <a href="contact.html" class="pricing-cta cta-popular" data-i18n="pricing_cta_text">Demander un audit gratuit</a>
+    </div>
+
+    <div class="pricing-card premium-gold animation-trigger">
+      <span class="card-badge badge-premium" data-i18n="pack3_badge">Protection Maximale</span>
+      <div class="pricing-header">
+        <div class="pricing-icon premium"><i class="fa-solid fa-shield-cat"></i></div>
+        <h3 data-i18n="pack3_name">Pack Premium</h3>
+        <div class="price-details" data-i18n="pack_tailored">Sur mesure</div>
+      </div>
+      <ul class="pricing-features">
+        <li><i class="fa-solid fa-check"></i> <strong data-i18n="p3_f1">Tout le Pack Business</strong></li>
+        <li><i class="fa-solid fa-check"></i> <span data-i18n="p3_f2">Cybersécurité EDR nouvelle génération</span></li>
+        <li><i class="fa-solid fa-check"></i> <span data-i18n="p3_f3">Surveillance réseau 24/7</span></li>
+        <li><i class="fa-solid fa-check"></i> <span data-i18n="p3_f4">Consultant IT dédié NextGen</span></li>
+        <li><i class="fa-solid fa-check"></i> <span data-i18n="p3_f5">SLA garanti contractuellement</span></li>
+        <li><i class="fa-solid fa-check"></i> <span data-i18n="p3_f6">Temps de réponse : 1h (24/7)</span></li>
+      </ul>
+      <a href="contact.html" class="pricing-cta cta-premium" data-i18n="pricing_cta_text">Demander un audit gratuit</a>
+    </div>
+  </div>
+
+  <div class="pricing-footer-banner animation-trigger">
+    <p data-i18n="pricing_banner_text">Tous nos forfaits sont personnalisables selon la taille de votre parc informatique.<br>Contactez-nous pour un audit IT gratuit et sans engagement.</p>
+    <a href="contact.html" class="banner-btn">
+      <span data-i18n="pricing_banner_btn">Obtenir mon audit gratuit</span>
+      <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+</section>
+
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-brand">
@@ -540,6 +843,36 @@ const translations = {
     info_srv8_title: "Cybersécurité et protection des accès",
     info_srv8_desc: "Intégration d'antivirus nouvelle génération, d'EDR et gestion stricte des politiques de droits d'accès.",
 
+    pricing_title: "Choisissez Votre Forfait",
+    pricing_subtitle: "Des plans adaptés aux PME marocaines. Tarification sur mesure après audit gratuit.",
+    pack1_badge: "Démarrage",
+    pack2_badge: "Le Plus Populaire",
+    pack3_badge: "Protection Maximale",
+    pack1_name: "Pack Essentiel",
+    pack2_name: "Pack Business",
+    pack3_name: "Pack Premium",
+    pack_tailored: "Sur mesure",
+    pricing_cta_text: "Demander un audit gratuit",
+    pricing_banner_text: "Tous nos forfaits sont personnalisables selon la taille de votre parc informatique.<br>Contactez-nous pour un audit IT gratuit et sans engagement.",
+    pricing_banner_btn: "Obtenir mon audit gratuit",
+    p1_f1: "Support technique à distance",
+    p1_f2: "Monitoring & supervision proactive",
+    p1_f3: "Helpdesk & gestion des tickets",
+    p1_f4: "Rapport mensuel détaillé",
+    p1_f5: "Temps de réponse : 4h ouvrables",
+    p2_f1: "Tout le Pack Essentiel",
+    p2_f2: "Backup & protection des données",
+    p2_f3: "Gestion Microsoft 365",
+    p2_f4: "Patch Management automatisé",
+    p2_f5: "Maintenance postes & serveurs",
+    p2_f6: "Temps de réponse : 2h ouvrables",
+    p3_f1: "Tout le Pack Business",
+    p3_f2: "Cybersécurité EDR nouvelle génération",
+    p3_f3: "Surveillance réseau 24/7",
+    p3_f4: "Consultant IT dédié NextGen",
+    p3_f5: "SLA garanti contractuellement",
+    p3_f6: "Temps de réponse : 1h (24/7)",
+
     srv_1_title: "Audit & Diagnostic",
     srv_2_title: "Pentest / VAPT",
     srv_3_title: "Sécurité Réseau",
@@ -587,6 +920,36 @@ const translations = {
     info_srv8_title: "Cybersecurity & Access Protection",
     info_srv8_desc: "Next-gen threat hunting engines implementation, advanced EDR, and strict policy privilege matrices handling.",
 
+    pricing_title: "Choose Your Plan",
+    pricing_subtitle: "Tailored frameworks built for Moroccan SMBs. Custom quotas delivered post-audit.",
+    pack1_badge: "Startup",
+    pack2_badge: "Most Popular",
+    pack3_badge: "Maximum Security",
+    pack1_name: "Essential Pack",
+    pack2_name: "Business Pack",
+    pack3_name: "Premium Pack",
+    pack_tailored: "Customized",
+    pricing_cta_text: "Request Free IT Audit",
+    pricing_banner_text: "All our operational packages are fully scalable to map your internal machine architectures.<br>Reach out to lock your completely free, zero-commitment IT perimeter audit.",
+    pricing_banner_btn: "Get My Free Audit",
+    p1_f1: "Remote IT helpdesk intervention",
+    p1_f2: "Proactive telemetry & architecture tracking",
+    p1_f3: "Structured incident ticketing tracking",
+    p1_f4: "Comprehensive monthly performance audits",
+    p1_f5: "Response window: 4 Business Hours",
+    p2_f1: "All Core Essential features",
+    p2_f2: "Hardened offsite disaster recovery backups",
+    p2_f3: "Enterprise Microsoft 365 tenant oversight",
+    p2_f4: "Automated patch deployment pipelines",
+    p2_f5: "Full endpoint & backend preservation",
+    p2_f6: "Response window: 2 Business Hours",
+    p3_f1: "All Premium Business integrations",
+    p3_f2: "Next-gen endpoint EDR active threat shielding",
+    p3_f3: "Continuous 24/7 network packet engineering",
+    p3_f4: "Assigned NextGen dedicated infrastructure advisor",
+    p3_f5: "Contractually committed SLA guarantees",
+    p3_f6: "Response window: 1 Hour Urgent (24/7/365)",
+
     srv_1_title: "Audit & Diagnostics",
     srv_2_title: "Pentesting / VAPT",
     srv_3_title: "Network Security",
@@ -612,7 +975,7 @@ function applyLanguage(lang) {
           el.innerHTML = 'IT Support & <span class="accent">Managed Services</span>';
         }
       } else {
-        el.textContent = translations[lang][key];
+        el.innerHTML = translations[lang][key];
       }
     }
   });
@@ -656,8 +1019,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Animation fade-in au scroll pour les cartes (Expertises)
-  const cardsToAnimate = document.querySelectorAll('.feature-card');
+  // Animation fade-in au scroll pour les cartes (Expertises & Forfaits)
+  const cardsToAnimate = document.querySelectorAll('.feature-card, .pricing-card, .pricing-footer-banner');
   const cardAnimationObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if(entry.isIntersecting) {
