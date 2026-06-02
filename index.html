@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-
+ 
 <style>
 :root {
   --primary: #0A1628;
@@ -39,7 +39,7 @@ h1, h2, h3, h4 {
   letter-spacing: -0.02em;
 }
 a { text-decoration: none; }
-
+ 
 /* PROGRESS BAR */
 .scroll-progress {
   position: fixed;
@@ -48,7 +48,7 @@ a { text-decoration: none; }
   z-index: 99999;
   transition: width 0.1s ease;
 }
-
+ 
 /* CURSOR GLOW */
 @media (min-width: 1025px) {
   .cursor-glow {
@@ -58,7 +58,7 @@ a { text-decoration: none; }
     pointer-events: none; z-index: 9999;
   }
 }
-
+ 
 /* TOP BAR */
 .top-bar {
   background: rgba(5, 11, 20, 0.95);
@@ -90,7 +90,7 @@ a { text-decoration: none; }
 .top-bar-info i { color: var(--accent); }
 .top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; transition: var(--transition); display: inline-block; }
 .top-bar-social a:hover { color: var(--accent); transform: translateY(-2px); }
-
+ 
 .lang-switch {
   display: flex; gap: 0.25rem; background: rgba(0,212,255,0.15);
   padding: 0.2rem 0.6rem; border-radius: 40px; align-items: center;
@@ -102,7 +102,7 @@ a { text-decoration: none; }
   font-family: inherit;
 }
 .lang-btn.active { background: var(--accent); color: var(--primary); }
-
+ 
 /* NAVIGATION */
 .nav {
   position: sticky; top: 0; z-index: 1000; padding: 1rem 4%;
@@ -128,7 +128,7 @@ a { text-decoration: none; }
   50% { transform: translateY(-5px); }
 }
 .logo-text-accent { color: var(--accent); }
-
+ 
 .nav-links { display: flex; gap: 0.4rem; list-style: none; align-items: center; }
 .nav-links > li { position: relative; }
 .nav-links > li > a {
@@ -137,7 +137,7 @@ a { text-decoration: none; }
   display: flex; align-items: center; gap: 0.3rem;
 }
 .nav-links > li > a:hover { background: rgba(0,212,255,0.1); color: var(--accent); }
-
+ 
 /* BOUTON ESPACE CLIENT (WEB) */
 .nav-links > li > a.btn-espace-client {
   background: linear-gradient(135deg, #00D4FF, #0891B2);
@@ -151,7 +151,7 @@ a { text-decoration: none; }
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
 }
-
+ 
 /* BOUTON ESPACE CLIENT (MOBILE) */
 .mobile-nav-overlay a.btn-espace-client-mobile {
   background: linear-gradient(135deg, #00D4FF, #0891B2);
@@ -169,7 +169,7 @@ a { text-decoration: none; }
 .mobile-nav-overlay a.btn-espace-client-mobile:active {
   transform: scale(0.98);
 }
-
+ 
 .dropdown-menu {
   position: absolute; top: 100%; left: 0; background: #071426;
   min-width: 280px; box-shadow: 0 20px 40px rgba(0,0,0,0.4);
@@ -183,9 +183,9 @@ a { text-decoration: none; }
   font-size: 0.88rem; border-radius: 8px; transition: var(--transition);
 }
 .dropdown-menu li a:hover { background: rgba(0,212,255,0.1); color: var(--accent); padding-left: 1.4rem; }
-
+ 
 .nav-actions { display: flex; align-items: center; gap: 1.2rem; }
-
+ 
 /* MOBILE HAMBURGER MENU */
 .menu-toggle {
   display: none; background: none; border: none; color: var(--white);
@@ -200,7 +200,7 @@ a { text-decoration: none; }
 }
 .mobile-nav-overlay.active { right: 0; }
 .mobile-nav-overlay a { color: var(--white); font-size: 1.1rem; font-weight: 600; }
-
+ 
 /* HERO SLIDER AVEC INTELLIGENCE GRAPHIQUE CYBER */
 .slider {
   position: relative; width: 100%; height: 85vh; min-height: 600px;
@@ -217,7 +217,7 @@ a { text-decoration: none; }
   display: flex; align-items: center; justify-content: center; text-align: center;
 }
 .slide.active { opacity: 1; visibility: visible; }
-
+ 
 /* CONTENEUR DE L'IMAGE AVEC TRAITEMENT CYBER AVANCÉ */
 .slide-bg-wrapper {
   position: absolute; inset: 0; z-index: 1;
@@ -236,7 +236,7 @@ a { text-decoration: none; }
   0% { transform: scale(1.08); }
   100% { transform: scale(1.01); }
 }
-
+ 
 /* EFFET DE SCANNER LASER CYBER ET MATRIX SUR L'IMAGE */
 .slide-bg-wrapper::before {
   content: ''; position: absolute; inset: 0;
@@ -254,7 +254,7 @@ a { text-decoration: none; }
   0% { top: -100px; }
   100% { top: 100%; }
 }
-
+ 
 /* Overlay de dégradés et grille technologique */
 .slide::before {
   content: ''; position: absolute; inset: 0;
@@ -265,7 +265,7 @@ a { text-decoration: none; }
   background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
   z-index: 4;
 }
-
+ 
 /* Conteneur des textes */
 .slide .caption {
   position: relative; z-index: 10; max-width: 950px; padding: 3rem 4rem;
@@ -281,12 +281,12 @@ a { text-decoration: none; }
 .slide.active h1 { opacity: 1; transform: translateY(0); filter: blur(0); transition-delay: 0.3s; }
 .slide.active .slide-desc { opacity: 1; transform: translateY(0); filter: blur(0); transition-delay: 0.5s; }
 .slide.active .slide-buttons { opacity: 1; transform: translateY(0); filter: blur(0); transition-delay: 0.7s; }
-
+ 
 .slide .caption h1 {
   font-size: clamp(1.8rem, 4.5vw, 3.2rem); font-weight: 800; color: var(--white);
   line-height: 1.25; margin-bottom: 1.2rem;
 }
-
+ 
 .accent-text, .wow-gradient-title {
   background: linear-gradient(90deg, var(--accent), #a5f3fc, var(--accent));
   background-size: 200% auto; -webkit-background-clip: text; background-clip: text;
@@ -296,7 +296,7 @@ a { text-decoration: none; }
   0% { background-position: 0% center; }
   100% { background-position: 200% center; }
 }
-
+ 
 .slide-desc {
   font-size: 1.1rem; color: rgba(226, 232, 240, 0.85);
   margin-bottom: 2.2rem; font-weight: 400; letter-spacing: 0.2px;
@@ -323,7 +323,7 @@ a { text-decoration: none; }
   background: var(--accent); color: var(--primary); border-color: var(--accent);
   transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0, 212, 255, 0.2);
 }
-
+ 
 /* VALUES SECTION */
 .values-section { padding: 5rem 4%; background: #071426; position: relative; }
 .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; max-width: 1200px; margin: 0 auto; }
@@ -343,7 +343,7 @@ a { text-decoration: none; }
 }
 .value-card h3 { color: var(--white); font-size: 1.3rem; margin-bottom: 0.8rem; }
 .value-card p { color: var(--gray-light); font-size: 0.9rem; }
-
+ 
 /* BRAND PARTNERS SECTION - CAROUSEL AUTO-INFINI AMÉLIORÉ */
 .partners-section {
   padding: 6rem 4%;
@@ -351,7 +351,7 @@ a { text-decoration: none; }
   position: relative;
   border-bottom: 1px solid rgba(0, 212, 255, 0.08);
   text-align: center;
-  overflow: hidden; /* Évite les barres de défilement */
+  overflow: hidden;
 }
 .partners-container {
   max-width: 1300px;
@@ -363,19 +363,16 @@ a { text-decoration: none; }
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
-
-/* Zone du slider masquant le débordement */
+ 
 .partners-carousel-track {
   display: flex;
   width: 100%;
   overflow: hidden;
   position: relative;
-  /* Masque d'opacité fluide sur les côtés pour un rendu premium */
   -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%);
   mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%);
 }
-
-/* Conteneur global qui défile */
+ 
 .partners-grid {
   display: flex;
   gap: 2.2rem;
@@ -383,19 +380,17 @@ a { text-decoration: none; }
   width: max-content;
   animation: infiniteScroll 35s linear infinite;
 }
-
-/* Pause lors du survol de la track complète */
+ 
 .partners-carousel-track:hover .partners-grid {
   animation-play-state: paused;
 }
-
-/* Style de chaque élément individuel du logo */
+ 
 .partner-tile {
   background: rgba(255, 255, 255, 0.95);
   border: 1px solid rgba(0, 212, 255, 0.2);
   border-radius: 20px;
   height: 140px;
-  width: 250px; /* Largeur fixe pour stabiliser le défilement CSS */
+  width: 250px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -426,12 +421,11 @@ a { text-decoration: none; }
   filter: contrast(1) brightness(1);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
-/* Effets au Hover unitaire : Zoom + lueur Glow cyan/bleu */
+ 
 .partner-tile:hover {
   background: #ffffff;
-  transform: translateY(-4px) scale(1.05); /* Légère réduction de l'élévation Y pour focaliser sur le scale 1.05 requis */
-  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.45); /* Lueur cyan renforcée */
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.45);
   border-color: rgba(0, 212, 255, 0.6);
 }
 .partner-tile:hover::before {
@@ -440,18 +434,16 @@ a { text-decoration: none; }
 .partner-tile:hover img {
   transform: scale(1.06);
 }
-
-/* Keyframes de l'animation CSS pure */
+ 
 @keyframes infiniteScroll {
   0% {
     transform: translateX(0);
   }
   100% {
-    /* Traduction exacte de la moitié de la largeur du contenu dupliqué */
     transform: translateX(calc(-50% - 1.1rem)); 
   }
 }
-
+ 
 @media (max-width: 992px) {
   .partner-tile {
     height: 120px;
@@ -463,21 +455,21 @@ a { text-decoration: none; }
   }
   .partners-grid {
     gap: 1.5rem;
-    animation-duration: 25s; /* Ajustement vitesse sur mobile */
+    animation-duration: 25s;
   }
   @keyframes infiniteScroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(calc(-50% - 0.75rem)); }
   }
 }
-
+ 
 /* SERVICES SECTION */
 .services-section { padding: 6rem 4%; background: #050B14; }
 .section-header { text-align: center; max-width: 700px; margin: 0 auto 4rem; }
 .section-header h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 1rem; }
 .section-header p { color: var(--gray-light); }
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2.5rem; max-width: 1300px; margin: 0 auto; }
-
+ 
 /* SERVICE CARD WITH ANIMATION DEFAULTS */
 .service-card {
   background: rgba(15, 43, 77, 0.3); border-radius: 24px; overflow: hidden;
@@ -495,7 +487,7 @@ a { text-decoration: none; }
 .service-content p { color: var(--gray-light); font-size: 0.92rem; margin-bottom: 1.5rem; line-height: 1.6; }
 .service-link { margin-top: auto; color: var(--accent); font-weight: 700; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.5rem; transition: gap 0.3s ease; }
 .service-card:hover .service-link { gap: 0.8rem; }
-
+ 
 /* CYBER DEFENSE SECTION - KASPERSKY CYBERMAP INTEGRATION */
 .cyber-defense-premium {
   padding: 6rem 4%; background: linear-gradient(135deg, #050B14, #0A1628);
@@ -504,7 +496,7 @@ a { text-decoration: none; }
 .cyber-defense-container { max-width: 1100px; margin: 0 auto; position: relative; z-index: 5; text-align: center; }
 .cyber-defense-text h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 1.5rem; line-height: 1.2; }
 .cyber-defense-text p { color: var(--gray-light); margin-bottom: 3rem; font-size: 1.05rem; max-width: 800px; margin-left: auto; margin-right: auto; }
-
+ 
 /* CONTAINER MAP ULTRA-PUISSANT */
 .map-iframe-container {
   width: 100%; height: 600px; border-radius: 24px; overflow: hidden;
@@ -512,11 +504,11 @@ a { text-decoration: none; }
   box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 40px rgba(0,212,255,0.2);
   margin-bottom: 4rem; background: #020408;
 }
-
+ 
 /* STATISTIQUES */
 .stats-grid-centered { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
 @media (max-width: 992px) { .stats-grid-centered { grid-template-columns: repeat(2, 1fr); } }
-
+ 
 /* RESPONSIVE DESIGN DE LA TOP BAR ET MOBILE */
 @media (max-width: 768px) {
   .top-bar-container {
@@ -581,12 +573,12 @@ a { text-decoration: none; }
     filter: none !important;
   }
 }
-
+ 
 .stat-box { background: rgba(15, 43, 77, 0.4); padding: 1.8rem; border-radius: 16px; border: 1px solid rgba(0,212,255,0.1); transition: var(--transition); }
 .stat-box:hover { border-color: var(--accent); background: rgba(15, 43, 77, 0.6); transform: translateY(-5px); }
 .stat-number { font-family: 'Space Grotesk', sans-serif; font-size: 2.4rem; font-weight: 700; color: var(--accent); margin-bottom: 0.2rem; }
 .stat-label { font-size: 0.85rem; color: var(--off-white); font-weight: 500; }
-
+ 
 /* FOOTER */
 .footer { background: #050B14; padding: 4rem 4% 2rem; border-top: 1px solid rgba(0,212,255,0.1); }
 .footer-container { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 3rem; margin-bottom: 3rem; }
@@ -610,17 +602,17 @@ a { text-decoration: none; }
   display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
   color: var(--gray-mid); font-size: 0.85rem;
 }
-
+ 
 @media (max-width: 1024px) { .nav-links { display: none; } .menu-toggle { display: block; } .values-grid { grid-template-columns: repeat(2, 1fr); } .footer-container { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 768px) { .values-grid { grid-template-columns: 1fr; } .footer-container { grid-template-columns: 1fr; } }
 </style>
 </head>
-
+ 
 <body>
-
+ 
 <div class="scroll-progress" id="scrollProgress"></div>
 <div class="cursor-glow" id="cursorGlow"></div>
-
+ 
 <div class="top-bar">
   <div class="top-bar-container">
     <div class="partner-badge">
@@ -643,7 +635,7 @@ a { text-decoration: none; }
     </div>
   </div>
 </div>
-
+ 
 <nav class="nav">
   <div class="nav-container">
     <a href="index.html" class="logo">
@@ -658,13 +650,13 @@ a { text-decoration: none; }
       <li>
         <a href="services.html" data-i18n="nav_services">Services <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;"></i></a>
         <ul class="dropdown-menu">
+          <li><a href="infogerance.html" data-i18n="srv_7_title">Support IT & Infogérance</a></li>
+          <li><a href="securite-reseau.html" data-i18n="srv_3_title">Sécurité Réseau</a></li>
           <li><a href="contact.html" data-i18n="srv_1_title">Audit & Diagnostic</a></li>
           <li><a href="vapt.html" data-i18n="srv_2_title">Pentest / VAPT</a></li>
-          <li><a href="securite-reseau.html" data-i18n="srv_3_title">Sécurité Réseau</a></li>
           <li><a href="soc-consultation.html" data-i18n="srv_4_title">SOC Consultation</a></li>
           <li><a href="cybercrime.html" data-i18n="srv_5_title">Investigation Numérique</a></li>
           <li><a href="noc.html" data-i18n="srv_6_title">NOC Managé</a></li>
-          <li><a href="infogerance.html" data-i18n="srv_7_title">Support IT & Infogérance</a></li>
         </ul>
       </li>
       <li><a href="secteurs.html" data-i18n="nav_sectors">Secteurs</a></li>
@@ -674,7 +666,7 @@ a { text-decoration: none; }
       <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
       <li><a href="support.html" class="btn-espace-client" data-i18n="nav_espace_client"><i class="fa-solid fa-user-circle"></i> Espace Client</a></li>
     </ul>
-
+ 
     <div class="nav-actions">
       <button class="menu-toggle" id="menuToggle">
         <i class="fa-solid fa-bars"></i>
@@ -682,7 +674,7 @@ a { text-decoration: none; }
     </div>
   </div>
 </nav>
-
+ 
 <div class="mobile-nav-overlay" id="mobileNav">
   <a href="index.html" data-i18n="nav_home">Accueil</a>
   <a href="services.html" data-i18n="nav_services">Services</a>
@@ -693,25 +685,12 @@ a { text-decoration: none; }
   <a href="contact.html" data-i18n="nav_contact">Contact</a>
   <a href="support.html" class="btn-espace-client-mobile" data-i18n="nav_espace_client"><i class="fa-solid fa-user-circle"></i> Espace Client</a>
 </div>
-
+ 
 <div class="slider">
   <canvas class="particle-canvas" id="sliderParticles"></canvas>
   
+  <!-- MODIFICATION 1 : SLIDE INFOGÉRANCE EN PREMIER (active) -->
   <div class="slide active">
-    <div class="slide-bg-wrapper">
-      <div class="slide-bg" style="background-image: url('https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
-    </div>
-    <div class="caption">
-      <h1>NextGen <span id="typedElement" class="accent-text"></span><br><span data-i18n="slide1_title_sub">Anticipez les menaces avec une cyberdéfense proactive robuste</span></h1>
-      <p class="slide-desc" data-i18n="slide1_desc">Sécurisez vos actifs critiques avec des audits offensifs et une protection continue adaptée aux enjeux de votre infrastructure numérique.</p>
-      <div class="slide-buttons">
-        <a href="contact.html" class="btn-slide" data-i18n="btn_audit_req">Évaluer votre sécurité <i class="fa-solid fa-arrow-right"></i></a>
-        <a href="services.html" class="btn-slide-outline" data-i18n="btn_discover">Découvrir l'Offre</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="slide">
     <div class="slide-bg-wrapper">
       <div class="slide-bg" style="background-image: url('https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
     </div>
@@ -724,7 +703,23 @@ a { text-decoration: none; }
       </div>
     </div>
   </div>
-
+ 
+  <!-- SLIDE CYBERDÉFENSE EN DEUXIÈME -->
+  <div class="slide">
+    <div class="slide-bg-wrapper">
+      <div class="slide-bg" style="background-image: url('https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
+    </div>
+    <div class="caption">
+      <h1>NextGen <span id="typedElement" class="accent-text"></span><br><span data-i18n="slide1_title_sub">Anticipez les menaces avec une cyberdéfense proactive robuste</span></h1>
+      <p class="slide-desc" data-i18n="slide1_desc">Sécurisez vos actifs critiques avec des audits offensifs et une protection continue adaptée aux enjeux de votre infrastructure numérique.</p>
+      <div class="slide-buttons">
+        <a href="contact.html" class="btn-slide" data-i18n="btn_audit_req">Évaluer votre sécurité <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="services.html" class="btn-slide-outline" data-i18n="btn_discover">Découvrir l'Offre</a>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- SLIDE 3 INCHANGÉE -->
   <div class="slide">
     <div class="slide-bg-wrapper">
       <div class="slide-bg" style="background-image: url('https://images.pexels.com/photos/5380642/pexels-photo-5380642.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
@@ -738,15 +733,25 @@ a { text-decoration: none; }
       </div>
     </div>
   </div>
-
+ 
   <div class="controls">
     <div id="prev"><i class="fa-solid fa-chevron-left"></i></div>
     <div id="next"><i class="fa-solid fa-chevron-right"></i></div>
   </div>
-
+ 
   <div class="indicator" id="indicator"></div>
 </div>
-
+ 
+<!-- MODIFICATION 2 : SERVICES SECTION AVANT VALUES -->
+<section class="services-section">
+  <div class="section-header">
+    <h2 class="wow-gradient-title" data-i18n="services_section_title">Nos Domaines d'Expertise Cyber</h2>
+    <p data-i18n="services_section_desc">Des solutions ultra-spécifiques et modulaires adaptées aux menaces contemporaines complexes.</p>
+  </div>
+  <div class="services-grid" id="servicesGrid"></div>
+</section>
+ 
+<!-- VALUES SECTION APRÈS SERVICES -->
 <section class="values-section">
   <div class="values-grid">
     <div class="value-card">
@@ -762,7 +767,8 @@ a { text-decoration: none; }
     <div class="value-card">
       <div class="value-icon"><i class="fa-solid fa-user-shield"></i></div>
       <h3 data-i18n="val_3_title">Expertise Certifiée</h3>
-      <p data-i18n="val_3_desc">Une équipe d'élite certifiée CEH, CISSP, OSCP et dotée de compétences militaires.</p>
+      <!-- MODIFICATION 3 : CERTIFICATIONS CORRIGÉES -->
+      <p data-i18n="val_3_desc">Une équipe certifiée CompTIA Security+, PenTest+ et spécialisée en tests d'intrusion et sécurité offensive.</p>
     </div>
     <div class="value-card">
       <div class="value-icon"><i class="fa-solid fa-headset"></i></div>
@@ -771,7 +777,7 @@ a { text-decoration: none; }
     </div>
   </div>
 </section>
-
+ 
 <section class="partners-section">
   <div class="partners-container">
     <h2 class="partners-title wow-gradient-title" data-i18n="partners_section_title">Nos Partenaires Technologiques</h2>
@@ -800,15 +806,7 @@ a { text-decoration: none; }
     
   </div>
 </section>
-
-<section class="services-section">
-  <div class="section-header">
-    <h2 class="wow-gradient-title" data-i18n="services_section_title">Nos Domaines d'Expertise Cyber</h2>
-    <p data-i18n="services_section_desc">Des solutions ultra-spécifiques et modulaires adaptées aux menaces contemporaines complexes.</p>
-  </div>
-  <div class="services-grid" id="servicesGrid"></div>
-</section>
-
+ 
 <section class="cyber-defense-premium">
   <div class="cyber-defense-container">
     <div class="cyber-defense-text">
@@ -819,7 +817,7 @@ a { text-decoration: none; }
     <div class="map-iframe-container">
       <iframe src="https://cybermap.kaspersky.com/en/widget/dynamic/dark" width="100%" height="100%" style="border: none;" allowfullscreen></iframe>
     </div>
-
+ 
     <div class="stats-grid-centered">
       <div class="stat-box">
         <div class="stat-number id-counter" id="attackCounter1">14,240</div>
@@ -836,7 +834,7 @@ a { text-decoration: none; }
     </div>
   </div>
 </section>
-
+ 
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-brand">
@@ -854,16 +852,17 @@ a { text-decoration: none; }
       </div>
     </div>
     
+    <!-- MODIFICATION 4 : FOOTER EXPERTISES RÉORGANISÉ -->
     <div class="footer-links">
       <h4 data-i18n="footer_col1">Expertises</h4>
       <ul>
+        <li><a href="infogerance.html" data-i18n="srv_7_title">Support IT & Infogérance</a></li>
+        <li><a href="securite-reseau.html" data-i18n="srv_3_title">Sécurité Réseau</a></li>
         <li><a href="contact.html" data-i18n="srv_1_title">Audit & Diagnostic</a></li>
         <li><a href="vapt.html" data-i18n="srv_2_title">Pentest / VAPT</a></li>
-        <li><a href="securite-reseau.html" data-i18n="srv_3_title">Sécurité Réseau</a></li>
-        <li><a href="soc-consultation.html" data-i18n="srv_4_title">SOC Consultation</a></li>
       </ul>
     </div>
-
+ 
     <div class="footer-links">
       <h4 data-i18n="footer_col2">Société</h4>
       <ul>
@@ -873,7 +872,7 @@ a { text-decoration: none; }
         <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
       </ul>
     </div>
-
+ 
     <div class="footer-links">
       <h4 data-i18n="footer_col3">Légal</h4>
       <ul>
@@ -882,15 +881,15 @@ a { text-decoration: none; }
       </ul>
     </div>
   </div>
-
+ 
   <div class="footer-bottom">
     <p>&copy; 2026 NextGen Technologies. Tous droits réservés.</p>
     <p data-i18n="footer_sub_text">Conçu avec excellence opérationnelle au Maroc.</p>
   </div>
 </footer>
-
+ 
 <script>
-// Dictionnaire complet de traduction unifié
+// Dictionnaire complet de traduction unifié — IDENTIQUE à l'original sauf val_3_desc
 const translations = {
   fr: {
     top_badge: "Votre partenaire en cyberdéfense et infogérance",
@@ -920,7 +919,7 @@ const translations = {
     val_2_title: "Haute Performance",
     val_2_desc: "Des solutions réseau optimisées offrant une fluidité maximale et sans interruption.",
     val_3_title: "Expertise Certifiée",
-    val_3_desc: "Une équipe d'élite certifiée CEH, CISSP, OSCP et dotée de compétences militaires.",
+    val_3_desc: "Une équipe certifiée CompTIA Security+, PenTest+ et spécialisée en tests d'intrusion et sécurité offensive.",
     val_4_title: "Support Dédié",
     val_4_desc: "Assistance réactive en continu 24/7/365 avec une équipe de crise mobilisable à tout instant.",
     partners_section_title: "Nos Partenaires Technologiques",
@@ -982,7 +981,7 @@ const translations = {
     val_2_title: "High Performance",
     val_2_desc: "Optimized enterprise network architectures providing maximum throughput and zero downtime.",
     val_3_title: "Certified Expertise",
-    val_3_desc: "An elite cybersecurity team holding CEH, CISSP, OSCP and specialized defensive credentials.",
+    val_3_desc: "A certified team holding CompTIA Security+ and PenTest+ credentials, specialized in penetration testing and offensive security.",
     val_4_title: "Dedicated Support",
     val_4_desc: "24/7/365 continuous assistance with a specialized crisis response team ready at any moment.",
     partners_section_title: "Our Technology Partners",
@@ -1017,19 +1016,20 @@ const translations = {
     footer_sub_text: "Designed with operational excellence in Morocco."
   }
 };
-
+ 
+// MODIFICATION 4 : servicesData RÉORGANISÉ — Infogérance en premier
 const servicesData = [
-  { id: 1, titleKey: "srv_1_title", descKey: "srv_1_desc", link: "contact.html", icon: "fa-solid fa-clipboard-check", img: "audit-diagnostic.jpg" },
-  { id: 2, titleKey: "srv_2_title", descKey: "srv_2_desc", link: "vapt.html", icon: "fa-solid fa-terminal", img: "vapt.webp" },
-  { id: 3, titleKey: "srv_3_title", descKey: "srv_3_desc", link: "securite-reseau.html", icon: "fa-solid fa-network-wired", img: "securite-reseau.jpg" },
-  { id: 4, titleKey: "srv_4_title", descKey: "srv_4_desc", link: "soc-consultation.html", icon: "fa-solid fa-eye", img: "soc-consultation.jpg" },
-  { id: 5, titleKey: "srv_5_title", descKey: "srv_5_desc", link: "cybercrime.html", icon: "fa-solid fa-magnifying-glass-crack", img: "cybercrime.jpg" },
-  { id: 6, titleKey: "srv_6_title", descKey: "srv_6_desc", link: "noc.html", icon: "fa-solid fa-server", img: "noc-monitoring.jpg" },
-  { id: 7, titleKey: "srv_7_title", descKey: "srv_7_desc", link: "infogerance.html", icon: "fa-solid fa-headset", img: "Support IT-Infogérance.jpg" }
+  { id: 1, titleKey: "srv_7_title", descKey: "srv_7_desc", link: "infogerance.html", icon: "fa-solid fa-headset", img: "Support IT-Infogérance.jpg" },
+  { id: 2, titleKey: "srv_3_title", descKey: "srv_3_desc", link: "securite-reseau.html", icon: "fa-solid fa-network-wired", img: "securite-reseau.jpg" },
+  { id: 3, titleKey: "srv_1_title", descKey: "srv_1_desc", link: "contact.html", icon: "fa-solid fa-clipboard-check", img: "audit-diagnostic.jpg" },
+  { id: 4, titleKey: "srv_2_title", descKey: "srv_2_desc", link: "vapt.html", icon: "fa-solid fa-terminal", img: "vapt.webp" },
+  { id: 5, titleKey: "srv_4_title", descKey: "srv_4_desc", link: "soc-consultation.html", icon: "fa-solid fa-eye", img: "soc-consultation.jpg" },
+  { id: 6, titleKey: "srv_5_title", descKey: "srv_5_desc", link: "cybercrime.html", icon: "fa-solid fa-magnifying-glass-crack", img: "cybercrime.jpg" },
+  { id: 7, titleKey: "srv_6_title", descKey: "srv_6_desc", link: "noc.html", icon: "fa-solid fa-server", img: "noc-monitoring.jpg" }
 ];
-
+ 
 let currentLang = 'fr';
-
+ 
 function applyLanguage(lang) {
   currentLang = lang;
   
@@ -1039,7 +1039,7 @@ function applyLanguage(lang) {
       el.textContent = translations[lang][key];
     }
   });
-
+ 
   const servicesGrid = document.getElementById('servicesGrid');
   if (servicesGrid) {
     servicesGrid.innerHTML = '';
@@ -1047,7 +1047,7 @@ function applyLanguage(lang) {
       const translatedTitle = translations[lang][s.titleKey] || "Service";
       const translatedDesc = translations[lang][s.descKey] || "";
       const btnText = translations[lang]["btn_learn_more"] || "En savoir plus";
-
+ 
       servicesGrid.innerHTML += `
         <a href="${s.link}" class="service-card">
           <div class="service-img">
@@ -1062,7 +1062,7 @@ function applyLanguage(lang) {
     });
   }
 }
-
+ 
 function initTypedEffect() {
   const words = ["Technologies", "Cyber Security", "Network Solutions"];
   let wordIndex = 0;
@@ -1098,7 +1098,7 @@ function initTypedEffect() {
   
   setTimeout(type, 500);
 }
-
+ 
 document.addEventListener('DOMContentLoaded', () => {
   applyLanguage('fr');
   initTypedEffect();
@@ -1112,7 +1112,7 @@ document.addEventListener('DOMContentLoaded', () => {
       triggerCardObserver();
     });
   });
-
+ 
   const glow = document.getElementById('cursorGlow');
   if (glow) {
     window.addEventListener('mousemove', (e) => {
@@ -1120,7 +1120,7 @@ document.addEventListener('DOMContentLoaded', () => {
       glow.style.top = e.clientY + 'px';
     });
   }
-
+ 
   window.addEventListener('scroll', () => {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -1128,7 +1128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const bar = document.getElementById('scrollProgress');
     if(bar) bar.style.width = scrolled + "%";
   });
-
+ 
   const toggleBtn = document.getElementById('menuToggle');
   const mobileNav = document.getElementById('mobileNav');
   if (toggleBtn && mobileNav) {
@@ -1138,14 +1138,14 @@ document.addEventListener('DOMContentLoaded', () => {
       icon.className = mobileNav.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
     });
   }
-
+ 
   const slides = document.querySelectorAll('.slide');
   const prev = document.getElementById('prev');
   const next = document.getElementById('next');
   const indicatorContainer = document.getElementById('indicator');
   let index = 0;
   let sliderTimer;
-
+ 
   if (slides.length > 0) {
     slides.forEach((_, i) => {
       const div = document.createElement('div');
@@ -1156,9 +1156,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       if(indicatorContainer) indicatorContainer.appendChild(div);
     });
-
+ 
     function changeSlide(n) {
-      // Gestion de la visibilité sur mobile (display block/none) et desktop (classes active)
       if (window.innerWidth <= 768) {
         slides[index].style.display = 'none';
         index = (n + slides.length) % slides.length;
@@ -1173,15 +1172,15 @@ document.addEventListener('DOMContentLoaded', () => {
       dots.forEach(dot => dot.classList.remove('active'));
       if(dots.length > index) dots[index].classList.add('active');
     }
-
+ 
     if (next) next.addEventListener('click', () => { changeSlide(index + 1); resetTimer(); });
     if (prev) prev.addEventListener('click', () => { changeSlide(index - 1); resetTimer(); });
-
+ 
     function startTimer() { sliderTimer = setInterval(() => { changeSlide(index + 1); }, 7000); }
     function resetTimer() { clearInterval(sliderTimer); startTimer(); }
     startTimer();
   }
-
+ 
   function triggerCardObserver() {
     setTimeout(() => {
       const serviceCards = document.querySelectorAll('.service-card');
@@ -1198,14 +1197,14 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
       }, { threshold: 0.05 });
-
+ 
       serviceCards.forEach(card => cardAnimationObserver.observe(card));
     }, 200);
   }
   
   triggerCardObserver();
 });
-
+ 
 function animateCyberCounters() {
   const counters = [
     { id: 'attackCounter1', min: 12000, max: 15000 },
@@ -1222,6 +1221,6 @@ function animateCyberCounters() {
 }
 animateCyberCounters();
 </script>
-
+ 
 </body>
 </html>
