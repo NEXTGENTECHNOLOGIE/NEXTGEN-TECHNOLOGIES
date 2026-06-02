@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-
+ 
 <style>
 :root {
   --primary: #0A1628;
@@ -40,7 +40,7 @@ h1, h2, h3, h4 {
   letter-spacing: -0.02em;
 }
 a { text-decoration: none; }
-
+ 
 /* PROGRESS BAR */
 .scroll-progress {
   position: fixed;
@@ -49,7 +49,7 @@ a { text-decoration: none; }
   z-index: 99999;
   transition: width 0.1s ease;
 }
-
+ 
 /* CURSOR GLOW */
 @media (min-width: 1025px) {
   .cursor-glow {
@@ -59,7 +59,7 @@ a { text-decoration: none; }
     pointer-events: none; z-index: 9999;
   }
 }
-
+ 
 /* TOP BAR */
 .top-bar {
   background: rgba(5, 11, 20, 0.95);
@@ -91,7 +91,7 @@ a { text-decoration: none; }
 .top-bar-info i { color: var(--accent); }
 .top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; transition: var(--transition); display: inline-block; }
 .top-bar-social a:hover { color: var(--accent); transform: translateY(-2px); }
-
+ 
 .lang-switch {
   display: flex; gap: 0.25rem; background: rgba(0,212,255,0.15);
   padding: 0.2rem 0.6rem; border-radius: 40px; align-items: center;
@@ -103,7 +103,7 @@ a { text-decoration: none; }
   font-family: inherit;
 }
 .lang-btn.active { background: var(--accent); color: var(--primary); }
-
+ 
 /* NAVIGATION */
 .nav {
   position: sticky; top: 0; z-index: 1000; padding: 1rem 4%;
@@ -129,7 +129,7 @@ a { text-decoration: none; }
   50% { transform: translateY(-5px); }
 }
 .logo-text-accent { color: var(--accent); }
-
+ 
 .nav-links { display: flex; gap: 0.4rem; list-style: none; align-items: center; }
 .nav-links > li { position: relative; }
 .nav-links > li > a {
@@ -138,8 +138,7 @@ a { text-decoration: none; }
   display: flex; align-items: center; gap: 0.3rem;
 }
 .nav-links > li > a:hover, .nav-links > li.active > a { background: rgba(0,212,255,0.1); color: var(--accent); }
-
-/* BOUTON ESPACE CLIENT (WEB) */
+ 
 .nav-links > li > a.btn-espace-client {
   background: linear-gradient(135deg, #00D4FF, #0891B2);
   color: #050B14 !important;
@@ -152,8 +151,7 @@ a { text-decoration: none; }
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
 }
-
-/* BOUTON ESPACE CLIENT (MOBILE) */
+ 
 .mobile-nav-overlay a.btn-espace-client-mobile {
   background: linear-gradient(135deg, #00D4FF, #0891B2);
   color: #050B14 !important;
@@ -167,7 +165,7 @@ a { text-decoration: none; }
   gap: 0.5rem;
   margin-top: 1rem;
 }
-
+ 
 .dropdown-menu {
   position: absolute; top: 100%; left: 0; background: #071426;
   min-width: 280px; box-shadow: 0 20px 40px rgba(0,0,0,0.4);
@@ -181,7 +179,7 @@ a { text-decoration: none; }
   font-size: 0.88rem; border-radius: 8px; transition: var(--transition);
 }
 .dropdown-menu li a:hover { background: rgba(0,212,255,0.1); color: var(--accent); padding-left: 1.4rem; }
-
+ 
 .menu-toggle {
   display: none; background: none; border: none; color: var(--white);
   font-size: 1.5rem; cursor: pointer; z-index: 10001;
@@ -195,7 +193,7 @@ a { text-decoration: none; }
 }
 .mobile-nav-overlay.active { right: 0; }
 .mobile-nav-overlay a { color: var(--white); font-size: 1.1rem; font-weight: 600; }
-
+ 
 /* BREADCRUMB & HERO HEADER */
 .page-header {
   padding: 5rem 4% 3rem;
@@ -219,7 +217,7 @@ a { text-decoration: none; }
 .page-header p {
   max-width: 700px; margin: 0 auto; color: var(--gray-light); font-size: 1.1rem;
 }
-
+ 
 /* SERVICES EXPERTISE GRID */
 .infogerance-section { padding: 5rem 4%; background: #050B14; }
 .section-title-center { text-align: center; max-width: 800px; margin: 0 auto 4rem; }
@@ -252,7 +250,7 @@ a { text-decoration: none; }
 }
 .feature-card h3 { color: var(--white); font-size: 1.25rem; margin-bottom: 0.8rem; }
 .feature-card p { color: var(--gray-light); font-size: 0.92rem; line-height: 1.6; }
-
+ 
 /* PREMIUM PRICING SECTION */
 .pricing-section {
   padding: 6rem 4%;
@@ -331,160 +329,263 @@ a { text-decoration: none; }
   color: var(--gold);
   border: 1px solid rgba(245, 158, 11, 0.4);
 }
-.pricing-header {
-  margin-bottom: 2rem;
-}
-.pricing-icon {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  display: inline-block;
-}
+.pricing-header { margin-bottom: 2rem; }
+.pricing-icon { font-size: 2rem; margin-bottom: 1rem; display: inline-block; }
 .pricing-icon.essentiel { color: var(--gray-light); }
 .pricing-icon.popular { color: var(--accent); }
 .pricing-icon.premium { color: var(--gold); }
-.pricing-header h3 {
-  font-size: 1.6rem;
-  color: var(--white);
-  margin-bottom: 0.5rem;
-}
-.pricing-header .price-details {
-  font-size: 0.9rem;
-  color: var(--gray-light);
-  font-weight: 500;
-  margin-top: 0.5rem;
-}
-.pricing-features {
-  list-style: none;
-  margin-bottom: 2.5rem;
-  flex-grow: 1;
-}
+.pricing-header h3 { font-size: 1.6rem; color: var(--white); margin-bottom: 0.5rem; }
+.pricing-header .price-details { font-size: 0.9rem; color: var(--gray-light); font-weight: 500; margin-top: 0.5rem; }
+.pricing-features { list-style: none; margin-bottom: 2.5rem; flex-grow: 1; }
 .pricing-features li {
-  font-size: 0.92rem;
-  color: var(--off-white);
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
+  font-size: 0.92rem; color: var(--off-white); margin-bottom: 1rem;
+  display: flex; align-items: flex-start; gap: 0.75rem;
 }
-.pricing-features li i {
-  color: var(--accent);
-  font-size: 0.85rem;
-  margin-top: 0.25rem;
-  flex-shrink: 0;
-}
-.pricing-card.premium-gold .pricing-features li i {
-  color: var(--gold);
-}
+.pricing-features li i { color: var(--accent); font-size: 0.85rem; margin-top: 0.25rem; flex-shrink: 0; }
+.pricing-card.premium-gold .pricing-features li i { color: var(--gold); }
 .pricing-cta {
-  display: block;
-  text-align: center;
-  padding: 0.9rem 1.5rem;
-  border-radius: 10px;
-  font-weight: 700;
-  font-size: 0.95rem;
-  transition: var(--transition);
+  display: block; text-align: center; padding: 0.9rem 1.5rem;
+  border-radius: 10px; font-weight: 700; font-size: 0.95rem; transition: var(--transition);
 }
 .cta-essentiel {
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--white);
+  background: rgba(255, 255, 255, 0.05); color: var(--white);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
-.cta-essentiel:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.25);
-}
-.cta-popular {
-  background: linear-gradient(135deg, #00D4FF, #0891B2);
-  color: #050B14;
-}
-.cta-popular:hover {
-  box-shadow: 0 5px 20px rgba(0, 212, 255, 0.35);
-  transform: translateY(-2px);
-}
-.cta-premium {
-  background: transparent;
-  color: var(--gold);
-  border: 1px solid var(--gold);
-}
+.cta-essentiel:hover { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.25); }
+.cta-popular { background: linear-gradient(135deg, #00D4FF, #0891B2); color: #050B14; }
+.cta-popular:hover { box-shadow: 0 5px 20px rgba(0, 212, 255, 0.35); transform: translateY(-2px); }
+.cta-premium { background: transparent; color: var(--gold); border: 1px solid var(--gold); }
 .cta-premium:hover {
   background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.2));
   transform: translateY(-2px);
 }
 .pricing-footer-banner {
-  max-width: 850px;
-  margin: 5rem auto 0;
+  max-width: 850px; margin: 5rem auto 0;
   background: linear-gradient(135deg, rgba(15, 43, 77, 0.3), rgba(5, 11, 20, 0.6));
-  border: 1px solid rgba(0, 212, 255, 0.15);
-  border-radius: 20px;
-  padding: 2.5rem;
-  text-align: center;
-  backdrop-filter: blur(10px);
-  opacity: 0;
-  transform: translateY(30px);
+  border: 1px solid rgba(0, 212, 255, 0.15); border-radius: 20px; padding: 2.5rem;
+  text-align: center; backdrop-filter: blur(10px); opacity: 0; transform: translateY(30px);
 }
 .pricing-footer-banner p {
-  color: var(--off-white);
-  font-size: 1.05rem;
-  font-weight: 500;
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
+  color: var(--off-white); font-size: 1.05rem; font-weight: 500;
+  margin-bottom: 1.5rem; line-height: 1.6;
 }
 .pricing-footer-banner .banner-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
+  display: inline-flex; align-items: center; gap: 0.6rem;
   background: linear-gradient(135deg, #00D4FF, #EF4444);
-  color: var(--white);
-  font-weight: 700;
-  padding: 0.9rem 2.2rem;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: var(--transition);
+  color: var(--white); font-weight: 700; padding: 0.9rem 2.2rem;
+  border-radius: 8px; font-size: 1rem; transition: var(--transition);
   box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
 }
 .pricing-footer-banner .banner-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+  transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
 }
-
+ 
 @media (max-width: 1100px) {
-  .grid-pricing {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-  .pricing-card.popular {
-    transform: none;
-    grid-column: span 1;
-  }
-  .pricing-card.popular:hover {
-    transform: translateY(-8px);
-  }
-  .pricing-card.premium-gold {
-    grid-column: span 2;
-    max-width: 600px;
-    margin: 0 auto;
-    width: 100%;
-  }
+  .grid-pricing { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  .pricing-card.popular { transform: none; grid-column: span 1; }
+  .pricing-card.popular:hover { transform: translateY(-8px); }
+  .pricing-card.premium-gold { grid-column: span 2; max-width: 600px; margin: 0 auto; width: 100%; }
 }
 @media (max-width: 768px) {
-  .grid-pricing {
-    grid-template-columns: 1fr;
-  }
-  .pricing-card.popular {
-    transform: none;
-  }
-  .pricing-card.popular:hover {
-    transform: translateY(-8px);
-  }
-  .pricing-card.premium-gold {
-    grid-column: span 1;
-    max-width: 100%;
-  }
-  .pricing-footer-banner {
-    padding: 2rem 1.5rem;
-  }
+  .grid-pricing { grid-template-columns: 1fr; }
+  .pricing-card.popular { transform: none; }
+  .pricing-card.popular:hover { transform: translateY(-8px); }
+  .pricing-card.premium-gold { grid-column: span 1; max-width: 100%; }
+  .pricing-footer-banner { padding: 2rem 1.5rem; }
 }
-
+ 
+/* =============================================
+   SECTION SERVICES À LA CARTE — NOUVELLE
+   ============================================= */
+.alacarte-section {
+  padding: 6rem 4%;
+  background: #050B14;
+  border-top: 1px solid rgba(0, 212, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+.alacarte-section::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(0,212,255,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+.alacarte-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0,212,255,0.08);
+  border: 1px solid rgba(0,212,255,0.2);
+  border-radius: 40px;
+  padding: 0.4rem 1.2rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.2rem;
+}
+.alacarte-label i { font-size: 0.75rem; }
+.grid-alacarte {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+  max-width: 1300px;
+  margin: 0 auto 4rem;
+}
+.alacarte-card {
+  background: rgba(15, 43, 77, 0.2);
+  border-radius: 18px;
+  padding: 2.2rem 2rem;
+  border: 1px solid rgba(0,212,255,0.07);
+  transition: var(--transition);
+  opacity: 0;
+  transform: translateY(30px);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+.alacarte-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0%; height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+  transition: width 0.4s ease;
+}
+.alacarte-card:hover::after { width: 100%; }
+.alacarte-card:hover {
+  border-color: rgba(0,212,255,0.25);
+  transform: translateY(-6px);
+  background: rgba(15, 43, 77, 0.35);
+  box-shadow: 0 12px 30px rgba(0, 212, 255, 0.08);
+}
+.alacarte-icon {
+  width: 54px; height: 54px;
+  background: linear-gradient(135deg, rgba(0,212,255,0.1), rgba(8,145,178,0.15));
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent); font-size: 1.4rem;
+  border: 1px solid rgba(0,212,255,0.15);
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+.alacarte-card:hover .alacarte-icon {
+  background: linear-gradient(135deg, rgba(0,212,255,0.2), rgba(8,145,178,0.3));
+  box-shadow: 0 0 20px rgba(0,212,255,0.15);
+}
+.alacarte-card h3 {
+  color: var(--white);
+  font-size: 1.1rem;
+  margin: 0;
+}
+.alacarte-card p {
+  color: var(--gray-light);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+.alacarte-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: 1px solid rgba(0,212,255,0.25);
+  padding: 0.55rem 1.2rem;
+  border-radius: 8px;
+  transition: var(--transition);
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+.alacarte-card-btn:hover {
+  background: rgba(0,212,255,0.1);
+  border-color: var(--accent);
+  transform: translateX(3px);
+}
+.alacarte-card-btn i { font-size: 0.75rem; transition: transform 0.3s ease; }
+.alacarte-card-btn:hover i { transform: translateX(4px); }
+ 
+/* CTA bas de section à la carte */
+.alacarte-cta-banner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  background: linear-gradient(135deg, rgba(15,43,77,0.3), rgba(5,11,20,0.5));
+  border: 1px solid rgba(0,212,255,0.12);
+  border-radius: 20px;
+  padding: 2.5rem 3rem;
+  opacity: 0;
+  transform: translateY(30px);
+  flex-wrap: wrap;
+}
+.alacarte-cta-text h4 {
+  color: var(--white);
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+.alacarte-cta-text p {
+  color: var(--gray-light);
+  font-size: 0.95rem;
+}
+.alacarte-cta-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+.btn-alacarte-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, #00D4FF, #0891B2);
+  color: #050B14;
+  font-weight: 700;
+  padding: 0.85rem 1.8rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+.btn-alacarte-primary:hover {
+  box-shadow: 0 6px 20px rgba(0,212,255,0.35);
+  transform: translateY(-2px);
+}
+.btn-alacarte-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: transparent;
+  color: var(--off-white);
+  font-weight: 600;
+  padding: 0.85rem 1.8rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  border: 1px solid rgba(255,255,255,0.12);
+  transition: var(--transition);
+}
+.btn-alacarte-secondary:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.25);
+  transform: translateY(-2px);
+}
+ 
+@media (max-width: 1024px) {
+  .grid-alacarte { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .grid-alacarte { grid-template-columns: 1fr; }
+  .alacarte-cta-banner { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+  .alacarte-cta-buttons { justify-content: center; }
+}
+ 
 /* FOOTER */
 .footer { background: #050B14; padding: 4rem 4% 2rem; border-top: 1px solid rgba(0,212,255,0.1); }
 .footer-container { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 3rem; margin-bottom: 3rem; }
@@ -508,7 +609,7 @@ a { text-decoration: none; }
   display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
   color: var(--gray-mid); font-size: 0.85rem;
 }
-
+ 
 @media (max-width: 1024px) {
   .nav-links { display: none; }
   .menu-toggle { display: block; }
@@ -521,12 +622,12 @@ a { text-decoration: none; }
 }
 </style>
 </head>
-
+ 
 <body>
-
+ 
 <div class="scroll-progress" id="scrollProgress"></div>
 <div class="cursor-glow" id="cursorGlow"></div>
-
+ 
 <div class="top-bar">
   <div class="top-bar-container">
     <div class="partner-badge">
@@ -549,7 +650,7 @@ a { text-decoration: none; }
     </div>
   </div>
 </div>
-
+ 
 <nav class="nav">
   <div class="nav-container">
     <a href="index.html" class="logo">
@@ -579,7 +680,7 @@ a { text-decoration: none; }
       <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
       <li><a href="support.html" class="btn-espace-client" data-i18n="nav_espace_client"><i class="fa-solid fa-user-circle"></i> Espace Client</a></li>
     </ul>
-
+ 
     <div class="nav-actions">
       <button class="menu-toggle" id="menuToggle">
         <i class="fa-solid fa-bars"></i>
@@ -587,7 +688,7 @@ a { text-decoration: none; }
     </div>
   </div>
 </nav>
-
+ 
 <div class="mobile-nav-overlay" id="mobileNav">
   <a href="index.html" data-i18n="nav_home">Accueil</a>
   <a href="services.html" data-i18n="nav_services">Services</a>
@@ -598,7 +699,7 @@ a { text-decoration: none; }
   <a href="contact.html" data-i18n="nav_contact">Contact</a>
   <a href="support.html" class="btn-espace-client-mobile" data-i18n="nav_espace_client"><i class="fa-solid fa-user-circle"></i> Espace Client</a>
 </div>
-
+ 
 <header class="page-header">
   <div class="breadcrumb">
     <a href="index.html" data-i18n="nav_home">Accueil</a> &gt; 
@@ -608,7 +709,7 @@ a { text-decoration: none; }
   <h1 data-i18n="info_h1">Support IT & <span class="accent">Infogérance</span></h1>
   <p data-i18n="info_desc">Nous gérons, maintenons et sécurisons votre infrastructure informatique à distance. Forfaits mensuels adaptés aux PME.</p>
 </header>
-
+ 
 <section class="infogerance-section">
   <div class="section-title-center">
     <h2 data-i18n="info_grid_title">Nos Solutions d'Infogérance Gérée</h2>
@@ -682,13 +783,13 @@ a { text-decoration: none; }
     </div>
   </div>
 </section>
-
-<section class="pricing-section">
+ 
+<section class="pricing-section" id="forfaits">
   <div class="section-title-center">
     <h2 data-i18n="pricing_title">Choisissez Votre Forfait</h2>
     <p data-i18n="pricing_subtitle">Des plans adaptés aux PME marocaines. Tarification sur mesure après audit gratuit.</p>
   </div>
-
+ 
   <div class="grid-pricing">
     <div class="pricing-card animation-trigger">
       <span class="card-badge badge-essentiel" data-i18n="pack1_badge">Démarrage</span>
@@ -706,7 +807,7 @@ a { text-decoration: none; }
       </ul>
       <a href="contact.html" class="pricing-cta cta-essentiel" data-i18n="pricing_cta_text">Demander un audit gratuit</a>
     </div>
-
+ 
     <div class="pricing-card popular animation-trigger">
       <span class="card-badge badge-popular" data-i18n="pack2_badge">Le Plus Populaire</span>
       <div class="pricing-header">
@@ -724,7 +825,7 @@ a { text-decoration: none; }
       </ul>
       <a href="contact.html" class="pricing-cta cta-popular" data-i18n="pricing_cta_text">Demander un audit gratuit</a>
     </div>
-
+ 
     <div class="pricing-card premium-gold animation-trigger">
       <span class="card-badge badge-premium" data-i18n="pack3_badge">Protection Maximale</span>
       <div class="pricing-header">
@@ -743,7 +844,7 @@ a { text-decoration: none; }
       <a href="contact.html" class="pricing-cta cta-premium" data-i18n="pricing_cta_text">Demander un audit gratuit</a>
     </div>
   </div>
-
+ 
   <div class="pricing-footer-banner animation-trigger">
     <p data-i18n="pricing_banner_text">Tous nos forfaits sont personnalisables selon la taille de votre parc informatique.<br>Contactez-nous pour un audit IT gratuit et sans engagement.</p>
     <a href="contact.html" class="banner-btn">
@@ -752,7 +853,103 @@ a { text-decoration: none; }
     </a>
   </div>
 </section>
-
+ 
+<!-- =============================================
+     SECTION SERVICES À LA CARTE — NOUVELLE
+     ============================================= -->
+<section class="alacarte-section" id="alacarte">
+  <div class="section-title-center">
+    <div class="alacarte-label">
+      <i class="fa-solid fa-bolt"></i>
+      <span data-i18n="alacarte_label">Intervention Ponctuelle</span>
+    </div>
+    <h2 data-i18n="alacarte_title">Services <span style="color:var(--accent)">à la Carte</span></h2>
+    <p data-i18n="alacarte_subtitle">Pas encore prêt pour un forfait ? Commandez exactement ce dont vous avez besoin, quand vous en avez besoin.</p>
+  </div>
+ 
+  <div class="grid-alacarte">
+ 
+    <div class="alacarte-card">
+      <div class="alacarte-icon"><i class="fa-solid fa-wrench"></i></div>
+      <h3 data-i18n="ac1_title">Dépannage Ponctuel</h3>
+      <p data-i18n="ac1_desc">Intervention unique et rapide sur tout incident informatique : panne, blocage, erreur système ou problème applicatif.</p>
+      <a href="contact.html" class="alacarte-card-btn">
+        <span data-i18n="ac_btn">Demander un devis</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+ 
+    <div class="alacarte-card">
+      <div class="alacarte-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+      <h3 data-i18n="ac2_title">Audit Réseau</h3>
+      <p data-i18n="ac2_desc">Cartographie complète et diagnostic approfondi de votre infrastructure réseau, identification des failles et recommandations.</p>
+      <a href="contact.html" class="alacarte-card-btn">
+        <span data-i18n="ac_btn">Demander un devis</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+ 
+    <div class="alacarte-card">
+      <div class="alacarte-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+      <h3 data-i18n="ac3_title">Migration Microsoft 365</h3>
+      <p data-i18n="ac3_desc">Transfert complet et sécurisé de vos données, messageries et outils collaboratifs vers Microsoft 365, sans interruption d'activité.</p>
+      <a href="contact.html" class="alacarte-card-btn">
+        <span data-i18n="ac_btn">Demander un devis</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+ 
+    <div class="alacarte-card">
+      <div class="alacarte-icon"><i class="fa-solid fa-server"></i></div>
+      <h3 data-i18n="ac4_title">Installation Serveur</h3>
+      <p data-i18n="ac4_desc">Déploiement, configuration et sécurisation de vos serveurs physiques ou virtuels selon les meilleures pratiques du secteur.</p>
+      <a href="contact.html" class="alacarte-card-btn">
+        <span data-i18n="ac_btn">Demander un devis</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+ 
+    <div class="alacarte-card">
+      <div class="alacarte-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+      <h3 data-i18n="ac5_title">Formation Utilisateurs</h3>
+      <p data-i18n="ac5_desc">Sessions de sensibilisation et formation IT pour vos équipes : cybersécurité, bonnes pratiques, outils Microsoft 365 et productivité.</p>
+      <a href="contact.html" class="alacarte-card-btn">
+        <span data-i18n="ac_btn">Demander un devis</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+ 
+    <div class="alacarte-card">
+      <div class="alacarte-icon"><i class="fa-solid fa-hard-drive"></i></div>
+      <h3 data-i18n="ac6_title">Récupération de Données</h3>
+      <p data-i18n="ac6_desc">Restauration d'urgence après sinistre, ransomware ou corruption de données. Intervention rapide pour minimiser la perte d'information critique.</p>
+      <a href="contact.html" class="alacarte-card-btn">
+        <span data-i18n="ac_btn">Demander un devis</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+ 
+  </div>
+ 
+  <!-- CTA bas -->
+  <div class="alacarte-cta-banner">
+    <div class="alacarte-cta-text">
+      <h4 data-i18n="alacarte_cta_title">Besoin d'un accompagnement continu ?</h4>
+      <p data-i18n="alacarte_cta_sub">Passez à un forfait MSP et bénéficiez d'une protection proactive toute l'année.</p>
+    </div>
+    <div class="alacarte-cta-buttons">
+      <a href="contact.html" class="btn-alacarte-primary">
+        <i class="fa-solid fa-paper-plane"></i>
+        <span data-i18n="alacarte_cta_btn1">Demander un devis</span>
+      </a>
+      <a href="#forfaits" class="btn-alacarte-secondary">
+        <i class="fa-solid fa-layer-group"></i>
+        <span data-i18n="alacarte_cta_btn2">Voir les forfaits</span>
+      </a>
+    </div>
+  </div>
+</section>
+ 
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-brand">
@@ -779,7 +976,7 @@ a { text-decoration: none; }
         <li><a href="soc-consultation.html" data-i18n="srv_4_title">SOC Consultation</a></li>
       </ul>
     </div>
-
+ 
     <div class="footer-links">
       <h4 data-i18n="footer_col2">Société</h4>
       <ul>
@@ -789,7 +986,7 @@ a { text-decoration: none; }
         <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
       </ul>
     </div>
-
+ 
     <div class="footer-links">
       <h4 data-i18n="footer_col3">Légal</h4>
       <ul>
@@ -798,34 +995,25 @@ a { text-decoration: none; }
       </ul>
     </div>
   </div>
-
+ 
   <div class="footer-bottom">
     <p>&copy; 2026 NextGen Technologies. Tous droits réservés.</p>
     <p data-i18n="footer_sub_text">Conçu avec excellence opérationnelle au Maroc.</p>
   </div>
 </footer>
-
+ 
 <script>
-// Dictionnaire bilingue mis à jour (sans données de tarification)
 const translations = {
   fr: {
     top_badge: "PARTENAIRE DE CONFIANCE EN SÉCURITÉ ULTRA-PREMIUM",
-    nav_home: "Accueil",
-    nav_services: "Services",
-    nav_sectors: "Secteurs",
-    nav_about: "Qui sommes-nous",
-    nav_careers: "Carrières",
-    nav_campus: "🎓 Campus Cyber",
-    nav_contact: "Contact",
-    nav_espace_client: "Espace Client",
-    
+    nav_home: "Accueil", nav_services: "Services", nav_sectors: "Secteurs",
+    nav_about: "Qui sommes-nous", nav_careers: "Carrières", nav_campus: "🎓 Campus Cyber",
+    nav_contact: "Contact", nav_espace_client: "Espace Client",
     info_breadcrumb: "Support IT & Infogérance",
     info_h1: "Support IT & Infogérance",
     info_desc: "Nous gérons, maintenons et sécurisons votre infrastructure informatique à distance. Forfaits mensuels adaptés aux PME.",
-    
     info_grid_title: "Nos Solutions d'Infogérance Gérée",
     info_grid_desc: "Bénéficiez d'un accompagnement technique continu pour assurer la continuité opérationnelle de votre entreprise.",
-    
     info_srv1_title: "Support technique à distance",
     info_srv1_desc: "Une assistance immédiate par nos techniciens pour résoudre vos anomalies systèmes et applicatives du quotidien.",
     info_srv2_title: "Maintenance des postes et serveurs",
@@ -842,67 +1030,60 @@ const translations = {
     info_srv7_desc: "Analyse en temps réel de vos infrastructures pour intercepter et corriger les pannes avant qu'elles n'impactent vos métiers.",
     info_srv8_title: "Cybersécurité et protection des accès",
     info_srv8_desc: "Intégration d'antivirus nouvelle génération, d'EDR et gestion stricte des politiques de droits d'accès.",
-
     pricing_title: "Choisissez Votre Forfait",
     pricing_subtitle: "Des plans adaptés aux PME marocaines. Tarification sur mesure après audit gratuit.",
-    pack1_badge: "Démarrage",
-    pack2_badge: "Le Plus Populaire",
-    pack3_badge: "Protection Maximale",
-    pack1_name: "Pack Essentiel",
-    pack2_name: "Pack Business",
-    pack3_name: "Pack Premium",
-    pack_tailored: "Sur mesure",
-    pricing_cta_text: "Demander un audit gratuit",
+    pack1_badge: "Démarrage", pack2_badge: "Le Plus Populaire", pack3_badge: "Protection Maximale",
+    pack1_name: "Pack Essentiel", pack2_name: "Pack Business", pack3_name: "Pack Premium",
+    pack_tailored: "Sur mesure", pricing_cta_text: "Demander un audit gratuit",
     pricing_banner_text: "Tous nos forfaits sont personnalisables selon la taille de votre parc informatique.<br>Contactez-nous pour un audit IT gratuit et sans engagement.",
     pricing_banner_btn: "Obtenir mon audit gratuit",
-    p1_f1: "Support technique à distance",
-    p1_f2: "Monitoring & supervision proactive",
-    p1_f3: "Helpdesk & gestion des tickets",
-    p1_f4: "Rapport mensuel détaillé",
+    p1_f1: "Support technique à distance", p1_f2: "Monitoring & supervision proactive",
+    p1_f3: "Helpdesk & gestion des tickets", p1_f4: "Rapport mensuel détaillé",
     p1_f5: "Temps de réponse : 4h ouvrables",
-    p2_f1: "Tout le Pack Essentiel",
-    p2_f2: "Backup & protection des données",
-    p2_f3: "Gestion Microsoft 365",
-    p2_f4: "Patch Management automatisé",
-    p2_f5: "Maintenance postes & serveurs",
-    p2_f6: "Temps de réponse : 2h ouvrables",
-    p3_f1: "Tout le Pack Business",
-    p3_f2: "Cybersécurité EDR nouvelle génération",
-    p3_f3: "Surveillance réseau 24/7",
-    p3_f4: "Consultant IT dédié NextGen",
-    p3_f5: "SLA garanti contractuellement",
-    p3_f6: "Temps de réponse : 1h (24/7)",
-
-    srv_1_title: "Audit & Diagnostic",
-    srv_2_title: "Pentest / VAPT",
-    srv_3_title: "Sécurité Réseau",
-    srv_4_title: "SOC Consultation",
+    p2_f1: "Tout le Pack Essentiel", p2_f2: "Backup & protection des données",
+    p2_f3: "Gestion Microsoft 365", p2_f4: "Patch Management automatisé",
+    p2_f5: "Maintenance postes & serveurs", p2_f6: "Temps de réponse : 2h ouvrables",
+    p3_f1: "Tout le Pack Business", p3_f2: "Cybersécurité EDR nouvelle génération",
+    p3_f3: "Surveillance réseau 24/7", p3_f4: "Consultant IT dédié NextGen",
+    p3_f5: "SLA garanti contractuellement", p3_f6: "Temps de réponse : 1h (24/7)",
+    // À la carte — FR
+    alacarte_label: "Intervention Ponctuelle",
+    alacarte_title: "Services à la Carte",
+    alacarte_subtitle: "Pas encore prêt pour un forfait ? Commandez exactement ce dont vous avez besoin, quand vous en avez besoin.",
+    ac1_title: "Dépannage Ponctuel",
+    ac1_desc: "Intervention unique et rapide sur tout incident informatique : panne, blocage, erreur système ou problème applicatif.",
+    ac2_title: "Audit Réseau",
+    ac2_desc: "Cartographie complète et diagnostic approfondi de votre infrastructure réseau, identification des failles et recommandations.",
+    ac3_title: "Migration Microsoft 365",
+    ac3_desc: "Transfert complet et sécurisé de vos données, messageries et outils collaboratifs vers Microsoft 365, sans interruption d'activité.",
+    ac4_title: "Installation Serveur",
+    ac4_desc: "Déploiement, configuration et sécurisation de vos serveurs physiques ou virtuels selon les meilleures pratiques du secteur.",
+    ac5_title: "Formation Utilisateurs",
+    ac5_desc: "Sessions de sensibilisation et formation IT pour vos équipes : cybersécurité, bonnes pratiques, outils Microsoft 365 et productivité.",
+    ac6_title: "Récupération de Données",
+    ac6_desc: "Restauration d'urgence après sinistre, ransomware ou corruption de données. Intervention rapide pour minimiser la perte d'information critique.",
+    ac_btn: "Demander un devis",
+    alacarte_cta_title: "Besoin d'un accompagnement continu ?",
+    alacarte_cta_sub: "Passez à un forfait MSP et bénéficiez d'une protection proactive toute l'année.",
+    alacarte_cta_btn1: "Demander un devis",
+    alacarte_cta_btn2: "Voir les forfaits",
+    srv_1_title: "Audit & Diagnostic", srv_2_title: "Pentest / VAPT",
+    srv_3_title: "Sécurité Réseau", srv_4_title: "SOC Consultation",
     footer_brand_desc: "Pionnier de la souveraineté numérique et de la cyber-résilience avancée au Maroc. Nous sécurisons les infrastructures d'importance vitale.",
-    footer_col1: "Expertises",
-    footer_col2: "Société",
-    footer_col3: "Légal",
-    leg_mentions: "Mentions Légales",
-    leg_cookies: "Gestion des Cookies",
+    footer_col1: "Expertises", footer_col2: "Société", footer_col3: "Légal",
+    leg_mentions: "Mentions Légales", leg_cookies: "Gestion des Cookies",
     footer_sub_text: "Conçu avec excellence opérationnelle au Maroc."
   },
   en: {
     top_badge: "TRUSTED ULTRA-PREMIUM SECURITY PARTNER",
-    nav_home: "Home",
-    nav_services: "Services",
-    nav_sectors: "Sectors",
-    nav_about: "About Us",
-    nav_careers: "Careers",
-    nav_campus: "🎓 Cyber Campus",
-    nav_contact: "Contact",
-    nav_espace_client: "Client Area",
-    
+    nav_home: "Home", nav_services: "Services", nav_sectors: "Sectors",
+    nav_about: "About Us", nav_careers: "Careers", nav_campus: "🎓 Cyber Campus",
+    nav_contact: "Contact", nav_espace_client: "Client Area",
     info_breadcrumb: "IT Support & Managed Services",
     info_h1: "IT Support & Managed Services",
     info_desc: "We manage, maintain and secure your IT infrastructure remotely. Monthly packages tailored to SMBs.",
-    
     info_grid_title: "Our IT Expertise Domains",
     info_grid_desc: "Proactive solutions and continuous support framework engineered for modern digital environments.",
-    
     info_srv1_title: "Remote Technical Support",
     info_srv1_desc: "Immediate reactive intervention from our technicians to solve all everyday system and software issues.",
     info_srv2_title: "Workstation & Server Maintenance",
@@ -919,71 +1100,74 @@ const translations = {
     info_srv7_desc: "Continuous architecture telemetry checking to stop and patch system failures long before they disrupt business workflows.",
     info_srv8_title: "Cybersecurity & Access Protection",
     info_srv8_desc: "Next-gen threat hunting engines implementation, advanced EDR, and strict policy privilege matrices handling.",
-
     pricing_title: "Choose Your Plan",
     pricing_subtitle: "Tailored frameworks built for Moroccan SMBs. Custom quotas delivered post-audit.",
-    pack1_badge: "Startup",
-    pack2_badge: "Most Popular",
-    pack3_badge: "Maximum Security",
-    pack1_name: "Essential Pack",
-    pack2_name: "Business Pack",
-    pack3_name: "Premium Pack",
-    pack_tailored: "Customized",
-    pricing_cta_text: "Request Free IT Audit",
+    pack1_badge: "Startup", pack2_badge: "Most Popular", pack3_badge: "Maximum Security",
+    pack1_name: "Essential Pack", pack2_name: "Business Pack", pack3_name: "Premium Pack",
+    pack_tailored: "Customized", pricing_cta_text: "Request Free IT Audit",
     pricing_banner_text: "All our operational packages are fully scalable to map your internal machine architectures.<br>Reach out to lock your completely free, zero-commitment IT perimeter audit.",
     pricing_banner_btn: "Get My Free Audit",
-    p1_f1: "Remote IT helpdesk intervention",
-    p1_f2: "Proactive telemetry & architecture tracking",
-    p1_f3: "Structured incident ticketing tracking",
-    p1_f4: "Comprehensive monthly performance audits",
+    p1_f1: "Remote IT helpdesk intervention", p1_f2: "Proactive telemetry & architecture tracking",
+    p1_f3: "Structured incident ticketing tracking", p1_f4: "Comprehensive monthly performance audits",
     p1_f5: "Response window: 4 Business Hours",
-    p2_f1: "All Core Essential features",
-    p2_f2: "Hardened offsite disaster recovery backups",
-    p2_f3: "Enterprise Microsoft 365 tenant oversight",
-    p2_f4: "Automated patch deployment pipelines",
-    p2_f5: "Full endpoint & backend preservation",
-    p2_f6: "Response window: 2 Business Hours",
-    p3_f1: "All Premium Business integrations",
-    p3_f2: "Next-gen endpoint EDR active threat shielding",
-    p3_f3: "Continuous 24/7 network packet engineering",
-    p3_f4: "Assigned NextGen dedicated infrastructure advisor",
-    p3_f5: "Contractually committed SLA guarantees",
-    p3_f6: "Response window: 1 Hour Urgent (24/7/365)",
-
-    srv_1_title: "Audit & Diagnostics",
-    srv_2_title: "Pentesting / VAPT",
-    srv_3_title: "Network Security",
-    srv_4_title: "SOC Consultation",
+    p2_f1: "All Core Essential features", p2_f2: "Hardened offsite disaster recovery backups",
+    p2_f3: "Enterprise Microsoft 365 tenant oversight", p2_f4: "Automated patch deployment pipelines",
+    p2_f5: "Full endpoint & backend preservation", p2_f6: "Response window: 2 Business Hours",
+    p3_f1: "All Premium Business integrations", p3_f2: "Next-gen endpoint EDR active threat shielding",
+    p3_f3: "Continuous 24/7 network packet engineering", p3_f4: "Assigned NextGen dedicated infrastructure advisor",
+    p3_f5: "Contractually committed SLA guarantees", p3_f6: "Response window: 1 Hour Urgent (24/7/365)",
+    // À la carte — EN
+    alacarte_label: "On-Demand Intervention",
+    alacarte_title: "À la Carte Services",
+    alacarte_subtitle: "Not ready for a monthly plan? Order exactly what you need, when you need it.",
+    ac1_title: "One-Time Troubleshooting",
+    ac1_desc: "Fast single intervention on any IT incident: outage, system lockout, software error or application failure.",
+    ac2_title: "Network Audit",
+    ac2_desc: "Full topology mapping and in-depth diagnosis of your network infrastructure, vulnerability identification and recommendations.",
+    ac3_title: "Microsoft 365 Migration",
+    ac3_desc: "Complete and secure transfer of your data, emails and collaboration tools to Microsoft 365, with zero downtime.",
+    ac4_title: "Server Installation",
+    ac4_desc: "Deployment, configuration and hardening of your physical or virtual servers following industry best practices.",
+    ac5_title: "User Training",
+    ac5_desc: "Awareness and IT training sessions for your teams: cybersecurity, best practices, Microsoft 365 tools and productivity.",
+    ac6_title: "Data Recovery",
+    ac6_desc: "Emergency restoration after disaster, ransomware or data corruption. Fast intervention to minimize critical information loss.",
+    ac_btn: "Request a Quote",
+    alacarte_cta_title: "Need continuous support?",
+    alacarte_cta_sub: "Switch to an MSP plan and get proactive protection all year long.",
+    alacarte_cta_btn1: "Request a Quote",
+    alacarte_cta_btn2: "View Plans",
+    srv_1_title: "Audit & Diagnostics", srv_2_title: "Pentesting / VAPT",
+    srv_3_title: "Network Security", srv_4_title: "SOC Consultation",
     footer_brand_desc: "Pioneering digital sovereignty and elite cyber resilience architectures in Morocco. We secure vital critical infrastructures.",
-    footer_col1: "Expertise",
-    footer_col2: "Company",
-    footer_col3: "Legal",
-    leg_mentions: "Legal Notices",
-    leg_cookies: "Cookie Management",
+    footer_col1: "Expertise", footer_col2: "Company", footer_col3: "Legal",
+    leg_mentions: "Legal Notices", leg_cookies: "Cookie Management",
     footer_sub_text: "Designed with operational excellence in Morocco."
   }
 };
-
+ 
 function applyLanguage(lang) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (translations[lang] && translations[lang][key]) {
-      if(key === "info_h1") {
-        if(lang === "fr") {
-          el.innerHTML = 'Support IT & <span class="accent">Infogérance</span>';
-        } else {
-          el.innerHTML = 'IT Support & <span class="accent">Managed Services</span>';
-        }
+      if (key === "info_h1") {
+        el.innerHTML = lang === "fr"
+          ? 'Support IT & <span class="accent">Infogérance</span>'
+          : 'IT Support & <span class="accent">Managed Services</span>';
+      } else if (key === "alacarte_title") {
+        el.innerHTML = lang === "fr"
+          ? 'Services <span style="color:var(--accent)">à la Carte</span>'
+          : '<span style="color:var(--accent)">À la Carte</span> Services';
       } else {
         el.innerHTML = translations[lang][key];
       }
     }
   });
 }
-
+ 
 document.addEventListener('DOMContentLoaded', () => {
   applyLanguage('fr');
-  
+ 
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
       const selectedLang = e.target.getAttribute('data-lang');
@@ -992,7 +1176,7 @@ document.addEventListener('DOMContentLoaded', () => {
       applyLanguage(selectedLang);
     });
   });
-
+ 
   const glow = document.getElementById('cursorGlow');
   if (glow) {
     window.addEventListener('mousemove', (e) => {
@@ -1000,15 +1184,15 @@ document.addEventListener('DOMContentLoaded', () => {
       glow.style.top = e.clientY + 'px';
     });
   }
-
+ 
   window.addEventListener('scroll', () => {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const scrolled = (winScroll / height) * 100;
     const bar = document.getElementById('scrollProgress');
-    if(bar) bar.style.width = scrolled + "%";
+    if (bar) bar.style.width = scrolled + "%";
   });
-
+ 
   const toggleBtn = document.getElementById('menuToggle');
   const mobileNav = document.getElementById('mobileNav');
   if (toggleBtn && mobileNav) {
@@ -1018,12 +1202,14 @@ document.addEventListener('DOMContentLoaded', () => {
       icon.className = mobileNav.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
     });
   }
-
-  // Animation fade-in au scroll pour les cartes (Expertises & Forfaits)
-  const cardsToAnimate = document.querySelectorAll('.feature-card, .pricing-card, .pricing-footer-banner');
+ 
+  // Animation fade-in scroll — cartes existantes + nouvelles
+  const cardsToAnimate = document.querySelectorAll(
+    '.feature-card, .pricing-card, .pricing-footer-banner, .alacarte-card, .alacarte-cta-banner'
+  );
   const cardAnimationObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
-      if(entry.isIntersecting) {
+      if (entry.isIntersecting) {
         setTimeout(() => {
           entry.target.style.opacity = "1";
           entry.target.style.transform = "translateY(0)";
@@ -1033,10 +1219,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }, { threshold: 0.05 });
-
+ 
   cardsToAnimate.forEach(card => cardAnimationObserver.observe(card));
 });
 </script>
-
+ 
 </body>
 </html>
