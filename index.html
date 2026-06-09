@@ -177,7 +177,7 @@ a { text-decoration: none; }
   opacity: 0; visibility: hidden; transform: translateY(10px);
   transition: var(--transition); border-top: 3px solid var(--accent);
 }
-.nav-links > li:hover > .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+.nav-links > li:hover > .dropdown-menu { opacity: 0; visibility: hidden; transform: translateY(10px); }
 .dropdown-menu li a {
   display: block; padding: 0.7rem 1rem; color: var(--gray-light);
   font-size: 0.88rem; border-radius: 8px; transition: var(--transition);
@@ -642,18 +642,7 @@ a { text-decoration: none; }
     
     <ul class="nav-links">
       <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
-      <li>
-        <a href="services.html" data-i18n="nav_services">Services <i class="fa-solid fa-chevron-down" style="font-size:0.7rem;"></i></a>
-        <ul class="dropdown-menu">
-          <li><a href="infogerance.html" data-i18n="srv_7_title">Support IT & Infogérance</a></li>
-          <li><a href="securite-reseau.html" data-i18n="srv_3_title">Sécurité Réseau</a></li>
-          <li><a href="contact.html" data-i18n="srv_1_title">Audit & Diagnostic</a></li>
-          <li><a href="vapt.html" data-i18n="srv_2_title">Pentest / VAPT</a></li>
-          <li><a href="soc-consultation.html" data-i18n="srv_4_title">SOC Consultation</a></li>
-          <li><a href="cybercrime.html" data-i18n="srv_5_title">Investigation Numérique</a></li>
-          <li><a href="noc.html" data-i18n="srv_6_title">NOC Managé</a></li>
-        </ul>
-      </li>
+      <li><a href="services.html" data-i18n="nav_services">Services</a></li>
       <li><a href="secteurs.html" data-i18n="nav_sectors">Secteurs</a></li>
       <li><a href="qui-sommes-nous.html" data-i18n="nav_about">Qui sommes-nous</a></li>
       <li><a href="carrieres.html" data-i18n="nav_careers">Carrières</a></li>
@@ -800,7 +789,7 @@ a { text-decoration: none; }
   <div class="cyber-defense-container">
     <div class="cyber-defense-text">
       <h2 class="wow-gradient-title" data-i18n="cyber_map_title">Cartographie Mondiale de la Menace</h2>
-      <p data-i18n="cyber_map_desc">Visualisez en direct les cyberattaques détectées à l'échelle planétaire grâce à notre intégration Kaspersky Threat Map. La guerre cybernétique ne dort jamais ; vos défenses opérationnelles non plus.</p>
+      <p data-i18n="cyber_map_desc">Visualisez en direct les cyberattaques détectées à l'échelle planétaire grâce à notre intégration Kaspersky Threat Map. La guerre cybernétique ne dort jamais ; vos défenses operationales non plus.</p>
     </div>
     
     <div class="map-iframe-container">
