@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-i18n="support_page_title">NextGen Technologies · Portail de Soutien & Assistance</title>
+  <title data-i18n="support_page_title">NetVanguard IT Solutions · Portail de Soutien & Assistance</title>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
   <style>
@@ -269,10 +269,10 @@
             </div>
           </a>
           
-          <a href="mailto:support@nextgentechnologies.ma" class="method-item">
+          <a href="mailto:contact@netvanguard.ma" class="method-item">
             <i class="fas fa-envelope-open-text"></i>
             <div class="method-text">
-              <strong data-i18n="support_by_email">Par courriel</strong> support@nextgentechnologies.ma
+              <strong data-i18n="support_by_email">Par courriel</strong> contact@netvanguard.ma
             </div>
           </a>
           
@@ -317,7 +317,7 @@
             <p data-i18n="support_step2_desc">Cliquez sur l'agent ci-dessous pour copier automatiquement le script d'installation :</p>
             <div class="script-box">$ErrorActionPreference = 'Stop'; Invoke-WebRequest -Uri "https://rmm.nextgentechnologies.net/dl/tacticalagent-v2.10.0-windows-amd64.exe" -OutFile "$env:TEMP\tacticalagent.exe"; Start-Process "$env:TEMP\tacticalagent.exe" -ArgumentList '/VERYSILENT /SUPPRESSMSGBOXES' -Wait; & "C:\Program Files\TacticalAgent\tacticalrmm.exe" -m install --api https://api.rmm.nextgentechnologies.net --client-id 1 --site-id 1 --agent-type workstation --auth d432d9944a0eb82a8f5c0db6107f69a28ff8f1b8fe7d3a3e2a10ee487a359e59 --rdp --ping --power</div>
             
-            <!-- Agent NextGen -->
+            <!-- Agent Vanguard -->
             <div class="agent-container" onclick="copyInstallScript()">
               <div class="agent-tooltip">Cliquez sur l'agent pour copier le script</div>
               <svg class="agent-svg" viewBox="0 0 200 300" width="160px" height="240px" xmlns="http://www.w3.org/2000/svg">
@@ -423,7 +423,7 @@
           <div class="step-card">
             <div class="step-num">4</div>
             <h4 data-i18n="support_step4_title">Attendre 2 minutes</h4>
-            <p data-i18n="support_step4_desc">L'agent s'installe automatiquement. Une fois terminé, informez votre expert NextGen qui pourra se connecter à distance.</p>
+            <p data-i18n="support_step4_desc">L'agent s'installe automatiquement. Une fois terminé, informez votre expert Vanguard qui pourra se connecter à distance.</p>
           </div>
 
         </div>
@@ -439,7 +439,7 @@
   </div>
 
   <script>
-    const exitUrl = "https://nextgentechnologies.ma";
+    const exitUrl = "https://http://netvanguard.ma";
 
     const scriptToCopy = `$ErrorActionPreference = 'Stop'; Invoke-WebRequest -Uri "https://rmm.nextgentechnologies.net/dl/tacticalagent-v2.10.0-windows-amd64.exe" -OutFile "$env:TEMP\\tacticalagent.exe"; Start-Process "$env:TEMP\\tacticalagent.exe" -ArgumentList '/VERYSILENT /SUPPRESSMSGBOXES' -Wait; & "C:\\Program Files\\TacticalAgent\\tacticalrmm.exe" -m install --api https://api.rmm.nextgentechnologies.net --client-id 1 --site-id 1 --agent-type workstation --auth d432d9944a0eb82a8f5c0db6107f69a28ff8f1b8fe7d3a3e2a10ee487a359e59 --rdp --ping --power`;
 
@@ -450,7 +450,7 @@
 
     const translations = {
       fr: {
-        support_page_title: "NextGen Technologies · Portail de Soutien & Assistance",
+        support_page_title: "NetVanguard IT Solutions · Portail de Soutien & Assistance",
         support_open_ticket: "Ouvrir une demande de soutien",
         support_ticket_portal: "Portail Tickets",
         support_ticket_desc: "Créez et suivez vos demandes avec un numéro de ticket dédié",
@@ -467,12 +467,12 @@
         support_step3_title: "Coller dans PowerShell",
         support_step3_desc: "Faites un clic droit dans la fenêtre PowerShell bleue, puis appuyez sur Entrée pour lancer l'installation.",
         support_step4_title: "Attendre 2 minutes",
-        support_step4_desc: "L'agent s'installe automatiquement. Une fois terminé, informez votre expert NextGen qui pourra se connecter à distance.",
+        support_step4_desc: "L'agent s'installe automatiquement. Une fois terminé, informez votre expert Vanguard qui pourra se connecter à distance.",
         support_24_7: "Support Technique 24/7",
         support_exit_btn: "Quitter"
       },
       en: {
-        support_page_title: "NextGen Technologies · Support & Assistance Portal",
+        support_page_title: "NetVanguard IT Solutions · Support & Assistance Portal",
         support_open_ticket: "Open a support request",
         support_ticket_portal: "Ticket Portal",
         support_ticket_desc: "Create and track your requests with a dedicated ticket number",
@@ -489,7 +489,7 @@
         support_step3_title: "Paste in PowerShell",
         support_step3_desc: "Right-click in the blue PowerShell window, then press Enter to launch the installation.",
         support_step4_title: "Wait 2 minutes",
-        support_step4_desc: "The agent installs automatically. Once done, inform your NextGen expert who can connect remotely.",
+        support_step4_desc: "The agent installs automatically. Once done, inform your Vanguard expert who can connect remotely.",
         support_24_7: "24/7 Technical Support",
         support_exit_btn: "Exit"
       }
