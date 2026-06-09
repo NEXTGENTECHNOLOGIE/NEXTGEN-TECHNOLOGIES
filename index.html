@@ -638,7 +638,7 @@ a { text-decoration: none; }
  
 <nav class="nav">
   <div class="nav-container">
-    <a href="index.html" class="logo">  <img src="netvanguard.jpg" alt="NetVanguard IT Solutions" style="height:42px; object-fit:contain; filter: drop-shadow(0 0 10px rgba(0,212,255,0.7));"></a>
+    <a href="index.html" class="logo">  <svg class="logo-shield" viewBox="0 0 24 24">    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>    <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>  </svg>  <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em; font-weight:500; color: var(--gray-light);">IT Solutions</span></span></a>
     
     <ul class="nav-links">
       <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
@@ -827,7 +827,7 @@ a { text-decoration: none; }
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-brand">
-      <a href="index.html" class="logo">  <img src="netvanguard.jpg" alt="NetVanguard IT Solutions" style="height:38px; object-fit:contain; filter: drop-shadow(0 0 8px rgba(0,212,255,0.5));"></a>
+      <a href="index.html" class="logo">  <svg class="logo-shield" viewBox="0 0 24 24">    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>    <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>  </svg>  <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em; font-weight:500; color: var(--gray-light);">IT Solutions</span></span></a>
       <p data-i18n="footer_brand_desc">Pionnier de la souveraineté numérique et de la cyber-résilience avancée au Maroc. Nous sécurisons les infrastructures d'importance vitale.</p>
       <div class="footer-socials">
         <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -1132,7 +1132,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (slides.length > 0) {
     slides.forEach((_, i) => {
       const div = document.createElement('div');
-      if (i === 0) div.classList.add('active');div.addEventListener('click', () => {
+      if (i === 0) div.classList.add('active');
+      div.addEventListener('click', () => {
         changeSlide(i);
         resetTimer();
       });
