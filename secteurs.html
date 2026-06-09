@@ -3,676 +3,346 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Cybersécurité par secteur — Banques, E-commerce, Santé, Industrie, Administrations.">
-<title>Secteurs d'activité · NextGen Technologies</title>
+<meta name="description" content="NetVanguard IT Solutions — Solutions IT par secteur : Banques, E-commerce, Sante, Industrie, Administrations.">
+<title>Secteurs · NetVanguard IT Solutions</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 <style>
 :root{
-  --primary:#050B14;
-  --secondary:#0A1628;
   --accent:#00D4FF;
+  --accent2:#0891B2;
   --gold:#FFB800;
-  --white:#fff;
-  --text:#D8E2F0;
+  --bg:#030712;
+  --bg2:#050B14;
+  --bg3:#071426;
+  --white:#FFFFFF;
+  --text:#E2E8F0;
   --muted:#94A3B8;
-  --border:rgba(255,255,255,0.08);
+  --dim:#475569;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{font-family:'Manrope',sans-serif;background:#030712;color:var(--white);overflow-x:hidden;}
-h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;}
+body{font-family:"Manrope",sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
+h1,h2,h3,h4{font-family:"Space Grotesk",sans-serif;}
 a{text-decoration:none;}
-
-.top-bar{background:#02050b;border-bottom:1px solid rgba(255,255,255,0.04);padding:.7rem 4%;}
-.top-bar-container {
-  max-width: 1400px;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-.top-bar-info{display:flex;gap:2rem;flex-wrap:wrap;}
-.top-bar-info span{font-size:.85rem;color:#cbd5e1;}
-.top-bar-info i{color:var(--accent);margin-right:.4rem;}
-.top-bar-social a{color:#cbd5e1;margin-left:1rem;transition:.3s;}
-.top-bar-social a:hover{color:var(--accent);}
-
-.lang-switch{display:flex;gap:.25rem;background:rgba(0,212,255,0.15);padding:.2rem .6rem;border-radius:40px;}
-.lang-btn{background:none;border:none;color:var(--muted);font-size:.8rem;font-weight:600;cursor:pointer;padding:.2rem .6rem;border-radius:30px;transition:all .3s;}
-.lang-btn.active{background:var(--accent);color:var(--primary);}
-.lang-btn:hover:not(.active){color:var(--accent);}
-
-.nav{position:sticky;top:0;z-index:999;backdrop-filter:blur(16px);background:rgba(3,7,18,.75);border-bottom:1px solid rgba(255,255,255,0.06);padding:1rem 4%;}
-.nav-container{max-width:1400px;margin:auto;display:flex;justify-content:space-between;align-items:center;}
-.logo{display:flex;align-items:center;gap:.8rem;color:#fff;font-size:1.35rem;font-weight:700;}
-.logo-shield{width:42px;animation:float 4s ease-in-out infinite;}
-.logo-text-accent{color:var(--accent);}
-@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
-.nav-links{display:flex;gap:.5rem;list-style:none;align-items:center;}
-.nav-links a{color:#dbe4ef;padding:.8rem 1rem;border-radius:12px;font-size:.92rem;font-weight:600;transition:.3s;}
-.nav-links a:hover,.nav-links a.active{background:rgba(255,255,255,.06);color:var(--accent);}
-.nav-cta{background:linear-gradient(135deg,var(--accent),#0ea5e9)!important;color:#02131d!important;font-weight:800!important;box-shadow:0 0 30px rgba(0,212,255,.3);}
-.btn-espace-client {
-  background: linear-gradient(135deg, #00D4FF, #0891B2) !important;
-  color: #050B14 !important;
-  font-weight: 700 !important;
-  padding: 0.5rem 1.2rem !important;
-  border-radius: 6px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 0.5rem !important;
-}
-
-/* PAGE HEADER — style premium */
-.page-header{
-  position:relative;
-  padding:6rem 4% 4rem;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(0,212,255,.15), transparent 30%),
-    radial-gradient(circle at 80% 40%, rgba(255,184,0,.1), transparent 35%),
-    linear-gradient(180deg,#02050b 0%, #081120 60%, #02050b 100%);
-}
-.page-header::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-  background-size:28px 28px;
-  mask-image:linear-gradient(to bottom, rgba(0,0,0,1), transparent);
-  pointer-events:none;
-}
-.page-header-container{max-width:1400px;margin:auto;position:relative;z-index:2;}
-.breadcrumb{color:#94a3b8;font-size:.85rem;margin-bottom:1rem;}
-.breadcrumb a{color:var(--accent);}
-.breadcrumb i{margin:0 .5rem;font-size:.7rem;}
-.page-header h1{font-size:clamp(2.2rem,4.5vw,3.8rem);line-height:1.1;margin-bottom:1rem;letter-spacing:-.02em;}
-.page-header h1 .accent{color:var(--accent);background:linear-gradient(90deg,#00D4FF,#38bdf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.page-header p{font-size:1.1rem;color:#cbd5e1;max-width:750px;line-height:1.6;}
-
-/* SECTIONS */
-.section{padding:6rem 4%;position:relative;}
-.section-container{max-width:1400px;margin:auto;}
-.section-tag{display:inline-block;color:var(--accent);text-transform:uppercase;font-size:.8rem;letter-spacing:.2em;margin-bottom:1rem;font-weight:700;}
-.section-title{font-size:clamp(2rem,4vw,3rem);line-height:1.15;margin-bottom:1rem;color:var(--white);}
-.section-subtitle{color:#94a3b8;max-width:700px;margin-bottom:3rem;font-size:1.05rem;}
-
-/* SECTEURS GRID — effet glass premium */
-.sectors-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(310px, 1fr));
-  gap:2rem;
-}
-.sector-card{
-  position:relative;
-  border-radius:28px;
-  background:linear-gradient(160deg, rgba(0,212,255,.06), rgba(255,184,0,.04), rgba(10,22,40,.9));
-  border:1px solid rgba(0,212,255,.15);
-  backdrop-filter:blur(4px);
-  overflow:hidden;
-  transition:.5s cubic-bezier(.23,1,.32,1);
-  cursor:pointer;
-  display:block;
-  color:inherit;
-}
-.sector-card::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  border-radius:28px;
-  background:linear-gradient(135deg, rgba(0,212,255,.15) 0%, transparent 50%, rgba(255,184,0,.08) 100%);
-  opacity:0;
-  transition:.5s;
-  z-index:1;
-  pointer-events:none;
-}
-.sector-card:hover{
-  transform:translateY(-12px) scale(1.02);
-  border-color:rgba(0,212,255,.5);
-  box-shadow:0 30px 80px rgba(0,0,0,.5), 0 0 0 1px rgba(0,212,255,.2), 0 0 60px rgba(0,212,255,.15);
-}
-.sector-card:hover::before{opacity:1;}
-.sector-img{
-  height:200px;
-  overflow:hidden;
-  position:relative;
-  background:linear-gradient(135deg, #0A1628, #050B14);
-}
-.sector-img img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:transform 1s cubic-bezier(.23,1,.32,1), filter .5s;
-  filter:saturate(1.1) contrast(1.05);
-}
-.sector-card:hover .sector-img img{
-  transform:scale(1.1);
-  filter:saturate(1.3) contrast(1.1);
-}
-.sector-img::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to top, rgba(2,6,12,.8) 0%, rgba(2,6,12,.2) 50%, transparent 100%);
-  pointer-events:none;
-}
-.sector-content{padding:1.8rem;position:relative;z-index:2;}
-.sector-content h3{font-size:1.3rem;margin-bottom:.5rem;background:linear-gradient(90deg,#fff,#cbd5e1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.sector-card:hover .sector-content h3{background:linear-gradient(90deg,#fff,var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.sector-content p{color:#94a3b8;line-height:1.6;font-size:.92rem;margin-bottom:1rem;}
-.sector-link{color:var(--accent);font-size:.85rem;font-weight:700;display:inline-flex;align-items:center;gap:.5rem;transition:.3s;}
-.sector-card:hover .sector-link{gap:.8rem;color:var(--gold);}
-
-/* STATS BANNER */
-.stats-banner{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:1.5rem;
-  margin-top:3rem;
-}
-.stat-item{
-  padding:1.5rem;
-  border-radius:24px;
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(255,255,255,.06);
-  text-align:center;
-}
-.stat-number{font-size:2.2rem;font-weight:800;color:var(--accent);}
-.stat-label{color:#94a3b8;margin-top:.3rem;font-size:.85rem;}
-
-/* CTA SECTION premium */
-.cta{
-  padding:6rem 4%;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-  background:linear-gradient(180deg,#07111e,#02050b);
-}
-.cta::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:radial-gradient(circle at center, rgba(0,212,255,.12), transparent 45%);
-}
-.cta-content{max-width:850px;margin:auto;position:relative;z-index:2;}
-.cta h2{font-size:clamp(1.8rem,4vw,3rem);margin-bottom:1rem;}
-.cta p{color:#94a3b8;line-height:1.9;margin-bottom:2rem;}
-.btn-primary{
-  background:linear-gradient(135deg,var(--accent),#0ea5e9);
-  color:#04111a;
-  padding:1rem 2rem;
-  border-radius:40px;
-  font-weight:800;
-  display:inline-flex;
-  align-items:center;
-  gap:.8rem;
-  transition:.3s;
-  box-shadow:0 0 40px rgba(0,212,255,.25);
-}
-.btn-primary:hover{transform:translateY(-4px);gap:1rem;}
-
+ 
+/* SCROLL BAR */
+.scroll-bar{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--accent),var(--gold));z-index:99999;transition:width .1s;}
+ 
+/* TOP BAR */
+.topbar{background:#02050b;border-bottom:1px solid rgba(255,255,255,.04);padding:.55rem 4%;}
+.topbar-inner{max-width:1400px;margin:auto;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:1.5rem;}
+.topbar-info{display:flex;gap:2rem;flex-wrap:wrap;}
+.topbar-info span{font-size:.8rem;color:var(--muted);display:flex;align-items:center;gap:.35rem;}
+.topbar-info i{color:var(--accent);font-size:.72rem;}
+.lang-sw{display:flex;gap:.2rem;background:rgba(0,212,255,.07);border:1px solid rgba(0,212,255,.15);padding:.2rem .4rem;border-radius:16px;}
+.lang-sw button{background:none;border:none;color:var(--muted);font-size:.75rem;font-family:inherit;cursor:pointer;padding:.15rem .5rem;border-radius:10px;transition:.2s;}
+.lang-sw button.active{background:rgba(0,212,255,.18);color:var(--accent);}
+ 
+/* NAV */
+.nav{position:sticky;top:0;z-index:999;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(3,7,18,.9);border-bottom:1px solid rgba(255,255,255,.05);padding:.9rem 4%;}
+.nav-inner{max-width:1400px;margin:auto;display:flex;justify-content:space-between;align-items:center;}
+.logo{display:flex;align-items:center;gap:.65rem;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:1.28rem;color:var(--white);}
+.logo svg{flex-shrink:0;animation:logoFloat 3s ease-in-out infinite;}
+@keyframes logoFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-4px);}}
+.logo-accent{color:var(--accent);}
+.logo-sub{font-size:.78em;font-weight:400;color:rgba(255,255,255,.4);}
+.nav-links{display:flex;gap:.2rem;list-style:none;align-items:center;}
+.nav-links a{color:#CBD5E1;padding:.5rem .85rem;border-radius:8px;font-size:.87rem;font-weight:500;transition:.2s;}
+.nav-links a:hover,.nav-links a.active{background:rgba(0,212,255,.1);color:var(--accent);}
+.btn-client{background:linear-gradient(135deg,var(--accent),var(--accent2))!important;color:var(--bg)!important;font-weight:700!important;padding:.5rem 1.1rem!important;border-radius:6px!important;}
+.menu-toggle{display:none;background:none;border:none;color:var(--white);font-size:1.3rem;cursor:pointer;}
+ 
+/* HERO */
+.hero{position:relative;padding:4.5rem 4% 3.5rem;overflow:hidden;background:radial-gradient(ellipse at 15% 50%,rgba(0,212,255,.07),transparent 45%),radial-gradient(ellipse at 85% 20%,rgba(255,184,0,.04),transparent 40%),var(--bg);}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(0,212,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,.035) 1px,transparent 1px);background-size:55px 55px;pointer-events:none;}
+.hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:2;text-align:center;}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,212,255,.09);border:1px solid rgba(0,212,255,.22);color:var(--accent);font-size:.73rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .9rem;border-radius:30px;margin-bottom:1.6rem;animation:fadeDown .6s ease both;}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-12px);}to{opacity:1;transform:translateY(0);}}
+.hero h1{font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:800;line-height:1.12;color:var(--white);margin-bottom:1.2rem;animation:fadeUp .7s .1s ease both;}
+.hero h1 .hl{background:linear-gradient(135deg,var(--accent),#38bdf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero-sub{font-size:1.05rem;color:var(--muted);max-width:640px;margin:0 auto 2.2rem;line-height:1.75;animation:fadeUp .7s .2s ease both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.hero-btns{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap;animation:fadeUp .7s .3s ease both;}
+.btn-prim{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#030f1c;padding:.85rem 1.8rem;border-radius:40px;font-weight:800;font-size:.9rem;display:inline-flex;align-items:center;gap:.55rem;transition:.3s;box-shadow:0 0 28px rgba(0,212,255,.28);}
+.btn-prim:hover{transform:translateY(-3px);box-shadow:0 0 42px rgba(0,212,255,.45);}
+.btn-out{background:transparent;border:1px solid rgba(0,212,255,.3);color:var(--accent);padding:.85rem 1.8rem;border-radius:40px;font-weight:700;font-size:.9rem;display:inline-flex;align-items:center;gap:.55rem;transition:.3s;}
+.btn-out:hover{background:rgba(0,212,255,.07);border-color:var(--accent);}
+ 
+/* SECTORS */
+.sectors-sec{padding:5rem 4%;background:linear-gradient(180deg,var(--bg),var(--bg2));}
+.sec-inner{max-width:1400px;margin:auto;}
+.sec-label{display:inline-block;color:var(--accent);text-transform:uppercase;font-size:.72rem;letter-spacing:.14em;font-weight:700;margin-bottom:.7rem;}
+.sec-title{font-size:clamp(1.7rem,3.2vw,2.4rem);color:var(--white);line-height:1.15;margin-bottom:.6rem;}
+.sec-sub{color:var(--muted);max-width:580px;font-size:.95rem;line-height:1.7;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.7rem;margin-top:3rem;}
+ 
+/* CARD */
+.card{position:relative;border-radius:20px;overflow:hidden;cursor:pointer;border:1px solid rgba(255,255,255,.06);background:rgba(10,22,40,.65);transition:.4s cubic-bezier(.23,1,.32,1);opacity:0;transform:translateY(28px);}
+.card.vis{opacity:1;transform:translateY(0);}
+.card:hover{transform:translateY(-10px) scale(1.018);border-color:rgba(0,212,255,.38);box-shadow:0 22px 55px rgba(0,0,0,.5),0 0 0 1px rgba(0,212,255,.12),0 0 35px rgba(0,212,255,.09);}
+.card::after{content:"";position:absolute;inset:0;border-radius:20px;background:linear-gradient(135deg,rgba(0,212,255,.07),transparent 55%);opacity:0;transition:opacity .4s;pointer-events:none;z-index:1;}
+.card:hover::after{opacity:1;}
+.card-img{height:205px;overflow:hidden;position:relative;}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform 1s ease,filter .4s;filter:saturate(1.1) brightness(.82);}
+.card:hover .card-img img{transform:scale(1.09);filter:saturate(1.3) brightness(.88);}
+.card-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(3,7,18,.85) 0%,transparent 55%);}
+.card-badge{position:absolute;top:.85rem;right:.85rem;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);border:1px solid rgba(0,212,255,.28);color:var(--accent);font-size:.67rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:.28rem .65rem;border-radius:18px;z-index:2;}
+.card-body{padding:1.5rem;position:relative;z-index:2;}
+.card-body h3{font-size:1.15rem;color:var(--white);margin-bottom:.45rem;transition:color .3s;}
+.card:hover .card-body h3{color:var(--accent);}
+.card-body p{color:var(--muted);font-size:.86rem;line-height:1.62;margin-bottom:.9rem;}
+.card-link{display:inline-flex;align-items:center;gap:.45rem;color:var(--accent);font-size:.8rem;font-weight:700;transition:gap .3s;}
+.card:hover .card-link{gap:.7rem;}
+ 
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;margin-top:3.5rem;padding:1.8rem 2rem;background:rgba(0,212,255,.04);border:1px solid rgba(0,212,255,.09);border-radius:20px;}
+.stat{text-align:center;}
+.stat-n{font-size:1.9rem;font-weight:800;color:var(--accent);font-family:"Space Grotesk",sans-serif;display:block;}
+.stat-l{color:var(--dim);font-size:.78rem;margin-top:.2rem;display:block;}
+ 
+/* CTA */
+.cta{padding:4.5rem 4%;text-align:center;background:linear-gradient(135deg,#04101d,#091d31);position:relative;overflow:hidden;}
+.cta::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at center,rgba(0,212,255,.11),transparent 55%);}
+.cta-inner{max-width:720px;margin:0 auto;position:relative;z-index:2;}
+.cta h2{font-size:clamp(1.7rem,3.5vw,2.6rem);color:var(--white);margin-bottom:.9rem;}
+.cta p{color:var(--muted);margin-bottom:2rem;line-height:1.7;}
+ 
+/* MODAL */
+.modal{position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.82);backdrop-filter:blur(9px);display:flex;align-items:center;justify-content:center;padding:2rem;opacity:0;pointer-events:none;transition:opacity .3s;}
+.modal.open{opacity:1;pointer-events:all;}
+.modal-box{background:#071426;border:1px solid rgba(0,212,255,.15);border-radius:22px;max-width:660px;width:100%;max-height:90vh;overflow-y:auto;position:relative;transform:translateY(28px) scale(.96);transition:.35s cubic-bezier(.23,1,.32,1);}
+.modal-box::-webkit-scrollbar{width:4px;}
+.modal-box::-webkit-scrollbar-thumb{background:rgba(0,212,255,.3);border-radius:2px;}
+.modal.open .modal-box{transform:translateY(0) scale(1);}
+.modal-hero{height:230px;position:relative;overflow:hidden;border-radius:22px 22px 0 0;}
+.modal-hero img{width:100%;height:100%;object-fit:cover;filter:brightness(.65);}
+.modal-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 35%,rgba(3,7,18,.96));}
+.modal-hero-content{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:1.4rem 1.8rem;}
+.modal-hero-content h2{color:var(--white);font-size:1.7rem;}
+.modal-close{position:absolute;top:.9rem;right:.9rem;z-index:10;width:34px;height:34px;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.12);border-radius:50%;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.95rem;transition:.3s;}
+.modal-close:hover{background:rgba(239,68,68,.8);transform:rotate(90deg);}
+.modal-content{padding:1.8rem;}
+.modal-desc{color:var(--muted);line-height:1.8;margin-bottom:1.4rem;font-size:.94rem;}
+.modal-list{list-style:none;margin-bottom:1.8rem;}
+.modal-list li{display:flex;align-items:flex-start;gap:.7rem;padding:.65rem 0;border-bottom:1px solid rgba(255,255,255,.05);color:var(--text);font-size:.88rem;}
+.modal-list li:last-child{border-bottom:none;}
+.modal-list li::before{content:"✓";color:var(--accent);font-weight:700;flex-shrink:0;margin-top:.05rem;}
+.modal-btns{display:flex;gap:.9rem;flex-wrap:wrap;}
+.modal-btn-p{flex:1;padding:.85rem;border-radius:10px;font-weight:700;font-size:.88rem;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:linear-gradient(135deg,var(--accent),var(--accent2));color:var(--bg);border:none;cursor:pointer;font-family:inherit;transition:.3s;}
+.modal-btn-p:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(0,212,255,.3);}
+.modal-btn-s{flex:1;padding:.85rem;border-radius:10px;font-weight:700;font-size:.88rem;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:rgba(255,255,255,.05);color:var(--muted);border:1px solid rgba(255,255,255,.1);cursor:pointer;font-family:inherit;transition:.3s;}
+.modal-btn-s:hover{border-color:var(--accent);color:var(--accent);}
+ 
 /* FOOTER */
-footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;background:#02050b;}
-.footer-grid{max-width:1400px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;}
-.footer-brand p{color:#94a3b8;margin-top:1rem;line-height:1.8;}
-.footer-col h4{margin-bottom:1.2rem;color:var(--white);}
-.footer-col ul{list-style:none;}
-.footer-col li{margin-bottom:.8rem;}
-.footer-col a{color:#94a3b8;transition:.3s;}
-.footer-col a:hover{color:var(--accent);}
-.footer-bottom{max-width:1400px;margin:auto;border-top:1px solid rgba(255,255,255,.05);margin-top:3rem;padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:#64748b;font-size:.9rem;}
-
-/* CHATBOT */
-.chatbot-button{
-  position:fixed;bottom:25px;right:25px;
-  width:60px;height:60px;
-  background:linear-gradient(135deg, #EF4444, #DC2626);
-  border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  color:white;font-size:1.6rem;
-  cursor:pointer;box-shadow:0 6px 25px rgba(239,68,68,0.5);
-  z-index:998;transition:.3s;border:2px solid rgba(255,255,255,0.2);
-}
-.chatbot-button:hover{transform:scale(1.1);}
-.chatbot-pulse{
-  position:absolute;top:-3px;right:-3px;
-  width:14px;height:14px;
-  background:#EF4444;border-radius:50%;
-  border:2px solid white;
-  animation:chatPulse 2s infinite;
-}
-@keyframes chatPulse{
-  0%,100%{transform:scale(1);opacity:1;}
-  50%{transform:scale(1.3);opacity:0.7;}
-}
-.chatbot-window{
-  position:fixed;bottom:100px;right:25px;
-  width:380px;max-width:calc(100vw - 50px);
-  height:540px;
-  background:#071426;
-  border-radius:24px;
-  border:1px solid rgba(0,212,255,0.3);
-  box-shadow:0 30px 60px rgba(0,0,0,0.6);
-  z-index:999;
-  display:none;
-  flex-direction:column;
-  overflow:hidden;
-  backdrop-filter:blur(8px);
-}
-.chatbot-window.open{display:flex;}
-.chatbot-header{
-  background:rgba(0,212,255,0.1);
-  backdrop-filter:blur(12px);
-  padding:1rem;
-  display:flex;
-  align-items:center;
-  gap:0.8rem;
-  border-bottom:1px solid rgba(0,212,255,0.2);
-}
-.chatbot-avatar{
-  width:44px;height:44px;
-  background:linear-gradient(135deg,var(--accent),#0891B2);
-  border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.3rem;color:white;
-}
-.chatbot-header-info .name{font-weight:700;color:white;}
-.chatbot-header-info .status{font-size:0.75rem;color:var(--accent);}
-.chatbot-close{
-  background:none;border:none;
-  color:white;font-size:1.5rem;
-  cursor:pointer;margin-left:auto;
-}
-.chatbot-body{
-  flex:1;
-  overflow-y:auto;
-  padding:1rem;
-  background:rgba(3,7,18,0.9);
-}
-.chat-msg{
-  max-width:85%;
-  padding:0.7rem 1rem;
-  border-radius:18px;
-  font-size:0.88rem;
-  margin-bottom:0.8rem;
-}
-.chat-msg.bot{
-  background:#0F2B4D;
-  color:var(--off-white);
-  border-bottom-left-radius:4px;
-}
-.chat-msg.user{
-  background:linear-gradient(135deg,#EF4444,#DC2626);
-  color:white;
-  margin-left:auto;
-  border-bottom-right-radius:4px;
-}
-.chat-options{
-  display:flex;
-  flex-direction:column;
-  gap:0.5rem;
-  margin:0.5rem 0;
-}
-.chat-option{
-  background:rgba(0,212,255,0.08);
-  border:1px solid rgba(0,212,255,0.2);
-  padding:0.7rem 1rem;
-  border-radius:14px;
-  font-size:0.85rem;
-  font-weight:600;
-  cursor:pointer;
-  color:var(--off-white);
-  transition:.3s;
-  text-align:left;
-}
-.chat-option:hover{
-  border-color:var(--accent);
-  background:rgba(0,212,255,0.15);
-  transform:translateX(4px);
-}
-.chatbot-footer{
-  padding:0.6rem;
-  border-top:1px solid rgba(0,212,255,0.1);
-  background:rgba(3,7,18,0.95);
-  font-size:0.7rem;
-  text-align:center;
-  color:#64748b;
-}
-
-@media(max-width:1200px){
-  .stats-banner{grid-template-columns:repeat(2,1fr);}
+.footer{border-top:1px solid rgba(255,255,255,.05);padding:3.5rem 4% 1.8rem;background:#02050b;}
+.footer-grid{max-width:1400px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem;}
+.footer-desc{color:var(--dim);font-size:.85rem;line-height:1.7;margin-top:.7rem;max-width:260px;}
+.fcol h4{color:#CBD5E1;font-size:.82rem;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.9rem;}
+.fcol ul{list-style:none;}
+.fcol li{margin-bottom:.55rem;}
+.fcol a{color:var(--dim);font-size:.85rem;transition:color .2s;}
+.fcol a:hover{color:var(--accent);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:1.3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem;color:var(--dim);font-size:.8rem;}
+ 
+/* RESPONSIVE */
+@media(max-width:1080px){
+  .nav-links{display:none;}
+  .menu-toggle{display:block;}
 }
 @media(max-width:768px){
-  .top-bar-container {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-  .top-bar-info {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.4rem;
-  }
-  .nav-links{display:none;}
-  .stats-banner{grid-template-columns:1fr;}
+  .topbar-info span:not(:first-child){display:none;}
+  .grid{grid-template-columns:1fr;}
+  .stats{grid-template-columns:repeat(2,1fr);}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .modal-btns{flex-direction:column;}
+}
+@media(max-width:520px){
   .footer-grid{grid-template-columns:1fr;}
-  .sectors-grid{grid-template-columns:1fr;}
-  .section{padding:4rem 5%;}
+  .stats{grid-template-columns:repeat(2,1fr);}
 }
 </style>
 </head>
 <body>
-
-<div class="top-bar">
-  <div class="top-bar-container">
-    <div class="top-bar-info">
-      <span><i class="fas fa-phone"></i> <span class="top-phone">+212 728 31 28 01</span></span>
-      <span><i class="fas fa-envelope"></i> <span class="top-email">contact@nextgentechnologies.ma</span></span>
-      <span><i class="fas fa-location-dot"></i> <span class="top-location">Casablanca</span></span>
+ 
+<div class="scroll-bar" id="sb"></div>
+ 
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-info">
+      <span><i class="fas fa-phone"></i>+212 728 31 28 01</span>
+      <span><i class="fas fa-envelope"></i>contact@netvanguard.ma</span>
+      <span><i class="fas fa-location-dot"></i>Casablanca</span>
     </div>
-    <div class="lang-switch">
-      <button class="lang-btn active" data-lang="fr">🇫🇷 FR</button>
-      <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
-    </div>
-    <div class="top-bar-social">
-      <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      <a href="#"><i class="fab fa-x-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
+    <div class="lang-sw" id="langSw">
+      <button class="active" onclick="setL(this,'fr')">FR</button>
+      <button onclick="setL(this,'en')">EN</button>
     </div>
   </div>
 </div>
-
+ 
 <nav class="nav">
-  <div class="nav-container">
+  <div class="nav-inner">
     <a href="index.html" class="logo">
-      <svg class="logo-shield" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="shieldGradN" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00D4FF"/><stop offset="100%" stop-color="#0891B2"/></linearGradient>
-          <linearGradient id="boltGradN" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#FEE2E2"/><stop offset="40%" stop-color="#EF4444"/><stop offset="100%" stop-color="#991B1B"/></linearGradient>
-        </defs>
-        <path d="M32 4 L8 12 V28 C8 42 18 54 32 60 C46 54 56 42 56 28 V12 Z" fill="url(#shieldGradN)" stroke="#FFB800" stroke-width="1.5"/>
-        <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="url(#boltGradN)" stroke="#7F1D1D" stroke-width="1.5"/>
+      <svg class="logo-shield" viewBox="0 0 24 24" width="30" height="30">
+        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="#00D4FF"/>
+        <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
       </svg>
-      <span>NextGen <span class="logo-text-accent">Technologies</span></span>
+      <span>Net<span class="logo-accent">Vanguard</span><span class="logo-sub"> IT Solutions</span></span>
     </a>
-    <ul class="nav-links">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="secteurs.html" class="active">Secteurs</a></li>
-      <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
-      <li><a href="carrieres.html">Carrières</a></li>
-      <li><a href="campus-cyber.html">🎓 Campus Cyber</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="support.html" class="btn-espace-client"><i class="fa-solid fa-user-circle"></i> Espace Client</a></li>
+    <ul class="nav-links" id="navL">
+      <li><a href="index.html" id="n1">Accueil</a></li>
+      <li><a href="services.html" id="n2">Services</a></li>
+      <li><a href="secteurs.html" class="active" id="n3">Secteurs</a></li>
+      <li><a href="qui-sommes-nous.html" id="n4">Qui sommes-nous</a></li>
+      <li><a href="campus-cyber.html" id="n5">🎓 Campus</a></li>
+      <li><a href="contact.html" id="n6">Contact</a></li>
+      <li><a href="support.html" class="btn-client" id="n7"><i class="fas fa-user-circle"></i> Espace Client</a></li>
     </ul>
+    <button class="menu-toggle" onclick="document.getElementById('navL').style.display=document.getElementById('navL').style.display==='flex'?'none':'flex'"><i class="fas fa-bars"></i></button>
   </div>
 </nav>
-
-<section class="page-header">
-  <div class="page-header-container">
-    <div class="breadcrumb">
-      <a href="index.html">Accueil</a> <i class="fas fa-chevron-right"></i> <span style="color:var(--white)" data-key="breadcrumb">Secteurs d'activité</span>
-    </div>
-    <h1>Une expertise <span class="accent">par secteur</span><br>d'activité</h1>
-    <p data-key="pageDesc">Chaque secteur a ses risques spécifiques, ses contraintes réglementaires, ses enjeux. Nous adaptons notre approche pour répondre aux besoins de votre métier.</p>
-  </div>
-</section>
-
-<section class="section" style="background:linear-gradient(180deg,#030712,#050B14);">
-  <div class="section-container">
-    <span class="section-tag" data-key="sectorsTag">Secteurs couverts</span>
-    <h2 class="section-title" data-key="sectorsTitle">Cybersécurité par métier</h2>
-    <p class="section-subtitle" data-key="sectorsSub">Découvrez nos approches spécialisées par secteur d'activité.</p>
-    <div class="sectors-grid" id="sectorsGrid"></div>
-    
-    <div class="stats-banner">
-      <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label" data-key="stat1Label">Conformité réglementaire</div></div>
-      <div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label" data-key="stat2Label">Surveillance SOC</div></div>
-      <div class="stat-item"><div class="stat-number">50+</div><div class="stat-label" data-key="stat3Label">Clients accompagnés</div></div>
-      <div class="stat-item"><div class="stat-number">15+</div><div class="stat-label" data-key="stat4Label">Années d'expertise cumulée</div></div>
+ 
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge"><i class="fas fa-layer-group"></i> <span id="hb">Nos secteurs</span></div>
+    <h1 id="ht">Solutions IT adaptees a <span class="hl">chaque secteur</span></h1>
+    <p class="hero-sub" id="hs">Infogérance, cybersécurité, support IT — nous accompagnons les entreprises de tous secteurs avec des solutions sur mesure, adaptées à leurs réalités métier au Maroc.</p>
+    <div class="hero-btns">
+      <a href="contact.html" class="btn-prim"><i class="fas fa-calendar-check"></i> <span id="hb1">Audit gratuit</span></a>
+      <a href="services.html" class="btn-out"><span id="hb2">Voir nos services</span> <i class="fas fa-arrow-right"></i></a>
     </div>
   </div>
 </section>
-
-<section class="section">
+ 
+<section class="sectors-sec">
+  <div class="sec-inner">
+    <span class="sec-label" id="slbl">Nos domaines</span>
+    <h2 class="sec-title" id="stitle">Solutions adaptees a votre secteur</h2>
+    <p class="sec-sub" id="ssub">Chaque entreprise est unique. Nous adaptons notre approche IT et securite a vos contraintes.</p>
+    <div class="grid" id="grid"></div>
+    <div class="stats">
+      <div class="stat"><span class="stat-n">100%</span><span class="stat-l" id="st1">Disponibilite SLA</span></div>
+      <div class="stat"><span class="stat-n">50+</span><span class="stat-l" id="st2">Clients accompagnes</span></div>
+      <div class="stat"><span class="stat-n">24/7</span><span class="stat-l" id="st3">Supervision active</span></div>
+      <div class="stat"><span class="stat-n">15+</span><span class="stat-l" id="st4">Annees d expertise</span></div>
+    </div>
+  </div>
 </section>
-
+ 
 <section class="cta">
-  <div class="cta-content">
-    <h2 data-key="ctaTitle">Prêt à sécuriser votre entreprise ?</h2>
-    <p data-key="ctaText">Audit gratuit de 30 minutes pour évaluer vos besoins. Aucun engagement.</p>
-    <a href="contact.html" class="btn-primary" data-key="ctaBtn">Demander un audit gratuit <i class="fas fa-arrow-right"></i></a>
+  <div class="cta-inner">
+    <h2 id="ct">Votre secteur, notre expertise</h2>
+    <p id="cd">Contactez-nous pour un audit gratuit et decouvrez comment NetVanguard peut accompagner votre organisation.</p>
+    <a href="contact.html" class="btn-prim"><i class="fas fa-shield-halved"></i> <span id="cb">Demander un audit gratuit</span></a>
   </div>
 </section>
-
-<footer>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <a href="index.html" class="logo">
-        <svg class="logo-shield" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-          <path d="M32 4 L8 12 V28 C8 42 18 54 32 60 C46 54 56 42 56 28 V12 Z" fill="#00D4FF" stroke="#FFB800" stroke-width="1.5"/>
-          <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="#EF4444" stroke="#7F1D1D" stroke-width="1.5"/>
-        </svg>
-        <span>NextGen <span class="logo-text-accent">Technologies</span></span>
-      </a>
-      <p data-key="footerDesc">Cybersécurité opérationnelle au Maroc. SOC, Pentest, Sécurité Réseau, Formation.</p>
+ 
+<footer class="footer">
+  <div style="max-width:1400px;margin:auto;">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo" style="display:inline-flex;">
+          <svg width="26" height="26" viewBox="0 0 24 24">
+            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="#00D4FF"/>
+            <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
+          </svg>
+          <span style="font-family:Space Grotesk,sans-serif;font-weight:700;font-size:1.1rem;color:#fff;margin-left:.55rem;">Net<span style="color:#00D4FF;">Vanguard</span><span style="font-size:.75em;font-weight:400;color:rgba(255,255,255,.35);"> IT Solutions</span></span>
+        </a>
+        <p class="footer-desc">Votre partenaire IT et cybersecurite au Maroc.</p>
+      </div>
+      <div class="fcol"><h4>Services</h4><ul><li><a href="infogerance.html">Support IT</a></li><li><a href="securite-reseau.html">Securite Reseau</a></li><li><a href="vapt.html">Pentest / VAPT</a></li><li><a href="soc-consultation.html">SOC Consultation</a></li></ul></div>
+      <div class="fcol"><h4>Secteurs</h4><ul><li><a href="#">Banques</a></li><li><a href="#">E-commerce</a></li><li><a href="#">Sante</a></li><li><a href="#">Industrie</a></li></ul></div>
+      <div class="fcol"><h4>Entreprise</h4><ul><li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li><li><a href="campus-cyber.html">Campus Cyber</a></li><li><a href="contact.html">Contact</a></li></ul></div>
     </div>
-    <div class="footer-col"><h4 data-key="footerServices">Services</h4><ul><li><a href="soc-consultation.html">SOC Consultation</a></li><li><a href="vapt.html">VAPT</a></li><li><a href="cloud-security.html">Cloud Security</a></li></ul></div>
-    <div class="footer-col"><h4 data-key="footerSectors">Secteurs</h4><ul><li><a href="secteur-banques.html">Banques & Finance</a></li><li><a href="secteur-ecommerce.html">E-commerce</a></li><li><a href="secteur-sante.html">Santé</a></li><li><a href="secteur-industrie.html">Industrie</a></li></ul></div>
-    <div class="footer-col"><h4 data-key="footerCompany">Entreprise</h4><ul><li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li><li><a href="contact.html">Contact</a></li><li><a href="carrieres.html">Carrières</a></li></ul></div>
-  </div>
-  <div class="footer-bottom">
-    <span data-key="footerCopyright">© 2026 NextGen Technologies SARL · Casablanca</span>
-    <span>Excellence & Innovation</span>
+    <div class="footer-bottom">
+      <span id="fc">© 2026 NetVanguard IT Solutions SARL · Casablanca</span>
+      <span>Solutions IT & Securite pour les PME marocaines</span>
+    </div>
   </div>
 </footer>
-
-<div id="chatbotBtn" class="chatbot-button"><i class="fas fa-comments"></i><div class="chatbot-pulse"></div></div>
-<div id="chatbotWindow" class="chatbot-window">
-  <div class="chatbot-header">
-    <div class="chatbot-avatar"><i class="fas fa-shield-halved"></i></div>
-    <div class="chatbot-header-info"><div class="name">NextGen Helper</div><div class="status" id="chatStatus">En ligne</div></div>
-    <button class="chatbot-close" id="chatbotCloseBtn">×</button>
+ 
+<!-- MODAL -->
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+    <div class="modal-hero"><img id="mimg" src="" alt=""><div class="modal-hero-content"><h2 id="mtitle"></h2></div></div>
+    <div class="modal-content">
+      <p class="modal-desc" id="mdesc"></p>
+      <ul class="modal-list" id="mlist"></ul>
+      <div class="modal-btns">
+        <a href="contact.html" class="modal-btn-p"><i class="fas fa-paper-plane"></i> <span id="mb1">Nous contacter</span></a>
+        <button class="modal-btn-s" onclick="closeModal()"><i class="fas fa-arrow-left"></i> <span id="mb2">Retour</span></button>
+      </div>
+    </div>
   </div>
-  <div class="chatbot-body" id="chatBody"></div>
-  <div class="chatbot-footer">Propulsé par NextGen Technologies</div>
 </div>
-
+ 
 <script>
-// DONNÉES SECTEURS
-const sectorsData = {
-  fr: [
-    {title:"Banques & Finance", desc:"Conformité régulateur bancaire, lutte anti-fraude, sécurisation des paiements et transactions.", img:"banques-finance.avif", link:"secteur-banques.html"},
-    {title:"E-commerce & Retail", desc:"Sécurité des paiements, protection des données clients, prévention de la fraude.", img:"ecommerce-retail.avif", link:"secteur-ecommerce.html"},
-    {title:"Santé & Pharma", desc:"Protection des données patients, conformité GDPR/HIPAA, sécurisation des systèmes médicaux.", img:"sante-pharma.avif", link:"secteur-sante.html"},
-    {title:"Industrie & Manufacture", desc:"Sécurisation OT/IT, protection des automates, continuité de production.", img:"industrie-manufacture.avif", link:"secteur-industrie.html"},
-    {title:"Administrations", desc:"Conformité autorités cyber nationales, protection des données citoyens, souveraineté numérique.", img:"conformite.jpg", link:"secteur-administrations.html"}
+const DATA = {
+  fr:[
+    {title:"Banques & Finance",desc:"Conformite regulatoire, securite des transactions, protection des donnees.",img:"banques-finance.avif",badge:"Finance",long:"Solutions IT et cybersecurite adaptees aux exigences du secteur bancaire marocain.",feats:["Conformite BAM et reglementation bancaire","Securisation des transactions et paiements","Lutte anti-fraude et detection des anomalies","Audit securite des systemes bancaires","Formation et sensibilisation des equipes"]},
+    {title:"E-commerce & Retail",desc:"Paiements securises, protection des donnees clients, disponibilite maximale.",img:"ecommerce-retail.avif",badge:"E-commerce",long:"Protection complete pour les plateformes e-commerce : paiements, donnees et conformite.",feats:["Securisation des passerelles de paiement","Protection des donnees clients (RGPD)","Surveillance des transactions frauduleuses","Securite des APIs et applications web","Disponibilite maximale de la plateforme"]},
+    {title:"Sante & Pharma",desc:"Systemes medicaux securises et conformes RGPD/HIPAA.",img:"sante-pharma.avif",badge:"Sante",long:"Protection des donnees patients et continuite des systemes medicaux critiques.",feats:["Protection des donnees patients (RGPD/HIPAA)","Securisation des systemes medicaux","Continuite de service garantie","Audit de conformite reglementaire","Infogerance des parcs informatiques"]},
+    {title:"Industrie & Manufacture",desc:"Securisation OT/IT pour la continuite de production.",img:"industrie-manufacture.avif",badge:"Industrie",long:"Securisation des environnements industriels pour garantir la production.",feats:["Securisation OT/IT et reseaux industriels","Protection des automates et SCADA","Continuite de production et PRA","Supervision reseau 24/7","Audit de securite industrielle"]},
+    {title:"Administrations",desc:"Souverainete numerique et protection des donnees citoyens.",img:"sante-pharma.avif",badge:"Public",long:"Accompagnement des administrations dans leur transformation numerique securisee.",feats:["Conformite aux autorites cyber nationales","Protection des donnees citoyens","Audit et diagnostic de securite","Formation des equipes IT publiques","Souverainete et independance numerique"]}
   ],
-  en: [
-    {title:"Banking & Finance", desc:"Banking regulatory compliance, anti-fraud, payment and transaction security.", img:"banques-finance.avif", link:"secteur-banques.html"},
-    {title:"E-commerce & Retail", desc:"Payment security, customer data protection, fraud prevention.", img:"ecommerce-retail.avif", link:"secteur-ecommerce.html"},
-    {title:"Healthcare & Pharma", desc:"Patient data protection, GDPR/HIPAA compliance, medical system security.", img:"sante-pharma.avif", link:"secteur-sante.html"},
-    {title:"Industry & Manufacturing", desc:"OT/IT security, PLC protection, production continuity.", img:"industrie-manufacture.avif", link:"secteur-industrie.html"},
-    {title:"Administrations", desc:"National cyber authority compliance, citizen data protection, digital sovereignty.", img:"conformite.jpg", link:"secteur-administrations.html"}
+  en:[
+    {title:"Banking & Finance",desc:"Regulatory compliance and transaction security.",img:"banques-finance.avif",badge:"Finance",long:"IT and cybersecurity solutions for the Moroccan banking sector.",feats:["BAM banking regulatory compliance","Transaction and payment security","Anti-fraud and anomaly detection","Banking system security audit","Staff training and awareness"]},
+    {title:"E-commerce & Retail",desc:"Payment security and customer data protection.",img:"ecommerce-retail.avif",badge:"E-commerce",long:"Full protection for e-commerce platforms.",feats:["Payment gateway security","Customer data protection (GDPR)","Fraud monitoring","API and web app security","Platform availability optimization"]},
+    {title:"Healthcare & Pharma",desc:"Patient data and medical system security.",img:"sante-pharma.avif",badge:"Healthcare",long:"GDPR/HIPAA compliance and medical system protection.",feats:["Patient data protection (GDPR/HIPAA)","Medical system security","Business continuity planning","Compliance audit","IT staff training"]},
+    {title:"Industry & Manufacturing",desc:"OT/IT security for production continuity.",img:"industrie-manufacture.avif",badge:"Industry",long:"Industrial cybersecurity and production continuity.",feats:["OT/IT and industrial network security","SCADA protection","Production continuity and DRP","24/7 network monitoring","Industrial security audit"]},
+    {title:"Public Sector",desc:"Digital sovereignty and citizen data protection.",img:"sante-pharma.avif",badge:"Public",long:"Secure digital transformation for public administrations.",feats:["National cyber authority compliance","Citizen data protection","Security audit and diagnostics","IT team training","Digital sovereignty"]}
   ]
 };
-
-const translations = {
-  fr: {
-    breadcrumb:"Secteurs d'activité",
-    pageDesc: "Chaque secteur a ses risques spécifiques, ses contraintes réglementaires, ses enjeux. Nous adaptons notre approche pour répondre aux besoins de votre métier.",
-    sectorsTag: "Secteurs couverts",
-    sectorsTitle: "Cybersécurité par métier",
-    sectorsSub: "Découvrez nos approches spécialisées par secteur d'activité.",
-    stat1Label: "Conformité réglementaire",
-    stat2Label: "Surveillance SOC",
-    stat3Label: "Clients accompagnés",
-    stat4Label: "Années d'expertise cumulée",
-    ctaTitle: "Prêt à sécuriser votre entreprise ?",
-    ctaText: "Audit gratuit de 30 minutes pour évaluer vos besoins. Aucun engagement.",
-    ctaBtn: "Demander un audit gratuit",
-    footerDesc: "Cybersécurité opérationnelle au Maroc. SOC, Pentest, Sécurité Réseau, Formation.",
-    footerServices: "Services",
-    footerSectors: "Secteurs",
-    footerCompany: "Entreprise",
-    footerCopyright: "© 2026 NextGen Technologies SARL · Casablanca",
-    chatStatus: "En ligne"
-  },
-  en: {
-    breadcrumb:"Sectors",
-    pageDesc: "Each sector has its specific risks, regulatory constraints and challenges. We adapt our approach to meet your business needs.",
-    sectorsTag: "Sectors covered",
-    sectorsTitle: "Cybersecurity by industry",
-    sectorsSub: "Discover our specialized approaches by sector of activity.",
-    stat1Label: "Regulatory compliance",
-    stat2Label: "24/7 SOC Monitoring",
-    stat3Label: "Clients supported",
-    stat4Label: "Combined years of expertise",
-    ctaTitle: "Ready to secure your business?",
-    ctaText: "30-minute free audit to assess your needs. No commitment.",
-    ctaBtn: "Request free audit",
-    footerDesc: "Operational cybersecurity in Morocco. SOC, Pentest, Network Security, Training.",
-    footerServices: "Services",
-    footerSectors: "Sectors",
-    footerCompany: "Company",
-    footerCopyright: "© 2026 NextGen Technologies SARL · Casablanca",
-    chatStatus: "Online"
-  }
+ 
+const TR = {
+  fr:{hb:"Nos secteurs",ht:"Solutions IT adaptées à <span class='hl'>chaque secteur</span>",hs:"Infogérance, cybersécurité, support IT — nous accompagnons les entreprises de tous secteurs avec des solutions sur mesure au Maroc.",hb1:"Audit gratuit",hb2:"Voir nos services",slbl:"Nos domaines",stitle:"Solutions adaptées à votre secteur",ssub:"Chaque entreprise est unique. Nous adaptons notre approche IT et sécurité à vos contraintes.",st1:"Disponibilité SLA",st2:"Clients accompagnés",st3:"Supervision active",st4:"Années d'expertise",ct:"Votre secteur, notre expertise",cd:"Contactez-nous pour un audit gratuit et découvrez comment NetVanguard peut accompagner votre organisation.",cb:"Demander un audit gratuit",mb1:"Nous contacter",mb2:"Retour",fc:"© 2026 NetVanguard IT Solutions SARL · Casablanca",n1:"Accueil",n2:"Services",n3:"Secteurs",n4:"Qui sommes-nous",n5:"🎓 Campus",n6:"Contact",n7:"Espace Client",dis:"Découvrir"},
+  en:{hb:"Our sectors",ht:"Solutions tailored to <span class='hl'>every industry</span>",hs:"Managed IT, cybersecurity, IT support — we serve all sectors with tailored solutions in Morocco.",hb1:"Free audit",hb2:"Our services",slbl:"Our domains",stitle:"Solutions tailored to your sector",ssub:"Every business is unique. We adapt our IT and security approach to your constraints.",st1:"SLA Availability",st2:"Clients served",st3:"Active monitoring",st4:"Years of expertise",ct:"Your sector, our expertise",cd:"Contact us for a free audit and discover how NetVanguard can support your business.",cb:"Request a free audit",mb1:"Contact us",mb2:"Back",fc:"© 2026 NetVanguard IT Solutions SARL · Casablanca",n1:"Home",n2:"Services",n3:"Sectors",n4:"About us",n5:"🎓 Campus",n6:"Contact",n7:"Client Area",dis:"Discover"}
 };
-
-let currentLang = localStorage.getItem('nextgen-lang') || 'fr';
-
-function renderSectors(lang) {
-  const grid = document.getElementById('sectorsGrid');
-  if(!grid) return;
-  grid.innerHTML = '';
-  sectorsData[lang].forEach(s => {
-    const card = document.createElement('a');
-    card.className = 'sector-card';
-    card.href = s.link;
-    card.innerHTML = `
-      <div class="sector-img"><img src="${s.img}" alt="${s.title}" onerror="this.src='https://placehold.co/600x400/0A1628/00D4FF?text=${encodeURIComponent(s.title)}'"></div>
-      <div class="sector-content">
-        <h3>${s.title}</h3>
-        <p>${s.desc}</p>
-        <span class="sector-link">${lang === 'fr' ? 'Découvrir' : 'Discover'} <i class="fas fa-arrow-right"></i></span>
-      </div>
-    `;
-    grid.appendChild(card);
+ 
+let lang="fr";
+function setL(btn,l){lang=l;document.querySelectorAll("#langSw button").forEach(b=>b.classList.remove("active"));btn.classList.add("active");apply();renderGrid();}
+function apply(){const t=TR[lang];Object.keys(t).forEach(k=>{const el=document.getElementById(k);if(el)el.innerHTML=t[k];});}
+ 
+function renderGrid(){
+  const g=document.getElementById("grid");
+  if(!g)return;
+  g.innerHTML="";
+  DATA[lang].forEach((s,i)=>{
+    const c=document.createElement("div");
+    c.className="card";
+    c.innerHTML=`<div class="card-img"><img src="${s.img}" alt="${s.title}" onerror="this.src='https://placehold.co/600x400/0A1628/00D4FF?text=${encodeURIComponent(s.title)}'"><span class="card-badge">${s.badge}</span></div><div class="card-body"><h3>${s.title}</h3><p>${s.desc}</p><span class="card-link">${TR[lang].dis} <i class="fas fa-arrow-right"></i></span></div>`;
+    c.onclick=()=>openModal(i);
+    g.appendChild(c);
   });
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach((e,idx)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add("vis"),idx*90);obs.unobserve(e.target);}});
+  },{threshold:0.08});
+  g.querySelectorAll(".card").forEach(c=>obs.observe(c));
 }
-
-function applyLanguage(lang) {
-  const t = translations[lang];
-  if(!t) return;
-  document.querySelectorAll('[data-key]').forEach(el => {
-    const key = el.getAttribute('data-key');
-    if(t[key] !== undefined) el.innerHTML = t[key];
-  });
-  const topPhone = document.querySelector('.top-phone');
-  const topEmail = document.querySelector('.top-email');
-  const topLocation = document.querySelector('.top-location');
-  if(topPhone) topPhone.textContent = lang === 'fr' ? '+212 728 31 28 01' : '+212 728 31 28 01';
-  if(topEmail) topEmail.textContent = 'contact@nextgentechnologies.ma';
-  if(topLocation) topLocation.textContent = 'Casablanca';
-  document.getElementById('chatStatus').innerText = t.chatStatus;
-  renderSectors(lang);
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.remove('active');
-    if(btn.getAttribute('data-lang') === lang) btn.classList.add('active');
-  });
-  localStorage.setItem('nextgen-lang', lang);
+ 
+function openModal(i){
+  const s=DATA[lang][i];
+  document.getElementById("mimg").src=s.img;
+  document.getElementById("mtitle").textContent=s.title;
+  document.getElementById("mdesc").textContent=s.long;
+  document.getElementById("mlist").innerHTML=s.feats.map(f=>`<li>${f}</li>`).join("");
+  document.getElementById("mb1").textContent=TR[lang].mb1;
+  document.getElementById("mb2").textContent=TR[lang].mb2;
+  document.getElementById("modal").classList.add("open");
+  document.body.style.overflow="hidden";
 }
-
-// CHATBOT
-function addChatMessage(text, isUser = false) {
-  const chatBody = document.getElementById('chatBody');
-  const msgDiv = document.createElement('div');
-  msgDiv.className = `chat-msg ${isUser ? 'user' : 'bot'}`;
-  msgDiv.innerHTML = text;
-  chatBody.appendChild(msgDiv);
-  chatBody.scrollTop = chatBody.scrollHeight;
-}
-
-function showChatOptions() {
-  const lang = currentLang;
-  const chatBody = document.getElementById('chatBody');
-  const optionsDiv = document.createElement('div');
-  optionsDiv.className = 'chat-options';
-  const options = lang === 'en' ? [
-    { text: "Request free audit", reply: "👍 Great! <a href='contact.html' style='color:#00D4FF;'>Book your free audit here</a>" },
-    { text: "Protect my company", reply: "🛡️ We offer SOC, Pentest, Network Security. <a href='services.html' style='color:#00D4FF;'>Discover our services</a>" },
-    { text: "Talk to an advisor", reply: "📞 Contact us on WhatsApp: <a href='https://wa.me/212728312801' style='color:#25D366;'>+212 728 31 28 01</a>" }
-  ] : [
-    { text: "Demander un audit gratuit", reply: "👍 Excellent ! <a href='contact.html' style='color:#00D4FF;'>Réservez votre audit gratuit ici</a>" },
-    { text: "Protéger mon entreprise", reply: "🛡️ Nous proposons SOC, Pentest, Sécurité Réseau. <a href='services.html' style='color:#00D4FF;'>Découvrez nos services</a>" },
-    { text: "Parler à un conseiller", reply: "📞 Contactez-nous sur WhatsApp : <a href='https://wa.me/212728312801' style='color:#25D366;'>+212 728 31 28 01</a>" }
-  ];
-  options.forEach(opt => {
-    const btn = document.createElement('button');
-    btn.className = 'chat-option';
-    btn.innerHTML = opt.text;
-    btn.onclick = () => {
-      addChatMessage(opt.text, true);
-      optionsDiv.remove();
-      setTimeout(() => {
-        addChatMessage(opt.reply, false);
-        setTimeout(() => showChatOptions(), 800);
-      }, 500);
-    };
-    optionsDiv.appendChild(btn);
-  });
-  chatBody.appendChild(optionsDiv);
-  chatBody.scrollTop = chatBody.scrollHeight;
-}
-
-function initChat() {
-  const chatBody = document.getElementById('chatBody');
-  const lang = currentLang;
-  chatBody.innerHTML = '';
-  const welcomeMsg = lang === 'en' ? 'Hello 👋 I\'m <strong>NextGen Helper</strong>. How can I help you?' : 'Bonjour 👋 Je suis <strong>NextGen Helper</strong>. Comment puis-je vous aider ?';
-  addChatMessage(welcomeMsg, false);
-  setTimeout(() => showChatOptions(), 300);
-}
-
-// Chatbot UI
-const chatBtn = document.getElementById('chatbotBtn');
-const chatWindow = document.getElementById('chatbotWindow');
-const chatCloseBtn = document.getElementById('chatbotCloseBtn');
-
-function toggleChat() {
-  if (chatWindow.classList.contains('open')) {
-    chatWindow.classList.remove('open');
-  } else {
-    chatWindow.classList.add('open');
-    if (document.getElementById('chatBody').children.length === 0) {
-      initChat();
-    }
-  }
-}
-if(chatBtn) chatBtn.addEventListener('click', toggleChat);
-if(chatCloseBtn) chatCloseBtn.addEventListener('click', () => chatWindow.classList.remove('open'));
-
-// LANGUE
-document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const lang = btn.getAttribute('data-lang');
-    if(lang) {
-      currentLang = lang;
-      applyLanguage(currentLang);
-      if(chatWindow && chatWindow.classList.contains('open')) initChat();
-    }
-  });
+function closeModal(){document.getElementById("modal").classList.remove("open");document.body.style.overflow="";}
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal();});
+ 
+window.addEventListener("scroll",()=>{
+  const sb=document.getElementById("sb");
+  if(sb){const p=(window.scrollY/(document.body.scrollHeight-window.innerHeight))*100;sb.style.width=p+"%";}
 });
-
-applyLanguage(currentLang);
+ 
+document.addEventListener("DOMContentLoaded",()=>{apply();renderGrid();});
 </script>
 </body>
 </html>
