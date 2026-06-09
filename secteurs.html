@@ -162,47 +162,15 @@ a{text-decoration:none;}
   .footer-grid{grid-template-columns:1fr;}
   .stats{grid-template-columns:repeat(2,1fr);}
 }
+
+.top-bar { background: rgba(5,11,20,0.95); backdrop-filter: blur(10px); color: #94A3B8; padding: 0.5rem 4%; font-size: 0.8rem; border-bottom: 1px solid rgba(0,212,255,0.2); z-index: 1001; position: relative; }.top-bar-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }.partner-badge { display: flex; align-items: center; gap: 0.6rem; background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(239,68,68,0.08)); padding: 0.3rem 1rem; border-radius: 40px; border-left: 2px solid #00D4FF; }.partner-badge i { color: #00D4FF; font-size: 0.8rem; }.partner-badge span { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px; background: linear-gradient(135deg, #fff, #00D4FF); -webkit-background-clip: text; background-clip: text; color: transparent; }.top-bar-info { display: flex; gap: 2rem; flex-wrap: wrap; }.top-bar-info span { display: flex; align-items: center; gap: 0.4rem; }.top-bar-info i { color: #00D4FF; }.top-bar-social a { color: #94A3B8; margin-left: 0.8rem; transition: all 0.3s; display: inline-block; }.top-bar-social a:hover { color: #00D4FF; }.lang-switch { display: flex; gap: 0.25rem; background: rgba(0,212,255,0.15); padding: 0.2rem 0.6rem; border-radius: 40px; align-items: center; }.lang-btn { background: none; border: none; color: #94A3B8; font-size: 0.8rem; font-weight: 600; cursor: pointer; padding: 0.2rem 0.6rem; border-radius: 30px; transition: all 0.3s; font-family: inherit; }.lang-btn.active { background: #00D4FF; color: #050B14; }.nav-container { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }.logo-text-accent { color: #00D4FF; }.logo-shield { width: 32px; height: 32px; fill: #00D4FF; flex-shrink: 0; animation: float 3s ease-in-out infinite; }.nav-actions { display: flex; align-items: center; gap: 1.2rem; }.btn-espace-client { background: linear-gradient(135deg, #00D4FF, #0891B2) !important; color: #050B14 !important; font-weight: 700 !important; padding: 0.5rem 1.2rem !important; border-radius: 6px !important; }
 </style>
 </head>
 <body>
  
 <div class="scroll-bar" id="sb"></div>
  
-<div class="topbar">
-  <div class="topbar-inner">
-    <div class="topbar-info">
-      <span><i class="fas fa-phone"></i>+212 728 31 28 01</span>
-      <span><i class="fas fa-envelope"></i>contact@netvanguard.ma</span>
-      <span><i class="fas fa-location-dot"></i>Casablanca</span>
-    </div>
-    <div class="lang-sw" id="langSw">
-      <button class="active" onclick="setL(this,'fr')">FR</button>
-      <button onclick="setL(this,'en')">EN</button>
-    </div>
-  </div>
-</div>
- 
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="logo">
-      <svg class="logo-shield" viewBox="0 0 24 24" width="30" height="30">
-        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="#00D4FF"/>
-        <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
-      </svg>
-      <span>Net<span class="logo-accent">Vanguard</span><span class="logo-sub"> IT Solutions</span></span>
-    </a>
-    <ul class="nav-links" id="navL">
-      <li><a href="index.html" id="n1">Accueil</a></li>
-      <li><a href="services.html" id="n2">Services</a></li>
-      <li><a href="secteurs.html" class="active" id="n3">Secteurs</a></li>
-      <li><a href="qui-sommes-nous.html" id="n4">Qui sommes-nous</a></li>
-      <li><a href="campus-cyber.html" id="n5">🎓 Campus</a></li>
-      <li><a href="contact.html" id="n6">Contact</a></li>
-      <li><a href="support.html" class="btn-client" id="n7"><i class="fas fa-user-circle"></i> Espace Client</a></li>
-    </ul>
-    <button class="menu-toggle" onclick="document.getElementById('navL').style.display=document.getElementById('navL').style.display==='flex'?'none':'flex'"><i class="fas fa-bars"></i></button>
-  </div>
-</nav>
+<div class="top-bar">  <div class="top-bar-container">    <div class="partner-badge">      <i class="fa-solid fa-shield-halved"></i>      <span>Votre partenaire en cyberdéfense et infogérance</span>    </div>    <div class="top-bar-info">      <span><i class="fa-solid fa-phone"></i> +212 728 31 28 01</span>      <span><i class="fa-solid fa-envelope"></i> contact@netvanguard.ma</span>      <span><i class="fa-solid fa-location-dot"></i> Casablanca</span>    </div>    <div class="top-bar-social" style="display: flex; align-items: center;">      <div class="lang-switch" style="margin-right: 1rem;">        <button class="lang-btn active" data-lang="fr">FR</button>        <button class="lang-btn" data-lang="en">EN</button>      </div>      <a href="#"><i class="fab fa-linkedin-in"></i></a>      <a href="#"><i class="fab fa-x-twitter"></i></a>      <a href="#"><i class="fab fa-instagram"></i></a>    </div>  </div></div><nav class="nav">  <div class="nav-container">    <a href="index.html" class="logo">      <svg class="logo-shield" viewBox="0 0 24 24">        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>        <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>      </svg>      <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em; font-weight:500; color: var(--gray-light);">IT Solutions</span></span>    </a>    <ul class="nav-links">      <li><a href="index.html">Accueil</a></li>      <li><a href="services.html">Services</a></li>      <li><a href="secteurs.html" class="active">Secteurs</a></li>      <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>      <li><a href="carrieres.html">Carrières</a></li>      <li><a href="campus-cyber.html">🎓 Campus Cyber</a></li>      <li><a href="contact.html">Contact</a></li>      <li><a href="support.html" class="btn-espace-client"><i class="fa-solid fa-user-circle"></i> Espace Client</a></li>    </ul>    <div class="nav-actions">      <button class="menu-toggle" id="menuToggle">        <i class="fa-solid fa-bars"></i>      </button>    </div>  </div></nav>
  
 <section class="hero">
   <div class="hero-inner">
@@ -263,7 +231,6 @@ a{text-decoration:none;}
   </div>
 </footer>
  
-<!-- MODAL -->
 <div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
