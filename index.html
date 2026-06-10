@@ -394,7 +394,7 @@ a { text-decoration: none; }
   font-size: clamp(2.2rem, 5vw, 3.8rem);
   font-weight: 800;
   line-height: 1.15;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
   color: var(--white);
   letter-spacing: -0.03em;
 }
@@ -431,19 +431,6 @@ a { text-decoration: none; }
 @keyframes cursorBlink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
-}
-
-/* Description */
-.slide-desc {
-  font-size: 1.15rem;
-  color: rgba(226, 232, 240, 0.75);
-  margin-bottom: 3rem;
-  max-width: 650px;
-  margin-left: auto;
-  margin-right: auto;
-  font-weight: 300;
-  line-height: 1.8;
-  min-height: 3.6em;
 }
 
 /* Boutons */
@@ -873,7 +860,6 @@ a { text-decoration: none; }
         <h1 class="slide-title">
           <span class="slide-title-gradient" id="typingTitle1"></span><span class="cursor-blink" id="cursor1"></span>
         </h1>
-        <p class="slide-desc" id="typingDesc1"></p>
         <div class="slide-buttons">
           <a href="contact.html" class="btn-slide-primary">Démarrer mon audit <i class="fa-solid fa-arrow-right"></i></a>
           <a href="services.html" class="btn-slide-outline">Découvrir nos solutions <i class="fa-solid fa-shield-halved"></i></a>
@@ -894,7 +880,6 @@ a { text-decoration: none; }
         <h1 class="slide-title">
           <span class="slide-title-gradient" id="typingTitle2"></span><span class="cursor-blink" id="cursor2"></span>
         </h1>
-        <p class="slide-desc" id="typingDesc2"></p>
         <div class="slide-buttons">
           <a href="vapt.html" class="btn-slide-primary">Protéger mes actifs <i class="fa-solid fa-arrow-right"></i></a>
           <a href="services.html" class="btn-slide-outline">Voir nos offres <i class="fa-solid fa-shield-halved"></i></a>
@@ -915,7 +900,6 @@ a { text-decoration: none; }
         <h1 class="slide-title">
           <span class="slide-title-gradient" id="typingTitle3"></span><span class="cursor-blink" id="cursor3"></span>
         </h1>
-        <p class="slide-desc" id="typingDesc3"></p>
         <div class="slide-buttons">
           <a href="contact.html" class="btn-slide-primary">Construire l'avenir <i class="fa-solid fa-arrow-right"></i></a>
           <a href="qui-sommes-nous.html" class="btn-slide-outline">Notre vision <i class="fa-solid fa-eye"></i></a>
@@ -1010,11 +994,8 @@ const translations = {
     nav_about: "Qui sommes-nous", nav_careers: "Carrières",
     nav_campus: "🎓 Campus Cyber", nav_contact: "Contact", nav_espace_client: "Espace Client",
     slide1_title: "Forgez votre souveraineté numérique",
-    slide1_desc: "Reprenez le contrôle de vos données, vos infrastructures et vos choix technologiques.",
     slide2_title: "Sécurisez votre patrimoine numérique",
-    slide2_desc: "Protégez vos actifs critiques grâce à une approche indépendante, rigoureuse et adaptée à vos enjeux.",
     slide3_title: "Bâtissez une confiance durable",
-    slide3_desc: "Renforcez votre résilience, assurez votre continuité et préparez votre croissance de demain.",
     services_badge: "Expertise Cyber", services_section_title: "Nos Domaines d'Expertise Cyber",
     services_section_desc: "Des solutions ultra-spécifiques et modulaires adaptées aux menaces contemporaines complexes.",
     srv_1_title: "Audit & Diagnostic", srv_1_desc: "Analyse exhaustive de vos infrastructures et conformité réglementaire (DNSSI, RGPD).",
@@ -1044,11 +1025,8 @@ const translations = {
     nav_about: "About Us", nav_careers: "Careers",
     nav_campus: "🎓 Cyber Campus", nav_contact: "Contact", nav_espace_client: "Client Area",
     slide1_title: "Forge your digital sovereignty",
-    slide1_desc: "Take back control of your data, your infrastructure and your technological choices.",
     slide2_title: "Secure your digital assets",
-    slide2_desc: "Protect your critical assets with an independent, rigorous approach tailored to your challenges.",
     slide3_title: "Build lasting trust",
-    slide3_desc: "Strengthen your resilience, ensure your continuity and prepare for tomorrow's growth.",
     services_badge: "Cyber Expertise", services_section_title: "Our Cyber Expertise Domains",
     services_section_desc: "Highly specific and modular defensive solutions tailored to modern complex threat landscapes.",
     srv_1_title: "Audit & Diagnostics", srv_1_desc: "Exhaustive infrastructure reviews and regulatory compliance mapping.",
@@ -1108,7 +1086,7 @@ function applyLanguage(lang) {
   typeCurrentSlide();
 }
 
-function typeWriter(element, cursorElement, text, speed = 40, callback = null) {
+function typeWriter(element, cursorElement, text, speed = 45, callback = null) {
   let i = 0;
   element.textContent = '';
   if (cursorElement) cursorElement.style.display = 'inline-block';
@@ -1127,15 +1105,10 @@ function typeCurrentSlide() {
   isTyping = true;
   const num = currentSlide + 1;
   const titleEl = document.getElementById(`typingTitle${num}`);
-  const descEl = document.getElementById(`typingDesc${num}`);
   const cursorEl = document.getElementById(`cursor${num}`);
   const titleText = translations[currentLang][`slide${num}_title`] || '';
-  const descText = translations[currentLang][`slide${num}_desc`] || '';
   if (titleEl) {
-    typeWriter(titleEl, cursorEl, titleText, 45, () => {
-      if (descEl) { typeWriter(descEl, null, descText, 20, () => { isTyping = false; }); }
-      else { isTyping = false; }
-    });
+    typeWriter(titleEl, cursorEl, titleText, 45, () => { isTyping = false; });
   } else { isTyping = false; }
 }
 
