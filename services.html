@@ -36,7 +36,7 @@ a { text-decoration: none; }
   max-width: 1400px; 
   margin: 0 auto; 
   display: flex; 
-  justify-content: center; 
+  justify-content: space-between; 
   align-items: center; 
   flex-wrap: wrap; 
   gap: 2rem; 
@@ -374,7 +374,10 @@ footer {
   font-size: 0.85rem;
   color: var(--gray-mid);
 }
+
+@media (max-width: 1024px) {  .nav-links { display: none !important; }  .menu-toggle { display: block !important; }}@media (max-width: 768px) {  .nav-links { position: fixed; top: 70px; right: 0; flex-direction: column; background: rgba(7,20,38,0.98); backdrop-filter: blur(20px); padding: 1.5rem; width: 100%; gap: 0.5rem; display: none !important; border-bottom: 2px solid #00D4FF; z-index: 998; }  .nav-links.active { display: flex !important; }  .services-grid { grid-template-columns: 1fr !important; }  .service-img { height: 180px; }  .modal-card { width: 95% !important; max-height: 85vh; }  .modal-stats { grid-template-columns: 1fr 1fr !important; }  .modal-cta { flex-direction: column; }  .modal-btn-primary, .modal-btn-secondary { width: 100%; }  .page-header { padding: 3rem 4% 2rem; }  .page-header h1 { font-size: 2rem; }}
 </style>
+<link rel="stylesheet" href="mobile.css">
 </head>
 <body>
 
@@ -576,7 +579,7 @@ const servicesData = {
     {
       title: "Pentest / VAPT",
       badge: "Offensif",
-      desc: "On teste votre système comme un hacker.",
+      desc: "On teste votre systeme comme un hacker.",
       img: "vapt.webp",
       link: "vapt.html",
       tag: "Sécurité offensive",
