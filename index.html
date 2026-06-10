@@ -130,31 +130,13 @@ a { text-decoration: none; }
 }
 .logo:hover { transform: scale(1.02); }
 
-.logo-img-nav {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  object-fit: contain;
-  border: 1.5px solid rgba(0, 212, 255, 0.3);
-  box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
-  transition: var(--transition);
-  background: rgba(2, 8, 16, 0.8);
+/* Logo bouclier SVG */
+.logo-shield {
+  width: 36px; height: 36px; flex-shrink: 0;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.5));
 }
-.logo-img-nav:hover {
-  border-color: var(--accent) !important;
-  box-shadow: 0 0 25px rgba(0, 212, 255, 0.4) !important;
-  transform: scale(1.05);
-}
-
-.logo-img-footer {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  object-fit: contain;
-  border: 1.5px solid rgba(0, 212, 255, 0.3);
-  box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
-  background: rgba(2, 8, 16, 0.8);
-}
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 
 .logo-text-accent { color: var(--accent); }
 
@@ -326,7 +308,7 @@ a { text-decoration: none; }
   width: 100%;
 }
 
-/* Logo dans les slides */
+/* Logo dans les slides - SANS FOND NOIR */
 .slide-logo-container {
   position: relative;
   display: inline-block;
@@ -360,6 +342,7 @@ a { text-decoration: none; }
   border: 1.5px solid rgba(0, 212, 255, 0.2);
   animation: circlePulse 3s ease-in-out infinite;
 }
+/* Logo image - TRANSPARENT, SANS FOND NOIR */
 .slide-logo-img {
   position: relative;
   z-index: 2;
@@ -367,13 +350,13 @@ a { text-decoration: none; }
   height: 160px;
   border-radius: 50%;
   object-fit: contain;
-  background: rgba(2, 8, 16, 0.6);
-  backdrop-filter: blur(5px);
+  /* Fond complètement transparent */
+  background: transparent;
+  backdrop-filter: none;
   border: 2px solid rgba(0, 212, 255, 0.4);
   box-shadow: 
     0 0 40px rgba(0, 212, 255, 0.3),
-    0 0 80px rgba(0, 212, 255, 0.1),
-    inset 0 0 30px rgba(0, 212, 255, 0.1);
+    0 0 80px rgba(0, 212, 255, 0.1);
   animation: logoFloat 5s ease-in-out infinite;
 }
 @keyframes logoFloat {
@@ -764,13 +747,12 @@ a { text-decoration: none; }
   .hero-slider { min-height: 90vh; } .slides-wrapper { height: 90vh; }
   .slide-logo-frame { width: 140px; height: 140px; } .slide-logo-img { width: 120px; height: 120px; }
   .slider-nav { bottom: 2rem; gap: 1rem; } .slider-arrow { width: 40px; height: 40px; font-size: 0.9rem; }
-  .logo-img-nav { width: 36px; height: 36px; }
 }
 @media (max-width: 600px) {
   .slide-logo-frame { width: 120px; height: 120px; } .slide-logo-img { width: 100px; height: 100px; }
   .slide-buttons { flex-direction: column; align-items: center; }
   .btn-slide-primary, .btn-slide-outline { width: 100%; justify-content: center; }
-  .services-grid { grid-template-columns: 1fr; } .logo-img-nav { width: 32px; height: 32px; }
+  .services-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -804,11 +786,20 @@ a { text-decoration: none; }
   </div>
 </div>
 
-<!-- NAVIGATION -->
+<!-- NAVIGATION AVEC LOGO BOUCLIER SVG -->
 <nav class="nav">
   <div class="nav-container">
     <a href="index.html" class="logo">
-      <img src="netvanguard.jpg" alt="NetVanguard IT Solutions" class="logo-img-nav" onerror="this.style.display='none'">
+      <svg class="logo-shield" viewBox="0 0 24 24" width="36" height="36">
+        <defs>
+          <linearGradient id="shieldGradNav" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#FFB800;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#shieldGradNav)"/>
+        <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
+      </svg>
       <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em; font-weight:500; color: var(--gray-light);">IT Solutions</span></span>
     </a>
     <ul class="nav-links">
@@ -971,11 +962,23 @@ a { text-decoration: none; }
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- FOOTER AVEC LOGO BOUCLIER SVG -->
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-brand">
-      <a href="index.html" class="logo"><img src="netvanguard.jpg" alt="NetVanguard" class="logo-img-footer" onerror="this.style.display='none'"><span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em; font-weight:500; color: var(--gray-light);">IT Solutions</span></span></a>
+      <a href="index.html" class="logo">
+        <svg class="logo-shield" viewBox="0 0 24 24" width="36" height="36">
+          <defs>
+            <linearGradient id="shieldGradFooter" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#FFB800;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#shieldGradFooter)"/>
+          <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
+        </svg>
+        <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em; font-weight:500; color: var(--gray-light);">IT Solutions</span></span>
+      </a>
       <p data-i18n="footer_brand_desc">Pionnier de la souveraineté numérique et de la cyber-résilience avancée au Maroc. Nous sécurisons les infrastructures d'importance vitale.</p>
       <div class="footer-socials"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-x-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div>
     </div>
