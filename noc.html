@@ -2,560 +2,324 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Centre d'opérations réseau managé 24/7. Surveillance, détection d'incidents, reporting et SLA garantis pour les entreprises.">
-<title>NOC Managé · NextGen Technologies</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="NOC Managé · NetVanguard IT Solutions — Supervision réseau 24/7, monitoring, détection d'incidents, reporting SLA.">
+<title>NOC Managé · NetVanguard IT Solutions</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+ 
 <style>
 :root {
- --primary: #0A1628;
- --primary-deep: #050B14;
- --primary-light: #1E3A5F;
- --accent: #00D4FF;
- --accent-dark: #0891B2;
- --gold: #FFB800;
- --gold-dark: #D97706;
- --white: #FFFFFF;
- --off-white: #F8FAFC;
- --gray-light: #E2E8F0;
- --gray-mid: #64748B;
- --gray-dark: #334155;
- --success: #10B981;
- --danger: #EF4444;
+  --primary: #0A1628;
+  --primary-deep: #050B14;
+  --primary-light: #0F2B4D;
+  --accent: #00D4FF;
+  --accent-dark: #0891B2;
+  --red: #EF4444;
+  --red-dark: #DC2626;
+  --white: #FFFFFF;
+  --off-white: #E2E8F0;
+  --gray-light: #94A3B8;
+  --gray-mid: #64748B;
+  --gold: #FFB800;
+  --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
- font-family: 'Manrope', sans-serif;
- color: var(--gray-dark);
- line-height: 1.6;
- overflow-x: hidden;
- background: var(--white);
+  font-family: 'Manrope', sans-serif;
+  color: var(--off-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+  background: var(--primary-deep);
 }
 h1, h2, h3, h4 {
- font-family: 'Space Grotesk', sans-serif;
- font-weight: 700;
- letter-spacing: -0.02em;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 a { text-decoration: none; }
-
+ 
+/* TOP BAR */
 .top-bar {
- background: var(--primary-deep);
- color: var(--gray-light);
- padding: 0.5rem 4%;
- font-size: 0.8rem;
- border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(5, 11, 20, 0.95);
+  backdrop-filter: blur(10px);
+  color: var(--gray-light);
+  padding: 0.5rem 4%;
+  font-size: 0.8rem;
+  border-bottom: 1px solid rgba(0,212,255,0.2);
+  z-index: 1001; position: relative;
 }
 .top-bar-container {
- max-width: 1400px; margin: 0 auto;
- display: flex; justify-content: space-between; align-items: center;
- flex-wrap: wrap; gap: 0.5rem;
+  max-width: 1400px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 0.5rem;
+}
+.partner-badge {
+  display: flex; align-items: center; gap: 0.6rem;
+  background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(239,68,68,0.08));
+  padding: 0.3rem 1rem; border-radius: 40px; border-left: 2px solid var(--accent);
+}
+.partner-badge i { color: var(--accent); font-size: 0.8rem; }
+.partner-badge span {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px;
+  background: linear-gradient(135deg, #fff, var(--accent));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .top-bar-info { display: flex; gap: 2rem; flex-wrap: wrap; }
 .top-bar-info span { display: flex; align-items: center; gap: 0.4rem; }
 .top-bar-info i { color: var(--accent); }
-.top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; transition: color 0.2s; }
-.top-bar-social a:hover { color: var(--accent); }
-
+.top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; transition: var(--transition); display: inline-block; }
+.top-bar-social a:hover { color: var(--accent); transform: translateY(-2px); }
+ 
+.lang-switch {
+  display: flex; gap: 0.25rem; background: rgba(0,212,255,0.15);
+  padding: 0.2rem 0.6rem; border-radius: 40px; align-items: center;
+}
+.lang-btn {
+  background: none; border: none; color: var(--gray-light);
+  font-size: 0.8rem; font-weight: 600; cursor: pointer;
+  padding: 0.2rem 0.6rem; border-radius: 30px; transition: var(--transition);
+  font-family: inherit;
+}
+.lang-btn.active { background: var(--accent); color: var(--primary); }
+ 
+/* NAVIGATION */
 .nav {
- position: sticky; top: 0; z-index: 1000;
- padding: 1rem 4%;
- background: var(--white);
- border-bottom: 1px solid var(--gray-light);
- box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  position: sticky; top: 0; z-index: 1000; padding: 1rem 4%;
+  background: rgba(7, 20, 38, 0.95); backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,212,255,0.15);
 }
 .nav-container {
- max-width: 1400px; margin: 0 auto;
- display: flex; align-items: center; justify-content: space-between;
+  max-width: 1400px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
 }
 .logo {
- display: flex; align-items: center; gap: 0.6rem;
- font-family: 'Space Grotesk', sans-serif;
- font-weight: 700; font-size: 1.3rem;
- color: var(--primary);
+  display: flex; align-items: center; gap: 0.6rem;
+  font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.3rem;
+  color: var(--white); transition: var(--transition);
 }
+.logo:hover { transform: scale(1.02); }
 .logo-shield {
- width: 32px; height: 32px;
- fill: var(--accent) !important;
- flex-shrink: 0;
+  width: 32px; height: 32px; fill: var(--accent) !important;
+  flex-shrink: 0; animation: float 3s ease-in-out infinite;
 }
-.logo-shield path { fill: var(--accent) !important; }
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
 .logo-text-accent { color: var(--accent); }
-
+ 
 .nav-links { display: flex; gap: 0.4rem; list-style: none; align-items: center; }
-.nav-links > li { position: relative; }
 .nav-links > li > a {
- color: var(--primary); font-size: 0.92rem; font-weight: 600;
- padding: 0.6rem 1rem; border-radius: 4px;
- transition: all 0.2s;
- display: flex; align-items: center; gap: 0.3rem;
+  color: var(--off-white); font-size: 0.92rem; font-weight: 600;
+  padding: 0.6rem 1rem; border-radius: 4px; transition: var(--transition);
+  display: flex; align-items: center; gap: 0.3rem;
 }
-.nav-links > li > a:hover { background: var(--off-white); color: var(--accent-dark); }
-.nav-links > li > a.active { color: var(--accent-dark); background: var(--off-white); }
-
-.dropdown-menu {
- position: absolute; top: 100%; left: 0;
- background: var(--white);
- min-width: 280px;
- box-shadow: 0 10px 40px rgba(10, 22, 40, 0.12);
- border-radius: 6px; padding: 0.6rem;
- list-style: none;
- opacity: 0; visibility: hidden; transform: translateY(8px);
- transition: all 0.2s;
- border-top: 3px solid var(--accent);
+.nav-links > li > a:hover { background: rgba(0,212,255,0.1); color: var(--accent); }
+ 
+.nav-links > li > a.btn-espace-client {
+  background: linear-gradient(135deg, #00D4FF, #0891B2);
+  color: #050B14 !important;
+  font-weight: 700;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  transition: var(--transition);
 }
-.nav-links > li:hover >.dropdown-menu {
- opacity: 1; visibility: visible; transform: translateY(0);
+.nav-links > li > a.btn-espace-client:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
 }
-.dropdown-menu li a {
- display: block; padding: 0.7rem 1rem;
- color: var(--gray-dark); font-size: 0.88rem;
- border-radius: 4px;
- transition: all 0.15s;
+ 
+.mobile-nav-overlay {
+  position: fixed; top: 0; right: -100%; width: 100%; max-width: 400px; height: 100vh;
+  background: rgba(5, 11, 20, 0.98); backdrop-filter: blur(25px); z-index: 10000;
+  padding: 8rem 2rem 2rem; display: flex; flex-direction: column; gap: 1.5rem;
+  box-shadow: -10px 0 30px rgba(0,0,0,0.5); border-left: 1px solid rgba(0,212,255,0.2);
+  transition: right 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
-.dropdown-menu li a:hover {
- background: var(--off-white); color: var(--accent-dark); padding-left: 1.4rem;
+.mobile-nav-overlay.active { right: 0; }
+.mobile-nav-overlay a { color: var(--white); font-size: 1.1rem; font-weight: 600; }
+.mobile-nav-overlay a.btn-espace-client-mobile {
+  background: linear-gradient(135deg, #00D4FF, #0891B2);
+  color: #050B14 !important;
+  font-weight: 700;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
 }
-.dropdown-menu li a i { color: var(--accent); margin-right: 0.6rem; width: 18px; }
-
-.nav-cta {
- background: var(--gold) !important;
- color: var(--primary) !important;
- padding: 0.7rem 1.4rem !important;
- border-radius: 4px !important;
- font-weight: 700 !important;
-}
-.nav-cta:hover { background: var(--accent) !important; transform: translateY(-1px); }
-
+ 
 .menu-toggle {
- display: none;
- background: none; border: none;
- color: var(--primary); font-size: 1.5rem;
- cursor: pointer;
+  display: none; background: none; border: none; color: var(--white);
+  font-size: 1.5rem; cursor: pointer; z-index: 10001;
 }
-
+ 
+/* PAGE HEADER */
 .page-header {
- background: var(--primary-deep);
- color: var(--white);
- padding: 5rem 4% 4rem;
- position: relative; overflow: hidden;
+  position: relative;
+  padding: 6rem 4% 4rem;
+  overflow: hidden;
+  background: var(--primary-deep);
 }
 .page-header::before {
- content: ''; position: absolute;
- top: 0; right: 0; width: 60%; height: 100%;
- background:
- radial-gradient(circle at 70% 30%, rgba(0, 212, 255, 0.15) 0%, transparent 60%),
- radial-gradient(circle at 80% 70%, rgba(255, 184, 0, 0.08) 0%, transparent 50%);
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 30%, rgba(0,212,255,0.15), transparent 40%);
+  pointer-events: none;
 }
 .page-header::after {
- content: ''; position: absolute; inset: 0;
- background-image:
- linear-gradient(rgba(0, 212, 255, 0.04) 1px, transparent 1px),
- linear-gradient(90deg, rgba(0, 212, 255, 0.04) 1px, transparent 1px);
- background-size: 40px 40px;
- pointer-events: none;
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
 }
 .page-header-container {
- max-width: 1400px; margin: 0 auto;
- position: relative; z-index: 2;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
-.breadcrumb { color: var(--gray-light); font-size: 0.85rem; margin-bottom: 1rem; }
+.breadcrumb {
+  color: var(--gray-light);
+  font-size: 0.85rem;
+  margin-bottom: 1.2rem;
+}
 .breadcrumb a { color: var(--accent); }
 .breadcrumb i { margin: 0 0.5rem; font-size: 0.7rem; opacity: 0.6; }
 .page-header h1 {
- font-size: clamp(2.2rem, 4.5vw, 3.5rem);
- line-height: 1.1; margin-bottom: 1rem; max-width: 800px;
-}
-.page-header h1.accent { color: var(--accent); }
-.page-header p {
- font-size: 1.15rem; color: var(--gray-light); max-width: 750px;
-}
-
-.btn-primary,.btn-secondary {
- padding: 1rem 2rem; border-radius: 4px;
- font-weight: 700; font-size: 0.95rem;
- display: inline-flex; align-items: center; gap: 0.6rem;
- transition: all 0.25s ease;
- cursor: pointer; border: none;
- font-family: inherit;
-}
-.btn-primary { background: var(--accent); color: var(--primary); }
-.btn-primary:hover {
- background: var(--gold); transform: translateY(-2px);
- box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
-}
-.btn-secondary {
- background: transparent; color: var(--white);
- border: 1.5px solid rgba(255, 255, 255, 0.25);
-}
-.btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
-
-section { padding: 5rem 4%; }
-.container { max-width: 1400px; margin: 0 auto; }
-.section-tag {
- display: inline-block;
- color: var(--accent-dark);
- font-size: 0.78rem; font-weight: 700;
- text-transform: uppercase; letter-spacing: 0.2em;
- margin-bottom: 0.8rem;
-}
-.section-title {
- font-size: clamp(1.8rem, 3.5vw, 2.6rem);
- color: var(--primary);
- margin-bottom: 0.8rem; line-height: 1.15;
-}
-.section-subtitle {
- font-size: 1.05rem; color: var(--gray-mid);
- max-width: 700px; margin-bottom: 3rem;
-}
-
-.cta-block {
- background: linear-gradient(135deg, var(--primary), var(--primary-light));
- color: var(--white); text-align: center;
- padding: 4rem 4%;
- position: relative; overflow: hidden;
-}
-.cta-block::before {
- content: ''; position: absolute;
- top: 50%; left: 50%; transform: translate(-50%, -50%);
- width: 600px; height: 600px;
- background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 60%);
-}
-.cta-block-content {
- max-width: 700px; margin: 0 auto;
- position: relative; z-index: 2;
-}
-.cta-block h2 {
- font-size: clamp(1.6rem, 3vw, 2.2rem);
- color: var(--white); margin-bottom: 1rem;
-}
-.cta-block p { color: var(--gray-light); margin-bottom: 2rem; }
-
-footer {
- background: var(--primary-deep);
- color: var(--gray-light);
- padding: 3rem 4% 1.5rem;
- border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-.footer-grid {
- max-width: 1400px; margin: 0 auto;
- display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
- gap: 3rem; margin-bottom: 2.5rem;
-}
-.footer-brand p {
- color: var(--gray-mid); font-size: 0.88rem;
- margin: 1rem 0; line-height: 1.6;
-}
-.footer-col h4 {
- color: var(--white); font-size: 0.92rem;
- margin-bottom: 1rem;
- text-transform: uppercase; letter-spacing: 0.08em;
-}
-.footer-col ul { list-style: none; }
-.footer-col ul li { margin-bottom: 0.6rem; }
-.footer-col ul a {
- color: var(--gray-light); font-size: 0.88rem;
- transition: color 0.2s;
-}
-.footer-col ul a:hover { color: var(--accent); }
-.footer-bottom {
- max-width: 1400px; margin: 0 auto;
- padding-top: 1.5rem;
- border-top: 1px solid rgba(255, 255, 255, 0.05);
- display: flex; justify-content: space-between; align-items: center;
- flex-wrap: wrap; gap: 1rem;
- font-size: 0.82rem; color: var(--gray-mid);
-}
-
-.whatsapp-float {
- position: fixed; bottom: 25px; right: 25px;
- width: 60px; height: 60px;
- background: #25D366;
- border-radius: 50%;
- display: flex; align-items: center; justify-content: center;
- color: var(--white); font-size: 1.8rem;
- box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
- z-index: 999;
- transition: all 0.2s;
- animation: pulseWa 2s infinite;
-}
-.whatsapp-float:hover { transform: scale(1.1); }
-@keyframes pulseWa {
- 0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
- 50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.8); }
-}
-
-.reveal {
- opacity: 0; transform: translateY(20px);
- transition: all 0.6s ease;
-}
-.reveal.visible { opacity: 1; transform: translateY(0); }
-
-/* Service cards */
-.services-grid {
- display: grid;
- grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
- gap: 1.5rem;
-}
-.service-card {
- background: var(--white);
- border-radius: 8px; overflow: hidden;
- box-shadow: 0 2px 12px rgba(10, 22, 40, 0.06);
- transition: all 0.3s ease;
- color: inherit; display: block;
-}
-.service-card:hover {
- transform: translateY(-6px);
- box-shadow: 0 15px 40px rgba(10, 22, 40, 0.12);
-}
-.service-img {
- height: 170px;
- background: linear-gradient(135deg, var(--primary), var(--primary-light));
- position: relative; overflow: hidden;
- display: flex; align-items: center; justify-content: center;
-}
-.service-img::before {
- content: ''; position: absolute; inset: 0;
- background:
- radial-gradient(circle at 30% 30%, rgba(0, 212, 255, 0.3) 0%, transparent 50%),
- radial-gradient(circle at 70% 70%, rgba(255, 184, 0, 0.2) 0%, transparent 50%);
-}
-.service-img::after {
- content: ''; position: absolute; inset: 0;
- background-image:
- linear-gradient(rgba(0, 212, 255, 0.05) 1px, transparent 1px),
- linear-gradient(90deg, rgba(0, 212, 255, 0.05) 1px, transparent 1px);
- background-size: 25px 25px;
-}
-.service-img i {
- font-size: 3.5rem; color: var(--accent); z-index: 1;
- text-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
-}
-.service-card.gold.service-img i {
- color: var(--gold);
- text-shadow: 0 4px 20px rgba(255, 184, 0, 0.4);
-}
-.service-content { padding: 1.5rem; }
-.service-content h3 {
- font-size: 1.15rem; color: var(--primary);
- margin-bottom: 0.5rem;
-}
-.service-content p {
- color: var(--gray-mid); font-size: 0.88rem;
- margin-bottom: 1rem; line-height: 1.5;
-}
-.service-link {
- color: var(--accent-dark);
- font-size: 0.83rem; font-weight: 700;
- display: inline-flex; align-items: center; gap: 0.4rem;
-}
-
-/* Detail page */
-.detail-section { background: var(--white); padding: 4rem 4%; }
-.detail-section.alt { background: var(--off-white); }
-.detail-grid {
- display: grid; grid-template-columns: 1fr 1fr;
- gap: 4rem; align-items: center;
-}
-.detail-text h2 { color: var(--primary); }
-.detail-features { list-style: none; margin-top: 1.5rem; }
-.detail-features li {
- display: flex; gap: 1rem;
- padding: 0.9rem 0;
- border-bottom: 1px solid var(--gray-light);
-}
-.detail-features li:last-child { border-bottom: none; }
-.detail-icon {
- width: 40px; height: 40px;
- background: var(--off-white);
- color: var(--accent-dark);
- border-radius: 8px;
- display: flex; align-items: center; justify-content: center;
- flex-shrink: 0; font-size: 1rem;
-}
-.detail-features strong {
- display: block; color: var(--primary);
- font-size: 1rem; margin-bottom: 0.2rem;
-}
-.detail-features span { color: var(--gray-mid); font-size: 0.88rem; }
-.detail-visual {
- background: var(--primary); color: var(--white);
- padding: 3rem; border-radius: 12px;
- position: relative; overflow: hidden;
-}
-.detail-visual::before {
- content: ''; position: absolute;
- top: -50%; right: -50%;
- width: 100%; height: 100%;
- background: radial-gradient(circle, rgba(0, 212, 255, 0.15) 0%, transparent 70%);
-}
-.detail-visual h3 {
- color: var(--accent);
- font-size: 1.3rem; margin-bottom: 1.5rem;
- position: relative; z-index: 1;
-}
-.detail-stat {
- position: relative; z-index: 1;
- padding: 1rem 0;
- border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-.detail-stat:last-child { border-bottom: none; }
-.detail-stat.label {
- color: var(--gold);
- font-size: 0.78rem;
- text-transform: uppercase; letter-spacing: 0.1em;
- margin-bottom: 0.3rem;
-}
-.detail-stat.value {
- color: var(--white); font-size: 1rem; font-weight: 600;
-}
-.step-grid {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
- gap: 1.5rem;
-}
-.step-card {
- background: var(--white); padding: 1.8rem;
- border-radius: 8px;
- border-top: 3px solid var(--accent);
- box-shadow: 0 2px 12px rgba(10, 22, 40, 0.06);
-}
-.step-num {
- font-family: 'Space Grotesk', sans-serif;
- font-size: 2rem; font-weight: 700;
- color: var(--accent);
- line-height: 1; margin-bottom: 0.8rem;
-}
-.step-card h4 { color: var(--primary); font-size: 1.1rem; margin-bottom: 0.6rem; }
-.step-card p { color: var(--gray-mid); font-size: 0.9rem; }
-
-@media (max-width: 1024px) {
-.footer-grid { grid-template-columns: 1fr 1fr; }
-.detail-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-}
-@media (max-width: 768px) {
-.nav-links {
- position: fixed; top: 70px; right: 0;
- flex-direction: column;
- background: var(--white); padding: 1.5rem;
- width: 100%; gap: 0.5rem;
- transform: translateX(100%);
- transition: transform 0.3s;
- box-shadow: 0 10px 30px rgba(0,0,0,0.1);
- align-items: stretch;
- }
-.nav-links.active { transform: translateX(0); }
-.menu-toggle { display: block; }
-.nav-links > li > a { padding: 0.8rem 1rem; }
-.dropdown-menu {
- position: static; box-shadow: none;
- opacity: 1; visibility: visible; transform: none;
- padding-left: 1rem; min-width: auto; border-top: none;
- }
-.top-bar-info { gap: 1rem; }
-.footer-grid { grid-template-columns: 1fr; }
-}
-@media (max-width: 600px) {
-.top-bar-social { display: none; }
-}
-
-/* ========== ANIMATIONS ATTRACTIVES ========== */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeInLeft {
-  from { opacity: 0; transform: translateX(-40px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-@keyframes fadeInRight {
-  from { opacity: 0; transform: translateX(40px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-@keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
-}
-@keyframes typewriter {
-  from { width: 0; }
-  to { width: 100%; }
-}
-@keyframes blink {
-  50% { border-color: transparent; }
-}
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-@keyframes shine {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-/* H1 page-header avec effet shine */
-.page-header h1 {
-  animation: fadeInUp 1s ease-out;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: 1.2rem;
+  color: var(--white);
 }
 .page-header h1 .accent {
-  background: linear-gradient(90deg, var(--accent) 0%, #FFB800 50%, var(--accent) 100%);
-  background-size: 200% auto;
+  background: linear-gradient(90deg,#00D4FF,#38bdf8,#FFB800,#00D4FF);
+  background-size: 300% auto;
   -webkit-background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shine 3s linear infinite;
+  animation: shine 8s linear infinite;
+}
+@keyframes shine {
+  to { background-position: 300% center; }
 }
 .page-header p {
-  animation: fadeInUp 1s ease-out 0.3s both;
+  font-size: 1.1rem;
+  color: var(--gray-light);
+  max-width: 700px;
+  line-height: 1.9;
 }
-.breadcrumb {
-  animation: fadeInLeft 0.8s ease-out;
+ 
+/* DETAIL SECTION */
+.detail-section {
+  padding: 5rem 4%;
+  background: var(--primary-deep);
 }
-
-/* Section titles */
-.section-title {
-  animation: fadeInUp 0.8s ease-out;
+.detail-section.alt { background: rgba(10,22,40,0.8); }
+ 
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
 }
+ 
 .section-tag {
-  animation: fadeInLeft 0.6s ease-out;
+  display: inline-block;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 0.8rem;
 }
-
-/* Detail visual + image hover */
+ 
+.section-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  color: var(--white);
+  margin-bottom: 0.8rem;
+  line-height: 1.15;
+}
+ 
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+ 
+.detail-text h2 { color: var(--white); }
+ 
+.detail-features {
+  list-style: none;
+  margin-top: 1.5rem;
+}
+ 
+.detail-features li {
+  display: flex;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+ 
+.detail-features li:last-child { border-bottom: none; }
+ 
+.detail-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(0,212,255,0.1);
+  color: var(--accent);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1rem;
+  border: 1px solid rgba(0,212,255,0.2);
+}
+ 
+.detail-features strong {
+  display: block;
+  color: var(--white);
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+ 
+.detail-features span { color: var(--gray-light); font-size: 0.88rem; }
+ 
 .detail-photo {
   position: relative;
-  border-radius: 12px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 15px 50px rgba(10,22,40,0.2);
-  transition: all 0.4s ease;
-  animation: scaleIn 1s ease-out 0.4s both;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  border: 1px solid rgba(0,212,255,0.15);
 }
-.detail-photo:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 25px 60px rgba(10,22,40,0.3);
-}
+ 
 .detail-photo img {
   width: 100%;
   height: auto;
   display: block;
   transition: transform 0.5s ease;
 }
-.detail-photo:hover img {
-  transform: scale(1.05);
-}
+ 
+.detail-photo:hover img { transform: scale(1.04); }
+ 
 .detail-photo-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(transparent, rgba(10,22,40,0.95));
+  background: linear-gradient(transparent,rgba(5,11,20,0.95));
   padding: 3rem 2rem 1.5rem;
-  color: white;
 }
+ 
 .detail-photo-tag {
   display: inline-block;
   color: var(--gold);
@@ -569,913 +333,801 @@ footer {
   border-radius: 30px;
   border: 1px solid rgba(255,184,0,0.3);
 }
+ 
 .detail-photo h3 {
-  color: white;
+  color: var(--white);
   font-size: 1.4rem;
   margin: 0;
-  font-family: 'Space Grotesk', sans-serif;
 }
-
-/* Service cards animation */
-.service-card {
-  animation: fadeInUp 0.8s ease-out both;
-}
-.service-card:nth-child(1) { animation-delay: 0s; }
-.service-card:nth-child(2) { animation-delay: 0.1s; }
-.service-card:nth-child(3) { animation-delay: 0.2s; }
-.service-card:nth-child(4) { animation-delay: 0.3s; }
-.service-card:nth-child(5) { animation-delay: 0.4s; }
-.service-card:nth-child(6) { animation-delay: 0.5s; }
-.service-card:nth-child(7) { animation-delay: 0.6s; }
-.service-card:nth-child(8) { animation-delay: 0.7s; }
-.service-card .service-img i {
-  transition: transform 0.5s ease;
-}
-.service-card:hover .service-img i {
-  transform: scale(1.15) rotate(5deg);
-}
-
-/* Buttons pulse on key CTA */
-.btn-primary {
+ 
+.detail-visual {
+  background: rgba(10,22,40,0.8);
+  color: var(--white);
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(0,212,255,0.15);
+  margin-top: 1.5rem;
   position: relative;
   overflow: hidden;
 }
-.btn-primary::after {
+ 
+.detail-visual::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0,212,255,0.08) 0%, transparent 70%);
+}
+ 
+.detail-visual h3 {
+  color: var(--accent);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+ 
+.detail-stat {
+  position: relative;
+  z-index: 1;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+ 
+.detail-stat:last-child { border-bottom: none; }
+ 
+.detail-stat .label {
+  color: var(--gold);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.2rem;
+}
+ 
+.detail-stat .value {
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+ 
+/* STEP GRID */
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+ 
+.step-card {
+  background: rgba(10,22,40,0.6);
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(0,212,255,0.15);
+  border-top: 3px solid var(--accent);
+  transition: var(--transition);
+}
+ 
+.step-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0,212,255,0.4);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+ 
+.step-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 0.8rem;
+}
+ 
+.step-card h4 {
+  color: var(--white);
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+}
+ 
+.step-card p {
+  color: var(--gray-light);
+  font-size: 0.9rem;
+}
+ 
+/* SLA GRID */
+.sla-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+ 
+.sla-card {
+  background: rgba(10,22,40,0.6);
+  padding: 2.2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(0,212,255,0.15);
+  text-align: center;
+  transition: var(--transition);
+}
+ 
+.sla-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0,212,255,0.4);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+ 
+.sla-label {
+  color: var(--gold);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.8rem;
+}
+ 
+.sla-value {
+  color: var(--white);
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-family: 'Space Grotesk', sans-serif;
+}
+ 
+.sla-desc {
+  color: var(--gray-light);
+  font-size: 0.9rem;
+}
+ 
+/* CTA BLOCK */
+.cta-block {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  text-align: center;
+  padding: 5rem 4%;
+  position: relative;
+  overflow: hidden;
+}
+ 
+.cta-block::before {
   content: '';
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.3);
   transform: translate(-50%, -50%);
-  transition: width 0.5s, height 0.5s;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0,212,255,0.1) 0%, transparent 60%);
 }
-.btn-primary:hover::after {
-  width: 300px;
-  height: 300px;
-}
-
-/* Step cards stagger */
-.step-card {
-  animation: fadeInUp 0.6s ease-out both;
-}
-.step-card:nth-child(1) { animation-delay: 0s; }
-.step-card:nth-child(2) { animation-delay: 0.15s; }
-.step-card:nth-child(3) { animation-delay: 0.3s; }
-.step-card:nth-child(4) { animation-delay: 0.45s; }
-.step-card:nth-child(5) { animation-delay: 0.6s; }
-
-/* Stats numbers */
-.stat-bar-item .num {
-  animation: scaleIn 1s ease-out both;
-}
-.stat-bar-item:nth-child(1) .num { animation-delay: 0.1s; }
-.stat-bar-item:nth-child(2) .num { animation-delay: 0.3s; }
-.stat-bar-item:nth-child(3) .num { animation-delay: 0.5s; }
-.stat-bar-item:nth-child(4) .num { animation-delay: 0.7s; }
-
-/* Logo float */
-.logo-shield {
-  animation: float 3s ease-in-out infinite;
-}
-
-/* CTA block emphasis */
-.cta-block h2 {
-  animation: fadeInUp 0.8s ease-out;
-}
-.cta-block p {
-  animation: fadeInUp 0.8s ease-out 0.2s both;
-}
-.cta-block .btn-primary {
-  animation: fadeInUp 0.8s ease-out 0.4s both;
-}
-
-</style>
-</head><body>
-<div class="top-bar">
- <div class="top-bar-container">
- <div class="top-bar-info">
- <span><i class="fas fa-phone"></i> +212 728 31 28 01</span>
- <span><i class="fas fa-envelope"></i> contact@nextgentechnologies.net</span>
- <span><i class="fas fa-map-marker-alt"></i> Casablanca</span>
- </div>
- <div class="top-bar-social">
- <a href="#"><i class="fab fa-linkedin-in"></i></a>
- <a href="#"><i class="fab fa-x-twitter"></i></a>
- <a href="#"><i class="fab fa-instagram"></i></a>
- </div>
- </div>
-</div>
-
-<nav class="nav">
- <div class="nav-container">
- <a href="index.html" class="logo">
- <svg class="logo-shield" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00D4FF"/>
-      <stop offset="100%" stop-color="#0891B2"/>
-    </linearGradient>
-    <linearGradient id="boltGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#FEE2E2"/>
-      <stop offset="40%" stop-color="#EF4444"/>
-      <stop offset="100%" stop-color="#991B1B"/>
-    </linearGradient>
-  </defs>
-  <path d="M32 4 L8 12 V28 C8 42 18 54 32 60 C46 54 56 42 56 28 V12 Z" fill="url(#shieldGrad)" stroke="#FFB800" stroke-width="1.5"/>
-  <path d="M32 8 L12 14 V28 C12 40 20 50 32 56" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
-  <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="url(#boltGrad)" stroke="#7F1D1D" stroke-width="1.5" stroke-linejoin="round"/>
-</svg>
- <span>NextGen <span class="logo-text-accent">Technologies</span></span>
- </a>
- <ul class="nav-links" id="navLinks">
- <li><a href="index.html">Accueil</a></li>
- <li>
- <a href="services.html" class="active">Services <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
- <ul class="dropdown-menu">
- <li><a href="soc-consultation.html"><i class="fas fa-shield-halved"></i> SOC Consultation</a></li>
- <li><a href="managed-security.html"><i class="fas fa-eye"></i> Managed Security Services</a></li>
- <li><a href="vapt.html"><i class="fas fa-bug"></i> VAPT - Tests d'intrusion</a></li>
- <li><a href="data-security.html"><i class="fas fa-database"></i> Data Security Management</a></li>
- <li><a href="cloud-security.html"><i class="fas fa-cloud"></i> Cloud Security</a></li>
- <li><a href="securite-reseau.html"><i class="fas fa-network-wired"></i> Sécurité Réseau</a></li>
- <li><a href="noc.html"><i class="fas fa-server"></i> NOC Managé</a></li>
- <li><a href="conformite.html"><i class="fas fa-gavel"></i> Conformité & Régulation</a></li>
- <li><a href="reponse-incident.html"><i class="fas fa-triangle-exclamation"></i> Réponse à Incident</a></li>
- </ul>
- </li>
- <li>
- <a href="secteurs.html">Secteurs <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
- <ul class="dropdown-menu">
- <li><a href="secteur-banques.html"><i class="fas fa-building-columns"></i> Banques & Finance</a></li>
- <li><a href="secteur-ecommerce.html"><i class="fas fa-cart-shopping"></i> E-commerce & Retail</a></li>
- <li><a href="secteur-sante.html"><i class="fas fa-heart-pulse"></i> Santé & Pharma</a></li>
- <li><a href="secteur-industrie.html"><i class="fas fa-industry"></i> Industrie & Manufacture</a></li>
- <li><a href="secteur-administrations.html"><i class="fas fa-landmark"></i> Administrations</a></li>
- </ul>
- </li>
-
- <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
-      <li><a href="carrieres.html">Carrières</a></li>
-      
- <li><a href="contact.html">Contact</a></li>
- <li><a href="contact.html" class="nav-cta">Audit gratuit</a></li>
- </ul>
- <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
- </div>
-</nav>
-
-<section class="page-header">
- <div class="page-header-container">
- <div class="breadcrumb">
- <a href="index.html">Accueil</a> <i class="fas fa-chevron-right"></i> <span style="color:var(--white)">NOC Managé</span>
- </div>
- <h1>NOC <span class="accent">Managé</span><br>Supervision · Détection · Reporting</h1>
- <p>Un centre d'opérations réseau dédié qui surveille, détecte et optimise votre infrastructure en continu. Réactivité et fiabilité pour garantir la continuité de vos services critiques.</p>
- </div>
-</section>
-
-<section class="detail-section">
- <div class="container">
- <div class="detail-grid">
- <div class="detail-text">
- <span class="section-tag">Qu'est-ce qu'un NOC ?</span>
- <h2 class="section-title">Supervision 24/7 de votre infrastructure réseau</h2>
- <p style="color: var(--gray-mid); font-size: 1.05rem;">Le NOC (Network Operations Center) est le cerveau de votre infrastructure réseau. Contrairement au SOC qui se concentre sur les menaces cyber, le NOC garantit la disponibilité, les performances et la fiabilité de votre réseau.</p>
- <ul class="detail-features">
- <li>
- <div class="detail-icon"><i class="fas fa-chart-line"></i></div>
- <div>
- <strong>NOC vs SOC</strong>
- <span>NOC = disponibilité & performance réseau · SOC = cybersécurité & menaces</span>
- </div>
- </li>
- <li>
- <div class="detail-icon"><i class="fas fa-clock"></i></div>
- <div>
- <strong>Pourquoi c'est essentiel pour votre entreprise</strong>
- <span>Anticiper les pannes, réduire les temps d'arrêt, garantir la continuité de service</span>
- </div>
- </li>
- <li>
- <div class="detail-icon"><i class="fas fa-chart-simple"></i></div>
- <div>
- <strong>Disponibilité garantie</strong>
- <span>Objectif 99,9% d'uptime pour vos services critiques</span>
- </div>
- </li>
- </ul>
- </div>
- <div class="detail-photo">
-  <img src="noc-monitoring.jpg" alt="NOC Managé NextGen Technologies" loading="lazy">
-  <div class="detail-photo-overlay">
-    <span class="detail-photo-tag">NOC 24/7</span>
-    <h3>Supervision active</h3>
-  </div>
-</div>
-</div>
-</div>
-</section>
-
-<section class="detail-section alt">
- <div class="container">
- <div class="detail-grid">
- <div class="detail-text">
- <span class="section-tag">Ce qu'on surveille</span>
- <h2 class="section-title">Une visibilité complète sur votre réseau</h2>
- <p style="color: var(--gray-mid); font-size: 1.05rem;">Notre NOC couvre l'intégralité de votre infrastructure réseau, des équipements physiques aux services applicatifs.</p>
- <ul class="detail-features">
- <li><div class="detail-icon"><i class="fas fa-tachometer-alt"></i></div><div><strong>Uptime & disponibilité</strong><span>Surveillance 24/7 de la continuité de service</span></div></li>
- <li><div class="detail-icon"><i class="fas fa-hourglass-half"></i></div><div><strong>Latence & performances</strong><span>Temps de réponse réseau, délais applicatifs</span></div></li>
- <li><div class="detail-icon"><i class="fas fa-tower-broadcast"></i></div><div><strong>Bande passante</strong><span>Consommation, saturation, optimisation</span></div></li>
- <li><div class="detail-icon"><i class="fas fa-shield-halved"></i></div><div><strong>Firewalls & sécurité</strong><span>Logs, règles, flux, blocages</span></div></li>
- <li><div class="detail-icon"><i class="fas fa-router"></i></div><div><strong>Routeurs & switches</strong><span>État des équipements, erreurs, redémarrages</span></div></li>
- <li><div class="detail-icon"><i class="fas fa-server"></i></div><div><strong>Serveurs critiques</strong><span>CPU, RAM, stockage, services</span></div></li>
- </ul>
- </div>
- <div class="detail-visual">
- <h3><i class="fas fa-microchip" style="margin-right: 0.5rem;"></i> Périmètre de surveillance</h3>
- <div class="detail-stat"><div class="label">Équipements</div><div class="value">Routeurs, Switches, Firewalls, Serveurs</div></div>
- <div class="detail-stat"><div class="label">Métriques</div><div class="value">Disponibilité, latence, bande passante, erreurs</div></div>
- <div class="detail-stat"><div class="label">Alerting</div><div class="value">Temps réel, escalade, notification</div></div>
- <div class="detail-stat"><div class="label">Reporting</div><div class="value">Mensuel, personnalisable, orienté action</div></div>
- </div>
- </div>
- </div>
-</section>
-
-<section class="detail-section">
- <div class="container">
- <div class="detail-grid">
- <div class="detail-text">
- <span class="section-tag">Comment on intervient</span>
- <h2 class="section-title">Une procédure d'incident rodée</h2>
- <p style="color: var(--gray-mid); font-size: 1.05rem;">Dès qu'une anomalie est détectée, notre équipe NOC déclenche un processus d'incident structuré pour une résolution rapide.</p>
- <ul class="detail-features">
- <li><div class="detail-icon"><i class="fas fa-bell"></i></div><div><strong>Détection & escalade</strong><span>Alertes automatiques, analyse, priorisation</span></div></li>
- <li><div class="detail-icon"><i class="fas fa-ticket"></i></div><div><strong>Création ticket</strong><span>Traçabilité complète dans notre outil ITSM</span></div></li>
- <li><div class="detail-icon"><i class="fas fa-wrench"></i></div><div><strong>Diagnostic & résolution</strong><span>Analyse, correction, validation</span></div></li>
- <li><div class="detail-icon"><i class="fas fa-clock"></i></div><div><strong>Objectif temps de réponse</strong><span>Moins de 15 minutes pour les incidents critiques</span></div></li>
- </ul>
- </div>
- <div class="detail-visual">
- <h3><i class="fas fa-clock" style="margin-right: 0.5rem;"></i> Temps de réponse garantis</h3>
- <div class="detail-stat"><div class="label">P1 - Critique</div><div class="value">Moins de 15 minutes</div></div>
- <div class="detail-stat"><div class="label">P2 - Majeur</div><div class="value">Moins de 1 heure</div></div>
- <div class="detail-stat"><div class="label">P3 - Mineur</div><div class="value">Moins de 4 heures</div></div>
- <div class="detail-stat"><div class="label">P4 - Information</div><div class="value">Moins de 24 heures</div></div>
- </div>
- </div>
- </div>
-</section>
-
-<section class="detail-section alt">
- <div class="container">
- <span class="section-tag">Nos engagements SLA</span>
- <h2 class="section-title">Des garanties contractuelles claires</h2>
- <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
- <div class="detail-visual" style="text-align: center; padding: 2rem;">
- <div class="detail-stat"><div class="label">Temps de réponse</div><div class="value" style="font-size: 1.8rem;">&lt; 15 min</div></div>
- <div class="detail-stat"><div class="label">Niveau 1 critique</div></div>
- </div>
- <div class="detail-visual" style="text-align: center; padding: 2rem;">
- <div class="detail-stat"><div class="label">Uptime garanti</div><div class="value" style="font-size: 1.8rem;">99.9%</div></div>
- <div class="detail-stat"><div class="label">Disponibilité réseau</div></div>
- </div>
- <div class="detail-visual" style="text-align: center; padding: 2rem;">
- <div class="detail-stat"><div class="label">Supervision</div><div class="value" style="font-size: 1.4rem;">24/7/365</div></div>
- <div class="detail-stat"><div class="label">Y compris jours fériés</div></div>
- </div>
- <div class="detail-visual" style="text-align: center; padding: 2rem;">
- <div class="detail-stat"><div class="label">Équipements supportés</div><div class="value" style="font-size: 1.1rem;">Routeurs · Switches · Firewalls · Serveurs</div></div>
- </div>
- <div class="detail-visual" style="text-align: center; padding: 2rem;">
- <div class="detail-stat"><div class="label">Contrat</div><div class="value" style="font-size: 1.1rem;">Sur mesure selon vos besoins</div></div>
- <div class="detail-stat"><div class="label">Sans engagement long terme</div></div>
- </div>
- </div>
- </div>
-</section>
-
-<section class="detail-section">
- <div class="container">
- <span class="section-tag">Approche projet</span>
- <h2 class="section-title">Notre méthode en 4 étapes</h2>
- <div class="step-grid">
- <div class="step-card reveal">
- <div class="step-num">01</div>
- <h4>Audit infrastructure</h4>
- <p>Cartographie complète, inventaire équipements, analyse des besoins.</p>
- </div>
- <div class="step-card reveal">
- <div class="step-num">02</div>
- <h4>Mise en place monitoring</h4>
- <p>Déploiement des sondes, configuration des alertes, dashboard personnalisé.</p>
- </div>
- <div class="step-card reveal">
- <div class="step-num">03</div>
- <h4>Supervision active</h4>
- <p>Surveillance 24/7, détection proactive, gestion des incidents.</p>
- </div>
- <div class="step-card reveal">
- <div class="step-num">04</div>
- <h4>Reporting & optimisation</h4>
- <p>Rapports mensuels, recommandations, amélioration continue.</p>
- </div>
- </div>
- </div>
-</section>
-
-<section class="cta-block">
- <div class="cta-block-content">
- <h2>Prêt à sécuriser et superviser votre réseau ?</h2>
- <p>Audit gratuit de 30 minutes pour évaluer vos besoins. Aucun engagement.</p>
- <a href="contact.html" class="btn-primary">Demander un audit gratuit <i class="fas fa-arrow-right"></i></a>
- </div>
-</section>
-
-<footer>
- <div class="footer-grid">
- <div class="footer-brand">
- <a href="index.html" class="logo" style="font-size: 1.4rem;">
- <svg class="logo-shield" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="shieldGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00D4FF"/>
-      <stop offset="100%" stop-color="#0891B2"/>
-    </linearGradient>
-    <linearGradient id="boltGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#FEE2E2"/>
-      <stop offset="40%" stop-color="#EF4444"/>
-      <stop offset="100%" stop-color="#991B1B"/>
-    </linearGradient>
-  </defs>
-  <path d="M32 4 L8 12 V28 C8 42 18 54 32 60 C46 54 56 42 56 28 V12 Z" fill="url(#shieldGrad2)" stroke="#FFB800" stroke-width="1.5"/>
-  <path d="M32 8 L12 14 V28 C12 40 20 50 32 56" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
-  <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="url(#boltGrad2)" stroke="#7F1D1D" stroke-width="1.5" stroke-linejoin="round"/>
-</svg>
- <span style="color: var(--white)">NextGen <span class="logo-text-accent">Technologies</span></span>
- </a>
- <p>Cybersécurité, conseil et formation au service des entreprises. Une protection complète, accessible et indépendante.</p>
- <div style="margin-top: 1rem;">
- <a href="#" style="color: var(--gray-light); margin-right: 1rem;"><i class="fab fa-linkedin-in"></i></a>
- <a href="#" style="color: var(--gray-light); margin-right: 1rem;"><i class="fab fa-x-twitter"></i></a>
- <a href="#" style="color: var(--gray-light); margin-right: 1rem;"><i class="fab fa-instagram"></i></a>
- <a href="#" style="color: var(--gray-light);"><i class="fab fa-youtube"></i></a>
- </div>
- </div>
- <div class="footer-col">
- <h4>Services</h4>
- <ul>
- <li><a href="soc-consultation.html">SOC Consultation</a></li>
- <li><a href="managed-security.html">Managed Security</a></li>
- <li><a href="vapt.html">VAPT</a></li>
- <li><a href="data-security.html">Data Security</a></li>
- <li><a href="cloud-security.html">Cloud Security</a></li>
- <li><a href="noc.html">NOC Managé</a></li>
- <li><a href="conformite.html">Conformité</a></li>
- </ul>
- </div>
- <div class="footer-col">
- <h4>Secteurs</h4>
- <ul>
- <li><a href="secteur-banques.html">Banques & Finance</a></li>
- <li><a href="secteur-ecommerce.html">E-commerce</a></li>
- <li><a href="secteur-sante.html">Santé</a></li>
- <li><a href="secteur-industrie.html">Industrie</a></li>
- <li><a href="secteur-administrations.html">Administrations</a></li>
- </ul>
- </div>
- <div class="footer-col">
- <h4>Entreprise</h4>
- <ul>
- <li><a href="menaces.html">Menaces actuelles</a></li>
- <li><a href="contact.html">Contact</a></li>
- <li><a href="#">Mentions légales</a></li>
- </ul>
- </div>
- </div>
- <div class="footer-bottom">
- <span>© 2026 NextGen Technologies SARL · Casablanca</span>
- <span>Excellence & Innovation</span>
- </div>
-</footer>
-
-<!-- ===== CHATBOT NEXTGEN HELPER ===== -->
-<style>
-.chatbot-button {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, #00D4FF, #0891B2);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1.6rem;
-  cursor: pointer;
-  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.5);
-  z-index: 998;
-  transition: all 0.3s;
-  border: 2px solid rgba(255,255,255,0.2);
-}
-.chatbot-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 25px rgba(0, 212, 255, 0.7);
-}
-.chatbot-button.hidden { display: none; }
-.chatbot-pulse {
-  position: absolute;
-  top: -3px;
-  right: -3px;
-  width: 14px;
-  height: 14px;
-  background: #EF4444;
-  border-radius: 50%;
-  border: 2px solid white;
-  animation: chatPulse 2s infinite;
-}
-@keyframes chatPulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.3); opacity: 0.7; }
-}
-
-.chatbot-window {
-  position: fixed;
-  bottom: 100px;
-  right: 25px;
-  width: 380px;
-  max-width: calc(100vw - 50px);
-  height: 540px;
-  max-height: calc(100vh - 130px);
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 20px 60px rgba(10, 22, 40, 0.25);
-  z-index: 999;
-  display: none;
-  flex-direction: column;
-  overflow: hidden;
-  animation: chatSlideUp 0.3s ease-out;
-}
-.chatbot-window.open { display: flex; }
-@keyframes chatSlideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.chatbot-header {
-  background: linear-gradient(135deg, #0A1628, #1E3A5F);
-  color: white;
-  padding: 1.2rem;
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
+ 
+.cta-block-content {
+  max-width: 700px;
+  margin: 0 auto;
   position: relative;
+  z-index: 2;
 }
-.chatbot-avatar {
-  width: 44px;
-  height: 44px;
-  background: linear-gradient(135deg, #00D4FF, #0891B2);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-  flex-shrink: 0;
+ 
+.cta-block h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--white);
+  margin-bottom: 1rem;
 }
-.chatbot-header-info { flex: 1; }
-.chatbot-header-info .name {
-  font-family: 'Space Grotesk', sans-serif;
+ 
+.cta-block p { color: var(--gray-light); margin-bottom: 2rem; }
+ 
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: var(--primary);
+  padding: 1rem 2rem;
+  border-radius: 40px;
   font-weight: 700;
-  font-size: 1rem;
-  margin: 0;
-}
-.chatbot-header-info .status {
-  font-size: 0.78rem;
-  color: #00D4FF;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-.chatbot-header-info .status::before {
-  content: '';
-  width: 8px;
-  height: 8px;
-  background: #10B981;
-  border-radius: 50%;
-  animation: chatPulse 2s infinite;
-}
-.chatbot-close {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.4rem;
-  cursor: pointer;
-  opacity: 0.7;
-  transition: opacity 0.2s;
-}
-.chatbot-close:hover { opacity: 1; }
-
-.chatbot-body {
-  flex: 1;
-  overflow-y: auto;
-  padding: 1.2rem;
-  background: #F8FAFC;
-}
-.chatbot-body::-webkit-scrollbar { width: 6px; }
-.chatbot-body::-webkit-scrollbar-thumb { background: #E2E8F0; border-radius: 3px; }
-
-.chat-msg {
-  max-width: 85%;
-  padding: 0.8rem 1rem;
-  border-radius: 14px;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin-bottom: 0.8rem;
-  animation: msgFadeIn 0.3s ease-out;
-}
-@keyframes msgFadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.chat-msg.bot {
-  background: white;
-  color: #334155;
-  border-bottom-left-radius: 4px;
-  box-shadow: 0 2px 8px rgba(10,22,40,0.06);
-}
-.chat-msg.user {
-  background: linear-gradient(135deg, #0A1628, #1E3A5F);
-  color: white;
-  margin-left: auto;
-  border-bottom-right-radius: 4px;
-}
-.chat-msg strong { color: #0891B2; }
-
-.chat-options {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin: 0.5rem 0 1rem;
-}
-.chat-option {
-  background: white;
-  border: 1.5px solid #E2E8F0;
-  color: #0A1628;
-  padding: 0.7rem 1rem;
-  border-radius: 10px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  text-align: left;
-  font-family: inherit;
-  transition: all 0.2s;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.6rem;
+  transition: var(--transition);
+  font-size: 0.95rem;
 }
-.chat-option:hover {
-  border-color: #00D4FF;
-  background: #F0FDFF;
-  transform: translateX(3px);
+ 
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,212,255,0.3);
 }
-.chat-option .icon {
-  width: 28px;
-  height: 28px;
-  background: rgba(0, 212, 255, 0.1);
-  color: #0891B2;
-  border-radius: 7px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  font-size: 0.85rem;
+ 
+/* FOOTER */
+footer {
+  background: var(--primary-deep);
+  padding: 5rem 4% 2rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
 }
-.chat-option.urgent .icon { background: rgba(239,68,68,0.1); color: #EF4444; }
-.chat-option.gold .icon { background: rgba(255,184,0,0.15); color: #D97706; }
-
-.chat-link-block {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin: 0.5rem 0 1rem;
+ 
+.footer-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 1fr);
+  gap: 4rem;
+  margin-bottom: 4rem;
 }
-.chat-link {
-  background: linear-gradient(135deg, #0A1628, #1E3A5F);
-  color: white;
-  padding: 0.85rem 1rem;
-  border-radius: 10px;
+ 
+.footer-brand p {
+  color: var(--gray-light);
   font-size: 0.9rem;
-  font-weight: 700;
-  text-align: center;
-  text-decoration: none;
-  transition: all 0.2s;
+  line-height: 1.7;
+  max-width: 320px;
+  margin-top: 1rem;
+}
+ 
+.footer-col h4 {
+  color: var(--white);
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+ 
+.footer-col ul { list-style: none; }
+ 
+.footer-col ul li { margin-bottom: 0.8rem; }
+ 
+.footer-col ul li a {
+  color: var(--gray-light);
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+ 
+.footer-col ul li a:hover {
+  color: var(--accent);
+  padding-left: 4px;
+}
+ 
+.footer-bottom {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--gray-mid);
 }
-.chat-link:hover {
-  background: linear-gradient(135deg, #00D4FF, #0891B2);
-  color: #0A1628;
-  transform: translateY(-2px);
+ 
+/* RESPONSIVE */
+@media(max-width:1024px) {
+  .nav-links { display: none !important; }
+  .menu-toggle { display: block !important; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .detail-grid { grid-template-columns: 1fr !important; gap: 2.5rem; }
+  .sla-grid { grid-template-columns: 1fr !important; }
 }
-.chat-link.whatsapp {
-  background: #25D366;
-  color: white;
+ 
+@media(max-width:768px) {
+  .top-bar-container { flex-direction: column; align-items: center; text-align: center; gap: 0.8rem; }
+  .top-bar-info { flex-direction: column; align-items: center; gap: 0.3rem; width: 100%; }
+  .page-header { padding: 3rem 4% 2rem; }
+  .page-header h1 { font-size: 2rem; }
+  .detail-section { padding: 3rem 4%; }
+  .step-grid { grid-template-columns: 1fr !important; }
+  .sla-grid { grid-template-columns: 1fr !important; }
+  .footer-grid { grid-template-columns: 1fr !important; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .btn-primary { width: 100%; justify-content: center; }
+  .detail-grid { gap: 2rem; }
 }
-.chat-link.whatsapp:hover {
-  background: #128C7E;
-  color: white;
-}
-
-.chat-typing {
-  display: flex;
-  gap: 4px;
-  padding: 0.8rem 1rem;
-  background: white;
-  border-radius: 14px;
-  width: fit-content;
-  box-shadow: 0 2px 8px rgba(10,22,40,0.06);
-  margin-bottom: 0.8rem;
-}
-.chat-typing span {
-  width: 7px;
-  height: 7px;
-  background: #94A3B8;
-  border-radius: 50%;
-  animation: typingDot 1.4s infinite;
-}
-.chat-typing span:nth-child(2) { animation-delay: 0.2s; }
-.chat-typing span:nth-child(3) { animation-delay: 0.4s; }
-@keyframes typingDot {
-  0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
-  30% { transform: translateY(-6px); opacity: 1; }
-}
-
-.chatbot-footer {
-  padding: 0.7rem 1rem;
-  border-top: 1px solid #E2E8F0;
-  background: white;
-  font-size: 0.72rem;
-  color: #94A3B8;
-  text-align: center;
-}
-.chatbot-footer strong { color: #0A1628; }
-
-@media (max-width: 480px) {
-  .chatbot-window {
-    bottom: 90px;
-    right: 10px;
-    left: 10px;
-    width: auto;
-    height: 70vh;
-  }
-  .chatbot-button { right: 20px; bottom: 20px; }
+ 
+@media(max-width:576px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
 }
 </style>
-
-<div id="chatbotBtn" class="chatbot-button" onclick="toggleChat()">
-  <i class="fas fa-comments"></i>
-  <div class="chatbot-pulse"></div>
-</div>
-
-<div id="chatbotWindow" class="chatbot-window">
-  <div class="chatbot-header">
-    <div class="chatbot-avatar"><i class="fas fa-shield-halved"></i></div>
-    <div class="chatbot-header-info">
-      <div class="name">NextGen Helper</div>
-      <div class="status">En ligne · Réponse rapide</div>
+</head>
+<body>
+ 
+<div class="top-bar">
+  <div class="top-bar-container">
+    <div class="partner-badge">
+      <i class="fa-solid fa-shield-halved"></i>
+      <span>Votre partenaire en cyberdéfense et infogérance</span>
     </div>
-    <button class="chatbot-close" onclick="toggleChat()">×</button>
-  </div>
-  <div class="chatbot-body" id="chatBody"></div>
-  <div class="chatbot-footer">
-    Propulsé par <strong>NextGen Technologies</strong> · Réponse humaine sous 24h
+    <div class="top-bar-info">
+      <span><i class="fa-solid fa-phone"></i> +212 728 31 28 01</span>
+      <span><i class="fa-solid fa-envelope"></i> contact@netvanguard.ma</span>
+      <span><i class="fa-solid fa-location-dot"></i> Casablanca</span>
+    </div>
+    <div class="top-bar-social" style="display: flex; align-items: center;">
+      <div class="lang-switch" style="margin-right: 1rem;">
+        <button class="lang-btn active" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-x-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
   </div>
 </div>
-
+ 
+<nav class="nav">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <svg class="logo-shield" viewBox="0 0 24 24">
+        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+        <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
+      </svg>
+      <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em; font-weight:500; color: var(--gray-light);">IT Solutions</span></span>
+    </a>
+    
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="secteurs.html">Secteurs</a></li>
+      <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
+      <li><a href="carrieres.html">Carrières</a></li>
+      <li><a href="campus-cyber.html">🎓 Campus Cyber</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="support.html" class="btn-espace-client"><i class="fa-solid fa-user-circle"></i> Espace Client</a></li>
+    </ul>
+ 
+    <button class="menu-toggle" id="menuToggle">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+</nav>
+ 
+<div class="mobile-nav-overlay" id="mobileNav">
+  <a href="index.html">Accueil</a>
+  <a href="services.html">Services</a>
+  <a href="secteurs.html">Secteurs</a>
+  <a href="qui-sommes-nous.html">Qui sommes-nous</a>
+  <a href="carrieres.html">Carrières</a>
+  <a href="campus-cyber.html">🎓 Campus Cyber</a>
+  <a href="contact.html">Contact</a>
+  <a href="support.html" class="btn-espace-client-mobile"><i class="fa-solid fa-user-circle"></i> Espace Client</a>
+</div>
+ 
+<section class="page-header">
+  <div class="page-header-container">
+    <div class="breadcrumb">
+      <a href="index.html">Accueil</a> <i class="fas fa-chevron-right"></i>
+      <span id="breadLabel">NOC Managé</span>
+    </div>
+    <h1><span id="pageH1Main">NOC</span> <span class="accent" id="pageH1Accent">Managé</span><br><span id="pageH1Sub">Supervision · Détection · Reporting</span></h1>
+    <p id="pageDesc">Un centre d'opérations réseau dédié qui surveille, détecte et optimise votre infrastructure en continu. Réactivité et fiabilité pour garantir la continuité de vos services critiques.</p>
+  </div>
+</section>
+ 
+<section class="detail-section">
+  <div class="container">
+    <div class="detail-grid">
+      <div class="detail-text">
+        <span class="section-tag" id="tag1">Qu'est-ce qu'un NOC ?</span>
+        <h2 id="title1">Supervision 24/7 de votre infrastructure réseau</h2>
+        <p style="color: var(--gray-light); font-size: 1.05rem;" id="desc1">Le NOC (Network Operations Center) est le cerveau de votre infrastructure réseau. Contrairement au SOC qui se concentre sur les menaces cyber, le NOC garantit la disponibilité, les performances et la fiabilité de votre réseau.</p>
+        <ul class="detail-features" id="featureList">
+          <li>
+            <div class="detail-icon"><i class="fas fa-chart-line"></i></div>
+            <div>
+              <strong id="feat1Title">NOC vs SOC</strong>
+              <span id="feat1Desc">NOC = disponibilité & performance réseau · SOC = cybersécurité & menaces</span>
+            </div>
+          </li>
+          <li>
+            <div class="detail-icon"><i class="fas fa-clock"></i></div>
+            <div>
+              <strong id="feat2Title">Pourquoi c'est essentiel</strong>
+              <span id="feat2Desc">Anticiper les pannes, réduire les temps d'arrêt, garantir la continuité de service</span>
+            </div>
+          </li>
+          <li>
+            <div class="detail-icon"><i class="fas fa-chart-simple"></i></div>
+            <div>
+              <strong id="feat3Title">Disponibilité garantie</strong>
+              <span id="feat3Desc">Objectif 99,9% d'uptime pour vos services critiques</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="detail-photo">
+        <img src="noc-monitoring.jpg" alt="NetVanguard IT Solutions" loading="lazy">
+        <div class="detail-photo-overlay">
+          <span class="detail-photo-tag">NOC 24/7</span>
+          <h3>Supervision active</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<section class="detail-section alt">
+  <div class="container">
+    <div class="detail-grid">
+      <div class="detail-text">
+        <span class="section-tag" id="tag2">Ce qu'on surveille</span>
+        <h2 id="title2">Une visibilité complète sur votre réseau</h2>
+        <p style="color: var(--gray-light); font-size: 1.05rem;" id="desc2">Notre NOC couvre l'intégralité de votre infrastructure réseau, des équipements physiques aux services applicatifs.</p>
+        <ul class="detail-features">
+          <li><div class="detail-icon"><i class="fas fa-tachometer-alt"></i></div><div><strong id="feat4Title">Uptime & disponibilité</strong><span id="feat4Desc">Surveillance 24/7 de la continuité de service</span></div></li>
+          <li><div class="detail-icon"><i class="fas fa-hourglass-half"></i></div><div><strong id="feat5Title">Latence & performances</strong><span id="feat5Desc">Temps de réponse réseau, délais applicatifs</span></div></li>
+          <li><div class="detail-icon"><i class="fas fa-tower-broadcast"></i></div><div><strong id="feat6Title">Bande passante</strong><span id="feat6Desc">Consommation, saturation, optimisation</span></div></li>
+          <li><div class="detail-icon"><i class="fas fa-shield-halved"></i></div><div><strong id="feat7Title">Firewalls & sécurité</strong><span id="feat7Desc">Logs, règles, flux, blocages</span></div></li>
+          <li><div class="detail-icon"><i class="fas fa-router"></i></div><div><strong id="feat8Title">Routeurs & switches</strong><span id="feat8Desc">État des équipements, erreurs, redémarrages</span></div></li>
+          <li><div class="detail-icon"><i class="fas fa-server"></i></div><div><strong id="feat9Title">Serveurs critiques</strong><span id="feat9Desc">CPU, RAM, stockage, services</span></div></li>
+        </ul>
+      </div>
+      <div class="detail-visual">
+        <h3><i class="fas fa-microchip" style="margin-right: 0.5rem;"></i> <span id="visualTitle1">Périmètre de surveillance</span></h3>
+        <div class="detail-stat"><div class="label" id="stat1Label">Équipements</div><div class="value" id="stat1Value">Routeurs, Switches, Firewalls, Serveurs</div></div>
+        <div class="detail-stat"><div class="label" id="stat2Label">Métriques</div><div class="value" id="stat2Value">Disponibilité, latence, bande passante, erreurs</div></div>
+        <div class="detail-stat"><div class="label" id="stat3Label">Alerting</div><div class="value" id="stat3Value">Temps réel, escalade, notification</div></div>
+        <div class="detail-stat"><div class="label" id="stat4Label">Reporting</div><div class="value" id="stat4Value">Mensuel, personnalisable, orienté action</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<section class="detail-section">
+  <div class="container">
+    <div class="detail-grid">
+      <div class="detail-text">
+        <span class="section-tag" id="tag3">Comment on intervient</span>
+        <h2 id="title3">Une procédure d'incident rodée</h2>
+        <p style="color: var(--gray-light); font-size: 1.05rem;" id="desc3">Dès qu'une anomalie est détectée, notre équipe NOC déclenche un processus d'incident structuré pour une résolution rapide.</p>
+        <ul class="detail-features">
+          <li><div class="detail-icon"><i class="fas fa-bell"></i></div><div><strong id="feat10Title">Détection & escalade</strong><span id="feat10Desc">Alertes automatiques, analyse, priorisation</span></div></li>
+          <li><div class="detail-icon"><i class="fas fa-ticket"></i></div><div><strong id="feat11Title">Création ticket</strong><span id="feat11Desc">Traçabilité complète dans notre outil ITSM</span></div></li>
+          <li><div class="detail-icon"><i class="fas fa-wrench"></i></div><div><strong id="feat12Title">Diagnostic & résolution</strong><span id="feat12Desc">Analyse, correction, validation</span></div></li>
+          <li><div class="detail-icon"><i class="fas fa-clock"></i></div><div><strong id="feat13Title">Objectif temps de réponse</strong><span id="feat13Desc">Moins de 15 minutes pour les incidents critiques</span></div></li>
+        </ul>
+      </div>
+      <div class="detail-visual">
+        <h3><i class="fas fa-clock" style="margin-right: 0.5rem;"></i> <span id="visualTitle2">Temps de réponse garantis</span></h3>
+        <div class="detail-stat"><div class="label" id="stat5Label">P1 - Critique</div><div class="value" id="stat5Value">Moins de 15 minutes</div></div>
+        <div class="detail-stat"><div class="label" id="stat6Label">P2 - Majeur</div><div class="value" id="stat6Value">Moins de 1 heure</div></div>
+        <div class="detail-stat"><div class="label" id="stat7Label">P3 - Mineur</div><div class="value" id="stat7Value">Moins de 4 heures</div></div>
+        <div class="detail-stat"><div class="label" id="stat8Label">P4 - Information</div><div class="value" id="stat8Value">Moins de 24 heures</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<section class="detail-section alt">
+  <div class="container">
+    <span class="section-tag" id="tag4">Nos engagements SLA</span>
+    <h2 class="section-title" id="title4">Des garanties contractuelles claires</h2>
+    <div class="sla-grid">
+      <div class="sla-card">
+        <div class="sla-label" id="slaLabel1">Temps de réponse</div>
+        <div class="sla-value" id="slaValue1">&lt; 15 min</div>
+        <div class="sla-desc" id="slaDesc1">Niveau 1 critique</div>
+      </div>
+      <div class="sla-card">
+        <div class="sla-label" id="slaLabel2">Uptime garanti</div>
+        <div class="sla-value" id="slaValue2">99.9%</div>
+        <div class="sla-desc" id="slaDesc2">Disponibilité réseau</div>
+      </div>
+      <div class="sla-card">
+        <div class="sla-label" id="slaLabel3">Supervision</div>
+        <div class="sla-value" id="slaValue3">24/7/365</div>
+        <div class="sla-desc" id="slaDesc3">Y compris jours fériés</div>
+      </div>
+      <div class="sla-card">
+        <div class="sla-label" id="slaLabel4">Équipements supportés</div>
+        <div class="sla-value" id="slaValue4">Complets</div>
+        <div class="sla-desc" id="slaDesc4">Routeurs, Switches, Firewalls, Serveurs</div>
+      </div>
+      <div class="sla-card">
+        <div class="sla-label" id="slaLabel5">Contrat</div>
+        <div class="sla-value" id="slaValue5">Sur mesure</div>
+        <div class="sla-desc" id="slaDesc5">Sans engagement long terme</div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<section class="detail-section">
+  <div class="container">
+    <span class="section-tag" id="tag5">Approche projet</span>
+    <h2 class="section-title" id="title5">Notre méthode en 4 étapes</h2>
+    <div class="step-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h4 id="step1Title">Audit infrastructure</h4>
+        <p id="step1Desc">Cartographie complète, inventaire équipements, analyse des besoins.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h4 id="step2Title">Mise en place monitoring</h4>
+        <p id="step2Desc">Déploiement des sondes, configuration des alertes, dashboard personnalisé.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h4 id="step3Title">Supervision active</h4>
+        <p id="step3Desc">Surveillance 24/7, détection proactive, gestion des incidents.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <h4 id="step4Title">Reporting & optimisation</h4>
+        <p id="step4Desc">Rapports mensuels, recommandations, amélioration continue.</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<section class="cta-block">
+  <div class="cta-block-content">
+    <h2 id="ctaH2">Prêt à superviser et optimiser votre réseau ?</h2>
+    <p id="ctaP">Audit gratuit de 30 minutes pour évaluer vos besoins. Aucun engagement.</p>
+    <a href="contact.html" class="btn-primary"><i class="fas fa-server"></i> <span id="ctaBtn">Demander un audit gratuit</span></a>
+  </div>
+</section>
+ 
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo" style="font-size: 1.4rem;">
+        <svg class="logo-shield" viewBox="0 0 24 24" width="28" height="28">
+          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+          <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
+        </svg>
+        <span style="color:white;margin-left:.5rem;">Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.82em;font-weight:400;color:rgba(255,255,255,0.45);">IT Solutions</span></span>
+      </a>
+      <p>Cybersécurité opérationnelle au Maroc. Infrastructure, Support IT, Sécurité Réseau, Pentest, Investigation.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="infogerance.html">Support IT & Infogérance</a></li>
+        <li><a href="securite-reseau.html">Sécurité Réseau</a></li>
+        <li><a href="vapt.html">Pentest / VAPT</a></li>
+        <li><a href="soc-consultation.html">SOC Consultation</a></li>
+        <li><a href="cybercrime.html">Cybercrime</a></li>
+        <li><a href="noc.html">NOC Managé</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Entreprise</h4>
+      <ul>
+        <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
+        <li><a href="carrieres.html">Carrières</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Légal</h4>
+      <ul>
+        <li><a href="#">Mentions légales</a></li>
+        <li><a href="#">Politique de confidentialité</a></li>
+        <li><a href="#">CGU</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 NetVanguard IT Solutions SARL · Casablanca</span>
+    <span>Excellence & Innovation</span>
+  </div>
+</footer>
+ 
 <script>
-const chatBody = document.getElementById('chatBody');
-let chatInitialized = false;
-
-function toggleChat() {
-  const win = document.getElementById('chatbotWindow');
-  const btn = document.getElementById('chatbotBtn');
-  if (win.classList.contains('open')) {
-    win.classList.remove('open');
-  } else {
-    win.classList.add('open');
-    if (!chatInitialized) {
-      chatInitialized = true;
-      setTimeout(showWelcome, 400);
-    }
+const translations = {
+  fr: {
+    breadLabel: "NOC Managé",
+    pageH1Main: "NOC",
+    pageH1Accent: "Managé",
+    pageH1Sub: "Supervision · Détection · Reporting",
+    pageDesc: "Un centre d'opérations réseau dédié qui surveille, détecte et optimise votre infrastructure en continu. Réactivité et fiabilité pour garantir la continuité de vos services critiques.",
+    tag1: "Qu'est-ce qu'un NOC ?",
+    title1: "Supervision 24/7 de votre infrastructure réseau",
+    desc1: "Le NOC (Network Operations Center) est le cerveau de votre infrastructure réseau. Contrairement au SOC qui se concentre sur les menaces cyber, le NOC garantit la disponibilité, les performances et la fiabilité de votre réseau.",
+    feat1Title: "NOC vs SOC",
+    feat1Desc: "NOC = disponibilité & performance réseau · SOC = cybersécurité & menaces",
+    feat2Title: "Pourquoi c'est essentiel",
+    feat2Desc: "Anticiper les pannes, réduire les temps d'arrêt, garantir la continuité de service",
+    feat3Title: "Disponibilité garantie",
+    feat3Desc: "Objectif 99,9% d'uptime pour vos services critiques",
+    tag2: "Ce qu'on surveille",
+    title2: "Une visibilité complète sur votre réseau",
+    desc2: "Notre NOC couvre l'intégralité de votre infrastructure réseau, des équipements physiques aux services applicatifs.",
+    feat4Title: "Uptime & disponibilité",
+    feat4Desc: "Surveillance 24/7 de la continuité de service",
+    feat5Title: "Latence & performances",
+    feat5Desc: "Temps de réponse réseau, délais applicatifs",
+    feat6Title: "Bande passante",
+    feat6Desc: "Consommation, saturation, optimisation",
+    feat7Title: "Firewalls & sécurité",
+    feat7Desc: "Logs, règles, flux, blocages",
+    feat8Title: "Routeurs & switches",
+    feat8Desc: "État des équipements, erreurs, redémarrages",
+    feat9Title: "Serveurs critiques",
+    feat9Desc: "CPU, RAM, stockage, services",
+    visualTitle1: "Périmètre de surveillance",
+    stat1Label: "Équipements",
+    stat1Value: "Routeurs, Switches, Firewalls, Serveurs",
+    stat2Label: "Métriques",
+    stat2Value: "Disponibilité, latence, bande passante, erreurs",
+    stat3Label: "Alerting",
+    stat3Value: "Temps réel, escalade, notification",
+    stat4Label: "Reporting",
+    stat4Value: "Mensuel, personnalisable, orienté action",
+    tag3: "Comment on intervient",
+    title3: "Une procédure d'incident rodée",
+    desc3: "Dès qu'une anomalie est détectée, notre équipe NOC déclenche un processus d'incident structuré pour une résolution rapide.",
+    feat10Title: "Détection & escalade",
+    feat10Desc: "Alertes automatiques, analyse, priorisation",
+    feat11Title: "Création ticket",
+    feat11Desc: "Traçabilité complète dans notre outil ITSM",
+    feat12Title: "Diagnostic & résolution",
+    feat12Desc: "Analyse, correction, validation",
+    feat13Title: "Objectif temps de réponse",
+    feat13Desc: "Moins de 15 minutes pour les incidents critiques",
+    visualTitle2: "Temps de réponse garantis",
+    stat5Label: "P1 - Critique",
+    stat5Value: "Moins de 15 minutes",
+    stat6Label: "P2 - Majeur",
+    stat6Value: "Moins de 1 heure",
+    stat7Label: "P3 - Mineur",
+    stat7Value: "Moins de 4 heures",
+    stat8Label: "P4 - Information",
+    stat8Value: "Moins de 24 heures",
+    tag4: "Nos engagements SLA",
+    title4: "Des garanties contractuelles claires",
+    slaLabel1: "Temps de réponse",
+    slaValue1: "< 15 min",
+    slaDesc1: "Niveau 1 critique",
+    slaLabel2: "Uptime garanti",
+    slaValue2: "99.9%",
+    slaDesc2: "Disponibilité réseau",
+    slaLabel3: "Supervision",
+    slaValue3: "24/7/365",
+    slaDesc3: "Y compris jours fériés",
+    slaLabel4: "Équipements supportés",
+    slaValue4: "Complets",
+    slaDesc4: "Routeurs, Switches, Firewalls, Serveurs",
+    slaLabel5: "Contrat",
+    slaValue5: "Sur mesure",
+    slaDesc5: "Sans engagement long terme",
+    tag5: "Approche projet",
+    title5: "Notre méthode en 4 étapes",
+    step1Title: "Audit infrastructure",
+    step1Desc: "Cartographie complète, inventaire équipements, analyse des besoins.",
+    step2Title: "Mise en place monitoring",
+    step2Desc: "Déploiement des sondes, configuration des alertes, dashboard personnalisé.",
+    step3Title: "Supervision active",
+    step3Desc: "Surveillance 24/7, détection proactive, gestion des incidents.",
+    step4Title: "Reporting & optimisation",
+    step4Desc: "Rapports mensuels, recommandations, amélioration continue.",
+    ctaH2: "Prêt à superviser et optimiser votre réseau ?",
+    ctaP: "Audit gratuit de 30 minutes pour évaluer vos besoins. Aucun engagement.",
+    ctaBtn: "Demander un audit gratuit"
+  },
+  en: {
+    breadLabel: "Managed NOC",
+    pageH1Main: "NOC",
+    pageH1Accent: "Managed",
+    pageH1Sub: "Supervision · Detection · Reporting",
+    pageDesc: "A dedicated network operations center that monitors, detects and optimizes your infrastructure continuously. Responsiveness and reliability to ensure the continuity of your critical services.",
+    tag1: "What is a NOC?",
+    title1: "24/7 supervision of your network infrastructure",
+    desc1: "The NOC (Network Operations Center) is the brain of your network infrastructure. Unlike the SOC which focuses on cyber threats, the NOC guarantees the availability, performance and reliability of your network.",
+    feat1Title: "NOC vs SOC",
+    feat1Desc: "NOC = network availability & performance · SOC = cybersecurity & threats",
+    feat2Title: "Why it's essential",
+    feat2Desc: "Anticipate outages, reduce downtime, guarantee service continuity",
+    feat3Title: "Guaranteed availability",
+    feat3Desc: "Target 99.9% uptime for your critical services",
+    tag2: "What we monitor",
+    title2: "Complete visibility over your network",
+    desc2: "Our NOC covers your entire network infrastructure, from physical equipment to application services.",
+    feat4Title: "Uptime & availability",
+    feat4Desc: "24/7 monitoring of service continuity",
+    feat5Title: "Latency & performance",
+    feat5Desc: "Network response time, application delays",
+    feat6Title: "Bandwidth",
+    feat6Desc: "Consumption, saturation, optimization",
+    feat7Title: "Firewalls & security",
+    feat7Desc: "Logs, rules, flows, blocks",
+    feat8Title: "Routers & switches",
+    feat8Desc: "Equipment status, errors, restarts",
+    feat9Title: "Critical servers",
+    feat9Desc: "CPU, RAM, storage, services",
+    visualTitle1: "Monitoring scope",
+    stat1Label: "Equipment",
+    stat1Value: "Routers, Switches, Firewalls, Servers",
+    stat2Label: "Metrics",
+    stat2Value: "Availability, latency, bandwidth, errors",
+    stat3Label: "Alerting",
+    stat3Value: "Real-time, escalation, notification",
+    stat4Label: "Reporting",
+    stat4Value: "Monthly, customizable, action-oriented",
+    tag3: "How we intervene",
+    title3: "A proven incident procedure",
+    desc3: "As soon as an anomaly is detected, our NOC team triggers a structured incident process for rapid resolution.",
+    feat10Title: "Detection & escalation",
+    feat10Desc: "Automatic alerts, analysis, prioritization",
+    feat11Title: "Ticket creation",
+    feat11Desc: "Complete traceability in our ITSM tool",
+    feat12Title: "Diagnosis & resolution",
+    feat12Desc: "Analysis, correction, validation",
+    feat13Title: "Target response time",
+    feat13Desc: "Less than 15 minutes for critical incidents",
+    visualTitle2: "Guaranteed response times",
+    stat5Label: "P1 - Critical",
+    stat5Value: "Less than 15 minutes",
+    stat6Label: "P2 - Major",
+    stat6Value: "Less than 1 hour",
+    stat7Label: "P3 - Minor",
+    stat7Value: "Less than 4 hours",
+    stat8Label: "P4 - Information",
+    stat8Value: "Less than 24 hours",
+    tag4: "Our SLA commitments",
+    title4: "Clear contractual guarantees",
+    slaLabel1: "Response time",
+    slaValue1: "< 15 min",
+    slaDesc1: "Level 1 critical",
+    slaLabel2: "Guaranteed uptime",
+    slaValue2: "99.9%",
+    slaDesc2: "Network availability",
+    slaLabel3: "Supervision",
+    slaValue3: "24/7/365",
+    slaDesc3: "Including holidays",
+    slaLabel4: "Supported equipment",
+    slaValue4: "Complete",
+    slaDesc4: "Routers, Switches, Firewalls, Servers",
+    slaLabel5: "Contract",
+    slaValue5: "Custom",
+    slaDesc5: "No long-term commitment",
+    tag5: "Project approach",
+    title5: "Our 4-step method",
+    step1Title: "Infrastructure audit",
+    step1Desc: "Complete mapping, equipment inventory, needs analysis.",
+    step2Title: "Monitoring deployment",
+    step2Desc: "Probe deployment, alert configuration, custom dashboard.",
+    step3Title: "Active supervision",
+    step3Desc: "24/7 monitoring, proactive detection, incident management.",
+    step4Title: "Reporting & optimization",
+    step4Desc: "Monthly reports, recommendations, continuous improvement.",
+    ctaH2: "Ready to supervise and optimize your network?",
+    ctaP: "Free 30-minute audit to assess your needs. No commitment.",
+    ctaBtn: "Request free audit"
   }
-}
-
-function addMsg(text, type = 'bot') {
-  const msg = document.createElement('div');
-  msg.className = 'chat-msg ' + type;
-  msg.innerHTML = text;
-  chatBody.appendChild(msg);
-  chatBody.scrollTop = chatBody.scrollHeight;
-}
-
-function addOptions(options) {
-  const wrap = document.createElement('div');
-  wrap.className = 'chat-options';
-  options.forEach(opt => {
-    const btn = document.createElement('button');
-    btn.className = 'chat-option' + (opt.urgent ? ' urgent' : '') + (opt.gold ? ' gold' : '');
-    btn.innerHTML = '<span class="icon"><i class="' + opt.icon + '"></i></span>' + opt.text;
-    btn.onclick = () => {
-      addMsg(opt.text, 'user');
-      wrap.remove();
-      setTimeout(() => showTyping(opt.action), 600);
-    };
-    wrap.appendChild(btn);
+};
+ 
+let currentLang = localStorage.getItem('nextgen-lang') || 'fr';
+ 
+function applyLanguage(lang) {
+  const t = translations[lang];
+  if (!t) return;
+  
+  Object.entries(t).forEach(([key, value]) => {
+    const el = document.getElementById(key);
+    if (el) el.innerText = value;
   });
-  chatBody.appendChild(wrap);
-  chatBody.scrollTop = chatBody.scrollHeight;
-}
-
-function addLinks(links) {
-  const wrap = document.createElement('div');
-  wrap.className = 'chat-link-block';
-  links.forEach(l => {
-    const a = document.createElement('a');
-    a.className = 'chat-link' + (l.whatsapp ? ' whatsapp' : '');
-    a.href = l.url;
-    if (l.url.startsWith('http')) a.target = '_blank';
-    a.innerHTML = '<i class="' + l.icon + '"></i> ' + l.text;
-    wrap.appendChild(a);
+  
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
   });
-  chatBody.appendChild(wrap);
-  chatBody.scrollTop = chatBody.scrollHeight;
+  
+  localStorage.setItem('nextgen-lang', lang);
 }
-
-function showTyping(callback) {
-  const t = document.createElement('div');
-  t.className = 'chat-typing';
-  t.innerHTML = '<span></span><span></span><span></span>';
-  chatBody.appendChild(t);
-  chatBody.scrollTop = chatBody.scrollHeight;
-  setTimeout(() => {
-    t.remove();
-    callback();
-  }, 800);
-}
-
-function showWelcome() {
-  addMsg('Bonjour 👋 Je suis <strong>NextGen Helper</strong>, votre assistant cybersécurité.');
-  setTimeout(() => {
-    addMsg('Comment puis-je vous aider aujourd\'hui ?');
-    setTimeout(() => addOptions([
-      { text: 'J\'ai une urgence cyber', icon: 'fas fa-triangle-exclamation', urgent: true, action: showUrgence },
-      { text: 'Protéger mon entreprise', icon: 'fas fa-shield-halved', action: showProtection },
-      { text: 'Demander un audit gratuit', icon: 'fas fa-magnifying-glass-chart', gold: true, action: showAudit },
-      { text: 'Trouver une formation', icon: 'fas fa-graduation-cap', action: showFormation },
-      { text: 'Tester mes systèmes (pentest)', icon: 'fas fa-bug', action: showPentest },
-      { text: 'Sécurité Cloud', icon: 'fas fa-cloud', action: showCloud },
-      { text: 'NOC Managé (supervision réseau)', icon: 'fas fa-server', action: showNOC },
-      { text: 'Conformité réglementaire', icon: 'fas fa-gavel', action: showConformite },
-      { text: 'Parler à quelqu\'un', icon: 'fas fa-headset', action: showContact }
-    ]), 400);
-  }, 700);
-}
-
-function showUrgence() {
-  addMsg('🚨 Une urgence cyber demande une action immédiate.');
-  setTimeout(() => {
-    addMsg('Si vous êtes victime d\'une attaque <strong>en cours</strong> (ransomware, intrusion, perte de données), contactez-nous <strong>maintenant</strong> par WhatsApp pour une intervention rapide.');
-    setTimeout(() => addLinks([
-      { text: 'WhatsApp Urgence (réponse 5 min)', url: 'https://wa.me/212728312801?text=URGENCE%20CYBER%20-%20J%27ai%20besoin%20d%27aide%20rapidement', icon: 'fab fa-whatsapp', whatsapp: true },
-      { text: 'En savoir plus sur Réponse Incident', url: 'reponse-incident.html', icon: 'fas fa-arrow-right' }
-    ]), 400);
-  }, 600);
-}
-
-function showProtection() {
-  addMsg('🛡️ Excellent réflexe ! Plusieurs solutions selon votre besoin :');
-  setTimeout(() => {
-    addMsg('Quel est votre besoin principal ?');
-    setTimeout(() => addOptions([
-      { text: 'Surveillance 24/7 (SOC managé)', icon: 'fas fa-eye', action: () => goTo('Le SOC managé surveille vos systèmes en continu et détecte les attaques en temps réel.', 'managed-security.html', 'Découvrir Managed Security') },
-      { text: 'Stratégie SOC sur mesure', icon: 'fas fa-shield-halved', action: () => goTo('Conseil pour mettre en place ou optimiser votre SOC interne.', 'soc-consultation.html', 'Découvrir SOC Consultation') },
-      { text: 'Sécuriser mon réseau', icon: 'fas fa-network-wired', action: () => goTo('Architecture sécurisée, pare-feu, segmentation, VPN.', 'securite-reseau.html', 'Découvrir Sécurité Réseau') },
-      { text: 'Superviser mon réseau (NOC)', icon: 'fas fa-server', action: () => goTo('Le NOC surveille la disponibilité et les performances de votre réseau 24/7.', 'noc.html', 'Découvrir NOC Managé') },
-      { text: 'Protéger mes données', icon: 'fas fa-database', action: () => goTo('Protection complète : chiffrement, sauvegarde, contrôle d\'accès.', 'data-security.html', 'Découvrir Data Security') }
-    ]), 400);
-  }, 600);
-}
-
-function showAudit() {
-  addMsg('💼 Notre audit gratuit prend 30 minutes et vous donne une vision claire de votre exposition cyber. Aucun engagement.');
-  setTimeout(() => addLinks([
-    { text: 'Demander mon audit gratuit', url: 'contact.html', icon: 'fas fa-paper-plane' },
-    { text: 'En savoir plus sur l\'audit', url: 'soc-consultation.html', icon: 'fas fa-info-circle' }
-  ]), 600);
-}
-
-function showFormation() {
-  addMsg('🎓 Notre Academy propose <strong>12 formations professionnelles</strong> 100% pratiques avec laboratoires d\'attaques réelles.');
-  setTimeout(() => {
-    addMsg('Quel type de formation cherchez-vous ?');
-    setTimeout(() => addOptions([
-      { text: 'Certifications internationales (CompTIA, CEH, CISSP)', icon: 'fas fa-medal', action: () => goTo('Préparation aux certifications les plus demandées sur le marché.', 'academy.html', 'Voir nos formations') },
-      { text: 'SOC Analyst & Pentest', icon: 'fas fa-bug', action: () => goTo('Bootcamps intensifs avec environnements d\'attaque réels.', 'academy.html', 'Voir les bootcamps') },
-      { text: 'Sensibilisation employés', icon: 'fas fa-users', action: () => goTo('Formez vos équipes : phishing, mots de passe, télétravail sécurisé.', 'academy.html', 'Demander un devis') },
-      { text: 'Cyber pour dirigeants', icon: 'fas fa-user-tie', action: () => goTo('Programme dédié aux décideurs : enjeux stratégiques, gouvernance.', 'academy.html', 'Voir le programme') }
-    ]), 400);
-  }, 600);
-}
-
-function showPentest() {
-  addMsg('🐛 Nos experts certifiés simulent de vraies cyberattaques sur vos systèmes pour identifier les failles avant les attaquants.');
-  setTimeout(() => addLinks([
-    { text: 'En savoir plus sur le VAPT', url: 'vapt.html', icon: 'fas fa-arrow-right' },
-    { text: 'Demander un devis pentest', url: 'contact.html', icon: 'fas fa-paper-plane' }
-  ]), 600);
-}
-
-function showCloud() {
-  addMsg('☁️ Nous sécurisons vos environnements cloud (AWS, Azure, Google Cloud, SaaS) avec une approche neutre et indépendante.');
-  setTimeout(() => addLinks([
-    { text: 'Découvrir Cloud Security', url: 'cloud-security.html', icon: 'fas fa-arrow-right' },
-    { text: 'Demander un audit cloud', url: 'contact.html', icon: 'fas fa-paper-plane' }
-  ]), 600);
-}
-
-function showNOC() {
-  addMsg('🖧 Le NOC (Network Operations Center) supervise votre infrastructure réseau 24/7 : disponibilité, latence, bande passante, équipements.');
-  setTimeout(() => addLinks([
-    { text: 'Découvrir NOC Managé', url: 'noc.html', icon: 'fas fa-arrow-right' },
-    { text: 'Demander un audit réseau', url: 'contact.html', icon: 'fas fa-paper-plane' }
-  ]), 600);
-}
-
-function showConformite() {
-  addMsg('⚖️ Nous vous accompagnons sur la conformité aux réglementations applicables et standards internationaux (ISO 27001, normes sectorielles).');
-  setTimeout(() => addLinks([
-    { text: 'Découvrir Conformité & Régulation', url: 'conformite.html', icon: 'fas fa-arrow-right' },
-    { text: 'Demander un diagnostic conformité', url: 'contact.html', icon: 'fas fa-paper-plane' }
-  ]), 600);
-}
-
-function showContact() {
-  addMsg('📞 Plusieurs façons de nous joindre :');
-  setTimeout(() => addLinks([
-    { text: 'WhatsApp (réponse rapide)', url: 'https://wa.me/212728312801', icon: 'fab fa-whatsapp', whatsapp: true },
-    { text: 'Formulaire de contact', url: 'contact.html', icon: 'fas fa-envelope' },
-    { text: 'contact@nextgentechnologies.net', url: 'mailto:contact@nextgentechnologies.net', icon: 'fas fa-paper-plane' }
-  ]), 600);
-}
-
-function goTo(intro, url, label) {
-  addMsg(intro);
-  setTimeout(() => addLinks([
-    { text: label, url: url, icon: 'fas fa-arrow-right' },
-    { text: 'Demander un devis', url: 'contact.html', icon: 'fas fa-paper-plane' }
-  ]), 500);
-}
-</script>
-<!-- ===== FIN CHATBOT ===== -->
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
- const menuToggle = document.getElementById('menuToggle');
- const navLinks = document.getElementById('navLinks');
- if (menuToggle && navLinks) {
- menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
- document.querySelectorAll('.nav-links a').forEach(link => {
- link.addEventListener('click', () => navLinks.classList.remove('active'));
- });
- }
- const observer = new IntersectionObserver((entries) => {
- entries.forEach(entry => {
- if (entry.isIntersecting) entry.target.classList.add('visible');
- });
- }, { threshold: 0.1 });
- document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+ 
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const lang = btn.getAttribute('data-lang');
+    if (lang) {
+      currentLang = lang;
+      applyLanguage(currentLang);
+    }
+  });
 });
-function handleSubmit(formId) {
- const form = document.getElementById(formId || 'contactForm');
- if (!form) return;
- const inputs = form.querySelectorAll('input[required], textarea[required]');
- let valid = true;
- inputs.forEach(i => {
- if (!i.value.trim()) { valid = false; i.style.borderColor = '#EF4444'; }
- else { i.style.borderColor = ''; }
- });
- if (!valid) { alert('Merci de remplir tous les champs obligatoires.'); return; }
- alert('Merci ! Votre demande a bien été reçue. Nous vous recontactons sous 24h.');
- form.querySelectorAll('input, textarea').forEach(f => f.value = '');
-}
+ 
+document.getElementById('menuToggle')?.addEventListener('click', () => {
+  const navLinks = document.getElementById('mobileNav');
+  if (navLinks) {
+    navLinks.classList.toggle('active');
+    const icon = document.getElementById('menuToggle').querySelector('i');
+    icon.className = navLinks.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+  }
+});
+ 
+applyLanguage(currentLang);
 </script>
 </body>
 </html>
