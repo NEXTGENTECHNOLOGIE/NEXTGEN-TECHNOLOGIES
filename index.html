@@ -284,17 +284,17 @@ a { text-decoration: none; }
   height: 100vh;
 }
 
-/* Slide individuel */
+/* Slide individuel - REMONTÉ VERS LE HAUT */
 .slide {
   position: absolute;
   inset: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   opacity: 0;
   visibility: hidden;
   transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), visibility 1s;
-  padding: 2rem;
+  padding: 5rem 2rem 2rem;
 }
 .slide.active {
   opacity: 1;
@@ -306,23 +306,24 @@ a { text-decoration: none; }
   text-align: center;
   max-width: 1100px;
   width: 100%;
+  padding-top: 1.5rem;
 }
 
-/* Logo dans les slides - SANS FOND NOIR */
+/* Logo dans les slides - PLUS GRAND, SANS FOND NOIR, CENTRÉ */
 .slide-logo-container {
   position: relative;
   display: inline-block;
-  margin: 0 auto 2.5rem;
+  margin: 0 auto 1.8rem;
 }
 .slide-logo-frame {
   position: relative;
-  width: 180px;
-  height: 180px;
+  width: 220px;
+  height: 220px;
   margin: 0 auto;
 }
 .slide-hexagon {
   position: absolute;
-  inset: -15px;
+  inset: -20px;
   animation: hexRotate 20s linear infinite;
 }
 .slide-hexagon svg {
@@ -331,37 +332,35 @@ a { text-decoration: none; }
 }
 .slide-hexagon path {
   fill: none;
-  stroke: rgba(0, 212, 255, 0.3);
+  stroke: rgba(0, 212, 255, 0.35);
   stroke-width: 2;
-  filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.4));
+  filter: drop-shadow(0 0 12px rgba(0, 212, 255, 0.5));
 }
 .slide-circle-pulse {
   position: absolute;
-  inset: -8px;
+  inset: -10px;
   border-radius: 50%;
-  border: 1.5px solid rgba(0, 212, 255, 0.2);
+  border: 1.5px solid rgba(0, 212, 255, 0.25);
   animation: circlePulse 3s ease-in-out infinite;
 }
-/* Logo image - TRANSPARENT, SANS FOND NOIR */
+/* Logo image - TRANSPARENT, SANS FOND, AUCUNE BANDE NOIRE */
 .slide-logo-img {
   position: relative;
   z-index: 2;
-  width: 160px;
-  height: 160px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   object-fit: contain;
-  /* Fond complètement transparent */
-  background: transparent;
-  backdrop-filter: none;
-  border: 2px solid rgba(0, 212, 255, 0.4);
+  background: none;
+  border: 2px solid rgba(0, 212, 255, 0.5);
   box-shadow: 
-    0 0 40px rgba(0, 212, 255, 0.3),
-    0 0 80px rgba(0, 212, 255, 0.1);
+    0 0 50px rgba(0, 212, 255, 0.35),
+    0 0 100px rgba(0, 212, 255, 0.12);
   animation: logoFloat 5s ease-in-out infinite;
 }
 @keyframes logoFloat {
-  0%, 100% { transform: translateY(0); box-shadow: 0 0 40px rgba(0, 212, 255, 0.3), 0 0 80px rgba(0, 212, 255, 0.1); }
-  50% { transform: translateY(-10px); box-shadow: 0 20px 60px rgba(0, 212, 255, 0.5), 0 0 120px rgba(0, 212, 255, 0.2); }
+  0%, 100% { transform: translateY(0); box-shadow: 0 0 50px rgba(0, 212, 255, 0.35), 0 0 100px rgba(0, 212, 255, 0.12); }
+  50% { transform: translateY(-10px); box-shadow: 0 20px 70px rgba(0, 212, 255, 0.55), 0 0 140px rgba(0, 212, 255, 0.25); }
 }
 @keyframes circlePulse {
   0%, 100% { transform: scale(1); opacity: 0.5; }
@@ -745,11 +744,13 @@ a { text-decoration: none; }
   .values-grid { grid-template-columns: 1fr; } .footer-container { grid-template-columns: 1fr; }
   .stats-grid-centered { grid-template-columns: 1fr; } .map-iframe-container { height: 400px; }
   .hero-slider { min-height: 90vh; } .slides-wrapper { height: 90vh; }
-  .slide-logo-frame { width: 140px; height: 140px; } .slide-logo-img { width: 120px; height: 120px; }
+  .slide-logo-frame { width: 170px; height: 170px; } .slide-logo-img { width: 150px; height: 150px; }
+  .slide { padding: 4rem 2rem 2rem; }
   .slider-nav { bottom: 2rem; gap: 1rem; } .slider-arrow { width: 40px; height: 40px; font-size: 0.9rem; }
 }
 @media (max-width: 600px) {
-  .slide-logo-frame { width: 120px; height: 120px; } .slide-logo-img { width: 100px; height: 100px; }
+  .slide-logo-frame { width: 140px; height: 140px; } .slide-logo-img { width: 120px; height: 120px; }
+  .slide { padding: 3.5rem 1.5rem 1.5rem; }
   .slide-buttons { flex-direction: column; align-items: center; }
   .btn-slide-primary, .btn-slide-outline { width: 100%; justify-content: center; }
   .services-grid { grid-template-columns: 1fr; }
