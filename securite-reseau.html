@@ -2,11 +2,13 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Architecture sécurisée, pare-feu nouvelle génération, segmentation, VPN. Protection complète de votre réseau.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Sécurité Réseau · NetVanguard IT Solutions — Architecture sécurisée, pare-feu nouvelle génération, segmentation, VPN.">
 <title>Sécurité Réseau · NetVanguard IT Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+ 
 <style>
 :root {
   --primary: #0A1628;
@@ -16,14 +18,15 @@
   --accent-dark: #0891B2;
   --red: #EF4444;
   --red-dark: #DC2626;
-  --gold: #FFB800;
   --white: #FFFFFF;
   --off-white: #E2E8F0;
   --gray-light: #94A3B8;
   --gray-mid: #64748B;
-  --transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  --gold: #FFB800;
+  --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   font-family: 'Manrope', sans-serif;
   color: var(--off-white);
@@ -31,7 +34,7 @@ body {
   overflow-x: hidden;
   background: var(--primary-deep);
 }
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -40,57 +43,52 @@ a { text-decoration: none; }
  
 /* TOP BAR */
 .top-bar {
-  background: rgba(5,11,20,0.95);
+  background: rgba(5, 11, 20, 0.95);
   backdrop-filter: blur(10px);
   color: var(--gray-light);
   padding: 0.5rem 4%;
   font-size: 0.8rem;
   border-bottom: 1px solid rgba(0,212,255,0.2);
-  z-index: 1001;
+  z-index: 1001; position: relative;
 }
 .top-bar-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  max-width: 1400px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 0.5rem;
+}
+.partner-badge {
+  display: flex; align-items: center; gap: 0.6rem;
+  background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(239,68,68,0.08));
+  padding: 0.3rem 1rem; border-radius: 40px; border-left: 2px solid var(--accent);
+}
+.partner-badge i { color: var(--accent); font-size: 0.8rem; }
+.partner-badge span {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px;
+  background: linear-gradient(135deg, #fff, var(--accent));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .top-bar-info { display: flex; gap: 2rem; flex-wrap: wrap; }
 .top-bar-info span { display: flex; align-items: center; gap: 0.4rem; }
 .top-bar-info i { color: var(--accent); }
+.top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; transition: var(--transition); display: inline-block; }
+.top-bar-social a:hover { color: var(--accent); transform: translateY(-2px); }
+ 
 .lang-switch {
-  display: flex;
-  gap: 0.25rem;
-  background: rgba(0,212,255,0.15);
-  padding: 0.2rem 0.6rem;
-  border-radius: 40px;
-  align-items: center;
+  display: flex; gap: 0.25rem; background: rgba(0,212,255,0.15);
+  padding: 0.2rem 0.6rem; border-radius: 40px; align-items: center;
 }
 .lang-btn {
-  background: none;
-  border: none;
-  color: var(--gray-light);
-  font-size: 0.8rem;
-  font-weight: 600;
-  cursor: pointer;
-  padding: 0.2rem 0.6rem;
-  border-radius: 30px;
-  transition: var(--transition);
+  background: none; border: none; color: var(--gray-light);
+  font-size: 0.8rem; font-weight: 600; cursor: pointer;
+  padding: 0.2rem 0.6rem; border-radius: 30px; transition: var(--transition);
   font-family: inherit;
 }
-.lang-btn.active {
-  background: var(--accent);
-  color: var(--primary);
-}
+.lang-btn.active { background: var(--accent); color: var(--primary); }
  
-/* NAV */
+/* NAVIGATION */
 .nav {
-  position: sticky; top: 0; z-index: 1000;
-  padding: 1rem 4%;
-  background: rgba(7,20,38,0.95);
-  backdrop-filter: blur(10px);
+  position: sticky; top: 0; z-index: 1000; padding: 1rem 4%;
+  background: rgba(7, 20, 38, 0.95); backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(0,212,255,0.15);
 }
 .nav-container {
@@ -99,43 +97,70 @@ a { text-decoration: none; }
 }
 .logo {
   display: flex; align-items: center; gap: 0.6rem;
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700; font-size: 1.3rem;
-  color: var(--white);
-  transition: var(--transition);
+  font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.3rem;
+  color: var(--white); transition: var(--transition);
 }
 .logo:hover { transform: scale(1.02); }
 .logo-shield {
-  width: 32px; height: 32px;
-  flex-shrink: 0;
-  animation: float 3s ease-in-out infinite;
+  width: 32px; height: 32px; fill: var(--accent) !important;
+  flex-shrink: 0; animation: float 3s ease-in-out infinite;
 }
 @keyframes float {
   0%,100% { transform: translateY(0); }
   50% { transform: translateY(-5px); }
 }
 .logo-text-accent { color: var(--accent); }
+ 
 .nav-links { display: flex; gap: 0.4rem; list-style: none; align-items: center; }
 .nav-links > li > a {
   color: var(--off-white); font-size: 0.92rem; font-weight: 600;
-  padding: 0.6rem 1rem; border-radius: 4px;
+  padding: 0.6rem 1rem; border-radius: 4px; transition: var(--transition);
+  display: flex; align-items: center; gap: 0.3rem;
+}
+.nav-links > li > a:hover { background: rgba(0,212,255,0.1); color: var(--accent); }
+ 
+.nav-links > li > a.btn-espace-client {
+  background: linear-gradient(135deg, #00D4FF, #0891B2);
+  color: #050B14 !important;
+  font-weight: 700;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
   transition: var(--transition);
 }
-.nav-links > li > a:hover, .nav-links > li > a.active {
-  background: rgba(0,212,255,0.1);
-  color: var(--accent);
+.nav-links > li > a.btn-espace-client:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
 }
-.nav-cta {
-  background: linear-gradient(135deg, var(--red), var(--red-dark)) !important;
-  color: var(--white) !important;
-  padding: 0.7rem 1.4rem !important;
-  border-radius: 40px !important;
-  font-weight: 700 !important;
-}
-.nav-cta:hover { transform: translateY(-2px) !important; background: var(--accent) !important; color: var(--primary) !important; }
-.menu-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
  
-/* PAGE HEADER */
+.mobile-nav-overlay {
+  position: fixed; top: 0; right: -100%; width: 100%; max-width: 400px; height: 100vh;
+  background: rgba(5, 11, 20, 0.98); backdrop-filter: blur(25px); z-index: 10000;
+  padding: 8rem 2rem 2rem; display: flex; flex-direction: column; gap: 1.5rem;
+  box-shadow: -10px 0 30px rgba(0,0,0,0.5); border-left: 1px solid rgba(0,212,255,0.2);
+  transition: right 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+.mobile-nav-overlay.active { right: 0; }
+.mobile-nav-overlay a { color: var(--white); font-size: 1.1rem; font-weight: 600; }
+.mobile-nav-overlay a.btn-espace-client-mobile {
+  background: linear-gradient(135deg, #00D4FF, #0891B2);
+  color: #050B14 !important;
+  font-weight: 700;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+ 
+.menu-toggle {
+  display: none; background: none; border: none; color: var(--white);
+  font-size: 1.5rem; cursor: pointer; z-index: 10001;
+}
+ 
+/* PAGE HEADER SECURITE RESEAU */
 .page-header {
   position: relative;
   padding: 6rem 4% 4rem;
@@ -153,8 +178,8 @@ a { text-decoration: none; }
   content: '';
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
   background-size: 50px 50px;
   pointer-events: none;
 }
@@ -169,20 +194,13 @@ a { text-decoration: none; }
   font-size: 0.85rem;
   margin-bottom: 1.2rem;
 }
-.breadcrumb a {
-  color: var(--accent);
-}
-.breadcrumb i {
-  margin: 0 0.5rem;
-  font-size: 0.7rem;
-  opacity: 0.6;
-}
+.breadcrumb a { color: var(--accent); }
+.breadcrumb i { margin: 0 0.5rem; font-size: 0.7rem; opacity: 0.6; }
 .page-header h1 {
   font-size: clamp(2.5rem, 5vw, 4rem);
-  line-height: 1.05;
+  line-height: 1.1;
   margin-bottom: 1.2rem;
   color: var(--white);
-  animation: fadeInUp 1s ease-out;
 }
 .page-header h1 .accent {
   background: linear-gradient(90deg,#00D4FF,#38bdf8,#FFB800,#00D4FF);
@@ -194,103 +212,145 @@ a { text-decoration: none; }
 @keyframes shine {
   to { background-position: 300% center; }
 }
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
 .page-header p {
   font-size: 1.1rem;
   color: var(--gray-light);
   max-width: 700px;
   line-height: 1.9;
-  animation: fadeInUp 1s ease-out 0.3s both;
 }
  
-/* CONTENT */
+/* DETAIL SECTION */
+.detail-section {
+  padding: 5rem 4%;
+  background: var(--primary-deep);
+}
+.detail-section.alt { background: rgba(10,22,40,0.8); }
+ 
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 4rem 4%;
 }
-.content-grid {
+ 
+.section-tag {
+  display: inline-block;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 0.8rem;
+}
+ 
+.section-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  color: var(--white);
+  margin-bottom: 0.8rem;
+  line-height: 1.15;
+}
+ 
+.detail-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: start;
 }
-.content-left {
-  animation: fadeInLeft 1s ease-out 0.4s both;
-}
-.content-left h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: var(--white);
-}
-.content-left .desc {
-  color: var(--gray-light);
-  margin-bottom: 1.5rem;
-  line-height: 1.8;
-}
-.feature-list {
+ 
+.detail-text h2 { color: var(--white); }
+ 
+.detail-features {
   list-style: none;
-  margin: 2rem 0;
+  margin-top: 1.5rem;
 }
-.feature-list li {
-  margin-bottom: 1rem;
+ 
+.detail-features li {
+  display: flex;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+ 
+.detail-features li:last-child { border-bottom: none; }
+ 
+.detail-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(0,212,255,0.1);
+  color: var(--accent);
+  border-radius: 8px;
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-}
-.feature-list li i {
-  color: var(--accent);
-  font-size: 1.2rem;
-  width: 24px;
-}
-.feature-list strong { color: var(--white); font-weight: 700; }
-.feature-list span { color: var(--gray-light); font-size: 0.9rem; }
- 
-.content-right {
-  position: relative;
-  animation: scaleIn 1s ease-out 0.5s both;
-}
-@keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
-}
-.content-right img {
-  width: 100%;
-  border-radius: 24px;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1rem;
   border: 1px solid rgba(0,212,255,0.2);
-  transition: var(--transition);
-}
-.content-right img:hover {
-  transform: scale(1.02);
-  border-color: var(--red);
-}
-.glow-effect {
-  position: absolute;
-  top: -20px;
-  right: -20px;
-  width: 150px;
-  height: 150px;
-  background: radial-gradient(circle, rgba(0,212,255,0.2), transparent);
-  border-radius: 50%;
-  z-index: -1;
 }
  
-/* DETAIL VISUAL */
+.detail-features strong {
+  display: block;
+  color: var(--white);
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+ 
+.detail-features span { color: var(--gray-light); font-size: 0.88rem; }
+ 
+.detail-photo {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  border: 1px solid rgba(0,212,255,0.15);
+}
+ 
+.detail-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+ 
+.detail-photo:hover img { transform: scale(1.04); }
+ 
+.detail-photo-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent,rgba(5,11,20,0.95));
+  padding: 3rem 2rem 1.5rem;
+}
+ 
+.detail-photo-tag {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5rem;
+  background: rgba(255,184,0,0.15);
+  padding: 0.3rem 0.8rem;
+  border-radius: 30px;
+  border: 1px solid rgba(255,184,0,0.3);
+}
+ 
+.detail-photo h3 {
+  color: var(--white);
+  font-size: 1.4rem;
+  margin: 0;
+}
+ 
 .detail-visual {
-  background: rgba(15,42,62,0.6);
-  backdrop-filter: blur(10px);
+  background: rgba(10,22,40,0.8);
   color: var(--white);
   padding: 2.5rem;
   border-radius: 20px;
   border: 1px solid rgba(0,212,255,0.15);
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   position: relative;
   overflow: hidden;
 }
+ 
 .detail-visual::before {
   content: '';
   position: absolute;
@@ -300,6 +360,7 @@ a { text-decoration: none; }
   height: 100%;
   background: radial-gradient(circle, rgba(0,212,255,0.08) 0%, transparent 70%);
 }
+ 
 .detail-visual h3 {
   color: var(--accent);
   font-size: 1.1rem;
@@ -307,15 +368,16 @@ a { text-decoration: none; }
   position: relative;
   z-index: 1;
 }
+ 
 .detail-stat {
   position: relative;
   z-index: 1;
   padding: 0.8rem 0;
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
-.detail-stat:last-child {
-  border-bottom: none;
-}
+ 
+.detail-stat:last-child { border-bottom: none; }
+ 
 .detail-stat .label {
   color: var(--gold);
   font-size: 0.75rem;
@@ -323,6 +385,7 @@ a { text-decoration: none; }
   letter-spacing: 0.1em;
   margin-bottom: 0.2rem;
 }
+ 
 .detail-stat .value {
   color: var(--white);
   font-size: 0.95rem;
@@ -336,6 +399,7 @@ a { text-decoration: none; }
   gap: 1.5rem;
   margin-top: 2rem;
 }
+ 
 .step-card {
   background: rgba(10,22,40,0.6);
   padding: 2rem;
@@ -343,17 +407,14 @@ a { text-decoration: none; }
   border: 1px solid rgba(0,212,255,0.15);
   border-top: 3px solid var(--accent);
   transition: var(--transition);
-  animation: fadeInUp 0.6s ease-out both;
 }
-.step-card:nth-child(1) { animation-delay: 0s; }
-.step-card:nth-child(2) { animation-delay: 0.15s; }
-.step-card:nth-child(3) { animation-delay: 0.3s; }
-.step-card:nth-child(4) { animation-delay: 0.45s; }
+ 
 .step-card:hover {
   transform: translateY(-6px);
   border-color: rgba(0,212,255,0.4);
   box-shadow: 0 15px 40px rgba(0,0,0,0.3);
 }
+ 
 .step-num {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 2rem;
@@ -362,76 +423,16 @@ a { text-decoration: none; }
   line-height: 1;
   margin-bottom: 0.8rem;
 }
+ 
 .step-card h4 {
   color: var(--white);
   font-size: 1.1rem;
   margin-bottom: 0.6rem;
 }
+ 
 .step-card p {
   color: var(--gray-light);
   font-size: 0.9rem;
-}
- 
-/* SECTION STYLES */
-.detail-section {
-  padding: 5rem 4%;
-  background: var(--primary-deep);
-}
-.detail-section.alt {
-  background: rgba(10,22,40,0.8);
-}
-.section-tag {
-  display: inline-block;
-  color: var(--accent);
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  margin-bottom: 0.8rem;
-  animation: fadeInLeft 0.6s ease-out;
-}
-.section-title {
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  color: var(--white);
-  margin-bottom: 0.8rem;
-  line-height: 1.15;
-  animation: fadeInUp 0.8s ease-out;
-}
- 
-/* CTA BUTTONS */
-.cta-buttons {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-top: 2rem;
-}
-.btn-primary, .btn-secondary {
-  padding: 1rem 2rem;
-  border-radius: 40px;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  transition: var(--transition);
-}
-.btn-primary {
-  background: linear-gradient(135deg, var(--red), var(--red-dark));
-  color: white;
-}
-.btn-primary:hover {
-  background: var(--accent);
-  color: var(--primary);
-  transform: translateY(-3px);
-}
-.btn-secondary {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(0,212,255,0.2);
-  color: var(--off-white);
-}
-.btn-secondary:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  transform: translateY(-3px);
 }
  
 /* CTA BLOCK */
@@ -442,6 +443,7 @@ a { text-decoration: none; }
   position: relative;
   overflow: hidden;
 }
+ 
 .cta-block::before {
   content: '';
   position: absolute;
@@ -452,25 +454,38 @@ a { text-decoration: none; }
   height: 600px;
   background: radial-gradient(circle, rgba(0,212,255,0.1) 0%, transparent 60%);
 }
+ 
 .cta-block-content {
   max-width: 700px;
   margin: 0 auto;
   position: relative;
   z-index: 2;
 }
+ 
 .cta-block h2 {
   font-size: clamp(1.6rem, 3vw, 2.2rem);
   color: var(--white);
   margin-bottom: 1rem;
-  animation: fadeInUp 0.8s ease-out;
 }
-.cta-block p {
-  color: var(--gray-light);
-  margin-bottom: 2rem;
-  animation: fadeInUp 0.8s ease-out 0.2s both;
+ 
+.cta-block p { color: var(--gray-light); margin-bottom: 2rem; }
+ 
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: var(--primary);
+  padding: 1rem 2rem;
+  border-radius: 40px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: var(--transition);
+  font-size: 0.95rem;
 }
-.cta-block .btn-primary {
-  animation: fadeInUp 0.8s ease-out 0.4s both;
+ 
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,212,255,0.3);
 }
  
 /* FOOTER */
@@ -479,6 +494,7 @@ footer {
   padding: 5rem 4% 2rem;
   border-top: 1px solid rgba(255,255,255,0.06);
 }
+ 
 .footer-grid {
   max-width: 1400px;
   margin: 0 auto;
@@ -487,6 +503,7 @@ footer {
   gap: 4rem;
   margin-bottom: 4rem;
 }
+ 
 .footer-brand p {
   color: var(--gray-light);
   font-size: 0.9rem;
@@ -494,6 +511,7 @@ footer {
   max-width: 320px;
   margin-top: 1rem;
 }
+ 
 .footer-col h4 {
   color: var(--white);
   font-size: 1rem;
@@ -501,21 +519,22 @@ footer {
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
-.footer-col ul {
-  list-style: none;
-}
-.footer-col ul li {
-  margin-bottom: 0.8rem;
-}
+ 
+.footer-col ul { list-style: none; }
+ 
+.footer-col ul li { margin-bottom: 0.8rem; }
+ 
 .footer-col ul li a {
   color: var(--gray-light);
   font-size: 0.9rem;
   transition: var(--transition);
 }
+ 
 .footer-col ul li a:hover {
   color: var(--accent);
   padding-left: 4px;
 }
+ 
 .footer-bottom {
   max-width: 1400px;
   margin: 0 auto;
@@ -531,30 +550,24 @@ footer {
 }
  
 /* RESPONSIVE */
-@keyframes fadeInLeft {
-  from { opacity: 0; transform: translateX(-40px); }
-  to { opacity: 1; transform: translateX(0); }
-}
- 
 @media(max-width:1024px) {
   .nav-links { display: none !important; }
   .menu-toggle { display: block !important; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
-  .content-grid { grid-template-columns: 1fr !important; gap: 2rem; }
+  .detail-grid { grid-template-columns: 1fr !important; gap: 2.5rem; }
 }
  
 @media(max-width:768px) {
-  .top-bar-container { flex-direction: column; align-items: center; text-align: center; gap: 0.6rem; }
+  .top-bar-container { flex-direction: column; align-items: center; text-align: center; gap: 0.8rem; }
   .top-bar-info { flex-direction: column; align-items: center; gap: 0.3rem; width: 100%; }
-  .top-bar-info span { justify-content: center; font-size: 0.75rem; }
   .page-header { padding: 3rem 4% 2rem; }
   .page-header h1 { font-size: 2rem; }
   .detail-section { padding: 3rem 4%; }
   .step-grid { grid-template-columns: 1fr !important; }
   .footer-grid { grid-template-columns: 1fr !important; }
   .footer-bottom { flex-direction: column; text-align: center; }
-  .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
-  .cta-buttons { flex-direction: column; }
+  .btn-primary { width: 100%; justify-content: center; }
+  .detail-grid { gap: 2rem; }
 }
  
 @media(max-width:576px) {
@@ -566,14 +579,23 @@ footer {
  
 <div class="top-bar">
   <div class="top-bar-container">
-    <div class="top-bar-info">
-      <span><i class="fas fa-phone"></i> +212 728 31 28 01</span>
-      <span><i class="fas fa-envelope"></i> contact@nextgentechnologies.net</span>
-      <span><i class="fas fa-map-marker-alt"></i> Casablanca</span>
+    <div class="partner-badge">
+      <i class="fa-solid fa-shield-halved"></i>
+      <span>Votre partenaire en cyberdéfense et infogérance</span>
     </div>
-    <div class="lang-switch">
-      <button class="lang-btn active" data-lang="fr">🇫🇷 FR</button>
-      <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
+    <div class="top-bar-info">
+      <span><i class="fa-solid fa-phone"></i> +212 728 31 28 01</span>
+      <span><i class="fa-solid fa-envelope"></i> contact@netvanguard.ma</span>
+      <span><i class="fa-solid fa-location-dot"></i> Casablanca</span>
+    </div>
+    <div class="top-bar-social" style="display: flex; align-items: center;">
+      <div class="lang-switch" style="margin-right: 1rem;">
+        <button class="lang-btn active" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-x-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
     </div>
   </div>
 </div>
@@ -581,54 +603,103 @@ footer {
 <nav class="nav">
   <div class="nav-container">
     <a href="index.html" class="logo">
-      <svg class="logo-shield" viewBox="0 0 24 24" width="32" height="32">
-        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="#00D4FF"/>
+      <svg class="logo-shield" viewBox="0 0 24 24">
+        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
         <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
       </svg>
-      <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em;font-weight:500;color:var(--gray-light);">IT Solutions</span></span>
+      <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em; font-weight:500; color: var(--gray-light);">IT Solutions</span></span>
     </a>
+    
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Accueil</a></li>
-      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="services.html">Services</a></li>
       <li><a href="secteurs.html">Secteurs</a></li>
       <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
       <li><a href="carrieres.html">Carrières</a></li>
+      <li><a href="campus-cyber.html">🎓 Campus Cyber</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="contact.html" class="nav-cta">Espace Client</a></li>
+      <li><a href="support.html" class="btn-espace-client"><i class="fa-solid fa-user-circle"></i> Espace Client</a></li>
     </ul>
-    <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+ 
+    <button class="menu-toggle" id="menuToggle">
+      <i class="fa-solid fa-bars"></i>
+    </button>
   </div>
 </nav>
+ 
+<div class="mobile-nav-overlay" id="mobileNav">
+  <a href="index.html">Accueil</a>
+  <a href="services.html">Services</a>
+  <a href="secteurs.html">Secteurs</a>
+  <a href="qui-sommes-nous.html">Qui sommes-nous</a>
+  <a href="carrieres.html">Carrières</a>
+  <a href="campus-cyber.html">🎓 Campus Cyber</a>
+  <a href="contact.html">Contact</a>
+  <a href="support.html" class="btn-espace-client-mobile"><i class="fa-solid fa-user-circle"></i> Espace Client</a>
+</div>
  
 <section class="page-header">
   <div class="page-header-container">
     <div class="breadcrumb">
       <a href="index.html">Accueil</a> <i class="fas fa-chevron-right"></i>
-      <span id="breadLabel" style="color:var(--white)">Sécurité Réseau</span>
+      <span id="breadLabel">Sécurité Réseau</span>
     </div>
-    <h1 id="pageH1">Sécurité <span class="accent">Réseau</span><br><span id="headerSub">Architecture · Déploiement · Gestion</span></h1>
+    <h1><span id="pageH1Main">Sécurité</span> <span class="accent" id="pageH1Accent">Réseau</span><br><span id="pageH1Sub">Architecture · Déploiement · Gestion</span></h1>
     <p id="pageDesc">La sécurité réseau est la première ligne de défense de votre entreprise. Nous concevons, déployons et gérons des architectures réseau sécurisées adaptées à votre contexte.</p>
   </div>
 </section>
  
 <section class="detail-section">
   <div class="container">
-    <div class="content-grid">
-      <div class="content-left">
+    <div class="detail-grid">
+      <div class="detail-text">
         <span class="section-tag" id="tag1">Sécurité Réseau</span>
         <h2 id="title1">Un réseau sécurisé, du périmètre au cœur</h2>
-        <p class="desc" id="desc1">L'approche moderne de la sécurité réseau ne se limite plus à un pare-feu en périphérie. Nous mettons en œuvre des architectures de défense en profondeur, avec segmentation, micro-segmentation et zero-trust quand c'est pertinent.</p>
-        <ul class="feature-list" id="featureList">
-          <li><i class="fas fa-shield-halved"></i> <span><strong id="feat1Strong">Pare-feu nouvelle génération</strong> <span id="feat1Span">NGFW avec inspection profonde, IPS, antivirus, filtrage applicatif</span></span></li>
-          <li><i class="fas fa-route"></i> <span><strong id="feat2Strong">VPN sécurisés</strong> <span id="feat2Span">IPsec et SSL VPN pour collaborateurs et sites distants</span></span></li>
-          <li><i class="fas fa-puzzle-piece"></i> <span><strong id="feat3Strong">Segmentation réseau</strong> <span id="feat3Span">Isolation des zones critiques, micro-segmentation</span></span></li>
-          <li><i class="fas fa-wifi"></i> <span><strong id="feat4Strong">Sécurité Wi-Fi</strong> <span id="feat4Span">WPA3, segmentation invités, contrôle d'accès</span></span></li>
-          <li><i class="fas fa-arrow-down-up-across-line"></i> <span><strong id="feat5Strong">Zero-Trust Architecture</strong> <span id="feat5Span">Approche moderne : ne jamais faire confiance, toujours vérifier</span></span></li>
+        <p style="color: var(--gray-light); font-size: 1.05rem;" id="desc1">L'approche moderne de la sécurité réseau ne se limite plus à un pare-feu en périphérie. Nous mettons en œuvre des architectures de défense en profondeur, avec segmentation, micro-segmentation et zero-trust quand c'est pertinent.</p>
+        <ul class="detail-features" id="featureList">
+          <li>
+            <div class="detail-icon"><i class="fas fa-shield-halved"></i></div>
+            <div>
+              <strong id="feat1Title">Pare-feu nouvelle génération</strong>
+              <span id="feat1Desc">NGFW avec inspection profonde, IPS, antivirus, filtrage applicatif</span>
+            </div>
+          </li>
+          <li>
+            <div class="detail-icon"><i class="fas fa-route"></i></div>
+            <div>
+              <strong id="feat2Title">VPN sécurisés</strong>
+              <span id="feat2Desc">IPsec et SSL VPN pour collaborateurs et sites distants</span>
+            </div>
+          </li>
+          <li>
+            <div class="detail-icon"><i class="fas fa-puzzle-piece"></i></div>
+            <div>
+              <strong id="feat3Title">Segmentation réseau</strong>
+              <span id="feat3Desc">Isolation des zones critiques, micro-segmentation</span>
+            </div>
+          </li>
+          <li>
+            <div class="detail-icon"><i class="fas fa-wifi"></i></div>
+            <div>
+              <strong id="feat4Title">Sécurité Wi-Fi</strong>
+              <span id="feat4Desc">WPA3, segmentation invités, contrôle d'accès</span>
+            </div>
+          </li>
+          <li>
+            <div class="detail-icon"><i class="fas fa-arrow-down-up-across-line"></i></div>
+            <div>
+              <strong id="feat5Title">Zero-Trust Architecture</strong>
+              <span id="feat5Desc">Approche moderne : ne jamais faire confiance, toujours vérifier</span>
+            </div>
+          </li>
         </ul>
       </div>
-      <div class="content-right">
-        <div class="glow-effect"></div>
-        <img src="Securite-Reseau.jpg" alt="NetVanguard IT Solutions" id="pageImage" loading="lazy">
+      <div class="detail-photo">
+        <img src="Securite-Reseau.jpg" alt="NetVanguard IT Solutions" loading="lazy">
+        <div class="detail-photo-overlay">
+          <span class="detail-photo-tag">SÉCURITÉ RÉSEAU</span>
+          <h3>Architecture solide</h3>
+        </div>
       </div>
     </div>
     <div class="detail-visual">
@@ -675,7 +746,7 @@ footer {
   <div class="cta-block-content">
     <h2 id="ctaH2">Prêt à sécuriser votre entreprise ?</h2>
     <p id="ctaP">Audit gratuit de 30 minutes pour évaluer vos besoins. Aucun engagement.</p>
-    <a href="contact.html" class="btn-primary" id="ctaBtn"><i class="fas fa-shield-halved"></i> <span id="ctaBtnText">Demander un audit gratuit</span></a>
+    <a href="contact.html" class="btn-primary"><i class="fas fa-shield-halved"></i> <span id="ctaBtn">Demander un audit gratuit</span></a>
   </div>
 </section>
  
@@ -684,7 +755,7 @@ footer {
     <div class="footer-brand">
       <a href="index.html" class="logo" style="font-size: 1.4rem;">
         <svg class="logo-shield" viewBox="0 0 24 24" width="28" height="28">
-          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="#00D4FF"/>
+          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
           <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
         </svg>
         <span style="color:white;margin-left:.5rem;">Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.82em;font-weight:400;color:rgba(255,255,255,0.45);">IT Solutions</span></span>
@@ -726,25 +797,26 @@ footer {
 </footer>
  
 <script>
-// TRADUCTIONS FR/EN
 const translations = {
   fr: {
     breadLabel: "Sécurité Réseau",
-    headerSub: "Architecture · Déploiement · Gestion",
+    pageH1Main: "Sécurité",
+    pageH1Accent: "Réseau",
+    pageH1Sub: "Architecture · Déploiement · Gestion",
     pageDesc: "La sécurité réseau est la première ligne de défense de votre entreprise. Nous concevons, déployons et gérons des architectures réseau sécurisées adaptées à votre contexte.",
     tag1: "Sécurité Réseau",
     title1: "Un réseau sécurisé, du périmètre au cœur",
     desc1: "L'approche moderne de la sécurité réseau ne se limite plus à un pare-feu en périphérie. Nous mettons en œuvre des architectures de défense en profondeur, avec segmentation, micro-segmentation et zero-trust quand c'est pertinent.",
-    feat1Strong: "Pare-feu nouvelle génération",
-    feat1Span: "NGFW avec inspection profonde, IPS, antivirus, filtrage applicatif",
-    feat2Strong: "VPN sécurisés",
-    feat2Span: "IPsec et SSL VPN pour collaborateurs et sites distants",
-    feat3Strong: "Segmentation réseau",
-    feat3Span: "Isolation des zones critiques, micro-segmentation",
-    feat4Strong: "Sécurité Wi-Fi",
-    feat4Span: "WPA3, segmentation invités, contrôle d'accès",
-    feat5Strong: "Zero-Trust Architecture",
-    feat5Span: "Approche moderne : ne jamais faire confiance, toujours vérifier",
+    feat1Title: "Pare-feu nouvelle génération",
+    feat1Desc: "NGFW avec inspection profonde, IPS, antivirus, filtrage applicatif",
+    feat2Title: "VPN sécurisés",
+    feat2Desc: "IPsec et SSL VPN pour collaborateurs et sites distants",
+    feat3Title: "Segmentation réseau",
+    feat3Desc: "Isolation des zones critiques, micro-segmentation",
+    feat4Title: "Sécurité Wi-Fi",
+    feat4Desc: "WPA3, segmentation invités, contrôle d'accès",
+    feat5Title: "Zero-Trust Architecture",
+    feat5Desc: "Approche moderne : ne jamais faire confiance, toujours vérifier",
     visualTitle: "Notre expertise",
     stat1Label: "Approche",
     stat1Value: "Neutre, indépendante des constructeurs",
@@ -768,25 +840,27 @@ const translations = {
     step4Desc: "Supervision, mises à jour, optimisation, support disponible.",
     ctaH2: "Prêt à sécuriser votre entreprise ?",
     ctaP: "Audit gratuit de 30 minutes pour évaluer vos besoins. Aucun engagement.",
-    ctaBtnText: "Demander un audit gratuit"
+    ctaBtn: "Demander un audit gratuit"
   },
   en: {
     breadLabel: "Network Security",
-    headerSub: "Architecture · Deployment · Management",
+    pageH1Main: "Network",
+    pageH1Accent: "Security",
+    pageH1Sub: "Architecture · Deployment · Management",
     pageDesc: "Network security is your first line of defense. We design, deploy and manage secure network architectures tailored to your context.",
     tag1: "Network Security",
     title1: "Secure network from perimeter to core",
     desc1: "Modern network security goes beyond traditional perimeter firewalls. We implement defense-in-depth architectures with segmentation, micro-segmentation and zero-trust when appropriate.",
-    feat1Strong: "Next-Generation Firewall",
-    feat1Span: "NGFW with deep inspection, IPS, antivirus, application filtering",
-    feat2Strong: "Secure VPNs",
-    feat2Span: "IPsec and SSL VPN for remote workers and branch sites",
-    feat3Strong: "Network Segmentation",
-    feat3Span: "Critical zone isolation, micro-segmentation",
-    feat4Strong: "Wi-Fi Security",
-    feat4Span: "WPA3, guest segmentation, access control",
-    feat5Strong: "Zero-Trust Architecture",
-    feat5Span: "Modern approach: never trust, always verify",
+    feat1Title: "Next-Generation Firewall",
+    feat1Desc: "NGFW with deep inspection, IPS, antivirus, application filtering",
+    feat2Title: "Secure VPNs",
+    feat2Desc: "IPsec and SSL VPN for remote workers and branch sites",
+    feat3Title: "Network Segmentation",
+    feat3Desc: "Critical zone isolation, micro-segmentation",
+    feat4Title: "Wi-Fi Security",
+    feat4Desc: "WPA3, guest segmentation, access control",
+    feat5Title: "Zero-Trust Architecture",
+    feat5Desc: "Modern approach: never trust, always verify",
     visualTitle: "Our expertise",
     stat1Label: "Approach",
     stat1Value: "Neutral, vendor-independent",
@@ -810,7 +884,7 @@ const translations = {
     step4Desc: "Monitoring, updates, optimization, ongoing support.",
     ctaH2: "Ready to secure your business?",
     ctaP: "Free 30-minute audit to assess your needs. No commitment.",
-    ctaBtnText: "Request free audit"
+    ctaBtn: "Request free audit"
   }
 };
  
@@ -821,21 +895,23 @@ function applyLanguage(lang) {
   if (!t) return;
   
   document.getElementById('breadLabel').innerText = t.breadLabel;
-  document.getElementById('headerSub').innerText = t.headerSub;
+  document.getElementById('pageH1Main').innerText = t.pageH1Main;
+  document.getElementById('pageH1Accent').innerText = t.pageH1Accent;
+  document.getElementById('pageH1Sub').innerText = t.pageH1Sub;
   document.getElementById('pageDesc').innerText = t.pageDesc;
   document.getElementById('tag1').innerText = t.tag1;
   document.getElementById('title1').innerText = t.title1;
   document.getElementById('desc1').innerText = t.desc1;
-  document.getElementById('feat1Strong').innerText = t.feat1Strong;
-  document.getElementById('feat1Span').innerText = t.feat1Span;
-  document.getElementById('feat2Strong').innerText = t.feat2Strong;
-  document.getElementById('feat2Span').innerText = t.feat2Span;
-  document.getElementById('feat3Strong').innerText = t.feat3Strong;
-  document.getElementById('feat3Span').innerText = t.feat3Span;
-  document.getElementById('feat4Strong').innerText = t.feat4Strong;
-  document.getElementById('feat4Span').innerText = t.feat4Span;
-  document.getElementById('feat5Strong').innerText = t.feat5Strong;
-  document.getElementById('feat5Span').innerText = t.feat5Span;
+  document.getElementById('feat1Title').innerText = t.feat1Title;
+  document.getElementById('feat1Desc').innerText = t.feat1Desc;
+  document.getElementById('feat2Title').innerText = t.feat2Title;
+  document.getElementById('feat2Desc').innerText = t.feat2Desc;
+  document.getElementById('feat3Title').innerText = t.feat3Title;
+  document.getElementById('feat3Desc').innerText = t.feat3Desc;
+  document.getElementById('feat4Title').innerText = t.feat4Title;
+  document.getElementById('feat4Desc').innerText = t.feat4Desc;
+  document.getElementById('feat5Title').innerText = t.feat5Title;
+  document.getElementById('feat5Desc').innerText = t.feat5Desc;
   document.getElementById('visualTitle').innerText = t.visualTitle;
   document.getElementById('stat1Label').innerText = t.stat1Label;
   document.getElementById('stat1Value').innerText = t.stat1Value;
@@ -859,7 +935,7 @@ function applyLanguage(lang) {
   document.getElementById('step4Desc').innerText = t.step4Desc;
   document.getElementById('ctaH2').innerText = t.ctaH2;
   document.getElementById('ctaP').innerText = t.ctaP;
-  document.getElementById('ctaBtnText').innerText = t.ctaBtnText;
+  document.getElementById('ctaBtn').innerText = t.ctaBtn;
   
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
@@ -868,7 +944,6 @@ function applyLanguage(lang) {
   localStorage.setItem('nextgen-lang', lang);
 }
  
-// LANGUAGE SWITCHER
 document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const lang = btn.getAttribute('data-lang');
@@ -879,17 +954,15 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
   });
 });
  
-// MOBILE MENU
 document.getElementById('menuToggle')?.addEventListener('click', () => {
-  const navLinks = document.getElementById('navLinks');
+  const navLinks = document.getElementById('mobileNav');
   if (navLinks) {
     navLinks.classList.toggle('active');
     const icon = document.getElementById('menuToggle').querySelector('i');
-    icon.className = navLinks.classList.contains('active') ? 'fas fa-xmark' : 'fas fa-bars';
+    icon.className = navLinks.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
   }
 });
  
-// INTERSECTION OBSERVER
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -898,7 +971,6 @@ const observer = new IntersectionObserver((entries) => {
  
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
  
-// INIT
 applyLanguage(currentLang);
 </script>
 </body>
