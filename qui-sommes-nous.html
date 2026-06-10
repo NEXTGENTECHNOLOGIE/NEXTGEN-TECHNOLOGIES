@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="mobile.css">
 <style>
 :root{
   --primary:#050B14;
@@ -30,7 +31,7 @@ a{text-decoration:none;}
   max-width: 1400px;
   margin: auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
@@ -350,46 +351,18 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
   .values-grid, .highlights-stats-box{grid-template-columns:1fr;}
   .section{padding:5rem 5%;}
 }
+.partner-badge{display:flex;align-items:center;gap:0.6rem;background:linear-gradient(135deg,rgba(0,212,255,0.15),rgba(239,68,68,0.08));padding:0.3rem 1rem;border-radius:40px;border-left:2px solid #00D4FF;}.partner-badge i{color:#00D4FF;font-size:0.8rem;}.partner-badge span{font-size:0.7rem;font-weight:700;letter-spacing:0.5px;background:linear-gradient(135deg,#fff,#00D4FF);-webkit-background-clip:text;background-clip:text;color:transparent;}.top-bar-container{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;}.nav-actions{display:flex;align-items:center;gap:1.2rem;}.menu-toggle{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;z-index:10001;}.mobile-nav-overlay{position:fixed;top:0;right:-100%;width:100%;max-width:400px;height:100vh;background:rgba(5,11,20,0.98);backdrop-filter:blur(25px);z-index:10000;padding:8rem 2rem 2rem;display:flex;flex-direction:column;gap:1.5rem;box-shadow:-10px 0 30px rgba(0,0,0,0.5);border-left:1px solid rgba(0,212,255,0.2);transition:right 0.5s cubic-bezier(0.77,0.2,0.05,1);}.mobile-nav-overlay.active{right:0;}.mobile-nav-overlay a{color:#fff;font-size:1.1rem;font-weight:600;text-decoration:none;}.btn-espace-client-mobile{background:linear-gradient(135deg,#00D4FF,#0891B2);color:#050B14!important;font-weight:700;padding:0.5rem 1.2rem;border-radius:6px;text-align:center;display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;margin-top:1rem;}.btn-primary{background:linear-gradient(135deg,#00D4FF,#0891B2);color:#050B14;padding:1rem 2rem;border-radius:40px;font-weight:700;display:inline-flex;align-items:center;gap:0.6rem;transition:all 0.3s;font-size:0.95rem;}.btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(0,212,255,0.3);}@media(max-width:1024px){.nav-links{display:none!important;}.menu-toggle{display:block!important;}}@media(max-width:768px){  .top-bar-container{flex-direction:column;align-items:center;text-align:center;gap:0.6rem;}  .top-bar-info{flex-direction:column;align-items:center;gap:0.3rem;width:100%;}  .top-bar-info span{justify-content:center;font-size:0.75rem;}  .partner-badge{font-size:0.65rem;padding:0.25rem 0.8rem;}  .top-bar-social{justify-content:center;width:100%;}  .hero{padding:3rem 4% 2.5rem;min-height:auto;}  .hero-grid{grid-template-columns:1fr!important;gap:2rem;}  .hero-left h1{font-size:2rem;}  .highlights-grid{grid-template-columns:1fr!important;gap:2rem;}  .highlights-stats-box{grid-template-columns:1fr 1fr!important;}  .mission-row{grid-template-columns:1fr!important;gap:1.5rem;}  .pillars-grid{grid-template-columns:1fr!important;}  .values-grid{grid-template-columns:1fr 1fr!important;}  .footer-grid{grid-template-columns:1fr!important;gap:2rem;}  .footer-bottom{flex-direction:column;text-align:center;}  .btn-primary{width:100%;justify-content:center;}  .section{padding:3.5rem 4%;}  .cta{padding:4rem 4%;}  .cta h2{font-size:1.8rem;}}@media(max-width:480px){  .highlights-stats-box{grid-template-columns:1fr!important;}  .values-grid{grid-template-columns:1fr!important;}  .hero-left h1{font-size:1.7rem;}}
 </style>
 </head>
 <body>
 
 <canvas id="cyber-canvas"></canvas>
 
-<div class="top-bar">
-  <div class="top-bar-container">
-    <div class="top-bar-info">
-      <span><i class="fas fa-phone"></i> <span class="top-phone">+212 728 31 28 01</span></span>
-      <span><i class="fas fa-envelope"></i> <span class="top-email">contact@netvanguard.ma</span></span>
-      <span><i class="fas fa-location-dot"></i> <span class="top-location">Casablanca</span></span>
-    </div>
-    <div class="lang-switch">
-      <button class="lang-btn active" data-lang="fr">🇫🇷 FR</button>
-      <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
-    </div>
-    <div class="top-bar-social">
-      <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      <a href="#"><i class="fab fa-x-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
-  </div>
-</div>
+<div class="top-bar">  <div class="top-bar-container">    <div class="partner-badge">      <i class="fa-solid fa-shield-halved"></i>      <span>Votre partenaire en cyberdéfense et infogérance</span>    </div>    <div class="top-bar-info">      <span><i class="fa-solid fa-phone"></i> <span class="top-phone">+212 728 31 28 01</span></span>      <span><i class="fa-solid fa-envelope"></i> <span class="top-email">contact@netvanguard.ma</span></span>      <span><i class="fa-solid fa-location-dot"></i> <span class="top-location">Casablanca</span></span>    </div>    <div class="top-bar-social" style="display:flex;align-items:center;">      <div class="lang-switch" style="margin-right:1rem;">        <button class="lang-btn active" data-lang="fr">FR</button>        <button class="lang-btn" data-lang="en">EN</button>      </div>      <a href="#"><i class="fab fa-linkedin-in"></i></a>      <a href="#"><i class="fab fa-x-twitter"></i></a>      <a href="#"><i class="fab fa-instagram"></i></a>    </div>  </div></div>
 
-<nav class="nav">
-  <div class="nav-container">
-    <a href="index.html" class="logo">  <svg class="logo-shield" viewBox="0 0 24 24" width="32" height="32">    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="#00D4FF"/>    <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>  </svg>  <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.82em;font-weight:500;color:rgba(255,255,255,0.45);">IT Solutions</span></span></a>
-    <ul class="nav-links">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="secteurs.html">Secteurs</a></li>
-      <li><a href="qui-sommes-nous.html" class="active">Qui sommes-nous</a></li>
-      <li><a href="carrieres.html">Carrières</a></li>
-      <li><a href="campus-cyber.html">🎓 Campus Cyber</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="support.html" class="btn-espace-client"><i class="fa-solid fa-user-circle"></i> Espace Client</a></li>
-    </ul>
-  </div>
-</nav>
+<nav class="nav">  <div class="nav-container">    <a href="index.html" class="logo">      <svg class="logo-shield" viewBox="0 0 24 24" width="32" height="32">        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="#00D4FF"/>        <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>      </svg>      <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.82em;font-weight:500;color:rgba(255,255,255,0.45);">IT Solutions</span></span>    </a>    <ul class="nav-links" id="navLinks">      <li><a href="index.html">Accueil</a></li>      <li><a href="services.html">Services</a></li>      <li><a href="secteurs.html">Secteurs</a></li>      <li><a href="qui-sommes-nous.html" class="active">Qui sommes-nous</a></li>      <li><a href="carrieres.html">Carrières</a></li>      <li><a href="campus-cyber.html">🎓 Campus Cyber</a></li>      <li><a href="contact.html">Contact</a></li>      <li><a href="support.html" class="btn-espace-client"><i class="fa-solid fa-user-circle"></i> Espace Client</a></li>    </ul>    <div class="nav-actions">      <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>    </div>  </div></nav>
+
+<div class="mobile-nav-overlay" id="mobileNav">  <a href="index.html">Accueil</a>  <a href="services.html">Services</a>  <a href="secteurs.html">Secteurs</a>  <a href="qui-sommes-nous.html">Qui sommes-nous</a>  <a href="carrieres.html">Carrières</a>  <a href="campus-cyber.html">🎓 Campus Cyber</a>  <a href="contact.html">Contact</a>  <a href="support.html" class="btn-espace-client-mobile"><i class="fa-solid fa-user-circle"></i> Espace Client</a></div>
 
 <section class="hero">
   <div class="hero-content">
@@ -443,7 +416,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
       <div class="pillar-card">
         <div class="pillar-icon-wrap"><i class="fas fa-satellite-dish"></i></div>
         <h3 data-key="pCard2Title">Vigilance Continue</h3>
-        <p data-key="pCard2Desc">Nos outils analysent en temps réel le comportement de vos liaisons informatiques. Cette visibilité à 360 degrés nous permet d'isoler toute anomalie de charge ou de sécurité bien avant qu'elle n'impacte vos équipes.</p>
+        <p data-key="pCard2Desc">Nos outils analysent en temps réel le comportement de vos liaisons informatiques. This visibilité à 360 degrés nous permet d'isoler toute anomalie de charge ou de sécurité bien avant qu'elle n'impacte vos équipes.</p>
       </div>
       
       <div class="pillar-card">
@@ -531,7 +504,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
   </div>
 </section>
 
-<section class="cta">
+<section class="section cta">
   <div class="cta-content">
     <h2 data-key="ctaTitle">Optimisons et sécurisons ensemble vos infrastructures numériques</h2>
     <p data-key="ctaDesc">Prenez contact avec nos ingénieurs pour évaluer la performance de vos réseaux and planifier un audit global.</p>
@@ -728,6 +701,8 @@ function animateCyberBackground() {
   requestAnimationFrame(animateCyberBackground);
 }
 animateCyberBackground();
+
+const menuToggleBtn = document.getElementById('menuToggle');const mobileNavEl = document.getElementById('mobileNav');if (menuToggleBtn && mobileNavEl) {  menuToggleBtn.addEventListener('click', () => {    mobileNavEl.classList.toggle('active');    const icon = menuToggleBtn.querySelector('i');    icon.className = mobileNavEl.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';  });}
 </script>
 </body>
 </html>
