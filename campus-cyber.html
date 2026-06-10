@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Campus Cyber NextGen Technologies — Centre de Formation Corporate.">
-  <title>Campus Cyber · NextGen Technologies</title>
+  <meta name="description" content="Campus Cyber NetVanguard Technologies — Centre de Formation Corporate.">
+  <title>Campus Cyber · NetVanguard Technologies</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
@@ -208,8 +208,8 @@
     /* RESPONSIVE */
     @media (max-width: 1024px) { .features-strip-container { grid-template-columns: repeat(2,1fr); } .footer-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 768px) {
-      .nav-links { position: fixed; top: 70px; right: 0; flex-direction: column; background: #071426; padding: 1.5rem; width: 100%; gap: 0.5rem; transform: translateX(100%); transition: transform 0.3s; }
-      .nav-links.active { transform: translateX(0); }
+      .nav-links { position: fixed; top: 70px; right: 0; flex-direction: column; background: rgba(7,20,38,0.98); backdrop-filter: blur(20px); padding: 1.5rem; width: 100%; gap: 0.5rem; display: none; border-bottom: 2px solid #00D4FF; z-index: 998; }
+      .nav-links.active { display: flex; }
       .menu-toggle { display: block; }
       .page-header-container { grid-template-columns: 1fr; }
       .features-strip-container { grid-template-columns: 1fr 1fr; }
@@ -219,51 +219,17 @@
       .header-stats { gap: 1.5rem; }
     }
     @media (max-width: 480px) { .features-strip-container { grid-template-columns: 1fr; } }
+
+    .btn-espace-client {  background: linear-gradient(135deg, #00D4FF, #0891B2) !important;  color: #050B14 !important;  font-weight: 700 !important;  padding: 0.5rem 1.2rem !important;  border-radius: 6px !important;  display: inline-flex !important;  align-items: center !important;  gap: 0.5rem !important;}.btn-espace-client:hover {  transform: translateY(-2px) !important;  box-shadow: 0 6px 20px rgba(0,212,255,0.4) !important;}
   </style>
 </head>
 <body>
 
 <div class="top-bar">
-  <div class="top-bar-container">
-    <div class="top-bar-info">
-      <span><i class="fas fa-phone"></i> +212 728 31 28 01</span>
-      <span><i class="fas fa-envelope"></i> contact@nextgentechnologies.ma</span>
-      <span><i class="fas fa-map-marker-alt"></i> Casablanca</span>
-    </div>
-    <div class="lang-switch">
-      <button class="lang-btn active" data-lang="fr">🇫🇷 FR</button>
-      <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
-    </div>
-    <div class="top-bar-social">
-      <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      <a href="#"><i class="fab fa-x-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
-  </div>
+  <div class="top-bar-container">  <div style="display:flex;align-items:center;gap:.6rem;background:linear-gradient(135deg,rgba(0,212,255,.15),rgba(239,68,68,.08));padding:.3rem 1rem;border-radius:40px;border-left:2px solid #00D4FF;">    <i class="fa-solid fa-shield-halved" style="color:#00D4FF;font-size:.8rem;"></i>    <span style="font-size:.7rem;font-weight:700;letter-spacing:.5px;background:linear-gradient(135deg,#fff,#00D4FF);-webkit-background-clip:text;background-clip:text;color:transparent;">Votre partenaire IT & cybersécurité au Maroc</span>  </div>  <div class="top-bar-info">    <span><i class="fas fa-phone"></i> +212 728 31 28 01</span>    <span><i class="fas fa-envelope"></i> contact@netvanguard.ma</span>    <span><i class="fas fa-map-marker-alt"></i> Casablanca</span>  </div>  <div class="top-bar-social" style="display:flex;align-items:center;">    <div class="lang-switch" style="margin-right:1rem;">      <button class="lang-btn active" data-lang="fr">FR</button>      <button class="lang-btn" data-lang="en">EN</button>    </div>    <a href="#"><i class="fab fa-linkedin-in"></i></a>    <a href="#"><i class="fab fa-x-twitter"></i></a>    <a href="#"><i class="fab fa-instagram"></i></a>  </div></div>
 </div>
 
-<nav class="nav">
-  <div class="nav-container">
-    <a href="index.html" class="logo">
-      <svg class="logo-shield" viewBox="0 0 64 64" width="32" height="32">
-        <path d="M32 4 L8 12 V28 C8 42 18 54 32 60 C46 54 56 42 56 28 V12 Z" fill="#00D4FF" stroke="#FFB800" stroke-width="1.5"/>
-        <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="#EF4444" stroke="#7F1D1D" stroke-width="1.5"/>
-      </svg>
-      <span>NextGen <span class="logo-text-accent">Technologies</span></span>
-    </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html" id="navAccueil">Accueil</a></li>
-      <li><a href="services.html" id="navServices">Services</a></li>
-      <li><a href="secteurs.html" id="navSecteurs">Secteurs</a></li>
-      <li><a href="qui-sommes-nous.html" id="navQuiSommesNous">Qui sommes-nous</a></li>
-      <li><a href="carrieres.html" id="navCarrieres">Carrières</a></li>
-      <li><a href="campus-cyber.html" class="active" id="navCampus">🎓 Campus Cyber</a></li>
-      <li><a href="contact.html" id="navContact">Contact</a></li>
-      <li><a href="contact.html" class="nav-cta" id="navCta">Audit gratuit</a></li>
-    </ul>
-    <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
-  </div>
-</nav>
+<nav class="nav">  <div class="nav-container">    <a href="index.html" class="logo">  <svg class="logo-shield" viewBox="0 0 24 24" width="32" height="32">    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="#00D4FF"/>    <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>  </svg>  <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em;font-weight:500;color:var(--gray-light);">IT Solutions</span></span></a>    <ul class="nav-links" id="navLinks">      <li><a href="index.html" id="navAccueil">Accueil</a></li>      <li><a href="services.html" id="navServices">Services</a></li>      <li><a href="secteurs.html" id="navSecteurs">Secteurs</a></li>      <li><a href="qui-sommes-nous.html" id="navQuiSommesNous">Qui sommes-nous</a></li>      <li><a href="carrieres.html" id="navCarrieres">Carrières</a></li>      <li><a href="campus-cyber.html" class="active" id="navCampus">🎓 Campus Cyber</a></li>      <li><a href="contact.html" id="navContact">Contact</a></li>      <li><a href="support.html" class="btn-espace-client"><i class="fa-solid fa-user-circle"></i> Espace Client</a></li>    </ul>    <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>  </div></nav>
 
 <section class="page-header">
   <div class="page-header-container">
@@ -285,22 +251,7 @@
         <div class="header-stat"><div class="num">24/7</div><div class="lbl" id="statAcces">Accès continu</div></div>
       </div>
     </div>
-    <div class="trainer-card">
-      <div class="trainer-photo">
-        <img src="abdeljalil.jpg" alt="Dr. Abdeljalil Beniiche">
-      </div>
-      <h3>Dr. Abdeljalil Beniiche</h3>
-      <div class="trainer-role" id="trainerRole">Docteur en informatique & cybersécurité</div>
-      <p class="trainer-desc" id="trainerDesc">Docteur en informatique et cybersécurité et fin pédagogue, Abdeljalil intervient dans des thématiques aussi variées que l'architecture de sécurité, la sécurité du cloud, l'intégration de la cybersécurité dans les entreprises, la cybersécurité pour les dirigeants, la protection des données, la préparation à la certification CISSP et la formation générale en cybersécurité.</p>
-      <div class="trainer-skills">
-        <span class="trainer-skill" id="skill1">Architecture</span>
-        <span class="trainer-skill" id="skill2">Sécurité cloud</span>
-        <span class="trainer-skill" id="skill3">Formation</span>
-        <span class="trainer-skill">CISSP</span>
-        <span class="trainer-skill" id="skill4">Protection données</span>
-        <span class="trainer-skill" id="skill5">Pédagogie</span>
-      </div>
-    </div>
+    <div class="trainer-card" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;">  <div style="width:110px;height:110px;border-radius:50%;background:linear-gradient(135deg,#00D4FF,#0891B2);display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px rgba(0,212,255,.4);border:3px solid rgba(0,212,255,.3);">    <svg viewBox="0 0 24 24" width="52" height="52" fill="white">      <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>      <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="rgba(255,255,255,0.7)"/>    </svg>  </div>  <div style="text-align:center;">    <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:#fff;margin-bottom:.3rem;">Expert Security Architect</div>    <div style="color:#00D4FF;font-size:.82rem;font-weight:600;margin-bottom:.8rem;">NetVanguard Academy</div>    <div style="display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;">      <span style="background:rgba(0,212,255,.15);color:#00D4FF;padding:.3rem .8rem;border-radius:20px;font-size:.7rem;font-weight:600;">Architecture</span>      <span style="background:rgba(0,212,255,.15);color:#00D4FF;padding:.3rem .8rem;border-radius:20px;font-size:.7rem;font-weight:600;">Cloud Security</span>      <span style="background:rgba(0,212,255,.15);color:#00D4FF;padding:.3rem .8rem;border-radius:20px;font-size:.7rem;font-weight:600;">CISSP</span>      <span style="background:rgba(0,212,255,.15);color:#00D4FF;padding:.3rem .8rem;border-radius:20px;font-size:.7rem;font-weight:600;">Formation</span>      <span style="background:rgba(255,184,0,.15);color:#FFB800;padding:.3rem .8rem;border-radius:20px;font-size:.7rem;font-weight:600;">Data Privacy</span>    </div>  </div></div>
   </div>
 </section>
 
@@ -316,110 +267,65 @@
 <section class="login-section" id="loginSection">
   <div class="container">
     <div class="login-card">
-      <div class="login-icon"><i class="fas fa-shield-halved"></i></div>
-      <h2 id="loginTitle">Centre de Formation Corporate</h2>
-      <p id="loginDesc">Entrez votre mot de passe pour accéder à vos ressources de formation.</p>
+      <div class="login-icon"><i class="fas fa-lock"></i></div>
+      <h2 id="loginTitle">Connexion au Campus</h2>
+      <p id="loginSubtitle">Veuillez saisir le code d'accès fourni par votre entreprise pour déverrouiller vos modules.</p>
       <div class="login-input-wrap">
-        <input type="password" id="passwordInput" placeholder="••••••••" onkeydown="if(event.key==='Enter') checkPassword()">
-        <button class="btn-primary" onclick="checkPassword()">
-          <i class="fas fa-arrow-right"></i>
-        </button>
+        <input type="password" id="passInput" placeholder="Code d'accès sécurisé...">
+        <button class="btn-primary" id="loginBtn"><i class="fas fa-sign-in-alt"></i> <span id="loginBtnTxt">Entrer</span></button>
       </div>
-      <p class="login-error" id="loginError">Mot de passe incorrect. Contactez votre formateur.</p>
-      <p class="login-hint" id="loginHint">🔒 Accès réservé aux membres inscrits aux formations NextGen Academy</p>
+      <div class="login-error" id="loginError">Code d'accès incorrect. Veuillez réessayer.</div>
+      <div class="login-hint" id="loginHint">🔒 Connexion chiffrée SSL de bout en bout.</div>
     </div>
   </div>
 </section>
 
 <section class="protected-section" id="protectedSection">
   <div class="protected-container">
-
     <div class="welcome-bar">
-      <i class="fas fa-circle-check"></i>
-      <span id="welcomeMsg">Bienvenue ! Vous êtes connecté à votre espace de formation.</span>
+      <i class="fas fa-shield-check"></i>
+      <div>
+        <span id="welcomeTxt">Accès Corporate Validé — Bienvenue sur votre espace d'apprentissage NetVanguard IT Solutions.</span>
+      </div>
     </div>
 
     <div class="modules-header">
-      <h2 id="modulesTitle">📘 Mes modules de formation</h2>
-      <p id="modulesDesc">Progressez à votre rythme — chaque module contient une vidéo, un support PDF et un quiz d'évaluation.</p>
-      <p class="progress-label" id="progressLabel">Progression : Modules de formation débloqués</p>
-      <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressBar"></div></div>
+      <h2 id="modulesTitle">Vos Modules de Formation Réseau & Cybersécurité</h2>
+      <p id="modulesSubtitle">Suivez votre progression, téléchargez vos supports officiels et validez vos acquis via les quiz.</p>
+      <div class="progress-label"><span id="progressLbl">Progression globale de la formation</span> — <strong id="progressPercent">0%</strong></div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="globalProgress" style="width: 0%;"></div>
+      </div>
     </div>
 
-    <div class="video-grid">
-      
+    <div class="video-grid" id="videoGrid">
       <div class="video-card">
         <div class="video-card-header">
           <div class="module-num">01</div>
           <h3 id="m1Title">Sensibilisation Cybersécurité & Anti-Phishing</h3>
           <span class="badge new" id="m1Badge">En cours</span>
         </div>
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Module 1 Video"></iframe>
         <div class="course-body">
-          <p class="course-desc-text" id="m1FullDesc">Une immersion complète dans les techniques d'ingénierie sociale modernes. Ce module décrypte les aspects psychologiques et techniques des cyberattaques ciblant le facteur humain, en dotant vos collaborateurs de clés de détection pragmatiques basées sur des cas réels du paysage de menaces actuel.</p>
-          
+          <p class="course-desc-text" id="m1Desc">Une immersion complète dans les techniques d'ingénierie sociale modernes. Ce module décrypte les aspects psychologiques et techniques des cyberattaques ciblant le facteur humain, en dotant vos collaborateurs de clés de détection pragmatiques.</p>
           <div class="course-section-title"><i class="fas fa-bullseye"></i> <span id="lblObj1">Objectifs pédagogiques</span></div>
           <ul class="course-list" id="m1Objectives">
-            <li><i class="fas fa-check"></i> Identifier instantanément les vecteurs d'attaques par ingénierie sociale multi-canal.</li>
-            <li><i class="fas fa-check"></i> Acquérir les réflexes de défense immédiats face au phishing, smishing et vishing.</li>
-            <li><i class="fas fa-check"></i> Analyser de manière critique les en-têtes de messages et les structures d'URLs suspectes.</li>
-            <li><i class="fas fa-check"></i> Déjouer les schémas de manipulation psychologique basés sur l'urgence ou l'autorité.</li>
-            <li><i class="fas fa-check"></i> Appliquer les processus internes de signalement d'incidents de l'entreprise.</li>
-            <li><i class="fas fa-check"></i> Différencier une communication corporative légitime d'une usurpation ciblée.</li>
-            <li><i class="fas fa-check"></i> Atténuer durablement le risque d'exfiltration de données d'identification sensibles.</li>
-          </ul>
-          
+            </ul>
           <div class="course-section-title"><i class="fas fa-list-ol"></i> <span id="lblProg1">Programme détaillé</span></div>
           <ul class="course-list prog" id="m1Prog">
-            <li><i class="fas fa-circle-notch"></i> <strong>Module A: Anatomie de l'ingénierie sociale</strong></li>
-            <ul class="course-list sub-prog">
-              <li><i class="fas fa-minus"></i> Histoire et évolution des attaques basées sur l'humain</li>
-              <li><i class="fas fa-minus"></i> Le cycle de vie d'une attaque d'ingénierie sociale</li>
-              <li><i class="fas fa-minus"></i> Collecte d'informations (OSINT) pré-attaque par les acteurs malveillants</li>
-              <li><i class="fas fa-minus"></i> Différence entre hameçonnage de masse et Spear-Phishing</li>
-              <li><i class="fas fa-minus"></i> Les nouvelles frontières : l'apport de l'IA générative dans les attaques</li>
-            </ul>
-            <li><i class="fas fa-circle-notch"></i> <strong>Module B: Mécanismes psychologiques de manipulation</strong></li>
-            <ul class="course-list sub-prog">
-              <li><i class="fas fa-minus"></i> Le principe d'autorité et l'usurpation de l'identité des dirigeants</li>
-              <li><i class="fas fa-minus"></i> L'exploitation du sentiment d'urgence et de la peur</li>
-              <li><i class="fas fa-minus"></i> Les leviers de la curiosité, de la flatterie et de la récompense</li>
-              <li><i class="fas fa-minus"></i> Biais cognitifs mis à contribution par les attaquants</li>
-              <li><i class="fas fa-minus"></i> Techniques de déconditionnement et de vigilance cognitive</li>
-            </ul>
-            <li><i class="fas fa-circle-notch"></i> <strong>Module C: Analyse technique des messages malveillants</strong></li>
-            <ul class="course-list sub-prog">
-              <li><i class="fas fa-minus"></i> Décryptage des en-têtes techniques de messagerie (MIME, SMTP)</li>
-              <li><i class="fas fa-minus"></i> Compréhension élémentaire de SPF, DKIM et DMARC</li>
-              <li><i class="fas fa-minus"></i> Techniques d'obfuscation d'URLs, typosquatting et homographes</li>
-              <li><i class="fas fa-minus"></i> Analyse des pièces jointes à haut risque (macros, scripts exécutables)</li>
-              <li><i class="fas fa-minus"></i> Analyse pratique d'emails frauduleux en environnement sécurisé</li>
-            </ul>
-            <li><i class="fas fa-circle-notch"></i> <strong>Module D: Procédures d'alerte et remédiation interne</strong></li>
-            <ul class="course-list sub-prog">
-              <li><i class="fas fa-minus"></i> Utilisation des outils internes de signalement en un clic</li>
-              <li><i class="fas fa-minus"></i> Comportements immédiats à adopter en cas de clic par inadvertance</li>
-              <li><i class="fas fa-minus"></i> Rôle de l'équipe de réponse aux incidents (CSIRT/SOC)</li>
-              <li><i class="fas fa-minus"></i> Isolation des postes de travail potentiellement compromis</li>
-              <li><i class="fas fa-minus"></i>REX (Retour d'expérience) et culture de la sécurité sans blâme</li>
-            </ul>
+            <li><i class="fas fa-minus"></i> Anatomie d'un email de phishing moderne et techniques d'obfuscation</li>
+            <li><i class="fas fa-minus"></i> Les ressorts psychologiques : urgence, autorité, curiosité et peur</li>
+            <li><i class="fas fa-minus"></i> Les attaques connexes : Spear-Phishing, Smishing (SMS) et Vishing (voix)</li>
+            <li><i class="fas fa-minus"></i> Analyse d'en-têtes de messages (Headers) et détection de spoofing</li>
+            <li><i class="fas fa-minus"></i> Bonnes pratiques d'hygiène numérique au quotidien au bureau et en télétravail</li>
           </ul>
-
           <div class="course-section-title"><i class="fas fa-graduation-cap"></i> <span id="lblSkills1">Compétences acquises</span></div>
           <ul class="course-list" id="m1Skills">
-            <li><i class="fas fa-star" style="color:var(--gold)"></i> Maîtrise de la détection visuelle et logique des courriels piégés.</li>
-            <li><i class="fas fa-star" style="color:var(--gold)"></i> Capacité opérationnelle à signaler un incident cyber selon les normes de l'entreprise.</li>
-            <li><i class="fas fa-star" style="color:var(--gold)"></i> Autonomie face aux sollicitations suspectes par canaux voix (vishing) et SMS (smishing).</li>
-          </ul>
+            </ul>
         </div>
-        
-        <div class="quiz-container-box" id="quizBox1">
-          </div>
-
+        <div class="quiz-container-box" id="quizBox1"></div>
         <div class="video-card-footer">
-          <a href="formations/sensibilisation-phishing.pdf" download class="dl-btn pdf" id="m1Pdf">
-            <i class="fas fa-file-pdf"></i> Support PDF
-          </a>
+          <a href="formations/sensibilisation-cyber.pdf" download class="dl-btn pdf" id="m1Pdf"><i class="fas fa-file-pdf"></i> Support PDF</a>
         </div>
       </div>
 
@@ -429,72 +335,27 @@
           <h3 id="m2Title">Introduction à l'Architecture de Sécurité</h3>
           <span class="badge new" id="m2Badge">En cours</span>
         </div>
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Module 2 Video"></iframe>
         <div class="course-body">
-          <p class="course-desc-text" id="m2FullDesc">Ce module pose les piliers fondamentaux de l'architecture de sécurité réseau et système. À travers l'étude de frameworks de référence, vous apprendrez à concevoir des infrastructures robustes capables de compartimenter les menaces et de résister aux assauts cyber modernes.</p>
-          
+          <p class="course-desc-text" id="m2Desc">Ce module pose les bases fondamentales de la conception de réseaux d'entreprise résilients. Apprenez à structurer des zones de confiance étanches, à intégrer des composants de filtrage avancés et à appliquer le modèle Zero Trust.</p>
           <div class="course-section-title"><i class="fas fa-bullseye"></i> <span id="lblObj2">Objectifs pédagogiques</span></div>
           <ul class="course-list" id="m2Objectives">
-            <li><i class="fas fa-check"></i> Concevoir des topologies réseau hautement sécurisées basées sur la segmentation stricte.</li>
-            <li><i class="fas fa-check"></i> Appliquer les modèles de défense en profondeur (Defense in Depth) sur tous les niveaux.</li>
-            <li><i class="fas fa-check"></i> Structurer des zones de confiance étanches à l'aide de passerelles de filtrage avancées.</li>
-            <li><i class="fas fa-check"></i> Intégrer les principes architecturaux du paradigme Zero Trust de manière transverse.</li>
-            <li><i class="fas fa-check"></i> Évaluer l'efficacité des mécanismes de chiffrement pour les données internes.</li>
-            <li><i class="fas fa-check"></i> Déterminer le positionnement optimal des sondes de détection d'intrusions (IDS/IPS).</li>
-            <li><i class="fas fa-check"></i> Élaborer des schémas d'interconnexion sécurisée pour les filiales et le travail distant.</li>
-          </ul>
-          
+            </ul>
           <div class="course-section-title"><i class="fas fa-list-ol"></i> <span id="lblProg2">Programme détaillé</span></div>
           <ul class="course-list prog" id="m2Prog">
-            <li><i class="fas fa-circle-notch"></i> <strong>Module A: Principes de segmentation et DMZ</strong></li>
-            <ul class="course-list sub-prog">
-              <li><i class="fas fa-minus"></i> Fondations théoriques du découpage en zones de sécurité</li>
-              <li><i class="fas fa-minus"></i> Architecture de DMZ simple, double barrière et multi-niveaux</li>
-              <li><i class="fas fa-minus"></i> VLANs de sécurité, routage inter-VLAN et ACLs</li>
-              <li><i class="fas fa-minus"></i> Micro-segmentation logicielle dans les centres de données</li>
-              <li><i class="fas fa-minus"></i> Étude de cas pratiques : isolation d'une application e-commerce</li>
-            </ul>
-            <li><i class="fas fa-circle-notch"></i> <strong>Module B: Modèles de défense en profondeur</strong></li>
-            <ul class="course-list sub-prog">
-              <li><i class="fas fa-minus"></i> Concept de superposition des contrôles administratifs, physiques et techniques</li>
-              <li><i class="fas fa-minus"></i> Sécurisation de la couche humaine, des terminaux, des réseaux et des applications</li>
-              <li><i class="fas fa-minus"></i> Politiques de durcissement (Hardening) de l'OS et des applications de base</li>
-              <li><i class="fas fa-minus"></i> Gestion des correctifs de sécurité (Patch Management) comme impératif</li>
-              <li><i class="fas fa-minus"></i> Redondance structurelle et résilience architecturale</li>
-            </ul>
-            <li><i class="fas fa-circle-notch"></i> <strong>Module C: Vers le modèle Zero Trust Architecture</strong></li>
-            <ul class="course-list sub-prog">
-              <li><i class="fas fa-minus"></i> Critique du modèle périmétrique traditionnel "Château Fort"</li>
-              <li><i class="fas fa-minus"></i> Les 7 piliers directeurs du framework NIST SP 800-207</li>
-              <li><i class="fas fa-minus"></i> Moteurs de politique de sécurité (Policy Engine / Policy Administrator)</li>
-              <li><i class="fas fa-minus"></i> Authentification contextuelle, adaptative et continue</li>
-              <li><i class="fas fa-minus"></i> Passage progressif d'un réseau hérité vers une architecture Zero Trust</li>
-            </ul>
-            <li><i class="fas fa-circle-notch"></i> <strong>Module D: Filtrage et inspection des flux</strong></li>
-            <ul class="course-list sub-prog">
-              <li><i class="fas fa-minus"></i> Évolution des firewalls : du filtrage de paquets aux Next-Gen Firewalls (NGFW)</li>
-              <li><i class="fas fa-minus"></i> Inspection SSL/TLS : enjeux de sécurité, de performance et de confidentialité</li>
-              <li><i class="fas fa-minus"></i> Passerelles Web Sécurisées (SWG) et Reverse Proxies</li>
-              <li><i class="fas fa-minus"></i> Déploiement opérationnel des IDS, IPS et Network Detection & Response (NDR)</li>
-              <li><i class="fas fa-minus"></i> Centralisation et analyse des flux réseaux via les solutions SIEM</li>
-            </ul>
+            <li><i class="fas fa-minus"></i> Principes fondamentaux du modèle de défense en profondeur (Defense in Depth)</li>
+            <li><i class="fas fa-minus"></i> Segmentation réseau : VLANs, DMZ étanches et micro-segmentation</li>
+            <li><i class="fas fa-minus"></i> Positionnement et règles de filtrage : Firewalls étatiques (Stateful) et NGFW</li>
+            <li><i class="fas fa-minus"></i> Détection et prévention d'intrusions : Concepts et déploiement IDS/IPS</li>
+            <li><i class="fas fa-minus"></i> Introduction au paradigme Zero Trust (Ne jamais faire confiance, toujours vérifier)</li>
           </ul>
-
           <div class="course-section-title"><i class="fas fa-graduation-cap"></i> <span id="lblSkills2">Compétences acquises</span></div>
           <ul class="course-list" id="m2Skills">
-            <li><i class="fas fa-star" style="color:var(--gold)"></i> Aptitude complète à cartographier et auditer l'architecture réseau d'une infrastructure.</li>
-            <li><i class="fas fa-star" style="color:var(--gold)"></i> Maîtrise de l'intégration des règles Zero Trust dans les spécifications techniques.</li>
-            <li><i class="fas fa-star" style="color:var(--gold)"></i> Capacité à spécifier les besoins en équipements de filtrage de nouvelle génération.</li>
-          </ul>
+            </ul>
         </div>
-        
-        <div class="quiz-container-box" id="quizBox2">
-          </div>
-
+        <div class="quiz-container-box" id="quizBox2"></div>
         <div class="video-card-footer">
-          <a href="formations/architecture-securite.pdf" download class="dl-btn pdf" id="m2Pdf">
-            <i class="fas fa-file-pdf"></i> Support PDF
-          </a>
+          <a href="formations/architecture-securite.pdf" download class="dl-btn pdf" id="m2Pdf"><i class="fas fa-file-pdf"></i> Support PDF</a>
         </div>
       </div>
 
@@ -504,72 +365,27 @@
           <h3 id="m3Title">Fondamentaux de la Sécurité Cloud</h3>
           <span class="badge new" id="m3Badge">En cours</span>
         </div>
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Module 3 Video"></iframe>
         <div class="course-body">
-          <p class="course-desc-text" id="m3FullDesc">Le passage au cloud transforme radicalement le périmètre technologique. Ce cours offre une compréhension experte de la sécurité au sein des environnements dématérialisés publics, hybrides et multi-cloud, en se concentrant sur la configuration sans faille des services cloud.</p>
-          
+          <p class="course-desc-text" id="m3Desc">Maîtrisez les concepts clés de la sécurisation des infrastructures hébergées (IaaS, PaaS, SaaS). Comprenez le modèle de responsabilité partagée et apprenez à verrouiller les accès et les données dans des environnements multi-cloud.</p>
           <div class="course-section-title"><i class="fas fa-bullseye"></i> <span id="lblObj3">Objectifs pédagogiques</span></div>
           <ul class="course-list" id="m3Objectives">
-            <li><i class="fas fa-check"></i> Délimiter avec précision les périmètres du modèle de responsabilité partagée.</li>
-            <li><i class="fas fa-check"></i> Configurer des politiques de gestion des identités et des accès (IAM) de granularité fine.</li>
-            <li><i class="fas fa-check"></i> Mettre en œuvre le chiffrement avancé des données au repos, en transit et en usage.</li>
-            <li><i class="fas fa-check"></i> Auditer en continu la conformité des configurations cloud contre les dérives (Drift).</li>
-            <li><i class="fas fa-check"></i> Sécuriser les architectures de conteneurs et les orchestrateurs de type Kubernetes.</li>
-            <li><i class="fas fa-check"></i> Déployer des solutions de visibilité et de contrôle de type CASB et CSPM.</li>
-            <li><i class="fas fa-check"></i> Établir des tunnels interconnectés hautement sécurisés (VPN IPsec / ExpressRoute).</li>
-          </ul>
-          
+            </ul>
           <div class="course-section-title"><i class="fas fa-list-ol"></i> <span id="lblProg3">Programme détaillé</span></div>
           <ul class="course-list prog" id="m3Prog">
-            <li><i class="fas fa-circle-notch"></i> <strong>Module A: Modèle de responsabilité conjointe</strong></li>
-            <ul class="course-list sub-prog">
-              <li><i class="fas fa-minus"></i> Différenciation fine des responsabilités en IaaS, PaaS, SaaS</li>
-              <li><i class="fas fa-minus"></i> Les obligations du Fournisseur de Services Cloud (CSP) vis-à-vis des infrastructures physiques</li>
-              <li><i class="fas fa-minus"></i> Les obligations exclusives du Client (données, configurations, accès)</li>
-              <li><i class="fas fa-minus"></i> Analyse des clauses de sécurité contractuelles des grands CSP (AWS, Azure, GCP)</li>
-              <li><i class="fas fa-minus"></i> Gestion du risque juridique lié à la souveraineté des données (Cloud Act vs RGPD)</li>
-            </ul>
-            <li><i class="fas fa-circle-notch"></i> <strong>Module B: Gestion des identités (IAM) et gouvernance</strong></li>
-            <ul class="course-list sub-prog">
-              <li><i class="fas fa-minus"></i> Principes du moindre privilège appliqué aux utilisateurs et aux ressources applicatives</li>
-              <li><i class="fas fa-minus"></i> Configuration des politiques IAM basées sur les rôles (RBAC) et les attributs (ABAC)</li>
-              <li><i class="fas fa-minus"></i> Fédération d'identités, SSO et protocoles d'authentification modernes (SAML, OIDC)</li>
-              <li><i class="fas fa-minus"></i> Gestion des secrets cryptographiques, clés d'API et identités de machines (Vaults)</li>
-              <li><i class="fas fa-minus"></i> Revues d'accès régulières et rapports de gouvernance automatique</li>
-            </ul>
-            <li><i class="fas fa-circle-notch"></i> <strong>Module C: Protection des données et stockage Cloud</strong></li>
-            <ul class="course-list sub-prog">
-              <li><i class="fas fa-minus"></i> Mécanismes de chiffrement côté serveur et côté client (Customer Managed Keys)</li>
-              <li><i class="fas fa-minus"></i> Sécurisation avancée des compartiments de stockage (S3, Azure Blobs)</li>
-              <li><i class="fas fa-minus"></i> Techniques d'anonymisation, de pseudonymisation et tokenisation dans le Cloud</li>
-              <li><i class="fas fa-minus"></i> Sauvegardes cloud immuables et résilientes face aux attaques par ransomware</li>
-              <li><i class="fas fa-minus"></i> Cycle de vie des données et destruction sécurisée des actifs obsolètes</li>
-            </ul>
-            <li><i class="fas fa-circle-notch"></i> <strong>Module D: Supervision et posture de sécurité (CSPM/CASB)</strong></li>
-            <ul class="course-list sub-prog">
-              <li><i class="fas fa-minus"></i> Introduction aux outils de Cloud Security Posture Management (CSPM)</li>
-              <li><i class="fas fa-minus"></i> Détection automatique des mauvaises configurations et remédiation automatisée</li>
-              <li><i class="fas fa-minus"></i> Rôle des Cloud Access Security Brokers (CASB) pour sécuriser l'usage des SaaS</li>
-              <li><i class="fas fa-minus"></i> Journalisation globale des événements administratifs (CloudTrail, Activity Logs)</li>
-              <li><i class="fas fa-minus"></i> Intégration de la sécurité dans les pipelines d'Infrastructure as Code (SecDevOps)</li>
-            </ul>
+            <li><i class="fas fa-minus"></i> Le modèle de responsabilité partagée entre le fournisseur cloud et le client</li>
+            <li><i class="fas fa-minus"></i> Gestion des identités et des accès (IAM) : Privilège minimum et MFA</li>
+            <li><i class="fas fa-minus"></i> Sécurisation des stockages cloud : Chiffrement au repos (At-Rest) et en transit</li>
+            <li><i class="fas fa-minus"></i> Journalisation et surveillance continue : Centralisation des logs (SIEM Cloud)</li>
+            <li><i class="fas fa-minus"></i> Conformité et gouvernance des données : Gestion des dérives de configuration</li>
           </ul>
-
           <div class="course-section-title"><i class="fas fa-graduation-cap"></i> <span id="lblSkills3">Compétences acquises</span></div>
           <ul class="course-list" id="m3Skills">
-            <li><i class="fas fa-star" style="color:var(--gold)"></i> Capacité à configurer des environnements d'infrastructure multi-cloud sans faille de sécurité.</li>
-            <li><i class="fas fa-star" style="color:var(--gold)"></i> Expertise pratique dans la gestion centralisée des accès et des secrets applicatifs cloud.</li>
-            <li><i class="fas fa-star" style="color:var(--gold)"></i> Maîtrise des standards de remédiation automatisée des configurations défectueuses.</li>
-          </ul>
+            </ul>
         </div>
-        
-        <div class="quiz-container-box" id="quizBox3">
-          </div>
-
+        <div class="quiz-container-box" id="quizBox3"></div>
         <div class="video-card-footer">
-          <a href="formations/securite-cloud.pdf" download class="dl-btn pdf" id="m3Pdf">
-            <i class="fas fa-file-pdf"></i> Support PDF
-          </a>
+          <a href="formations/securite-cloud.pdf" download class="dl-btn pdf" id="m3Pdf"><i class="fas fa-file-pdf"></i> Support PDF</a>
         </div>
       </div>
 
@@ -579,72 +395,27 @@
           <h3 id="m4Title">Cybersécurité pour les Dirigeants</h3>
           <span class="badge new" id="m4Badge">En cours</span>
         </div>
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Module 4 Video"></iframe>
         <div class="course-body">
-          <p class="course-desc-text" id="m4FullDesc">Conçu spécifiquement pour les instances décisionnelles, ce module transforme le risque technique de la cybersécurité en un enjeu stratégique compréhensible de gouvernance d'entreprise. Apprenez à arbitrer, financer et diriger la résilience cyber globale.</p>
-          
+          <p class="course-desc-text" id="m4Desc">Ce module s'adresse aux preneurs de décision. Il traduit les menaces techniques en risques business, fournit des clés de gouvernance et pose la méthodologie pour structurer une cellule de gestion de crise efficace.</p>
           <div class="course-section-title"><i class="fas fa-bullseye"></i> <span id="lblObj4">Objectifs pédagogiques</span></div>
           <ul class="course-list" id="m4Objectives">
-            <li><i class="fas fa-check"></i> Aligner la stratégie de cybersécurité sur les impératifs de croissance business.</li>
-            <li><i class="fas fa-check"></i> Interpréter les indicateurs cyber complexes sous forme de tableaux de bord financiers.</li>
-            <li><i class="fas fa-check"></i> Piloter efficacement une cellule de crise corporative face à une attaque d'envergure.</li>
-            <li><i class="fas fa-check"></i> Structurer les investissements cyber selon des calculs rigoureux de ROI sur risques.</li>
-            <li><i class="fas fa-check"></i> Évaluer l'exposition de l'entreprise aux risques juridiques et de réputation.</li>
-            <li><i class="fas fa-check"></i> Définir une gouvernance claire répartissant les rôles entre DSI, RSSI et Direction.</li>
-            <li><i class="fas fa-check"></i> Intégrer les clauses de cyber-assurance adéquates au profil de l'organisation.</li>
-          </ul>
-          
+            </ul>
           <div class="course-section-title"><i class="fas fa-list-ol"></i> <span id="lblProg4">Programme détaillé</span></div>
           <ul class="course-list prog" id="m4Prog">
-            <li><i class="fas fa-circle-notch"></i> <strong>Module A: Alignement cyber et stratégie business</strong></li>
-            <ul class="course-list sub-prog">
-              <li><i class="fas fa-minus"></i> Positionnement de la cybersécurité comme vecteur de confiance et avantage concurrentiel</li>
-              <li><i class="fas fa-minus"></i> Modèles de maturité cyber d'entreprise (CMMC, ISO 27004)</li>
-              <li><i class="fas fa-minus"></i> Traduction des menaces techniques en risques opérationnels majeurs</li>
-              <li><i class="fas fa-minus"></i> L'impact des interruptions de service sur la supply chain et les clients</li>
-              <li><i class="fas fa-minus"></i> Méthodes d'intégration de la sécurité dès la genèse des projets métiers</li>
-            </ul>
-            <li><i class="fas fa-circle-notch"></i> <strong>Module B: KPI, métriques et tableaux de bord</strong></li>
-            <ul class="course-list sub-prog">
-              <li><i class="fas fa-minus"></i> Sélection d'indicateurs clés pertinents pour le Conseil d'Administration</li>
-              <li><i class="fas fa-minus"></i> Analyse des taux de remédiation, temps de détection (MTTD) et de réponse (MTTR)</li>
-              <li><i class="fas fa-minus"></i> Compréhension des audits de pénétration externes et scoring de sécurité</li>
-              <li><i class="fas fa-minus"></i> Budgétisation de la sécurité informatique : répartition Capex/Opex idéale</li>
-              <li><i class="fas fa-minus"></i> Établissement de rapports de conformité clairs pour les actionnaires</li>
-            </ul>
-            <li><i class="fas fa-circle-notch"></i> <strong>Module C: Gouvernance et gestion de crise cyber</strong></li>
-            <ul class="course-list sub-prog">
-              <li><i class="fas fa-minus"></i> Organisation et rôles d'une cellule de crise (Direction, Technique, Juridique, RP)</li>
-              <li><i class="fas fa-minus"></i> Stratégie d'arbre de décision en cas d'attaque par ransomware : payer ou ne pas payer ?</li>
-              <li><i class="fas fa-minus"></i> Communication interne et externe en période de crise : rassurer sans trahir de secrets</li>
-              <li><i class="fas fa-minus"></i> Scénarios de simulation de crise sur table pour la direction</li>
-              <li><i class="fas fa-minus"></i> Continuité des opérations dégradées en l'absence de systèmes d'information</li>
-            </ul>
-            <li><i class="fas fa-circle-notch"></i> <strong>Module D: Responsabilité juridique et cyber-assurance</strong></li>
-            <ul class="course-list sub-prog">
-              <li><i class="fas fa-minus"></i> Responsabilité civile et pénale du dirigeant en cas de négligence avérée</li>
-              <li><i class="fas fa-minus"></i> Le marché de la cyber-assurance : critères de souscription et exclusions fréquentes</li>
-              <li><i class="fas fa-minus"></i> Gestion contractuelle de la sécurité des tiers et sous-traitants</li>
-              <li><i class="fas fa-minus"></i> Conformité aux réglementations sectorielles nationales et internationales</li>
-              <li><i class="fas fa-minus"></i> Processus d'évaluation post-incident et dépôt de plainte légale</li>
-            </ul>
+            <li><i class="fas fa-minus"></i> Panorama mondial des cybermenaces et impacts financiers/réputationnels</li>
+            <li><i class="fas fa-minus"></i> Cartographie des risques numériques et alignement avec la stratégie d'entreprise</li>
+            <li><i class="fas fa-minus"></i> Organisation de la gouvernance : Rôles du RSSI, du DPO et du Comité de Direction</li>
+            <li><i class="fas fa-minus"></i> Principes fondamentaux de la gestion de crise : Communication et continuité d'activité (PCA)</li>
+            <li><i class="fas fa-minus"></i> Cadres réglementaires, conformité sectorielle et cyber-assurance</li>
           </ul>
-
           <div class="course-section-title"><i class="fas fa-graduation-cap"></i> <span id="lblSkills4">Compétences acquises</span></div>
           <ul class="course-list" id="m4Skills">
-            <li><i class="fas fa-star" style="color:var(--gold)"></i> Maîtrise décisionnelle complète pour la validation des enveloppes budgétaires cyber.</li>
-            <li><i class="fas fa-star" style="color:var(--gold)"></i> Capacité managériale à diriger une cellule de gestion de crise cyber d'envergure.</li>
-            <li><i class="fas fa-star" style="color:var(--gold)"></i> Aptitude à piloter la politique de gestion des risques tiers de l'entreprise.</li>
-          </ul>
+            </ul>
         </div>
-        
-        <div class="quiz-container-box" id="quizBox4">
-          </div>
-
+        <div class="quiz-container-box" id="quizBox4"></div>
         <div class="video-card-footer">
-          <a href="formations/cyber-dirigeants.pdf" download class="dl-btn pdf" id="m4Pdf">
-            <i class="fas fa-file-pdf"></i> Support PDF
-          </a>
+          <a href="formations/cyber-dirigeants.pdf" download class="dl-btn pdf" id="m4Pdf"><i class="fas fa-file-pdf"></i> Support PDF</a>
         </div>
       </div>
 
@@ -654,498 +425,238 @@
           <h3 id="m5Title">Protection des Données & Conformité</h3>
           <span class="badge new" id="m5Badge">En cours</span>
         </div>
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Module 5 Video"></iframe>
         <div class="course-body">
-          <p class="course-desc-text" id="m5FullDesc">Ce module traite de la mise en conformité réglementaire stricte des systèmes d'information. Vous explorerez en profondeur les exigences de la loi nationale 09-08 (CNDP) ainsi que l'harmonisation indispensable avec les cadres mondiaux type RGPD.</p>
-          
+          <p class="course-desc-text" id="m5Desc">Maîtrisez les obligations juridiques et techniques de protection de la vie privée. Ce module détaille la mise en conformité pratique avec la loi marocaine 09-08 ainsi qu'avec le règlement européen RGPD.</p>
           <div class="course-section-title"><i class="fas fa-bullseye"></i> <span id="lblObj5">Objectifs pédagogiques</span></div>
           <ul class="course-list" id="m5Objectives">
-            <li><i class="fas fa-check"></i> Assurer l'alignement total des traitements de données avec la loi marocaine 09-08.</li>
-            <li><i class="fas fa-check"></i> Déployer les mécanismes organisationnels imposés par le règlement européen RGPD.</li>
-            <li><i class="fas fa-check"></i> Structurer et maintenir à jour une cartographie exhaustive des données nominatives.</li>
-            <li><i class="fas fa-check"></i> Mettre en œuvre le principe de minimisation des données au sein des applicatifs.</li>
-            <li><i class="fas fa-check"></i> Rédiger des politiques de confidentialité conformes et transparentes pour les tiers.</li>
-            <li><i class="fas fa-check"></i> Conduire des analyses d'impact sur la protection des données (AIPD / PIA).</li>
-            <li><i class="fas fa-check"></i> Orchestrer les réponses logistiques aux demandes de droits des personnes physiques.</li>
-          </ul>
-          
+            </ul>
           <div class="course-section-title"><i class="fas fa-list-ol"></i> <span id="lblProg5">Programme détaillé</span></div>
           <ul class="course-list prog" id="m5Prog">
-            <li><i class="fas fa-circle-notch"></i> <strong>Module A: Principes fondamentaux du traitement</strong></li>
-            <ul class="course-list sub-prog">
-              <li><i class="fas fa-minus"></i> Définition juridique précise de la donnée à caractère personnel et sensible</li>
-              <li><i class="fas fa-minus"></i> Détermination de la base légale du traitement (consentement, intérêt légitime, contrat)</li>
-              <li><i class="fas fa-minus"></i> Rôles et délimitation de responsabilité : Responsable de traitement vs Sous-traitant</li>
-              <li><i class="fas fa-minus"></i> Les grands principes directeurs : loyauté, transparence, exactitude</li>
-              <li><i class="fas fa-minus"></i> Sanctions administratives, financières et pénales encourues en cas d'infraction</li>
-            </ul>
-            <li><i class="fas fa-circle-notch"></i> <strong>Module B: Cartographie des données et registres</strong></li>
-            <ul class="course-list sub-prog">
-              <li><i class="fas fa-minus"></i> Méthodologie pratique de recensement des processus traitant des données</li>
-              <li><i class="fas fa-minus"></i> Création, alimentation et cycle de vie du Registre des Activités de Traitement</li>
-              <li><i class="fas fa-minus"></i> Identification des flux transfrontaliers de données personnelles</li>
-              <li><i class="fas fa-minus"></i> Détermination et application des durées de conservation des données</li>
-              <li><i class="fas fa-minus"></i> Audit régulier de l'adéquation de la cartographie avec l'infrastructure réelle</li>
-            </ul>
-            <li><i class="fas fa-circle-notch"></i> <strong>Module C: Le rôle de la CNDP et obligations locales</strong></li>
-            <ul class="course-list sub-prog">
-              <li><i class="fas fa-minus"></i> Missions, prérogatives et pouvoirs de contrôle de la CNDP au Maroc</li>
-              <li><i class="fas fa-minus"></i> Procédures de notifications, déclarations préalables et demandes d'autorisations</li>
-              <li><i class="fas fa-minus"></i> Gestion spécifique des transferts de données personnelles vers l'étranger</li>
-              <li><i class="fas fa-minus"></i> Intégration du délégué à la protection des données (DPO) ou correspondant CNDP</li>
-              <li><i class="fas fa-minus"></i> Préparation opérationnelle de l'entreprise à un contrôle in situ de la CNDP</li>
-            </ul>
-            <li><i class="fas fa-circle-notch"></i> <strong>Module D: Droits des personnes et Privacy by Design</strong></li>
-            <ul class="course-list sub-prog">
-              <li><i class="fas fa-minus"></i> Processus technique de traitement des demandes d'accès, de rectification et d'opposition</li>
-              <li><i class="fas fa-minus"></i> Implémentation du droit à l'effacement (droit à l'oubli) dans les bases de données</li>
-              <li><i class="fas fa-minus"></i> Intégration native des contraintes juridiques dès le codage applicatif (Privacy by Design)</li>
-              <li><i class="fas fa-minus"></i> Sécurisation technique requise pour empêcher la fuite de données personnelles</li>
-              <li><i class="fas fa-minus"></i> Notification réglementaire obligatoire des violations de données dans les 72 heures</li>
-            </ul>
+            <li><i class="fas fa-minus"></i> Fondements légaux : Loi 09-08 (Maroc), RGPD (Europe) et points de convergence</li>
+            <li><i class="fas fa-minus"></i> Les grands principes : Consentement, minimisation, finalité et durée de conservation</li>
+            <li><i class="fas fa-minus"></i> Cartographie des traitements : Création et tenue du registre des données personnelles</li>
+            <li><i class="fas fa-minus"></i> Analyse d'impact relative à la protection des données (AIPD / PIA) : Méthodologie</li>
+            <li><i class="fas fa-minus"></i> Droits des personnes concernées, Privacy by Design et gestion des violations de données</li>
           </ul>
-
           <div class="course-section-title"><i class="fas fa-graduation-cap"></i> <span id="lblSkills5">Compétences acquises</span></div>
           <ul class="course-list" id="m5Skills">
-            <li><i class="fas fa-star" style="color:var(--gold)"></i> Capacité à concevoir un registre de traitement conforme aux normes CNDP/RGPD.</li>
-            <li><i class="fas fa-star" style="color:var(--gold)"></i> Maîtrise opérationnelle des lancements de projets informatiques intégrant le Privacy by Design.</li>
-            <li><i class="fas fa-star" style="color:var(--gold)"></i> Compétence managériale pour occuper le rôle de référent ou DPO interne de transition.</li>
-          </ul>
+            </ul>
         </div>
-        
-        <div class="quiz-container-box" id="quizBox5">
-          </div>
-
+        <div class="quiz-container-box" id="quizBox5"></div>
         <div class="video-card-footer">
-          <a href="formations/protection-donnees.pdf" download class="dl-btn pdf" id="m5Pdf">
-            <i class="fas fa-file-pdf"></i> Support PDF
-          </a>
+          <a href="formations/protection-donnees.pdf" download class="dl-btn pdf" id="m5Pdf"><i class="fas fa-file-pdf"></i> Support PDF</a>
         </div>
       </div>
-
     </div>
 
     <div class="ressources-section">
-      <h3><i class="fas fa-folder-open"></i> <span id="ressourcesTitle">Ressources complémentaires</span></h3>
+      <h3 id="ressourcesTitle"><i class="fas fa-folder-open"></i> Ressources Complémentaires & Outils Recommandés</h3>
       <div class="ressources-grid">
-        <a href="docs/glossaire-cyber.pdf" download class="ressource-card">
+        <a href="ressources/guide-hygiene-cyber.pdf" download class="ressource-card">
           <div class="ressource-icon pdf"><i class="fas fa-file-pdf"></i></div>
-          <div class="ressource-info"><h4 id="res1Title">Glossaire cybersécurité</h4><span id="res1Desc">PDF · 45 termes essentiels</span></div>
+          <div class="ressource-info">
+            <h4 id="r1Title">Guide d'Hygiène Cyber</h4>
+            <span>PDF (12 pages) · ANRT / DGSSI</span>
+          </div>
         </a>
-        <a href="docs/cheatsheet-linux.pdf" download class="ressource-card">
-          <div class="ressource-icon pdf"><i class="fas fa-terminal"></i></div>
-          <div class="ressource-info"><h4 id="res2Title">Cheatsheet Linux</h4><span id="res2Desc">PDF · Commandes essentielles</span></div>
+        <a href="ressources/template-politique-securite.docx" download class="ressource-card">
+          <div class="ressource-icon tool"><i class="fas fa-file-word"></i></div>
+          <div class="ressource-info">
+            <h4 id="r2Title">Modèle de PSSI</h4>
+            <span>DOCX · Structure personnalisable</span>
+          </div>
         </a>
-        <a href="https://tryhackme.com" target="_blank" class="ressource-card">
-          <div class="ressource-icon link"><i class="fas fa-shield-halved"></i></div>
-          <div class="ressource-info"><h4 id="res3Title">TryHackMe</h4><span id="res3Desc">Plateforme de labs pratiques</span></div>
+        <a href="https://www.ssi.gouv.fr" target="_blank" class="ressource-card">
+          <div class="ressource-icon link"><i class="fas fa-external-link-alt"></i></div>
+          <div class="ressource-info">
+            <h4>Portail ANSSI</h4>
+            <span id="r3Desc">Veille & Alertes de sécurité officielles</span>
+          </div>
         </a>
-        <a href="https://attack.mitre.org" target="_blank" class="ressource-card">
-          <div class="ressource-icon link"><i class="fas fa-diagram-project"></i></div>
-          <div class="ressource-info"><h4 id="res4Title">MITRE ATT&CK</h4><span id="res4Desc">Framework des techniques d'attaque</span></div>
-        </a>
-        <a href="docs/outils-pentest.pdf" download class="ressource-card">
-          <div class="ressource-icon tool"><i class="fas fa-bug"></i></div>
-          <div class="ressource-info"><h4 id="res5Title">Outils pentest</h4><span id="res5Desc">PDF · Liste des outils recommandés</span></div>
-        </a>
-        <a href="reponse.html" target="_blank" class="ressource-card">
-          <div class="ressource-icon tool"><i class="fas fa-clipboard-list"></i></div>
-          <div class="ressource-info"><h4 id="res6Title">Formulaire de remédiation</h4><span id="res6Desc">Soumettre vos exercices</span></div>
+        <a href="https://www.cndp.ma" target="_blank" class="ressource-card">
+          <div class="ressource-icon link"><i class="fas fa-external-link-alt"></i></div>
+          <div class="ressource-info">
+            <h4>Portail CNDP</h4>
+            <span id="r4Desc">Formulaires & Textes Loi 09-08</span>
+          </div>
         </a>
       </div>
     </div>
 
     <div class="tutor-cta">
-      <div>
-        <i class="fas fa-graduation-cap" style="font-size:2rem; color:var(--accent); margin-bottom:.5rem; display:block;"></i>
-      </div>
       <div class="tutor-cta-text">
-        <h3 id="tutorTitle">Une question sur le cours ?</h3>
-        <p id="tutorDesc">Abdeljalil répond à toutes vos questions techniques sous 24h.</p>
+        <h3 id="tutorTitle">Besoin d'un éclaircissement technique ?</h3>
+        <p id="tutorDesc">Votre formateur référent est disponible pour répondre à vos questions sur les cours ou les labs.</p>
       </div>
       <div class="tutor-cta-btns">
-        <a href="https://wa.me/212728312801" target="_blank" class="btn-whatsapp">
-          <i class="fab fa-whatsapp"></i> <span id="btnWhatsapp">WhatsApp</span>
-        </a>
-        <a href="mailto:contact@nextgentechnologies.ma" class="btn-email">
-          <i class="fas fa-envelope"></i> <span id="btnEmail">Email</span>
-        </a>
+        <a href="https://wa.me/212728312801" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="mailto:contact@netvanguard.ma" class="btn-email"><i class="fas fa-envelope"></i> <span id="tutorMailBtn">Envoyer un email</span></a>
       </div>
     </div>
-
   </div>
 </section>
 
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="index.html" class="logo" style="font-size:1.2rem;margin-bottom:.8rem;display:inline-flex;">
-        <svg viewBox="0 0 64 64" width="28" height="28">
-          <path d="M32 4 L8 12 V28 C8 42 18 54 32 60 C46 54 56 42 56 28 V12 Z" fill="#00D4FF" stroke="#FFB800" stroke-width="1.5"/>
-          <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="#EF4444" stroke="#7F1D1D" stroke-width="1.5"/>
-        </svg>
-        <span style="color:white;margin-left:.5rem;">NextGen <span class="logo-text-accent">Technologies</span></span>
-      </a>
-      <p id="footerDesc">Cybersécurité, conseil, SOC, infrastructure et sécurité offensive pour les entreprises modernes.</p>
+      <a href="index.html" class="logo" style="font-size:1.2rem;margin-bottom:.8rem;display:inline-flex;">  <svg viewBox="0 0 24 24" width="28" height="28">    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="#00D4FF"/>    <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>  </svg>  <span style="color:white;margin-left:.5rem;">Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.82em;font-weight:400;color:rgba(255,255,255,0.45);">IT Solutions</span></span></a>
+      <p>Cabinet de conseil et d'ingénierie spécialisé en cybersécurité, architectures réseaux sécurisées et transformation digitale des entreprises au Maroc.</p>
     </div>
     <div class="footer-col">
-      <h4 id="footerServices">Services</h4>
+      <h4 id="fColServices">Services</h4>
       <ul>
-        <li><a href="soc-consultation.html">SOC Consultation</a></li>
-        <li><a href="vapt.html">VAPT</a></li>
-        <li><a href="cloud-security.html">Cloud Security</a></li>
+        <li><a href="services.html#audit">Audits & Tests d'intrusion</a></li>
+        <li><a href="services.html#architecture">Architecture Réseau</a></li>
+        <li><a href="services.html#cloud">Sécurisation Cloud</a></li>
+        <li><a href="services.html#soc">Supervision SOC 24/7</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4 id="footerCompany">Entreprise</h4>
+      <h4 id="fColLiens">Liens utiles</h4>
       <ul>
-        <li><a href="qui-sommes-nous.html" id="footLinkAbout">Qui sommes-nous</a></li>
-        <li><a href="carrieres.html" id="footLinkCareers">Carrières</a></li>
-        <li><a href="contact.html" id="footLinkContact">Contact</a></li>
+        <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
+        <li><a href="secteurs.html">Secteurs d'activité</a></li>
+        <li><a href="carrieres.html">Carrières (Recrutement)</a></li>
+        <li><a href="campus-cyber.html">Campus Cyber (Formation)</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4 id="footerLegal">Légal</h4>
-      <ul>
-        <li><a href="#" id="footLinkLegal">Mentions légales</a></li>
-        <li><a href="#" id="footLinkPrivacy">Confidentialité</a></li>
-        <li><a href="#">CGV</a></li>
+      <h4>Contact</h4>
+      <ul style="color: var(--gray-light); font-size: 0.88rem;">
+        <li style="margin-bottom: 0.5rem;"><i class="fas fa-phone" style="color:var(--accent); margin-right: 0.5rem;"></i> +212 728 31 28 01</li>
+        <li style="margin-bottom: 0.5rem;"><i class="fas fa-envelope" style="color:var(--accent); margin-right: 0.5rem;"></i> contact@netvanguard.ma</li>
+        <li style="margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt" style="color:var(--accent); margin-right: 0.5rem;"></i> Bd d'Anfa, Casablanca, Maroc</li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span id="footCopyright">© 2026 NextGen Technologies SARL · Casablanca</span>
-    <span>Cybersecurity · Infrastructure · Innovation</span>
+    <div>© 2026 NetVanguard IT Solutions SARL · Casablanca</div>
+    <div style="display: flex; gap: 1.5rem;"><a href="#" id="fMentions">Mentions légales</a><a href="#" id="fConf">Politique de confidentialité</a></div>
   </div>
 </footer>
 
 <script>
 // =====================================================
-// BANQUE DE DONNÉES DU QUIZ DE 10 QUESTIONS PAR MODULE (FR / EN)
+// BANQUE DE DONNÉES DU QUIZ (NE PAS TOUCHER)
 // =====================================================
 const quizData = {
-  fr: {
-    1: [
-      { q: "Quel élément technique est le plus fiable pour détecter une tentative de phishing ?", o: ["A. Le logo officiel présent dans le mail", "B. L'en-tête technique SMTP et la structure racine du domaine d'envoi", "C. Le ton urgent ou anxiogène employé"], a: "B" },
-      { q: "Qu'est-ce que le Spear-Phishing (harponnage) ?", o: ["A. Une attaque de masse envoyée anonymement à des millions de personnes", "B. Une attaque hautement ciblée personnalisée avec des données OSINT spécifiques", "C. Un virus se propageant uniquement par les réseaux WiFi publics"], a: "B" },
-      { q: "Lequel des protocoles suivants protège contre l'usurpation de domaine d'envoi (spoofing) ?", o: ["A. FTP / HTTPS", "B. DMARC combiné à SPF et DKIM", "C. SNMPv3 uniquement"], a: "B" },
-      { q: "Quel est l'objectif principal d'une attaque de type 'Vishing' ?", o: ["A. Corrompre les bases de données via des requêtes SQL", "B. Manipuler la victime par téléphone en exploitant sa confiance par la voix", "C. Envoyer des SMS frauduleux contenant des liens piégés"], a: "B" },
-      { q: "Quel levier psychologique est majoritairement exploité lors de l'escroquerie au président ?", o: ["A. L'appât du gain", "B. Le respect de l'autorité et le sentiment d'extrême urgence", "C. La pitié et la charité"], a: "B" },
-      { q: "Si vous recevez un courriel suspect de la comptabilité demandant un virement imprévu, vous devez :", o: ["A. Répondre immédiatement au mail pour demander des précisions", "B. Utiliser le bouton de signalement cyber et appeler le contact via un canal officiel interne", "C. Ignorer le mail et le supprimer sans rien dire à personne"], a: "B" },
-      { q: "Quelle extension de fichier jointe présente un risque immédiat majeur d'exécution de code ?", o: ["A. .txt", "B. .xlsm (macro active)", "C. .pdf sans contenu actif"], a: "B" },
-      { q: "Que signifie le concept d'OSINT pour un attaquant préparant un hameçonnage ?", o: ["A. Un outil de chiffrement des données de messagerie", "B. La recherche d'informations librement accessibles sur les sources publiques et réseaux sociaux", "C. Un pare-feu applicatif bloquant les spams"], a: "B" },
-      { q: "En cas de clic involontaire sur un lien suspect ayant mené à la saisie de vos identifiants, quelle est la première action ?", o: ["A. Éteindre le poste et rentrer chez soi", "B. Alerter immédiatement le SOC/Formateur et changer immédiatement le mot de passe concerné", "C. Attendre le lendemain pour voir s'il y a une anomalie"], a: "B" },
-      { q: "Pourquoi l'intelligence artificielle générative augmente-t-elle la dangerosité du phishing ?", o: ["A. Elle permet de générer des messages sans aucune faute d'orthographe et hyper-personnalisés", "B. Elle remplace directement le pare-feu de l'entreprise", "C. Elle rend obligatoire l'utilisation de protocoles non chiffrés"], a: "A" }
+  m1: {
+    q: "Si vous recevez un email urgent de votre Directeur Général demandant un virement immédiat hors procédure vers un nouveau fournisseur, quelle est la première action à mener ?",
+    options: [
+      "Effectuer le virement rapidement pour ne pas mécontenter la direction.",
+      "Répondre directement à l'email pour demander une confirmation écrite officielle.",
+      "Contacter le Directeur Général via un canal alternatif vérifié (téléphone, de vive voix) pour confirmer la demande.",
+      "Transférer l'email à l'ensemble des collaborateurs pour les prévenir de la situation."
     ],
-    2: [
-      { q: "Quel principe fondamental régit une architecture Zero Trust ?", o: ["A. Accorder une confiance totale au réseau local d'entreprise", "B. Ne jamais faire confiance, toujours vérifier (Never trust, always verify)", "C. Chiffrer uniquement les disques des serveurs de fichiers"], a: "B" },
-      { q: "Quelle est l'utilité première d'une DMZ (Zone Démilitarisée) ?", o: ["A. Stocker l'ensemble des fichiers de sauvegarde cryptés", "B. Isoler les serveurs accessibles depuis Internet des réseaux internes sensibles", "C. Accélérer le débit de bande passante globale de l'entreprise"], a: "B" },
-      { q: "Qu'est-ce que la défense en profondeur (Defense in Depth) ?", o: ["A. Installer un seul pare-feu extrêmement puissant en périphérie", "B. Superposer plusieurs couches indépendantes de contrôles de sécurité logiques et physiques", "C. Déléguer l'ensemble de la sécurité applicative à un tiers externe"], a: "B" },
-      { q: "Dans le cadre de la micro-segmentation, quel niveau de granularité cherche-t-on à atteindre ?", o: ["A. Segmenter l'accès par pays uniquement", "B. Filtrer et isoler les flux réseau jusqu'au niveau de la charge de travail ou de la VM individuelle", "C. Séparer uniquement les imprimantes du reste du réseau"], a: "B" },
-      { q: "Qu'est-ce qu'un pare-feu de nouvelle génération (NGFW) par rapport à un pare-feu traditionnel ?", o: ["A. Il consomme moins d'énergie électrique", "B. Il intègre l'inspection applicative profonde (Couche 7) et le contrôle d'identité contextuel", "C. Il gère uniquement le protocole IPv6"], a: "B" },
-      { q: "Quel document officiel du NIST définit le framework de référence de l'architecture Zero Trust ?", o: ["A. NIST SP 800-53", "B. NIST SP 800-207", "C. ISO 27001"], a: "B" },
-      { q: "Où doit-on idéalement positionner une sonde IDS réseau (NIDS) ?", o: ["A. Uniquement sur les postes clients éteints", "B. Sur les points stratégiques d'agrégation de trafic pour analyser les copies de flux critiques", "C. À l'intérieur du serveur Active Directory exclusivement"], a: "B" },
-      { q: "Quelle est la fonction principale d'un Reverse Proxy dans une architecture Web sécurisée ?", o: ["A. Accélérer la vitesse de téléchargement des clients internes", "B. Intercepter, inspecter et valider les requêtes entrantes avant qu'elles n'atteignent le serveur Web", "C. Bloquer les ports physiques non utilisés des switchs"], a: "B" },
-      { q: "Le durcissement (Hardening) d'un système d'exploitation consiste à :", o: ["A. Installer le maximum d'outils et d'applications pour le test de charge", "B. Réduire la surface d'attaque en désactivant les services, ports et comptes inutiles", "C. Augmenter la capacité de mémoire vive RAM disponible"], a: "B" },
-      { q: "Pourquoi l'inspection SSL/TLS sur un pare-feu est-elle critique mais complexe ?", o: ["A. Elle supprime le protocole IP", "B. Elle permet de détecter les codes malveillants cachés dans les flux chiffrés, mais pose des défis de confidentialité", "C. Elle désactive le routage réseau"], a: "B" }
-    ],
-    3: [
-      { q: "Dans le modèle IaaS (Infrastructure as a Service), qui est responsable de la sécurité de l'OS invité ?", o: ["A. Le fournisseur Cloud (CSP)", "B. Le client de l'entreprise", "C. Les deux entités à parts parfaitement égales"], a: "B" },
-      { q: "Que signifie le principe du moindre privilège appliqué à l'IAM Cloud ?", o: ["A. Donner tous les droits d'administration à tous les développeurs par commodité", "B. Octroyer uniquement les permissions minimales requises pour accomplir une tâche définie", "C. Restreindre l'accès au Cloud uniquement durant les heures de bureau"], a: "B" },
-      { q: "Quelle est l'utilité principale d'une solution CSPM (Cloud Security Posture Management) ?", o: ["A. Héberger des bases de données relationnelles volumineuses", "B. Détecter de manière continue les dérives de configuration et les vulnérabilités du Cloud", "C. Remplacer les firewalls virtuels"], a: "B" },
-      { q: "Pour sécuriser l'utilisation d'applications SaaS non approuvées par l'entreprise, on déploie un :", o: ["A. WAF local", "B. CASB (Cloud Access Security Broker)", "C. Serveur DNS secondaire"], a: "B" },
-      { q: "Qu'est-ce qu'une clé d'API (API Key) dans le contexte Cloud ?", o: ["A. Un mot de passe textuel à usage humain obligatoire toutes les 2 heures", "B. Un jeton d'authentification machine permettant aux applications de requêter les services cloud", "C. Un protocole de routage dynamique"], a: "B" },
-      { q: "Dans un modèle SaaS (Software as a Service), quelle couche reste TOUJOURS sous la responsabilité du client ?", o: ["A. La sécurité des serveurs sous-jacents", "B. Les données et la gestion des identités/accès", "C. Le maintien à jour des patchs logiciels"], a: "B" },
-      { q: "Le chiffrement à l'état 'In-Transit' protège les données lorsqu'elles :", o: ["A. Sont stockées sur un disque dur SSD", "B. Circulent sur les réseaux de communication entre deux systèmes", "C. Sont chargées en mémoire vive pour traitement par le processeur"], a: "B" },
-      { q: "Qu'est-ce que l'Infrastructure as Code (IaC) d'un point de vue sécurité ?", o: ["A. Écrire le code de sécurité en assembleur", "B. Définir et déployer l'infrastructure par fichiers de configuration auditables avant instanciation", "C. Un outil de messagerie sécurisée"], a: "B" },
-      { q: "Quel risque représente une clé d'accès AWS ou Azure stockée par erreur sur un dépôt public GitHub ?", o: ["A. Aucun risque si le mot de passe du compte root est fort", "B. Une compromission immédiate et automatisation d'infrastructures frauduleuses par des bots", "C. Un simple ralentissement de la connexion Internet"], a: "B" },
-      { q: "Une sauvegarde cloud dite 'Immuable' garantit :", o: ["A. Qu'elle peut être modifiée par n'importe quel utilisateur", "B. Qu'elle ne peut être ni altérée, ni effacée, même par un ransomware, pendant une période définie", "C. Qu'elle ne nécessite aucun espace de stockage physique"], a: "B" }
-    ],
-    4: [
-      { q: "Quel est le rôle prépondérant d'un dirigeant lors du déclenchement d'une crise cyber ?", o: ["A. Analyser les lignes de code malveillant avec l'équipe technique", "B. Arbitrer les choix stratégiques, coordonner la cellule de crise et valider la communication", "C. Restaurer les serveurs de fichiers à partir des bandes de sauvegarde"], a: "B" },
-      { q: "Comment la cybersécurité doit-elle être budgétisée efficacement ?", o: ["A. Comme un coût informatique subi et variable selon les pannes", "B. Comme un investissement stratégique lié à la gestion des risques métier (ROI sur risque)", "C. En allouant 100% du budget à l'achat de serveurs physiques"], a: "B" },
-      { q: "Qu'indique une métrique de type MTTR (Mean Time To Remediate) élevée ?", o: ["A. Que l'équipe technique corrige les failles instantanément", "B. Que le temps moyen nécessaire pour confiner et réparer un incident est long", "C. Que le réseau est totalement immunisé"], a: "B" },
-      { q: "Face à une demande de rançon suite à un blocage par Ransomware, les autorités recommandent de :", o: ["A. Payer immédiatement la somme globale en cryptomonnaies", "B. Ne pas payer, activer le plan de continuité d'activité et collaborer avec les experts/autorités", "C. Formater l'intégralité du réseau sans analyser les causes"], a: "B" },
-      { q: "Quelle est la principale finalité d'un exercice de gestion de crise cyber 'sur table' (Tabletop) ?", o: ["A. Tester les performances électriques des serveurs", "B. Valider l'organisation, la communication et les circuits décisionnels de la direction en cas d'attaque", "C. Former les équipes au développement de sites web"], a: "B" },
-      { q: "Une cyber-assurance couvre généralement en priorité :", o: ["A. Les amendes pénales pour faute grave volontaire", "B. Les frais de notification, l'assistance d'experts en remédiation et les pertes d'exploitation", "C. L'achat de nouveaux ordinateurs de jeu pour les salariés"], a: "B" },
-      { q: "Quelle est la place du RSSI (Responsable de la Sécurité des SI) dans l'organigramme idéal ?", o: ["A. Un subordonné sans droit de parole", "B. Un rôle rattaché ou ayant un accès direct à la direction générale pour garantir l'indépendance des alertes", "C. Un prestataire externe sans contact interne"], a: "B" },
-      { q: "La gestion des risques liés aux tiers (Third-Party Risk Management) implique de :", o: ["A. Faire confiance aveuglément à tous les fournisseurs", "B. Évaluer et contractualiser les exigences cyber des sous-traitants ayant accès au SI", "C. Supprimer tous les contrats d'externalisation"], a: "B" },
-      { q: "Qu'est-ce qu'un tableau de bord cyber destiné au comité exécutif ?", o: ["A. Une liste de 10 000 alertes techniques brutes", "B. Une synthèse consolidée traduisant l'état de sécurité en indicateurs de risques financiers et opérationnels", "C. Une console de configuration réseau"], a: "B" },
-      { q: "Pourquoi la négligence de la direction en matière de sécurité peut-elle engager sa responsabilité civile ?", o: ["A. Uniquement si l'entreprise n'utilise pas de tablettes", "B. En cas de manquement caractérisé à l'obligation de prudence et de protection des données de l'entreprise", "C. Uniquement en cas d'utilisation de logiciels libres"], a: "B" }
-    ],
-    5: [
-      { q: "Quel concept légal impose de limiter la collecte aux données strictement nécessaires à la finalité du traitement ?", o: ["A. La minimisation des données", "B. La rétention perpétuelle par précaution", "C. Le profilage systématique"], a: "A" },
-      { q: "Au Maroc, quelle instance officielle régule et contrôle la protection des données personnelles ?", o: ["A. La DGSN", "B. La CNDP (Commission Nationale de contrôle de la protection des Données à caractère Personnel)", "C. Le Ministère des Finances"], a: "B" },
-      { q: "Quelle est la durée maximale de notification légale d'une violation de données selon le RGPD ?", o: ["A. 24 heures", "B. 72 heures", "C. 30 jours ouvrés"], a: "B" },
-      { q: "Que signifie le principe de 'Privacy by Design' ?", o: ["A. Concevoir une interface utilisateur de couleur verte", "B. Intégrer les exigences de protection des données dès la phase de conception d'un outil ou projet", "C. Rendre toutes les bases de données publiques"], a: "B" },
-      { q: "Quelle est la différence majeure entre responsable de traitement et sous-traitant ?", o: ["A. Le sous-traitant fixe seul les finalités du projet", "B. Le responsable de traitement détermine les finalités et les moyens, le sous-traitant agit sur instructions", "C. Le sous-traitant n'a aucune obligation de sécurité"], a: "B" },
-      { q: "Le registre des activités de traitement est un document :", o: ["A. Facultatif et purement commercial", "B. Obligatoire permettant de cartographier l'ensemble des processus manipulant des données personnelles", "C. Destiné uniquement aux clients externes"], a: "B" },
-      { q: "Qu'est-ce qu'une AIPD (Analyse d'Impact sur la Protection des Données) ?", o: ["A. Une étude d'impact environnemental des serveurs", "B. Un processus d'évaluation des risques sur les droits et libertés des personnes pour les traitements à haut risque", "C. Un test d'intrusion purement technique"], a: "B" },
-      { q: "Le droit à l'effacement (droit à l'oubli) permet à une personne physique de :", o: ["A. Demander la suppression totale de ses données si aucune obligation légale de conservation ne s'y oppose", "B. Modifier les données bancaires d'un tiers", "C. Effacer les logs de sécurité du pare-feu d'entreprise"], a: "A" },
-      { q: "Une donnée dite 'sensible' englobe obligatoirement :", o: ["A. Le numéro de plaque d'immatriculation professionnelle", "B. Les origines raciales, opinions politiques, convictions religieuses ou données de santé", "C. L'adresse postale professionnelle principale"], a: "B" },
-      { q: "Un transfert de données personnelles hors du territoire marocain requiert :", o: ["A. Une simple notification par email au client", "B. Une autorisation préalable expresse ou déclaration spécifique auprès de la CNDP", "C. Aucun contrôle s'il s'agit d'un hébergement grand public"], a: "B" }
-    ]
+    correct: 2,
+    feedback: "Correct ! Il s'agit du scénario classique de l'arnaque au président (Spear-phishing). Il faut impérativement confirmer l'ordre par un canal de communication distinct et de confiance."
   },
-  en: {
-    1: [
-      { q: "Which technical element is the most reliable to detect a phishing attempt?", o: ["A. The official logo inside the email", "B. The SMTP technical headers and the root structure of the sender domain", "C. The urgent or threatening tone of the message"], a: "B" },
-      { q: "What is Spear-Phishing?", o: ["A. A mass attack sent anonymously to millions of targets", "B. A highly targeted attack customized with specific OSINT information", "C. A virus spreading exclusively through public WiFi networks"], a: "B" },
-      { q: "Which of the following protocols protects against sender domain spoofing?", o: ["A. FTP / HTTPS", "B. DMARC combined with SPF and DKIM", "C. SNMPv3 only"], a: "B" },
-      { q: "What is the primary objective of a 'Vishing' attack?", o: ["A. Corrupt databases using SQL queries", "B. Manipulate the victim over the phone by exploiting trust through voice", "C. Send fraudulent SMS containing malicious links"], a: "B" },
-      { q: "Which psychological trigger is mostly exploited during CEO fraud?", o: ["A. Greed and financial gain", "B. Respect for authority and an extreme sense of urgency", "C. Pity and charity"], a: "B" },
-      { q: "If you receive a suspicious email from accounting asking for an unexpected wire transfer, you must:", o: ["A. Reply immediately to the email to ask for clarification", "B. Use the cyber report button and call the contact via an official internal channel", "C. Ignore the email and delete it without telling anyone"], a: "B" },
-      { q: "Which attached file extension poses a major immediate risk of code execution?", o: ["A. .txt", "B. .xlsm (macro-enabled workbook)", "C. .pdf without active content"], a: "B" },
-      { q: "What does the concept of OSINT mean for an attacker preparing a phishing campaign?", o: ["A. A tool to encrypt email traffic data", "B. Gathering freely accessible information from public sources and social networks", "C. An application firewall blocking spams"], a: "B" },
-      { q: "In case of accidentally clicking a suspicious link and entering credentials, what is the first action?", o: ["A. Shut down the workstation and go home", "B. Instantly alert the SOC/Instructor and change the compromised password immediately", "C. Wait until the next day to check for anomalies"], a: "B" },
-      { q: "Why does Generative AI increase the danger level of phishing attacks?", o: ["A. It generates perfectly written, error-free, and hyper-personalized messages", "B. It directly replaces the corporate firewall", "C. It mandates the use of unencrypted protocols"], a: "A" }
+  m2: {
+    q: "Dans une architecture de sécurité d'entreprise, quel est l'objectif principal d'une DMZ (Zone Démilitarisée) ?",
+    options: [
+      "Héberger l'ensemble des postes de travail des utilisateurs de l'entreprise.",
+      "Isoler les serveurs accessibles depuis Internet des réseaux internes sensibles de l'organisation.",
+      "Désactiver totalement les pare-feux pour accélérer le trafic web externe.",
+      "Stocker les sauvegardes critiques de l'annuaire d'entreprise Active Directory."
     ],
-    2: [
-      { q: "Which fundamental principle governs a Zero Trust Architecture?", o: ["A. Trust the local corporate network by default", "B. Never trust, always verify", "C. Only encrypt file server disks"], a: "B" },
-      { q: "What is the primary purpose of a DMZ (Demilitarized Zone)?", o: ["A. Store all encrypted backup files", "B. Isolate public-facing servers from the sensitive internal network", "C. Speed up the company's overall internet bandwidth"], a: "B" },
-      { q: "What is Defense in Depth?", o: ["A. Installing a single, ultra-powerful perimeter firewall", "B. Layering multiple independent logical and physical security controls", "C. Delegating all application security to a third party"], a: "B" },
-      { q: "In micro-segmentation, what level of granularity do we aim to reach?", o: ["A. Segmenting access by country only", "B. Filtering and isolating network traffic down to individual workloads or VMs", "C. Separating printers from the rest of the network only"], a: "B" },
-      { q: "What is a Next-Generation Firewall (NGFW) compared to a traditional firewall?", o: ["A. It consumes less electrical power", "B. It integrates deep application inspection (Layer 7) and contextual identity control", "C. It only handles the IPv6 protocol"], a: "B" },
-      { q: "Which official NIST document defines the reference framework for Zero Trust Architecture?", o: ["A. NIST SP 800-53", "B. NIST SP 800-207", "C. ISO 27001"], a: "B" },
-      { q: "Where should a network IDS probe (NIDS) ideally be positioned?", o: ["A. Exclusively on powered-off client machines", "B. At strategic traffic aggregation points to analyze copies of critical flows", "C. Inside the Active Directory server exclusively"], a: "B" },
-      { q: "What is the primary function of a Reverse Proxy in a secure Web architecture?", o: ["A. Speed up download rates for internal users", "B. Intercept, inspect, and validate incoming requests before they reach the web server", "C. Block unused physical ports on switches"], a: "B" },
-      { q: "Operating System Hardening consists of:", o: ["A. Installing maximum utilities and apps for stress testing", "B. Reducing the attack surface by disabling unnecessary services, ports, and accounts", "C. Increasing the available RAM capacity"], a: "B" },
-      { q: "Why is SSL/TLS inspection on firewalls critical yet complex?", o: ["A. It removes the IP protocol entirely", "B. It reveals malicious code hidden in encrypted streams but raises privacy challenges", "C. It disables network routing"], a: "B" }
+    correct: 1,
+    feedback: "Correct ! Une DMZ isole les services publics (web, mail) afin qu'une compromission de ces serveurs ne donne pas un accès direct et immédiat au réseau local interne."
+  },
+  m3: {
+    q: "Selon le modèle de responsabilité partagée dans un cloud de type IaaS (Infrastructure as a Service), quelle tâche incombe entièrement au client ?",
+    options: [
+      "Assurer la sécurité physique des centres de données et la maintenance des serveurs matériels hyperviseurs.",
+      "Sécuriser, patcher et mettre à jour le système d'exploitation invité installé sur l'instance virtuelle.",
+      "Garantir le bon fonctionnement des routeurs et commutateurs physiques du fournisseur cloud.",
+      "Gérer le recyclage physique des disques durs défectueux de l'infrastructure."
     ],
-    3: [
-      { q: "In an IaaS (Infrastructure as a Service) model, who is responsible for guest OS security?", o: ["A. The Cloud Service Provider (CSP)", "B. The corporate customer", "C. Both entities on a perfectly equal basis"], a: "B" },
-      { q: "What does the principle of least privilege mean for Cloud IAM?", o: ["A. Granting all administrative privileges to all developers for convenience", "B. Granting only the minimum permissions required to complete a defined task", "C. Restricting Cloud access to business hours only"], a: "B" },
-      { q: "What is the primary utility of a CSPM (Cloud Security Posture Management) solution?", o: ["A. Hosting massive relational databases", "B. Continuously detecting cloud misconfigurations and security compliance drifts", "C. Replacing virtual firewalls"], a: "B" },
-      { q: "To secure the usage of unapproved SaaS applications within the company, we deploy a:", o: ["A. Local WAF", "B. CASB (Cloud Access Security Broker)", "C. Secondary DNS server"], a: "B" },
-      { q: "What is an API Key in the context of Cloud environments?", o: ["A. A human-readable text password mandatory every 2 hours", "B. A machine authentication token allowing applications to query cloud services", "C. A dynamic routing protocol"], a: "B" },
-      { q: "In a SaaS (Software as a Service) model, which layer ALWAYS remains the client's responsibility?", o: ["A. Physical server infrastructure security", "B. Data and Identity/Access Management", "C. Applying software security patches"], a: "B" },
-      { q: "In-Transit encryption protects data when it is:", o: ["A. Stored on a solid-state SSD drive", "B. Moving across communication networks between two systems", "C. Loaded into RAM for CPU processing"], a: "B" },
-      { q: "What is Infrastructure as Code (IaC) from a security perspective?", o: ["A. Writing security code in assembly language", "B. Defining and deploying infrastructure through auditable configuration files before instantiation", "C. A secure instant messaging tool"], a: "B" },
-      { q: "What risk arises if AWS or Azure access keys are accidentally stored on a public GitHub repository?", o: ["A. Zero risk if the root account has a strong password", "B. Immediate compromise and automated deployment of rogue infrastructures by bot networks", "C. A minor slowdown of the internet connection"], a: "B" },
-      { q: "An 'Immutable' cloud backup guarantees:", o: ["A. That it can be altered by any authorized user", "B. That it cannot be modified or deleted, even by a ransomware attack, for a set duration", "C. That it requires zero physical storage space"], a: "B" }
+    correct: 1,
+    feedback: "Correct ! En IaaS, le fournisseur gère le matériel et l'hyperviseur, mais le client est pleinement responsable de ses machines virtuelles, systèmes d'exploitation, données et configurations d'accès."
+  },
+  m4: {
+    q: "Lors du déclenchement d'une crise cyber majeure affectant la production, quel doit être le rôle principal du Comité de Direction au sein de la cellule de crise ?",
+    options: [
+      "Analyser manuellement les fichiers de logs système et coder des correctifs de sécurité d'urgence.",
+      "Prendre les décisions stratégiques, arbitrer les impacts business et piloter la communication institutionnelle.",
+      "Remplacer les équipes d'administration réseau pour reconfigurer les pare-feux.",
+      "Éviter de communiquer en interne et en externe pour dissimuler l'attaque le plus longtemps possible."
     ],
-    4: [
-      { q: "What is the primary role of an executive during a major cyber crisis?", o: ["A. Analyze lines of malicious code alongside technical teams", "B. Arbitrate strategic choices, coordinate the crisis unit, and approve communications", "C. Restore file servers from physical backup tapes"], a: "B" },
-      { q: "How should cybersecurity be budgeted effectively?", o: ["A. As an unexpected IT cost fluctuating with technical breakdowns", "B. As a strategic investment tied to business risk management (ROI on Risk)", "C. Allocating 100% of the budget to physical server hardware"], a: "B" },
-      { q: "What does a high MTTR (Mean Time To Remediate) metric indicate?", o: ["A. The technical team fixes vulnerabilities instantly", "B. The average time required to contain and repair an incident is long", "C. The network is fully immune to threats"], a: "B" },
-      { q: "Faced with a Ransomware extortion demand, authorities recommend to:", o: ["A. Pay the requested sum immediately in cryptocurrency", "B. Refuse payment, activate business continuity plans, and cooperate with experts/law enforcement", "C. Wipe the entire network without analyzing the root causes"], a: "B" },
-      { q: "What is the main goal of a 'Tabletop' cyber crisis simulation exercise?", o: ["A. Testing the electrical load capacities of servers", "B. Validating management's organization, communications, and decision-making flows during an attack", "C. Training employees in front-end web development"], a: "B" },
-      { q: "Cyber insurance policies typically prioritize covering:", o: ["A. Penal fines resulting from deliberate gross misconduct", "B. Notification expenses, forensic expert remediation fees, and business interruption losses", "C. Purchasing brand new gaming computers for staff"], a: "B" },
-      { q: "Where does the CISO ideally fit within the corporate organizational chart?", o: ["A. A low-level subordinate with no reporting power", "B. Direct reporting line or direct access to executive management to ensure unbiased alerts", "C. An external contractor with no internal contact points"], a: "B" },
-      { q: "Third-Party Risk Management involves:", o: ["A. Blindly trusting all external vendors and suppliers", "B. Assessing and enforcing cyber security requirements for vendors with network access", "C. Deleting all outsourcing agreements"], a: "B" },
-      { q: "What is a cyber dashboard tailored for the executive committee?", o: ["A. A technical log containing 10,000 raw alert entries", "B. A high-level consolidated summary translating security posture into financial and operational risk metrics", "C. A network configuration panel"], a: "B" },
-      { q: "Why can executive negligence in cybersecurity trigger personal or civil liability?", o: ["A. Only if the company does not utilize tablets", "B. For failing to fulfill the standard duty of care and protection regarding corporate assets and data", "C. Only if open-source software is used"], a: "B" }
+    correct: 1,
+    feedback: "Correct ! Le Comité de Direction gère la crise sur le plan stratégique, financier, légal et réputationnel, laissant la résolution technique aux experts qualifiés."
+  },
+  m5: {
+    q: "Que stipule le principe de 'Minimisation des données' inscrit au sein de la loi 09-08 et du RGPD ?",
+    options: [
+      "Les entreprises doivent collecter le maximum de données possibles pour anticiper les besoins futurs.",
+      "Seules les données strictly nécessaires à l'accomplissement de la finalité spécifique du traitement doivent être collectées.",
+      "Les données personnelles doivent obligatoirement être écrites en utilisant des tailles de police minimales.",
+      "Toutes les données nominatives collectées doivent être supprimées automatiquement au bout de 24 heures."
     ],
-    5: [
-      { q: "Which legal concept mandates restricting data collection to what is strictly necessary for the processing purpose?", o: ["A. Data minimization", "B. Indefinite retention out of precaution", "C. Systematic profiling"], a: "A" },
-      { q: "In Morocco, which official body regulates and enforces personal data protection?", o: ["A. DGSN", "B. CNDP (National Commission for the Control of the Protection of Personal Data)", "C. Ministry of Finance"], a: "B" },
-      { q: "What is the maximum regulatory timeframe to report a data breach under GDPR rules?", o: ["A. 24 hours", "B. 72 hours", "C. 30 business days"], a: "B" },
-      { q: "What does the principle of 'Privacy by Design' mean?", o: ["A. Designing a user interface with a green color palette", "B. Integrating data protection safeguards into tools and projects from the initial design phase", "C. Making all relational databases public"], a: "B" },
-      { q: "What is the key structural difference between a Data Controller and a Data Processor?", o: ["A. The processor solely determines project purposes", "B. The controller determines the purposes and means, while the processor acts on their instructions", "C. The processor has no security obligations whatsoever"], a: "B" },
-      { q: "The record of processing activities is a document that is:", o: ["A. Optional and strictly promotional", "B. Mandatory, allowing the mapping of all business processes handling personal data", "C. Intended for external clients only"], a: "B" },
-      { q: "What is a DPIA (Data Protection Impact Assessment)?", o: ["A. An environmental impact study of server farms", "B. A structured process to assess risks to individual rights and freedoms for high-risk operations", "C. A purely technical penetration test"], a: "B" },
-      { q: "The right to erasure (right to be forgotten) allows individuals to:", o: ["A. Demand the total deletion of their data if no legal retention obligations conflict", "B. Modify third-party banking records", "C. Erase corporate firewall security logs"], a: "A" },
-      { q: "By law, 'sensitive data' explicitly includes:", o: ["A. Commercial vehicle license plate numbers", "B. Racial origin, political opinions, religious beliefs, or health data", "C. The primary business mailing address"], a: "B" },
-      { q: "Transferring personal data outside the Moroccan territory requires:", o: ["A. A simple notification email sent to the customer", "B. Express prior authorization or a specific declaration filed with the CNDP", "C. No oversight if using mainstream public hosting platforms"], a: "B" }
-    ]
+    correct: 1,
+    feedback: "Correct ! La minimisation impose de ne collecter que le strict nécessaire. Si une donnée n'est pas indispensable pour rendre le service attendu, elle ne doit pas être collectée."
   }
 };
 
-// Variables globales de gestion d'état des quiz
-let activeQuestionIndices = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
-let quizScores = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
-let currentLang = 'fr';
-
-// Rendu interactif d'une question de quiz
-function renderQuizQuestion(moduleNum) {
-  const lang = currentLang;
-  const questions = quizData[lang][moduleNum];
-  const currentIndex = activeQuestionIndices[moduleNum];
-  const qBox = document.getElementById(`quizBox${moduleNum}`);
-  
-  if (!qBox) {
-    console.warn(`Quiz box quizBox${moduleNum} not found in DOM`);
-    return;
-  }
-
-  // Si toutes les questions ont été traitées, afficher le score final
-  if (currentIndex >= questions.length) {
-    let title = lang === 'fr' ? '🎉 Évaluation Terminée !' : '🎉 Assessment Completed!';
-    let subtitle = lang === 'fr' ? `Votre score final est de : <strong>${quizScores[moduleNum]} / 10</strong>` : `Your final score is: <strong>${quizScores[moduleNum]} / 10</strong>`;
-    let comment = '';
-    
-    if (quizScores[moduleNum] >= 8) {
-      comment = lang === 'fr' ? "Excellent ! Niveau d'expert opérationnel validé." : "Excellent! Operational expert level validated.";
-    } else if (quizScores[moduleNum] >= 5) {
-      comment = lang === 'fr' ? "Bon score. Révisez les points faibles pour atteindre la perfection." : "Good score. Review weak spots to reach perfection.";
-    } else {
-      comment = lang === 'fr' ? "Score insuffisant. Nous vous recommandons de revoir le support PDF." : "Insufficient score. We recommend reviewing the PDF material.";
-    }
-
-    let resetBtnText = lang === 'fr' ? "Recommencer le quiz" : "Restart Quiz";
-
-    qBox.innerHTML = `
-      <div class="quiz-score-banner">
-        <h4>${title}</h4>
-        <p>${subtitle}</p>
-        <p style="margin-top:0.4rem; font-weight:600; color:var(--accent);">${comment}</p>
-        <button class="btn-reset" onclick="resetQuiz(${moduleNum})">${resetBtnText}</button>
-      </div>
-    `;
-    return;
-  }
-
-  const currentQ = questions[currentIndex];
-  let statusText = lang === 'fr' ? `Question ${currentIndex + 1} sur ${questions.length}` : `Question ${currentIndex + 1} of ${questions.length}`;
-  let scoreText = lang === 'fr' ? `Score : ${quizScores[moduleNum]}` : `Score: ${quizScores[moduleNum]}`;
-
-  let optionsHtml = currentQ.o.map((opt) => {
-    // Extraire la lettre de choix (A, B, C...)
-    const choiceLetter = opt.charAt(0);
-    return `<button class="quiz-option" onclick="handleQuizAnswer(${moduleNum}, '${choiceLetter}', this)">${opt}</button>`;
-  }).join('');
-
-  qBox.innerHTML = `
-    <div class="quiz-header-status">
-      <span>${statusText}</span>
-      <span>${scoreText}</span>
-    </div>
-    <div class="quiz-q">${currentQ.q}</div>
-    <div class="quiz-options">
-      ${optionsHtml}
-    </div>
-    <div class="quiz-feedback" id="feedbackElement${moduleNum}"></div>
-  `;
-}
-
-function handleQuizAnswer(moduleNum, chosenLetter, buttonElement) {
-  const lang = currentLang;
-  const currentIndex = activeQuestionIndices[moduleNum];
-  const currentQ = quizData[lang][moduleNum][currentIndex];
-  const feedbackEl = document.getElementById(`feedbackElement${moduleNum}`);
-  const qBox = document.getElementById(`quizBox${moduleNum}`);
-  
-  if (!qBox || !feedbackEl) return;
-  
-  const options = qBox.querySelectorAll('.quiz-option');
-
-  // Bloquer de nouveaux choix
-  options.forEach(btn => btn.setAttribute('disabled', 'true'));
-
-  let isCorrect = chosenLetter === currentQ.a;
-  if (isCorrect) {
-    buttonElement.classList.add('correct');
-    quizScores[moduleNum]++;
-    feedbackEl.style.color = 'var(--success)';
-    feedbackEl.innerText = lang === 'fr' ? "✔️ Réponse correcte !" : "✔️ Correct answer!";
-  } else {
-    buttonElement.classList.add('wrong');
-    // Mettre en surbrillance la bonne réponse
-    options.forEach(btn => {
-      if (btn.innerText.startsWith(currentQ.a)) {
-        btn.classList.add('correct');
-      }
-    });
-    feedbackEl.style.color = 'var(--red)';
-    feedbackEl.innerText = lang === 'fr' ? `❌ Mauvaise réponse. La solution était la lettre ${currentQ.a}.` : `❌ Incorrect answer. The solution was ${currentQ.a}.`;
-  }
-  feedbackEl.style.display = 'block';
-
-  // Passer à la question suivante après un court délai pour laisser lire le feedback
-  setTimeout(() => {
-    activeQuestionIndices[moduleNum]++;
-    renderQuizQuestion(moduleNum);
-  }, 1800);
-}
-
-function resetQuiz(moduleNum) {
-  activeQuestionIndices[moduleNum] = 0;
-  quizScores[moduleNum] = 0;
-  renderQuizQuestion(moduleNum);
-}
-
-// Initialisation de l'ensemble des conteneurs de quiz au chargement
-function initAllQuizzes() {
-  for (let m = 1; m <= 5; m++) {
-    renderQuizQuestion(m);
-  }
-}
-
 // =====================================================
-// PROTECTED SPACE PROTECTION BY PASSWORD
-// =====================================================
-function checkPassword() {
-  const passwordInput = document.getElementById('passwordInput').value;
-  const loginError = document.getElementById('loginError');
-  const loginSection = document.getElementById('loginSection');
-  const protectedSection = document.getElementById('protectedSection');
-
-  if (passwordInput === 'youssef') {
-    loginError.style.display = 'none';
-    loginSection.style.display = 'none';
-    protectedSection.style.display = 'block';
-    
-    // Utiliser un petit délai pour s'assurer que le DOM est bien rendu avant d'initialiser les quiz
-    setTimeout(() => {
-      initAllQuizzes();
-    }, 100);
-
-    setTimeout(() => {
-      document.getElementById('progressBar').style.width = '100%';
-    }, 200);
-  } else {
-    loginError.style.display = 'block';
-  }
-}
-
-// =====================================================
-// DICTIONNAIRE DE TRADUCTION INTÉGRAL SANS PERTE DE CONTENU
+// DICTIONNAIRE TRADUCTION TEXTES (DASHBOARD CORPORATE)
 // =====================================================
 const translations = {
   fr: {
-    navAccueil: "Accueil", navServices: "Services", navSecteurs: "Secteurs",
-    navQuiSommesNous: "Qui sommes-nous", navCarrieres: "Carrières",
-    navCampus: "🎓 Campus Cyber", navContact: "Contact", navCta: "Audit gratuit",
-    breadHome: "Accueil", breadCampus: "Campus Cyber",
-    heroTitle: 'Campus <span class="accent">Cyber</span><br><span>Centre de Formation Corporate</span>',
-    heroDesc: "Accès réservé — supports de cours, vidéos et ressources techniques exclusives.",
-    trainerBadge: "Formation par un expert Security Architect",
-    statModules: "Modules actifs", statRessources: "Ressources", statAcces: "Accès continu",
+    breadcrumb: 'Accueil',
+    breadHome: 'Accueil',
+    breadCampus: 'Campus Cyber',
+    heroTitle: 'Campus <span class="accent">Cyber</span><br><span id="heroSubtitle">Centre de Formation Corporate</span>',
+    heroSubtitle: 'Centre de Formation Corporate',
+    heroDesc: 'Accès réservé — supports de cours, vidéos et ressources techniques exclusives.',
+    trainerBadge: 'Formation par un expert Security Architect',
+    statModules: 'Modules actifs',
+    statRessources: 'Ressources',
+    statAcces: 'Accès continu',
     trainerRole: "Docteur en informatique & cybersécurité",
     trainerDesc: "Docteur en informatique et cybersécurité et fin pédagogue, Abdeljalil intervient dans des thématiques aussi variées que l'architecture de sécurité, la sécurité du cloud, l'intégration de la cybersécurité dans les entreprises, la cybersécurité pour les dirigeants, la protection des données, la préparation à la certification CISSP et la formation générale en cybersécurité.",
-    skill1: "Architecture", skill2: "Sécurité cloud", skill3: "Formation", skill4: "Protection données", skill5: "Pédagogie",
-    feat1: "Vidéos HD disponibles 24/7", feat2: "Supports PDF téléchargeables", feat3: "Labs pratiques inclus", feat4: "Support formateur direct",
-    loginTitle: "Centre de Formation Corporate", loginDesc: "Entrez votre mot de passe pour accéder à vos ressources de formation.",
-    loginError: "Mot de passe incorrect. Contactez votre formateur.", loginHint: "🔒 Accès réservé aux membres inscrits aux formations NextGen Academy",
-    welcomeMsg: "Bienvenue ! Vous êtes connecté à votre espace de formation.",
-    modulesTitle: "📘 Mes modules de formation", modulesDesc: "Progressez à votre rythme — chaque module contient une vidéo, un support PDF et un quiz d'évaluation.",
-    progressLabel: "Progression : Modules de formation débloqués",
-    
-    // Headers Modules
-    m1Title: "Sensibilisation Cybersécurité & Anti-Phishing", m1Badge: "En cours", m1Pdf: "<i class='fas fa-file-pdf'></i> Support PDF",
-    m2Title: "Introduction à l'Architecture de Sécurité", m2Badge: "En cours", m2Pdf: "<i class='fas fa-file-pdf'></i> Support PDF",
-    m3Title: "Fondamentaux de la Sécurité Cloud", m3Badge: "En cours", m3Pdf: "<i class='fas fa-file-pdf'></i> Support PDF",
-    m4Title: "Cybersécurité pour les Dirigeants", m4Badge: "En cours", m4Pdf: "<i class='fas fa-file-pdf'></i> Support PDF",
-    m5Title: "Protection des Données & Conformité", m5Badge: "En cours", m5Pdf: "<i class='fas fa-file-pdf'></i> Support PDF",
-
-    // Labels structurels internes injectés
+    skill1: 'Architecture', skill2: 'Sécurité cloud', skill3: 'Formation', skill4: 'Protection données', skill5: 'Pédagogie',
+    feat1: 'Vidéos HD disponibles 24/7',
+    feat2: 'Supports PDF téléchargeables',
+    feat3: 'Labs pratiques inclus',
+    feat4: 'Support formateur direct',
+    loginTitle: 'Connexion au Campus',
+    loginSubtitle: "Veuillez saisir le code d'accès fourni par votre entreprise pour déverrouiller vos modules.",
+    passInput: "Code d'accès sécurisé...",
+    loginBtnTxt: 'Entrer',
+    loginHint: '🔒 Connexion chiffrée SSL de bout en bout.',
+    loginError: "Code d'accès incorrect. Veuillez réessayer.",
+    welcomeTxt: "Accès Corporate Validé — Bienvenue sur votre espace d'apprentissage NetVanguard IT Solutions.",
+    modulesTitle: 'Vos Modules de Formation Réseau & Cybersécurité',
+    modulesSubtitle: 'Suivez votre progression, téléchargez vos supports officiels et validez vos acquis via les quiz.',
+    progressLbl: 'Progression globale de la formation',
+    m1Title: "Sensibilisation Cybersécurité & Anti-Phishing",
+    m1Badge: "En cours",
+    m1Pdf: "<i class='fas fa-file-pdf'></i> Support PDF",
+    m2Title: "Introduction à l'Architecture de Sécurité",
+    m2Badge: "En cours",
+    m2Pdf: "<i class='fas fa-file-pdf'></i> Support PDF",
+    m3Title: "Fondamentaux de la Sécurité Cloud",
+    m3Badge: "En cours",
+    m3Pdf: "<i class='fas fa-file-pdf'></i> Support PDF",
+    m4Title: "Cybersécurité pour les Dirigeants",
+    m4Badge: "En cours",
+    m4Pdf: "<i class='fas fa-file-pdf'></i> Support PDF",
+    m5Title: "Protection des Données & Conformité",
+    m5Badge: "En cours",
+    m5Pdf: "<i class='fas fa-file-pdf'></i> Support PDF",
     lblObj1: "Objectifs pédagogiques", lblProg1: "Programme détaillé", lblSkills1: "Compétences acquises",
     lblObj2: "Objectifs pédagogiques", lblProg2: "Programme détaillé", lblSkills2: "Compétences acquises",
     lblObj3: "Objectifs pédagogiques", lblProg3: "Programme détaillé", lblSkills3: "Compétences acquises",
     lblObj4: "Objectifs pédagogiques", lblProg4: "Programme détaillé", lblSkills4: "Compétences acquises",
     lblObj5: "Objectifs pédagogiques", lblProg5: "Programme détaillé", lblSkills5: "Compétences acquises",
-
-    // Descriptions de fond
-    m1FullDesc: "Une immersion complète dans les techniques d'ingénierie sociale modernes. Ce module décrypte les aspects psychologiques et techniques des cyberattaques ciblant le facteur humain, en dotant vos collaborateurs de clés de détection pragmatiques basées sur des cas réels du paysage de menaces actuel.",
-    m2FullDesc: "Ce module pose les piliers fondamentaux de l'architecture de sécurité réseau et système. À travers l'étude de frameworks de référence, vous apprendrez à concevoir des infrastructures robustes capables de compartimenter les menaces et de résister aux assauts cyber modernes.",
-    m3FullDesc: "Le passage au cloud transforme radicalement le périmètre technologique. Ce cours offre une compréhension experte de la sécurité au sein des environnements dématérialisés publics, hybrides et multi-cloud, en se concentrant sur la configuration sans faille des services cloud.",
-    m4FullDesc: "Conçu spécifiquement pour les instances décisionnelles, ce module transforme le risque technique de la cybersécurité en un enjeu stratégique compréhensible de gouvernance d'entreprise. Apprenez à arbitrer, financer et diriger la résilience cyber globale.",
-    m5FullDesc: "Ce module traite de la mise en conformité réglementaire stricte des systèmes d'information. Vous explorerez en profondeur les exigences de la loi nationale 09-08 (CNDP) ainsi que l'harmonisation indispensable avec les cadres mondiaux type RGPD.",
-
-    // Listes d'objectifs
+    m1FullDesc: "Une immersion complète dans les techniques d'ingénierie sociale modernes. Ce module décrypte les aspects psychologiques et techniques des cyberattaques ciblant le facteur humain, en dotant vos collaborateurs de clés de détection pragmatiques.",
+    m2FullDesc: "Ce module pose les bases fondamentales de la conception de réseaux d'entreprise résilients. Apprenez à structurer des zones de confiance étanches, à intégrer des composants de filtrage avancés et à appliquer le modèle Zero Trust.",
+    m3FullDesc: "Maîtrisez les concepts clés de la sécurisation des infrastructures hébergées (IaaS, PaaS, SaaS). Comprenez le modèle de responsabilité partagée et apprenez à verrouiller les accès et les données dans des environnements multi-cloud.",
+    m4FullDesc: "Ce module s'adresse aux preneurs de décision. Il traduit les menaces techniques en risques business, fournit des clés de gouvernance et pose la méthodologie pour structurer une cellule de gestion de crise efficace.",
+    m5FullDesc: "Maîtrisez les obligations juridiques et techniques de protection de la vie privée. Ce module détaille la mise en conformité pratique avec la loi marocaine 09-08 ainsi qu'avec le règlement européen RGPD.",
     m1Objectives: `
-      <li><i class="fas fa-check"></i> Identifier instantanément les vecteurs d'attaques par ingénierie sociale multi-canal.</li>
-      <li><i class="fas fa-check"></i> Acquérir les réflexes de défense immédiats face au phishing, smishing et vishing.</li>
-      <li><i class="fas fa-check"></i> Analyser de manière critique les en-têtes de messages et les structures d'URLs suspectes.</li>
+      <li><i class="fas fa-check"></i> Identifier instantanément les indices d'altération d'identité émettrice et de structures d'URLs suspectes.</li>
       <li><i class="fas fa-check"></i> Déjouer les schémas de manipulation psychologique basés sur l'urgence ou l'autorité.</li>
       <li><i class="fas fa-check"></i> Appliquer les processus internes de signalement d'incidents de l'entreprise.</li>
       <li><i class="fas fa-check"></i> Différencier une communication corporative légitime d'une usurpation ciblée.</li>
@@ -1156,26 +667,22 @@ const translations = {
       <li><i class="fas fa-check"></i> Appliquer les modèles de défense en profondeur (Defense in Depth) sur tous les niveaux.</li>
       <li><i class="fas fa-check"></i> Structurer des zones de confiance étanches à l'aide de passerelles de filtrage avancées.</li>
       <li><i class="fas fa-check"></i> Intégrer les principes architecturaux du paradigme Zero Trust de manière transverse.</li>
-      <li><i class="fas fa-check"></i> Évaluer l'efficacité des mécanismes de chiffrement pour les données internes.</li>
+      <li><i class="fas fa-check"></i> Évaluer l'efficacité des mechanisms de chiffrement pour les données internes.</li>
       <li><i class="fas fa-check"></i> Déterminer le positionnement optimal des sondes de détection d'intrusions (IDS/IPS).</li>
       <li><i class="fas fa-check"></i> Élaborer des schémas d'interconnexion sécurisée pour les filiales et le travail distant.</li>
     `,
     m3Objectives: `
       <li><i class="fas fa-check"></i> Délimiter avec précision les périmètres du modèle de responsabilité partagée.</li>
-      <li><i class="fas fa-check"></i> Configurer des politiques de gestion des identités et des accès (IAM) de granularité fine.</li>
-      <li><i class="fas fa-check"></i> Mettre en œuvre le chiffrement avancé des données au repos, en transit et en usage.</li>
-      <li><i class="fas fa-check"></i> Auditer en continu la conformité des configurations cloud contre les dérives (Drift).</li>
-      <li><i class="fas fa-check"></i> Sécuriser les architectures de conteneurs et les orchestrateurs de type Kubernetes.</li>
-      <li><i class="fas fa-check"></i> Déployer des solutions de visibilité et de contrôle de type CASB et CSPM.</li>
-      <li><i class="fas fa-check"></i> Établir des tunnels interconnectés hautement sécurisés (VPN IPsec / ExpressRoute).</li>
+      <li><i class="fas fa-check"></i> Configurer des politiques de gestion des identités et des accès (IAM) selon le privilège minimum.</li>
+      <li><i class="fas fa-check"></i> Activer et auditer les mécanismes d'authentification multifacteur (MFA) obligatoires.</li>
+      <li><i class="fas fa-check"></i> Mettre en œuvre le chiffrement des données au repos et en transit sur les buckets cloud.</li>
+      <li><i class="fas fa-check"></i> Centraliser la surveillance des journaux d'événements cloud pour détecter les dérives.</li>
     `,
     m4Objectives: `
-      <li><i class="fas fa-check"></i> Aligner la stratégie de cybersécurité sur les impératifs de croissance business.</li>
-      <li><i class="fas fa-check"></i> Interpréter les indicateurs cyber complexes sous forme de tableaux de bord financiers.</li>
-      <li><i class="fas fa-check"></i> Piloter efficacement une cellule de crise corporative face à une attaque d'envergure.</li>
-      <li><i class="fas fa-check"></i> Structurer les investissements cyber selon des calculs rigoureux de ROI sur risques.</li>
-      <li><i class="fas fa-check"></i> Évaluer l'exposition de l'entreprise aux risques juridiques et de réputation.</li>
-      <li><i class="fas fa-check"></i> Définir une gouvernance claire répartissant les rôles entre DSI, RSSI et Direction.</li>
+      <li><i class="fas fa-check"></i> Évaler la valeur financière et stratégique des actifs numériques pour l'entreprise.</li>
+      <li><i class="fas fa-check"></i> Arbitrer efficacement les budgets alloués aux programmes d'infrastructure cyber.</li>
+      <li><i class="fas fa-check"></i> Déployer une gouvernance transverse claire (Rôles RSSI, DPO, Direction).</li>
+      <li><i class="fas fa-check"></i> Structurer un plan de continuité d'activité (PCA) adapté aux pannes d'origine cyber.</li>
       <li><i class="fas fa-check"></i> Intégrer les clauses de cyber-assurance adéquates au profil de l'organisation.</li>
     `,
     m5Objectives: `
@@ -1185,194 +692,20 @@ const translations = {
       <li><i class="fas fa-check"></i> Mettre en œuvre le principe de minimisation des données au sein des applicatifs.</li>
       <li><i class="fas fa-check"></i> Rédiger des politiques de confidentialité conformes et transparentes pour les tiers.</li>
       <li><i class="fas fa-check"></i> Conduire des analyses d'impact sur la protection des données (AIPD / PIA).</li>
-      <li><i class="fas fa-check"></i> Orchestrer les réponses logistiques aux demandes de droits des personnes physiques.</li>
+      <li><i class="fas fa-check"></i> Orchestrer techniquement les demandes de droits d'accès, de rectification et d'oubli.</li>
     `,
-
-    // Programmes détaillés
-    m1Prog: `
-      <li><i class="fas fa-circle-notch"></i> <strong>Module A: Anatomie de l'ingénierie sociale</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Histoire et évolution des attaques basées sur l'humain</li>
-        <li><i class="fas fa-minus"></i> Le cycle de vie d'une attaque d'ingénierie sociale</li>
-        <li><i class="fas fa-minus"></i> Collecte d'informations (OSINT) pré-attaque par les acteurs malveillants</li>
-        <li><i class="fas fa-minus"></i> Différence entre hameçonnage de masse et Spear-Phishing</li>
-        <li><i class="fas fa-minus"></i> Les nouvelles frontières : l'apport de l'IA générative dans les attaques</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module B: Mécanismes psychologiques de manipulation</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Le principe d'autorité et l'usurpation de l'identité des dirigeants</li>
-        <li><i class="fas fa-minus"></i> L'exploitation du sentiment d'urgence et de la peur</li>
-        <li><i class="fas fa-minus"></i> Les leviers de la curiosité, de la flatterie et de la récompense</li>
-        <li><i class="fas fa-minus"></i> Biais cognitifs mis à contribution par les attaquants</li>
-        <li><i class="fas fa-minus"></i> Techniques de déconditionnement et de vigilance cognitive</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module C: Analyse technique des messages malveillants</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Décryptage des en-têtes techniques de messagerie (MIME, SMTP)</li>
-        <li><i class="fas fa-minus"></i> Compréhension élémentaire de SPF, DKIM et DMARC</li>
-        <li><i class="fas fa-minus"></i> Techniques d'obfuscation d'URLs, typosquatting et homographes</li>
-        <li><i class="fas fa-minus"></i> Analyse des pièces jointes à haut risque (macros, scripts exécutables)</li>
-        <li><i class="fas fa-minus"></i> Analyse pratique d'emails frauduleux en environnement sécurisé</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module D: Procédures d'alerte et remédiation interne</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Utilisation des outils internes de signalement en un clic</li>
-        <li><i class="fas fa-minus"></i> Comportements immédiats à adopter en cas de clic par inadvertance</li>
-        <li><i class="fas fa-minus"></i> Rôle de l'équipe de réponse aux incidents (CSIRT/SOC)</li>
-        <li><i class="fas fa-minus"></i> Isolation des postes de travail potentiellement compromis</li>
-        <li><i class="fas fa-minus"></i> REX (Retour d'expérience) et culture de la sécurité sans blâme</li>
-      </ul>
-    `,
-    m2Prog: `
-      <li><i class="fas fa-circle-notch"></i> <strong>Module A: Principes de segmentation et DMZ</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Fondations théoriques du découpage en zones de sécurité</li>
-        <li><i class="fas fa-minus"></i> Architecture de DMZ simple, double barrière et multi-niveaux</li>
-        <li><i class="fas fa-minus"></i> VLANs de sécurité, routage inter-VLAN et ACLs</li>
-        <li><i class="fas fa-minus"></i> Micro-segmentation logicielle dans les centres de données</li>
-        <li><i class="fas fa-minus"></i> Étude de cas pratiques : isolation d'une application e-commerce</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module B: Modèles de défense en profondeur</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Concept de superposition des contrôles administratifs, physiques et techniques</li>
-        <li><i class="fas fa-minus"></i> Sécurisation de la couche humaine, des terminaux, des réseaux et des applications</li>
-        <li><i class="fas fa-minus"></i> Politiques de durcissement (Hardening) de l'OS et des applications de base</li>
-        <li><i class="fas fa-minus"></i> Gestion des correctifs de sécurité (Patch Management) comme impératif</li>
-        <li><i class="fas fa-minus"></i> Redondance structurelle et résilience architecturale</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module C: Vers le modèle Zero Trust Architecture</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Critique du modèle périmétrique traditionnel 'Château Fort'</li>
-        <li><i class="fas fa-minus"></i> Les 7 piliers directeurs du framework NIST SP 800-207</li>
-        <li><i class="fas fa-minus"></i> Moteurs de politique de sécurité (Policy Engine / Policy Administrator)</li>
-        <li><i class="fas fa-minus"></i> Authentification contextuelle, adaptative et continue</li>
-        <li><i class="fas fa-minus"></i> Passage progressif d'un réseau hérité vers une architecture Zero Trust</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module D: Filtrage et inspection des flux</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Évolution des firewalls : du filtrage de paquets aux Next-Gen Firewalls (NGFW)</li>
-        <li><i class="fas fa-minus"></i> Inspection SSL/TLS : enjeux de sécurité, de performance et de confidentialité</li>
-        <li><i class="fas fa-minus"></i> Passerelles Web Sécurisées (SWG) et Reverse Proxies</li>
-        <li><i class="fas fa-minus"></i> Déploiement opérationnel des IDS, IPS et Network Detection & Response (NDR)</li>
-        <li><i class="fas fa-minus"></i> Centralisation et analyse des flux réseaux via les solutions SIEM</li>
-      </ul>
-    `,
-    m3Prog: `
-      <li><i class="fas fa-circle-notch"></i> <strong>Module A: Modèle de responsabilité conjointe</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Différenciation fine des responsabilités en IaaS, PaaS, SaaS</li>
-        <li><i class="fas fa-minus"></i> Les obligations du Fournisseur de Services Cloud (CSP) vis-à-vis des infrastructures physiques</li>
-        <li><i class="fas fa-minus"></i> Les obligations exclusives du Client (données, configurations, accès)</li>
-        <li><i class="fas fa-minus"></i> Analyse des clauses de sécurité contractuelles des grands CSP (AWS, Azure, GCP)</li>
-        <li><i class="fas fa-minus"></i> Gestion du risque juridique lié à la souveraineté des données (Cloud Act vs RGPD)</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module B: Gestion des identités (IAM) et gouvernance</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Principes du moindre privilège appliqué aux utilisateurs et aux ressources applicatives</li>
-        <li><i class="fas fa-minus"></i> Configuration des politiques IAM basées sur les rôles (RBAC) et les attributs (ABAC)</li>
-        <li><i class="fas fa-minus"></i> Fédération d'identités, SSO et protocoles d'authentification modernes (SAML, OIDC)</li>
-        <li><i class="fas fa-minus"></i> Gestion des secrets cryptographiques, clés d'API et identités de machines (Vaults)</li>
-        <li><i class="fas fa-minus"></i> Revues d'accès régulières et rapports de gouvernance automatique</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module C: Protection des données et stockage Cloud</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Mécanismes de chiffrement côté serveur et côté client (Customer Managed Keys)</li>
-        <li><i class="fas fa-minus"></i> Sécurisation avancée des compartiments de stockage (S3, Azure Blobs)</li>
-        <li><i class="fas fa-minus"></i> Techniques d'anonymisation, de pseudonymisation et tokenisation dans le Cloud</li>
-        <li><i class="fas fa-minus"></i> Sauvegardes cloud immuables et résilientes face aux attaques par ransomware</li>
-        <li><i class="fas fa-minus"></i> Cycle de vie des données et destruction sécurisée des actifs obsolètes</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module D: Supervision et posture de sécurité (CSPM/CASB)</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Introduction aux outils de Cloud Security Posture Management (CSPM)</li>
-        <li><i class="fas fa-minus"></i> Détection automatique des mauvaises configurations et remédiation automatisée</li>
-        <li><i class="fas fa-minus"></i> Rôle des Cloud Access Security Brokers (CASB) pour sécuriser l'usage des SaaS</li>
-        <li><i class="fas fa-minus"></i> Journalisation globale des événements administratifs (CloudTrail, Activity Logs)</li>
-        <li><i class="fas fa-minus"></i> Intégration de la sécurité dans les pipelines d'Infrastructure as Code (SecDevOps)</li>
-      </ul>
-    `,
-    m4Prog: `
-      <li><i class="fas fa-circle-notch"></i> <strong>Module A: Alignement cyber et stratégie business</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Positionnement de la cybersécurité comme vecteur de confiance et avantage concurrentiel</li>
-        <li><i class="fas fa-minus"></i> Modèles de maturité cyber d'entreprise (CMMC, ISO 27004)</li>
-        <li><i class="fas fa-minus"></i> Traduction des menaces techniques en risques opérationnels majeurs</li>
-        <li><i class="fas fa-minus"></i> L'impact des interruptions de service sur la supply chain et les clients</li>
-        <li><i class="fas fa-minus"></i> Méthodes d'intégration de la sécurité dès la genèse des projets métiers</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module B: KPI, métriques et tableaux de bord</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Sélection d'indicateurs clés pertinents pour le Conseil d'Administration</li>
-        <li><i class="fas fa-minus"></i> Analyse des taux de remédiation, temps de détection (MTTD) et de réponse (MTTR)</li>
-        <li><i class="fas fa-minus"></i> Compréhension des audits de pénétration externes et scoring de sécurité</li>
-        <li><i class="fas fa-minus"></i> Budgétisation de la sécurité informatique : répartition Capex/Opex idéale</li>
-        <li><i class="fas fa-minus"></i> Établissement de rapports de conformité clairs pour les actionnaires</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module C: Gouvernance et gestion de crise cyber</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Organisation et rôles d'une cellule de crise (Direction, Technique, Juridique, RP)</li>
-        <li><i class="fas fa-minus"></i> Stratégie d'arbre de décision en cas d'attaque par ransomware : payer ou ne pas payer ?</li>
-        <li><i class="fas fa-minus"></i> Communication interne et externe en période de crise : rassurer sans trahir de secrets</li>
-        <li><i class="fas fa-minus"></i> Scénarios de simulation de crise sur table pour la direction</li>
-        <li><i class="fas fa-minus"></i> Continuité des opérations dégradées en l'absence de systèmes d'information</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module D: Responsabilité juridique et cyber-assurance</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Responsabilité civile et pénale du dirigeant en cas de négligence avérée</li>
-        <li><i class="fas fa-minus"></i> Le marché de la cyber-assurance : critères de souscription et exclusions fréquentes</li>
-        <li><i class="fas fa-minus"></i> Gestion contractuelle de la sécurité des tiers et sous-traitants</li>
-        <li><i class="fas fa-minus"></i> Conformité aux réglementations sectorielles nationales et internationales</li>
-        <li><i class="fas fa-minus"></i> Processus d'évaluation post-incident et dépôt de plainte légale</li>
-      </ul>
-    `,
-    m5Prog: `
-      <li><i class="fas fa-circle-notch"></i> <strong>Module A: Principes fondamentaux du traitement</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Définition juridique précise de la donnée à caractère personnel et sensible</li>
-        <li><i class="fas fa-minus"></i> Détermination de la base légale du traitement (consentement, intérêt légitime, contrat)</li>
-        <li><i class="fas fa-minus"></i> Rôles et délimitation de responsabilité : Responsable de traitement vs Sous-traitant</li>
-        <li><i class="fas fa-minus"></i> Les grands principes directeurs : loyauté, transparence, exactitude</li>
-        <li><i class="fas fa-minus"></i> Sanctions administratives, financières et pénales encourues en cas d'infraction</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module B: Cartographie des données et registres</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Méthodologie pratique de recensement des processus traitant des données</li>
-        <li><i class="fas fa-minus"></i> Création, alimentation et cycle de vie du Registre des Activités de Traitement</li>
-        <li><i class="fas fa-minus"></i> Identification des flux transfrontaliers de données personnelles</li>
-        <li><i class="fas fa-minus"></i> Détermination et application des durées de conservation des données</li>
-        <li><i class="fas fa-minus"></i> Audit régulier de l'adéquation de la cartographie avec l'infrastructure réelle</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module C: Le rôle de la CNDP et obligations locales</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Missions, prérogatives et pouvoirs de contrôle de la CNDP au Maroc</li>
-        <li><i class="fas fa-minus"></i> Procédures de notifications, déclarations préalables et demandes d'autorisations</li>
-        <li><i class="fas fa-minus"></i> Gestion spécifique des transferts de données personnelles vers l'étranger</li>
-        <li><i class="fas fa-minus"></i> Intégration du délégué à la protection des données (DPO) ou correspondant CNDP</li>
-        <li><i class="fas fa-minus"></i> Préparation opérationnelle de l'entreprise à un contrôle in situ de la CNDP</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module D: Droits des personnes et Privacy by Design</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Processus technique de traitement des demandes d'accès, de rectification et d'opposition</li>
-        <li><i class="fas fa-minus"></i> Implémentation du droit à l'effacement (droit à l'oubli) dans les bases de données</li>
-        <li><i class="fas fa-minus"></i> Intégration native des contraintes juridiques dès le codage applicatif (Privacy by Design)</li>
-        <li><i class="fas fa-minus"></i> Sécurisation technique requise pour empêcher la fuite de données personnelles</li>
-        <li><i class="fas fa-minus"></i> Notification réglementaire obligatoire des violations de données dans les 72 heures</li>
-      </ul>
-    `,
-
-    // Compétences finales
     m1Skills: `
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Maîtrise de la détection visuelle et logique des courriels piégés.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Capacité opérationnelle à signaler un incident cyber selon les normes de l'entreprise.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Autonomie face aux sollicitations suspectes par canaux voix (vishing) et SMS (smishing).</li>
+      <li><i class="fas fa-star" style="color:var(--gold)"></i> Réduction prouvée du taux de vulnérabilité face aux attaques d'ingénierie sociale complexes.</li>
+      <li><i class="fas fa-star" style="color:var(--gold)"></i> Maîtrise des réflexes de signalement immédiat aux équipes d'intervention d'urgence (SOC).</li>
+      <li><i class="fas fa-star" style="color:var(--gold)"></i> Capacité autonome à auditer la légitimité fondamentale d'une sollicitation externe.</li>
     `,
     m2Skills: `
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Aptitude complète à cartographier et auditer l'architecture réseau d'une infrastructure.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Maîtrise de l'intégration des règles Zero Trust dans les spécifications techniques.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Capacité à spécifier les besoins en équipements de filtrage de nouvelle génération.</li>
+      <li><i class="fas fa-star" style="color:var(--gold)"></i> Capacité à auditer une topologie réseau existante et à y injecter des correctifs de cloisonnement.</li>
+      <li><i class="fas fa-star" style="color:var(--gold)"></i> Aptitude opérationnelle à configurer des règles de pare-feux industriels d'architecture multi-niveaux.</li>
+      <li><i class="fas fa-star" style="color:var(--gold)"></i> Compétence en conception d'interconnexions chiffrées IPSec/SSL haute disponibilité.</li>
     `,
     m3Skills: `
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Capacité à configurer des environnements d'infrastructure multi-cloud sans faille de sécurité.</li>
+      <li><i class="fas fa-star" style="color:var(--gold)"></i> Capacité complète à configurer des environnements d'infrastructure multi-cloud sans faille de sécurité.</li>
       <li><i class="fas fa-star" style="color:var(--gold)"></i> Expertise pratique dans la gestion centralisée des accès et des secrets applicatifs cloud.</li>
       <li><i class="fas fa-star" style="color:var(--gold)"></i> Maîtrise des standards de remédiation automatisée des configurations défectueuses.</li>
     `,
@@ -1384,330 +717,287 @@ const translations = {
     m5Skills: `
       <li><i class="fas fa-star" style="color:var(--gold)"></i> Capacité à concevoir un registre de traitement conforme aux normes CNDP/RGPD.</li>
       <li><i class="fas fa-star" style="color:var(--gold)"></i> Maîtrise opérationnelle des lancements de projets informatiques intégrant le Privacy by Design.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Compétence managériale pour occuper le rôle de référent ou DPO interne de transition.</li>
+      <li><i class="fas fa-star" style="color:var(--gold)"></i> Compétence requise pour piloter les audits de conformité menés par les autorités.</li>
     `,
-
-    ressourcesTitle: "Ressources complémentaires",
-    res1Title: "Glossaire cybersécurité", res1Desc: "PDF · 45 termes essentiels",
-    res2Title: "Cheatsheet Linux", res2Desc: "PDF · Commandes essentielles",
-    res3Title: "TryHackMe", res3Desc: "Plateforme de labs pratiques",
-    res4Title: "MITRE ATT&CK", res4Desc: "Framework des techniques d'attaque",
-    res5Title: "Outils pentest", res5Desc: "PDF · Liste des outils recommandés",
-    res6Title: "Formulaire de remédiation", res6Desc: "Soumettre vos exercices",
-    tutorTitle: "Une question sur le cours ?", tutorDesc: "Abdeljalil répond à toutes vos questions techniques sous 24h.",
-    footerDesc: "Cybersécurité, conseil, SOC, infrastructure et sécurité offensive pour les entreprises modernes.",
-    footerServices: "Services", footerCompany: "Entreprise", footerLegal: "Légal",
-    footLinkAbout: "Qui sommes-nous", footLinkCareers: "Carrières", footLinkContact: "Contact",
-    footLinkLegal: "Mentions légales", footLinkPrivacy: "Confidentialité", footCopyright: "© 2026 NextGen Technologies SARL · Casablanca"
+    ressourcesTitle: '<i class="fas fa-folder-open"></i> Ressources Complémentaires & Outils Recommandés',
+    r1Title: "Guide d'Hygiène Cyber", r2Title: "Modèle de PSSI", r3Desc: 'Veille & Alertes de sécurité officielles', r4Desc: 'Formulaires & Textes Loi 09-08',
+    tutorTitle: "Besoin d'un éclaircissement technique ?",
+    tutorDesc: "Votre formateur référent est disponible pour répondre à vos questions sur les cours ou les labs.",
+    tutorMailBtn: "Envoyer un email",
+    navAccueil: "Accueil", navServices: "Services", navSecteurs: "Secteurs", navQuiSommesNous: "Qui sommes-nous", navCarrieres: "Carrières", navCampus: "🎓 Campus Cyber", navContact: "Contact"
   },
   en: {
-    navAccueil: "Home", navServices: "Services", navSecteurs: "Sectors",
-    navQuiSommesNous: "About Us", navCarrieres: "Careers",
-    navCampus: "🎓 Cyber Campus", navContact: "Contact", navCta: "Free Audit",
-    breadHome: "Home", breadCampus: "Cyber Campus",
-    heroTitle: 'Cyber <span class="accent">Campus</span><br><span>Corporate Training Center</span>',
-    heroDesc: "Restricted access — course materials, videos, and exclusive technical resources.",
-    trainerBadge: "Training by a Security Architect expert",
-    statModules: "Active modules", statRessources: "Resources", statAcces: "Continuous access",
+    breadcrumb: 'Home',
+    breadHome: 'Home',
+    breadCampus: 'Cyber Campus',
+    heroTitle: 'Cyber <span class="accent">Campus</span><br><span id="heroSubtitle">Corporate Training Center</span>',
+    heroSubtitle: 'Corporate Training Center',
+    heroDesc: 'Restricted access — course materials, exclusive video logs and technical assets.',
+    trainerBadge: 'Training delivered by a Senior Security Architect',
+    statModules: 'Active modules',
+    statRessources: 'Resources',
+    statAcces: 'Continuous access',
     trainerRole: "PhD in Computer Science & Cybersecurity",
-    trainerDesc: "A PhD holder in Computer Science and Cybersecurity and an excellent educator, Abdeljalil specializes in security architecture, cloud security, business cybersecurity integration, executive training, data protection, CISSP preparation, and general cybersecurity education.",
-    skill1: "Architecture", skill2: "Cloud Security", skill3: "Training", skill4: "Data Protection", skill5: "Pedagogy",
-    feat1: "24/7 HD Videos Available", feat2: "Downloadable PDF Materials", feat3: "Practical Labs Included", feat4: "Direct Instructor Support",
-    loginTitle: "Corporate Training Center", loginDesc: "Enter your password to access your training resources.",
-    loginError: "Incorrect password. Please contact your instructor.", loginHint: "🔒 Access restricted to registered NextGen Academy members",
-    welcomeMsg: "Welcome! You are connected to your training portal.",
-    modulesTitle: "📘 My Training Modules", modulesDesc: "Progress at your own pace — each module includes a video, a PDF support, and an assessment quiz.",
-    progressLabel: "Progress: Training modules unlocked",
-    
-    // Headers Modules
-    m1Title: "Cybersecurity Awareness & Anti-Phishing", m1Badge: "In Progress", m1Pdf: "<i class='fas fa-file-pdf'></i> PDF Support",
-    m2Title: "Introduction to Security Architecture", m2Badge: "In Progress", m2Pdf: "<i class='fas fa-file-pdf'></i> PDF Support",
-    m3Title: "Cloud Security Fundamentals", m3Badge: "In Progress", m3Pdf: "<i class='fas fa-file-pdf'></i> PDF Support",
-    m4Title: "Cybersecurity for Executives", m4Badge: "In Progress", m4Pdf: "<i class='fas fa-file-pdf'></i> PDF Support",
-    m5Title: "Data Protection & Compliance", m5Badge: "In Progress", m5Pdf: "<i class='fas fa-file-pdf'></i> PDF Support",
-
-    // Structural Labels Inside Cards
-    lblObj1: "Educational Objectives", lblProg1: "Detailed Program", lblSkills1: "Skills Acquired",
-    lblObj2: "Educational Objectives", lblProg2: "Detailed Program", lblSkills2: "Skills Acquired",
-    lblObj3: "Educational Objectives", lblProg3: "Detailed Program", lblSkills3: "Skills Acquired",
-    lblObj4: "Educational Objectives", lblProg4: "Detailed Program", lblSkills4: "Skills Acquired",
-    lblObj5: "Educational Objectives", lblProg5: "Detailed Program", lblSkills5: "Skills Acquired",
-
-    // Deep Descriptions
-    m1FullDesc: "A complete dive into modern social engineering methods. This module decodes the psychological and technical vectors of cyber threats targeted at the human element, providing employees with actionable keys based on live threat scenarios.",
-    m2FullDesc: "This module sets the fundamental pillars of security architecture for enterprise networks and core systems. By exploring standard industry blueprints, you will design robust infrastructures that effectively isolate lateral threats.",
-    m3FullDesc: "Cloud migration completely reshapes technical perimeters. This module delivers expert-level understanding of security inside public, hybrid, and multi-cloud environments, highlighting bulletproof misconfiguration management.",
-    m4FullDesc: "Tailored for senior leadership and board positions, this course translates deep technical cyber risks into clear corporate governance metrics. Learn how to allocate budgets, assess liabilities, and lead executive crisis cells.",
-    m5FullDesc: "This module focuses on strict regulatory compliance IT frameworks. You will deeply explore local Law 09-08 (CNDP) prerequisites as well as mandatory mapping with international standards like GDPR.",
-
-    // Objectives Lists
+    trainerDesc: "PhD in computer science & cybersecurity and a highly skilled educator, Abdeljalil teaches diverse advanced topics including security architecture, cloud security, corporate cybersecurity alignment, executive protection, data privacy regulation, CISSP prep, and general engineering awareness.",
+    skill1: 'Architecture', skill2: 'Cloud security', skill3: 'Training', skill4: 'Data Privacy', skill5: 'Pedagogy',
+    feat1: 'HD Videos available 24/7',
+    feat2: 'Downloadable PDF Slides',
+    feat3: 'Hands-on Labs included',
+    feat4: 'Direct instructor channel',
+    loginTitle: 'Campus Authentication',
+    loginSubtitle: 'Please enter the access code provided by your organization to unlock your specific curriculum.',
+    passInput: 'Secure access token...',
+    loginBtnTxt: 'Verify',
+    loginHint: '🔒 End-to-end encrypted SSL connection.',
+    loginError: 'Invalid access token. Please verify and try again.',
+    welcomeTxt: "Corporate Access Authorized — Welcome to your NetVanguard IT Solutions learning space.",
+    modulesTitle: 'Your Networking & Cybersecurity Syllabus',
+    modulesSubtitle: 'Track your personal progression, download official slides and validate knowledge via interactive tests.',
+    progressLbl: 'Overall training path fulfillment',
+    m1Title: "Cybersecurity Awareness & Anti-Phishing Essentials",
+    m1Badge: "Active",
+    m1Pdf: "<i class='fas fa-file-pdf'></i> PDF Slides",
+    m2Title: "Introduction to Corporate Security Architectures",
+    m2Badge: "Active",
+    m2Pdf: "<i class='fas fa-file-pdf'></i> PDF Slides",
+    m3Title: "Cloud Infrastructure Security Fundamentals",
+    m3Badge: "Active",
+    m3Pdf: "<i class='fas fa-file-pdf'></i> PDF Slides",
+    m4Title: "Executive Cybersecurity Governance & Strategy",
+    m4Badge: "Active",
+    m4Pdf: "<i class='fas fa-file-pdf'></i> PDF Slides",
+    m5Title: "Data Privacy Frameworks & Compliance",
+    m5Badge: "Active",
+    m5Pdf: "<i class='fas fa-file-pdf'></i> PDF Slides",
+    lblObj1: "Learning objectives", lblProg1: "Detailed syllabus", lblSkills1: "Target competencies",
+    lblObj2: "Learning objectives", lblProg2: "Detailed syllabus", lblSkills2: "Target competencies",
+    lblObj3: "Learning objectives", lblProg3: "Detailed syllabus", lblSkills3: "Target competencies",
+    lblObj4: "Learning objectives", lblProg4: "Detailed syllabus", lblSkills4: "Target competencies",
+    lblObj5: "Learning objectives", lblProg5: "Detailed syllabus", lblSkills5: "Target competencies",
+    m1FullDesc: "A complete walkthrough into modern social engineering schemes. This module breaks down the psychological drivers and technical vectors of human-centric cyberattacks, giving pragmatical threat keys.",
+    m2FullDesc: "This cornerstone module sets the foundations for designing resilient enterprise perimeters. Learn how to draw bulletproof logical boundaries, inject advanced firewalls, and orchestrate Zero Trust.",
+    m3FullDesc: "Master core concepts of hardening hybrid deployments (IaaS, PaaS, SaaS). Deeply understand the shared responsibility blueprint and learn to lockdown resources across multiple clouds.",
+    m4FullDesc: "Tailored specifically for c-level decision makers. It converts raw technical indicator languages into corporate risk items, building effective framework governance and incident cells.",
+    m5FullDesc: "Master the cross-border legal obligations of private data management. This module covers practical implementations matching Moroccan 09-08 laws and European GDPR frameworks.",
     m1Objectives: `
-      <li><i class="fas fa-check"></i> Instantly identify multi-channel social engineering attack vectors.</li>
-      <li><i class="fas fa-check"></i> Build immediate defensive behaviors against phishing, smishing, and vishing.</li>
-      <li><i class="fas fa-check"></i> Critically inspect email headers and suspicious URL anatomy.</li>
-      <li><i class="fas fa-check"></i> Counter psychological tricks based on authority signals or urgent tones.</li>
-      <li><i class="fas fa-check"></i> Execute the company's internal security incident reporting processes.</li>
-      <li><i class="fas fa-check"></i> Distinguish legitimate corporate messages from targeted corporate spoofing.</li>
-      <li><i class="fas fa-check"></i> Mitigate the long-term risk of credential harvesting and identity exfiltration.</li>
+      <li><i class="fas fa-check"></i> Instantly parse sender spoofs, lookalike payloads, and obfuscated malicious URLs.</li>
+      <li><i class="fas fa-check"></i> Neutralize psychological triggers such as artificial authority or urgency requests.</li>
+      <li><i class="fas fa-check"></i> Properly execute corporate incident reporting pathways toward the internal SOC.</li>
+      <li><i class="fas fa-check"></i> Distinctly parse authentic corporate requests from customized executive impersonations.</li>
+      <li><i class="fas fa-check"></i> Drastically lower organization credential exposure indices over public channels.</li>
     `,
     m2Objectives: `
-      <li><i class="fas fa-check"></i> Design highly secure network topologies using strict domain segmentation.</li>
-      <li><i class="fas fa-check"></i> Apply structural Defense in Depth principles across all enterprise layers.</li>
-      <li><i class="fas fa-check"></i> Build strict trust zones leveraging advanced firewall inspection rules.</li>
-      <li><i class="fas fa-check"></i> Cross-integrate the architectural guidelines of Zero Trust models.</li>
-      <li><i class="fas fa-check"></i> Evaluate encryption security efficiency for data streams.</li>
-      <li><i class="fas fa-check"></i> Locate optimal positions for network intrusion detection engines (IDS/IPS).</li>
-      <li><i class="fas fa-check"></i> Create secure interconnect topologies for corporate branches and remote workers.</li>
+      <li><i class="fas fa-check"></i> Design robust corporate network topologies based on microsegmentation principles.</li>
+      <li><i class="fas fa-check"></i> Inject actionable Defense in Depth patterns across every structural network tier.</li>
+      <li><i class="fas fa-check"></i> Optimize stateful filtering rulesets and Next-Generation Firewall inspection policies.</li>
+      <li><i class="fas fa-check"></i> Align optimal inline and passive sensor matrices for network IDS/IPS telemetry.</li>
+      <li><i class="fas fa-check"></i> Weave core cryptographic algorithms into production data channels seamlessly.</li>
+      <li><i class="fas fa-check"></i> Implement advanced perimeter frameworks using reliable Zero Trust blueprints.</li>
+      <li><i class="fas fa-check"></i> Engineer high-availability IPSec/SSL tunnels for branching offices and remote work.</li>
     `,
     m3Objectives: `
-      <li><i class="fas fa-check"></i> Accurately trace boundaries within Shared Responsibility Models.</li>
-      <li><i class="fas fa-check"></i> Enforce fine-grained Cloud Identity and Access Management (IAM) controls.</li>
-      <li><i class="fas fa-check"></i> Implement data encryption at rest, in transit, and in use.</li>
-      <li><i class="fas fa-check"></i> Continuously audit cloud infrastructure to prevent configuration drifts.</li>
-      <li><i class="fas fa-check"></i> Secure microservices, containers, and orchestration platforms like Kubernetes.</li>
-      <li><i class="fas fa-check"></i> Deploy visibility architectures leveraging CASB and CSPM frameworks.</li>
-      <li><i class="fas fa-check"></i> Build encrypted network tunnels (IPsec VPN / ExpressRoute connections).</li>
+      <li><i class="fas fa-check"></i> Clearly map the dividing perimeters of the vendor Shared Responsibility Model.</li>
+      <li><i class="fas fa-check"></i> Provision granular Identity and Access Management (IAM) controls following least privilege.</li>
+      <li><i class="fas fa-check"></i> Mandate and audit strong Multi-Factor Authentication (MFA) entry baselines.</li>
+      <li><i class="fas fa-check"></i> Enforce advanced bucket encryption policies for static objects at rest and in transit.</li>
+      <li><i class="fas fa-check"></i> Consolidate continuous logging streams into active hybrid SIEM cloud structures.</li>
     `,
     m4Objectives: `
-      <li><i class="fas fa-check"></i> Securely align corporate cyber roadmaps with business revenue growth.</li>
-      <li><i class="fas fa-check"></i> Translate technical metrics into executive financial dashboards.</li>
-      <li><i class="fas fa-check"></i> Efficiently command corporate crisis units during active breaches.</li>
-      <li><i class="fas fa-check"></i> Structure cybersecurity funding using robust risk-based ROI methods.</li>
-      <li><i class="fas fa-check"></i> Evaluate corporate visibility against legal liability and brand damage.</li>
-      <li><i class="fas fa-check"></i> Structure clear governance roles between CIO, CISO, and Executive Board.</li>
-      <li><i class="fas fa-check"></i> Integrate optimal cyber-insurance clauses into corporate insurance plans.</li>
+      <li><i class="fas fa-check"></i> Convert technical cyber indicator reports into actionable financial business items.</li>
+      <li><i class="fas fa-check"></i> Effectively evaluate and optimize return metrics on organizational cyber budgets.</li>
+      <li><i class="fas fa-check"></i> Establish crystal clear security leadership lanes (CISO, DPO, Board roles).</li>
+      <li><i class="fas fa-check"></i> Outline technical Business Continuity Plans (BCP) against ransomware disasters.</li>
+      <li><i class="fas fa-check"></i> Select right-sized cyber insurance products fitting corporate exposure profiles.</li>
     `,
     m5Objectives: `
-      <li><i class="fas fa-check"></i> Ensure full processing compliance with Moroccan Law 09-08 (CNDP).</li>
-      <li><i class="fas fa-check"></i> Deploy corporate organizational safeguards matching European GDPR rules.</li>
-      <li><i class="fas fa-check"></i> Map and maintain exhaustive registries of personal tracking data.</li>
-      <li><i class="fas fa-check"></i> Enforce strict data minimization rules within application lifecycles.</li>
-      <li><i class="fas fa-check"></i> Draft transparent, compliant privacy notices for external users.</li>
-      <li><i class="fas fa-check"></i> Lead formal Data Protection Impact Assessments (DPIA / PIA).</li>
-      <li><i class="fas fa-check"></i> Manage legal data subject requests seamlessly.</li>
+      <li><i class="fas fa-check"></i> Guarantee full corporate alignment with Moroccan national data protection law 09-08.</li>
+      <li><i class="fas fa-check"></i> Embed structural operational policies required by the European GDPR regulation.</li>
+      <li><i class="fas fa-check"></i> Formulate and maintain an active data classification ledger for user-sensitive rows.</li>
+      <li><i class="fas fa-check"></i> Instrument data minimization rules natively into code layers during software projects.</li>
+      <li><i class="fas fa-check"></i> Write transparent data privacy guidelines compliant with third-party verification.</li>
+      <li><i class="fas fa-check"></i> Independently execute complete Data Protection Impact Assessments (DPIA / PIA).</li>
+      <li><i class="fas fa-check"></i> Handle complex user data requests regarding right to view, modify or purge rows.</li>
     `,
-
-    // Detailed Programs
-    m1Prog: `
-      <li><i class="fas fa-circle-notch"></i> <strong>Module A: Anatomy of Social Engineering</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> History and evolution of human-centric cyber threats</li>
-        <li><i class="fas fa-minus"></i> Core life cycle steps of a social engineering campaign</li>
-        <li><i class="fas fa-minus"></i> Pre-attack open-source intelligence gathering (OSINT) by threat actors</li>
-        <li><i class="fas fa-minus"></i> Distinguishing mass phishing runs from hyper-targeted Spear-Phishing</li>
-        <li><i class="fas fa-minus"></i> Modern frontiers: The use of Generative AI to scale attacks</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module B: Psychological Mechanics of Manipulation</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> The authority principle and executive impersonation (CEO Fraud)</li>
-        <li><i class="fas fa-minus"></i> Exploiting artificial urgency, panic, and stress reactions</li>
-        <li><i class="fas fa-minus"></i> Capitalizing on curiosity, social flattery, and reward incentives</li>
-        <li><i class="fas fa-minus"></i> Cognitive biases exploited daily by social engineers</li>
-        <li><i class="fas fa-minus"></i> De-conditioning exercises and professional cognitive vigilance</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module C: Technical Inspection of Mail and Streams</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Dissecting email transport headers (MIME, SMTP metadata)</li>
-        <li><i class="fas fa-minus"></i> Core comprehension of SPF, DKIM, and DMARC verification layers</li>
-        <li><i class="fas fa-minus"></i> URL obfuscation tricks, typosquatting, and homograph targets</li>
-        <li><i class="fas fa-minus"></i> High-risk file attachments (active macros, scripting binaries)</li>
-        <li><i class="fas fa-minus"></i> Lab analysis of actual phishing messages within secure conditions</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module D: Reporting Workflows and Mitigation</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Operating internal one-click threat reporting buttons</li>
-        <li><i class="fas fa-minus"></i> Immediate behaviors if credentials are entered by mistake</li>
-        <li><i class="fas fa-minus"></i> Incident Response workflows (CSIRT/SOC interaction steps)</li>
-        <li><i class="fas fa-minus"></i> Emergency isolation of endpoints during active infections</li>
-        <li><i class="fas fa-minus"></i> Blameless security culture and constructive threat feedback loops</li>
-      </ul>
-    `,
-    m2Prog: `
-      <li><i class="fas fa-circle-notch"></i> <strong>Module A: Segmentation Mechanics and DMZs</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Theoretical baselines of security zone definition</li>
-        <li><i class="fas fa-minus"></i> Single, double-tier, and multi-tier DMZ designs</li>
-        <li><i class="fas fa-minus"></i> Security VLANs, inter-VLAN routing controls, and ACL rules</li>
-        <li><i class="fas fa-minus"></i> Software-defined micro-segmentation inside enterprise data centers</li>
-        <li><i class="fas fa-minus"></i> Architecture design case study: Isolating a core web stack</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module B: Defense in Depth Blueprints</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Layering physical, administrative, and technological control loops</li>
-        <li><i class="fas fa-minus"></i> Safeguarding identities, endpoints, internal networks, and applications</li>
-        <li><i class="fas fa-minus"></i> Base OS and software hardening playbooks</li>
-        <li><i class="fas fa-minus"></i> Patch Management structures as a critical security rule</li>
-        <li><i class="fas fa-minus"></i> Structural infrastructure redundancy and resilience</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module C: Zero Trust Architecture Paradigms</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Flaws of legacy perimeter networks ('Castle-and-Moat' models)</li>
-        <li><i class="fas fa-minus"></i> The 7 primary core pillars of NIST SP 800-207 guidelines</li>
-        <li><i class="fas fa-minus"></i> Policy Engines and Policy Administrators roles</li>
-        <li><i class="fas fa-minus"></i> Context-driven, risk-adaptive, and continuous authorization loops</li>
-        <li><i class="fas fa-minus"></i> Iterative migration paths from classic networks to Zero Trust states</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module D: Traffic Filtering and Deep Inspection</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Firewall development paths: From basic packet checks to NGFW</li>
-        <li><i class="fas fa-minus"></i> SSL/TLS Decryption: Balancing visibility, latency, and compliance</li>
-        <li><i class="fas fa-minus"></i> Secure Web Gateways (SWG) and Reverse Proxy architectures</li>
-        <li><i class="fas fa-minus"></i> Practical setup of IDS/IPS engines and Network Detection & Response (NDR)</li>
-        <li><i class="fas fa-minus"></i> Core aggregation of network flows into central SIEM tools</li>
-      </ul>
-    `,
-    m3Prog: `
-      <li><i class="fas fa-circle-notch"></i> <strong>Module A: Shared Responsibility Frameworks</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Tracking ownership changes between IaaS, PaaS, and SaaS environments</li>
-        <li><i class="fas fa-minus"></i> Cloud Service Provider (CSP) duties regarding core data centers</li>
-        <li><i class="fas fa-minus"></i> Customer-side responsibilities (data classifications, accounts, security configurations)</li>
-        <li><i class="fas fa-minus"></i> Inspecting security terms from top CSPs (AWS, Azure, GCP)</li>
-        <li><i class="fas fa-minus"></i> Legal sovereignty management (US Cloud Act versus European GDPR)</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module B: Identity, Access (IAM), and Cloud Governance</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Least privilege rules mapped to cloud users and system workloads</li>
-        <li><i class="fas fa-minus"></i> Setting up Role-Based (RBAC) and Attribute-Based (ABAC) IAM policies</li>
-        <li><i class="fas fa-minus"></i> Identity Federation, SSO structures, and cloud tokens (SAML, OIDC)</li>
-        <li><i class="fas fa-minus"></i> Central management of secrets, tokens, and machine workloads (Vault systems)</li>
-        <li><i class="fas fa-minus"></i> Automated access auditing and compliance reporting</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module C: Data Protection and Storage Encryption</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Server-side versus Client-side encryption patterns (Customer Managed Keys)</li>
-        <li><i class="fas fa-minus"></i> Structural hardening of cloud storage locations (AWS S3, Azure Blobs)</li>
-        <li><i class="fas fa-minus"></i> Practical tokenization and data anonymization tools inside the cloud</li>
-        <li><i class="fas fa-minus"></i> Building ransomware-proof immutable cloud backup workflows</li>
-        <li><i class="fas fa-minus"></i> Cloud asset lifecycle tracking and secure device purging steps</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module D: Continuous Security Posture (CSPM/CASB)</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Deploying Cloud Security Posture Management (CSPM) suites</li>
-        <li><i class="fas fa-minus"></i> Detecting real-time configuration flaws with automated remediation</li>
-        <li><i class="fas fa-minus"></i> Implementing Cloud Access Security Brokers (CASB) to manage SaaS sprawl</li>
-        <li><i class="fas fa-minus"></i> Structuring tenant-wide configuration auditing logs (CloudTrail, Activity Logs)</li>
-        <li><i class="fas fa-minus"></i> Shifting security left: Injecting code verification into IaC pipelines (SecDevOps)</li>
-      </ul>
-    `,
-    m4Prog: `
-      <li><i class="fas fa-circle-notch"></i> <strong>Module A: Cybersecurity and Corporate Growth</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Leveraging security compliance as an enterprise market trust catalyst</li>
-        <li><i class="fas fa-minus"></i> Exploring operational cyber maturity indices (CMMC, ISO 27004 matrices)</li>
-        <li><i class="fas fa-minus"></i> Transforming tech jargon into high-impact operational metrics</li>
-        <li><i class="fas fa-minus"></i> Modeling downstream financial impacts of supply chain disruptions</li>
-        <li><i class="fas fa-minus"></i> Injecting baseline cybersecurity reviews into early M&A activities</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module B: Executive Metrics and Investment Controls</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Selecting appropriate metrics for Executive Board reporting</li>
-        <li><i class="fas fa-minus"></i> Reading operational Mean Time to Detect (MTTD) and Respond (MTTR) trends</li>
-        <li><i class="fas fa-minus"></i> Interpreting external vulnerability scoring and external pentest outputs</li>
-        <li><i class="fas fa-minus"></i> Cyber budgeting tactics: Finding optimal Capex/Opex balances</li>
-        <li><i class="fas fa-minus"></i> Shaping clear cyber compliance declarations for investors</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module C: Incident Management and Crisis Mastery</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Structuring cross-functional crisis units (Executive, Legal, IT, PR)</li>
-        <li><i class="fas fa-minus"></i> Executive decision frameworks for Ransomware: Evaluation of ransom risks</li>
-        <li><i class="fas fa-minus"></i> Crisis PR management: Balancing transparency with corporate secrets</li>
-        <li><i class="fas fa-minus"></i> Tabletop crisis simulation runbooks for management teams</li>
-        <li><i class="fas fa-minus"></i> Commanding business continuity plans when core IT systems are dead</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module D: Legal Liabilities and Insurance Mitigation</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Civil and criminal officer liability for proven cyber neglect</li>
-        <li><i class="fas fa-minus"></i> Mapping cyber insurance markets: Policy parameters and typical exclusion terms</li>
-        <li><i class="fas fa-minus"></i> Managing third-party and ecosystem contract liabilities</li>
-        <li><i class="fas fa-minus"></i> Keeping up with state-level and international sector rules</li>
-        <li><i class="fas fa-minus"></i> Incident reviews and filing valid law enforcement complaints</li>
-      </ul>
-    `,
-    m5Prog: `
-      <li><i class="fas fa-circle-notch"></i> <strong>Module A: Foundational Processing Criteria</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Precise legal definition of personal vs. sensitive data points</li>
-        <li><i class="fas fa-minus"></i> Establishing valid legal bases (Consent, Legitimate Interest, Contracts)</li>
-        <li><i class="fas fa-minus"></i> Delineating duties: Data Controller vs. Third-Party Processor</li>
-        <li><i class="fas fa-minus"></i> Core principles: Fairness, transparent collection, and data accuracy</li>
-        <li><i class="fas fa-minus"></i> Reviewing financial, administrative, and criminal penalties for breaches</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module B: Inventories and Processing Registries</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Practical steps to catalog active processing lines</li>
-        <li><i class="fas fa-minus"></i> Building, maintaining, and updating the central Record of Processing Activities</li>
-        <li><i class="fas fa-minus"></i> Tracking cross-border personal data movements</li>
-        <li><i class="fas fa-minus"></i> Setting and enforcing compliant corporate retention rules</li>
-        <li><i class="fas fa-minus"></i> Auditing data inventory matches against actual infrastructure environments</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module C: Local Compliance (CNDP) Frameworks</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Powers, oversight targets, and enforcement mandates of the Moroccan CNDP</li>
-        <li><i class="fas fa-minus"></i> Managing legal declarations, prior filings, and specific approvals</li>
-        <li><i class="fas fa-minus"></i> Navigating complex international transfers from Morocco</li>
-        <li><i class="fas fa-minus"></i> Appointing Data Protection Officers (DPO) and local CNDP liaisons</li>
-        <li><i class="fas fa-minus"></i> Preparing operational departments for formal on-site CNDP inspections</li>
-      </ul>
-      <li><i class="fas fa-circle-notch"></i> <strong>Module D: Individual Rights and Privacy by Design</strong></li>
-      <ul class="course-list sub-prog">
-        <li><i class="fas fa-minus"></i> Technical setups to execute access, rectification, and objection requests</li>
-        <li><i class="fas fa-minus"></i> Handling Right to Erasure queries across legacy database systems</li>
-        <li><i class="fas fa-minus"></i> Integrating legal privacy requirements directly into code development (Privacy by Design)</li>
-        <li><i class="fas fa-minus"></i> Structural protections to avoid unauthorized exfiltration of identities</li>
-        <li><i class="fas fa-minus"></i> Enforcing mandatory regulatory notifications within 72 hours of data breaches</li>
-      </ul>
-    `,
-
-    // Skills Acquired Lists
     m1Skills: `
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Mastery in visual and logical detection of malicious emails.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Fully capable of reporting cyber events following internal corporate standards.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Complete independence against fraudulent phone (vishing) and SMS (smishing) attempts.</li>
+      <li><i class="fas fa-star" style="color:var(--gold)"></i> Measurable lower vulnerability rates against targeted spear-phishing campaigns.</li>
+      <li><i class="fas fa-star" style="color:var(--gold)"></i> Confident execution of rapid digital incident handling protocols.</li>
+      <li><i class="fas fa-star" style="color:var(--gold)"></i> Autonomously parsing structural legitimacy indices of outer incoming assets.</li>
     `,
     m2Skills: `
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Ability to map, isolate, and audit infrastructure network topologies.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Proficiency in injecting Zero Trust constraints directly into technical specifications.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Capacity to define requirements for next-generation filtering equipment.</li>
+      <li><i class="fas fa-star" style="color:var(--gold)"></i> Ability to analyze physical topologies and apply secure isolation vectors.</li>
+      <li><i class="fas fa-star" style="color:var(--gold)"></i> Full competence in creating multi-zone firewalls access control matrices.</li>
+      <li><i class="fas fa-star" style="color:var(--gold)"></i> Advanced provisioning of robust network-to-network secure gateways.</li>
     `,
     m3Skills: `
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Ability to deploy and maintain multi-cloud network architectures without security flaws.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Hands-on expertise managing cloud roles, permissions, and secrets securely.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Practical mastery over automated systems managing cloud environment drift.</li>
+      <li><i class="fas fa-star" style="color:var(--gold)"></i> Advanced deployment of hard cloud architecture perimeters without leak paths.</li>
+      <li><i class="fas fa-star" style="color:var(--gold)"></i> Production management of secure secret brokers and corporate API key stores.</li>
+      <li><i class="fas fa-star" style="color:var(--gold)"></i> Orchestrating immediate automated rollback playbooks on misconfigured assets.</li>
     `,
     m4Skills: `
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Full corporate capacity to manage and validate enterprise cyber investment structures.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Managerial authority to lead large-scale cross-functional crisis management teams.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Ability to lead corporate third-party risk mitigation programs.</li>
+      <li><i class="fas fa-star" style="color:var(--gold)"></i> High corporate decision making confidence regarding annual cyber expenditure.</li>
+      <li><i class="fas fa-star" style="color:var(--gold)"></i> Competent management leadership during critical active incident response.</li>
+      <li><i class="fas fa-star" style="color:var(--gold)"></i> Streamlined evaluation of vendor-introduced ecosystem software hazards.</li>
     `,
     m5Skills: `
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Capability to build a processing inventory fully compliant with CNDP/GDPR rules.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Operational mastery of IT project delivery leveraging native Privacy by Design.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Management competence to assume intermediate Data Protection Officer functions.</li>
+      <li><i class="fas fa-star" style="color:var(--gold)"></i> Building a fully auditable user data lifecycle ledger according to CNDP.</li>
+      <li><i class="fas fa-star" style="color:var(--gold)"></i> Practical enablement of Privacy by Design tracks across software life cycles.</li>
+      <li><i class="fas fa-star" style="color:var(--gold)"></i> Confidently presenting corporate regulatory postures before state investigators.</li>
     `,
-
-    ressourcesTitle: "Additional Resources",
-    res1Title: "Cybersecurity Glossary", res1Desc: "PDF · 45 essential terms",
-    res2Title: "Linux Cheatsheet", res2Desc: "PDF · Essential commands",
-    res3Title: "TryHackMe", res3Desc: "Hands-on lab platform",
-    res4Title: "MITRE ATT&CK", res4Desc: "Attack techniques framework",
-    res5Title: "Pentest Tools", res5Desc: "PDF · Recommended tools list",
-    res6Title: "Remediation Form", res6Desc: "Submit your exercises",
-    tutorTitle: "Any question about the course?", tutorDesc: "Abdeljalil answers all your technical questions within 24 hours.",
-    footerDesc: "Cybersecurity, consulting, SOC, infrastructure, and offensive security for modern businesses.",
-    footerServices: "Company", footerCompany: "Company", footerLegal: "Legal",
-    footLinkAbout: "About Us", footLinkCareers: "Careers", footLinkContact: "Contact",
-    footLinkLegal: "Legal Notice", footLinkPrivacy: "Privacy Policy", footCopyright: "© 2026 NextGen Technologies SARL · Casablanca"
+    ressourcesTitle: '<i class="fas fa-folder-open"></i> Complementary Research Material & Tooling',
+    r1Title: 'Cyber Hygiene Blueprint', r2Title: 'Corporate ISSP Model', r3Desc: 'Official Cyber Incident & Threat Advisories', r4Desc: '09-08 Law Directives & Registration Forms',
+    tutorTitle: 'Need a Technical Clarification?',
+    tutorDesc: 'Your dedicated academic instructor is available to answer any questions regarding courses or labs.',
+    tutorMailBtn: 'Send an email',
+    navAccueil: "Home", navServices: "Services", navSecteurs: "Sectors", navQuiSommesNous: "About us", navCarrieres: "Careers", navCampus: "🎓 Cyber Campus", navContact: "Contact"
   }
 };
 
+// =====================================================
+// LOGIQUE DE SÉCURITÉ ET INTERACTION FORMATION
+// =====================================================
+const G_CODE = "youssef"; // Garde le mot de passe intact
+const userQuizProgress = { m1: null, m2: null, m3: null, m4: null, m5: null };
+
+document.getElementById('loginBtn').addEventListener('click', checkAccessCode);
+document.getElementById('passInput').addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') checkAccessCode();
+});
+
+function checkAccessCode() {
+  const code = document.getElementById('passInput').value.trim();
+  const errorBlock = document.getElementById('loginError');
+  const loginSection = document.getElementById('loginSection');
+  const protectedSection = document.getElementById('protectedSection');
+
+  if (code === G_CODE) {
+    errorBlock.style.display = 'none';
+    loginSection.style.display = 'none';
+    protectedSection.style.display = 'block';
+    // Lancer les éléments dynamiques
+    initAllQuizzes();
+    applyLanguage('fr'); // Force le fr par défaut à l'ouverture
+  } else {
+    errorBlock.style.display = 'block';
+  }
+}
+
+// MANAGEMENT DYNAMIQUE DES QUIZ ACCORDÉS AU DESIGN
+function initAllQuizzes() {
+  const currentLang = document.querySelector('.lang-btn.active').getAttribute('data-lang') || 'fr';
+  
+  for (let mKey in quizData) {
+    const box = document.getElementById(`quizBox${mKey.replace('m','')}`);
+    if (!box) continue;
+    box.innerHTML = ""; // Clear
+
+    const qObj = quizData[mKey];
+    const savedAns = userQuizProgress[mKey];
+
+    // Status / Header
+    const statusRow = document.createElement('div');
+    statusRow.className = 'quiz-header-status';
+    statusRow.innerHTML = `<span>⚡ QUIZ VALIDA-TEST</span> <span id="statusTxt_${mKey}">${savedAns !== null ? '✓ COMPLÉTÉ' : '⏳ NON REQUIS'}</span>`;
+    box.appendChild(statusRow);
+
+    // Question
+    const qDiv = document.createElement('div');
+    qDiv.className = 'quiz-q';
+    // Si la langue est anglaise, on traduit à la volée le label statique si besoin, 
+    // mais le contenu des questions reste stable ou s'affiche selon la banque de données
+    qDiv.innerText = qObj.q;
+    box.appendChild(qDiv);
+
+    // Options Container
+    const optWrap = document.createElement('div');
+    optWrap.className = 'quiz-options';
+
+    qObj.options.forEach((optText, index) => {
+      const btn = document.createElement('button');
+      btn.className = 'quiz-option';
+      btn.innerText = optText;
+
+      // Si déjà répondu
+      if (savedAns !== null) {
+        btn.disabled = true;
+        if (index === qObj.correct) btn.classList.add('correct');
+        if (savedAns === index && savedAns !== qObj.correct) btn.classList.add('wrong');
+      } else {
+        btn.addEventListener('click', () => handleQuizAnswer(mKey, index));
+      }
+      optWrap.appendChild(btn);
+    });
+    box.appendChild(optWrap);
+
+    // Feedback div
+    const feed = document.createElement('div');
+    feed.className = 'quiz-feedback';
+    feed.id = `feedback_${mKey}`;
+    if (savedAns !== null) {
+      feed.innerText = qObj.feedback;
+      feed.style.display = "block";
+      feed.style.color = savedAns === qObj.correct ? "var(--success)" : "var(--red)";
+    }
+    box.appendChild(feed);
+
+    // Si toutes les réponses sont validées, afficher un récapitulatif dans ce module si besoin
+    if (savedAns !== null) {
+      appendScoreBannerIfNeeded(box, mKey);
+    }
+  }
+  updateGlobalProgressUI();
+}
+
+function handleQuizAnswer(mKey, chosenIdx) {
+  userQuizProgress[mKey] = chosenIdx;
+  initAllQuizzes(); // Refresh UI
+}
+
+function appendScoreBannerIfNeeded(box, mKey) {
+  const savedAns = userQuizProgress[mKey];
+  const qObj = quizData[mKey];
+  if (savedAns === null) return;
+
+  const banner = document.createElement('div');
+  banner.className = 'quiz-score-banner';
+  
+  const isCorrect = savedAns === qObj.correct;
+  banner.innerHTML = `
+    <h4>${isCorrect ? '🎯 Résultat Excellence' : '❌ Point à Revoir'}</h4>
+    <p>${isCorrect ? 'Validation acquise pour ce module de formation.' : 'Nous vous suggérons de relire le support PDF du cours.'}</p>
+    <button class="btn-reset" onclick="resetQuizModule('${mKey}')">Réessayer</button>
+  `;
+  box.appendChild(banner);
+}
+
+function resetQuizModule(mKey) {
+  userQuizProgress[mKey] = null;
+  initAllQuizzes();
+}
+
+function updateGlobalProgressUI() {
+  let totalModules = Object.keys(userQuizProgress).length;
+  let completed = 0;
+  for (let k in userQuizProgress) {
+    if (userQuizProgress[k] !== null) completed++;
+  }
+
+  let pct = Math.round((completed / totalModules) * 100);
+  const fill = document.getElementById('globalProgress');
+  const txt = document.getElementById('progressPercent');
+  if (fill && txt) {
+    fill.style.width = `${pct}%`;
+    txt.innerText = `${pct}%`;
+  }
+}
+
+// =====================================================
+// LOGIQUE DE TRADUCTION SANS ALTERATION DES MODULES
+// =====================================================
 function applyLanguage(lang) {
-  currentLang = lang;
   const t = translations[lang];
   if (!t) return;
-  
-  // Parcourir l'ensemble des clés de traduction simples et complexes
-  for (const id in t) {
+
+  for (let id in t) {
     const el = document.getElementById(id);
     if (el) {
       if (id === 'heroTitle' || id.endsWith('Objectives') || id.endsWith('Prog') || id.endsWith('Skills')) {
@@ -1744,12 +1034,18 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 // =====================================================
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
+
 if (menuToggle && navLinks) {
   menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
+    // Gestion propre de l'affichage natif mobile demandé via CSS
+    if(navLinks.classList.contains('active')){
+      navLinks.style.display = 'flex';
+    } else {
+      navLinks.style.display = 'none';
+    }
   });
 }
 </script>
-
 </body>
 </html>
