@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="NextGen Technologies — Support IT & Infogérance au Maroc.">
-<title>Support IT & Infogérance · NextGen Technologies</title>
+<meta name="description" content="NetVanguard IT Solutions — Support IT & Infogérance au Maroc.">
+<title>Support IT & Infogérance · NetVanguard IT Solutions</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
@@ -121,12 +121,13 @@ a { text-decoration: none; }
 }
 .logo:hover { transform: scale(1.02); }
 .logo-shield {
-  width: 32px; height: 32px; fill: var(--accent) !important;
-  flex-shrink: 0; animation: float 3s ease-in-out infinite;
+  width: 36px; height: 36px; flex-shrink: 0;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.5));
 }
 @keyframes float {
   0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
+  50% { transform: translateY(-6px); }
 }
 .logo-text-accent { color: var(--accent); }
  
@@ -632,11 +633,11 @@ a { text-decoration: none; }
   <div class="top-bar-container">
     <div class="partner-badge">
       <i class="fa-solid fa-shield-halved"></i>
-      <span data-i18n="top_badge">PARTENAIRE DE CONFIANCE EN SÉCURITÉ ULTRA-PREMIUM</span>
+      <span data-i18n="top_badge">Votre partenaire IT & cybersécurité au Maroc</span>
     </div>
     <div class="top-bar-info">
       <span><i class="fa-solid fa-phone"></i> +212 728 31 28 01</span>
-      <span><i class="fa-solid fa-envelope"></i> contact@nextgentechnologies.ma</span>
+      <span><i class="fa-solid fa-envelope"></i> contact@netvanguard.ma</span>
       <span><i class="fa-solid fa-location-dot"></i> Casablanca</span>
     </div>
     <div class="top-bar-social" style="display: flex; align-items: center;">
@@ -654,10 +655,17 @@ a { text-decoration: none; }
 <nav class="nav">
   <div class="nav-container">
     <a href="index.html" class="logo">
-      <svg class="logo-shield" viewBox="0 0 24 24">
-        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+      <svg class="logo-shield" viewBox="0 0 24 24" width="36" height="36">
+        <defs>
+          <linearGradient id="shieldGradNav" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#FFB800;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#shieldGradNav)"/>
+        <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
       </svg>
-      <span>NextGen <span class="logo-text-accent">Technologies</span></span>
+      <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em;font-weight:500;color:var(--gray-light);">IT Solutions</span></span>
     </a>
     
     <ul class="nav-links">
@@ -837,7 +845,7 @@ a { text-decoration: none; }
         <li><i class="fa-solid fa-check"></i> <strong data-i18n="p3_f1">Tout le Pack Business</strong></li>
         <li><i class="fa-solid fa-check"></i> <span data-i18n="p3_f2">Cybersécurité EDR nouvelle génération</span></li>
         <li><i class="fa-solid fa-check"></i> <span data-i18n="p3_f3">Surveillance réseau 24/7</span></li>
-        <li><i class="fa-solid fa-check"></i> <span data-i18n="p3_f4">Consultant IT dédié NextGen</span></li>
+        <li><i class="fa-solid fa-check"></i> <span data-i18n="p3_f4">Consultant IT dédié NetVanguard</span></li>
         <li><i class="fa-solid fa-check"></i> <span data-i18n="p3_f5">SLA garanti contractuellement</span></li>
         <li><i class="fa-solid fa-check"></i> <span data-i18n="p3_f6">Temps de réponse : 1h (24/7)</span></li>
       </ul>
@@ -954,10 +962,17 @@ a { text-decoration: none; }
   <div class="footer-container">
     <div class="footer-brand">
       <a href="index.html" class="logo">
-        <svg class="logo-shield" viewBox="0 0 24 24">
-          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+        <svg class="logo-shield" viewBox="0 0 24 24" width="36" height="36">
+          <defs>
+            <linearGradient id="shieldGradFooter" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#FFB800;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#shieldGradFooter)"/>
+          <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
         </svg>
-        <span>NextGen <span class="logo-text-accent">Technologies</span></span>
+        <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em;font-weight:500;color:var(--gray-light);">IT Solutions</span></span>
       </a>
       <p data-i18n="footer_brand_desc">Pionnier de la souveraineté numérique et de la cyber-résilience avancée au Maroc. Nous sécurisons les infrastructures d'importance vitale.</p>
       <div class="footer-socials">
@@ -997,7 +1012,7 @@ a { text-decoration: none; }
   </div>
  
   <div class="footer-bottom">
-    <p>&copy; 2026 NextGen Technologies. Tous droits réservés.</p>
+    <p>&copy; 2026 NetVanguard IT Solutions SARL · Casablanca</p>
     <p data-i18n="footer_sub_text">Conçu avec excellence opérationnelle au Maroc.</p>
   </div>
 </footer>
@@ -1005,7 +1020,7 @@ a { text-decoration: none; }
 <script>
 const translations = {
   fr: {
-    top_badge: "PARTENAIRE DE CONFIANCE EN SÉCURITÉ ULTRA-PREMIUM",
+    top_badge: "Votre partenaire IT & cybersécurité au Maroc",
     nav_home: "Accueil", nav_services: "Services", nav_sectors: "Secteurs",
     nav_about: "Qui sommes-nous", nav_careers: "Carrières", nav_campus: "🎓 Campus Cyber",
     nav_contact: "Contact", nav_espace_client: "Espace Client",
@@ -1044,29 +1059,21 @@ const translations = {
     p2_f3: "Gestion Microsoft 365", p2_f4: "Patch Management automatisé",
     p2_f5: "Maintenance postes & serveurs", p2_f6: "Temps de réponse : 2h ouvrables",
     p3_f1: "Tout le Pack Business", p3_f2: "Cybersécurité EDR nouvelle génération",
-    p3_f3: "Surveillance réseau 24/7", p3_f4: "Consultant IT dédié NextGen",
+    p3_f3: "Surveillance réseau 24/7", p3_f4: "Consultant IT dédié NetVanguard",
     p3_f5: "SLA garanti contractuellement", p3_f6: "Temps de réponse : 1h (24/7)",
-    // À la carte — FR
     alacarte_label: "Intervention Ponctuelle",
     alacarte_title: "Services à la Carte",
     alacarte_subtitle: "Pas encore prêt pour un forfait ? Commandez exactement ce dont vous avez besoin, quand vous en avez besoin.",
-    ac1_title: "Dépannage Ponctuel",
-    ac1_desc: "Intervention unique et rapide sur tout incident informatique : panne, blocage, erreur système ou problème applicatif.",
-    ac2_title: "Audit Réseau",
-    ac2_desc: "Cartographie complète et diagnostic approfondi de votre infrastructure réseau, identification des failles et recommandations.",
-    ac3_title: "Migration Microsoft 365",
-    ac3_desc: "Transfert complet et sécurisé de vos données, messageries et outils collaboratifs vers Microsoft 365, sans interruption d'activité.",
-    ac4_title: "Installation Serveur",
-    ac4_desc: "Déploiement, configuration et sécurisation de vos serveurs physiques ou virtuels selon les meilleures pratiques du secteur.",
-    ac5_title: "Formation Utilisateurs",
-    ac5_desc: "Sessions de sensibilisation et formation IT pour vos équipes : cybersécurité, bonnes pratiques, outils Microsoft 365 et productivité.",
-    ac6_title: "Récupération de Données",
-    ac6_desc: "Restauration d'urgence après sinistre, ransomware ou corruption de données. Intervention rapide pour minimiser la perte d'information critique.",
+    ac1_title: "Dépannage Ponctuel", ac1_desc: "Intervention unique et rapide sur tout incident informatique : panne, blocage, erreur système ou problème applicatif.",
+    ac2_title: "Audit Réseau", ac2_desc: "Cartographie complète et diagnostic approfondi de votre infrastructure réseau, identification des failles et recommandations.",
+    ac3_title: "Migration Microsoft 365", ac3_desc: "Transfert complet et sécurisé de vos données, messageries et outils collaboratifs vers Microsoft 365, sans interruption d'activité.",
+    ac4_title: "Installation Serveur", ac4_desc: "Déploiement, configuration et sécurisation de vos serveurs physiques ou virtuels selon les meilleures pratiques du secteur.",
+    ac5_title: "Formation Utilisateurs", ac5_desc: "Sessions de sensibilisation et formation IT pour vos équipes : cybersécurité, bonnes pratiques, outils Microsoft 365 et productivité.",
+    ac6_title: "Récupération de Données", ac6_desc: "Restauration d'urgence après sinistre, ransomware ou corruption de données. Intervention rapide pour minimiser la perte d'information critique.",
     ac_btn: "Demander un devis",
     alacarte_cta_title: "Besoin d'un accompagnement continu ?",
     alacarte_cta_sub: "Passez à un forfait MSP et bénéficiez d'une protection proactive toute l'année.",
-    alacarte_cta_btn1: "Demander un devis",
-    alacarte_cta_btn2: "Voir les forfaits",
+    alacarte_cta_btn1: "Demander un devis", alacarte_cta_btn2: "Voir les forfaits",
     srv_1_title: "Audit & Diagnostic", srv_2_title: "Pentest / VAPT",
     srv_3_title: "Sécurité Réseau", srv_4_title: "SOC Consultation",
     footer_brand_desc: "Pionnier de la souveraineté numérique et de la cyber-résilience avancée au Maroc. Nous sécurisons les infrastructures d'importance vitale.",
@@ -1075,71 +1082,55 @@ const translations = {
     footer_sub_text: "Conçu avec excellence opérationnelle au Maroc."
   },
   en: {
-    top_badge: "TRUSTED ULTRA-PREMIUM SECURITY PARTNER",
+    top_badge: "Your trusted partner in IT & cybersecurity in Morocco",
     nav_home: "Home", nav_services: "Services", nav_sectors: "Sectors",
     nav_about: "About Us", nav_careers: "Careers", nav_campus: "🎓 Cyber Campus",
     nav_contact: "Contact", nav_espace_client: "Client Area",
     info_breadcrumb: "IT Support & Managed Services",
     info_h1: "IT Support & Managed Services",
     info_desc: "We manage, maintain and secure your IT infrastructure remotely. Monthly packages tailored to SMBs.",
-    info_grid_title: "Our IT Expertise Domains",
-    info_grid_desc: "Proactive solutions and continuous support framework engineered for modern digital environments.",
-    info_srv1_title: "Remote Technical Support",
-    info_srv1_desc: "Immediate reactive intervention from our technicians to solve all everyday system and software issues.",
-    info_srv2_title: "Workstation & Server Maintenance",
-    info_srv2_desc: "Routine patches, system upgrades, security deployments, and compute optimization across PC/Mac frameworks.",
-    info_srv3_title: "Network Management & Monitoring",
-    info_srv3_desc: "Active remote configuration of your core switches, routers, and Wi-Fi access points to sustain seamless uptime.",
-    info_srv4_title: "Helpdesk & Ticket Management",
-    info_srv4_desc: "Single structured entry point designed for complete traceability and prioritized treatment of your requirements.",
-    info_srv5_title: "Microsoft 365 & Cloud Services",
-    info_srv5_desc: "Enterprise tenancy administration, cloud subscription licensing rollout, hardened email architectures, and collaborative portals.",
-    info_srv6_title: "Data Backup & Protection",
-    info_srv6_desc: "Offsite automated backup strategies optimized to safeguard corporate continuity against sudden ransomware or storage failures.",
-    info_srv7_title: "Proactive Monitoring & Supervision",
-    info_srv7_desc: "Continuous architecture telemetry checking to stop and patch system failures long before they disrupt business workflows.",
-    info_srv8_title: "Cybersecurity & Access Protection",
-    info_srv8_desc: "Next-gen threat hunting engines implementation, advanced EDR, and strict policy privilege matrices handling.",
+    info_grid_title: "Our Managed IT Solutions",
+    info_grid_desc: "Continuous technical support to ensure your business operational continuity.",
+    info_srv1_title: "Remote Technical Support", info_srv1_desc: "Immediate assistance from our technicians to solve all everyday system and software issues.",
+    info_srv2_title: "Workstation & Server Maintenance", info_srv2_desc: "Regular updates, security patches and performance optimization for your servers and PC/Mac fleets.",
+    info_srv3_title: "Network Management & Monitoring", info_srv3_desc: "Active supervision of your switches, routers and Wi-Fi access points to ensure maximum uninterrupted throughput.",
+    info_srv4_title: "Helpdesk & Ticket Management", info_srv4_desc: "Single structured entry point for full traceability and prioritized handling of all your IT requests.",
+    info_srv5_title: "Microsoft 365 & Cloud Services", info_srv5_desc: "Expert administration, cloud license deployment, secured professional messaging and collaborative spaces.",
+    info_srv6_title: "Data Backup & Protection", info_srv6_desc: "Automated offsite backup strategy to protect your business against critical data loss.",
+    info_srv7_title: "Proactive Monitoring & Supervision", info_srv7_desc: "Real-time analysis of your infrastructures to intercept and correct failures before they impact your business.",
+    info_srv8_title: "Cybersecurity & Access Protection", info_srv8_desc: "Integration of next-gen antivirus, EDR and strict access rights policy management.",
     pricing_title: "Choose Your Plan",
-    pricing_subtitle: "Tailored frameworks built for Moroccan SMBs. Custom quotas delivered post-audit.",
+    pricing_subtitle: "Plans tailored for Moroccan SMBs. Custom pricing after free audit.",
     pack1_badge: "Startup", pack2_badge: "Most Popular", pack3_badge: "Maximum Security",
     pack1_name: "Essential Pack", pack2_name: "Business Pack", pack3_name: "Premium Pack",
     pack_tailored: "Customized", pricing_cta_text: "Request Free IT Audit",
-    pricing_banner_text: "All our operational packages are fully scalable to map your internal machine architectures.<br>Reach out to lock your completely free, zero-commitment IT perimeter audit.",
+    pricing_banner_text: "All our packages are customizable according to your IT fleet size.<br>Contact us for a free, no-obligation IT audit.",
     pricing_banner_btn: "Get My Free Audit",
-    p1_f1: "Remote IT helpdesk intervention", p1_f2: "Proactive telemetry & architecture tracking",
-    p1_f3: "Structured incident ticketing tracking", p1_f4: "Comprehensive monthly performance audits",
-    p1_f5: "Response window: 4 Business Hours",
-    p2_f1: "All Core Essential features", p2_f2: "Hardened offsite disaster recovery backups",
-    p2_f3: "Enterprise Microsoft 365 tenant oversight", p2_f4: "Automated patch deployment pipelines",
-    p2_f5: "Full endpoint & backend preservation", p2_f6: "Response window: 2 Business Hours",
-    p3_f1: "All Premium Business integrations", p3_f2: "Next-gen endpoint EDR active threat shielding",
-    p3_f3: "Continuous 24/7 network packet engineering", p3_f4: "Assigned NextGen dedicated infrastructure advisor",
-    p3_f5: "Contractually committed SLA guarantees", p3_f6: "Response window: 1 Hour Urgent (24/7/365)",
-    // À la carte — EN
+    p1_f1: "Remote technical support", p1_f2: "Proactive monitoring & supervision",
+    p1_f3: "Helpdesk & ticket management", p1_f4: "Detailed monthly report",
+    p1_f5: "Response time: 4 business hours",
+    p2_f1: "All Essential Pack features", p2_f2: "Data backup & protection",
+    p2_f3: "Microsoft 365 management", p2_f4: "Automated patch management",
+    p2_f5: "Workstation & server maintenance", p2_f6: "Response time: 2 business hours",
+    p3_f1: "All Business Pack features", p3_f2: "Next-gen EDR cybersecurity",
+    p3_f3: "24/7 network monitoring", p3_f4: "Dedicated NetVanguard IT consultant",
+    p3_f5: "Contractually guaranteed SLA", p3_f6: "Response time: 1h (24/7)",
     alacarte_label: "On-Demand Intervention",
     alacarte_title: "À la Carte Services",
-    alacarte_subtitle: "Not ready for a monthly plan? Order exactly what you need, when you need it.",
-    ac1_title: "One-Time Troubleshooting",
-    ac1_desc: "Fast single intervention on any IT incident: outage, system lockout, software error or application failure.",
-    ac2_title: "Network Audit",
-    ac2_desc: "Full topology mapping and in-depth diagnosis of your network infrastructure, vulnerability identification and recommendations.",
-    ac3_title: "Microsoft 365 Migration",
-    ac3_desc: "Complete and secure transfer of your data, emails and collaboration tools to Microsoft 365, with zero downtime.",
-    ac4_title: "Server Installation",
-    ac4_desc: "Deployment, configuration and hardening of your physical or virtual servers following industry best practices.",
-    ac5_title: "User Training",
-    ac5_desc: "Awareness and IT training sessions for your teams: cybersecurity, best practices, Microsoft 365 tools and productivity.",
-    ac6_title: "Data Recovery",
-    ac6_desc: "Emergency restoration after disaster, ransomware or data corruption. Fast intervention to minimize critical information loss.",
+    alacarte_subtitle: "Not ready for a plan? Order exactly what you need, when you need it.",
+    ac1_title: "One-Time Troubleshooting", ac1_desc: "Single fast intervention on any IT incident: outage, lockup, system error or application issue.",
+    ac2_title: "Network Audit", ac2_desc: "Full mapping and in-depth diagnosis of your network infrastructure, vulnerability identification and recommendations.",
+    ac3_title: "Microsoft 365 Migration", ac3_desc: "Complete and secure transfer of your data, emails and collaborative tools to Microsoft 365, with zero downtime.",
+    ac4_title: "Server Installation", ac4_desc: "Deployment, configuration and hardening of your physical or virtual servers following industry best practices.",
+    ac5_title: "User Training", ac5_desc: "Awareness and IT training sessions for your teams: cybersecurity, best practices, Microsoft 365 tools and productivity.",
+    ac6_title: "Data Recovery", ac6_desc: "Emergency restoration after disaster, ransomware or data corruption. Fast intervention to minimize critical information loss.",
     ac_btn: "Request a Quote",
     alacarte_cta_title: "Need continuous support?",
     alacarte_cta_sub: "Switch to an MSP plan and get proactive protection all year long.",
-    alacarte_cta_btn1: "Request a Quote",
-    alacarte_cta_btn2: "View Plans",
+    alacarte_cta_btn1: "Request a Quote", alacarte_cta_btn2: "View Plans",
     srv_1_title: "Audit & Diagnostics", srv_2_title: "Pentesting / VAPT",
     srv_3_title: "Network Security", srv_4_title: "SOC Consultation",
-    footer_brand_desc: "Pioneering digital sovereignty and elite cyber resilience architectures in Morocco. We secure vital critical infrastructures.",
+    footer_brand_desc: "Pioneering digital sovereignty and elite cyber resilience in Morocco. We secure vital critical infrastructures.",
     footer_col1: "Expertise", footer_col2: "Company", footer_col3: "Legal",
     leg_mentions: "Legal Notices", leg_cookies: "Cookie Management",
     footer_sub_text: "Designed with operational excellence in Morocco."
@@ -1203,7 +1194,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
  
-  // Animation fade-in scroll — cartes existantes + nouvelles
   const cardsToAnimate = document.querySelectorAll(
     '.feature-card, .pricing-card, .pricing-footer-banner, .alacarte-card, .alacarte-cta-banner'
   );
