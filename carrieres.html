@@ -102,6 +102,9 @@ a { text-decoration:none; }
 .result-icon.rejected { color:var(--red); }
 .result-title { font-size:1.8rem; color:var(--white); margin-bottom:1rem; }
 .result-desc { color:var(--gray-light); font-size:1rem; margin-bottom:2rem; max-width:500px; margin-left:auto; margin-right:auto; }
+.result-action-btn { display:inline-block; padding:1rem 2.5rem; border-radius:50px; font-weight:700; font-size:1rem; cursor:pointer; transition:var(--transition); text-decoration:none; }
+.btn-goto-exam { background:linear-gradient(135deg,var(--red),var(--red-dark)); color:var(--white); }
+.btn-goto-exam:hover { transform:translateY(-3px); box-shadow:0 15px 35px rgba(239,68,68,0.4); }
 .result-info-box { background:rgba(0,212,255,0.08); border:1px solid rgba(0,212,255,0.2); border-radius:14px; padding:1.5rem; margin-top:2rem; text-align:left; }
 .result-info-box h4 { color:var(--accent); margin-bottom:0.8rem; }
 .result-info-box p { color:var(--gray-light); font-size:0.9rem; margin-bottom:0.5rem; }
@@ -296,8 +299,8 @@ footer { background:var(--primary-deep); border-top:1px solid rgba(0,212,255,0.1
             <div class="skill-row"><div>SIEM / SOC</div><label data-label="Aucune"><input type="radio" name="skill_siem" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_siem" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_siem" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_siem" value="3"></label><label data-label="Expert"><input type="radio" name="skill_siem" value="4"></label></div>
             <div class="skill-row"><div>Pentest</div><label data-label="Aucune"><input type="radio" name="skill_pentest" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_pentest" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_pentest" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_pentest" value="3"></label><label data-label="Expert"><input type="radio" name="skill_pentest" value="4"></label></div>
             <div class="skill-row"><div>Pare-feu</div><label data-label="Aucune"><input type="radio" name="skill_firewall" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_firewall" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_firewall" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_firewall" value="3"></label><label data-label="Expert"><input type="radio" name="skill_firewall" value="4"></label></div>
-            <div class="skill-row"><div>Cloud (Azure/AWS)</div><label data-label="Aucune"><input type="radio" name="skill_cloud" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_cloud" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_cloud" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_cloud" value="3"></label><label data-label="Expert"><input type="radio" name="skill_cloud" value="4"></label></div>
-            <div class="skill-row"><div>Windows Server/AD</div><label data-label="Aucune"><input type="radio" name="skill_windows" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_windows" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_windows" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_windows" value="3"></label><label data-label="Expert"><input type="radio" name="skill_windows" value="4"></label></div>
+            <div class="skill-row"><div>Cloud</div><label data-label="Aucune"><input type="radio" name="skill_cloud" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_cloud" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_cloud" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_cloud" value="3"></label><label data-label="Expert"><input type="radio" name="skill_cloud" value="4"></label></div>
+            <div class="skill-row"><div>Windows/AD</div><label data-label="Aucune"><input type="radio" name="skill_windows" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_windows" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_windows" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_windows" value="3"></label><label data-label="Expert"><input type="radio" name="skill_windows" value="4"></label></div>
             <div class="skill-row"><div>Linux</div><label data-label="Aucune"><input type="radio" name="skill_linux" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_linux" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_linux" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_linux" value="3"></label><label data-label="Expert"><input type="radio" name="skill_linux" value="4"></label></div>
             <div class="skill-row"><div>Scripting</div><label data-label="Aucune"><input type="radio" name="skill_scripting" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_scripting" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_scripting" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_scripting" value="3"></label><label data-label="Expert"><input type="radio" name="skill_scripting" value="4"></label></div>
           </div>
@@ -456,7 +459,7 @@ const menuToggle = document.getElementById('menuToggle'), mobileNav = document.g
 if (menuToggle && mobileNav) menuToggle.addEventListener('click', () => { mobileNav.classList.toggle('active'); menuToggle.querySelector('i').className = mobileNav.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'; });
 
 // =====================================================
-// ANALYSEUR CV + ENVOI CODE PAR EMAIL (MÉTHODE CONTACT)
+// ANALYSEUR CV + ENVOI TEXTE CV PAR EMAIL
 // =====================================================
 pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
@@ -480,10 +483,8 @@ function processFile(file) {
   stepProcessing.classList.add('active');
   stepAccepted.classList.remove('active');
   stepRejected.classList.remove('active');
-
   ['ps1','ps2','ps3','ps4'].forEach(id => { const el = document.getElementById(id); el.querySelector('i').className = 'far fa-circle'; el.classList.remove('done'); });
   document.getElementById('pdfPagesInfo').textContent = '';
-
   const steps = [{ el: document.getElementById('ps1'), delay: 600 },{ el: document.getElementById('ps2'), delay: 1500 },{ el: document.getElementById('ps3'), delay: 2500 },{ el: document.getElementById('ps4'), delay: 3500 }];
   steps.forEach((step) => { setTimeout(() => { step.el.querySelector('i').className = 'fas fa-check-circle'; step.el.classList.add('done'); }, step.delay); });
 
@@ -494,18 +495,10 @@ function processFile(file) {
     let nameBlocked = false;
     forbiddenNames.forEach(kw => { if (fileName.includes(kw)) nameBlocked = true; });
     if (nameBlocked) { showResult(false, 'suspicious'); return; }
-
-    if (fileType === 'application/pdf') {
-      extractTextFromPDF(file);
-    } else if (fileType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || fileName.endsWith('.docx')) {
-      extractTextFromDOCX(file);
-    } else if (fileType === 'text/plain' || fileName.endsWith('.txt')) {
-      const reader = new FileReader();
-      reader.onload = function(e) { analyzeCVContent(e.target.result, file); };
-      reader.readAsText(file);
-    } else {
-      showResult(false, 'suspicious');
-    }
+    if (fileType === 'application/pdf') { extractTextFromPDF(file); }
+    else if (fileType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || fileName.endsWith('.docx')) { extractTextFromDOCX(file); }
+    else if (fileType === 'text/plain' || fileName.endsWith('.txt')) { const reader = new FileReader(); reader.onload = function(e) { analyzeCVContent(e.target.result, file); }; reader.readAsText(file); }
+    else { showResult(false, 'suspicious'); }
   }, 4000);
 }
 
@@ -514,20 +507,9 @@ function extractTextFromPDF(file) {
   fileReader.onload = function() {
     const typedarray = new Uint8Array(this.result);
     pdfjsLib.getDocument({ data: typedarray }).promise.then(function(pdf) {
-      let fullText = '';
-      const totalPages = pdf.numPages;
-      const pagePromises = [];
-      for (let i = 1; i <= totalPages; i++) {
-        pagePromises.push(pdf.getPage(i).then(function(page) {
-          return page.getTextContent().then(function(textContent) {
-            fullText += textContent.items.map(item => item.str).join(' ') + ' ';
-          });
-        }));
-      }
-      Promise.all(pagePromises).then(() => {
-        document.getElementById('pdfPagesInfo').textContent = '✅ ' + totalPages + ' pages analysées';
-        analyzeCVContent(fullText.toLowerCase(), file);
-      }).catch(() => { analyzeCVContent(file.name.toLowerCase(), file); });
+      let fullText = ''; const totalPages = pdf.numPages; const pagePromises = [];
+      for (let i = 1; i <= totalPages; i++) { pagePromises.push(pdf.getPage(i).then(function(page) { return page.getTextContent().then(function(textContent) { fullText += textContent.items.map(item => item.str).join(' ') + ' '; }); })); }
+      Promise.all(pagePromises).then(() => { document.getElementById('pdfPagesInfo').textContent = '✅ ' + totalPages + ' pages analysées'; analyzeCVContent(fullText.toLowerCase(), file); }).catch(() => { analyzeCVContent(file.name.toLowerCase(), file); });
     }).catch(() => { showResult(false, 'suspicious'); });
   };
   fileReader.readAsArrayBuffer(file);
@@ -536,171 +518,115 @@ function extractTextFromPDF(file) {
 function extractTextFromDOCX(file) {
   const reader = new FileReader();
   reader.onload = function(e) {
-    if (typeof mammoth !== 'undefined') {
-      mammoth.extractRawText({ arrayBuffer: e.target.result }).then(function(result) {
-        analyzeCVContent(result.value.toLowerCase(), file);
-      }).catch(function() { analyzeCVContent(file.name.toLowerCase(), file); });
-    } else {
-      const reader2 = new FileReader();
-      reader2.onload = function(ev) { analyzeCVContent(ev.target.result, file); };
-      reader2.readAsText(file);
-    }
+    if (typeof mammoth !== 'undefined') { mammoth.extractRawText({ arrayBuffer: e.target.result }).then(function(result) { analyzeCVContent(result.value.toLowerCase(), file); }).catch(function() { analyzeCVContent(file.name.toLowerCase(), file); }); }
+    else { const reader2 = new FileReader(); reader2.onload = function(ev) { analyzeCVContent(ev.target.result, file); }; reader2.readAsText(file); }
   };
   reader.readAsArrayBuffer(file);
 }
 
 function analyzeCVContent(content, file) {
   if (!content || content.length < 30) { showResult(false, 'suspicious'); return; }
-
   const nonITJobs = ['danceur','danseur','danse','chanteur','chanteuse','acteur','actrice','musicien','coiffeur','coiffeuse','cuisinier','boulanger','serveur','serveuse','vendeur','caissier','livreur','chauffeur','agriculteur','jardinier','maçon','plombier'];
-  let nonITScore = 0;
-  nonITJobs.forEach(kw => { if (content.includes(kw)) nonITScore += 3; });
+  let nonITScore = 0; nonITJobs.forEach(kw => { if (content.includes(kw)) nonITScore += 3; });
   const hasITWords = /support.it|technicien|réseau|network|sécurité|security|cyber|informatique|développeur|admin|ingénieur|cloud|linux|windows.server|cisco|firewall|pentest|vapt|soc|siem/i.test(content);
   if (nonITScore >= 9 && !hasITWords) { showResult(false, 'suspicious'); return; }
-
   const mandatoryIT = ['support','it','technique','réseau','network','security','sécurité','cyber','informatique','développeur','developer','admin','administrateur','ingenieur','ingénieur','technicien','analyste','consultant','infrastructure','cloud','système','system','software','logiciel','données','data'];
-  let mandatoryScore = 0;
-  mandatoryIT.forEach(kw => { if (content.includes(kw)) mandatoryScore++; });
+  let mandatoryScore = 0; mandatoryIT.forEach(kw => { if (content.includes(kw)) mandatoryScore++; });
   if (mandatoryScore < 2) { showResult(false, 'no_it'); return; }
-
   const technicalSkills = ['tcp/ip','dns','dhcp','vpn','firewall','pare-feu','vlan','ospf','bgp','wifi','radius','ids','ips','siem','soc','pentest','vapt','metasploit','nmap','wireshark','burp suite','owasp','xss','sql injection','ddos','ransomware','phishing','malware','edr','xdr','linux','windows server','active directory','azure','aws','gcp','virtualisation','vmware','hyper-v','docker','kubernetes','terraform','ansible','jenkins','gitlab','devops','python','powershell','bash','sql','mysql','postgresql','mongodb','splunk','elk','wazuh','ccna','ccnp','comptia','security+','ceh','cissp','oscp','itil','iso 27001'];
-  let techScore = 0;
-  technicalSkills.forEach(kw => { if (content.includes(kw)) techScore++; });
-
+  let techScore = 0; technicalSkills.forEach(kw => { if (content.includes(kw)) techScore++; });
   const education = ['diplôme','diploma','master','licence','bachelor','doctorat','phd','ingénieur','engineer','bts','dut','bac','formation','certification','certifié','certified','université','ecole','école','institut'];
-  let eduScore = 0;
-  education.forEach(kw => { if (content.includes(kw)) eduScore++; });
-
+  let eduScore = 0; education.forEach(kw => { if (content.includes(kw)) eduScore++; });
   const experience = ['expérience','experience','année','years','an','ans','stage','internship','cdi','cdd','freelance','mission','projet','project','client','entreprise','company','société'];
-  let expScore = 0;
-  experience.forEach(kw => { if (content.includes(kw)) expScore++; });
-
-  let bonus = 0;
-  if (content.includes('@')) bonus += 2;
-  if (/\b(20\d{2}|19\d{2})\b/.test(content)) bonus += 2;
-  if (content.includes('expérience') || content.includes('experience') || content.includes('formation') || content.includes('education')) bonus += 2;
-
+  let expScore = 0; experience.forEach(kw => { if (content.includes(kw)) expScore++; });
+  let bonus = 0; if (content.includes('@')) bonus += 2; if (/\b(20\d{2}|19\d{2})\b/.test(content)) bonus += 2; if (content.includes('expérience') || content.includes('experience') || content.includes('formation') || content.includes('education')) bonus += 2;
   const finalScore = (techScore * 4) + (eduScore * 3) + (expScore * 3) + (mandatoryScore * 3) + bonus;
   const isQualified = techScore >= 5 && mandatoryScore >= 3 && finalScore >= 30;
 
   if (isQualified) {
     const code = generateTempCode();
-    sendCVAndCodeByEmail(file, code);
+    // Envoyer le TEXTE du CV + le code par email
+    sendCVAndCodeByEmail(file, code, content);
   }
-
   showResult(isQualified, isQualified ? 'qualified' : 'low_score');
 }
 
 function generateTempCode() {
-  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-  let code = '';
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; let code = '';
   for (let i = 0; i < 8; i++) { code += chars.charAt(Math.floor(Math.random() * chars.length)); }
   const expiration = Date.now() + (60 * 60 * 1000);
-  localStorage.setItem('nv_exam_code', code);
-  localStorage.setItem('nv_exam_expires', expiration.toString());
+  localStorage.setItem('nv_exam_code', code); localStorage.setItem('nv_exam_expires', expiration.toString());
   return code;
 }
 
 // =====================================================
-// ENVOI EMAIL - MÊME MÉTHODE QUE CONTACT.HTML
+// ENVOI DU TEXTE CV + CODE PAR EMAIL (méthode Contact)
 // =====================================================
-function sendCVAndCodeByEmail(file, code) {
+function sendCVAndCodeByEmail(file, code, cvText) {
   const formData = new FormData();
-  
-  // Ajouter le fichier CV
-  formData.append('cv', file, file.name);
-  
-  // Ajouter les champs texte (comme le formulaire de contact)
   formData.append('code_acces', code);
   formData.append('filename', file.name);
   formData.append('filesize', (file.size / 1024).toFixed(1) + ' KB');
   formData.append('filetype', file.type || 'inconnu');
   formData.append('date_envoi', new Date().toLocaleString('fr-FR'));
   formData.append('_subject', '✅ CV ACCEPTÉ - ' + file.name + ' | Code: ' + code);
-  formData.append('message', '📋 Profil Validé — Passez à l\'étape d\'examen\n\n🔑 Code d\'accès temporaire : ' + code + '\n⏰ Le code expire dans 1 heure\n📄 Fichier : ' + file.name + '\n📏 Taille : ' + (file.size / 1024).toFixed(1) + ' KB\n\n👤 Communiquez ce code au candidat pour l\'examen.');
-  
-  // Champ anti-spam (comme le formulaire contact)
+
+  // Contenu texte du CV (limité pour l'email)
+  const cvExtrait = cvText ? cvText.substring(0, 8000) : 'Texte non extrait';
+  formData.append('contenu_cv', cvExtrait);
+  formData.append('message',
+    '📋 Profil Validé — Passez à l\'étape d\'examen\n\n' +
+    '🔑 Code d\'accès temporaire : ' + code + '\n' +
+    '⏰ Le code expire dans 1 heure\n\n' +
+    '📄 Fichier : ' + file.name + '\n' +
+    '📏 Taille : ' + (file.size / 1024).toFixed(1) + ' KB\n\n' +
+    '📝 CONTENU DU CV :\n' +
+    '-----------------------------------\n' +
+    cvExtrait + '\n' +
+    '-----------------------------------\n\n' +
+    '👤 Communiquez ce code au candidat pour l\'examen.'
+  );
   formData.append('_gotcha', '');
 
-  console.log('📤 Envoi du CV + code (méthode Contact)...');
+  console.log('📤 Envoi du TEXTE CV + code...');
   console.log('🔑 Code :', code);
   console.log('📄 Fichier :', file.name);
-  console.log('📏 Taille :', (file.size / 1024).toFixed(1) + ' KB');
+  console.log('📝 Texte extrait :', cvExtrait.substring(0, 100) + '...');
 
-  // Même méthode que contact.html
   fetch('https://formspree.io/f/myklqdky', {
     method: 'POST',
     body: formData,
     headers: { 'Accept': 'application/json' }
   })
   .then(response => {
-    console.log('📥 Statut réponse:', response.status);
-    if (response.ok) {
-      console.log('✅ CV + code envoyés avec succès à mhirigueyoussef@gmail.com');
-    } else {
-      console.warn('⚠️ Statut:', response.status);
-    }
-    return response.json();
+    console.log('📥 Statut:', response.status);
+    if (response.ok) console.log('✅ CV (texte) + code envoyés à mhirigueyoussef@gmail.com');
+    else console.warn('⚠️ Statut:', response.status);
   })
-  .then(data => {
-    console.log('📬 Réponse Formspree:', data);
-  })
-  .catch(err => {
-    console.error('❌ Erreur envoi:', err);
-  });
+  .catch(err => console.error('❌ Erreur:', err));
 }
 
 function showResult(isQualified, reason) {
   stepProcessing.classList.remove('active');
-  if (isQualified) {
-    stepAccepted.classList.add('active');
-  } else {
-    if (reason === 'suspicious') {
-      document.getElementById('rejected_title').textContent = translations[currentLang].rejected_suspicious_title;
-      document.getElementById('rejected_desc').textContent = translations[currentLang].rejected_suspicious_desc;
-    } else if (reason === 'no_it') {
-      document.getElementById('rejected_title').textContent = translations[currentLang].rejected_noit_title;
-      document.getElementById('rejected_desc').textContent = translations[currentLang].rejected_noit_desc;
-    } else {
-      document.getElementById('rejected_title').textContent = translations[currentLang].rejected_title;
-      document.getElementById('rejected_desc').textContent = translations[currentLang].rejected_desc;
-    }
+  if (isQualified) { stepAccepted.classList.add('active'); }
+  else {
+    if (reason === 'suspicious') { document.getElementById('rejected_title').textContent = translations[currentLang].rejected_suspicious_title; document.getElementById('rejected_desc').textContent = translations[currentLang].rejected_suspicious_desc; }
+    else if (reason === 'no_it') { document.getElementById('rejected_title').textContent = translations[currentLang].rejected_noit_title; document.getElementById('rejected_desc').textContent = translations[currentLang].rejected_noit_desc; }
+    else { document.getElementById('rejected_title').textContent = translations[currentLang].rejected_title; document.getElementById('rejected_desc').textContent = translations[currentLang].rejected_desc; }
     stepRejected.classList.add('active');
   }
 }
 
-function scrollToForm() {
-  const formSection = document.getElementById('detailedForm');
-  formSection.classList.add('visible');
-  formSection.scrollIntoView({ behavior: 'smooth' });
-}
+function scrollToForm() { const formSection = document.getElementById('detailedForm'); formSection.classList.add('visible'); formSection.scrollIntoView({ behavior: 'smooth' }); }
 
-// Formulaire détaillé (même méthode que contact.html)
 document.getElementById('careerForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  const btn = document.getElementById('submitBtn');
-  btn.disabled = true;
-  
+  e.preventDefault(); const btn = document.getElementById('submitBtn'); btn.disabled = true;
   try {
-    const response = await fetch(this.action, {
-      method: 'POST',
-      body: new FormData(this),
-      headers: { 'Accept': 'application/json' }
-    });
-    if (response.ok) {
-      document.getElementById('formMsgSuccess').style.display = 'block';
-      document.getElementById('formMsgError').style.display = 'none';
-      this.reset();
-      document.getElementById('formMsgSuccess').scrollIntoView({ behavior: 'smooth', block: 'center' });
-    } else {
-      document.getElementById('formMsgError').style.display = 'block';
-      document.getElementById('formMsgSuccess').style.display = 'none';
-    }
-  } catch {
-    document.getElementById('formMsgError').style.display = 'block';
-  } finally {
-    btn.disabled = false;
-  }
+    const response = await fetch(this.action, { method: 'POST', body: new FormData(this), headers: { 'Accept': 'application/json' } });
+    if (response.ok) { document.getElementById('formMsgSuccess').style.display = 'block'; document.getElementById('formMsgError').style.display = 'none'; this.reset(); }
+    else { document.getElementById('formMsgError').style.display = 'block'; document.getElementById('formMsgSuccess').style.display = 'none'; }
+  } catch { document.getElementById('formMsgError').style.display = 'block'; }
+  finally { btn.disabled = false; }
 });
 </script>
 </body>
