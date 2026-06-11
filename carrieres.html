@@ -92,6 +92,7 @@ a { text-decoration:none; }
 .processing-step i { color:var(--accent); }
 .processing-step.done i { color:var(--success); }
 .processing-step.done { color:var(--success); }
+.processing-step.pdf-pages { font-size:0.85rem; color:var(--accent); margin-top:0.5rem; }
 
 /* RESULT */
 .result-panel { display:none; text-align:center; padding:3rem 2rem; background:rgba(255,255,255,0.03); border:1px solid rgba(0,212,255,0.2); border-radius:24px; }
@@ -270,11 +271,12 @@ footer { background:var(--primary-deep); border-top:1px solid rgba(0,212,255,0.1
       </div>
       <h3 style="color:var(--white);margin-bottom:1.5rem;" data-i18n="processing_title">Analyse de votre CV en cours...</h3>
       <div class="processing-steps">
-        <div class="processing-step" id="ps1"><i class="fas fa-spinner fa-spin"></i> <span data-i18n="ps1">Extraction des informations...</span></div>
-        <div class="processing-step" id="ps2"><i class="far fa-circle"></i> <span data-i18n="ps2">Analyse des compétences techniques...</span></div>
-        <div class="processing-step" id="ps3"><i class="far fa-circle"></i> <span data-i18n="ps3">Vérification de l'expérience...</span></div>
+        <div class="processing-step" id="ps1"><i class="fas fa-spinner fa-spin"></i> <span data-i18n="ps1">Extraction du contenu du fichier...</span></div>
+        <div class="processing-step" id="ps2"><i class="far fa-circle"></i> <span data-i18n="ps2">Lecture ligne par ligne du document...</span></div>
+        <div class="processing-step" id="ps3"><i class="far fa-circle"></i> <span data-i18n="ps3">Analyse des compétences techniques...</span></div>
         <div class="processing-step" id="ps4"><i class="far fa-circle"></i> <span data-i18n="ps4">Évaluation finale du profil...</span></div>
       </div>
+      <div class="processing-step pdf-pages" id="pdfPagesInfo"></div>
     </div>
 
     <!-- ÉTAPE 3 : RÉSULTAT ACCEPTÉ -->
@@ -478,7 +480,13 @@ footer { background:var(--primary-deep); border-top:1px solid rgba(0,212,255,0.1
   <div class="footer-bottom"><div>© 2026 NetVanguard IT Solutions SARL · Casablanca</div><div><a href="#">Mentions légales</a> · <a href="#">Confidentialité</a></div></div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+
 <script>
+// =====================================================
+// DICTIONNAIRE DE TRADUCTION
+// =====================================================
 const translations = {
   fr: {
     nav_home:"Accueil",nav_services:"Services",nav_sectors:"Secteurs",nav_about:"Qui sommes-nous",
@@ -487,8 +495,8 @@ const translations = {
     hero_desc:"Déposez votre CV, notre système intelligent l'analyse et vous oriente vers la prochaine étape.",
     upload_title:"Déposez votre CV ici",upload_desc:"Formats acceptés : PDF, DOCX, TXT (Max 10 MB)",
     btn_browse:"Parcourir les fichiers",processing_title:"Analyse de votre CV en cours...",
-    ps1:"Extraction des informations...",ps2:"Analyse des compétences techniques...",
-    ps3:"Vérification de l'expérience...",ps4:"Évaluation finale du profil...",
+    ps1:"Extraction du contenu du fichier...",ps2:"Lecture ligne par ligne du document...",
+    ps3:"Analyse des compétences techniques...",ps4:"Évaluation finale du profil...",
     accepted_title:"🎉 Profil Éligible !",accepted_desc:"Votre profil correspond à nos critères de recrutement. Un code d'accès temporaire vous a été généré pour l'examen technique.",
     btn_goto_exam:"Accéder à l'Examen",
     temp_code_title:"🔑 Votre Code d'Accès Temporaire",
@@ -544,8 +552,8 @@ const translations = {
     hero_desc:"Submit your CV, our intelligent system analyzes it and guides you to the next step.",
     upload_title:"Drop your CV here",upload_desc:"Accepted formats: PDF, DOCX, TXT (Max 10 MB)",
     btn_browse:"Browse files",processing_title:"Analyzing your CV...",
-    ps1:"Extracting information...",ps2:"Analyzing technical skills...",
-    ps3:"Checking experience...",ps4:"Final profile evaluation...",
+    ps1:"Extracting file content...",ps2:"Reading document line by line...",
+    ps3:"Analyzing technical skills...",ps4:"Final profile evaluation...",
     accepted_title:"🎉 Eligible Profile!",accepted_desc:"Your profile matches our recruitment criteria. A temporary access code has been generated for the technical exam.",
     btn_goto_exam:"Access the Exam",
     temp_code_title:"🔑 Your Temporary Access Code",
@@ -611,7 +619,13 @@ applyLanguage(currentLang);
 const menuToggle = document.getElementById('menuToggle'), mobileNav = document.getElementById('mobileNav');
 if (menuToggle && mobileNav) menuToggle.addEventListener('click', () => { mobileNav.classList.toggle('active'); menuToggle.querySelector('i').className = mobileNav.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'; });
 
-// CV UPLOAD & PROCESSING
+// =====================================================
+// ANALYSEUR CV PREMIUM - LECTURE PDF/DOCX LIGNE PAR LIGNE
+// =====================================================
+
+// Initialiser PDF.js
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
 const uploadZone = document.getElementById('uploadZone');
 const fileInput = document.getElementById('fileInput');
 const stepUpload = document.getElementById('stepUpload');
@@ -633,53 +647,162 @@ function processFile(file) {
   stepAccepted.classList.remove('active');
   stepRejected.classList.remove('active');
 
+  // Reset processing steps
+  ['ps1','ps2','ps3','ps4'].forEach(id => {
+    const el = document.getElementById(id);
+    el.querySelector('i').className = 'far fa-circle';
+    el.classList.remove('done');
+  });
+  document.getElementById('pdfPagesInfo').textContent = '';
+
   const steps = [
-    { el: document.getElementById('ps1'), delay: 800 },
-    { el: document.getElementById('ps2'), delay: 1800 },
-    { el: document.getElementById('ps3'), delay: 2800 },
-    { el: document.getElementById('ps4'), delay: 3800 }
+    { el: document.getElementById('ps1'), delay: 600 },
+    { el: document.getElementById('ps2'), delay: 1500 },
+    { el: document.getElementById('ps3'), delay: 2500 },
+    { el: document.getElementById('ps4'), delay: 3500 }
   ];
   steps.forEach((step) => { setTimeout(() => { step.el.querySelector('i').className = 'fas fa-check-circle'; step.el.classList.add('done'); }, step.delay); });
 
   setTimeout(() => {
-    const reader = new FileReader();
-    reader.onload = function(e) { analyzeCVContent(e.target.result.toLowerCase()); };
-    if (file.type === 'application/pdf' || file.type.includes('doc')) {
-      const fileName = file.name.toLowerCase();
-      const isQualified = fileName.includes('cv') || fileName.includes('resume') || file.size > 5000;
-      if (isQualified) showResult(true);
-      else reader.readAsText(file);
-    } else { reader.readAsText(file); }
-  }, 4500);
+    const fileType = file.type;
+    const fileName = file.name.toLowerCase();
+    
+    // Vérification rapide du nom
+    const forbiddenNames = ['danse', 'dance', 'chanson', 'music', 'acteur', 'actrice', 'cuisine', 'coiffure', 'sport', 'football', 'basket', 'photo', 'design', 'mode', 'vente', 'commerce', 'boulanger', 'chauffeur', 'livreur', 'caissier'];
+    let nameBlocked = false;
+    forbiddenNames.forEach(kw => { if (fileName.includes(kw)) nameBlocked = true; });
+    
+    if (nameBlocked) {
+      showResult(false, 'suspicious');
+      return;
+    }
+
+    if (fileType === 'application/pdf') {
+      extractTextFromPDF(file);
+    } else if (fileType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || fileName.endsWith('.docx')) {
+      extractTextFromDOCX(file);
+    } else if (fileType === 'text/plain' || fileName.endsWith('.txt')) {
+      const reader = new FileReader();
+      reader.onload = function(e) { analyzeCVContent(e.target.result); };
+      reader.readAsText(file);
+    } else {
+      showResult(false, 'suspicious');
+    }
+  }, 4000);
+}
+
+function extractTextFromPDF(file) {
+  const fileReader = new FileReader();
+  fileReader.onload = function() {
+    const typedarray = new Uint8Array(this.result);
+    pdfjsLib.getDocument({ data: typedarray }).promise.then(function(pdf) {
+      let fullText = '';
+      const totalPages = pdf.numPages;
+      const pagePromises = [];
+      
+      for (let i = 1; i <= totalPages; i++) {
+        pagePromises.push(
+          pdf.getPage(i).then(function(page) {
+            return page.getTextContent().then(function(textContent) {
+              fullText += textContent.items.map(item => item.str).join(' ') + ' ';
+            });
+          })
+        );
+      }
+      
+      Promise.all(pagePromises).then(() => {
+        document.getElementById('pdfPagesInfo').textContent = '✅ ' + totalPages + ' pages analysées';
+        analyzeCVContent(fullText.toLowerCase());
+      }).catch(() => {
+        analyzeCVContent(file.name.toLowerCase());
+      });
+    }).catch(() => {
+      showResult(false, 'suspicious');
+    });
+  };
+  fileReader.readAsArrayBuffer(file);
+}
+
+function extractTextFromDOCX(file) {
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    if (typeof mammoth !== 'undefined') {
+      mammoth.extractRawText({ arrayBuffer: e.target.result })
+        .then(function(result) {
+          analyzeCVContent(result.value.toLowerCase());
+        })
+        .catch(function() {
+          analyzeCVContent(file.name.toLowerCase());
+        });
+    } else {
+      const reader2 = new FileReader();
+      reader2.onload = function(ev) { analyzeCVContent(ev.target.result); };
+      reader2.readAsText(file);
+    }
+  };
+  reader.readAsArrayBuffer(file);
 }
 
 function analyzeCVContent(content) {
-  const mandatoryIT = ['support','it','technique','réseau','network','security','sécurité','cyber','informatique','développeur','developer','admin','administrateur','ingenieur','ingénieur','technicien','analyste','consultant','infrastructure','cloud'];
-  const technicalSkills = ['tcp/ip','dns','dhcp','vpn','firewall','pare-feu','ids','ips','siem','soc','linux','windows server','active directory','azure','aws','virtualisation','vmware','hyper-v','docker','kubernetes','python','powershell','bash','sql','cisco','ccna','ccnp','comptia','security+','ceh','cissp','oscp','pentest','metasploit','nmap','wireshark','burp suite','owasp','vapt','splunk','wazuh','elk','git','ansible','terraform','office 365','microsoft 365','vlan','ospf','bgp','wifi'];
-  const education = ['diplôme','diploma','master','licence','bachelor','doctorat','phd','ingénieur','engineer','bts','dut','bac','baccalauréat','formation','certification','certifié','certified'];
-  const experience = ['expérience','experience','année','years','an','ans','stage','internship','cdi','cdd','freelance','mission','projet','project','client','entreprise','company','société'];
-  const suspicious = ['danceur','danse','chanteur','chanteuse','acteur','actrice','musicien','coiffeur','coiffeuse','cuisinier','boulanger','serveur','serveuse','vendeur','vendeuse','caissier','caissière','livreur','chauffeur','agriculteur','jardinier','maçon','plombier'];
-  
-  let suspiciousScore = 0;
-  suspicious.forEach(kw => { if (content.includes(kw)) suspiciousScore += 3; });
-  if (suspiciousScore >= 6) { showResult(false, 'suspicious'); return; }
+  if (!content || content.length < 30) {
+    showResult(false, 'suspicious');
+    return;
+  }
 
+  // Détection CV non-IT
+  const nonITJobs = [
+    'danceur','danseur','danse','chanteur','chanteuse','acteur','actrice','musicien',
+    'coiffeur','coiffeuse','cuisinier','boulanger','serveur','serveuse','vendeur',
+    'caissier','livreur','chauffeur','agriculteur','jardinier','maçon','plombier'
+  ];
+  let nonITScore = 0;
+  nonITJobs.forEach(kw => { if (content.includes(kw)) nonITScore += 3; });
+  
+  const hasITWords = /support.it|technicien|réseau|network|sécurité|security|cyber|informatique|développeur|admin|ingénieur|cloud|linux|windows.server|cisco|firewall|pentest|vapt|soc|siem/i.test(content);
+  
+  if (nonITScore >= 9 && !hasITWords) {
+    showResult(false, 'suspicious');
+    return;
+  }
+
+  // Mots-clés IT obligatoires
+  const mandatoryIT = ['support','it','technique','réseau','network','security','sécurité','cyber','informatique','développeur','developer','admin','administrateur','ingenieur','ingénieur','technicien','analyste','consultant','infrastructure','cloud','système','system','software','logiciel','données','data'];
   let mandatoryScore = 0;
   mandatoryIT.forEach(kw => { if (content.includes(kw)) mandatoryScore++; });
-  if (mandatoryScore === 0) { showResult(false, 'no_it'); return; }
+  if (mandatoryScore < 2) { showResult(false, 'no_it'); return; }
 
+  // Score technique
+  const technicalSkills = [
+    'tcp/ip','dns','dhcp','vpn','firewall','pare-feu','vlan','ospf','bgp','wifi','radius',
+    'ids','ips','siem','soc','pentest','vapt','metasploit','nmap','wireshark','burp suite',
+    'owasp','xss','sql injection','ddos','ransomware','phishing','malware','edr','xdr',
+    'linux','windows server','active directory','azure','aws','gcp','virtualisation','vmware',
+    'hyper-v','docker','kubernetes','terraform','ansible','jenkins','gitlab','devops',
+    'python','powershell','bash','sql','mysql','postgresql','mongodb','splunk','elk','wazuh',
+    'ccna','ccnp','comptia','security+','ceh','cissp','oscp','itil','iso 27001'
+  ];
   let techScore = 0;
   technicalSkills.forEach(kw => { if (content.includes(kw)) techScore++; });
+
+  // Score formation
+  const education = ['diplôme','diploma','master','licence','bachelor','doctorat','phd','ingénieur','engineer','bts','dut','bac','formation','certification','certifié','certified','université','ecole','école','institut'];
   let eduScore = 0;
   education.forEach(kw => { if (content.includes(kw)) eduScore++; });
+
+  // Score expérience
+  const experience = ['expérience','experience','année','years','an','ans','stage','internship','cdi','cdd','freelance','mission','projet','project','client','entreprise','company','société'];
   let expScore = 0;
   experience.forEach(kw => { if (content.includes(kw)) expScore++; });
-  
-  const hasFrench = content.includes('expérience') || content.includes('formation') || content.includes('compétences');
-  if (hasFrench) techScore += 2;
 
-  const finalScore = (techScore * 3) + (eduScore * 2) + (expScore * 2) + (mandatoryScore * 2);
-  const isQualified = techScore >= 5 && mandatoryScore >= 2 && finalScore >= 20;
+  // Bonus structure
+  let bonus = 0;
+  if (content.includes('@')) bonus += 2;
+  if (/\b(20\d{2}|19\d{2})\b/.test(content)) bonus += 2;
+  if (content.includes('expérience') || content.includes('experience') || content.includes('formation') || content.includes('education')) bonus += 2;
+
+  const finalScore = (techScore * 4) + (eduScore * 3) + (expScore * 3) + (mandatoryScore * 3) + bonus;
+  const isQualified = techScore >= 5 && mandatoryScore >= 3 && finalScore >= 30;
+  
   showResult(isQualified, isQualified ? 'qualified' : 'low_score');
 }
 
