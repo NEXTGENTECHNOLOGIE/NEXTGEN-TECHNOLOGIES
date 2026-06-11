@@ -37,8 +37,10 @@
     .top-bar-info { display: flex; gap: 2rem; flex-wrap: wrap; }
     .top-bar-info span { display: flex; align-items: center; gap: 0.4rem; }
     .top-bar-info i { color: var(--accent); }
-    .top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; transition: var(--transition); }
-    .top-bar-social a:hover { color: var(--accent); }
+    .top-bar-social { display: flex; align-items: center; gap: 1rem; }
+    .top-bar-social .social-icons { display: flex; gap: 0.8rem; }
+    .top-bar-social .social-icons a { color: var(--gray-light); transition: var(--transition); }
+    .top-bar-social .social-icons a:hover { color: var(--accent); }
     .lang-switch { display: flex; gap: 0.25rem; background: rgba(0,212,255,0.15); padding: 0.2rem 0.6rem; border-radius: 40px; align-items: center; }
     .lang-btn { background: none; border: none; color: var(--gray-light); font-size: 0.8rem; font-weight: 600; cursor: pointer; padding: 0.2rem 0.6rem; border-radius: 30px; transition: var(--transition); font-family: inherit; }
     .lang-btn.active { background: var(--accent); color: var(--primary); }
@@ -180,8 +182,16 @@
     .footer-bottom { max-width: 1400px; margin: 0 auto; padding-top: 1.5rem; border-top: 1px solid rgba(0,212,255,0.1); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; color: var(--gray-mid); }
 
     /* RESPONSIVE */
-    @media (max-width: 1024px) { .footer-grid { grid-template-columns: 1fr 1fr; } .section-cards { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 1200px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 1024px) { .nav-links { display: none; } .menu-toggle { display: block; } .section-cards { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 768px) {
+      .top-bar-container { flex-direction: column !important; justify-content: center !important; align-items: center !important; text-align: center !important; gap: 0.6rem !important; }
+      .top-bar-container .partner-badge { order: 1 !important; width: 100% !important; justify-content: center !important; }
+      .top-bar-info { order: 2 !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; gap: 0.4rem !important; width: 100% !important; }
+      .top-bar-info span { justify-content: center !important; font-size: 0.78rem !important; }
+      .top-bar-social { order: 3 !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; gap: 0.5rem !important; width: 100% !important; }
+      .top-bar-social .lang-switch { order: 1 !important; margin-right: 0 !important; }
+      .top-bar-social .social-icons { order: 2 !important; display: flex !important; gap: 1rem !important; }
       .nav-links { display: none; }
       .menu-toggle { display: block; }
       .form-row, .section-cards, .options-grid { grid-template-columns: 1fr; }
@@ -190,13 +200,16 @@
       .exam-nav { flex-direction: column; }
       .exam-nav .btn-nav { width: 100%; justify-content: center; }
     }
+    @media (max-width: 600px) {
+      .section-cards { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
 
 <div class="top-bar">
   <div class="top-bar-container">
-    <div style="display:flex;align-items:center;gap:.6rem;background:linear-gradient(135deg,rgba(0,212,255,.15),rgba(239,68,68,.08));padding:.3rem 1rem;border-radius:40px;border-left:2px solid #00D4FF;">
+    <div class="partner-badge" style="display:flex;align-items:center;gap:.6rem;background:linear-gradient(135deg,rgba(0,212,255,.15),rgba(239,68,68,.08));padding:.3rem 1rem;border-radius:40px;border-left:2px solid #00D4FF;">
       <i class="fa-solid fa-shield-halved" style="color:#00D4FF;font-size:.8rem;"></i>
       <span style="font-size:.7rem;font-weight:700;letter-spacing:.5px;background:linear-gradient(135deg,#fff,#00D4FF);-webkit-background-clip:text;background-clip:text;color:transparent;">Votre partenaire IT & cybersécurité au Maroc</span>
     </div>
@@ -205,14 +218,16 @@
       <span><i class="fas fa-envelope"></i> contact@netvanguard.ma</span>
       <span><i class="fas fa-map-marker-alt"></i> Casablanca</span>
     </div>
-    <div class="top-bar-social" style="display:flex;align-items:center;">
-      <div class="lang-switch" style="margin-right:1rem;">
+    <div class="top-bar-social">
+      <div class="lang-switch">
         <button class="lang-btn active" data-lang="fr">FR</button>
         <button class="lang-btn" data-lang="en">EN</button>
       </div>
-      <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      <a href="#"><i class="fab fa-x-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
     </div>
   </div>
 </div>
@@ -262,7 +277,6 @@
 <section class="exam-section">
   <div class="exam-container">
 
-    <!-- BANDEAU ANTI-TRICHE -->
     <div class="anti-cheat-banner">
       <i class="fas fa-shield-halved"></i>
       <div class="ac-text">
@@ -271,7 +285,6 @@
       </div>
     </div>
 
-    <!-- ÉCRAN DE CONNEXION -->
     <div class="login-screen" id="loginScreen">
       <div class="lock-icon"><i class="fas fa-lock"></i></div>
       <h3 data-i18n="login_title">Accès Sécurisé</h3>
@@ -283,7 +296,6 @@
       <div class="login-error" id="loginError" data-i18n="login_error">Code d'accès incorrect.</div>
     </div>
 
-    <!-- FORMULAIRE CANDIDAT -->
     <div class="candidate-form" id="candidateForm">
       <h3 data-i18n="form_title">Informations du Candidat</h3>
       <p data-i18n="form_desc">Veuillez remplir vos informations et choisir votre filière d'examen.</p>
@@ -297,37 +309,14 @@
       </div>
       <p style="color:var(--accent);font-weight:600;margin-top:1rem;" data-i18n="lbl_choose">🎯 Choisissez votre filière d'examen :</p>
       <div class="section-cards" id="sectionCards">
-        <div class="section-card" data-exam="support" onclick="selectExam('support')">
-          <div class="card-icon">💻</div>
-          <h4 data-i18n="card1_title">Support Technique IT</h4>
-          <div class="card-meta" data-i18n="card1_desc">40 questions · 60 min</div>
-          <div class="card-badge" data-i18n="badge_available">Disponible</div>
-        </div>
-        <div class="section-card" data-exam="reseau" onclick="selectExam('reseau')">
-          <div class="card-icon">🌐</div>
-          <h4 data-i18n="card2_title">Sécurité Réseau</h4>
-          <div class="card-meta" data-i18n="card2_desc">40 questions · 60 min</div>
-          <div class="card-badge" data-i18n="badge_available">Disponible</div>
-        </div>
-        <div class="section-card" data-exam="pentest" onclick="selectExam('pentest')">
-          <div class="card-icon">🛡️</div>
-          <h4 data-i18n="card3_title">Pentest / VAPT</h4>
-          <div class="card-meta" data-i18n="card3_desc">40 questions · 60 min</div>
-          <div class="card-badge" data-i18n="badge_available">Disponible</div>
-        </div>
-        <div class="section-card" data-exam="admin" onclick="selectExam('admin')">
-          <div class="card-icon">🖥️</div>
-          <h4 data-i18n="card4_title">Administrateur Systèmes</h4>
-          <div class="card-meta" data-i18n="card4_desc">40 questions · 60 min</div>
-          <div class="card-badge" data-i18n="badge_available">Disponible</div>
-        </div>
+        <div class="section-card" data-exam="support" onclick="selectExam('support')"><div class="card-icon">💻</div><h4 data-i18n="card1_title">Support Technique IT</h4><div class="card-meta" data-i18n="card1_desc">40 questions · 60 min</div><div class="card-badge" data-i18n="badge_available">Disponible</div></div>
+        <div class="section-card" data-exam="reseau" onclick="selectExam('reseau')"><div class="card-icon">🌐</div><h4 data-i18n="card2_title">Sécurité Réseau</h4><div class="card-meta" data-i18n="card2_desc">40 questions · 60 min</div><div class="card-badge" data-i18n="badge_available">Disponible</div></div>
+        <div class="section-card" data-exam="pentest" onclick="selectExam('pentest')"><div class="card-icon">🛡️</div><h4 data-i18n="card3_title">Pentest / VAPT</h4><div class="card-meta" data-i18n="card3_desc">40 questions · 60 min</div><div class="card-badge" data-i18n="badge_available">Disponible</div></div>
+        <div class="section-card" data-exam="admin" onclick="selectExam('admin')"><div class="card-icon">🖥️</div><h4 data-i18n="card4_title">Administrateur Systèmes</h4><div class="card-meta" data-i18n="card4_desc">40 questions · 60 min</div><div class="card-badge" data-i18n="badge_available">Disponible</div></div>
       </div>
-      <button class="btn-start-exam" id="startExamBtn" onclick="startExam()" disabled>
-        <i class="fas fa-play-circle"></i> <span data-i18n="btn_start">Démarrer l'Examen</span>
-      </button>
+      <button class="btn-start-exam" id="startExamBtn" onclick="startExam()" disabled><i class="fas fa-play-circle"></i> <span data-i18n="btn_start">Démarrer l'Examen</span></button>
     </div>
 
-    <!-- INTERFACE EXAMEN -->
     <div class="exam-interface" id="examInterface">
       <div class="exam-header-bar">
         <div class="exam-info-item"><div class="label" data-i18n="lbl_question">Question</div><div class="value" id="currentQDisplay">1 / 40</div></div>
@@ -347,7 +336,6 @@
       </div>
     </div>
 
-    <!-- RÉSULTATS -->
     <div class="results-panel" id="resultsPanel">
       <div class="results-card">
         <h3 style="color:var(--white);margin-bottom:1.5rem;" data-i18n="results_title">📋 Résultats de l'Évaluation</h3>
@@ -386,7 +374,6 @@
 // BANQUES DE QUESTIONS - 40 QUESTIONS UNIQUES PAR SECTION
 // =====================================================
 
-// === SUPPORT TECHNIQUE IT (40 questions) ===
 const supportQuestions = [
   { id:1, q:"Quel composant est responsable du POST lors du démarrage ?", options:["Le processeur","Le BIOS/UEFI","La carte graphique","Le contrôleur disque"], correct:1, cat:"Hardware" },
   { id:2, q:"Différence fondamentale entre RAM DDR4 et DDR5 ?", options:["DDR5 consomme plus","DDR5 a bande passante supérieure et latence CAS plus élevée","DDR4 est plus rapide","DDR5 sans ECC"], correct:1, cat:"Hardware" },
@@ -430,7 +417,6 @@ const supportQuestions = [
   { id:40, q:"Buffer Overflow : définition ?", options:["Mémoire cache rapide","Vulnérabilité où un programme écrit au-delà de la mémoire allouée","Outil diagnostic réseau","Fonctionnalité de sécurité"], correct:1, cat:"Sécurité" }
 ];
 
-// === SÉCURITÉ RÉSEAU (40 questions) ===
 const reseauQuestions = [
   { id:1, q:"Firewall Stateful Inspection ?", options:["Filtre par MAC","Maintient table d'état des connexions et analyse le contexte","Filtre seulement ports TCP","Firewall sans état"], correct:1, cat:"Firewall" },
   { id:2, q:"Port par défaut SSH ?", options:["21","22","23","80"], correct:1, cat:"Protocoles" },
@@ -474,7 +460,6 @@ const reseauQuestions = [
   { id:40, q:"Segmentation réseau : but principal ?", options:["Augmenter vitesse","Limiter la propagation des attaques et isoler les ressources","Réduire coût câblage","Simplifier configuration"], correct:1, cat:"Réseau" }
 ];
 
-// === PENTEST / VAPT (40 questions) ===
 const pentestQuestions = [
   { id:1, q:"Outil pour identifier services et versions sur ports ouverts ?", options:["Wireshark","Nmap -sV","Metasploit","Burp Suite"], correct:1, cat:"Reconnaissance" },
   { id:2, q:"Commande Nmap pour scan furtif SYN (half-open) ?", options:["nmap -sT","nmap -sS","nmap -sU","nmap -sP"], correct:1, cat:"Scanning" },
@@ -518,7 +503,6 @@ const pentestQuestions = [
   { id:40, q:"Outil capture trafic réseau en ligne de commande ?", options:["Nmap","tcpdump","Metasploit","Hydra"], correct:1, cat:"Analyse" }
 ];
 
-// === ADMINISTRATEUR SYSTÈMES (40 questions) ===
 const adminQuestions = [
   { id:1, q:"Service Windows Server pour authentification centralisée ?", options:["IIS","Active Directory Domain Services","DNS Server","DHCP Server"], correct:1, cat:"Windows" },
   { id:2, q:"Commande PowerShell pour créer utilisateur AD ?", options:["New-User","New-ADUser","Add-User","Create-ADAccount"], correct:1, cat:"PowerShell" },
@@ -567,18 +551,12 @@ const adminQuestions = [
 // =====================================================
 const translations = {
   fr: {
-    badge_secure: "PLATEFORME D'ÉVALUATION TECHNIQUE",
-    hero_title: "Centre d'Examen",
-    hero_subtitle: "NetVanguard Recrutement",
-    login_title: "Accès Sécurisé",
-    login_desc: "Plateforme réservée aux examens de recrutement NetVanguard IT Solutions. Veuillez saisir le code d'accès.",
-    access_placeholder: "Code d'accès...",
-    btn_access: "Accéder",
-    login_error: "Code d'accès incorrect.",
+    badge_secure: "PLATEFORME D'ÉVALUATION TECHNIQUE", hero_title: "Centre d'Examen", hero_subtitle: "NetVanguard Recrutement",
+    login_title: "Accès Sécurisé", login_desc: "Plateforme réservée aux examens de recrutement NetVanguard IT Solutions.",
+    access_placeholder: "Code d'accès...", btn_access: "Accéder", login_error: "Code d'accès incorrect.",
     ac_title: "🚨 Plateforme Surveillée — Tolérance Zéro Triche",
-    ac_desc: "Cette plateforme est équipée d'un logiciel de surveillance avancé. Toute tentative de triche est détectée et entraînera l'annulation immédiate de votre examen.",
-    form_title: "Informations du Candidat",
-    form_desc: "Veuillez remplir vos informations et choisir votre filière d'examen.",
+    ac_desc: "Cette plateforme est équipée d'un logiciel de surveillance avancé. Toute tentative de triche est détectée.",
+    form_title: "Informations du Candidat", form_desc: "Veuillez remplir vos informations et choisir votre filière d'examen.",
     lbl_lastname: "Nom *", lbl_firstname: "Prénom *", lbl_email: "Email *", lbl_phone: "Téléphone *",
     ph_lastname: "Votre nom", ph_firstname: "Votre prénom", ph_email: "votre@email.com", ph_phone: "+212...",
     lbl_choose: "🎯 Choisissez votre filière d'examen :",
@@ -586,42 +564,25 @@ const translations = {
     card2_title: "Sécurité Réseau", card2_desc: "40 questions · 60 min",
     card3_title: "Pentest / VAPT", card3_desc: "40 questions · 60 min",
     card4_title: "Administrateur Systèmes", card4_desc: "40 questions · 60 min",
-    badge_available: "Disponible",
-    btn_start: "Démarrer l'Examen",
+    badge_available: "Disponible", btn_start: "Démarrer l'Examen",
     lbl_question: "Question", lbl_time: "Temps Restant", lbl_answered: "Répondues",
     btn_prev: "Précédent", btn_next: "Suivant", btn_submit: "Terminer l'Examen",
     btn_quit: "Abandonner l'examen", btn_back_sections: "Retour aux sections",
-    results_title: "📋 Résultats de l'Évaluation",
-    btn_review: "Revoir mes réponses",
-    msg_excellent: "🏆 Excellent ! Candidat hautement qualifié.",
-    msg_good: "👍 Bien ! Bon niveau technique.",
-    msg_average: "📚 Niveau moyen. Formation recommandée.",
-    msg_poor: "❌ Niveau insuffisant.",
-    email_sending: "Envoi du rapport à la direction...",
-    email_sent: "✅ Rapport envoyé avec succès à mhirigueyoussef@gmail.com",
-    email_error: "⚠️ Erreur d'envoi automatique.",
-    email_network: "⚠️ Erreur réseau.",
-    nav_home: "Accueil", nav_services: "Services", nav_sectors: "Secteurs",
-    nav_about: "Qui sommes-nous", nav_careers: "Carrières",
-    nav_campus: "🎓 Campus Cyber", nav_contact: "Contact", nav_client: "Espace Client",
-    alert_fill: "Veuillez remplir tous les champs obligatoires.",
-    alert_choose: "Veuillez choisir une filière d'examen.",
-    confirm_quit: "Êtes-vous sûr de vouloir abandonner l'examen ? Vos réponses seront perdues.",
-    confirm_back: "Êtes-vous sûr de vouloir retourner aux sections ? Vos réponses seront perdues."
+    results_title: "📋 Résultats de l'Évaluation", btn_review: "Revoir mes réponses",
+    msg_excellent: "🏆 Excellent !", msg_good: "👍 Bien !", msg_average: "📚 Niveau moyen.", msg_poor: "❌ Niveau insuffisant.",
+    email_sending: "Envoi du rapport...", email_sent: "✅ Rapport envoyé !", email_error: "⚠️ Erreur envoi.", email_network: "⚠️ Erreur réseau.",
+    nav_home: "Accueil", nav_services: "Services", nav_sectors: "Secteurs", nav_about: "Qui sommes-nous",
+    nav_careers: "Carrières", nav_campus: "🎓 Campus Cyber", nav_contact: "Contact", nav_client: "Espace Client",
+    alert_fill: "Veuillez remplir tous les champs.", alert_choose: "Veuillez choisir une filière.",
+    confirm_quit: "Abandonner l'examen ?", confirm_back: "Retourner aux sections ?"
   },
   en: {
-    badge_secure: "TECHNICAL ASSESSMENT PLATFORM",
-    hero_title: "Examination Center",
-    hero_subtitle: "NetVanguard Recruitment",
-    login_title: "Secure Access",
-    login_desc: "Platform reserved for NetVanguard IT Solutions recruitment exams. Please enter the access code.",
-    access_placeholder: "Access code...",
-    btn_access: "Access",
-    login_error: "Incorrect access code.",
+    badge_secure: "TECHNICAL ASSESSMENT PLATFORM", hero_title: "Examination Center", hero_subtitle: "NetVanguard Recruitment",
+    login_title: "Secure Access", login_desc: "Platform reserved for NetVanguard IT Solutions recruitment exams.",
+    access_placeholder: "Access code...", btn_access: "Access", login_error: "Incorrect access code.",
     ac_title: "🚨 Monitored Platform — Zero Tolerance Cheating",
-    ac_desc: "This platform is equipped with advanced monitoring software. Any cheating attempt is detected and will result in immediate cancellation of your exam.",
-    form_title: "Candidate Information",
-    form_desc: "Please fill in your information and choose your exam track.",
+    ac_desc: "This platform is equipped with advanced monitoring software. Any cheating attempt is detected.",
+    form_title: "Candidate Information", form_desc: "Please fill in your information and choose your exam track.",
     lbl_lastname: "Last Name *", lbl_firstname: "First Name *", lbl_email: "Email *", lbl_phone: "Phone *",
     ph_lastname: "Your last name", ph_firstname: "Your first name", ph_email: "your@email.com", ph_phone: "+212...",
     lbl_choose: "🎯 Choose your exam track:",
@@ -629,338 +590,79 @@ const translations = {
     card2_title: "Network Security", card2_desc: "40 questions · 60 min",
     card3_title: "Pentest / VAPT", card3_desc: "40 questions · 60 min",
     card4_title: "Systems Administrator", card4_desc: "40 questions · 60 min",
-    badge_available: "Available",
-    btn_start: "Start Exam",
+    badge_available: "Available", btn_start: "Start Exam",
     lbl_question: "Question", lbl_time: "Time Remaining", lbl_answered: "Answered",
     btn_prev: "Previous", btn_next: "Next", btn_submit: "Submit Exam",
     btn_quit: "Quit Exam", btn_back_sections: "Back to Sections",
-    results_title: "📋 Assessment Results",
-    btn_review: "Review my answers",
-    msg_excellent: "🏆 Excellent! Highly qualified candidate.",
-    msg_good: "👍 Good! Solid technical level.",
-    msg_average: "📚 Average level. Training recommended.",
-    msg_poor: "❌ Insufficient level.",
-    email_sending: "Sending report to management...",
-    email_sent: "✅ Report sent successfully to mhirigueyoussef@gmail.com",
-    email_error: "⚠️ Automatic sending error.",
-    email_network: "⚠️ Network error.",
-    nav_home: "Home", nav_services: "Services", nav_sectors: "Sectors",
-    nav_about: "About Us", nav_careers: "Careers",
-    nav_campus: "🎓 Cyber Campus", nav_contact: "Contact", nav_client: "Client Area",
-    alert_fill: "Please fill in all required fields.",
-    alert_choose: "Please choose an exam track.",
-    confirm_quit: "Are you sure you want to quit the exam? Your answers will be lost.",
-    confirm_back: "Are you sure you want to return to sections? Your answers will be lost."
+    results_title: "📋 Assessment Results", btn_review: "Review my answers",
+    msg_excellent: "🏆 Excellent!", msg_good: "👍 Good!", msg_average: "📚 Average.", msg_poor: "❌ Insufficient.",
+    email_sending: "Sending report...", email_sent: "✅ Report sent!", email_error: "⚠️ Send error.", email_network: "⚠️ Network error.",
+    nav_home: "Home", nav_services: "Services", nav_sectors: "Sectors", nav_about: "About Us",
+    nav_careers: "Careers", nav_campus: "🎓 Cyber Campus", nav_contact: "Contact", nav_client: "Client Area",
+    alert_fill: "Please fill in all fields.", alert_choose: "Please choose a track.",
+    confirm_quit: "Quit the exam?", confirm_back: "Return to sections?"
   }
 };
 
-// =====================================================
-// VARIABLES D'ÉTAT
-// =====================================================
 const ACCESS_CODE = "youssef";
-let selectedExam = null;
-let currentQuestions = [];
-let currentQuestionIndex = 0;
-let userAnswers = [];
-let examStarted = false;
-let examFinished = false;
-let timerInterval;
-let timeRemaining = 60 * 60; // 60 minutes
-let candidateInfo = {};
-let currentLang = 'fr';
+let selectedExam = null, currentQuestions = [], currentQuestionIndex = 0, userAnswers = [];
+let examStarted = false, examFinished = false, timerInterval, timeRemaining = 60 * 60, candidateInfo = {}, currentLang = 'fr';
 
-// =====================================================
-// FONCTIONS DE TRADUCTION
-// =====================================================
 function applyLanguage(lang) {
-  currentLang = lang;
-  const t = translations[lang];
-  if (!t) return;
-
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (t[key]) el.textContent = t[key];
-  });
-
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-    const key = el.getAttribute('data-i18n-placeholder');
-    if (t[key]) el.placeholder = t[key];
-  });
-
+  currentLang = lang; const t = translations[lang]; if (!t) return;
+  document.querySelectorAll('[data-i18n]').forEach(el => { const k = el.getAttribute('data-i18n'); if (t[k]) el.textContent = t[k]; });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { const k = el.getAttribute('data-i18n-placeholder'); if (t[k]) el.placeholder = t[k]; });
   const cards = document.querySelectorAll('.section-card');
   if (cards.length >= 4) {
-    cards[0].querySelector('h4').textContent = t.card1_title;
-    cards[0].querySelector('.card-meta').textContent = t.card1_desc;
-    cards[1].querySelector('h4').textContent = t.card2_title;
-    cards[1].querySelector('.card-meta').textContent = t.card2_desc;
-    cards[2].querySelector('h4').textContent = t.card3_title;
-    cards[2].querySelector('.card-meta').textContent = t.card3_desc;
-    cards[3].querySelector('h4').textContent = t.card4_title;
-    cards[3].querySelector('.card-meta').textContent = t.card4_desc;
+    cards[0].querySelector('h4').textContent = t.card1_title; cards[0].querySelector('.card-meta').textContent = t.card1_desc;
+    cards[1].querySelector('h4').textContent = t.card2_title; cards[1].querySelector('.card-meta').textContent = t.card2_desc;
+    cards[2].querySelector('h4').textContent = t.card3_title; cards[2].querySelector('.card-meta').textContent = t.card3_desc;
+    cards[3].querySelector('h4').textContent = t.card4_title; cards[3].querySelector('.card-meta').textContent = t.card4_desc;
   }
-
-  document.querySelectorAll('.lang-btn').forEach(b => {
-    b.classList.remove('active');
-    if (b.getAttribute('data-lang') === lang) b.classList.add('active');
-  });
+  document.querySelectorAll('.lang-btn').forEach(b => { b.classList.remove('active'); if (b.getAttribute('data-lang') === lang) b.classList.add('active'); });
 }
+document.querySelectorAll('.lang-btn').forEach(btn => { btn.addEventListener('click', () => { const l = btn.getAttribute('data-lang'); if (l) applyLanguage(l); }); });
 
-document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const lang = btn.getAttribute('data-lang');
-    if (lang) applyLanguage(lang);
-  });
-});
-
-// =====================================================
-// FONCTIONS EXAMEN
-// =====================================================
 function t(key) { return translations[currentLang][key] || key; }
-
-function checkAccess() {
-  const code = document.getElementById('accessCode').value.trim();
-  if (code === ACCESS_CODE) {
-    document.getElementById('loginScreen').style.display = 'none';
-    document.getElementById('candidateForm').classList.add('active');
-    document.getElementById('loginError').style.display = 'none';
-  } else {
-    document.getElementById('loginError').style.display = 'block';
-  }
-}
-
-document.getElementById('accessCode').addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') checkAccess();
-});
-
-function selectExam(examType) {
-  selectedExam = examType;
-  document.querySelectorAll('.section-card').forEach(c => c.classList.remove('selected'));
-  document.querySelector(`.section-card[data-exam="${examType}"]`).classList.add('selected');
-  document.getElementById('startExamBtn').disabled = false;
-}
-
+function checkAccess() { if (document.getElementById('accessCode').value.trim() === ACCESS_CODE) { document.getElementById('loginScreen').style.display = 'none'; document.getElementById('candidateForm').classList.add('active'); document.getElementById('loginError').style.display = 'none'; } else { document.getElementById('loginError').style.display = 'block'; } }
+document.getElementById('accessCode').addEventListener('keypress', (e) => { if (e.key === 'Enter') checkAccess(); });
+function selectExam(examType) { selectedExam = examType; document.querySelectorAll('.section-card').forEach(c => c.classList.remove('selected')); document.querySelector(`.section-card[data-exam="${examType}"]`).classList.add('selected'); document.getElementById('startExamBtn').disabled = false; }
 function startExam() {
-  const lastName = document.getElementById('candLastName').value.trim();
-  const firstName = document.getElementById('candFirstName').value.trim();
-  const email = document.getElementById('candEmail').value.trim();
-  const phone = document.getElementById('candPhone').value.trim();
-
-  if (!lastName || !firstName || !email || !phone) { alert(t('alert_fill')); return; }
+  const ln = document.getElementById('candLastName').value.trim(), fn = document.getElementById('candFirstName').value.trim(), em = document.getElementById('candEmail').value.trim(), ph = document.getElementById('candPhone').value.trim();
+  if (!ln || !fn || !em || !ph) { alert(t('alert_fill')); return; }
   if (!selectedExam) { alert(t('alert_choose')); return; }
-
-  candidateInfo = { lastName, firstName, email, phone, examType: selectedExam };
-
-  switch (selectedExam) {
-    case 'support': currentQuestions = supportQuestions; break;
-    case 'reseau': currentQuestions = reseauQuestions; break;
-    case 'pentest': currentQuestions = pentestQuestions; break;
-    case 'admin': currentQuestions = adminQuestions; break;
-    default: currentQuestions = supportQuestions;
-  }
-
-  userAnswers = new Array(currentQuestions.length).fill(null);
-  currentQuestionIndex = 0;
-  examStarted = true;
-  examFinished = false;
-  timeRemaining = 60 * 60;
-
-  document.getElementById('candidateForm').classList.remove('active');
-  document.getElementById('examInterface').classList.add('active');
-  document.getElementById('resultsPanel').classList.remove('active');
-  
-  renderQuestion();
-  startTimer();
-  updateNavButtons();
+  candidateInfo = { lastName: ln, firstName: fn, email: em, phone: ph, examType: selectedExam };
+  switch (selectedExam) { case 'support': currentQuestions = supportQuestions; break; case 'reseau': currentQuestions = reseauQuestions; break; case 'pentest': currentQuestions = pentestQuestions; break; case 'admin': currentQuestions = adminQuestions; break; default: currentQuestions = supportQuestions; }
+  userAnswers = new Array(currentQuestions.length).fill(null); currentQuestionIndex = 0; examStarted = true; examFinished = false; timeRemaining = 60 * 60;
+  document.getElementById('candidateForm').classList.remove('active'); document.getElementById('examInterface').classList.add('active'); document.getElementById('resultsPanel').classList.remove('active');
+  renderQuestion(); startTimer(); updateNavButtons();
 }
-
 function renderQuestion() {
-  const container = document.getElementById('questionContainer');
-  const q = currentQuestions[currentQuestionIndex];
-  const selectedAnswer = userAnswers[currentQuestionIndex];
-
-  let optionsHTML = '';
-  q.options.forEach((opt, idx) => {
-    let btnClass = 'option-btn';
-    if (examFinished) {
-      if (idx === q.correct) btnClass += ' correct-show';
-      if (selectedAnswer === idx && selectedAnswer !== q.correct) btnClass += ' wrong-show';
-    } else if (selectedAnswer === idx) { btnClass += ' selected'; }
-    optionsHTML += `<button class="${btnClass}" ${examFinished ? 'disabled' : ''} onclick="selectAnswer(${idx})">${String.fromCharCode(65 + idx)}. ${opt}</button>`;
-  });
-
-  let cardClass = 'question-card';
-  if (examFinished) { cardClass += selectedAnswer === q.correct ? ' correct-card' : ' wrong-card'; }
-  else if (selectedAnswer !== null) { cardClass += ' answered'; }
-
-  container.innerHTML = `<div class="${cardClass}"><div class="question-number">QUESTION ${currentQuestionIndex + 1} / ${currentQuestions.length} — ${q.cat || ''}</div><div class="question-text">${q.q}</div><div class="options-grid">${optionsHTML}</div></div>`;
-  updateQuestionDisplay();
-  updateProgress();
+  const q = currentQuestions[currentQuestionIndex], sa = userAnswers[currentQuestionIndex];
+  let opts = ''; q.options.forEach((o, i) => { let cls = 'option-btn'; if (examFinished) { if (i === q.correct) cls += ' correct-show'; if (sa === i && sa !== q.correct) cls += ' wrong-show'; } else if (sa === i) cls += ' selected'; opts += `<button class="${cls}" ${examFinished ? 'disabled' : ''} onclick="selectAnswer(${i})">${String.fromCharCode(65+i)}. ${o}</button>`; });
+  let cc = 'question-card'; if (examFinished) cc += sa === q.correct ? ' correct-card' : ' wrong-card'; else if (sa !== null) cc += ' answered';
+  document.getElementById('questionContainer').innerHTML = `<div class="${cc}"><div class="question-number">QUESTION ${currentQuestionIndex+1} / ${currentQuestions.length} — ${q.cat||''}</div><div class="question-text">${q.q}</div><div class="options-grid">${opts}</div></div>`;
+  updateQuestionDisplay(); updateProgress();
 }
-
-function selectAnswer(index) { if (examFinished) return; userAnswers[currentQuestionIndex] = index; renderQuestion(); updateNavButtons(); }
-function nextQuestion() { if (currentQuestionIndex < currentQuestions.length - 1) { currentQuestionIndex++; renderQuestion(); updateNavButtons(); } }
+function selectAnswer(i) { if (examFinished) return; userAnswers[currentQuestionIndex] = i; renderQuestion(); updateNavButtons(); }
+function nextQuestion() { if (currentQuestionIndex < currentQuestions.length-1) { currentQuestionIndex++; renderQuestion(); updateNavButtons(); } }
 function prevQuestion() { if (currentQuestionIndex > 0) { currentQuestionIndex--; renderQuestion(); updateNavButtons(); } }
-
-function updateNavButtons() {
-  document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
-  if (currentQuestionIndex === currentQuestions.length - 1) {
-    document.getElementById('nextBtn').style.display = 'none';
-    document.getElementById('submitBtn').classList.add('show');
-  } else {
-    document.getElementById('nextBtn').style.display = 'flex';
-    document.getElementById('submitBtn').classList.remove('show');
-  }
-}
-
-function updateQuestionDisplay() {
-  document.getElementById('currentQDisplay').textContent = `${currentQuestionIndex + 1} / ${currentQuestions.length}`;
-  document.getElementById('answeredCount').textContent = `${userAnswers.filter(a => a !== null).length} / ${currentQuestions.length}`;
-}
-
-function updateProgress() {
-  document.getElementById('examProgress').style.width = `${Math.round((userAnswers.filter(a => a !== null).length / currentQuestions.length) * 100)}%`;
-}
-
-function startTimer() {
-  updateTimerDisplay();
-  clearInterval(timerInterval);
-  timerInterval = setInterval(() => { timeRemaining--; updateTimerDisplay(); if (timeRemaining <= 0) { clearInterval(timerInterval); submitExam(); } }, 1000);
-}
-
-function updateTimerDisplay() {
-  const m = Math.floor(timeRemaining / 60), s = timeRemaining % 60;
-  const d = document.getElementById('timerDisplay');
-  d.textContent = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
-  d.classList.remove('warning', 'danger');
-  if (timeRemaining < 180) d.classList.add('danger');
-  else if (timeRemaining < 360) d.classList.add('warning');
-}
-
-function calculateScore() {
-  let correct = 0;
-  for (let i = 0; i < currentQuestions.length; i++) { if (userAnswers[i] === currentQuestions[i].correct) correct++; }
-  return correct;
-}
-
-function getExamName() {
-  switch (selectedExam) {
-    case 'support': return t('card1_title');
-    case 'reseau': return t('card2_title');
-    case 'pentest': return t('card3_title');
-    case 'admin': return t('card4_title');
-    default: return '';
-  }
-}
-
-function submitExam() {
-  if (examFinished) return;
-  clearInterval(timerInterval);
-  examFinished = true;
-  
-  const score = calculateScore();
-  document.getElementById('examInterface').classList.remove('active');
-  document.getElementById('resultsPanel').classList.add('active');
-  
-  const sc = document.getElementById('scoreCircle');
-  sc.textContent = `${score}/${currentQuestions.length}`;
-  
-  let cc = '', msg = '';
-  if (score >= 34) { cc = 'excellent'; msg = t('msg_excellent'); }
-  else if (score >= 28) { cc = 'good'; msg = t('msg_good'); }
-  else if (score >= 20) { cc = 'average'; msg = t('msg_average'); }
-  else { cc = 'poor'; msg = t('msg_poor'); }
-  
-  sc.className = `results-score-circle ${cc}`;
-  document.getElementById('resultsMsg').textContent = msg;
-  document.getElementById('resultsDetail').textContent = `${score} bonnes réponses sur ${currentQuestions.length} questions. Filière : ${getExamName()}. Temps : ${Math.floor((60*60 - timeRemaining) / 60)} min ${(60*60 - timeRemaining) % 60} sec.`;
-  sendResultsByEmail(score);
-}
-
-function sendResultsByEmail(score) {
-  const sd = document.getElementById('emailStatus');
-  sd.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + t('email_sending');
-  
-  const fd = new FormData();
-  fd.append('candidat_nom', candidateInfo.lastName);
-  fd.append('candidat_prenom', candidateInfo.firstName);
-  fd.append('candidat_email', candidateInfo.email);
-  fd.append('candidat_telephone', candidateInfo.phone);
-  fd.append('filiere', getExamName());
-  fd.append('score', `${score}/${currentQuestions.length}`);
-  fd.append('temps_utilise', `${Math.floor((60*60 - timeRemaining) / 60)} min ${(60*60 - timeRemaining) % 60} sec`);
-  fd.append('date_examen', new Date().toLocaleString('fr-FR'));
-  fd.append('_subject', `Résultat ${getExamName()} - ${candidateInfo.firstName} ${candidateInfo.lastName} - ${score}/${currentQuestions.length}`);
-
-  fetch('https://formspree.io/f/myklqdky', { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } })
-    .then(r => {
-      if (r.ok) { sd.className = 'results-email-status sent'; sd.innerHTML = t('email_sent'); }
-      else { sd.className = 'results-email-status error'; sd.innerHTML = t('email_error'); }
-    })
-    .catch(() => { sd.className = 'results-email-status error'; sd.innerHTML = t('email_network'); });
-}
-
-function reviewExam() {
-  currentQuestionIndex = 0;
-  document.getElementById('resultsPanel').classList.remove('active');
-  document.getElementById('examInterface').classList.add('active');
-  document.getElementById('submitBtn').style.display = 'none';
-  document.getElementById('nextBtn').style.display = 'flex';
-  renderQuestion();
-  updateNavButtons();
-}
-
-function resetExam() {
-  clearInterval(timerInterval);
-  examStarted = false;
-  examFinished = false;
-  selectedExam = null;
-  currentQuestions = [];
-  currentQuestionIndex = 0;
-  userAnswers = [];
-  timeRemaining = 60 * 60;
-  
-  document.getElementById('examInterface').classList.remove('active');
-  document.getElementById('resultsPanel').classList.remove('active');
-  document.getElementById('candidateForm').classList.add('active');
-  document.getElementById('startExamBtn').disabled = true;
-  document.querySelectorAll('.section-card').forEach(c => c.classList.remove('selected'));
-  document.getElementById('timerDisplay').classList.remove('warning', 'danger');
-}
-
-function quitExam() {
-  if (confirm(t('confirm_quit'))) {
-    resetExam();
-  }
-}
-
-function backToSections() {
-  if (examStarted && !examFinished) {
-    if (confirm(t('confirm_back'))) {
-      resetExam();
-    }
-  } else {
-    resetExam();
-  }
-}
-
-// Mobile menu
+function updateNavButtons() { document.getElementById('prevBtn').disabled = currentQuestionIndex === 0; if (currentQuestionIndex === currentQuestions.length-1) { document.getElementById('nextBtn').style.display = 'none'; document.getElementById('submitBtn').classList.add('show'); } else { document.getElementById('nextBtn').style.display = 'flex'; document.getElementById('submitBtn').classList.remove('show'); } }
+function updateQuestionDisplay() { document.getElementById('currentQDisplay').textContent = `${currentQuestionIndex+1} / ${currentQuestions.length}`; document.getElementById('answeredCount').textContent = `${userAnswers.filter(a=>a!==null).length} / ${currentQuestions.length}`; }
+function updateProgress() { document.getElementById('examProgress').style.width = `${Math.round((userAnswers.filter(a=>a!==null).length/currentQuestions.length)*100)}%`; }
+function startTimer() { updateTimerDisplay(); clearInterval(timerInterval); timerInterval = setInterval(() => { timeRemaining--; updateTimerDisplay(); if (timeRemaining <= 0) { clearInterval(timerInterval); submitExam(); } }, 1000); }
+function updateTimerDisplay() { const m = Math.floor(timeRemaining/60), s = timeRemaining%60; const d = document.getElementById('timerDisplay'); d.textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`; d.classList.remove('warning','danger'); if (timeRemaining < 180) d.classList.add('danger'); else if (timeRemaining < 360) d.classList.add('warning'); }
+function calculateScore() { let c = 0; for (let i=0; i<currentQuestions.length; i++) { if (userAnswers[i] === currentQuestions[i].correct) c++; } return c; }
+function getExamName() { switch(selectedExam) { case 'support': return t('card1_title'); case 'reseau': return t('card2_title'); case 'pentest': return t('card3_title'); case 'admin': return t('card4_title'); default: return ''; } }
+function submitExam() { if (examFinished) return; clearInterval(timerInterval); examFinished = true; const score = calculateScore(); document.getElementById('examInterface').classList.remove('active'); document.getElementById('resultsPanel').classList.add('active'); const sc = document.getElementById('scoreCircle'); sc.textContent = `${score}/${currentQuestions.length}`; let cc='', msg=''; if (score>=34) { cc='excellent'; msg=t('msg_excellent'); } else if (score>=28) { cc='good'; msg=t('msg_good'); } else if (score>=20) { cc='average'; msg=t('msg_average'); } else { cc='poor'; msg=t('msg_poor'); } sc.className = `results-score-circle ${cc}`; document.getElementById('resultsMsg').textContent = msg; document.getElementById('resultsDetail').textContent = `${score} bonnes réponses sur ${currentQuestions.length}. Filière: ${getExamName()}.`; sendResultsByEmail(score); }
+function sendResultsByEmail(score) { const sd = document.getElementById('emailStatus'); sd.innerHTML = '<i class="fas fa-spinner fa-spin"></i> '+t('email_sending'); const fd = new FormData(); fd.append('candidat_nom',candidateInfo.lastName); fd.append('candidat_prenom',candidateInfo.firstName); fd.append('candidat_email',candidateInfo.email); fd.append('candidat_telephone',candidateInfo.phone); fd.append('filiere',getExamName()); fd.append('score',`${score}/${currentQuestions.length}`); fd.append('date_examen',new Date().toLocaleString('fr-FR')); fd.append('_subject',`Résultat ${getExamName()} - ${candidateInfo.firstName} ${candidateInfo.lastName} - ${score}/${currentQuestions.length}`); fetch('https://formspree.io/f/myklqdky',{method:'POST',body:fd,headers:{'Accept':'application/json'}}).then(r=>{if(r.ok){sd.className='results-email-status sent';sd.innerHTML=t('email_sent');}else{sd.className='results-email-status error';sd.innerHTML=t('email_error');}}).catch(()=>{sd.className='results-email-status error';sd.innerHTML=t('email_network');}); }
+function reviewExam() { currentQuestionIndex = 0; document.getElementById('resultsPanel').classList.remove('active'); document.getElementById('examInterface').classList.add('active'); document.getElementById('submitBtn').style.display = 'none'; document.getElementById('nextBtn').style.display = 'flex'; renderQuestion(); updateNavButtons(); }
+function resetExam() { clearInterval(timerInterval); examStarted = false; examFinished = false; selectedExam = null; currentQuestions = []; currentQuestionIndex = 0; userAnswers = []; timeRemaining = 60*60; document.getElementById('examInterface').classList.remove('active'); document.getElementById('resultsPanel').classList.remove('active'); document.getElementById('candidateForm').classList.add('active'); document.getElementById('startExamBtn').disabled = true; document.querySelectorAll('.section-card').forEach(c=>c.classList.remove('selected')); document.getElementById('timerDisplay').classList.remove('warning','danger'); }
+function quitExam() { if (confirm(t('confirm_quit'))) resetExam(); }
+function backToSections() { if (examStarted && !examFinished) { if (confirm(t('confirm_back'))) resetExam(); } else resetExam(); }
 const menuToggle = document.getElementById('menuToggle'), mobileNav = document.getElementById('mobileNav');
-if (menuToggle && mobileNav) {
-  menuToggle.addEventListener('click', () => {
-    mobileNav.classList.toggle('active');
-    menuToggle.querySelector('i').className = mobileNav.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
-  });
-}
-
-// Raccourcis clavier
-document.addEventListener('keydown', (e) => {
-  if (!examStarted || examFinished) return;
-  if (e.key === 'ArrowRight') nextQuestion();
-  if (e.key === 'ArrowLeft') prevQuestion();
-  if (e.key >= '1' && e.key <= '4') { const idx = parseInt(e.key) - 1; if (idx < currentQuestions[currentQuestionIndex].options.length) selectAnswer(idx); }
-});
-
-// Init langue
+if (menuToggle && mobileNav) { menuToggle.addEventListener('click', () => { mobileNav.classList.toggle('active'); menuToggle.querySelector('i').className = mobileNav.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'; }); }
+document.addEventListener('keydown', (e) => { if (!examStarted || examFinished) return; if (e.key === 'ArrowRight') nextQuestion(); if (e.key === 'ArrowLeft') prevQuestion(); if (e.key >= '1' && e.key <= '4') { const idx = parseInt(e.key)-1; if (idx < currentQuestions[currentQuestionIndex].options.length) selectAnswer(idx); } });
 applyLanguage('fr');
 </script>
 </body>
