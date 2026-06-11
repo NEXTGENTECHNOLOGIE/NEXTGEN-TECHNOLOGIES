@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Campus Cyber NetVanguard Technologies — Centre de Formation Corporate.">
-  <title>Campus Cyber · NetVanguard Technologies</title>
+  <meta name="description" content="Campus Cyber NetVanguard IT Solutions — Plateforme d'Évaluation Technique.">
+  <title>Examen Support IT · NetVanguard IT Solutions</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
@@ -39,7 +39,6 @@
     .top-bar-info i { color: var(--accent); }
     .top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; transition: var(--transition); }
     .top-bar-social a:hover { color: var(--accent); }
-
     .lang-switch { display: flex; gap: 0.25rem; background: rgba(0,212,255,0.15); padding: 0.2rem 0.6rem; border-radius: 40px; align-items: center; }
     .lang-btn { background: none; border: none; color: var(--gray-light); font-size: 0.8rem; font-weight: 600; cursor: pointer; padding: 0.2rem 0.6rem; border-radius: 30px; transition: var(--transition); font-family: inherit; }
     .lang-btn.active { background: var(--accent); color: var(--primary); }
@@ -48,154 +47,107 @@
     .nav { position: sticky; top: 0; z-index: 1000; padding: 1rem 4%; background: rgba(7,20,38,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,212,255,0.15); }
     .nav-container { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
     .logo { display: flex; align-items: center; gap: 0.6rem; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.3rem; color: var(--white); }
-    .logo-shield { width: 32px; height: 32px; flex-shrink: 0; animation: float 3s ease-in-out infinite; }
-    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+    .logo-shield { width: 36px; height: 36px; flex-shrink: 0; animation: float 3s ease-in-out infinite; filter: drop-shadow(0 0 8px rgba(0,212,255,0.5)); }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
     .logo-text-accent { color: var(--accent); }
     .nav-links { display: flex; gap: 0.4rem; list-style: none; align-items: center; }
     .nav-links > li > a { color: var(--off-white); font-size: 0.92rem; font-weight: 600; padding: 0.6rem 1rem; border-radius: 4px; transition: var(--transition); display: flex; align-items: center; gap: 0.3rem; }
     .nav-links > li > a:hover, .nav-links > li > a.active { background: rgba(0,212,255,0.1); color: var(--accent); }
-    .nav-cta { background: linear-gradient(135deg, var(--red), var(--red-dark)) !important; color: var(--white) !important; padding: 0.7rem 1.4rem !important; border-radius: 40px !important; font-weight: 700 !important; }
-    .nav-cta:hover { background: var(--accent) !important; color: var(--primary) !important; }
+    .btn-espace-client { background: linear-gradient(135deg, #00D4FF, #0891B2) !important; color: #050B14 !important; font-weight: 700 !important; padding: 0.5rem 1.2rem !important; border-radius: 6px !important; display: inline-flex !important; align-items: center !important; gap: 0.5rem !important; }
     .menu-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
+    .mobile-nav-overlay { position: fixed; top: 0; right: -100%; width: 100%; max-width: 400px; height: 100vh; background: rgba(5,11,20,0.98); backdrop-filter: blur(25px); z-index: 10000; padding: 8rem 2rem 2rem; display: flex; flex-direction: column; gap: 1.5rem; box-shadow: -10px 0 30px rgba(0,0,0,0.5); border-left: 1px solid rgba(0,212,255,0.2); transition: right 0.5s cubic-bezier(0.77,0.2,0.05,1); }
+    .mobile-nav-overlay.active { right: 0; }
+    .mobile-nav-overlay a { color: var(--white); font-size: 1.1rem; font-weight: 600; }
+    .btn-espace-client-mobile { background: linear-gradient(135deg,#00D4FF,#0891B2); color:#050B14!important; font-weight:700; padding:0.5rem 1.2rem; border-radius:6px; text-align:center; display:inline-flex; align-items:center; justify-content:center; gap:0.5rem; margin-top:1rem; }
 
-    /* PAGE HEADER */
-    .page-header { position: relative; padding: 5rem 4% 4rem; overflow: hidden; background: var(--primary-deep); }
-    .page-header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 20% 30%, rgba(0,212,255,0.15), transparent 40%), radial-gradient(circle at 80% 70%, rgba(255,184,0,0.08), transparent 40%); pointer-events: none; }
-    .page-header::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px); background-size: 50px 50px; pointer-events: none; }
-    .page-header-container { max-width: 1400px; margin: 0 auto; position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 0.8fr; gap: 3rem; align-items: center; }
-    .breadcrumb { color: var(--gray-light); font-size: 0.85rem; margin-bottom: 1.2rem; }
-    .breadcrumb a { color: var(--accent); }
-    .breadcrumb i { margin: 0 0.5rem; font-size: 0.7rem; opacity: 0.6; }
-    .page-header-left h1 { font-size: clamp(2.2rem, 4.5vw, 3.5rem); line-height: 1.1; margin-bottom: 1rem; color: var(--white); }
-    .page-header-left h1 .accent { background: linear-gradient(90deg, #00D4FF, #38bdf8, #FFB800, #00D4FF); background-size: 300% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shine 8s linear infinite; }
+    /* HERO HEADER */
+    .page-header { position: relative; padding: 4rem 4% 3rem; overflow: hidden; background: var(--primary-deep); text-align: center; }
+    .page-header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 30%, rgba(0,212,255,0.12), transparent 50%); pointer-events: none; }
+    .page-header-container { max-width: 1000px; margin: 0 auto; position: relative; z-index: 2; }
+    .exam-badge { display: inline-block; padding: 0.5rem 1.4rem; background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.3); border-radius: 50px; color: var(--red); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.25em; margin-bottom: 1.5rem; }
+    .page-header h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); line-height: 1.15; margin-bottom: 1rem; color: var(--white); }
+    .page-header h1 .accent { background: linear-gradient(90deg, #FFB800, #EF4444, #00D4FF, #FFB800); background-size: 300% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shine 6s linear infinite; }
     @keyframes shine { to { background-position: 300% center; } }
-    .page-header-left p { font-size: 1.1rem; color: var(--gray-light); max-width: 500px; margin-bottom: 1.5rem; line-height: 1.8; }
+    .page-header p { font-size: 1.05rem; color: var(--gray-light); max-width: 600px; margin: 0 auto; }
 
-    .trainer-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,184,0,0.15); border: 1px solid rgba(255,184,0,0.3); padding: 0.5rem 1.2rem; border-radius: 40px; font-size: 0.85rem; font-weight: 600; color: var(--gold); }
+    /* EXAM CONTAINER */
+    .exam-section { padding: 2rem 4% 5rem; }
+    .exam-container { max-width: 900px; margin: 0 auto; }
 
-    /* STATS HEADER */
-    .header-stats { display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
-    .header-stat { text-align: center; }
-    .header-stat .num { font-size: 1.8rem; font-weight: 700; color: var(--accent); font-family: 'Space Grotesk', sans-serif; }
-    .header-stat .lbl { font-size: 0.78rem; color: var(--gray-light); }
+    /* FORMULAIRE CANDIDAT */
+    .candidate-form { background: rgba(255,255,255,0.03); border: 1px solid rgba(0,212,255,0.15); border-radius: 20px; padding: 2.5rem; margin-bottom: 2rem; }
+    .candidate-form h3 { color: var(--white); margin-bottom: 0.5rem; font-size: 1.3rem; }
+    .candidate-form p { color: var(--gray-light); font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; color: var(--accent); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.4rem; }
+    .form-group input, .form-group select { width: 100%; padding: 0.85rem 1rem; border: 1.5px solid rgba(255,255,255,0.1); border-radius: 10px; background: rgba(255,255,255,0.04); color: var(--white); font-family: inherit; font-size: 0.95rem; transition: var(--transition); }
+    .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--accent); background: rgba(0,212,255,0.06); }
+    .form-group select option { background: var(--primary); color: var(--white); }
+    .btn-start-exam { width: 100%; padding: 1rem; background: linear-gradient(135deg, var(--red), var(--red-dark)); color: var(--white); border: none; border-radius: 12px; font-weight: 700; font-size: 1.05rem; cursor: pointer; transition: var(--transition); font-family: inherit; display: flex; align-items: center; justify-content: center; gap: 0.6rem; }
+    .btn-start-exam:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(239,68,68,0.3); }
+    .btn-start-exam:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 
-    /* TRAINER CARD */
-    .trainer-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border-radius: 28px; padding: 2rem; border: 1px solid rgba(255,255,255,0.1); text-align: center; transition: var(--transition); }
-    .trainer-card:hover { transform: translateY(-5px); border-color: rgba(0,212,255,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
-    .trainer-photo { width: 140px; height: 140px; margin: 0 auto 1rem; border-radius: 50%; overflow: hidden; border: 3px solid var(--accent); box-shadow: 0 8px 25px rgba(0,212,255,0.3); }
-    .trainer-photo img { width: 100%; height: 100%; object-fit: cover; }
-    .trainer-card h3 { font-size: 1.3rem; color: var(--white); margin-bottom: 0.3rem; }
-    .trainer-role { color: var(--accent); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.8rem; }
-    .trainer-desc { color: var(--gray-light); font-size: 0.86rem; line-height: 1.7; margin-bottom: 1rem; text-align: left; }
-    .trainer-skills { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-top: 1rem; }
-    .trainer-skill { background: rgba(0,212,255,0.15); color: var(--accent); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600; }
+    /* EXAM INTERFACE */
+    .exam-interface { display: none; }
+    .exam-interface.active { display: block; }
+    .exam-header-bar { background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.15); border-radius: 16px; padding: 1.2rem 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; }
+    .exam-info-item { text-align: center; }
+    .exam-info-item .label { font-size: 0.7rem; color: var(--gray-light); text-transform: uppercase; letter-spacing: 0.1em; }
+    .exam-info-item .value { font-size: 1.4rem; font-weight: 700; color: var(--white); font-family: 'Space Grotesk', sans-serif; }
+    .exam-info-item .value.timer { color: var(--accent); }
+    .exam-info-item .value.timer.warning { color: var(--gold); animation: pulse 1s infinite; }
+    .exam-info-item .value.timer.danger { color: var(--red); animation: pulse 0.5s infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
 
-    /* FEATURES STRIP */
-    .features-strip { background: rgba(0,212,255,0.06); border-top: 1px solid rgba(0,212,255,0.1); border-bottom: 1px solid rgba(0,212,255,0.1); padding: 2rem 4%; }
-    .features-strip-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; }
-    .feature-item { display: flex; align-items: center; gap: 0.8rem; }
-    .feature-item i { color: var(--accent); font-size: 1.4rem; flex-shrink: 0; }
-    .feature-item span { font-size: 0.88rem; color: var(--off-white); font-weight: 600; }
+    /* PROGRESS BAR */
+    .exam-progress-wrap { background: rgba(255,255,255,0.06); border-radius: 10px; height: 6px; margin-bottom: 2rem; overflow: hidden; }
+    .exam-progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--success)); border-radius: 10px; transition: width 0.3s ease; }
 
-    /* LOGIN SECTION */
-    .login-section { padding: 5rem 4%; }
-    .container { max-width: 900px; margin: 0 auto; }
-    .login-card { background: rgba(255,255,255,0.04); backdrop-filter: blur(10px); border-radius: 24px; padding: 3rem; border: 1px solid rgba(0,212,255,0.15); box-shadow: 0 20px 60px rgba(0,0,0,0.3); text-align: center; }
-    .login-icon { font-size: 3.5rem; margin-bottom: 1rem; color: var(--accent); }
-    .login-card h2 { color: var(--white); font-size: 1.8rem; margin-bottom: 0.5rem; }
-    .login-card p { color: var(--gray-light); margin-bottom: 2rem; }
-    .login-input-wrap { display: flex; gap: 0.8rem; max-width: 420px; margin: 0 auto 1rem; }
-    .login-input-wrap input { flex: 1; padding: 0.9rem 1.2rem; border: 1.5px solid rgba(0,212,255,0.2); border-radius: 10px; font-family: inherit; font-size: 1rem; background: rgba(255,255,255,0.06); color: var(--white); transition: all 0.2s; }
-    .login-input-wrap input::placeholder { color: var(--gray-mid); }
-    .login-input-wrap input:focus { outline: none; border-color: var(--accent); background: rgba(0,212,255,0.08); }
-    .btn-primary { padding: 0.9rem 1.8rem; border-radius: 10px; font-weight: 700; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 0.6rem; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: var(--primary); border: none; cursor: pointer; transition: var(--transition); font-family: inherit; }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,212,255,0.3); }
-    .login-hint { font-size: 0.8rem; color: var(--gray-mid); margin-top: 1rem; }
-    .login-error { color: var(--red); font-size: 0.88rem; margin-top: 0.8rem; display: none; }
+    /* QUESTION CARD */
+    .question-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 2rem; margin-bottom: 1.5rem; transition: var(--transition); }
+    .question-card.answered { border-color: rgba(0,212,255,0.3); }
+    .question-card.correct-card { border-color: var(--success) !important; background: rgba(16,185,129,0.05) !important; }
+    .question-card.wrong-card { border-color: var(--red) !important; background: rgba(239,68,68,0.05) !important; }
+    .question-number { font-size: 0.8rem; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.5rem; }
+    .question-text { font-size: 1.05rem; color: var(--white); font-weight: 600; margin-bottom: 1.2rem; line-height: 1.5; }
+    .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+    .option-btn { padding: 0.9rem 1rem; border: 1.5px solid rgba(255,255,255,0.1); border-radius: 10px; background: rgba(255,255,255,0.02); color: var(--off-white); cursor: pointer; transition: var(--transition); font-family: inherit; font-size: 0.9rem; text-align: left; }
+    .option-btn:hover:not(:disabled) { background: rgba(0,212,255,0.08); border-color: var(--accent); }
+    .option-btn.selected { background: rgba(0,212,255,0.15); border-color: var(--accent); color: var(--white); font-weight: 600; }
+    .option-btn.correct-show { background: rgba(16,185,129,0.2) !important; border-color: var(--success) !important; color: var(--success) !important; font-weight: 700; }
+    .option-btn.wrong-show { background: rgba(239,68,68,0.2) !important; border-color: var(--red) !important; color: var(--red) !important; }
+    .option-btn:disabled { cursor: not-allowed; opacity: 0.7; }
 
-    /* PROTECTED SECTION */
-    .protected-section { padding: 3rem 4% 5rem; display: none; }
-    .protected-container { max-width: 1200px; margin: 0 auto; }
-    .welcome-bar { background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); border-radius: 14px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; margin-bottom: 2.5rem; color: var(--success); font-weight: 600; }
-    .welcome-bar i { font-size: 1.4rem; }
-    .modules-header { margin-bottom: 2rem; }
-    .modules-header h2 { color: var(--white); font-size: 1.8rem; margin-bottom: 0.4rem; }
-    .modules-header p { color: var(--gray-light); }
-    .progress-bar-wrap { background: rgba(255,255,255,0.08); border-radius: 10px; height: 8px; margin: 1rem 0 2rem; overflow: hidden; }
-    .progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--success)); border-radius: 10px; width: 33%; transition: width 1s ease; }
-    .progress-label { font-size: 0.82rem; color: var(--gray-light); margin-bottom: 0.3rem; }
+    /* NAVIGATION */
+    .exam-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; flex-wrap: wrap; gap: 1rem; }
+    .btn-nav { padding: 0.8rem 1.6rem; border-radius: 10px; font-weight: 700; font-size: 0.9rem; cursor: pointer; transition: var(--transition); font-family: inherit; border: none; display: flex; align-items: center; gap: 0.5rem; }
+    .btn-nav.prev { background: rgba(255,255,255,0.06); color: var(--off-white); border: 1px solid rgba(255,255,255,0.1); }
+    .btn-nav.prev:hover { background: rgba(255,255,255,0.1); }
+    .btn-nav.next { background: var(--accent); color: var(--primary); }
+    .btn-nav.next:hover { background: var(--accent-dark); }
+    .btn-nav.submit { background: linear-gradient(135deg, var(--red), var(--red-dark)); color: var(--white); display: none; }
+    .btn-nav.submit:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(239,68,68,0.3); }
+    .btn-nav.submit.show { display: flex; }
+    .btn-nav:disabled { opacity: 0.4; cursor: not-allowed; }
 
-    /* VIDEO GRID */
-    .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-bottom: 3rem; }
-    .video-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; overflow: hidden; transition: var(--transition); padding-bottom: 1.5rem; display: flex; flex-direction: column; }
-    .video-card:hover { transform: translateY(-6px); border-color: rgba(0,212,255,0.3); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
-    .video-card-header { padding: 1.2rem 1.2rem 0.5rem; display: flex; align-items: center; gap: 0.8rem; }
-    .module-num { width: 36px; height: 36px; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: var(--primary); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
-    .video-card-header h3 { color: var(--white); font-size: 1.1rem; flex: 1; }
-    .badge.new { background: rgba(16,185,129,0.2); color: var(--success); font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 20px; font-weight: 700; flex-shrink: 0; }
-
-    iframe { width: 100%; aspect-ratio: 16/9; border: none; }
-
-    /* CONTENU INTERNE FORMATION ACCORDÉ AU THÈME SOMBRE */
-    .course-body { padding: 1.2rem; font-size: 0.88rem; color: var(--off-white); border-bottom: 1px solid rgba(255,255,255,0.05); flex: 1; }
-    .course-desc-text { color: var(--gray-light); font-style: italic; margin-bottom: 1rem; line-height: 1.6; font-size: 0.9rem; }
-    .course-section-title { color: var(--accent); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; margin: 1.2rem 0 0.6rem 0; display: flex; align-items: center; gap: 0.4rem; }
-    .course-text { color: var(--gray-light); line-height: 1.5; margin-bottom: 0.5rem; }
-    .course-list { list-style: none; padding-left: 0.2rem; margin-bottom: 1rem; }
-    .course-list li { margin-bottom: 0.4rem; display: flex; align-items: flex-start; gap: 0.5rem; color: var(--off-white); line-height: 1.4; }
-    .course-list li i { color: var(--success); font-size: 0.8rem; margin-top: 0.3rem; flex-shrink: 0; }
-    .course-list.prog li i { color: var(--gold); }
-    .course-list.sub-prog { padding-left: 1.2rem; margin-top: 0.2rem; margin-bottom: 0.4rem; }
-    .course-list.sub-prog li { color: var(--gray-light); font-size: 0.82rem; }
-    .course-list.sub-prog li i { color: var(--accent); font-size: 0.6rem; margin-top: 0.4rem; }
-
-    /* BOX INTERACTIVE QUIZ CRÉÉE DYNAMIQUEMENT ET ADAPTÉE */
-    .quiz-container-box { background: rgba(5, 11, 20, 0.6); border: 1px solid rgba(0, 212, 255, 0.1); border-radius: 12px; margin: 1rem 1.2rem; padding: 1.2rem; text-align: left; }
-    .quiz-header-status { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--accent); margin-bottom: 0.6rem; font-weight: 600; }
-    .quiz-q { font-weight: 600; color: var(--white); margin-bottom: 0.8rem; font-size: 0.92rem; min-height: 40px; }
-    .quiz-options { display: flex; flex-direction: column; gap: 0.5rem; }
-    .quiz-option { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 0.6rem 0.8rem; border-radius: 6px; cursor: pointer; transition: all 0.2s; color: var(--off-white); font-size: 0.85rem; text-align: left; width: 100%; font-family: inherit; }
-    .quiz-option:hover:not(:disabled) { background: rgba(0, 212, 255, 0.08); border-color: var(--accent); }
-    .quiz-option.correct { background: rgba(16, 185, 129, 0.2) !important; border-color: var(--success) !important; color: #10B981 !important; font-weight: 600; }
-    .quiz-option.wrong { background: rgba(239, 68, 68, 0.2) !important; border-color: var(--red) !important; color: #EF4444 !important; }
-    .quiz-feedback { margin-top: 0.8rem; font-size: 0.82rem; font-weight: 600; display: none; line-height: 1.4; }
-    .quiz-score-banner { text-align: center; padding: 1rem; background: rgba(0, 212, 255, 0.1); border-radius: 8px; border: 1px dashed var(--accent); margin-top: 0.5rem; }
-    .quiz-score-banner h4 { color: var(--white); font-size: 1.1rem; margin-bottom: 0.3rem; }
-    .quiz-score-banner p { color: var(--gray-light); font-size: 0.8rem; }
-    .quiz-score-banner .btn-reset { margin-top: 0.6rem; background: var(--accent); color: var(--primary); border: none; padding: 0.4rem 1rem; font-size: 0.8rem; font-weight: 700; border-radius: 4px; cursor: pointer; transition: var(--transition); }
-    .quiz-score-banner .btn-reset:hover { background: var(--white); }
-
-    .video-card-footer { padding: 0.5rem 1.2rem 0.5rem; display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: auto; }
-    .dl-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.55rem 1rem; border-radius: 8px; font-size: 0.82rem; font-weight: 600; transition: var(--transition); cursor: pointer; text-decoration: none; }
-    .dl-btn.pdf { background: rgba(239,68,68,0.15); color: #EF4444; border: 1px solid rgba(239,68,68,0.2); }
-    .dl-btn.pdf:hover { background: rgba(239,68,68,0.25); }
-
-    /* RESSOURCES SECTION */
-    .ressources-section { margin-bottom: 3rem; margin-top: 4rem; }
-    .ressources-section h3 { color: var(--white); font-size: 1.3rem; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.6rem; }
-    .ressources-section h3 i { color: var(--accent); }
-    .ressources-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
-    .ressource-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.2rem; display: flex; align-items: center; gap: 1rem; transition: var(--transition); text-decoration: none; }
-    .ressource-card:hover { border-color: rgba(0,212,255,0.3); background: rgba(0,212,255,0.06); transform: translateX(4px); }
-    .ressource-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
-    .ressource-icon.pdf { background: rgba(239,68,68,0.15); color: #EF4444; }
-    .ressource-icon.link { background: rgba(0,212,255,0.15); color: var(--accent); }
-    .ressource-icon.tool { background: rgba(255,184,0,0.15); color: var(--gold); }
-    .ressource-info h4 { color: var(--white); font-size: 0.92rem; margin-bottom: 0.2rem; }
-    .ressource-info span { color: var(--gray-light); font-size: 0.78rem; }
-
-    /* CONTACT TUTOR */
-    .tutor-cta { background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.15); border-radius: 18px; padding: 2rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; margin-top: 3rem; }
-    .tutor-cta-text h3 { color: var(--white); margin-bottom: 0.3rem; }
-    .tutor-cta-text p { color: var(--gray-light); font-size: 0.9rem; }
-    .tutor-cta-btns { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-left: auto; }
-    .btn-whatsapp { padding: 0.8rem 1.4rem; border-radius: 10px; font-weight: 700; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 0.5rem; background: #25D366; color: white; transition: var(--transition); text-decoration: none; }
-    .btn-whatsapp:hover { background: #128C7E; transform: translateY(-2px); }
-    .btn-email { padding: 0.8rem 1.4rem; border-radius: 10px; font-weight: 700; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.08); color: var(--off-white); border: 1px solid rgba(255,255,255,0.12); transition: var(--transition); text-decoration: none; }
-    .btn-email:hover { border-color: var(--accent); color: var(--accent); }
+    /* RESULTS */
+    .results-panel { display: none; text-align: center; }
+    .results-panel.active { display: block; }
+    .results-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(0,212,255,0.2); border-radius: 24px; padding: 3rem; max-width: 600px; margin: 0 auto; }
+    .results-score-circle { width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 3rem; font-weight: 800; font-family: 'Space Grotesk', sans-serif; }
+    .results-score-circle.excellent { background: linear-gradient(135deg, #10B981, #059669); box-shadow: 0 0 50px rgba(16,185,129,0.4); }
+    .results-score-circle.good { background: linear-gradient(135deg, #00D4FF, #0891B2); box-shadow: 0 0 50px rgba(0,212,255,0.4); }
+    .results-score-circle.average { background: linear-gradient(135deg, #FFB800, #F59E0B); box-shadow: 0 0 50px rgba(255,184,0,0.4); }
+    .results-score-circle.poor { background: linear-gradient(135deg, #EF4444, #DC2626); box-shadow: 0 0 50px rgba(239,68,68,0.4); }
+    .results-msg { font-size: 1.2rem; color: var(--white); margin-bottom: 0.5rem; font-weight: 600; }
+    .results-detail { color: var(--gray-light); margin-bottom: 2rem; }
+    .results-email-status { padding: 1rem; border-radius: 10px; margin-bottom: 1.5rem; font-weight: 600; font-size: 0.9rem; }
+    .results-email-status.sent { background: rgba(16,185,129,0.15); color: var(--success); border: 1px solid rgba(16,185,129,0.3); }
+    .results-email-status.error { background: rgba(239,68,68,0.15); color: var(--red); border: 1px solid rgba(239,68,68,0.3); }
 
     /* FOOTER */
-    footer { background: var(--primary-deep); border-top: 1px solid rgba(0,212,255,0.1); padding: 3rem 4% 1.5rem; margin-top: 5rem; }
+    footer { background: var(--primary-deep); border-top: 1px solid rgba(0,212,255,0.1); padding: 3rem 4% 1.5rem; margin-top: 4rem; }
     .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
     .footer-brand p { color: var(--gray-mid); font-size: 0.88rem; margin: 1rem 0; }
     .footer-col h4 { color: var(--white); font-size: 0.92rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.08em; }
@@ -206,846 +158,586 @@
     .footer-bottom { max-width: 1400px; margin: 0 auto; padding-top: 1.5rem; border-top: 1px solid rgba(0,212,255,0.1); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; color: var(--gray-mid); }
 
     /* RESPONSIVE */
-    @media (max-width: 1024px) { .features-strip-container { grid-template-columns: repeat(2,1fr); } .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 1024px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 768px) {
-      .nav-links { position: fixed; top: 70px; right: 0; flex-direction: column; background: rgba(7,20,38,0.98); backdrop-filter: blur(20px); padding: 1.5rem; width: 100%; gap: 0.5rem; display: none; border-bottom: 2px solid #00D4FF; z-index: 998; }
-      .nav-links.active { display: flex; }
+      .nav-links { display: none; }
       .menu-toggle { display: block; }
-      .page-header-container { grid-template-columns: 1fr; }
-      .features-strip-container { grid-template-columns: 1fr 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .options-grid { grid-template-columns: 1fr; }
+      .exam-header-bar { flex-direction: column; text-align: center; }
       .footer-grid { grid-template-columns: 1fr; }
-      .tutor-cta { flex-direction: column; }
-      .tutor-cta-btns { margin-left: 0; }
-      .header-stats { gap: 1.5rem; }
     }
-    @media (max-width: 480px) { .features-strip-container { grid-template-columns: 1fr; } }
-
-    .btn-espace-client {  background: linear-gradient(135deg, #00D4FF, #0891B2) !important;  color: #050B14 !important;  font-weight: 700 !important;  padding: 0.5rem 1.2rem !important;  border-radius: 6px !important;  display: inline-flex !important;  align-items: center !important;  gap: 0.5rem !important;}.btn-espace-client:hover {  transform: translateY(-2px) !important;  box-shadow: 0 6px 20px rgba(0,212,255,0.4) !important;}
   </style>
 </head>
 <body>
 
 <div class="top-bar">
-  <div class="top-bar-container">  <div style="display:flex;align-items:center;gap:.6rem;background:linear-gradient(135deg,rgba(0,212,255,.15),rgba(239,68,68,.08));padding:.3rem 1rem;border-radius:40px;border-left:2px solid #00D4FF;">    <i class="fa-solid fa-shield-halved" style="color:#00D4FF;font-size:.8rem;"></i>    <span style="font-size:.7rem;font-weight:700;letter-spacing:.5px;background:linear-gradient(135deg,#fff,#00D4FF);-webkit-background-clip:text;background-clip:text;color:transparent;">Votre partenaire IT & cybersécurité au Maroc</span>  </div>  <div class="top-bar-info">    <span><i class="fas fa-phone"></i> +212 728 31 28 01</span>    <span><i class="fas fa-envelope"></i> contact@netvanguard.ma</span>    <span><i class="fas fa-map-marker-alt"></i> Casablanca</span>  </div>  <div class="top-bar-social" style="display:flex;align-items:center;">    <div class="lang-switch" style="margin-right:1rem;">      <button class="lang-btn active" data-lang="fr">FR</button>      <button class="lang-btn" data-lang="en">EN</button>    </div>    <a href="#"><i class="fab fa-linkedin-in"></i></a>    <a href="#"><i class="fab fa-x-twitter"></i></a>    <a href="#"><i class="fab fa-instagram"></i></a>  </div></div>
+  <div class="top-bar-container">
+    <div style="display:flex;align-items:center;gap:.6rem;background:linear-gradient(135deg,rgba(0,212,255,.15),rgba(239,68,68,.08));padding:.3rem 1rem;border-radius:40px;border-left:2px solid #00D4FF;">
+      <i class="fa-solid fa-shield-halved" style="color:#00D4FF;font-size:.8rem;"></i>
+      <span style="font-size:.7rem;font-weight:700;letter-spacing:.5px;background:linear-gradient(135deg,#fff,#00D4FF);-webkit-background-clip:text;background-clip:text;color:transparent;">Votre partenaire IT & cybersécurité au Maroc</span>
+    </div>
+    <div class="top-bar-info">
+      <span><i class="fas fa-phone"></i> +212 728 31 28 01</span>
+      <span><i class="fas fa-envelope"></i> contact@netvanguard.ma</span>
+      <span><i class="fas fa-map-marker-alt"></i> Casablanca</span>
+    </div>
+    <div class="top-bar-social" style="display:flex;align-items:center;">
+      <div class="lang-switch" style="margin-right:1rem;">
+        <button class="lang-btn active" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-x-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
 </div>
 
-<nav class="nav">  <div class="nav-container">    <a href="index.html" class="logo">  <svg class="logo-shield" viewBox="0 0 24 24" width="32" height="32">    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="#00D4FF"/>    <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>  </svg>  <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em;font-weight:500;color:var(--gray-light);">IT Solutions</span></span></a>    <ul class="nav-links" id="navLinks">      <li><a href="index.html" id="navAccueil">Accueil</a></li>      <li><a href="services.html" id="navServices">Services</a></li>      <li><a href="secteurs.html" id="navSecteurs">Secteurs</a></li>      <li><a href="qui-sommes-nous.html" id="navQuiSommesNous">Qui sommes-nous</a></li>      <li><a href="carrieres.html" id="navCarrieres">Carrières</a></li>      <li><a href="campus-cyber.html" class="active" id="navCampus">🎓 Campus Cyber</a></li>      <li><a href="contact.html" id="navContact">Contact</a></li>      <li><a href="support.html" class="btn-espace-client"><i class="fa-solid fa-user-circle"></i> Espace Client</a></li>    </ul>    <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>  </div></nav>
+<nav class="nav">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <svg class="logo-shield" viewBox="0 0 24 24" width="36" height="36">
+        <defs>
+          <linearGradient id="shieldGradNav" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#FFB800;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#shieldGradNav)"/>
+        <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
+      </svg>
+      <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em;font-weight:500;color:var(--gray-light);">IT Solutions</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="secteurs.html">Secteurs</a></li>
+      <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
+      <li><a href="carrieres.html">Carrières</a></li>
+      <li><a href="campus-cyber.html" class="active">🎓 Campus Cyber</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="support.html" class="btn-espace-client"><i class="fa-solid fa-user-circle"></i> Espace Client</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+  </div>
+</nav>
+
+<div class="mobile-nav-overlay" id="mobileNav">
+  <a href="index.html">Accueil</a>
+  <a href="services.html">Services</a>
+  <a href="secteurs.html">Secteurs</a>
+  <a href="qui-sommes-nous.html">Qui sommes-nous</a>
+  <a href="carrieres.html">Carrières</a>
+  <a href="campus-cyber.html">🎓 Campus Cyber</a>
+  <a href="contact.html">Contact</a>
+  <a href="support.html" class="btn-espace-client-mobile"><i class="fa-solid fa-user-circle"></i> Espace Client</a>
+</div>
 
 <section class="page-header">
   <div class="page-header-container">
-    <div class="page-header-left">
-      <div class="breadcrumb">
-        <a href="index.html" id="breadHome">Accueil</a>
-        <i class="fas fa-chevron-right"></i>
-        <span style="color:white" id="breadCampus">Campus Cyber</span>
-      </div>
-      <h1 id="heroTitle">Campus <span class="accent">Cyber</span><br><span id="heroSubtitle">Centre de Formation Corporate</span></h1>
-      <p id="heroDesc">Accès réservé — supports de cours, vidéos et ressources techniques exclusives.</p>
-      <div class="trainer-badge">
-        <i class="fas fa-certificate"></i>
-        <span id="trainerBadge">Formation par un expert Security Architect</span>
-      </div>
-      <div class="header-stats">
-        <div class="header-stat"><div class="num">5</div><div class="lbl" id="statModules">Modules actifs</div></div>
-        <div class="header-stat"><div class="num">15+</div><div class="lbl" id="statRessources">Ressources</div></div>
-        <div class="header-stat"><div class="num">24/7</div><div class="lbl" id="statAcces">Accès continu</div></div>
-      </div>
-    </div>
-    <div class="trainer-card" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;">  <div style="width:110px;height:110px;border-radius:50%;background:linear-gradient(135deg,#00D4FF,#0891B2);display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px rgba(0,212,255,.4);border:3px solid rgba(0,212,255,.3);">    <svg viewBox="0 0 24 24" width="52" height="52" fill="white">      <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>      <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="rgba(255,255,255,0.7)"/>    </svg>  </div>  <div style="text-align:center;">    <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:#fff;margin-bottom:.3rem;">Expert Security Architect</div>    <div style="color:#00D4FF;font-size:.82rem;font-weight:600;margin-bottom:.8rem;">NetVanguard Academy</div>    <div style="display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;">      <span style="background:rgba(0,212,255,.15);color:#00D4FF;padding:.3rem .8rem;border-radius:20px;font-size:.7rem;font-weight:600;">Architecture</span>      <span style="background:rgba(0,212,255,.15);color:#00D4FF;padding:.3rem .8rem;border-radius:20px;font-size:.7rem;font-weight:600;">Cloud Security</span>      <span style="background:rgba(0,212,255,.15);color:#00D4FF;padding:.3rem .8rem;border-radius:20px;font-size:.7rem;font-weight:600;">CISSP</span>      <span style="background:rgba(0,212,255,.15);color:#00D4FF;padding:.3rem .8rem;border-radius:20px;font-size:.7rem;font-weight:600;">Formation</span>      <span style="background:rgba(255,184,0,.15);color:#FFB800;padding:.3rem .8rem;border-radius:20px;font-size:.7rem;font-weight:600;">Data Privacy</span>    </div>  </div></div>
+    <span class="exam-badge">🔒 ÉVALUATION TECHNIQUE CONFIDENTIELLE</span>
+    <h1>Examen de Recrutement<br><span class="accent">Support Technique IT — Niveau Expert</span></h1>
+    <p>100 questions techniques avancées • Durée : 90 minutes • Correction automatique • Résultat envoyé à la direction</p>
   </div>
 </section>
 
-<div class="features-strip">
-  <div class="features-strip-container">
-    <div class="feature-item"><i class="fas fa-video"></i><span id="feat1">Vidéos HD disponibles 24/7</span></div>
-    <div class="feature-item"><i class="fas fa-file-pdf"></i><span id="feat2">Supports PDF téléchargeables</span></div>
-    <div class="feature-item"><i class="fas fa-flask"></i><span id="feat3">Labs pratiques inclus</span></div>
-    <div class="feature-item"><i class="fas fa-headset"></i><span id="feat4">Support formateur direct</span></div>
-  </div>
-</div>
+<section class="exam-section">
+  <div class="exam-container">
 
-<section class="login-section" id="loginSection">
-  <div class="container">
-    <div class="login-card">
-      <div class="login-icon"><i class="fas fa-lock"></i></div>
-      <h2 id="loginTitle">Connexion au Campus</h2>
-      <p id="loginSubtitle">Veuillez saisir le code d'accès fourni par votre entreprise pour déverrouiller vos modules.</p>
-      <div class="login-input-wrap">
-        <input type="password" id="passInput" placeholder="Code d'accès sécurisé...">
-        <button class="btn-primary" id="loginBtn"><i class="fas fa-sign-in-alt"></i> <span id="loginBtnTxt">Entrer</span></button>
+    <!-- FORMULAIRE CANDIDAT -->
+    <div class="candidate-form" id="candidateForm">
+      <h3><i class="fas fa-user-check" style="color:var(--accent);margin-right:0.5rem;"></i> Informations du Candidat</h3>
+      <p>Veuillez remplir vos informations avant de commencer l'examen. Une seule tentative est autorisée.</p>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nom Complet *</label>
+          <input type="text" id="candidateName" placeholder="Votre nom et prénom" required>
+        </div>
+        <div class="form-group">
+          <label>Email *</label>
+          <input type="email" id="candidateEmail" placeholder="votre@email.com" required>
+        </div>
       </div>
-      <div class="login-error" id="loginError">Code d'accès incorrect. Veuillez réessayer.</div>
-      <div class="login-hint" id="loginHint">🔒 Connexion chiffrée SSL de bout en bout.</div>
-    </div>
-  </div>
-</section>
-
-<section class="protected-section" id="protectedSection">
-  <div class="protected-container">
-    <div class="welcome-bar">
-      <i class="fas fa-shield-check"></i>
-      <div>
-        <span id="welcomeTxt">Accès Corporate Validé — Bienvenue sur votre espace d'apprentissage NetVanguard IT Solutions.</span>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Téléphone *</label>
+          <input type="tel" id="candidatePhone" placeholder="+212..." required>
+        </div>
+        <div class="form-group">
+          <label>Poste Visé *</label>
+          <select id="candidatePosition">
+            <option value="Support Technique N1">Support Technique N1</option>
+            <option value="Support Technique N2">Support Technique N2</option>
+            <option value="Administrateur Systèmes">Administrateur Systèmes</option>
+            <option value="Technicien Réseau">Technicien Réseau</option>
+            <option value="Autre">Autre</option>
+          </select>
+        </div>
       </div>
-    </div>
-
-    <div class="modules-header">
-      <h2 id="modulesTitle">Vos Modules de Formation Réseau & Cybersécurité</h2>
-      <p id="modulesSubtitle">Suivez votre progression, téléchargez vos supports officiels et validez vos acquis via les quiz.</p>
-      <div class="progress-label"><span id="progressLbl">Progression globale de la formation</span> — <strong id="progressPercent">0%</strong></div>
-      <div class="progress-bar-wrap">
-        <div class="progress-bar-fill" id="globalProgress" style="width: 0%;"></div>
-      </div>
+      <button class="btn-start-exam" id="startExamBtn" onclick="startExam()">
+        <i class="fas fa-play-circle"></i> Démarrer l'Examen
+      </button>
     </div>
 
-    <div class="video-grid" id="videoGrid">
-      <div class="video-card">
-        <div class="video-card-header">
-          <div class="module-num">01</div>
-          <h3 id="m1Title">Sensibilisation Cybersécurité & Anti-Phishing</h3>
-          <span class="badge new" id="m1Badge">En cours</span>
+    <!-- INTERFACE EXAMEN -->
+    <div class="exam-interface" id="examInterface">
+      <div class="exam-header-bar">
+        <div class="exam-info-item">
+          <div class="label">Question</div>
+          <div class="value" id="currentQDisplay">1 / 100</div>
         </div>
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Module 1 Video"></iframe>
-        <div class="course-body">
-          <p class="course-desc-text" id="m1Desc">Une immersion complète dans les techniques d'ingénierie sociale modernes. Ce module décrypte les aspects psychologiques et techniques des cyberattaques ciblant le facteur humain, en dotant vos collaborateurs de clés de détection pragmatiques.</p>
-          <div class="course-section-title"><i class="fas fa-bullseye"></i> <span id="lblObj1">Objectifs pédagogiques</span></div>
-          <ul class="course-list" id="m1Objectives">
-            </ul>
-          <div class="course-section-title"><i class="fas fa-list-ol"></i> <span id="lblProg1">Programme détaillé</span></div>
-          <ul class="course-list prog" id="m1Prog">
-            <li><i class="fas fa-minus"></i> Anatomie d'un email de phishing moderne et techniques d'obfuscation</li>
-            <li><i class="fas fa-minus"></i> Les ressorts psychologiques : urgence, autorité, curiosité et peur</li>
-            <li><i class="fas fa-minus"></i> Les attaques connexes : Spear-Phishing, Smishing (SMS) et Vishing (voix)</li>
-            <li><i class="fas fa-minus"></i> Analyse d'en-têtes de messages (Headers) et détection de spoofing</li>
-            <li><i class="fas fa-minus"></i> Bonnes pratiques d'hygiène numérique au quotidien au bureau et en télétravail</li>
-          </ul>
-          <div class="course-section-title"><i class="fas fa-graduation-cap"></i> <span id="lblSkills1">Compétences acquises</span></div>
-          <ul class="course-list" id="m1Skills">
-            </ul>
+        <div class="exam-info-item">
+          <div class="label">Temps Restant</div>
+          <div class="value timer" id="timerDisplay">90:00</div>
         </div>
-        <div class="quiz-container-box" id="quizBox1"></div>
-        <div class="video-card-footer">
-          <a href="formations/sensibilisation-cyber.pdf" download class="dl-btn pdf" id="m1Pdf"><i class="fas fa-file-pdf"></i> Support PDF</a>
+        <div class="exam-info-item">
+          <div class="label">Répondues</div>
+          <div class="value" id="answeredCount">0 / 100</div>
         </div>
       </div>
 
-      <div class="video-card">
-        <div class="video-card-header">
-          <div class="module-num">02</div>
-          <h3 id="m2Title">Introduction à l'Architecture de Sécurité</h3>
-          <span class="badge new" id="m2Badge">En cours</span>
-        </div>
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Module 2 Video"></iframe>
-        <div class="course-body">
-          <p class="course-desc-text" id="m2Desc">Ce module pose les bases fondamentales de la conception de réseaux d'entreprise résilients. Apprenez à structurer des zones de confiance étanches, à intégrer des composants de filtrage avancés et à appliquer le modèle Zero Trust.</p>
-          <div class="course-section-title"><i class="fas fa-bullseye"></i> <span id="lblObj2">Objectifs pédagogiques</span></div>
-          <ul class="course-list" id="m2Objectives">
-            </ul>
-          <div class="course-section-title"><i class="fas fa-list-ol"></i> <span id="lblProg2">Programme détaillé</span></div>
-          <ul class="course-list prog" id="m2Prog">
-            <li><i class="fas fa-minus"></i> Principes fondamentaux du modèle de défense en profondeur (Defense in Depth)</li>
-            <li><i class="fas fa-minus"></i> Segmentation réseau : VLANs, DMZ étanches et micro-segmentation</li>
-            <li><i class="fas fa-minus"></i> Positionnement et règles de filtrage : Firewalls étatiques (Stateful) et NGFW</li>
-            <li><i class="fas fa-minus"></i> Détection et prévention d'intrusions : Concepts et déploiement IDS/IPS</li>
-            <li><i class="fas fa-minus"></i> Introduction au paradigme Zero Trust (Ne jamais faire confiance, toujours vérifier)</li>
-          </ul>
-          <div class="course-section-title"><i class="fas fa-graduation-cap"></i> <span id="lblSkills2">Compétences acquises</span></div>
-          <ul class="course-list" id="m2Skills">
-            </ul>
-        </div>
-        <div class="quiz-container-box" id="quizBox2"></div>
-        <div class="video-card-footer">
-          <a href="formations/architecture-securite.pdf" download class="dl-btn pdf" id="m2Pdf"><i class="fas fa-file-pdf"></i> Support PDF</a>
-        </div>
+      <div class="exam-progress-wrap">
+        <div class="exam-progress-fill" id="examProgress" style="width: 0%;"></div>
       </div>
 
-      <div class="video-card">
-        <div class="video-card-header">
-          <div class="module-num">03</div>
-          <h3 id="m3Title">Fondamentaux de la Sécurité Cloud</h3>
-          <span class="badge new" id="m3Badge">En cours</span>
-        </div>
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Module 3 Video"></iframe>
-        <div class="course-body">
-          <p class="course-desc-text" id="m3Desc">Maîtrisez les concepts clés de la sécurisation des infrastructures hébergées (IaaS, PaaS, SaaS). Comprenez le modèle de responsabilité partagée et apprenez à verrouiller les accès et les données dans des environnements multi-cloud.</p>
-          <div class="course-section-title"><i class="fas fa-bullseye"></i> <span id="lblObj3">Objectifs pédagogiques</span></div>
-          <ul class="course-list" id="m3Objectives">
-            </ul>
-          <div class="course-section-title"><i class="fas fa-list-ol"></i> <span id="lblProg3">Programme détaillé</span></div>
-          <ul class="course-list prog" id="m3Prog">
-            <li><i class="fas fa-minus"></i> Le modèle de responsabilité partagée entre le fournisseur cloud et le client</li>
-            <li><i class="fas fa-minus"></i> Gestion des identités et des accès (IAM) : Privilège minimum et MFA</li>
-            <li><i class="fas fa-minus"></i> Sécurisation des stockages cloud : Chiffrement au repos (At-Rest) et en transit</li>
-            <li><i class="fas fa-minus"></i> Journalisation et surveillance continue : Centralisation des logs (SIEM Cloud)</li>
-            <li><i class="fas fa-minus"></i> Conformité et gouvernance des données : Gestion des dérives de configuration</li>
-          </ul>
-          <div class="course-section-title"><i class="fas fa-graduation-cap"></i> <span id="lblSkills3">Compétences acquises</span></div>
-          <ul class="course-list" id="m3Skills">
-            </ul>
-        </div>
-        <div class="quiz-container-box" id="quizBox3"></div>
-        <div class="video-card-footer">
-          <a href="formations/securite-cloud.pdf" download class="dl-btn pdf" id="m3Pdf"><i class="fas fa-file-pdf"></i> Support PDF</a>
-        </div>
-      </div>
+      <div id="questionContainer"></div>
 
-      <div class="video-card">
-        <div class="video-card-header">
-          <div class="module-num">04</div>
-          <h3 id="m4Title">Cybersécurité pour les Dirigeants</h3>
-          <span class="badge new" id="m4Badge">En cours</span>
-        </div>
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Module 4 Video"></iframe>
-        <div class="course-body">
-          <p class="course-desc-text" id="m4Desc">Ce module s'adresse aux preneurs de décision. Il traduit les menaces techniques en risques business, fournit des clés de gouvernance et pose la méthodologie pour structurer une cellule de gestion de crise efficace.</p>
-          <div class="course-section-title"><i class="fas fa-bullseye"></i> <span id="lblObj4">Objectifs pédagogiques</span></div>
-          <ul class="course-list" id="m4Objectives">
-            </ul>
-          <div class="course-section-title"><i class="fas fa-list-ol"></i> <span id="lblProg4">Programme détaillé</span></div>
-          <ul class="course-list prog" id="m4Prog">
-            <li><i class="fas fa-minus"></i> Panorama mondial des cybermenaces et impacts financiers/réputationnels</li>
-            <li><i class="fas fa-minus"></i> Cartographie des risques numériques et alignement avec la stratégie d'entreprise</li>
-            <li><i class="fas fa-minus"></i> Organisation de la gouvernance : Rôles du RSSI, du DPO et du Comité de Direction</li>
-            <li><i class="fas fa-minus"></i> Principes fondamentaux de la gestion de crise : Communication et continuité d'activité (PCA)</li>
-            <li><i class="fas fa-minus"></i> Cadres réglementaires, conformité sectorielle et cyber-assurance</li>
-          </ul>
-          <div class="course-section-title"><i class="fas fa-graduation-cap"></i> <span id="lblSkills4">Compétences acquises</span></div>
-          <ul class="course-list" id="m4Skills">
-            </ul>
-        </div>
-        <div class="quiz-container-box" id="quizBox4"></div>
-        <div class="video-card-footer">
-          <a href="formations/cyber-dirigeants.pdf" download class="dl-btn pdf" id="m4Pdf"><i class="fas fa-file-pdf"></i> Support PDF</a>
-        </div>
-      </div>
-
-      <div class="video-card">
-        <div class="video-card-header">
-          <div class="module-num">05</div>
-          <h3 id="m5Title">Protection des Données & Conformité</h3>
-          <span class="badge new" id="m5Badge">En cours</span>
-        </div>
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Module 5 Video"></iframe>
-        <div class="course-body">
-          <p class="course-desc-text" id="m5Desc">Maîtrisez les obligations juridiques et techniques de protection de la vie privée. Ce module détaille la mise en conformité pratique avec la loi marocaine 09-08 ainsi qu'avec le règlement européen RGPD.</p>
-          <div class="course-section-title"><i class="fas fa-bullseye"></i> <span id="lblObj5">Objectifs pédagogiques</span></div>
-          <ul class="course-list" id="m5Objectives">
-            </ul>
-          <div class="course-section-title"><i class="fas fa-list-ol"></i> <span id="lblProg5">Programme détaillé</span></div>
-          <ul class="course-list prog" id="m5Prog">
-            <li><i class="fas fa-minus"></i> Fondements légaux : Loi 09-08 (Maroc), RGPD (Europe) et points de convergence</li>
-            <li><i class="fas fa-minus"></i> Les grands principes : Consentement, minimisation, finalité et durée de conservation</li>
-            <li><i class="fas fa-minus"></i> Cartographie des traitements : Création et tenue du registre des données personnelles</li>
-            <li><i class="fas fa-minus"></i> Analyse d'impact relative à la protection des données (AIPD / PIA) : Méthodologie</li>
-            <li><i class="fas fa-minus"></i> Droits des personnes concernées, Privacy by Design et gestion des violations de données</li>
-          </ul>
-          <div class="course-section-title"><i class="fas fa-graduation-cap"></i> <span id="lblSkills5">Compétences acquises</span></div>
-          <ul class="course-list" id="m5Skills">
-            </ul>
-        </div>
-        <div class="quiz-container-box" id="quizBox5"></div>
-        <div class="video-card-footer">
-          <a href="formations/protection-donnees.pdf" download class="dl-btn pdf" id="m5Pdf"><i class="fas fa-file-pdf"></i> Support PDF</a>
-        </div>
+      <div class="exam-nav">
+        <button class="btn-nav prev" id="prevBtn" onclick="prevQuestion()"><i class="fas fa-chevron-left"></i> Précédent</button>
+        <button class="btn-nav next" id="nextBtn" onclick="nextQuestion()">Suivant <i class="fas fa-chevron-right"></i></button>
+        <button class="btn-nav submit" id="submitBtn" onclick="submitExam()"><i class="fas fa-paper-plane"></i> Terminer l'Examen</button>
       </div>
     </div>
 
-    <div class="ressources-section">
-      <h3 id="ressourcesTitle"><i class="fas fa-folder-open"></i> Ressources Complémentaires & Outils Recommandés</h3>
-      <div class="ressources-grid">
-        <a href="ressources/guide-hygiene-cyber.pdf" download class="ressource-card">
-          <div class="ressource-icon pdf"><i class="fas fa-file-pdf"></i></div>
-          <div class="ressource-info">
-            <h4 id="r1Title">Guide d'Hygiène Cyber</h4>
-            <span>PDF (12 pages) · ANRT / DGSSI</span>
-          </div>
-        </a>
-        <a href="ressources/template-politique-securite.docx" download class="ressource-card">
-          <div class="ressource-icon tool"><i class="fas fa-file-word"></i></div>
-          <div class="ressource-info">
-            <h4 id="r2Title">Modèle de PSSI</h4>
-            <span>DOCX · Structure personnalisable</span>
-          </div>
-        </a>
-        <a href="https://www.ssi.gouv.fr" target="_blank" class="ressource-card">
-          <div class="ressource-icon link"><i class="fas fa-external-link-alt"></i></div>
-          <div class="ressource-info">
-            <h4>Portail ANSSI</h4>
-            <span id="r3Desc">Veille & Alertes de sécurité officielles</span>
-          </div>
-        </a>
-        <a href="https://www.cndp.ma" target="_blank" class="ressource-card">
-          <div class="ressource-icon link"><i class="fas fa-external-link-alt"></i></div>
-          <div class="ressource-info">
-            <h4>Portail CNDP</h4>
-            <span id="r4Desc">Formulaires & Textes Loi 09-08</span>
-          </div>
-        </a>
+    <!-- RÉSULTATS -->
+    <div class="results-panel" id="resultsPanel">
+      <div class="results-card">
+        <h3 style="color:var(--white);margin-bottom:1.5rem;">📋 Résultats de l'Évaluation</h3>
+        <div class="results-score-circle" id="scoreCircle">0</div>
+        <div class="results-msg" id="resultsMsg"></div>
+        <div class="results-detail" id="resultsDetail"></div>
+        <div class="results-email-status" id="emailStatus"></div>
+        <button class="btn-nav next" onclick="reviewExam()" style="margin:0 auto;"><i class="fas fa-search"></i> Revoir mes réponses</button>
       </div>
     </div>
 
-    <div class="tutor-cta">
-      <div class="tutor-cta-text">
-        <h3 id="tutorTitle">Besoin d'un éclaircissement technique ?</h3>
-        <p id="tutorDesc">Votre formateur référent est disponible pour répondre à vos questions sur les cours ou les labs.</p>
-      </div>
-      <div class="tutor-cta-btns">
-        <a href="https://wa.me/212728312801" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-        <a href="mailto:contact@netvanguard.ma" class="btn-email"><i class="fas fa-envelope"></i> <span id="tutorMailBtn">Envoyer un email</span></a>
-      </div>
-    </div>
   </div>
 </section>
 
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="index.html" class="logo" style="font-size:1.2rem;margin-bottom:.8rem;display:inline-flex;">  <svg viewBox="0 0 24 24" width="28" height="28">    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="#00D4FF"/>    <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>  </svg>  <span style="color:white;margin-left:.5rem;">Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.82em;font-weight:400;color:rgba(255,255,255,0.45);">IT Solutions</span></span></a>
+      <a href="index.html" class="logo" style="font-size:1.2rem;margin-bottom:.8rem;display:inline-flex;">
+        <svg viewBox="0 0 24 24" width="28" height="28">
+          <defs>
+            <linearGradient id="shieldGradFooter" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#FFB800;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#shieldGradFooter)"/>
+          <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
+        </svg>
+        <span style="color:white;margin-left:.5rem;">Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.82em;font-weight:400;color:rgba(255,255,255,0.45);">IT Solutions</span></span>
+      </a>
       <p>Cabinet de conseil et d'ingénierie spécialisé en cybersécurité, architectures réseaux sécurisées et transformation digitale des entreprises au Maroc.</p>
     </div>
     <div class="footer-col">
-      <h4 id="fColServices">Services</h4>
+      <h4>Services</h4>
       <ul>
-        <li><a href="services.html#audit">Audits & Tests d'intrusion</a></li>
-        <li><a href="services.html#architecture">Architecture Réseau</a></li>
-        <li><a href="services.html#cloud">Sécurisation Cloud</a></li>
-        <li><a href="services.html#soc">Supervision SOC 24/7</a></li>
+        <li><a href="services.html">Audits & Tests d'intrusion</a></li>
+        <li><a href="services.html">Architecture Réseau</a></li>
+        <li><a href="services.html">Sécurisation Cloud</a></li>
+        <li><a href="services.html">Supervision SOC 24/7</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4 id="fColLiens">Liens utiles</h4>
+      <h4>Liens utiles</h4>
       <ul>
         <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
         <li><a href="secteurs.html">Secteurs d'activité</a></li>
-        <li><a href="carrieres.html">Carrières (Recrutement)</a></li>
-        <li><a href="campus-cyber.html">Campus Cyber (Formation)</a></li>
+        <li><a href="carrieres.html">Carrières</a></li>
+        <li><a href="campus-cyber.html">Campus Cyber</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Contact</h4>
-      <ul style="color: var(--gray-light); font-size: 0.88rem;">
-        <li style="margin-bottom: 0.5rem;"><i class="fas fa-phone" style="color:var(--accent); margin-right: 0.5rem;"></i> +212 728 31 28 01</li>
-        <li style="margin-bottom: 0.5rem;"><i class="fas fa-envelope" style="color:var(--accent); margin-right: 0.5rem;"></i> contact@netvanguard.ma</li>
-        <li style="margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt" style="color:var(--accent); margin-right: 0.5rem;"></i> Bd d'Anfa, Casablanca, Maroc</li>
+      <ul style="color:var(--gray-light);font-size:0.88rem;">
+        <li><i class="fas fa-phone" style="color:var(--accent);margin-right:0.5rem;"></i> +212 728 31 28 01</li>
+        <li><i class="fas fa-envelope" style="color:var(--accent);margin-right:0.5rem;"></i> contact@netvanguard.ma</li>
+        <li><i class="fas fa-map-marker-alt" style="color:var(--accent);margin-right:0.5rem;"></i> Bd d'Anfa, Casablanca</li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
     <div>© 2026 NetVanguard IT Solutions SARL · Casablanca</div>
-    <div style="display: flex; gap: 1.5rem;"><a href="#" id="fMentions">Mentions légales</a><a href="#" id="fConf">Politique de confidentialité</a></div>
+    <div style="display:flex;gap:1.5rem;"><a href="#">Mentions légales</a><a href="#">Politique de confidentialité</a></div>
   </div>
 </footer>
 
 <script>
 // =====================================================
-// BANQUE DE DONNÉES DU QUIZ (NE PAS TOUCHER)
+// 100 QUESTIONS SUPPORT TECHNIQUE IT - NIVEAU EXPERT
 // =====================================================
-const quizData = {
-  m1: {
-    q: "Si vous recevez un email urgent de votre Directeur Général demandant un virement immédiat hors procédure vers un nouveau fournisseur, quelle est la première action à mener ?",
-    options: [
-      "Effectuer le virement rapidement pour ne pas mécontenter la direction.",
-      "Répondre directement à l'email pour demander une confirmation écrite officielle.",
-      "Contacter le Directeur Général via un canal alternatif vérifié (téléphone, de vive voix) pour confirmer la demande.",
-      "Transférer l'email à l'ensemble des collaborateurs pour les prévenir de la situation."
-    ],
-    correct: 2,
-    feedback: "Correct ! Il s'agit du scénario classique de l'arnaque au président (Spear-phishing). Il faut impérativement confirmer l'ordre par un canal de communication distinct et de confiance."
-  },
-  m2: {
-    q: "Dans une architecture de sécurité d'entreprise, quel est l'objectif principal d'une DMZ (Zone Démilitarisée) ?",
-    options: [
-      "Héberger l'ensemble des postes de travail des utilisateurs de l'entreprise.",
-      "Isoler les serveurs accessibles depuis Internet des réseaux internes sensibles de l'organisation.",
-      "Désactiver totalement les pare-feux pour accélérer le trafic web externe.",
-      "Stocker les sauvegardes critiques de l'annuaire d'entreprise Active Directory."
-    ],
-    correct: 1,
-    feedback: "Correct ! Une DMZ isole les services publics (web, mail) afin qu'une compromission de ces serveurs ne donne pas un accès direct et immédiat au réseau local interne."
-  },
-  m3: {
-    q: "Selon le modèle de responsabilité partagée dans un cloud de type IaaS (Infrastructure as a Service), quelle tâche incombe entièrement au client ?",
-    options: [
-      "Assurer la sécurité physique des centres de données et la maintenance des serveurs matériels hyperviseurs.",
-      "Sécuriser, patcher et mettre à jour le système d'exploitation invité installé sur l'instance virtuelle.",
-      "Garantir le bon fonctionnement des routeurs et commutateurs physiques du fournisseur cloud.",
-      "Gérer le recyclage physique des disques durs défectueux de l'infrastructure."
-    ],
-    correct: 1,
-    feedback: "Correct ! En IaaS, le fournisseur gère le matériel et l'hyperviseur, mais le client est pleinement responsable de ses machines virtuelles, systèmes d'exploitation, données et configurations d'accès."
-  },
-  m4: {
-    q: "Lors du déclenchement d'une crise cyber majeure affectant la production, quel doit être le rôle principal du Comité de Direction au sein de la cellule de crise ?",
-    options: [
-      "Analyser manuellement les fichiers de logs système et coder des correctifs de sécurité d'urgence.",
-      "Prendre les décisions stratégiques, arbitrer les impacts business et piloter la communication institutionnelle.",
-      "Remplacer les équipes d'administration réseau pour reconfigurer les pare-feux.",
-      "Éviter de communiquer en interne et en externe pour dissimuler l'attaque le plus longtemps possible."
-    ],
-    correct: 1,
-    feedback: "Correct ! Le Comité de Direction gère la crise sur le plan stratégique, financier, légal et réputationnel, laissant la résolution technique aux experts qualifiés."
-  },
-  m5: {
-    q: "Que stipule le principe de 'Minimisation des données' inscrit au sein de la loi 09-08 et du RGPD ?",
-    options: [
-      "Les entreprises doivent collecter le maximum de données possibles pour anticiper les besoins futurs.",
-      "Seules les données strictly nécessaires à l'accomplissement de la finalité spécifique du traitement doivent être collectées.",
-      "Les données personnelles doivent obligatoirement être écrites en utilisant des tailles de police minimales.",
-      "Toutes les données nominatives collectées doivent être supprimées automatiquement au bout de 24 heures."
-    ],
-    correct: 1,
-    feedback: "Correct ! La minimisation impose de ne collecter que le strict nécessaire. Si une donnée n'est pas indispensable pour rendre le service attendu, elle ne doit pas être collectée."
+const examQuestions = [
+  // === HARDWARE & SYSTEM ===
+  { id: 1, q: "Quel composant matériel est responsable de la vérification du POST (Power-On Self-Test) lors du démarrage d'un PC ?", options: ["Le processeur (CPU)", "Le BIOS/UEFI", "La carte graphique (GPU)", "Le contrôleur de disque"], correct: 1, category: "Hardware" },
+  { id: 2, q: "Quelle est la différence fondamentale entre la RAM DDR4 et DDR5 ?", options: ["La DDR5 consomme plus d'énergie", "La DDR5 a une bande passante plus élevée et une latence CAS généralement plus élevée", "La DDR4 est plus rapide que la DDR5", "La DDR5 n'utilise pas de correction d'erreur ECC"], correct: 1, category: "Hardware" },
+  { id: 3, q: "Un utilisateur signale un écran bleu (BSOD) avec le code 'MEMORY_MANAGEMENT'. Quelle est la cause la plus probable ?", options: ["Problème de pilote graphique", "Défaillance de la RAM ou corruption des données en mémoire", "Secteur défectueux sur le disque dur", "Pilote réseau corrompu"], correct: 1, category: "Hardware" },
+  { id: 4, q: "Que signifie le code d'erreur SMART 'Current Pending Sector Count' sur un disque dur ?", options: ["Le disque fonctionne parfaitement", "Des secteurs instables sont en attente de réallocation", "Le disque a atteint sa capacité maximale", "Le câble SATA est défectueux"], correct: 1, category: "Hardware" },
+  { id: 5, q: "Quelle commande Linux permet de lister tous les périphériques PCI connectés ?", options: ["lsusb", "lspci", "lsblk", "lscpu"], correct: 1, category: "Linux" },
+  { id: 6, q: "Sur un serveur Windows, quel service gère la résolution des noms NetBIOS en adresses IP ?", options: ["DNS Server", "WINS Server", "DHCP Server", "IIS"], correct: 1, category: "Windows" },
+  { id: 7, q: "Quel est le port par défaut utilisé par le protocole RDP (Remote Desktop Protocol) ?", options: ["Port 22", "Port 443", "Port 3389", "Port 5900"], correct: 2, category: "Réseau" },
+  { id: 8, q: "Dans Active Directory, quel type de groupe permet l'assignation de permissions à travers plusieurs domaines d'une même forêt ?", options: ["Groupe Local de Domaine", "Groupe Global", "Groupe Universel", "Groupe de Distribution"], correct: 2, category: "Windows" },
+  { id: 9, q: "Quelle commande PowerShell permet d'obtenir les 10 processus consommant le plus de mémoire ?", options: ["Get-Process | Sort-Object WS -Descending | Select-Object -First 10", "Get-Service | Sort Memory", "Show-Process -Top 10", "Get-TaskManager"], correct: 0, category: "Windows" },
+  { id: 10, q: "Qu'est-ce qu'un enregistrement MX dans un fichier de zone DNS ?", options: ["Il mappe un nom d'hôte à une adresse IPv6", "Il identifie le serveur de messagerie responsable du domaine", "Il définit un alias pour un nom d'hôte", "Il spécifie le serveur de noms faisant autorité"], correct: 1, category: "Réseau" },
+  { id: 11, q: "Quel protocole est utilisé pour synchroniser l'horloge des équipements réseau ?", options: ["SNMP", "NTP", "SMTP", "ICMP"], correct: 1, category: "Réseau" },
+  { id: 12, q: "Dans un switch manageable, que permet la fonction 'Port Mirroring' (SPAN) ?", options: ["De dupliquer un port physiquement", "De copier le trafic d'un port source vers un port de destination pour analyse", "D'augmenter la bande passante d'un port", "De créer un VLAN supplémentaire"], correct: 1, category: "Réseau" },
+  { id: 13, q: "Quelle est la différence entre TCP et UDP ?", options: ["TCP est plus rapide que UDP", "TCP est orienté connexion avec contrôle d'erreur, UDP est sans connexion sans garantie de livraison", "UDP est plus fiable que TCP", "Il n'y a aucune différence"], correct: 1, category: "Réseau" },
+  { id: 14, q: "Quel outil en ligne de commande permet de tester la connectivité réseau vers une adresse IP spécifique sur un port donné ?", options: ["ping", "tracert", "telnet", "ipconfig"], correct: 2, category: "Réseau" },
+  { id: 15, q: "Que signifie un code HTTP 502 Bad Gateway ?", options: ["Le serveur est en maintenance", "Le serveur proxy a reçu une réponse invalide du serveur amont", "La ressource demandée n'existe pas", "L'authentification est requise"], correct: 1, category: "Réseau" },
+  { id: 16, q: "Quel est le subnet mask correspondant à un préfixe /27 en notation CIDR ?", options: ["255.255.255.0", "255.255.255.192", "255.255.255.224", "255.255.255.240"], correct: 2, category: "Réseau" },
+  { id: 17, q: "Dans un environnement virtualisé VMware, qu'est-ce qu'un 'VMkernel port' ?", options: ["Un port USB virtuel", "Une interface réseau spéciale pour le trafic de gestion, vMotion, stockage IP", "Un port série virtuel", "Un port d'affichage vidéo"], correct: 1, category: "Virtualisation" },
+  { id: 18, q: "Quelle commande Linux permet de vérifier l'espace disque utilisé par chaque système de fichiers monté ?", options: ["du -sh", "df -h", "lsblk", "fdisk -l"], correct: 1, category: "Linux" },
+  { id: 19, q: "Qu'est-ce que le 'Runlevel 3' dans un système Linux traditionnel ?", options: ["Mode graphique multi-utilisateur", "Mode mono-utilisateur", "Mode multi-utilisateur en ligne de commande avec réseau", "Arrêt du système"], correct: 2, category: "Linux" },
+  { id: 20, q: "Quel fichier sous Linux contient la liste des systèmes de fichiers à monter automatiquement au démarrage ?", options: ["/etc/hosts", "/etc/fstab", "/etc/mtab", "/etc/network/interfaces"], correct: 1, category: "Linux" },
+  { id: 21, q: "Comment s'appelle le processus de démarrage sécurisé qui vérifie la signature numérique de chaque composant avant son exécution ?", options: ["POST", "Secure Boot", "Fast Boot", "Legacy Boot"], correct: 1, category: "Sécurité" },
+  { id: 22, q: "Quelle commande Windows permet de vérifier et réparer les fichiers système corrompus ?", options: ["chkdsk /f", "sfc /scannow", "diskpart", "gpupdate /force"], correct: 1, category: "Windows" },
+  { id: 23, q: "Qu'est-ce qu'un 'RAID 5' et quel est son avantage principal ?", options: ["Mirroring pur sans parité", "Striping avec parité distribuée, tolère la perte d'un disque", "Concatenation simple de disques", "Striping sans redondance"], correct: 1, category: "Hardware" },
+  { id: 24, q: "Quel protocole permet de sécuriser les communications HTTP en les chiffrant ?", options: ["FTP", "SSL/TLS", "SSH", "SNMP v2"], correct: 1, category: "Sécurité" },
+  { id: 25, q: "Dans un annuaire LDAP, que signifie le Distinguished Name (DN) ?", options: ["Le nom d'utilisateur seulement", "Le chemin complet unique identifiant une entrée dans l'arborescence", "Le mot de passe de l'utilisateur", "Le nom du serveur LDAP"], correct: 1, category: "Windows" },
+  { id: 26, q: "Quelle commande permet de libérer et renouveler l'adresse IP sur une interface Windows ?", options: ["ipconfig /release && ipconfig /renew", "netsh reset", "ping -release", "dhcp restart"], correct: 0, category: "Windows" },
+  { id: 27, q: "Qu'est-ce que le 'MAC Address Flooding' et comment le contrer ?", options: ["Une attaque sur le processeur, contrer avec un antivirus", "Une attaque saturant la table CAM d'un switch, contrer avec la Port Security", "Une attaque sur le DNS, contrer avec DNSSEC", "Une attaque par mot de passe, contrer avec MFA"], correct: 1, category: "Sécurité" },
+  { id: 28, q: "Quel outil Microsoft permet de diagnostiquer les problèmes de démarrage de Windows ?", options: ["MSConfig", "WinRE (Windows Recovery Environment)", "Regedit", "Task Manager"], correct: 1, category: "Windows" },
+  { id: 29, q: "Dans un script Bash, que fait la commande 'chmod 755 script.sh' ?", options: ["Supprime le fichier", "Donne les droits rwx au propriétaire, rx au groupe et rx aux autres", "Exécute le script", "Compresse le fichier"], correct: 1, category: "Linux" },
+  { id: 30, q: "Quelle est la fonction principale d'un proxy inverse (Reverse Proxy) ?", options: ["Masquer l'adresse IP du client", "Distribuer les requêtes entrantes vers plusieurs serveurs backend et offrir terminaison SSL", "Stocker les mots de passe", "Accélérer le processeur"], correct: 1, category: "Réseau" },
+  { id: 31, q: "Qu'est-ce qu'une 'GPO' (Group Policy Object) dans un environnement Active Directory ?", options: ["Un type de licence Microsoft", "Un ensemble de règles de configuration appliquées aux utilisateurs et ordinateurs", "Un protocole de chiffrement", "Un outil de monitoring réseau"], correct: 1, category: "Windows" },
+  { id: 32, q: "Quelle commande Linux affiche les 10 dernières lignes d'un fichier log en temps réel ?", options: ["head -n 10 logfile", "tail -f logfile", "cat logfile | last 10", "more logfile"], correct: 1, category: "Linux" },
+  { id: 33, q: "Que signifie l'acronyme 'MTTR' en gestion de services IT (ITSM) ?", options: ["Maximum Time To Respond", "Mean Time To Repair", "Minimum Time To Reboot", "Monthly Total Ticket Resolution"], correct: 1, category: "ITSM" },
+  { id: 34, q: "Quel est le rôle principal d'un serveur DHCP dans un réseau d'entreprise ?", options: ["Résoudre les noms de domaine en adresses IP", "Attribuer automatiquement des adresses IP et paramètres réseau aux clients", "Filtrer le trafic entrant et sortant", "Crypter les communications"], correct: 1, category: "Réseau" },
+  { id: 35, q: "Comment s'appelle la technique qui consiste à isoler une application dans un conteneur avec ses propres bibliothèques sans virtualiser le noyau ?", options: ["Virtualisation complète", "Conteneurisation (Docker, LXC)", "Émulation matérielle", "Paravirtualisation"], correct: 1, category: "Virtualisation" },
+  { id: 36, q: "Quelle commande permet de tester la résolution DNS d'un nom de domaine ?", options: ["ping", "nslookup", "netstat", "route"], correct: 1, category: "Réseau" },
+  { id: 37, q: "Dans un environnement Microsoft 365, qu'est-ce qu'une 'Stratégie de Rétention' (Retention Policy) ?", options: ["Une règle de pare-feu", "Une politique définissant la durée de conservation ou de suppression automatique des données", "Une stratégie de mot de passe", "Un plan de sauvegarde"], correct: 1, category: "Cloud" },
+  { id: 38, q: "Quel est le port standard pour les connexions SSH sécurisées ?", options: ["Port 21", "Port 22", "Port 23", "Port 25"], correct: 1, category: "Réseau" },
+  { id: 39, q: "Qu'est-ce qu'une 'attaque par force brute' (Brute Force Attack) ?", options: ["Une attaque DDoS", "Une tentative systématique de deviner un mot de passe en essayant toutes les combinaisons possibles", "Une attaque par phishing", "Une attaque par déni de service"], correct: 1, category: "Sécurité" },
+  { id: 40, q: "Quel outil open-source est couramment utilisé pour le monitoring d'infrastructure IT avec alertes ?", options: ["Microsoft Word", "Nagios / Zabbix", "Adobe Photoshop", "Google Chrome"], correct: 1, category: "Monitoring" },
+  { id: 41, q: "Qu'est-ce que le 'Buffer Overflow' (dépassement de tampon) ?", options: ["Un type de mémoire cache rapide", "Une vulnérabilité où un programme écrit des données au-delà de la mémoire allouée, pouvant mener à l'exécution de code arbitraire", "Un outil de diagnostic réseau", "Une fonctionnalité de sécurité"], correct: 1, category: "Sécurité" },
+  { id: 42, q: "Dans un système de ticketing ITIL, que signifie le statut 'Resolved' ?", options: ["Le ticket vient d'être créé", "Une solution a été fournie et est en attente de confirmation par l'utilisateur", "Le ticket est en cours de traitement", "Le ticket a été supprimé"], correct: 1, category: "ITSM" },
+  { id: 43, q: "Quelle commande Linux permet de rechercher récursivement un motif de texte dans des fichiers ?", options: ["find", "grep -r", "locate", "which"], correct: 1, category: "Linux" },
+  { id: 44, q: "Qu'est-ce qu'un 'hotfix' dans la gestion des correctifs Windows ?", options: ["Un correctif cumulatif mensuel", "Un correctif rapide ciblant un problème spécifique sans redémarrage si possible", "Un Service Pack complet", "Une mise à niveau de version"], correct: 1, category: "Windows" },
+  { id: 45, q: "Quel protocole de routage dynamique est le plus utilisé au sein des réseaux d'entreprise (IGP) ?", options: ["BGP", "OSPF", "RIP", "EIGRP (propriétaire Cisco)"], correct: 1, category: "Réseau" },
+  { id: 46, q: "Dans un script PowerShell, comment déclare-t-on une variable ?", options: ["var myVar = 10", "$myVar = 10", "int myVar = 10", "set myVar 10"], correct: 1, category: "Windows" },
+  { id: 47, q: "Qu'est-ce que le 'MTU' (Maximum Transmission Unit) dans une interface réseau ?", options: ["La vitesse maximale de l'interface", "La taille maximale d'un paquet pouvant être transmis sans fragmentation", "Le nombre maximal de connexions simultanées", "L'adresse MAC maximale"], correct: 1, category: "Réseau" },
+  { id: 48, q: "Quelle est la fonction de la commande 'crontab' sous Linux ?", options: ["Éditer le fichier de configuration du pare-feu", "Planifier l'exécution automatique de tâches à des moments définis", "Gérer les connexions réseau", "Créer des comptes utilisateurs"], correct: 1, category: "Linux" },
+  { id: 49, q: "Qu'est-ce qu'un 'Zero-Day Exploit' ?", options: ["Un virus connu depuis longtemps", "Une vulnérabilité exploitée avant que l'éditeur ne publie un correctif", "Un pare-feu de nouvelle génération", "Un outil de sauvegarde"], correct: 1, category: "Sécurité" },
+  { id: 50, q: "Dans VMware vSphere, que signifie 'vMotion' ?", options: ["La création d'un snapshot", "La migration à chaud d'une machine virtuelle d'un hôte physique à un autre sans interruption de service", "Le clonage d'un disque dur", "La suppression d'une VM"], correct: 1, category: "Virtualisation" },
+  { id: 51, q: "Quel type d'enregistrement DNS est utilisé pour les services de messagerie (SPF, DKIM) ?", options: ["Enregistrement A", "Enregistrement TXT", "Enregistrement CNAME", "Enregistrement PTR"], correct: 1, category: "Réseau" },
+  { id: 52, q: "Quelle commande Windows permet d'afficher les connexions réseau actives et les ports en écoute ?", options: ["ipconfig", "netstat -an", "ping -t", "tracert"], correct: 1, category: "Windows" },
+  { id: 53, q: "Qu'est-ce que le 'Principle of Least Privilege' (PoLP) ?", options: ["Donner tous les droits administrateur à tout le monde", "Accorder uniquement les permissions minimales nécessaires pour accomplir une tâche", "Désactiver tous les comptes utilisateurs", "Utiliser le même mot de passe partout"], correct: 1, category: "Sécurité" },
+  { id: 54, q: "Dans un serveur Linux, où sont stockés les logs système principaux ?", options: ["/home/logs", "/var/log", "/etc/logs", "/tmp/logs"], correct: 1, category: "Linux" },
+  { id: 55, q: "Qu'est-ce que le 'CSMA/CD' dans les réseaux Ethernet classiques ?", options: ["Un protocole de chiffrement", "Carrier Sense Multiple Access with Collision Detection - méthode d'accès au médium", "Un type de câble réseau", "Un logiciel de monitoring"], correct: 1, category: "Réseau" },
+  { id: 56, q: "Quel service Windows gère les mises à jour automatiques du système d'exploitation ?", options: ["Windows Defender", "Windows Update", "Task Scheduler", "BitLocker"], correct: 1, category: "Windows" },
+  { id: 57, q: "Quelle est la commande Linux pour créer un lien symbolique ?", options: ["ln -s cible lien", "link -h cible", "symlink cible", "mklink cible"], correct: 0, category: "Linux" },
+  { id: 58, q: "Qu'est-ce que le 'phishing' ?", options: ["Une attaque par déni de service", "Une technique d'ingénierie sociale visant à tromper l'utilisateur pour obtenir ses identifiants", "Un type de malware", "Un outil de chiffrement"], correct: 1, category: "Sécurité" },
+  { id: 59, q: "Dans une base de registre Windows, où se trouve la ruche 'HKEY_LOCAL_MACHINE' ?", options: ["En mémoire uniquement", "Dans le fichier %SystemRoot%\\System32\\config\\SOFTWARE", "Dans le dossier Documents", "Sur le cloud Microsoft"], correct: 1, category: "Windows" },
+  { id: 60, q: "Qu'est-ce qu'un 'DMZ' (Demilitarized Zone) dans une architecture réseau ?", options: ["Un type de VLAN", "Une zone isolée du réseau interne destinée à héberger des services accessibles depuis Internet", "Un protocole de routage", "Un antivirus"], correct: 1, category: "Réseau" },
+  { id: 61, q: "Quel utilitaire permet de cloner un disque dur vers un SSD sous Linux ?", options: ["dd", "grep", "top", "ssh"], correct: 0, category: "Linux" },
+  { id: 62, q: "Que signifie l'acronyme 'SLA' dans un contrat de support IT ?", options: ["Software License Agreement", "Service Level Agreement", "System Log Analyzer", "Secure Login Access"], correct: 1, category: "ITSM" },
+  { id: 63, q: "Quelle commande Linux affiche l'utilisation de la mémoire en temps réel ?", options: ["df -h", "free -h", "ls -la", "ps aux"], correct: 1, category: "Linux" },
+  { id: 64, q: "Qu'est-ce que le 'BitLocker' de Microsoft ?", options: ["Un navigateur web", "Un outil de chiffrement complet de disque dur", "Un logiciel de messagerie", "Un éditeur de code"], correct: 1, category: "Sécurité" },
+  { id: 65, q: "Dans un réseau IPv4, combien d'adresses IP utilisables offre un sous-réseau /29 ?", options: ["2 adresses", "6 adresses", "14 adresses", "30 adresses"], correct: 1, category: "Réseau" },
+  { id: 66, q: "Qu'est-ce qu'un 'kernel panic' sous Linux ?", options: ["Une alerte de sécurité mineure", "Une erreur fatale du noyau qui provoque l'arrêt du système", "Un message de mise à jour disponible", "Un redémarrage programmé"], correct: 1, category: "Linux" },
+  { id: 67, q: "Quel outil Microsoft permet de gérer les stratégies de groupe (GPO) ?", options: ["Group Policy Management Console (GPMC)", "Active Directory Users and Computers", "DNS Manager", "IIS Manager"], correct: 0, category: "Windows" },
+  { id: 68, q: "Qu'est-ce que le 'SNMP' et sur quel port fonctionne-t-il par défaut ?", options: ["Simple Network Management Protocol, Port 161", "Secure Network Messaging Protocol, Port 443", "System Network Monitoring Process, Port 8080", "Server Name Management Protocol, Port 53"], correct: 0, category: "Réseau" },
+  { id: 69, q: "Dans ITIL, quelle est la différence entre un 'Incident' et un 'Problem' ?", options: ["Aucune différence", "Un incident est une interruption de service, un problem est la cause racine sous-jacente", "Un problem est plus urgent qu'un incident", "Un incident concerne le matériel, un problem le logiciel"], correct: 1, category: "ITSM" },
+  { id: 70, q: "Quelle commande Linux permet de tuer un processus par son PID ?", options: ["kill PID", "stop PID", "end PID", "terminate PID"], correct: 0, category: "Linux" },
+  { id: 71, q: "Qu'est-ce que le 'Cross-Site Scripting' (XSS) ?", options: ["Une attaque réseau", "Une vulnérabilité web permettant d'injecter du code JavaScript malveillant exécuté par le navigateur de la victime", "Un type de certificat SSL", "Un protocole de transfert de fichiers"], correct: 1, category: "Sécurité" },
+  { id: 72, q: "Dans un fichier de configuration Apache, que signifie la directive 'DocumentRoot' ?", options: ["Le répertoire racine où se trouvent les fichiers du site web", "Le fichier de log principal", "Le certificat SSL", "Le port d'écoute"], correct: 0, category: "Linux" },
+  { id: 73, q: "Quel est le rôle d'un 'IDS' (Intrusion Detection System) ?", options: ["Bloquer automatiquement toutes les attaques", "Surveiller le trafic réseau et générer des alertes en cas d'activité suspecte", "Accélérer la connexion Internet", "Gérer les mots de passe"], correct: 1, category: "Sécurité" },
+  { id: 74, q: "Quelle commande Windows permet de lister tous les pilotes installés ?", options: ["driverquery", "devicemanager", "listdrivers", "get-drivers"], correct: 0, category: "Windows" },
+  { id: 75, q: "Qu'est-ce que le 'NAT' (Network Address Translation) ?", options: ["Un protocole de sécurité", "Une technique permettant de traduire des adresses IP privées en adresse(s) publique(s)", "Un type de câble réseau", "Un système de fichiers"], correct: 1, category: "Réseau" },
+  { id: 76, q: "Sous Linux, à quoi sert le fichier '/etc/resolv.conf' ?", options: ["Configurer les interfaces réseau", "Spécifier les serveurs DNS à utiliser pour la résolution de noms", "Définir les règles de pare-feu", "Lister les utilisateurs du système"], correct: 1, category: "Linux" },
+  { id: 77, q: "Qu'est-ce que 'WSUS' (Windows Server Update Services) ?", options: ["Un antivirus Microsoft", "Un serveur local permettant de gérer et distribuer les mises à jour Microsoft au sein d'un réseau d'entreprise", "Un service de messagerie", "Un outil de sauvegarde cloud"], correct: 1, category: "Windows" },
+  { id: 78, q: "Dans une infrastructure Active Directory, qu'est-ce que le 'Sysvol' ?", options: ["Un type de compte utilisateur", "Un dossier partagé contenant les scripts de connexion et les modèles de stratégies de groupe (GPO)", "Une base de données DNS", "Un outil de diagnostic"], correct: 1, category: "Windows" },
+  { id: 79, q: "Quel protocole de messagerie permet de récupérer les emails tout en laissant une copie sur le serveur ?", options: ["SMTP", "POP3", "IMAP", "FTP"], correct: 2, category: "Réseau" },
+  { id: 80, q: "Qu'est-ce que le 'Patch Tuesday' de Microsoft ?", options: ["Un événement commercial", "Le deuxième mardi de chaque mois où Microsoft publie ses mises à jour de sécurité cumulatives", "Un jour férié", "Une conférence technique"], correct: 1, category: "Windows" },
+  { id: 81, q: "Quelle commande Linux permet de voir les partitions d'un disque ?", options: ["fdisk -l", "mount", "lsblk", "partprobe"], correct: 0, category: "Linux" },
+  { id: 82, q: "Qu'est-ce que le 'STP' (Spanning Tree Protocol) ?", options: ["Un protocole de chiffrement", "Un protocole qui prévient les boucles réseau dans les topologies commutées redondantes", "Un outil de monitoring", "Un type d'attaque réseau"], correct: 1, category: "Réseau" },
+  { id: 83, q: "Dans un environnement de ticketing, que signifie 'escalade fonctionnelle' ?", options: ["Fermer le ticket", "Transférer un ticket au niveau de support supérieur (N2, N3) car le niveau actuel n'a pas pu résoudre", "Supprimer le ticket", "Créer un nouveau ticket"], correct: 1, category: "ITSM" },
+  { id: 84, q: "Quelle commande PowerShell exporte l'historique des mises à jour Windows installées ?", options: ["Get-WindowsUpdate", "Get-HotFix", "Show-Updates", "Export-UpdateLog"], correct: 1, category: "Windows" },
+  { id: 85, q: "Qu'est-ce que le 'Ransomware' ?", options: ["Un logiciel de sauvegarde", "Un malware qui chiffre les données et exige une rançon pour les déchiffrer", "Un antivirus gratuit", "Un outil de diagnostic"], correct: 1, category: "Sécurité" },
+  { id: 86, q: "Quel est le port par défaut du protocole MySQL ?", options: ["1433", "3306", "5432", "27017"], correct: 1, category: "Réseau" },
+  { id: 87, q: "Sous Linux, que fait la commande 'iptables' ?", options: ["Gère les imprimantes", "Configure le pare-feu Netfilter du noyau Linux", "Installe des paquets logiciels", "Surveille la mémoire"], correct: 1, category: "Linux" },
+  { id: 88, q: "Qu'est-ce qu'un 'hot spare' dans une baie de stockage RAID ?", options: ["Un disque en cours d'utilisation", "Un disque de réserve prêt à remplacer automatiquement un disque défaillant", "Un ventilateur de rechange", "Un câble réseau supplémentaire"], correct: 1, category: "Hardware" },
+  { id: 89, q: "Dans Windows, à quoi sert l'outil 'Event Viewer' ?", options: ["Naviguer sur Internet", "Consulter les journaux d'événements système, de sécurité et d'applications", "Éditer le registre", "Gérer les utilisateurs"], correct: 1, category: "Windows" },
+  { id: 90, q: "Quelle est la commande Linux pour changer le propriétaire d'un fichier ?", options: ["chmod", "chown", "chgrp", "usermod"], correct: 1, category: "Linux" },
+  { id: 91, q: "Qu'est-ce que le 'VPN Split Tunneling' ?", options: ["Une connexion VPN doublée", "Seul le trafic destiné au réseau d'entreprise passe par le VPN, le reste va directement sur Internet", "Un VPN qui ne fonctionne pas", "Un VPN sans chiffrement"], correct: 1, category: "Réseau" },
+  { id: 92, q: "Quel outil de diagnostic réseau combine les fonctions de ping et traceroute ?", options: ["netstat", "pathping", "nslookup", "arp"], correct: 1, category: "Réseau" },
+  { id: 93, q: "Dans ITIL, que représente le 'CAB' (Change Advisory Board) ?", options: ["Un comité qui évalue et autorise les changements planifiés dans l'infrastructure IT", "Un logiciel de gestion de parc", "Un type de contrat", "Un indicateur de performance"], correct: 0, category: "ITSM" },
+  { id: 94, q: "Quelle commande Linux affiche les processus en cours d'exécution ?", options: ["ls", "ps aux", "cd /proc", "cat /etc/passwd"], correct: 1, category: "Linux" },
+  { id: 95, q: "Qu'est-ce que le '802.1X' ?", options: ["Un type de câble Ethernet", "Un standard pour le contrôle d'accès réseau basé sur les ports (authentification)", "Un protocole de routage", "Une fréquence Wi-Fi"], correct: 1, category: "Réseau" },
+  { id: 96, q: "Dans un environnement Microsoft 365, qu'est-ce que 'Exchange Online Protection' (EOP) ?", options: ["Un service de sauvegarde", "Un service de filtrage anti-spam et anti-malware pour les emails", "Un outil de visioconférence", "Un logiciel de bureautique"], correct: 1, category: "Cloud" },
+  { id: 97, q: "Qu'est-ce que le 'social engineering' (ingénierie sociale) ?", options: ["La conception de réseaux sociaux", "La manipulation psychologique des personnes pour les amener à divulguer des informations confidentielles", "Un métier d'ingénieur", "Un type de pare-feu"], correct: 1, category: "Sécurité" },
+  { id: 98, q: "Quelle commande permet de redémarrer un service sous Linux avec systemd ?", options: ["service restart nom", "systemctl restart nom.service", "/etc/init.d/nom restart", "restart-service nom"], correct: 1, category: "Linux" },
+  { id: 99, q: "Qu'est-ce que le 'TCO' (Total Cost of Ownership) d'un équipement IT ?", options: ["Le prix d'achat uniquement", "Le coût total incluant l'acquisition, la maintenance, la formation et le support sur toute la durée de vie", "Le coût de l'électricité", "Le prix de revente"], correct: 1, category: "ITSM" },
+  { id: 100, q: "Quel est le nom du noyau du système d'exploitation Windows ?", options: ["Linux Kernel", "NT Kernel", "Darwin Kernel", "BSD Kernel"], correct: 1, category: "Windows" }
+];
+
+// =====================================================
+// VARIABLES D'ÉTAT
+// =====================================================
+let currentQuestionIndex = 0;
+let userAnswers = new Array(100).fill(null);
+let examStarted = false;
+let examFinished = false;
+let timerInterval;
+let timeRemaining = 90 * 60; // 90 minutes en secondes
+let candidateInfo = {};
+
+// =====================================================
+// FONCTIONS
+// =====================================================
+
+function startExam() {
+  // Validation
+  const name = document.getElementById('candidateName').value.trim();
+  const email = document.getElementById('candidateEmail').value.trim();
+  const phone = document.getElementById('candidatePhone').value.trim();
+  const position = document.getElementById('candidatePosition').value;
+
+  if (!name || !email || !phone) {
+    alert('Veuillez remplir tous les champs obligatoires.');
+    return;
   }
-};
 
-// =====================================================
-// DICTIONNAIRE TRADUCTION TEXTES (DASHBOARD CORPORATE)
-// =====================================================
-const translations = {
-  fr: {
-    breadcrumb: 'Accueil',
-    breadHome: 'Accueil',
-    breadCampus: 'Campus Cyber',
-    heroTitle: 'Campus <span class="accent">Cyber</span><br><span id="heroSubtitle">Centre de Formation Corporate</span>',
-    heroSubtitle: 'Centre de Formation Corporate',
-    heroDesc: 'Accès réservé — supports de cours, vidéos et ressources techniques exclusives.',
-    trainerBadge: 'Formation par un expert Security Architect',
-    statModules: 'Modules actifs',
-    statRessources: 'Ressources',
-    statAcces: 'Accès continu',
-    trainerRole: "Docteur en informatique & cybersécurité",
-    trainerDesc: "Docteur en informatique et cybersécurité et fin pédagogue, Abdeljalil intervient dans des thématiques aussi variées que l'architecture de sécurité, la sécurité du cloud, l'intégration de la cybersécurité dans les entreprises, la cybersécurité pour les dirigeants, la protection des données, la préparation à la certification CISSP et la formation générale en cybersécurité.",
-    skill1: 'Architecture', skill2: 'Sécurité cloud', skill3: 'Formation', skill4: 'Protection données', skill5: 'Pédagogie',
-    feat1: 'Vidéos HD disponibles 24/7',
-    feat2: 'Supports PDF téléchargeables',
-    feat3: 'Labs pratiques inclus',
-    feat4: 'Support formateur direct',
-    loginTitle: 'Connexion au Campus',
-    loginSubtitle: "Veuillez saisir le code d'accès fourni par votre entreprise pour déverrouiller vos modules.",
-    passInput: "Code d'accès sécurisé...",
-    loginBtnTxt: 'Entrer',
-    loginHint: '🔒 Connexion chiffrée SSL de bout en bout.',
-    loginError: "Code d'accès incorrect. Veuillez réessayer.",
-    welcomeTxt: "Accès Corporate Validé — Bienvenue sur votre espace d'apprentissage NetVanguard IT Solutions.",
-    modulesTitle: 'Vos Modules de Formation Réseau & Cybersécurité',
-    modulesSubtitle: 'Suivez votre progression, téléchargez vos supports officiels et validez vos acquis via les quiz.',
-    progressLbl: 'Progression globale de la formation',
-    m1Title: "Sensibilisation Cybersécurité & Anti-Phishing",
-    m1Badge: "En cours",
-    m1Pdf: "<i class='fas fa-file-pdf'></i> Support PDF",
-    m2Title: "Introduction à l'Architecture de Sécurité",
-    m2Badge: "En cours",
-    m2Pdf: "<i class='fas fa-file-pdf'></i> Support PDF",
-    m3Title: "Fondamentaux de la Sécurité Cloud",
-    m3Badge: "En cours",
-    m3Pdf: "<i class='fas fa-file-pdf'></i> Support PDF",
-    m4Title: "Cybersécurité pour les Dirigeants",
-    m4Badge: "En cours",
-    m4Pdf: "<i class='fas fa-file-pdf'></i> Support PDF",
-    m5Title: "Protection des Données & Conformité",
-    m5Badge: "En cours",
-    m5Pdf: "<i class='fas fa-file-pdf'></i> Support PDF",
-    lblObj1: "Objectifs pédagogiques", lblProg1: "Programme détaillé", lblSkills1: "Compétences acquises",
-    lblObj2: "Objectifs pédagogiques", lblProg2: "Programme détaillé", lblSkills2: "Compétences acquises",
-    lblObj3: "Objectifs pédagogiques", lblProg3: "Programme détaillé", lblSkills3: "Compétences acquises",
-    lblObj4: "Objectifs pédagogiques", lblProg4: "Programme détaillé", lblSkills4: "Compétences acquises",
-    lblObj5: "Objectifs pédagogiques", lblProg5: "Programme détaillé", lblSkills5: "Compétences acquises",
-    m1FullDesc: "Une immersion complète dans les techniques d'ingénierie sociale modernes. Ce module décrypte les aspects psychologiques et techniques des cyberattaques ciblant le facteur humain, en dotant vos collaborateurs de clés de détection pragmatiques.",
-    m2FullDesc: "Ce module pose les bases fondamentales de la conception de réseaux d'entreprise résilients. Apprenez à structurer des zones de confiance étanches, à intégrer des composants de filtrage avancés et à appliquer le modèle Zero Trust.",
-    m3FullDesc: "Maîtrisez les concepts clés de la sécurisation des infrastructures hébergées (IaaS, PaaS, SaaS). Comprenez le modèle de responsabilité partagée et apprenez à verrouiller les accès et les données dans des environnements multi-cloud.",
-    m4FullDesc: "Ce module s'adresse aux preneurs de décision. Il traduit les menaces techniques en risques business, fournit des clés de gouvernance et pose la méthodologie pour structurer une cellule de gestion de crise efficace.",
-    m5FullDesc: "Maîtrisez les obligations juridiques et techniques de protection de la vie privée. Ce module détaille la mise en conformité pratique avec la loi marocaine 09-08 ainsi qu'avec le règlement européen RGPD.",
-    m1Objectives: `
-      <li><i class="fas fa-check"></i> Identifier instantanément les indices d'altération d'identité émettrice et de structures d'URLs suspectes.</li>
-      <li><i class="fas fa-check"></i> Déjouer les schémas de manipulation psychologique basés sur l'urgence ou l'autorité.</li>
-      <li><i class="fas fa-check"></i> Appliquer les processus internes de signalement d'incidents de l'entreprise.</li>
-      <li><i class="fas fa-check"></i> Différencier une communication corporative légitime d'une usurpation ciblée.</li>
-      <li><i class="fas fa-check"></i> Atténuer durablement le risque d'exfiltration de données d'identification sensibles.</li>
-    `,
-    m2Objectives: `
-      <li><i class="fas fa-check"></i> Concevoir des topologies réseau hautement sécurisées basées sur la segmentation stricte.</li>
-      <li><i class="fas fa-check"></i> Appliquer les modèles de défense en profondeur (Defense in Depth) sur tous les niveaux.</li>
-      <li><i class="fas fa-check"></i> Structurer des zones de confiance étanches à l'aide de passerelles de filtrage avancées.</li>
-      <li><i class="fas fa-check"></i> Intégrer les principes architecturaux du paradigme Zero Trust de manière transverse.</li>
-      <li><i class="fas fa-check"></i> Évaluer l'efficacité des mechanisms de chiffrement pour les données internes.</li>
-      <li><i class="fas fa-check"></i> Déterminer le positionnement optimal des sondes de détection d'intrusions (IDS/IPS).</li>
-      <li><i class="fas fa-check"></i> Élaborer des schémas d'interconnexion sécurisée pour les filiales et le travail distant.</li>
-    `,
-    m3Objectives: `
-      <li><i class="fas fa-check"></i> Délimiter avec précision les périmètres du modèle de responsabilité partagée.</li>
-      <li><i class="fas fa-check"></i> Configurer des politiques de gestion des identités et des accès (IAM) selon le privilège minimum.</li>
-      <li><i class="fas fa-check"></i> Activer et auditer les mécanismes d'authentification multifacteur (MFA) obligatoires.</li>
-      <li><i class="fas fa-check"></i> Mettre en œuvre le chiffrement des données au repos et en transit sur les buckets cloud.</li>
-      <li><i class="fas fa-check"></i> Centraliser la surveillance des journaux d'événements cloud pour détecter les dérives.</li>
-    `,
-    m4Objectives: `
-      <li><i class="fas fa-check"></i> Évaler la valeur financière et stratégique des actifs numériques pour l'entreprise.</li>
-      <li><i class="fas fa-check"></i> Arbitrer efficacement les budgets alloués aux programmes d'infrastructure cyber.</li>
-      <li><i class="fas fa-check"></i> Déployer une gouvernance transverse claire (Rôles RSSI, DPO, Direction).</li>
-      <li><i class="fas fa-check"></i> Structurer un plan de continuité d'activité (PCA) adapté aux pannes d'origine cyber.</li>
-      <li><i class="fas fa-check"></i> Intégrer les clauses de cyber-assurance adéquates au profil de l'organisation.</li>
-    `,
-    m5Objectives: `
-      <li><i class="fas fa-check"></i> Assurer l'alignement total des traitements de données avec la loi marocaine 09-08.</li>
-      <li><i class="fas fa-check"></i> Déployer les mécanismes organisationnels imposés par le règlement européen RGPD.</li>
-      <li><i class="fas fa-check"></i> Structurer et maintenir à jour une cartographie exhaustive des données nominatives.</li>
-      <li><i class="fas fa-check"></i> Mettre en œuvre le principe de minimisation des données au sein des applicatifs.</li>
-      <li><i class="fas fa-check"></i> Rédiger des politiques de confidentialité conformes et transparentes pour les tiers.</li>
-      <li><i class="fas fa-check"></i> Conduire des analyses d'impact sur la protection des données (AIPD / PIA).</li>
-      <li><i class="fas fa-check"></i> Orchestrer techniquement les demandes de droits d'accès, de rectification et d'oubli.</li>
-    `,
-    m1Skills: `
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Réduction prouvée du taux de vulnérabilité face aux attaques d'ingénierie sociale complexes.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Maîtrise des réflexes de signalement immédiat aux équipes d'intervention d'urgence (SOC).</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Capacité autonome à auditer la légitimité fondamentale d'une sollicitation externe.</li>
-    `,
-    m2Skills: `
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Capacité à auditer une topologie réseau existante et à y injecter des correctifs de cloisonnement.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Aptitude opérationnelle à configurer des règles de pare-feux industriels d'architecture multi-niveaux.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Compétence en conception d'interconnexions chiffrées IPSec/SSL haute disponibilité.</li>
-    `,
-    m3Skills: `
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Capacité complète à configurer des environnements d'infrastructure multi-cloud sans faille de sécurité.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Expertise pratique dans la gestion centralisée des accès et des secrets applicatifs cloud.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Maîtrise des standards de remédiation automatisée des configurations défectueuses.</li>
-    `,
-    m4Skills: `
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Maîtrise décisionnelle complète pour la validation des enveloppes budgétaires cyber.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Capacité managériale à diriger une cellule de gestion de crise cyber d'envergure.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Aptitude à piloter la politique de gestion des risques tiers de l'entreprise.</li>
-    `,
-    m5Skills: `
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Capacité à concevoir un registre de traitement conforme aux normes CNDP/RGPD.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Maîtrise opérationnelle des lancements de projets informatiques intégrant le Privacy by Design.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Compétence requise pour piloter les audits de conformité menés par les autorités.</li>
-    `,
-    ressourcesTitle: '<i class="fas fa-folder-open"></i> Ressources Complémentaires & Outils Recommandés',
-    r1Title: "Guide d'Hygiène Cyber", r2Title: "Modèle de PSSI", r3Desc: 'Veille & Alertes de sécurité officielles', r4Desc: 'Formulaires & Textes Loi 09-08',
-    tutorTitle: "Besoin d'un éclaircissement technique ?",
-    tutorDesc: "Votre formateur référent est disponible pour répondre à vos questions sur les cours ou les labs.",
-    tutorMailBtn: "Envoyer un email",
-    navAccueil: "Accueil", navServices: "Services", navSecteurs: "Secteurs", navQuiSommesNous: "Qui sommes-nous", navCarrieres: "Carrières", navCampus: "🎓 Campus Cyber", navContact: "Contact"
-  },
-  en: {
-    breadcrumb: 'Home',
-    breadHome: 'Home',
-    breadCampus: 'Cyber Campus',
-    heroTitle: 'Cyber <span class="accent">Campus</span><br><span id="heroSubtitle">Corporate Training Center</span>',
-    heroSubtitle: 'Corporate Training Center',
-    heroDesc: 'Restricted access — course materials, exclusive video logs and technical assets.',
-    trainerBadge: 'Training delivered by a Senior Security Architect',
-    statModules: 'Active modules',
-    statRessources: 'Resources',
-    statAcces: 'Continuous access',
-    trainerRole: "PhD in Computer Science & Cybersecurity",
-    trainerDesc: "PhD in computer science & cybersecurity and a highly skilled educator, Abdeljalil teaches diverse advanced topics including security architecture, cloud security, corporate cybersecurity alignment, executive protection, data privacy regulation, CISSP prep, and general engineering awareness.",
-    skill1: 'Architecture', skill2: 'Cloud security', skill3: 'Training', skill4: 'Data Privacy', skill5: 'Pedagogy',
-    feat1: 'HD Videos available 24/7',
-    feat2: 'Downloadable PDF Slides',
-    feat3: 'Hands-on Labs included',
-    feat4: 'Direct instructor channel',
-    loginTitle: 'Campus Authentication',
-    loginSubtitle: 'Please enter the access code provided by your organization to unlock your specific curriculum.',
-    passInput: 'Secure access token...',
-    loginBtnTxt: 'Verify',
-    loginHint: '🔒 End-to-end encrypted SSL connection.',
-    loginError: 'Invalid access token. Please verify and try again.',
-    welcomeTxt: "Corporate Access Authorized — Welcome to your NetVanguard IT Solutions learning space.",
-    modulesTitle: 'Your Networking & Cybersecurity Syllabus',
-    modulesSubtitle: 'Track your personal progression, download official slides and validate knowledge via interactive tests.',
-    progressLbl: 'Overall training path fulfillment',
-    m1Title: "Cybersecurity Awareness & Anti-Phishing Essentials",
-    m1Badge: "Active",
-    m1Pdf: "<i class='fas fa-file-pdf'></i> PDF Slides",
-    m2Title: "Introduction to Corporate Security Architectures",
-    m2Badge: "Active",
-    m2Pdf: "<i class='fas fa-file-pdf'></i> PDF Slides",
-    m3Title: "Cloud Infrastructure Security Fundamentals",
-    m3Badge: "Active",
-    m3Pdf: "<i class='fas fa-file-pdf'></i> PDF Slides",
-    m4Title: "Executive Cybersecurity Governance & Strategy",
-    m4Badge: "Active",
-    m4Pdf: "<i class='fas fa-file-pdf'></i> PDF Slides",
-    m5Title: "Data Privacy Frameworks & Compliance",
-    m5Badge: "Active",
-    m5Pdf: "<i class='fas fa-file-pdf'></i> PDF Slides",
-    lblObj1: "Learning objectives", lblProg1: "Detailed syllabus", lblSkills1: "Target competencies",
-    lblObj2: "Learning objectives", lblProg2: "Detailed syllabus", lblSkills2: "Target competencies",
-    lblObj3: "Learning objectives", lblProg3: "Detailed syllabus", lblSkills3: "Target competencies",
-    lblObj4: "Learning objectives", lblProg4: "Detailed syllabus", lblSkills4: "Target competencies",
-    lblObj5: "Learning objectives", lblProg5: "Detailed syllabus", lblSkills5: "Target competencies",
-    m1FullDesc: "A complete walkthrough into modern social engineering schemes. This module breaks down the psychological drivers and technical vectors of human-centric cyberattacks, giving pragmatical threat keys.",
-    m2FullDesc: "This cornerstone module sets the foundations for designing resilient enterprise perimeters. Learn how to draw bulletproof logical boundaries, inject advanced firewalls, and orchestrate Zero Trust.",
-    m3FullDesc: "Master core concepts of hardening hybrid deployments (IaaS, PaaS, SaaS). Deeply understand the shared responsibility blueprint and learn to lockdown resources across multiple clouds.",
-    m4FullDesc: "Tailored specifically for c-level decision makers. It converts raw technical indicator languages into corporate risk items, building effective framework governance and incident cells.",
-    m5FullDesc: "Master the cross-border legal obligations of private data management. This module covers practical implementations matching Moroccan 09-08 laws and European GDPR frameworks.",
-    m1Objectives: `
-      <li><i class="fas fa-check"></i> Instantly parse sender spoofs, lookalike payloads, and obfuscated malicious URLs.</li>
-      <li><i class="fas fa-check"></i> Neutralize psychological triggers such as artificial authority or urgency requests.</li>
-      <li><i class="fas fa-check"></i> Properly execute corporate incident reporting pathways toward the internal SOC.</li>
-      <li><i class="fas fa-check"></i> Distinctly parse authentic corporate requests from customized executive impersonations.</li>
-      <li><i class="fas fa-check"></i> Drastically lower organization credential exposure indices over public channels.</li>
-    `,
-    m2Objectives: `
-      <li><i class="fas fa-check"></i> Design robust corporate network topologies based on microsegmentation principles.</li>
-      <li><i class="fas fa-check"></i> Inject actionable Defense in Depth patterns across every structural network tier.</li>
-      <li><i class="fas fa-check"></i> Optimize stateful filtering rulesets and Next-Generation Firewall inspection policies.</li>
-      <li><i class="fas fa-check"></i> Align optimal inline and passive sensor matrices for network IDS/IPS telemetry.</li>
-      <li><i class="fas fa-check"></i> Weave core cryptographic algorithms into production data channels seamlessly.</li>
-      <li><i class="fas fa-check"></i> Implement advanced perimeter frameworks using reliable Zero Trust blueprints.</li>
-      <li><i class="fas fa-check"></i> Engineer high-availability IPSec/SSL tunnels for branching offices and remote work.</li>
-    `,
-    m3Objectives: `
-      <li><i class="fas fa-check"></i> Clearly map the dividing perimeters of the vendor Shared Responsibility Model.</li>
-      <li><i class="fas fa-check"></i> Provision granular Identity and Access Management (IAM) controls following least privilege.</li>
-      <li><i class="fas fa-check"></i> Mandate and audit strong Multi-Factor Authentication (MFA) entry baselines.</li>
-      <li><i class="fas fa-check"></i> Enforce advanced bucket encryption policies for static objects at rest and in transit.</li>
-      <li><i class="fas fa-check"></i> Consolidate continuous logging streams into active hybrid SIEM cloud structures.</li>
-    `,
-    m4Objectives: `
-      <li><i class="fas fa-check"></i> Convert technical cyber indicator reports into actionable financial business items.</li>
-      <li><i class="fas fa-check"></i> Effectively evaluate and optimize return metrics on organizational cyber budgets.</li>
-      <li><i class="fas fa-check"></i> Establish crystal clear security leadership lanes (CISO, DPO, Board roles).</li>
-      <li><i class="fas fa-check"></i> Outline technical Business Continuity Plans (BCP) against ransomware disasters.</li>
-      <li><i class="fas fa-check"></i> Select right-sized cyber insurance products fitting corporate exposure profiles.</li>
-    `,
-    m5Objectives: `
-      <li><i class="fas fa-check"></i> Guarantee full corporate alignment with Moroccan national data protection law 09-08.</li>
-      <li><i class="fas fa-check"></i> Embed structural operational policies required by the European GDPR regulation.</li>
-      <li><i class="fas fa-check"></i> Formulate and maintain an active data classification ledger for user-sensitive rows.</li>
-      <li><i class="fas fa-check"></i> Instrument data minimization rules natively into code layers during software projects.</li>
-      <li><i class="fas fa-check"></i> Write transparent data privacy guidelines compliant with third-party verification.</li>
-      <li><i class="fas fa-check"></i> Independently execute complete Data Protection Impact Assessments (DPIA / PIA).</li>
-      <li><i class="fas fa-check"></i> Handle complex user data requests regarding right to view, modify or purge rows.</li>
-    `,
-    m1Skills: `
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Measurable lower vulnerability rates against targeted spear-phishing campaigns.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Confident execution of rapid digital incident handling protocols.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Autonomously parsing structural legitimacy indices of outer incoming assets.</li>
-    `,
-    m2Skills: `
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Ability to analyze physical topologies and apply secure isolation vectors.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Full competence in creating multi-zone firewalls access control matrices.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Advanced provisioning of robust network-to-network secure gateways.</li>
-    `,
-    m3Skills: `
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Advanced deployment of hard cloud architecture perimeters without leak paths.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Production management of secure secret brokers and corporate API key stores.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Orchestrating immediate automated rollback playbooks on misconfigured assets.</li>
-    `,
-    m4Skills: `
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> High corporate decision making confidence regarding annual cyber expenditure.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Competent management leadership during critical active incident response.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Streamlined evaluation of vendor-introduced ecosystem software hazards.</li>
-    `,
-    m5Skills: `
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Building a fully auditable user data lifecycle ledger according to CNDP.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Practical enablement of Privacy by Design tracks across software life cycles.</li>
-      <li><i class="fas fa-star" style="color:var(--gold)"></i> Confidently presenting corporate regulatory postures before state investigators.</li>
-    `,
-    ressourcesTitle: '<i class="fas fa-folder-open"></i> Complementary Research Material & Tooling',
-    r1Title: 'Cyber Hygiene Blueprint', r2Title: 'Corporate ISSP Model', r3Desc: 'Official Cyber Incident & Threat Advisories', r4Desc: '09-08 Law Directives & Registration Forms',
-    tutorTitle: 'Need a Technical Clarification?',
-    tutorDesc: 'Your dedicated academic instructor is available to answer any questions regarding courses or labs.',
-    tutorMailBtn: 'Send an email',
-    navAccueil: "Home", navServices: "Services", navSecteurs: "Sectors", navQuiSommesNous: "About us", navCarrieres: "Careers", navCampus: "🎓 Cyber Campus", navContact: "Contact"
-  }
-};
-
-// =====================================================
-// LOGIQUE DE SÉCURITÉ ET INTERACTION FORMATION
-// =====================================================
-const G_CODE = "youssef"; // Garde le mot de passe intact
-const userQuizProgress = { m1: null, m2: null, m3: null, m4: null, m5: null };
-
-document.getElementById('loginBtn').addEventListener('click', checkAccessCode);
-document.getElementById('passInput').addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') checkAccessCode();
-});
-
-function checkAccessCode() {
-  const code = document.getElementById('passInput').value.trim();
-  const errorBlock = document.getElementById('loginError');
-  const loginSection = document.getElementById('loginSection');
-  const protectedSection = document.getElementById('protectedSection');
-
-  if (code === G_CODE) {
-    errorBlock.style.display = 'none';
-    loginSection.style.display = 'none';
-    protectedSection.style.display = 'block';
-    // Lancer les éléments dynamiques
-    initAllQuizzes();
-    applyLanguage('fr'); // Force le fr par défaut à l'ouverture
-  } else {
-    errorBlock.style.display = 'block';
-  }
-}
-
-// MANAGEMENT DYNAMIQUE DES QUIZ ACCORDÉS AU DESIGN
-function initAllQuizzes() {
-  const currentLang = document.querySelector('.lang-btn.active').getAttribute('data-lang') || 'fr';
+  candidateInfo = { name, email, phone, position };
+  examStarted = true;
+  document.getElementById('candidateForm').style.display = 'none';
+  document.getElementById('examInterface').classList.add('active');
   
-  for (let mKey in quizData) {
-    const box = document.getElementById(`quizBox${mKey.replace('m','')}`);
-    if (!box) continue;
-    box.innerHTML = ""; // Clear
+  renderQuestion();
+  startTimer();
+  updateNavButtons();
+}
 
-    const qObj = quizData[mKey];
-    const savedAns = userQuizProgress[mKey];
+function renderQuestion() {
+  const container = document.getElementById('questionContainer');
+  const q = examQuestions[currentQuestionIndex];
+  const selectedAnswer = userAnswers[currentQuestionIndex];
 
-    // Status / Header
-    const statusRow = document.createElement('div');
-    statusRow.className = 'quiz-header-status';
-    statusRow.innerHTML = `<span>⚡ QUIZ VALIDA-TEST</span> <span id="statusTxt_${mKey}">${savedAns !== null ? '✓ COMPLÉTÉ' : '⏳ NON REQUIS'}</span>`;
-    box.appendChild(statusRow);
-
-    // Question
-    const qDiv = document.createElement('div');
-    qDiv.className = 'quiz-q';
-    // Si la langue est anglaise, on traduit à la volée le label statique si besoin, 
-    // mais le contenu des questions reste stable ou s'affiche selon la banque de données
-    qDiv.innerText = qObj.q;
-    box.appendChild(qDiv);
-
-    // Options Container
-    const optWrap = document.createElement('div');
-    optWrap.className = 'quiz-options';
-
-    qObj.options.forEach((optText, index) => {
-      const btn = document.createElement('button');
-      btn.className = 'quiz-option';
-      btn.innerText = optText;
-
-      // Si déjà répondu
-      if (savedAns !== null) {
-        btn.disabled = true;
-        if (index === qObj.correct) btn.classList.add('correct');
-        if (savedAns === index && savedAns !== qObj.correct) btn.classList.add('wrong');
-      } else {
-        btn.addEventListener('click', () => handleQuizAnswer(mKey, index));
-      }
-      optWrap.appendChild(btn);
-    });
-    box.appendChild(optWrap);
-
-    // Feedback div
-    const feed = document.createElement('div');
-    feed.className = 'quiz-feedback';
-    feed.id = `feedback_${mKey}`;
-    if (savedAns !== null) {
-      feed.innerText = qObj.feedback;
-      feed.style.display = "block";
-      feed.style.color = savedAns === qObj.correct ? "var(--success)" : "var(--red)";
+  let optionsHTML = '';
+  q.options.forEach((opt, idx) => {
+    let btnClass = 'option-btn';
+    if (examFinished) {
+      if (idx === q.correct) btnClass += ' correct-show';
+      if (selectedAnswer === idx && selectedAnswer !== q.correct) btnClass += ' wrong-show';
+    } else if (selectedAnswer === idx) {
+      btnClass += ' selected';
     }
-    box.appendChild(feed);
+    optionsHTML += `<button class="${btnClass}" ${examFinished ? 'disabled' : ''} onclick="selectAnswer(${idx})">${String.fromCharCode(65 + idx)}. ${opt}</button>`;
+  });
 
-    // Si toutes les réponses sont validées, afficher un récapitulatif dans ce module si besoin
-    if (savedAns !== null) {
-      appendScoreBannerIfNeeded(box, mKey);
-    }
+  let cardClass = 'question-card';
+  if (examFinished) {
+    cardClass += selectedAnswer === q.correct ? ' correct-card' : ' wrong-card';
+  } else if (selectedAnswer !== null) {
+    cardClass += ' answered';
   }
-  updateGlobalProgressUI();
-}
 
-function handleQuizAnswer(mKey, chosenIdx) {
-  userQuizProgress[mKey] = chosenIdx;
-  initAllQuizzes(); // Refresh UI
-}
-
-function appendScoreBannerIfNeeded(box, mKey) {
-  const savedAns = userQuizProgress[mKey];
-  const qObj = quizData[mKey];
-  if (savedAns === null) return;
-
-  const banner = document.createElement('div');
-  banner.className = 'quiz-score-banner';
-  
-  const isCorrect = savedAns === qObj.correct;
-  banner.innerHTML = `
-    <h4>${isCorrect ? '🎯 Résultat Excellence' : '❌ Point à Revoir'}</h4>
-    <p>${isCorrect ? 'Validation acquise pour ce module de formation.' : 'Nous vous suggérons de relire le support PDF du cours.'}</p>
-    <button class="btn-reset" onclick="resetQuizModule('${mKey}')">Réessayer</button>
+  container.innerHTML = `
+    <div class="${cardClass}">
+      <div class="question-number">QUESTION ${q.id} / 100 — ${q.category}</div>
+      <div class="question-text">${q.q}</div>
+      <div class="options-grid">
+        ${optionsHTML}
+      </div>
+    </div>
   `;
-  box.appendChild(banner);
+
+  updateQuestionDisplay();
+  updateProgress();
 }
 
-function resetQuizModule(mKey) {
-  userQuizProgress[mKey] = null;
-  initAllQuizzes();
+function selectAnswer(index) {
+  if (examFinished) return;
+  userAnswers[currentQuestionIndex] = index;
+  renderQuestion();
+  updateNavButtons();
 }
 
-function updateGlobalProgressUI() {
-  let totalModules = Object.keys(userQuizProgress).length;
-  let completed = 0;
-  for (let k in userQuizProgress) {
-    if (userQuizProgress[k] !== null) completed++;
-  }
-
-  let pct = Math.round((completed / totalModules) * 100);
-  const fill = document.getElementById('globalProgress');
-  const txt = document.getElementById('progressPercent');
-  if (fill && txt) {
-    fill.style.width = `${pct}%`;
-    txt.innerText = `${pct}%`;
+function nextQuestion() {
+  if (currentQuestionIndex < 99) {
+    currentQuestionIndex++;
+    renderQuestion();
+    updateNavButtons();
   }
 }
 
-// =====================================================
-// LOGIQUE DE TRADUCTION SANS ALTERATION DES MODULES
-// =====================================================
-function applyLanguage(lang) {
-  const t = translations[lang];
-  if (!t) return;
+function prevQuestion() {
+  if (currentQuestionIndex > 0) {
+    currentQuestionIndex--;
+    renderQuestion();
+    updateNavButtons();
+  }
+}
 
-  for (let id in t) {
-    const el = document.getElementById(id);
-    if (el) {
-      if (id === 'heroTitle' || id.endsWith('Objectives') || id.endsWith('Prog') || id.endsWith('Skills')) {
-        el.innerHTML = t[id];
-      } else if (id.startsWith('m1') || id.startsWith('m2') || id.startsWith('m3') || id.startsWith('m4') || id.startsWith('m5')) {
-        if (el.tagName === 'A') el.innerHTML = t[id];
-        else el.innerText = t[id];
-      } else {
-        el.innerText = t[id];
-      }
+function updateNavButtons() {
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const submitBtn = document.getElementById('submitBtn');
+
+  prevBtn.disabled = currentQuestionIndex === 0;
+  
+  if (currentQuestionIndex === 99) {
+    nextBtn.style.display = 'none';
+    submitBtn.classList.add('show');
+  } else {
+    nextBtn.style.display = 'flex';
+    submitBtn.classList.remove('show');
+  }
+}
+
+function updateQuestionDisplay() {
+  document.getElementById('currentQDisplay').textContent = `${currentQuestionIndex + 1} / 100`;
+  const answeredCount = userAnswers.filter(a => a !== null).length;
+  document.getElementById('answeredCount').textContent = `${answeredCount} / 100`;
+}
+
+function updateProgress() {
+  const answeredCount = userAnswers.filter(a => a !== null).length;
+  const pct = Math.round((answeredCount / 100) * 100);
+  document.getElementById('examProgress').style.width = `${pct}%`;
+}
+
+function startTimer() {
+  updateTimerDisplay();
+  timerInterval = setInterval(() => {
+    timeRemaining--;
+    updateTimerDisplay();
+    
+    if (timeRemaining <= 0) {
+      clearInterval(timerInterval);
+      submitExam();
     }
-  }
-
-  // Si le panneau de formation est actif, régénérer les quiz avec la nouvelle langue
-  const protectedSection = document.getElementById('protectedSection');
-  if (protectedSection && protectedSection.style.display === 'block') {
-    initAllQuizzes();
-  }
+  }, 1000);
 }
 
-document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const lang = btn.getAttribute('data-lang');
-    if (lang) {
-      document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      applyLanguage(lang);
-    }
-  });
-});
+function updateTimerDisplay() {
+  const minutes = Math.floor(timeRemaining / 60);
+  const seconds = timeRemaining % 60;
+  const display = document.getElementById('timerDisplay');
+  display.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+  
+  display.classList.remove('warning', 'danger');
+  if (timeRemaining < 300) display.classList.add('danger');
+  else if (timeRemaining < 600) display.classList.add('warning');
+}
 
-// =====================================================
-// MOBILE MENU
-// =====================================================
-const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
+function calculateScore() {
+  let correct = 0;
+  for (let i = 0; i < 100; i++) {
+    if (userAnswers[i] === examQuestions[i].correct) correct++;
+  }
+  return correct;
+}
 
-if (menuToggle && navLinks) {
-  menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    // Gestion propre de l'affichage natif mobile demandé via CSS
-    if(navLinks.classList.contains('active')){
-      navLinks.style.display = 'flex';
+function submitExam() {
+  if (examFinished) return;
+  clearInterval(timerInterval);
+  examFinished = true;
+  
+  const score = calculateScore();
+  
+  // Cacher interface examen
+  document.getElementById('examInterface').classList.remove('active');
+  document.getElementById('resultsPanel').classList.add('active');
+  
+  // Afficher résultats
+  const scoreCircle = document.getElementById('scoreCircle');
+  scoreCircle.textContent = `${score}/100`;
+  
+  let circleClass = '';
+  let msg = '';
+  if (score >= 85) { circleClass = 'excellent'; msg = '🏆 Excellent ! Candidat hautement qualifié pour le poste.'; }
+  else if (score >= 70) { circleClass = 'good'; msg = '👍 Bien ! Bon niveau technique, quelques points à approfondir.'; }
+  else if (score >= 50) { circleClass = 'average'; msg = '📚 Niveau moyen. Une formation complémentaire est recommandée.'; }
+  else { circleClass = 'poor'; msg = '❌ Niveau insuffisant. Le candidat ne possède pas les compétences requises.'; }
+  
+  scoreCircle.className = `results-score-circle ${circleClass}`;
+  document.getElementById('resultsMsg').textContent = msg;
+  document.getElementById('resultsDetail').textContent = `${score} bonnes réponses sur 100 questions. Temps utilisé : ${Math.floor((90*60 - timeRemaining) / 60)} min ${(90*60 - timeRemaining) % 60} sec.`;
+
+  // Envoyer par email
+  sendResultsByEmail(score);
+}
+
+function sendResultsByEmail(score) {
+  const statusDiv = document.getElementById('emailStatus');
+  statusDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi du rapport à la direction...';
+  
+  const formData = new FormData();
+  formData.append('candidat_nom', candidateInfo.name);
+  formData.append('candidat_email', candidateInfo.email);
+  formData.append('candidat_telephone', candidateInfo.phone);
+  formData.append('poste_vise', candidateInfo.position);
+  formData.append('score', `${score}/100`);
+  formData.append('temps_utilise', `${Math.floor((90*60 - timeRemaining) / 60)} min ${(90*60 - timeRemaining) % 60} sec`);
+  formData.append('date_examen', new Date().toLocaleString('fr-FR'));
+  formData.append('_subject', `Résultat Examen Support IT - ${candidateInfo.name} - ${score}/100`);
+  formData.append('_replyto', candidateInfo.email);
+
+  fetch('https://formspree.io/f/myklqdky', {
+    method: 'POST',
+    body: formData,
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(response => {
+    if (response.ok) {
+      statusDiv.className = 'results-email-status sent';
+      statusDiv.innerHTML = '✅ Rapport envoyé avec succès à mhirigueyoussef@gmail.com';
     } else {
-      navLinks.style.display = 'none';
+      statusDiv.className = 'results-email-status error';
+      statusDiv.innerHTML = '⚠️ Erreur d\'envoi automatique. Résultat enregistré localement. Contactez le recruteur.';
     }
+  })
+  .catch(() => {
+    statusDiv.className = 'results-email-status error';
+    statusDiv.innerHTML = '⚠️ Erreur réseau. Le résultat est affiché ci-dessus. Veuillez contacter le recruteur.';
   });
 }
+
+function reviewExam() {
+  currentQuestionIndex = 0;
+  document.getElementById('resultsPanel').classList.remove('active');
+  document.getElementById('examInterface').classList.add('active');
+  document.getElementById('candidateForm').style.display = 'none';
+  document.getElementById('submitBtn').style.display = 'none';
+  document.getElementById('nextBtn').style.display = 'flex';
+  renderQuestion();
+  updateNavButtons();
+}
+
+// Mobile menu
+const menuToggle = document.getElementById('menuToggle');
+const mobileNav = document.getElementById('mobileNav');
+if (menuToggle && mobileNav) {
+  menuToggle.addEventListener('click', () => {
+    mobileNav.classList.toggle('active');
+    menuToggle.querySelector('i').className = mobileNav.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+  });
+}
+
+// Raccourcis clavier
+document.addEventListener('keydown', (e) => {
+  if (!examStarted || examFinished) return;
+  if (e.key === 'ArrowRight') nextQuestion();
+  if (e.key === 'ArrowLeft') prevQuestion();
+  if (e.key >= '1' && e.key <= '4') {
+    const idx = parseInt(e.key) - 1;
+    if (idx < examQuestions[currentQuestionIndex].options.length) selectAnswer(idx);
+  }
+});
 </script>
 </body>
 </html>
