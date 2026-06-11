@@ -2,139 +2,319 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="NetVanguard IT Solutions · Portail de Soutien & Assistance Client">
   <title data-i18n="support_page_title">NetVanguard IT Solutions · Portail de Soutien & Assistance</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
   <style>
     :root {
       --primary: #0A1628;
       --primary-deep: #050B14;
+      --primary-light: #0F2B4D;
       --accent: #00D4FF;
-      --accent-dark: #00A3C4;
+      --accent-dark: #0891B2;
       --red: #EF4444;
+      --red-dark: #DC2626;
       --white: #FFFFFF;
+      --off-white: #E2E8F0;
       --gray-light: #94A3B8;
+      --gray-mid: #64748B;
+      --gold: #FFB800;
+      --success: #10B981;
+      --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Manrope', sans-serif;
-      background-color: var(--primary-deep);
-      color: var(--white);
-      margin: 0; padding: 0;
-      display: flex; flex-direction: column;
+      color: var(--off-white);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background: var(--primary-deep);
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
-    
-    .top-lang-bar {
-      display: flex; justify-content: flex-end; padding: 1rem 2rem;
-      gap: 0.5rem; background: rgba(255,255,255,0.02);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      align-items: center;
+    h1, h2, h3, h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
     }
-    .lang-btn, .exit-btn {
-      background: transparent; border: 1px solid rgba(148, 163, 184, 0.3);
-      color: var(--gray-light); padding: 0.4rem 0.8rem; border-radius: 6px;
-      cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: all 0.3s;
-      display: inline-flex; align-items: center; gap: 0.5rem;
-    }
-    .lang-btn.active, .lang-btn:hover {
-      border-color: var(--accent); color: var(--white); background: rgba(0, 212, 255, 0.1);
-    }
-    .exit-btn {
-      border-color: rgba(0, 212, 255, 0.3);
-      color: var(--accent);
-      margin-left: 1rem;
-    }
-    .exit-btn:hover {
-      border-color: var(--accent);
-      color: var(--white);
-      background: rgba(0, 212, 255, 0.15);
-      box-shadow: 0 0 12px rgba(0, 212, 255, 0.2);
-      transform: translateY(-1px);
-    }
+    a { text-decoration: none; }
 
+    /* TOP BAR */
+    .top-bar {
+      background: rgba(5, 11, 20, 0.95);
+      backdrop-filter: blur(10px);
+      color: var(--gray-light);
+      padding: 0.5rem 4%;
+      font-size: 0.8rem;
+      border-bottom: 1px solid rgba(0,212,255,0.2);
+      z-index: 1001;
+      position: relative;
+    }
+    .top-bar-container {
+      max-width: 1400px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 0.5rem;
+    }
+    .partner-badge {
+      display: flex; align-items: center; gap: 0.6rem;
+      background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(239,68,68,0.08));
+      padding: 0.3rem 1rem; border-radius: 40px; border-left: 2px solid var(--accent);
+    }
+    .partner-badge i { color: var(--accent); font-size: 0.8rem; }
+    .partner-badge span {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px;
+      background: linear-gradient(135deg, #fff, var(--accent));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .top-bar-info { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .top-bar-info span { display: flex; align-items: center; gap: 0.4rem; }
+    .top-bar-info i { color: var(--accent); }
+    .top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; transition: var(--transition); display: inline-block; }
+    .top-bar-social a:hover { color: var(--accent); transform: translateY(-2px); }
+
+    .lang-switch {
+      display: flex; gap: 0.25rem; background: rgba(0,212,255,0.15);
+      padding: 0.2rem 0.6rem; border-radius: 40px; align-items: center;
+    }
+    .lang-btn {
+      background: none; border: none; color: var(--gray-light);
+      font-size: 0.8rem; font-weight: 600; cursor: pointer;
+      padding: 0.2rem 0.6rem; border-radius: 30px; transition: var(--transition);
+      font-family: inherit;
+    }
+    .lang-btn.active { background: var(--accent); color: var(--primary); }
+
+    /* NAV */
+    .nav {
+      position: sticky; top: 0; z-index: 1000; padding: 1rem 4%;
+      background: rgba(7, 20, 38, 0.95); backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,212,255,0.15);
+    }
+    .nav-container {
+      max-width: 1400px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.3rem;
+      color: var(--white); transition: var(--transition);
+    }
+    .logo:hover { transform: scale(1.02); }
+    .logo-shield {
+      width: 36px; height: 36px; flex-shrink: 0;
+      animation: float 3s ease-in-out infinite;
+      filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.5));
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .logo-text-accent { color: var(--accent); }
+
+    .nav-links { display: flex; gap: 0.4rem; list-style: none; align-items: center; }
+    .nav-links > li > a {
+      color: var(--off-white); font-size: 0.92rem; font-weight: 600;
+      padding: 0.6rem 1rem; border-radius: 4px; transition: var(--transition);
+      display: flex; align-items: center; gap: 0.3rem;
+    }
+    .nav-links > li > a:hover, .nav-links > li > a.active {
+      background: rgba(0,212,255,0.1); color: var(--accent);
+    }
+    .btn-espace-client {
+      background: linear-gradient(135deg, #00D4FF, #0891B2) !important;
+      color: #050B14 !important;
+      font-weight: 700 !important;
+      padding: 0.5rem 1.2rem !important;
+      border-radius: 6px !important;
+    }
+    .menu-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
+
+    /* MAIN CONTENT */
     .main-content {
-      flex: 1; display: flex; justify-content: center; align-items: center; padding: 2rem;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 3rem 4%;
+      background: linear-gradient(180deg, var(--primary-deep) 0%, #030d1a 100%);
     }
     .support-container {
-      width: 100%; max-width: 750px;
-      background: rgba(10, 22, 40, 0.6);
+      width: 100%;
+      max-width: 900px;
+      background: rgba(10, 22, 40, 0.5);
       backdrop-filter: blur(12px);
-      border: 1px solid rgba(0, 212, 255, 0.2);
-      border-radius: 24px; padding: 3rem 2rem;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-      text-align: center;
+      border: 1px solid rgba(0, 212, 255, 0.15);
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.4), 0 0 40px rgba(0, 212, 255, 0.05);
     }
+
+    .section-badge {
+      display: inline-block;
+      padding: 0.4rem 1.2rem;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 50px;
+      color: var(--success);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 1rem;
+    }
+
     .section-title {
       font-family: 'Space Grotesk', sans-serif;
-      color: var(--red); font-size: 1.6rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2rem;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--white);
     }
+    .section-subtitle {
+      color: var(--gray-light);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+
+    /* SUPPORT METHODS */
     .support-methods {
-      display: flex; flex-direction: column; gap: 1.5rem;
-      max-width: 500px; margin: 0 auto 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
     }
     .method-item {
-      display: flex; align-items: center; gap: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
       background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(148, 163, 184, 0.2);
-      padding: 1rem 1.5rem; border-radius: 12px;
-      transition: all 0.3s ease; text-decoration: none; color: inherit;
+      border: 1px solid rgba(0, 212, 255, 0.1);
+      padding: 1.2rem 1.5rem;
+      border-radius: 14px;
+      transition: var(--transition);
+      text-decoration: none;
+      color: inherit;
     }
     .method-item:hover {
-      border-color: var(--accent); background: rgba(0, 212, 255, 0.05);
-      transform: translateY(-2px);
+      border-color: var(--accent);
+      background: rgba(0, 212, 255, 0.05);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0, 212, 255, 0.08);
     }
-    .method-item i { color: var(--accent); font-size: 1.5rem; width: 30px; }
-    .method-text { text-align: left; font-size: 0.95rem; }
-    .method-text strong { color: var(--gray-light); text-transform: uppercase; font-size: 0.8rem; display: block; }
+    .method-icon {
+      width: 48px; height: 48px;
+      background: linear-gradient(135deg, rgba(0,212,255,0.12), rgba(8,145,178,0.18));
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent); font-size: 1.3rem; flex-shrink: 0;
+      border: 1px solid rgba(0,212,255,0.2);
+    }
+    .method-text { font-size: 0.9rem; }
+    .method-text strong { display: block; color: var(--accent); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.08em; margin-bottom: 0.2rem; }
+    .method-text span { color: var(--gray-light); }
 
     .divider {
-      border-top: 1px dashed rgba(0, 212, 255, 0.2);
-      margin: 3rem 0;
+      border-top: 1px solid rgba(0, 212, 255, 0.1);
+      margin: 2.5rem 0;
+      position: relative;
     }
-    .tech-connection-zone { background: rgba(0, 212, 255, 0.02); padding: 2.5rem 2rem; border-radius: 16px; border: 1px dashed rgba(0, 212, 255, 0.3); }
+    .divider::after {
+      content: '🔧';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary-deep);
+      padding: 0 1rem;
+      font-size: 1rem;
+    }
 
-    .steps-container {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; text-align: left;
+    /* TECH ZONE */
+    .tech-zone {
+      background: rgba(0, 212, 255, 0.03);
+      padding: 2.5rem 2rem;
+      border-radius: 18px;
+      border: 1px solid rgba(0, 212, 255, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    .tech-zone::before {
+      content: '';
+      position: absolute;
+      top: -50px; right: -50px;
+      width: 150px; height: 150px;
+      background: radial-gradient(circle, rgba(0,212,255,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
     }
     .step-card {
-      background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);
-      border-radius: 12px; padding: 1.5rem; position: relative;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      padding: 1.5rem;
+      position: relative;
+      transition: var(--transition);
+    }
+    .step-card:hover {
+      border-color: var(--accent);
+      background: rgba(0, 212, 255, 0.03);
     }
     .step-card-full {
       grid-column: 1 / -1;
+      text-align: center;
     }
     .step-num {
-      position: absolute; top: -15px; left: 15px; background: var(--accent); color: var(--primary-deep);
-      font-family: 'Space Grotesk', sans-serif; font-weight: 700; width: 30px; height: 30px;
-      border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.9rem;
-      box-shadow: 0 0 15px rgba(0,212,255,0.4);
+      position: absolute;
+      top: -16px;
+      left: 16px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: var(--primary-deep);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+      box-shadow: 0 0 20px rgba(0,212,255,0.3);
     }
-    .step-card h4 { margin: 0 0 0.5rem 0; color: var(--white); font-size: 1rem; }
-    .step-card p { margin: 0; color: var(--gray-light); font-size: 0.85rem; line-height: 1.5; }
-
-    .script-box {
-      display: none;
+    .step-card h4 {
+      margin: 0.3rem 0 0.5rem 0;
+      color: var(--white);
+      font-size: 1rem;
+    }
+    .step-card p {
+      margin: 0;
+      color: var(--gray-light);
+      font-size: 0.88rem;
+      line-height: 1.5;
     }
 
-    /* Agent Container */
+    /* Agent visuel */
     .agent-container {
       position: relative;
       display: inline-block;
       cursor: pointer;
       margin: 1rem 0;
     }
-    
-    /* Tooltip */
     .agent-tooltip {
       position: absolute;
-      top: -50px;
+      top: -40px;
       left: 50%;
       transform: translateX(-50%);
       background: var(--primary);
       color: var(--accent);
-      padding: 0.5rem 1rem;
+      padding: 0.4rem 1rem;
       border-radius: 8px;
       font-size: 0.8rem;
       font-weight: 600;
@@ -144,381 +324,394 @@
       transition: opacity 0.3s ease;
       pointer-events: none;
     }
-    .agent-tooltip::after {
-      content: '';
-      position: absolute;
-      bottom: -6px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 0;
-      border-left: 6px solid transparent;
-      border-right: 6px solid transparent;
-      border-top: 6px solid var(--accent);
-    }
-    .agent-container:hover .agent-tooltip {
-      opacity: 1;
-    }
-
-    /* Agent SVG */
+    .agent-container:hover .agent-tooltip { opacity: 1; }
     .agent-svg {
-      width: 160px;
-      height: 240px;
+      width: 100px;
+      height: 150px;
       transition: all 0.3s ease;
       filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.4));
     }
     .agent-container:hover .agent-svg {
       transform: scale(1.05);
-      filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.8));
-    }
-    .agent-svg .body { fill: #1a2a3a; stroke: #00D4FF; stroke-width: 2; }
-    .agent-svg .armor { fill: none; stroke: #00D4FF; stroke-width: 1.5; }
-    .agent-svg .accent { fill: #00D4FF; }
-    .agent-svg .eye { fill: #FFFFFF; }
-
-    .btn-copy-small {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      background: rgba(0, 212, 255, 0.15);
-      color: var(--accent);
-      border: 1px solid var(--accent);
-      padding: 0.4rem 0.8rem;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 0.8rem;
-      cursor: pointer;
-      transition: all 0.3s;
-      margin-top: 0.5rem;
-    }
-    .btn-copy-small:hover {
-      background: var(--accent);
-      color: var(--primary-deep);
+      filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.7));
     }
 
-    .btn-download-primary {
+    .btn-copy {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      background: linear-gradient(135deg, var(--accent), #0891B2);
-      color: var(--primary-deep); border: none; padding: 0.6rem 1.2rem;
-      border-radius: 6px; font-weight: 700; font-size: 0.85rem;
-      cursor: pointer; transition: all 0.3s; text-decoration: none; margin-top: 1rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: var(--primary-deep);
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-top: 0.8rem;
+      font-family: inherit;
     }
-    .btn-download-primary:hover {
-      transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,212,255,0.3);
+    .btn-copy:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,212,255,0.3);
     }
 
+    .btn-exit {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent;
+      color: var(--gray-light);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 0.5rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: inherit;
+    }
+    .btn-exit:hover {
+      border-color: var(--red);
+      color: var(--red);
+      background: rgba(239,68,68,0.05);
+    }
+
+    /* FOOTER */
     .support-footer {
       text-align: center;
-      padding: 1.5rem 2rem;
-      background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(0, 163, 196, 0.05));
-      border-top: 1px solid rgba(0, 212, 255, 0.15);
+      padding: 1.2rem 2rem;
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.06), rgba(8, 145, 178, 0.03));
+      border-top: 1px solid rgba(0, 212, 255, 0.1);
       margin-top: auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
     .support-footer-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
+      display: inline-flex; align-items: center; gap: 0.5rem;
       background: linear-gradient(135deg, var(--accent), #0891B2);
       color: var(--primary-deep);
-      padding: 0.6rem 1.5rem;
+      padding: 0.5rem 1.5rem;
       border-radius: 50px;
       font-weight: 700;
-      font-size: 0.95rem;
-      letter-spacing: 1px;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
       box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
     }
-    .support-footer-badge i {
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
+    .support-footer-badge i { animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
 
-    @media (max-width: 600px) {
-      .top-lang-bar { justify-content: center; padding: 1rem; }
-      .exit-btn { margin-left: auto; }
-      .steps-container { grid-template-columns: 1fr; gap: 2rem; }
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .nav-links { display: none !important; }
+      .menu-toggle { display: block !important; }
+    }
+    @media (max-width: 768px) {
+      .top-bar-container { flex-direction: column; align-items: center; text-align: center; gap: 0.8rem; }
+      .top-bar-info { flex-direction: column; align-items: center; gap: 0.3rem; width: 100%; }
+      .support-container { padding: 2rem 1.5rem; }
+      .support-methods { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
       .step-card-full { grid-column: 1; }
+    }
+    @media (max-width: 600px) {
+      .top-bar-social { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <div class="top-lang-bar">
-    <button class="lang-btn active" onclick="switchLanguage('fr', event)">🇫🇷 FR</button>
-    <button class="lang-btn" onclick="switchLanguage('en', event)">🇬🇧 EN</button>
-    <button class="exit-btn" onclick="handleExit()">
-      <i class="fas fa-sign-out-alt"></i><span data-i18n="support_exit_btn">Quitter</span>
-    </button>
-  </div>
-
-  <div class="main-content">
-    <div class="support-container">
-      
-      <div class="support-channels">
-        <div class="section-title" data-i18n="support_open_ticket"><i class="fas fa-headset"></i> Ouvrir une demande de soutien</div>
-        
-        <div class="support-methods">
-          <a href="https://tickets.nextgentechnologies.net" target="_blank" class="method-item">
-            <i class="fas fa-ticket-alt"></i>
-            <div class="method-text">
-              <strong data-i18n="support_ticket_portal">Portail Tickets</strong> 
-              <span data-i18n="support_ticket_desc">Créez et suivez vos demandes avec un numéro de ticket dédié</span>
-            </div>
-          </a>
-          
-          <a href="mailto:contact@netvanguard.ma" class="method-item">
-            <i class="fas fa-envelope-open-text"></i>
-            <div class="method-text">
-              <strong data-i18n="support_by_email">Par courriel</strong> contact@netvanguard.ma
-            </div>
-          </a>
-          
-          <a href="contact.html" class="method-item">
-            <i class="fas fa-wpforms"></i>
-            <div class="method-text">
-              <strong data-i18n="support_by_form">Via notre formulaire</strong> <span data-i18n="support_click_form">Cliquez ici pour soumettre une demande d'aide </span>
-            </div>
-          </a>
-          
-          <div class="method-item">
-            <i class="fas fa-phone-alt"></i>
-            <div class="method-text">
-              <strong data-i18n="support_by_phone">Par téléphone</strong> +212 728 31 28 01
-            </div>
-          </div>
-        </div>
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-bar-container">
+    <div class="partner-badge">
+      <i class="fa-solid fa-shield-halved"></i>
+      <span>Votre partenaire en cyberdéfense et infogérance</span>
+    </div>
+    <div class="top-bar-info">
+      <span><i class="fa-solid fa-phone"></i> +212 728 31 28 01</span>
+      <span><i class="fa-solid fa-envelope"></i> contact@netvanguard.ma</span>
+      <span><i class="fa-solid fa-location-dot"></i> Casablanca</span>
+    </div>
+    <div class="top-bar-social" style="display: flex; align-items: center;">
+      <div class="lang-switch" style="margin-right: 1rem;">
+        <button class="lang-btn active" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
       </div>
-
-      <div class="divider"></div>
-
-      <div class="tech-connection-zone">
-        <div class="section-title" style="color: var(--accent); margin-bottom: 0.5rem;" data-i18n="support_tech_connect"><i class="fas fa-desktop"></i> Assistance Technique Sécurisée à Distance</div>
-        
-        <div class="steps-container">
-          
-          <div class="step-card">
-            <div class="step-num">1</div>
-            <h4 data-i18n="support_step1_title">Ouvrir PowerShell en Admin</h4>
-            <p data-i18n="support_step1_desc">Faites un clic droit sur le bouton Démarrer, puis cliquez sur "Windows PowerShell (Admin)" ou "Terminal (Admin)".</p>
-          </div>
-
-          <div class="step-card">
-            <div class="step-num">3</div>
-            <h4 data-i18n="support_step3_title">Coller dans PowerShell</h4>
-            <p data-i18n="support_step3_desc">Faites un clic droit dans la fenêtre PowerShell bleue, puis appuyez sur Entrée pour lancer l'installation.</p>
-          </div>
-
-          <div class="step-card step-card-full">
-            <div class="step-num">2</div>
-            <h4 data-i18n="support_step2_title">Copier ce script complet</h4>
-            <p data-i18n="support_step2_desc">Cliquez sur l'agent ci-dessous pour copier automatiquement le script d'installation :</p>
-            <div class="script-box">$ErrorActionPreference = 'Stop'; Invoke-WebRequest -Uri "https://rmm.nextgentechnologies.net/dl/tacticalagent-v2.10.0-windows-amd64.exe" -OutFile "$env:TEMP\tacticalagent.exe"; Start-Process "$env:TEMP\tacticalagent.exe" -ArgumentList '/VERYSILENT /SUPPRESSMSGBOXES' -Wait; & "C:\Program Files\TacticalAgent\tacticalrmm.exe" -m install --api https://api.rmm.nextgentechnologies.net --client-id 1 --site-id 1 --agent-type workstation --auth d432d9944a0eb82a8f5c0db6107f69a28ff8f1b8fe7d3a3e2a10ee487a359e59 --rdp --ping --power</div>
-            
-            <!-- Agent Vanguard -->
-            <div class="agent-container" onclick="copyInstallScript()">
-              <div class="agent-tooltip">Cliquez sur l'agent pour copier le script</div>
-              <svg class="agent-svg" viewBox="0 0 200 300" width="160px" height="240px" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <radialGradient id="auraGrad" cx="50%" cy="45%" r="50%">
-                    <stop offset="0%" stop-color="#00D4FF" stop-opacity="0.25"/>
-                    <stop offset="100%" stop-color="#00D4FF" stop-opacity="0"/>
-                  </radialGradient>
-                  <linearGradient id="visorGlow" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#00D4FF" stop-opacity="0.9"/>
-                    <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.8"/>
-                    <stop offset="100%" stop-color="#00D4FF" stop-opacity="0.9"/>
-                  </linearGradient>
-                  <linearGradient id="armorShine" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stop-color="#0A1628"/>
-                    <stop offset="100%" stop-color="#050B14"/>
-                  </linearGradient>
-                </defs>
-                
-                <!-- Aura lumineuse -->
-                <ellipse cx="100" cy="150" rx="95" ry="145" fill="url(#auraGrad)"/>
-                
-                <!-- Ombre au sol -->
-                <ellipse cx="100" cy="285" rx="45" height="8" fill="#00D4FF" opacity="0.15"/>
-                
-                <!-- Jambes -->
-                <rect x="68" y="195" width="22" height="75" rx="4" fill="#0A1628" stroke="#00D4FF" stroke-width="1.2"/>
-                <rect x="110" y="195" width="22" height="75" rx="4" fill="#0A1628" stroke="#00D4FF" stroke-width="1.2"/>
-                
-                <!-- Bottes -->
-                <path d="M 63 262 L 95 262 L 95 278 L 63 278 Z" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
-                <path d="M 105 262 L 137 262 L 137 278 L 105 278 Z" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
-                
-                <!-- Genouillères -->
-                <rect x="70" y="228" width="18" height="10" rx="3" fill="#00D4FF" opacity="0.3"/>
-                <rect x="112" y="228" width="18" height="10" rx="3" fill="#00D4FF" opacity="0.3"/>
-                
-                <!-- Corps / Torse -->
-                <path d="M 50 105 L 150 105 L 155 210 L 45 210 Z" fill="url(#armorShine)" stroke="#00D4FF" stroke-width="1.5"/>
-                
-                <!-- Plaques d'armure poitrine -->
-                <path d="M 55 115 L 145 115 L 140 165 L 60 165 Z" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
-                <line x1="100" y1="115" x2="100" y2="165" stroke="#00D4FF" stroke-width="1.2"/>
-                <rect x="62" y="125" width="34" height="12" rx="2" fill="#00D4FF" opacity="0.1"/>
-                <rect x="104" y="125" width="34" height="12" rx="2" fill="#00D4FF" opacity="0.1"/>
-                
-                <!-- Logo NG sur la poitrine -->
-                <text x="100" y="147" text-anchor="middle" fill="#00D4FF" font-size="16" font-weight="bold" font-family="Arial">NG</text>
-                
-                <!-- Ceinture -->
-                <rect x="50" y="195" width="100" height="14" rx="3" fill="#0A1628" stroke="#00D4FF" stroke-width="2"/>
-                <circle cx="100" cy="202" r="7" fill="#0A1628" stroke="#00D4FF" stroke-width="2"/>
-                <circle cx="100" cy="202" r="3" fill="#00D4FF"/>
-                
-                <!-- Bras GAUCHE (croisé) -->
-                <path d="M 50 115 L 28 170 L 40 185 L 55 140" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
-                <!-- Plaque épaule gauche -->
-                <ellipse cx="48" cy="120" rx="16" ry="8" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5" transform="rotate(-15 48 120)"/>
-                
-                <!-- Bras DROIT (croisé) -->
-                <path d="M 150 115 L 172 170 L 160 185 L 145 140" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
-                <!-- Plaque épaule droite -->
-                <ellipse cx="152" cy="120" rx="16" ry="8" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5" transform="rotate(15 152 120)"/>
-                
-                <!-- Avant-bras croisés -->
-                <path d="M 40 185 L 65 175 L 80 178 L 60 190 Z" fill="#0A1628" stroke="#00D4FF" stroke-width="1.2"/>
-                <path d="M 160 185 L 135 175 L 120 178 L 140 190 Z" fill="#0A1628" stroke="#00D4FF" stroke-width="1.2"/>
-                
-                <!-- Gants -->
-                <rect x="55" y="182" width="18" height="12" rx="3" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
-                <rect x="127" y="182" width="18" height="12" rx="3" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
-                
-                <!-- Cou -->
-                <rect x="85" y="85" width="30" height="20" fill="#0A1628"/>
-                
-                <!-- Tête -->
-                <ellipse cx="100" cy="65" rx="28" ry="30" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
-                
-                <!-- Casque -->
-                <path d="M 72 65 Q 75 35 100 38 Q 125 35 128 65" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
-                <path d="M 75 55 L 125 55 L 120 45 L 80 45 Z" fill="#00D4FF" opacity="0.2"/>
-                
-                <!-- Visière -->
-                <path d="M 78 58 L 122 58 L 126 68 L 74 68 Z" fill="url(#visorGlow)" stroke="#00D4FF" stroke-width="1"/>
-                <!-- Reflet visière -->
-                <line x1="82" y1="62" x2="118" y2="62" stroke="#FFFFFF" stroke-width="0.8" opacity="0.6"/>
-                
-                <!-- Oreillettes tactiques -->
-                <rect x="68" y="55" width="8" height="15" rx="2" fill="#0A1628" stroke="#00D4FF" stroke-width="1"/>
-                <rect x="124" y="55" width="8" height="15" rx="2" fill="#0A1628" stroke="#00D4FF" stroke-width="1"/>
-                
-                <!-- Détails armure supplémentaires -->
-                <circle cx="80" cy="170" r="3" fill="#00D4FF" opacity="0.4"/>
-                <circle cx="120" cy="170" r="3" fill="#00D4FF" opacity="0.4"/>
-              </svg>
-            </div>
-
-            <button onclick="copyInstallScript()" class="btn-copy-small">
-              <i class="fas fa-copy"></i> <span data-i18n="support_copy_btn">Copier le script</span>
-            </button>
-          </div>
-
-          <div class="step-card">
-            <div class="step-num">4</div>
-            <h4 data-i18n="support_step4_title">Attendre 2 minutes</h4>
-            <p data-i18n="support_step4_desc">L'agent s'installe automatiquement. Une fois terminé, informez votre expert Vanguard qui pourra se connecter à distance.</p>
-          </div>
-
-        </div>
-      </div>
-
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-x-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
     </div>
   </div>
+</div>
 
-  <div class="support-footer">
-    <div class="support-footer-badge" data-i18n="support_24_7">
-      <i class="fas fa-headset"></i> Support Technique 24/7
-    </div>
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <svg class="logo-shield" viewBox="0 0 24 24" width="36" height="36">
+        <defs>
+          <linearGradient id="shieldGradNav" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#FFB800;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#shieldGradNav)"/>
+        <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
+      </svg>
+      <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em;font-weight:500;color:var(--gray-light);">IT Solutions</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="secteurs.html">Secteurs</a></li>
+      <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
+      <li><a href="carrieres.html">Carrières</a></li>
+      <li><a href="campus-cyber.html">🎓 Campus Cyber</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="support.html" class="btn-espace-client active"><i class="fa-solid fa-user-circle"></i> Espace Client</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
   </div>
+</nav>
 
-  <script>
-    const exitUrl = "https://http://netvanguard.ma";
+<!-- MAIN CONTENT -->
+<div class="main-content">
+  <div class="support-container">
 
-    const scriptToCopy = `$ErrorActionPreference = 'Stop'; Invoke-WebRequest -Uri "https://rmm.nextgentechnologies.net/dl/tacticalagent-v2.10.0-windows-amd64.exe" -OutFile "$env:TEMP\\tacticalagent.exe"; Start-Process "$env:TEMP\\tacticalagent.exe" -ArgumentList '/VERYSILENT /SUPPRESSMSGBOXES' -Wait; & "C:\\Program Files\\TacticalAgent\\tacticalrmm.exe" -m install --api https://api.rmm.nextgentechnologies.net --client-id 1 --site-id 1 --agent-type workstation --auth d432d9944a0eb82a8f5c0db6107f69a28ff8f1b8fe7d3a3e2a10ee487a359e59 --rdp --ping --power`;
+    <!-- SECTION SUPPORT -->
+    <span class="section-badge" data-i18n="support_badge">🎫 SERVICE CLIENT</span>
+    <h2 class="section-title" data-i18n="support_open_ticket">Ouvrir une demande de soutien</h2>
+    <p class="section-subtitle" data-i18n="support_subtitle">Choisissez le canal qui vous convient. Notre équipe est disponible 24/7.</p>
 
-    function copyInstallScript() {
-      navigator.clipboard.writeText(scriptToCopy);
-      alert("✅ Script copié en une seule ligne !\n\nCollez-le dans PowerShell (clic droit) et appuyez sur Entrée.");
+    <div class="support-methods">
+      <a href="https://tickets.nextgentechnologies.net" target="_blank" class="method-item">
+        <div class="method-icon"><i class="fas fa-ticket-alt"></i></div>
+        <div class="method-text">
+          <strong data-i18n="support_ticket_portal">Portail Tickets</strong>
+          <span data-i18n="support_ticket_desc">Créez et suivez vos demandes avec un numéro de ticket dédié</span>
+        </div>
+      </a>
+
+      <a href="mailto:contact@netvanguard.ma" class="method-item">
+        <div class="method-icon"><i class="fas fa-envelope-open-text"></i></div>
+        <div class="method-text">
+          <strong data-i18n="support_by_email">Par courriel</strong>
+          <span>contact@netvanguard.ma</span>
+        </div>
+      </a>
+
+      <a href="contact.html" class="method-item">
+        <div class="method-icon"><i class="fas fa-wpforms"></i></div>
+        <div class="method-text">
+          <strong data-i18n="support_by_form">Via notre formulaire</strong>
+          <span data-i18n="support_click_form">Cliquez ici pour soumettre une demande d'aide</span>
+        </div>
+      </a>
+
+      <div class="method-item">
+        <div class="method-icon"><i class="fas fa-phone-alt"></i></div>
+        <div class="method-text">
+          <strong data-i18n="support_by_phone">Par téléphone</strong>
+          <span>+212 728 31 28 01</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION TECHNIQUE -->
+    <div class="tech-zone">
+      <span class="section-badge" style="background:rgba(0,212,255,0.1);border-color:rgba(0,212,255,0.3);color:var(--accent);" data-i18n="support_tech_badge">🖥️ ASSISTANCE À DISTANCE</span>
+      <h2 class="section-title" style="font-size:1.3rem;" data-i18n="support_tech_connect">Assistance Technique Sécurisée</h2>
+      <p class="section-subtitle" style="margin-bottom:1rem;" data-i18n="support_tech_desc">Suivez ces étapes pour permettre à votre expert NetVanguard de se connecter à distance.</p>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <h4 data-i18n="support_step1_title">Ouvrir PowerShell en Admin</h4>
+          <p data-i18n="support_step1_desc">Clic droit sur Démarrer → "Windows PowerShell (Admin)" ou "Terminal (Admin)".</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <h4 data-i18n="support_step3_title">Coller dans PowerShell</h4>
+          <p data-i18n="support_step3_desc">Clic droit dans la fenêtre bleue, puis appuyez sur Entrée pour lancer l'installation.</p>
+        </div>
+
+        <div class="step-card step-card-full">
+          <div class="step-num">2</div>
+          <h4 data-i18n="support_step2_title">Copier le script d'installation</h4>
+          <p data-i18n="support_step2_desc">Cliquez sur l'agent ou le bouton ci-dessous pour copier automatiquement le script :</p>
+
+          <div class="agent-container" onclick="copyInstallScript()">
+            <div class="agent-tooltip" data-i18n="support_agent_click">Cliquez pour copier le script</div>
+            <svg class="agent-svg" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <radialGradient id="auraGrad" cx="50%" cy="45%" r="50%">
+                  <stop offset="0%" stop-color="#00D4FF" stop-opacity="0.25"/>
+                  <stop offset="100%" stop-color="#00D4FF" stop-opacity="0"/>
+                </radialGradient>
+                <linearGradient id="visorGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#00D4FF" stop-opacity="0.9"/>
+                  <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.8"/>
+                  <stop offset="100%" stop-color="#00D4FF" stop-opacity="0.9"/>
+                </linearGradient>
+              </defs>
+              <ellipse cx="100" cy="150" rx="95" ry="145" fill="url(#auraGrad)"/>
+              <ellipse cx="100" cy="285" rx="45" height="8" fill="#00D4FF" opacity="0.15"/>
+              <rect x="68" y="195" width="22" height="75" rx="4" fill="#0A1628" stroke="#00D4FF" stroke-width="1.2"/>
+              <rect x="110" y="195" width="22" height="75" rx="4" fill="#0A1628" stroke="#00D4FF" stroke-width="1.2"/>
+              <path d="M 63 262 L 95 262 L 95 278 L 63 278 Z" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
+              <path d="M 105 262 L 137 262 L 137 278 L 105 278 Z" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
+              <rect x="70" y="228" width="18" height="10" rx="3" fill="#00D4FF" opacity="0.3"/>
+              <rect x="112" y="228" width="18" height="10" rx="3" fill="#00D4FF" opacity="0.3"/>
+              <path d="M 50 105 L 150 105 L 155 210 L 45 210 Z" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
+              <path d="M 55 115 L 145 115 L 140 165 L 60 165 Z" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
+              <line x1="100" y1="115" x2="100" y2="165" stroke="#00D4FF" stroke-width="1.2"/>
+              <text x="100" y="147" text-anchor="middle" fill="#00D4FF" font-size="14" font-weight="bold" font-family="Arial">NV</text>
+              <rect x="50" y="195" width="100" height="14" rx="3" fill="#0A1628" stroke="#00D4FF" stroke-width="2"/>
+              <circle cx="100" cy="202" r="7" fill="#0A1628" stroke="#00D4FF" stroke-width="2"/>
+              <circle cx="100" cy="202" r="3" fill="#00D4FF"/>
+              <path d="M 50 115 L 28 170 L 40 185 L 55 140" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
+              <ellipse cx="48" cy="120" rx="16" ry="8" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5" transform="rotate(-15 48 120)"/>
+              <path d="M 150 115 L 172 170 L 160 185 L 145 140" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
+              <ellipse cx="152" cy="120" rx="16" ry="8" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5" transform="rotate(15 152 120)"/>
+              <path d="M 40 185 L 65 175 L 80 178 L 60 190 Z" fill="#0A1628" stroke="#00D4FF" stroke-width="1.2"/>
+              <path d="M 160 185 L 135 175 L 120 178 L 140 190 Z" fill="#0A1628" stroke="#00D4FF" stroke-width="1.2"/>
+              <rect x="55" y="182" width="18" height="12" rx="3" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
+              <rect x="127" y="182" width="18" height="12" rx="3" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
+              <rect x="85" y="85" width="30" height="20" fill="#0A1628"/>
+              <ellipse cx="100" cy="65" rx="28" ry="30" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
+              <path d="M 72 65 Q 75 35 100 38 Q 125 35 128 65" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
+              <path d="M 78 58 L 122 58 L 126 68 L 74 68 Z" fill="url(#visorGlow)" stroke="#00D4FF" stroke-width="1"/>
+              <rect x="68" y="55" width="8" height="15" rx="2" fill="#0A1628" stroke="#00D4FF" stroke-width="1"/>
+              <rect x="124" y="55" width="8" height="15" rx="2" fill="#0A1628" stroke="#00D4FF" stroke-width="1"/>
+              <circle cx="80" cy="170" r="3" fill="#00D4FF" opacity="0.4"/>
+              <circle cx="120" cy="170" r="3" fill="#00D4FF" opacity="0.4"/>
+            </svg>
+          </div>
+
+          <button onclick="copyInstallScript()" class="btn-copy">
+            <i class="fas fa-copy"></i> <span data-i18n="support_copy_btn">Copier le script</span>
+          </button>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">4</div>
+          <h4 data-i18n="support_step4_title">Attendre 2 minutes</h4>
+          <p data-i18n="support_step4_desc">L'agent s'installe automatiquement. Une fois terminé, informez votre expert NetVanguard.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;justify-content:flex-end;margin-top:1.5rem;">
+      <button class="btn-exit" onclick="handleExit()">
+        <i class="fas fa-sign-out-alt"></i> <span data-i18n="support_exit_btn">Retour au site</span>
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="support-footer">
+  <div class="support-footer-badge" data-i18n="support_24_7">
+    <i class="fas fa-headset"></i> Support Technique 24/7
+  </div>
+</div>
+
+<script>
+  const exitUrl = "https://netvanguard.ma/index.html";
+
+  const scriptToCopy = `$ErrorActionPreference = 'Stop'; Invoke-WebRequest -Uri "https://rmm.nextgentechnologies.net/dl/tacticalagent-v2.10.0-windows-amd64.exe" -OutFile "$env:TEMP\\tacticalagent.exe"; Start-Process "$env:TEMP\\tacticalagent.exe" -ArgumentList '/VERYSILENT /SUPPRESSMSGBOXES' -Wait; & "C:\\Program Files\\TacticalAgent\\tacticalrmm.exe" -m install --api https://api.rmm.nextgentechnologies.net --client-id 1 --site-id 1 --agent-type workstation --auth d432d9944a0eb82a8f5c0db6107f69a28ff8f1b8fe7d3a3e2a10ee487a359e59 --rdp --ping --power`;
+
+  function copyInstallScript() {
+    navigator.clipboard.writeText(scriptToCopy);
+    alert("✅ Script copié !\n\nCollez-le dans PowerShell (clic droit) et appuyez sur Entrée.");
+  }
+
+  const translations = {
+    fr: {
+      support_page_title: "NetVanguard IT Solutions · Portail de Soutien & Assistance",
+      support_badge: "🎫 SERVICE CLIENT",
+      support_open_ticket: "Ouvrir une demande de soutien",
+      support_subtitle: "Choisissez le canal qui vous convient. Notre équipe est disponible 24/7.",
+      support_ticket_portal: "Portail Tickets",
+      support_ticket_desc: "Créez et suivez vos demandes avec un numéro de ticket dédié",
+      support_by_email: "Par courriel",
+      support_by_form: "Via notre formulaire",
+      support_click_form: "Cliquez ici pour soumettre une demande d'aide",
+      support_by_phone: "Par téléphone",
+      support_tech_badge: "🖥️ ASSISTANCE À DISTANCE",
+      support_tech_connect: "Assistance Technique Sécurisée",
+      support_tech_desc: "Suivez ces étapes pour permettre à votre expert NetVanguard de se connecter à distance.",
+      support_step1_title: "Ouvrir PowerShell en Admin",
+      support_step1_desc: "Clic droit sur Démarrer → \"Windows PowerShell (Admin)\" ou \"Terminal (Admin)\".",
+      support_step2_title: "Copier le script d'installation",
+      support_step2_desc: "Cliquez sur l'agent ou le bouton ci-dessous pour copier automatiquement le script :",
+      support_agent_click: "Cliquez pour copier le script",
+      support_copy_btn: "Copier le script",
+      support_step3_title: "Coller dans PowerShell",
+      support_step3_desc: "Clic droit dans la fenêtre bleue, puis appuyez sur Entrée pour lancer l'installation.",
+      support_step4_title: "Attendre 2 minutes",
+      support_step4_desc: "L'agent s'installe automatiquement. Une fois terminé, informez votre expert NetVanguard.",
+      support_24_7: "Support Technique 24/7",
+      support_exit_btn: "Retour au site"
+    },
+    en: {
+      support_page_title: "NetVanguard IT Solutions · Support & Assistance Portal",
+      support_badge: "🎫 CUSTOMER SERVICE",
+      support_open_ticket: "Open a support request",
+      support_subtitle: "Choose the channel that suits you. Our team is available 24/7.",
+      support_ticket_portal: "Ticket Portal",
+      support_ticket_desc: "Create and track your requests with a dedicated ticket number",
+      support_by_email: "By email",
+      support_by_form: "Via our form",
+      support_click_form: "Click here to submit a help request",
+      support_by_phone: "By phone",
+      support_tech_badge: "🖥️ REMOTE ASSISTANCE",
+      support_tech_connect: "Secure Remote Assistance",
+      support_tech_desc: "Follow these steps to allow your NetVanguard expert to connect remotely.",
+      support_step1_title: "Open PowerShell as Admin",
+      support_step1_desc: "Right-click Start → \"Windows PowerShell (Admin)\" or \"Terminal (Admin)\".",
+      support_step2_title: "Copy the installation script",
+      support_step2_desc: "Click the agent or the button below to automatically copy the script:",
+      support_agent_click: "Click to copy the script",
+      support_copy_btn: "Copy script",
+      support_step3_title: "Paste in PowerShell",
+      support_step3_desc: "Right-click in the blue window, then press Enter to launch the installation.",
+      support_step4_title: "Wait 2 minutes",
+      support_step4_desc: "The agent installs automatically. Once done, inform your NetVanguard expert.",
+      support_24_7: "24/7 Technical Support",
+      support_exit_btn: "Back to site"
     }
+  };
 
-    const translations = {
-      fr: {
-        support_page_title: "NetVanguard IT Solutions · Portail de Soutien & Assistance",
-        support_open_ticket: "Ouvrir une demande de soutien",
-        support_ticket_portal: "Portail Tickets",
-        support_ticket_desc: "Créez et suivez vos demandes avec un numéro de ticket dédié",
-        support_by_email: "Par courriel",
-        support_by_form: "Via notre formulaire",
-        support_click_form: "Cliquez ici pour soumettre une demande d'aide",
-        support_by_phone: "Par téléphone",
-        support_tech_connect: "Assistance Technique Sécurisée à Distance",
-        support_step1_title: "Ouvrir PowerShell en Admin",
-        support_step1_desc: "Faites un clic droit sur le bouton Démarrer, puis cliquez sur \"Windows PowerShell (Admin)\" ou \"Terminal (Admin)\".",
-        support_step2_title: "Copier ce script complet",
-        support_step2_desc: "Cliquez sur l'agent ci-dessous pour copier automatiquement le script d'installation :",
-        support_copy_btn: "Copier le script",
-        support_step3_title: "Coller dans PowerShell",
-        support_step3_desc: "Faites un clic droit dans la fenêtre PowerShell bleue, puis appuyez sur Entrée pour lancer l'installation.",
-        support_step4_title: "Attendre 2 minutes",
-        support_step4_desc: "L'agent s'installe automatiquement. Une fois terminé, informez votre expert Vanguard qui pourra se connecter à distance.",
-        support_24_7: "Support Technique 24/7",
-        support_exit_btn: "Quitter"
-      },
-      en: {
-        support_page_title: "NetVanguard IT Solutions · Support & Assistance Portal",
-        support_open_ticket: "Open a support request",
-        support_ticket_portal: "Ticket Portal",
-        support_ticket_desc: "Create and track your requests with a dedicated ticket number",
-        support_by_email: "By email",
-        support_by_form: "Via our form",
-        support_click_form: "Click here to submit a help request",
-        support_by_phone: "By phone",
-        support_tech_connect: "Secure Remote Technical Assistance",
-        support_step1_title: "Open PowerShell as Admin",
-        support_step1_desc: "Right-click on the Start button, then click \"Windows PowerShell (Admin)\" or \"Terminal (Admin)\".",
-        support_step2_title: "Copy this complete script",
-        support_step2_desc: "Click the agent below to automatically copy the installation script:",
-        support_copy_btn: "Copy script",
-        support_step3_title: "Paste in PowerShell",
-        support_step3_desc: "Right-click in the blue PowerShell window, then press Enter to launch the installation.",
-        support_step4_title: "Wait 2 minutes",
-        support_step4_desc: "The agent installs automatically. Once done, inform your Vanguard expert who can connect remotely.",
-        support_24_7: "24/7 Technical Support",
-        support_exit_btn: "Exit"
+  function switchLanguage(lang, event) {
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+    if (event && event.target) event.target.classList.add('active');
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+      const key = element.getAttribute('data-i18n');
+      if (translations[lang] && translations[lang][key]) {
+        element.textContent = translations[lang][key];
       }
-    };
+    });
+    document.title = translations[lang]['support_page_title'];
+  }
 
-    function switchLanguage(lang, event) {
-      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-      if (event && event.target) {
-        event.target.classList.add('active');
-      }
-      document.querySelectorAll('[data-i18n]').forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        if (translations[lang] && translations[lang][key]) {
-          const icon = element.querySelector('i');
-          if (icon) {
-            element.innerHTML = '';
-            element.appendChild(icon);
-            element.appendChild(document.createTextNode(' ' + translations[lang][key]));
-          } else {
-            element.textContent = translations[lang][key];
-          }
-        }
-      });
-      document.title = translations[lang]['support_page_title'];
-    }
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => switchLanguage(e.target.getAttribute('data-lang'), e));
+  });
 
-    function handleExit() {
-      window.location.href = exitUrl;
+  function handleExit() {
+    window.location.href = exitUrl;
+  }
+
+  // Mobile menu
+  document.getElementById('menuToggle')?.addEventListener('click', () => {
+    const navLinks = document.getElementById('navLinks');
+    if (navLinks) {
+      navLinks.classList.toggle('active');
+      const icon = document.getElementById('menuToggle').querySelector('i');
+      icon.className = navLinks.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
     }
-  </script>
+  });
+</script>
 </body>
 </html>
