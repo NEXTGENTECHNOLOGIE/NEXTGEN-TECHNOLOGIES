@@ -3,794 +3,705 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Contactez NetVanguard IT Solutions — Cabinet cybersécurité à Casablanca. Audit gratuit, devis sur mesure, réponse sous 24h.">
-<title>Contact · NetVanguard IT Solutions</title>
+<meta name="description" content="Carrières chez NetVanguard IT Solutions. Déposez votre CV et rejoignez nos équipes.">
+<title>Carrières · NetVanguard IT Solutions</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 <style>
-:root{
-  --primary:#050B14;
-  --secondary:#0A1628;
-  --accent:#00D4FF;
-  --accent-dark:#0891B2;
-  --gold:#FFB800;
-  --white:#fff;
-  --text:#D8E2F0;
-  --muted:#94A3B8;
-  --border:rgba(255,255,255,0.08);
-  --success:#10B981;
-  --danger:#EF4444;
+:root {
+  --primary: #0A1628; --primary-deep: #050B14; --primary-light: #0F2B4D;
+  --accent: #00D4FF; --accent-dark: #0891B2; --gold: #FFB800;
+  --red: #EF4444; --red-dark: #DC2626; --white: #FFFFFF; --off-white: #E2E8F0;
+  --gray-light: #94A3B8; --gray-mid: #64748B; --success: #10B981;
+  --transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
 }
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{
-  font-family:'Manrope',sans-serif;
-  background:#030712;
-  color:var(--white);
-  overflow-x:hidden;
-  line-height:1.6;
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Manrope',sans-serif; color:var(--off-white); line-height:1.6; overflow-x:hidden; background:var(--primary-deep); }
+h1,h2,h3,h4 { font-family:'Space Grotesk',sans-serif; font-weight:700; letter-spacing:-0.02em; }
+a { text-decoration:none; }
+
+/* TOP BAR */
+.top-bar { background:rgba(5,11,20,0.95); backdrop-filter:blur(10px); color:var(--gray-light); padding:0.5rem 4%; font-size:0.8rem; border-bottom:1px solid rgba(0,212,255,0.2); z-index:1001; position:relative; }
+.top-bar-container { max-width:1400px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; }
+.top-bar-info { display:flex; gap:2rem; flex-wrap:wrap; }
+.top-bar-info span { display:flex; align-items:center; gap:0.4rem; }
+.top-bar-info i { color:var(--accent); }
+.top-bar-social { display:flex; align-items:center; gap:1rem; }
+.top-bar-social .social-icons { display:flex; gap:0.8rem; }
+.top-bar-social .social-icons a { color:var(--gray-light); transition:var(--transition); }
+.top-bar-social .social-icons a:hover { color:var(--accent); }
+.lang-switch { display:flex; gap:0.25rem; background:rgba(0,212,255,0.15); padding:0.2rem 0.6rem; border-radius:40px; align-items:center; }
+.lang-btn { background:none; border:none; color:var(--gray-light); font-size:0.8rem; font-weight:600; cursor:pointer; padding:0.2rem 0.6rem; border-radius:30px; transition:var(--transition); font-family:inherit; }
+.lang-btn.active { background:var(--accent); color:var(--primary); }
+
+/* NAV */
+.nav { position:sticky; top:0; z-index:1000; padding:1rem 4%; background:rgba(7,20,38,0.95); backdrop-filter:blur(10px); border-bottom:1px solid rgba(0,212,255,0.15); }
+.nav-container { max-width:1400px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; }
+.logo { display:flex; align-items:center; gap:0.6rem; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.3rem; color:var(--white); }
+.logo-shield { width:36px; height:36px; flex-shrink:0; animation:float 3s ease-in-out infinite; filter:drop-shadow(0 0 8px rgba(0,212,255,0.5)); }
+@keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-6px);} }
+.logo-text-accent { color:var(--accent); }
+.nav-links { display:flex; gap:0.4rem; list-style:none; align-items:center; }
+.nav-links>li>a { color:var(--off-white); font-size:0.92rem; font-weight:600; padding:0.6rem 1rem; border-radius:4px; transition:var(--transition); display:flex; align-items:center; gap:0.3rem; }
+.nav-links>li>a:hover,.nav-links>li>a.active { background:rgba(0,212,255,0.1); color:var(--accent); }
+.btn-espace-client { background:linear-gradient(135deg,#00D4FF,#0891B2)!important; color:#050B14!important; font-weight:700!important; padding:0.5rem 1.2rem!important; border-radius:6px!important; display:inline-flex!important; align-items:center!important; gap:0.5rem!important; }
+.menu-toggle { display:none; background:none; border:none; color:var(--white); font-size:1.5rem; cursor:pointer; }
+.mobile-nav-overlay { position:fixed; top:0; right:-100%; width:100%; max-width:400px; height:100vh; background:rgba(5,11,20,0.98); backdrop-filter:blur(25px); z-index:10000; padding:8rem 2rem 2rem; display:flex; flex-direction:column; gap:1.5rem; box-shadow:-10px 0 30px rgba(0,0,0,0.5); border-left:1px solid rgba(0,212,255,0.2); transition:right 0.5s cubic-bezier(0.77,0.2,0.05,1); }
+.mobile-nav-overlay.active { right:0; }
+.mobile-nav-overlay a { color:var(--white); font-size:1.1rem; font-weight:600; }
+.btn-espace-client-mobile { background:linear-gradient(135deg,#00D4FF,#0891B2); color:#050B14!important; font-weight:700; padding:0.5rem 1.2rem; border-radius:6px; text-align:center; display:inline-flex; align-items:center; justify-content:center; gap:0.5rem; margin-top:1rem; }
+
+/* PAGE HEADER */
+.page-header { position:relative; padding:5rem 4% 4rem; overflow:hidden; background:var(--primary-deep); text-align:center; }
+.page-header::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at 50% 30%,rgba(0,212,255,0.12),transparent 50%); pointer-events:none; }
+.page-header-container { max-width:900px; margin:0 auto; position:relative; z-index:2; }
+.page-header h1 { font-size:clamp(2.2rem,5vw,3.5rem); line-height:1.15; margin-bottom:1rem; color:var(--white); }
+.page-header h1 .accent { background:linear-gradient(90deg,#FFB800,#EF4444,#00D4FF,#FFB800); background-size:300% auto; -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation:shine 6s linear infinite; }
+@keyframes shine { to{background-position:300% center;} }
+.page-header p { font-size:1.1rem; color:var(--gray-light); max-width:600px; margin:0 auto; }
+
+/* MAIN CONTENT */
+.section { padding:4rem 4%; }
+.section-container { max-width:900px; margin:0 auto; }
+
+/* UPLOAD ZONE */
+.upload-zone { background:rgba(255,255,255,0.03); border:2px dashed rgba(0,212,255,0.3); border-radius:24px; padding:3rem 2rem; text-align:center; transition:var(--transition); cursor:pointer; position:relative; }
+.upload-zone:hover { border-color:var(--accent); background:rgba(0,212,255,0.05); box-shadow:0 0 40px rgba(0,212,255,0.1); }
+.upload-zone.dragover { border-color:var(--accent)!important; background:rgba(0,212,255,0.1)!important; box-shadow:0 0 60px rgba(0,212,255,0.2)!important; }
+.upload-icon { font-size:4rem; color:var(--accent); margin-bottom:1rem; }
+.upload-zone h3 { color:var(--white); font-size:1.4rem; margin-bottom:0.5rem; }
+.upload-zone p { color:var(--gray-light); font-size:0.95rem; margin-bottom:1rem; }
+.upload-btn { display:inline-block; padding:0.8rem 2rem; background:linear-gradient(135deg,var(--accent),var(--accent-dark)); color:var(--primary); border-radius:50px; font-weight:700; cursor:pointer; transition:var(--transition); }
+.upload-btn:hover { transform:translateY(-3px); box-shadow:0 10px 30px rgba(0,212,255,0.3); }
+#fileInput { display:none; }
+.file-name { margin-top:1rem; color:var(--success); font-weight:600; display:none; }
+
+/* PROCESSING OVERLAY */
+.processing-overlay { display:none; text-align:center; padding:3rem 2rem; background:rgba(255,255,255,0.03); border:1px solid rgba(0,212,255,0.2); border-radius:24px; }
+.processing-overlay.active { display:block; }
+.scanner-animation { position:relative; width:150px; height:150px; margin:0 auto 2rem; }
+.scanner-circle { width:150px; height:150px; border-radius:50%; border:3px solid rgba(0,212,255,0.2); position:absolute; top:0; left:0; animation:scannerSpin 2s linear infinite; }
+.scanner-circle::before { content:''; position:absolute; top:-5px; left:50%; transform:translateX(-50%); width:10px; height:10px; background:var(--accent); border-radius:50%; box-shadow:0 0 20px var(--accent); }
+.scanner-line { position:absolute; top:0; left:0; width:100%; height:3px; background:linear-gradient(90deg,transparent,var(--accent),transparent); top:50%; transform:translateY(-50%); animation:scannerPulse 1.5s ease-in-out infinite; }
+@keyframes scannerSpin { 0%{transform:rotate(0deg);} 100%{transform:rotate(360deg);} }
+@keyframes scannerPulse { 0%,100%{opacity:0.3;transform:translateY(-50%) scaleX(0.8);} 50%{opacity:1;transform:translateY(-50%) scaleX(1.2);} }
+.processing-steps { display:flex; flex-direction:column; gap:0.8rem; align-items:center; }
+.processing-step { display:flex; align-items:center; gap:0.8rem; color:var(--gray-light); font-size:0.95rem; }
+.processing-step i { color:var(--accent); }
+.processing-step.done i { color:var(--success); }
+.processing-step.done { color:var(--success); }
+.processing-step.pdf-pages { font-size:0.85rem; color:var(--accent); margin-top:0.5rem; }
+
+/* RESULT */
+.result-panel { display:none; text-align:center; padding:3rem 2rem; background:rgba(255,255,255,0.03); border:1px solid rgba(0,212,255,0.2); border-radius:24px; }
+.result-panel.active { display:block; }
+.result-icon { font-size:5rem; margin-bottom:1rem; }
+.result-icon.accepted { color:var(--success); }
+.result-icon.rejected { color:var(--red); }
+.result-title { font-size:1.8rem; color:var(--white); margin-bottom:1rem; }
+.result-desc { color:var(--gray-light); font-size:1rem; margin-bottom:2rem; max-width:500px; margin-left:auto; margin-right:auto; }
+.result-info-box { background:rgba(0,212,255,0.08); border:1px solid rgba(0,212,255,0.2); border-radius:14px; padding:1.5rem; margin-top:2rem; text-align:left; }
+.result-info-box h4 { color:var(--accent); margin-bottom:0.8rem; }
+.result-info-box p { color:var(--gray-light); font-size:0.9rem; margin-bottom:0.5rem; }
+
+/* FORM SECTION */
+.form-section { background:linear-gradient(180deg,var(--primary-deep),#030d1a); display:none; }
+.form-section.visible { display:block; }
+.form-card { max-width:1100px; margin:0 auto; padding:3rem; border-radius:20px; background:rgba(7,20,38,0.8); backdrop-filter:blur(10px); border:1px solid rgba(0,212,255,0.15); }
+.form-step { margin-bottom:2.5rem; padding-bottom:2.5rem; border-bottom:1px solid rgba(0,212,255,0.08); }
+.form-step:last-of-type { border-bottom:none; padding-bottom:0; }
+.form-step h3 { color:var(--white); font-size:1.2rem; margin-bottom:0.4rem; display:flex; align-items:center; gap:0.7rem; }
+.step-num { width:32px; height:32px; background:linear-gradient(135deg,var(--red),var(--red-dark)); color:var(--white); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.9rem; flex-shrink:0; }
+.step-desc { color:var(--gray-light); font-size:0.88rem; margin-bottom:1.5rem; padding-left:2.7rem; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem; }
+.form-group { margin-bottom:1rem; }
+.form-group label { display:block; color:var(--accent); font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.4rem; }
+.form-group label .required { color:var(--red); }
+.form-group input,.form-group select,.form-group textarea { width:100%; padding:0.85rem 1rem; border:1.5px solid rgba(255,255,255,0.1); border-radius:10px; background:rgba(255,255,255,0.04); color:var(--white); font-family:inherit; font-size:0.95rem; transition:var(--transition); }
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus { outline:none; border-color:var(--accent); background:rgba(0,212,255,0.06); }
+.form-group select option { background:var(--primary); color:var(--white); }
+.form-group textarea { resize:vertical; min-height:100px; }
+.form-help { font-size:0.78rem; color:var(--gray-mid); margin-top:0.3rem; }
+.radio-group,.checkbox-group { display:flex; gap:0.8rem; flex-wrap:wrap; }
+.radio-option,.checkbox-option { display:flex; align-items:center; gap:0.5rem; padding:0.6rem 1rem; background:rgba(255,255,255,0.04); border:1.5px solid rgba(0,212,255,0.1); border-radius:8px; cursor:pointer; transition:all 0.2s; font-size:0.88rem; color:var(--off-white); }
+.radio-option:hover,.checkbox-option:hover { border-color:var(--accent); background:rgba(0,212,255,0.06); }
+.radio-option input,.checkbox-option input { width:auto; margin:0; cursor:pointer; accent-color:var(--accent); }
+.skills-matrix { background:rgba(255,255,255,0.03); border:1px solid rgba(0,212,255,0.1); border-radius:12px; padding:1.2rem; margin-top:0.5rem; }
+.skill-row { display:grid; grid-template-columns:1.5fr repeat(5,1fr); gap:0.5rem; align-items:center; padding:0.7rem 0.5rem; border-bottom:1px solid rgba(255,255,255,0.04); font-size:0.85rem; }
+.skill-row:last-child { border-bottom:none; }
+.skill-row.header { font-weight:700; color:var(--accent); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.05em; }
+.skill-row.header>div { text-align:center; }
+.skill-row>div:first-child { font-weight:600; color:var(--off-white); }
+.skill-row label { display:flex; justify-content:center; cursor:pointer; }
+.skill-row input[type="radio"] { width:18px; height:18px; cursor:pointer; accent-color:var(--accent); }
+
+.btn-submit { width:100%; padding:1.2rem; background:linear-gradient(135deg,var(--red),var(--red-dark)); color:var(--white); border:none; border-radius:12px; font-weight:700; font-size:1.05rem; cursor:pointer; transition:var(--transition); font-family:inherit; margin-top:1rem; display:flex; align-items:center; justify-content:center; gap:0.6rem; }
+.btn-submit:hover { transform:translateY(-3px); box-shadow:0 15px 35px rgba(239,68,68,0.3); }
+.btn-submit:disabled { opacity:0.5; cursor:not-allowed; }
+.form-message { padding:1rem; border-radius:10px; margin-bottom:1.5rem; text-align:center; font-weight:600; display:none; }
+.form-message.success { background:rgba(16,185,129,0.15); color:#10B981; border:1px solid rgba(16,185,129,0.3); display:block; }
+.form-message.error { background:rgba(239,68,68,0.15); color:#EF4444; border:1px solid rgba(239,68,68,0.3); display:block; }
+
+/* FOOTER */
+footer { background:var(--primary-deep); border-top:1px solid rgba(0,212,255,0.1); padding:3rem 4% 1.5rem; margin-top:4rem; }
+.footer-grid { max-width:1400px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:3rem; margin-bottom:2.5rem; }
+.footer-brand p { color:var(--gray-mid); font-size:0.88rem; margin:1rem 0; }
+.footer-col h4 { color:var(--white); font-size:0.92rem; margin-bottom:1rem; text-transform:uppercase; letter-spacing:0.08em; }
+.footer-col ul { list-style:none; }
+.footer-col ul li { margin-bottom:0.6rem; }
+.footer-col ul a { color:var(--gray-light); font-size:0.88rem; transition:var(--transition); }
+.footer-col ul a:hover { color:var(--accent); }
+.footer-bottom { max-width:1400px; margin:0 auto; padding-top:1.5rem; border-top:1px solid rgba(0,212,255,0.1); display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; font-size:0.82rem; color:var(--gray-mid); }
+
+/* RESPONSIVE */
+@media (max-width:1200px) { .footer-grid { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:768px) {
+  .top-bar-container { flex-direction:column!important; justify-content:center!important; align-items:center!important; text-align:center!important; gap:0.6rem!important; }
+  .top-bar-info { order:2!important; flex-direction:column!important; align-items:center!important; gap:0.4rem!important; width:100%!important; }
+  .top-bar-social { order:3!important; flex-direction:column!important; align-items:center!important; gap:0.5rem!important; width:100%!important; }
+  .nav-links { display:none; }
+  .menu-toggle { display:block; }
+  .form-row { grid-template-columns:1fr; }
+  .form-card { padding:1.5rem; }
+  .skill-row { grid-template-columns:1fr; gap:0.3rem; padding:1rem 0.5rem; }
+  .skill-row.header { display:none; }
+  .skill-row label::before { content:attr(data-label); display:inline-block; width:110px; font-size:0.78rem; color:var(--gray-mid); }
+  .skill-row label { justify-content:flex-start; }
+  .footer-grid { grid-template-columns:1fr; }
 }
-h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em;}
-a{text-decoration:none;}
- 
-.top-bar{background:#02050b;border-bottom:1px solid rgba(255,255,255,0.04);padding:.7rem 4%;}
-.top-bar-container {
-  max-width: 1400px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-.top-bar-info{display:flex;gap:2rem;flex-wrap:wrap;}
-.top-bar-info span{font-size:.85rem;color:#cbd5e1;}
-.top-bar-info i{color:var(--accent);margin-right:.4rem;}
-.top-bar-social a{color:#cbd5e1;margin-left:1rem;transition:.3s;}
-.top-bar-social a:hover{color:var(--accent);}
- 
-.lang-switch{display:flex;gap:.25rem;background:rgba(0,212,255,0.15);padding:.2rem .6rem;border-radius:40px;}
-.lang-btn{background:none;border:none;color:var(--muted);font-size:.8rem;font-weight:600;cursor:pointer;padding:.2rem .6rem;border-radius:30px;transition:all .3s;font-family:inherit;}
-.lang-btn.active{background:var(--accent);color:var(--primary);}
-.lang-btn:hover:not(.active){color:var(--accent);}
- 
-.nav{position:sticky;top:0;z-index:1000;backdrop-filter:blur(16px);background:rgba(3,7,18,.75);border-bottom:1px solid rgba(255,255,255,0.06);padding:1rem 4%;}
-.nav-container{max-width:1400px;margin:auto;display:flex;justify-content:space-between;align-items:center;}
-.logo{display:flex;align-items:center;gap:.8rem;color:#fff;font-size:1.35rem;font-weight:700;}
-.logo-shield{width:42px;animation:float 4s ease-in-out infinite;}
-.logo-text-accent{color:var(--accent);}
-@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
-.nav-links{display:flex;gap:.5rem;list-style:none;align-items:center;}
-.nav-links > li{position:relative;}
-.nav-links a{color:#dbe4ef;padding:.8rem 1rem;border-radius:12px;font-size:.92rem;font-weight:600;transition:.3s;display:flex;align-items:center;gap:.3rem;}
-.nav-links a:hover,.nav-links a.active{background:rgba(255,255,255,.06);color:var(--accent);}
-.btn-espace-client {
-  background: linear-gradient(135deg, #00D4FF, #0891B2) !important;
-  color: #050B14 !important;
-  font-weight: 700 !important;
-  padding: 0.5rem 1.2rem !important;
-  border-radius: 6px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 0.5rem !important;
-}
- 
-/* Suppression des styles du dropdown menu */
-.dropdown-menu{
-  display:none; /* Cache toutes les listes déroulantes */
-}
- 
-.menu-toggle{display:none;background:none;border:none;color:var(--white);font-size:1.5rem;cursor:pointer;}
- 
-.page-header{
-  position:relative;
-  padding:6rem 4% 5rem;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(0,212,255,.18), transparent 35%),
-    radial-gradient(circle at 80% 60%, rgba(255,184,0,.10), transparent 40%),
-    linear-gradient(180deg,#02050b 0%, #081120 60%, #02050b 100%);
-}
-.page-header::before{
-  content:'';position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-  background-size:28px 28px;
-  mask-image:linear-gradient(to bottom, rgba(0,0,0,1), transparent 80%);
-  pointer-events:none;
-}
-.page-header-container{max-width:1400px;margin:auto;position:relative;z-index:2;}
-.breadcrumb{color:var(--muted);font-size:.85rem;margin-bottom:1.2rem;}
-.breadcrumb a{color:var(--accent);}
-.breadcrumb i{margin:0 .5rem;font-size:.65rem;opacity:.6;}
-.page-header h1{
-  font-size:clamp(2.4rem,5vw,4rem);
-  line-height:1.1;
-  margin-bottom:1.2rem;
-  font-weight:700;
-  max-width:850px;
-}
-.page-header h1 .accent-text{
-  background:linear-gradient(90deg,#00D4FF,#38bdf8,#FFB800,#00D4FF);
-  background-size:300% auto;
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  animation:shine 8s linear infinite;
-}
-@keyframes shine{to{background-position:300% center;}}
-.page-header p{
-  font-size:1.15rem;color:#cbd5e1;
-  max-width:680px;line-height:1.7;
-}
- 
-.contact-section{padding:6rem 4%;position:relative;}
-.contact-container{max-width:1400px;margin:auto;}
-.contact-grid{
-  display:grid;
-  grid-template-columns:.9fr 1.3fr;
-  gap:3rem;
-  align-items:start;
-}
- 
-.contact-info{
-  position:sticky;top:6rem;
-  padding:2.5rem;
-  border-radius:28px;
-  background:linear-gradient(160deg, rgba(0,212,255,.05), rgba(10,22,40,.6));
-  border:1px solid rgba(0,212,255,.15);
-  backdrop-filter:blur(10px);
-}
-.contact-info h2{
-  font-size:1.6rem;
-  margin-bottom:.4rem;
-  background:linear-gradient(90deg,#fff,var(--accent));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.contact-info-tag{
-  display:inline-block;
-  color:var(--accent);
-  font-size:.75rem;font-weight:700;
-  text-transform:uppercase;letter-spacing:.2em;
-  margin-bottom:1rem;
-}
-.contact-info-desc{color:#94a3b8;margin-bottom:2rem;line-height:1.7;font-size:.95rem;}
- 
-.contact-item{
-  display:flex;gap:1rem;
-  padding:1.2rem 0;
-  border-bottom:1px solid rgba(255,255,255,.06);
-  transition:.3s;
-}
-.contact-item:last-child{border-bottom:none;}
-.contact-item:hover{transform:translateX(6px);}
-.contact-item-icon{
-  width:48px;height:48px;
-  border-radius:14px;
-  background:linear-gradient(135deg, rgba(0,212,255,.15), rgba(0,212,255,.05));
-  border:1px solid rgba(0,212,255,.2);
-  color:var(--accent);
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;font-size:1.1rem;
-  transition:.3s;
-}
-.contact-item:hover .contact-item-icon{
-  background:linear-gradient(135deg, var(--accent), #0ea5e9);
-  color:#02131d;
-  box-shadow:0 0 25px rgba(0,212,255,.4);
-}
-.contact-item-text strong{
-  display:block;color:#fff;
-  font-size:.95rem;margin-bottom:.25rem;
-  font-family:'Space Grotesk',sans-serif;
-}
-.contact-item-text span{color:#94a3b8;font-size:.88rem;line-height:1.5;}
- 
-.whatsapp-direct{
-  margin-top:1.5rem;
-  display:inline-flex;align-items:center;gap:.6rem;
-  padding:.9rem 1.4rem;
-  background:linear-gradient(135deg,#25D366,#128C7E);
-  color:#fff;
-  border-radius:14px;
-  font-weight:700;font-size:.92rem;
-  transition:.3s;
-  box-shadow:0 10px 30px rgba(37,211,102,.25);
-  text-decoration:none;
-}
-.whatsapp-direct:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(37,211,102,.4);}
- 
-.contact-form-wrap{
-  position:relative;
-  padding:3rem;
-  border-radius:32px;
-  background:linear-gradient(160deg, rgba(255,255,255,.04), rgba(10,22,40,.7));
-  border:1px solid rgba(0,212,255,.2);
-  backdrop-filter:blur(14px);
-  box-shadow:
-    0 30px 80px rgba(0,0,0,.4),
-    0 0 60px rgba(0,212,255,.08),
-    inset 0 1px 0 rgba(255,255,255,.05);
-  overflow:hidden;
-}
-.contact-form-wrap::before{
-  content:'';
-  position:absolute;
-  top:0;left:0;right:0;
-  height:3px;
-  background:linear-gradient(90deg,transparent,var(--accent),var(--gold),var(--accent),transparent);
-  background-size:200% 100%;
-  animation:topBeam 4s linear infinite;
-}
-@keyframes topBeam{0%{background-position:0% 0;}100%{background-position:200% 0;}}
- 
-.form-header{margin-bottom:2rem;}
-.form-header h3{
-  font-size:1.6rem;margin-bottom:.4rem;
-  color:#fff;
-}
-.form-header p{color:#94a3b8;font-size:.92rem;}
- 
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-.form-group{margin-bottom:1.2rem;}
-.form-group label{
-  display:block;
-  font-size:.78rem;
-  color:var(--accent);
-  margin-bottom:.5rem;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.1em;
-}
-.form-group input,
-.form-group select,
-.form-group textarea{
-  width:100%;
-  padding:.95rem 1.1rem;
-  border:1.5px solid rgba(255,255,255,.08);
-  border-radius:12px;
-  font-family:inherit;font-size:.95rem;
-  background:rgba(2,8,20,.5);
-  color:#fff;
-  transition:.3s;
-}
-.form-group input::placeholder,
-.form-group textarea::placeholder{color:#64748b;}
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus{
-  outline:none;
-  border-color:var(--accent);
-  background:rgba(0,212,255,.04);
-  box-shadow:0 0 0 4px rgba(0,212,255,.1);
-}
-.form-group select option{background:#0A1628;color:#fff;}
-.form-group textarea{resize:vertical;min-height:130px;}
- 
-.form-message-success,
-.form-message-error{
-  display:none;
-  padding:1rem 1.2rem;
-  border-radius:12px;
-  margin-bottom:1.2rem;
-  text-align:center;
-  font-weight:600;font-size:.92rem;
-}
-.form-message-success{
-  background:linear-gradient(135deg,rgba(16,185,129,.15),rgba(16,185,129,.05));
-  border:1px solid rgba(16,185,129,.3);
-  color:#10B981;
-}
-.form-message-error{
-  background:linear-gradient(135deg,rgba(239,68,68,.15),rgba(239,68,68,.05));
-  border:1px solid rgba(239,68,68,.3);
-  color:#EF4444;
-}
- 
-.submit-btn{
-  width:100%;
-  padding:1.1rem;
-  background:linear-gradient(135deg,var(--accent),#0ea5e9);
-  color:#04111a;
-  border:none;
-  border-radius:14px;
-  font-weight:800;font-size:1rem;
-  cursor:pointer;
-  font-family:inherit;
-  transition:.3s;
-  box-shadow:0 10px 40px rgba(0,212,255,.25);
-  position:relative;
-  overflow:hidden;
-}
-.submit-btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 20px 50px rgba(0,212,255,.4);
-}
-.submit-btn:disabled{opacity:.6;cursor:not-allowed;transform:none;}
- 
-.trust-row{
-  margin-top:5rem;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:1.5rem;
-}
-.trust-card{
-  padding:1.8rem;
-  border-radius:20px;
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(255,255,255,.06);
-  text-align:center;
-  transition:.4s;
-}
-.trust-card:hover{transform:translateY(-6px);border-color:rgba(0,212,255,.3);}
-.trust-icon{
-  width:60px;height:60px;
-  border-radius:16px;
-  background:linear-gradient(135deg,var(--accent),#0ea5e9);
-  display:inline-flex;align-items:center;justify-content:center;
-  font-size:1.4rem;color:#04111a;
-  margin-bottom:1rem;
-  box-shadow:0 0 30px rgba(0,212,255,.25);
-}
-.trust-card h4{font-size:1.05rem;margin-bottom:.4rem;color:#fff;}
-.trust-card p{color:#94a3b8;font-size:.88rem;line-height:1.6;}
- 
-footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;background:#02050b;}
-.footer-grid{max-width:1400px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;}
-.footer-brand p{color:#94a3b8;margin-top:1rem;line-height:1.8;font-size:.92rem;}
-.footer-col h4{margin-bottom:1.2rem;color:#fff;font-size:.95rem;text-transform:uppercase;letter-spacing:.08em;}
-.footer-col ul{list-style:none;}
-.footer-col li{margin-bottom:.7rem;}
-.footer-col a{color:#94a3b8;transition:.3s;font-size:.9rem;}
-.footer-col a:hover{color:var(--accent);}
-.footer-bottom{max-width:1400px;margin:auto;border-top:1px solid rgba(255,255,255,.05);margin-top:3rem;padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:#64748b;font-size:.85rem;}
- 
-@media(max-width:1024px){
-  .contact-grid{grid-template-columns:1fr;}
-  .contact-info{position:static;}
-  .trust-row{grid-template-columns:1fr;}
-  .footer-grid{grid-template-columns:1fr 1fr;}
-}
-@media(max-width:768px){
-  .top-bar-container { flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-  .top-bar-info { flex-direction: column; align-items: center; gap: 0.4rem; }
-  .nav-links{
-    position:fixed;top:120px;right:0;left:0;
-    flex-direction:column;
-    background:rgba(3,7,18,.98);
-    backdrop-filter:blur(20px);
-    padding:1.5rem;gap:.4rem;
-    transform:translateX(100%);
-    transition:transform .3s;
-    border-top:1px solid rgba(255,255,255,.05);
-    align-items:stretch;
-  }
-  .nav-links.active{transform:translateX(0);}
-  .menu-toggle{display:block;}
-  /* Suppression du style mobile pour dropdown */
-  .dropdown-menu{
-    display:none; /* Assure qu'il reste caché même en mobile */
-  }
-  .form-row{grid-template-columns:1fr;}
-  .contact-form-wrap{padding:2rem 1.5rem;}
-  .footer-grid{grid-template-columns:1fr;}
-  .page-header::before{background-size:20px 20px;}
-}
-@media(max-width:600px){.top-bar-social{display:none;}}
 </style>
 </head>
 <body>
- 
+
 <div class="top-bar">
   <div class="top-bar-container">
-    <div class="partner-badge" style="display:flex;align-items:center;gap:.6rem;background:linear-gradient(135deg,rgba(0,212,255,.15),rgba(239,68,68,.08));padding:.3rem 1rem;border-radius:40px;border-left:2px solid #00D4FF;">
+    <div style="display:flex;align-items:center;gap:.6rem;background:linear-gradient(135deg,rgba(0,212,255,.15),rgba(239,68,68,.08));padding:.3rem 1rem;border-radius:40px;border-left:2px solid #00D4FF;">
       <i class="fa-solid fa-shield-halved" style="color:#00D4FF;font-size:.8rem;"></i>
       <span style="font-size:.7rem;font-weight:700;letter-spacing:.5px;background:linear-gradient(135deg,#fff,#00D4FF);-webkit-background-clip:text;background-clip:text;color:transparent;">Votre partenaire IT & cybersécurité au Maroc</span>
     </div>
     <div class="top-bar-info">
       <span><i class="fas fa-phone"></i> +212 728 31 28 01</span>
-      <span><i class="fas fa-envelope"></i> <span id="emailTop">contact@netvanguard.ma</span></span>
+      <span><i class="fas fa-envelope"></i> contact@netvanguard.ma</span>
       <span><i class="fas fa-map-marker-alt"></i> Casablanca</span>
     </div>
-    <div class="top-bar-social" style="display:flex;align-items:center;">
-      <div class="lang-switch" style="margin-right:1rem;">
-        <button class="lang-btn active" data-lang="fr">FR</button>
-        <button class="lang-btn" data-lang="en">EN</button>
-      </div>
-      <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      <a href="#"><i class="fab fa-x-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
+    <div class="top-bar-social">
+      <div class="lang-switch"><button class="lang-btn active" data-lang="fr">FR</button><button class="lang-btn" data-lang="en">EN</button></div>
+      <div class="social-icons"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-x-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div>
     </div>
   </div>
 </div>
- 
+
 <nav class="nav">
   <div class="nav-container">
     <a href="index.html" class="logo">
-      <svg class="logo-shield" viewBox="0 0 24 24" width="32" height="32">
-        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="#00D4FF"/>
-        <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
-      </svg>
-      <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em;font-weight:500;color:var(--muted);">IT Solutions</span></span>
+      <svg class="logo-shield" viewBox="0 0 24 24" width="36" height="36"><defs><linearGradient id="sgN" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1"/><stop offset="100%" style="stop-color:#FFB800;stop-opacity:1"/></linearGradient></defs><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#sgN)"/><path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/></svg>
+      <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em;font-weight:500;color:var(--gray-light);">IT Solutions</span></span>
     </a>
-    
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html" data-key="navHome">Accueil</a></li>
-      <!-- Liens Services et Secteurs transformés en liens simples -->
-      <li><a href="services.html" data-key="navServices">Services</a></li>
-      <li><a href="secteurs.html" data-key="navSectors">Secteurs</a></li>
-      <li><a href="qui-sommes-nous.html" data-key="navAbout">Qui sommes-nous</a></li>
-      <li><a href="carrieres.html" data-key="navCareers">Carrières</a></li>
-      <li><a href="campus-cyber.html">🎓 <span data-key="navCampus">Campus Cyber</span></a></li>
-      <li><a href="contact.html" class="active" data-key="navContact">Contact</a></li>
-      <li><a href="support.html" class="btn-espace-client"><i class="fa-solid fa-user-circle"></i> Espace Client</a></li>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav_home">Accueil</a></li><li><a href="services.html" data-i18n="nav_services">Services</a></li><li><a href="secteurs.html" data-i18n="nav_sectors">Secteurs</a></li><li><a href="qui-sommes-nous.html" data-i18n="nav_about">Qui sommes-nous</a></li><li><a href="carrieres.html" class="active" data-i18n="nav_careers">Carrières</a></li><li><a href="campus-cyber.html" data-i18n="nav_campus">🎓 Campus Cyber</a></li><li><a href="contact.html" data-i18n="nav_contact">Contact</a></li><li><a href="support.html" class="btn-espace-client"><i class="fa-solid fa-user-circle"></i> <span data-i18n="nav_client">Espace Client</span></a></li>
     </ul>
-    
     <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
   </div>
 </nav>
- 
-<section class="page-header">
-  <div class="page-header-container">
-    <div class="breadcrumb">
-      <a href="index.html" data-key="bcHome">Accueil</a>
-      <i class="fas fa-chevron-right"></i>
-      <span style="color:#fff" data-key="bcContact">Contact</span>
+
+<div class="mobile-nav-overlay" id="mobileNav">
+  <a href="index.html" data-i18n="nav_home">Accueil</a><a href="services.html" data-i18n="nav_services">Services</a><a href="secteurs.html" data-i18n="nav_sectors">Secteurs</a><a href="qui-sommes-nous.html" data-i18n="nav_about">Qui sommes-nous</a><a href="carrieres.html" data-i18n="nav_careers">Carrières</a><a href="campus-cyber.html" data-i18n="nav_campus">🎓 Campus Cyber</a><a href="contact.html" data-i18n="nav_contact">Contact</a><a href="support.html" class="btn-espace-client-mobile"><i class="fa-solid fa-user-circle"></i> <span data-i18n="nav_client">Espace Client</span></a>
+</div>
+
+<section class="page-header"><div class="page-header-container"><h1 data-i18n="hero_title">Votre Carrière chez<br><span class="accent">NetVanguard</span></h1><p data-i18n="hero_desc">Déposez votre CV, notre système intelligent l'analyse et vous oriente vers la prochaine étape.</p></div></section>
+
+<section class="section">
+  <div class="section-container">
+
+    <div id="stepUpload">
+      <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
+        <div class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+        <h3 data-i18n="upload_title">Déposez votre CV ici</h3>
+        <p data-i18n="upload_desc">Formats acceptés : PDF, DOCX, TXT (Max 10 MB)</p>
+        <span class="upload-btn"><i class="fas fa-folder-open"></i> <span data-i18n="btn_browse">Parcourir les fichiers</span></span>
+        <input type="file" id="fileInput" accept=".pdf,.docx,.txt" onchange="handleFileSelect(event)">
+        <div class="file-name" id="fileName"></div>
+      </div>
     </div>
-    <h1>
-      <span data-key="hdrTitle1">Parlons de votre</span>
-      <span class="accent-text" data-key="hdrTitleAccent">cybersécurité</span>
-    </h1>
-    <p data-key="hdrDesc">Audit gratuit. Aucun engagement, juste une vision claire de votre exposition cyber.</p>
+
+    <div class="processing-overlay" id="stepProcessing">
+      <div class="scanner-animation"><div class="scanner-circle"></div><div class="scanner-line"></div></div>
+      <h3 style="color:var(--white);margin-bottom:1.5rem;" data-i18n="processing_title">Analyse de votre CV en cours...</h3>
+      <div class="processing-steps">
+        <div class="processing-step" id="ps1"><i class="fas fa-spinner fa-spin"></i> <span data-i18n="ps1">Extraction du contenu...</span></div>
+        <div class="processing-step" id="ps2"><i class="far fa-circle"></i> <span data-i18n="ps2">Lecture ligne par ligne...</span></div>
+        <div class="processing-step" id="ps3"><i class="far fa-circle"></i> <span data-i18n="ps3">Analyse et scoring...</span></div>
+        <div class="processing-step" id="ps4"><i class="far fa-circle"></i> <span data-i18n="ps4">Évaluation finale...</span></div>
+      </div>
+      <div class="processing-step pdf-pages" id="pdfPagesInfo"></div>
+    </div>
+
+    <!-- RÉSULTAT ACCEPTÉ -->
+    <div class="result-panel" id="stepAccepted">
+      <div class="result-icon accepted"><i class="fas fa-check-circle"></i></div>
+      <div class="result-title" data-i18n="accepted_title">📋 Profil Validé — Passez à l'étape d'examen</div>
+      <div class="result-desc" data-i18n="accepted_desc">Votre profil correspond à nos critères de recrutement. Un code d'accès vous sera envoyé par email pour accéder à l'examen technique.</div>
+      <a href="campus-cyber.html" class="result-action-btn btn-goto-exam" style="margin-bottom:1.5rem;"><i class="fas fa-arrow-right"></i> <span data-i18n="btn_goto_exam">Accéder à l'Examen</span></a>
+      <div class="result-info-box">
+        <h4 data-i18n="info_title">📌 Instructions pour l'examen :</h4>
+        <p data-i18n="info1">1. Cliquez sur le bouton ci-dessus pour accéder à la plateforme d'examen.</p>
+        <p data-i18n="info2">2. Le code d'accès vous sera envoyé par email dans quelques minutes.</p>
+        <p data-i18n="info3">3. Vérifiez votre boîte de réception (et vos spams).</p>
+        <p data-i18n="info4">4. Remplissez vos informations et choisissez votre filière.</p>
+        <p data-i18n="info5">5. Vous avez 60 minutes pour répondre à 40 questions.</p>
+        <p style="color:var(--gold);margin-top:1rem;font-weight:600;" data-i18n="info_warning">⚠️ Une seule tentative autorisée. Pas de triche.</p>
+        <p style="color:var(--gray-light);margin-top:0.5rem;font-size:0.85rem;" data-i18n="info_contact_fallback">Si vous n'avez pas reçu le code, contactez : <strong>mhirigueyoussef@gmail.com</strong></p>
+      </div>
+    </div>
+
+    <!-- RÉSULTAT REFUSÉ -->
+    <div class="result-panel" id="stepRejected">
+      <div class="result-icon rejected"><i class="fas fa-times-circle"></i></div>
+      <div class="result-title" id="rejected_title" data-i18n="rejected_title">📋 Profil Non Retenu</div>
+      <div class="result-desc" id="rejected_desc" data-i18n="rejected_desc">Votre profil ne correspond pas aux critères requis pour le moment. Vous pouvez remplir le formulaire détaillé pour une évaluation par notre équipe RH.</div>
+      <button class="result-action-btn btn-goto-exam" onclick="scrollToForm()"><i class="fas fa-arrow-down"></i> <span data-i18n="btn_fill_form">Remplir le formulaire</span></button>
+    </div>
+
   </div>
 </section>
- 
-<section class="contact-section">
-  <div class="contact-container">
-    <div class="contact-grid">
- 
-      <div class="contact-info">
-        <span class="contact-info-tag" id="infoTag">COORDONNÉES</span>
-        <h2 id="infoTitle">Restons en contact</h2>
-        <p class="contact-info-desc" id="infoDesc">Notre équipe répond sous 24h. Pour les urgences cyber, privilégiez WhatsApp.</p>
- 
-        <div class="contact-item">
-          <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
-          <div class="contact-item-text">
-            <strong id="cBureau">Bureau Casablanca</strong>
-            <span id="cBureauDesc">Quartier business · Casablanca, Maroc</span>
+
+<section class="form-section" id="detailedForm">
+  <div class="section-container">
+    <h2 style="text-align:center;margin-bottom:2rem;color:var(--white);" data-i18n="form_main_title">Formulaire de Candidature Détaillé</h2>
+    <form id="careerForm" action="https://formspree.io/f/myklqdky" method="POST" enctype="multipart/form-data">
+      <div class="form-card">
+        <div id="formMsgSuccess" class="form-message" style="display:none;"><i class="fas fa-check-circle"></i> <span data-i18n="msg_success">✅ Documents envoyés au responsable recrutement ! Nous vous recontacterons sous 7 jours.</span></div>
+        <div id="formMsgError" class="form-message" style="display:none;"><i class="fas fa-exclamation-circle"></i> <span data-i18n="msg_error">Erreur lors de l'envoi. Veuillez réessayer.</span></div>
+        <div class="form-step"><h3><span class="step-num">1</span><span data-i18n="step1Title">Vos informations personnelles</span></h3><p class="step-desc" data-i18n="step1Desc">Pour que nous puissions vous identifier et vous recontacter.</p>
+          <div class="form-row"><div class="form-group"><label data-i18n="lbl_firstname">Prénom <span class="required">*</span></label><input type="text" name="prenom" required></div><div class="form-group"><label data-i18n="lbl_lastname">Nom <span class="required">*</span></label><input type="text" name="nom" required></div></div>
+          <div class="form-row"><div class="form-group"><label data-i18n="lbl_email">Email <span class="required">*</span></label><input type="email" name="email" required></div><div class="form-group"><label data-i18n="lbl_phone">Téléphone <span class="required">*</span></label><input type="tel" name="telephone" required></div></div>
+          <div class="form-row"><div class="form-group"><label data-i18n="lbl_genre">Genre</label><div class="radio-group"><label class="radio-option"><input type="radio" name="genre" value="Femme"><span data-i18n="genre_f">Femme</span></label><label class="radio-option"><input type="radio" name="genre" value="Homme"><span data-i18n="genre_h">Homme</span></label><label class="radio-option"><input type="radio" name="genre" value="Autre"><span data-i18n="genre_o">Préfère ne pas répondre</span></label></div></div><div class="form-group"><label data-i18n="lbl_city">Ville <span class="required">*</span></label><input type="text" name="ville" required></div></div>
+        </div>
+        <div class="form-step"><h3><span class="step-num">2</span><span data-i18n="step2Title">Mobilité et disponibilité</span></h3><p class="step-desc" data-i18n="step2Desc">Pour évaluer la compatibilité avec nos besoins opérationnels.</p>
+          <div class="form-group"><label data-i18n="lbl_casa">Notre siège est à Casablanca. Êtes-vous prêt(e) à y travailler ? <span class="required">*</span></label><div class="radio-group"><label class="radio-option"><input type="radio" name="base_casablanca" value="Déjà resident" required><span data-i18n="mob1">Je suis déjà à Casablanca</span></label><label class="radio-option"><input type="radio" name="base_casablanca" value="Prêt à déménager"><span data-i18n="mob2">Prêt(e) à m'y installer</span></label><label class="radio-option"><input type="radio" name="base_casablanca" value="Hybride uniquement"><span data-i18n="mob3">Mode hybride uniquement</span></label><label class="radio-option"><input type="radio" name="base_casablanca" value="Non"><span data-i18n="mob4">Non disponible</span></label></div></div>
+          <div class="form-row"><div class="form-group"><label data-i18n="lbl_dispo">Délai de disponibilité</label><select name="disponibilite"><option value="Immédiate" data-i18n="dispo1">Immédiate</option><option value="2 semaines" data-i18n="dispo2">Sous 2 semaines</option><option value="1 mois" data-i18n="dispo3">Sous 1 mois</option><option value="2 mois" data-i18n="dispo4">Sous 2 mois</option><option value="3 mois ou plus" data-i18n="dispo5">3 mois ou plus</option></select></div><div class="form-group"><label data-i18n="lbl_permis">Permis de conduire</label><div class="radio-group"><label class="radio-option"><input type="radio" name="permis" value="Oui avec véhicule"><span data-i18n="per1">Oui, avec véhicule</span></label><label class="radio-option"><input type="radio" name="permis" value="Oui sans véhicule"><span data-i18n="per2">Oui, sans véhicule</span></label><label class="radio-option"><input type="radio" name="permis" value="Non"><span data-i18n="per3">Non</span></label></div></div></div>
+        </div>
+        <div class="form-step"><h3><span class="step-num">3</span><span data-i18n="step3Title">Parcours académique</span></h3><p class="step-desc" data-i18n="step3Desc">Votre formation et vos certifications professionnelles.</p>
+          <div class="form-row"><div class="form-group"><label data-i18n="lbl_diploma">Plus haut diplôme <span class="required">*</span></label><select name="niveau_etudes" required><option value="">Choisissez...</option><option value="Bac">Baccalauréat</option><option value="Bac+2">Bac+2</option><option value="Bac+3">Bac+3 (Licence)</option><option value="Bac+4">Bac+4 (Maîtrise)</option><option value="Bac+5">Bac+5 (Master/Ingénieur)</option><option value="Doctorat">Doctorat</option></select></div><div class="form-group"><label data-i18n="lbl_etab">Établissement</label><input type="text" name="etablissement"></div></div>
+          <div class="form-group"><label data-i18n="lbl_spec">Spécialité</label><input type="text" name="specialite"></div><div class="form-group"><label data-i18n="lbl_certifs">Certifications professionnelles</label><textarea name="certifications" rows="2"></textarea></div>
+        </div>
+        <div class="form-step"><h3><span class="step-num">4</span><span data-i18n="step4Title">Votre expérience</span></h3><p class="step-desc" data-i18n="step4Desc">Votre parcours professionnel.</p>
+          <div class="form-row"><div class="form-group"><label data-i18n="lbl_exp">Années d'expérience <span class="required">*</span></label><select name="experience" required><option value="">Choisissez...</option><option value="0-1">Moins d'1 an</option><option value="1-3">1 à 3 ans</option><option value="3-5">3 à 5 ans</option><option value="5-10">5 à 10 ans</option><option value="10+">Plus de 10 ans</option></select></div><div class="form-group"><label data-i18n="lbl_domain">Domaine d'expertise</label><select name="domaine"><option value="">Choisissez...</option><option value="Support IT">Support IT</option><option value="Réseau">Réseau</option><option value="Sécurité">Cybersécurité</option><option value="Cloud">Cloud</option><option value="Développement">Développement</option><option value="Autre">Autre</option></select></div></div>
+        </div>
+        <div class="form-step"><h3><span class="step-num">5</span><span data-i18n="step5Title">Auto-évaluation technique</span></h3><p class="step-desc" data-i18n="step5Desc">Évaluez honnêtement votre maîtrise.</p>
+          <div class="skills-matrix">
+            <div class="skill-row header"><div></div><div data-i18n="lvl0">Aucune</div><div data-i18n="lvl1">Débutant</div><div data-i18n="lvl2">Intermédiaire</div><div data-i18n="lvl3">Avancé</div><div data-i18n="lvl4">Expert</div></div>
+            <div class="skill-row"><div>SIEM / SOC</div><label data-label="Aucune"><input type="radio" name="skill_siem" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_siem" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_siem" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_siem" value="3"></label><label data-label="Expert"><input type="radio" name="skill_siem" value="4"></label></div>
+            <div class="skill-row"><div>Pentest</div><label data-label="Aucune"><input type="radio" name="skill_pentest" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_pentest" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_pentest" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_pentest" value="3"></label><label data-label="Expert"><input type="radio" name="skill_pentest" value="4"></label></div>
+            <div class="skill-row"><div>Pare-feu</div><label data-label="Aucune"><input type="radio" name="skill_firewall" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_firewall" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_firewall" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_firewall" value="3"></label><label data-label="Expert"><input type="radio" name="skill_firewall" value="4"></label></div>
+            <div class="skill-row"><div>Cloud (Azure/AWS)</div><label data-label="Aucune"><input type="radio" name="skill_cloud" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_cloud" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_cloud" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_cloud" value="3"></label><label data-label="Expert"><input type="radio" name="skill_cloud" value="4"></label></div>
+            <div class="skill-row"><div>Windows Server/AD</div><label data-label="Aucune"><input type="radio" name="skill_windows" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_windows" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_windows" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_windows" value="3"></label><label data-label="Expert"><input type="radio" name="skill_windows" value="4"></label></div>
+            <div class="skill-row"><div>Linux</div><label data-label="Aucune"><input type="radio" name="skill_linux" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_linux" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_linux" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_linux" value="3"></label><label data-label="Expert"><input type="radio" name="skill_linux" value="4"></label></div>
+            <div class="skill-row"><div>Scripting</div><label data-label="Aucune"><input type="radio" name="skill_scripting" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_scripting" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_scripting" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_scripting" value="3"></label><label data-label="Expert"><input type="radio" name="skill_scripting" value="4"></label></div>
           </div>
         </div>
- 
-        <div class="contact-item">
-          <div class="contact-item-icon"><i class="fas fa-phone"></i></div>
-          <div class="contact-item-text">
-            <strong id="cPhone">Téléphone</strong>
-            <span>+212 728 31 28 01</span>
-          </div>
+        <div class="form-step"><h3><span class="step-num">6</span><span data-i18n="step6Title">Compétences linguistiques</span></h3>
+          <div class="form-row"><div class="form-group"><label data-i18n="lbl_fr">Français <span class="required">*</span></label><select name="francais" required><option value="">Choisissez...</option><option value="Notions">Notions</option><option value="Conversationnel">Conversationnel</option><option value="Professionnel">Professionnel</option><option value="Courant">Courant</option><option value="Langue maternelle">Langue maternelle</option></select></div><div class="form-group"><label data-i18n="lbl_en">Anglais</label><select name="anglais"><option value="">Choisissez...</option><option value="Notions">Notions</option><option value="Conversationnel">Conversationnel</option><option value="Professionnel">Professionnel</option><option value="Courant">Courant</option><option value="Langue maternelle">Langue maternelle</option></select></div></div>
         </div>
- 
-        <div class="contact-item">
-          <div class="contact-item-icon"><i class="fab fa-whatsapp"></i></div>
-          <div class="contact-item-text">
-            <strong>WhatsApp Business</strong>
-            <span id="cWhatsappDesc">+212 728 31 28 01 · réponse rapide</span>
-          </div>
+        <div class="form-step"><h3><span class="step-num">7</span><span data-i18n="step7Title">Motivation et Documents</span></h3>
+          <div class="form-group"><label data-i18n="lbl_motivation">Pourquoi nous rejoindre ? <span class="required">*</span></label><textarea name="motivation" required rows="3"></textarea></div>
+          <div class="form-group"><label data-i18n="lbl_docs">Joindre des documents (Diplômes, Certificats, Bulletins) <span class="required">*</span></label><input type="file" name="documents" accept=".pdf,.docx,.jpg,.jpeg,.png" multiple required></div>
+          <div class="form-group"><label data-i18n="lbl_linkedin">LinkedIn (optionnel)</label><input type="url" name="linkedin"></div>
         </div>
- 
-        <div class="contact-item">
-          <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
-          <div class="contact-item-text">
-            <strong>Email</strong>
-            <span>contact@netvanguard.ma</span>
-          </div>
+        <div class="form-step"><h3><span class="step-num">8</span><span data-i18n="step8Title">Aspects financiers</span></h3>
+          <div class="form-row"><div class="form-group"><label data-i18n="lbl_salaire">Salaire actuel (DH net)</label><input type="text" name="salaire_actuel"></div><div class="form-group"><label data-i18n="lbl_pretention">Prétention salariale (DH net)</label><input type="text" name="pretention"></div></div>
         </div>
- 
-        <div class="contact-item">
-          <div class="contact-item-icon"><i class="fas fa-clock"></i></div>
-          <div class="contact-item-text">
-            <strong id="cHours">Horaires</strong>
-            <span id="cHoursDesc">Lun-Ven · 9h-18h<br>Hotline urgence : 24/7</span>
-          </div>
-        </div>
- 
-        <a href="https://wa.me/212728312801" class="whatsapp-direct" target="_blank">
-          <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i>
-          <span id="waBtn">Discuter sur WhatsApp</span>
-        </a>
+        <input type="hidden" name="_subject" value="Nouvelle candidature - Carrières NetVanguard">
+        <input type="text" name="_gotcha" style="display:none">
+        <button type="submit" class="btn-submit" id="submitBtn"><i class="fas fa-paper-plane"></i> <span data-i18n="btn_submit">Envoyer au responsable recrutement</span></button>
+        <p style="text-align:center;font-size:.78rem;color:var(--gray-mid);margin-top:1rem;">🔒 Vos documents sont envoyés à <strong>mhirigueyoussef@gmail.com</strong></p>
       </div>
- 
-      <div class="contact-form-wrap">
-        <div class="form-header">
-          <h3 id="formTitle">Demandez votre audit gratuit</h3>
-          <p id="formSubtitle">Remplissez ce formulaire — nous vous recontactons sous 24h.</p>
-        </div>
- 
-        <form id="contactForm" action="https://formspree.io/f/myklqdky" method="POST">
-          <div id="formSuccess" class="form-message-success">
-            <i class="fas fa-check-circle"></i> <span id="formSuccessMsg">Merci ! Votre demande a bien été envoyée. Nous vous recontactons sous 24h.</span>
-          </div>
-          <div id="formError" class="form-message-error">
-            <i class="fas fa-exclamation-circle"></i> <span id="formErrorMsg">Une erreur est survenue. Veuillez réessayer ou nous contacter directement.</span>
-          </div>
- 
-          <div class="form-row">
-            <div class="form-group">
-              <label id="lblName">Nom complet *</label>
-              <input type="text" name="nom" required id="phName" placeholder="Votre nom">
-            </div>
-            <div class="form-group">
-              <label id="lblCompany">Entreprise</label>
-              <input type="text" name="entreprise" id="phCompany" placeholder="Nom de l'entreprise">
-            </div>
-          </div>
- 
-          <div class="form-row">
-            <div class="form-group">
-              <label id="lblEmail">Email *</label>
-              <input type="email" name="email" required placeholder="vous@entreprise.com">
-            </div>
-            <div class="form-group">
-              <label id="lblPhone">Téléphone *</label>
-              <input type="tel" name="telephone" required placeholder="+212...">
-            </div>
-          </div>
- 
-          <div class="form-group">
-            <label id="lblService">Service qui vous intéresse</label>
-            <select name="service">
-              <option id="optAudit">Audit cyber gratuit</option>
-              <option>Support IT & Infogérance</option>
-              <option>Sécurité Réseau</option>
-              <option id="optVapt">Pentest / VAPT</option>
-              <option>SOC Consultation</option>
-              <option>Cybercrime</option>
-              <option>NOC Managé</option>
-              <option id="optOther">Autre</option>
-            </select>
-          </div>
- 
-          <div class="form-group">
-            <label id="lblMessage">Votre message</label>
-            <textarea name="message" id="phMessage" placeholder="Décrivez brièvement votre besoin..."></textarea>
-          </div>
- 
-          <input type="hidden" name="_subject" value="Nouvelle demande NetVanguard IT Solutions">
-          <input type="text" name="_gotcha" style="display:none">
- 
-          <button type="submit" id="submitBtn" class="submit-btn">
-            <span id="btnSubmit">Envoyer ma demande</span> <i class="fas fa-paper-plane" style="margin-left:.5rem;"></i>
-          </button>
-        </form>
-      </div>
- 
-    </div>
- 
-    <div class="trust-row">
-      <div class="trust-card">
-        <div class="trust-icon"><i class="fas fa-clock"></i></div>
-        <h4 id="trust1Title">Réponse sous 24h</h4>
-        <p id="trust1Desc">Notre équipe répond à toutes les demandes en moins de 24 heures ouvrées.</p>
-      </div>
-      <div class="trust-card">
-        <div class="trust-icon"><i class="fas fa-lock"></i></div>
-        <h4 id="trust2Title">100% Confidentiel</h4>
-        <p id="trust2Desc">Vos informations sont traitées avec la plus stricte confidentialité.</p>
-      </div>
-      <div class="trust-card">
-        <div class="trust-icon"><i class="fas fa-shield-halved"></i></div>
-        <h4 id="trust3Title">Aucun engagement</h4>
-        <p id="trust3Desc">L'audit initial est entièrement gratuit, sans obligation de souscription.</p>
-      </div>
-    </div>
- 
+    </form>
   </div>
 </section>
- 
+
 <footer>
   <div class="footer-grid">
-    <div class="footer-brand">
-      <a href="index.html" class="logo" style="font-size:1.2rem;margin-bottom:.8rem;display:inline-flex;">
-        <svg viewBox="0 0 24 24" width="28" height="28">
-          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="#00D4FF"/>
-          <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
-        </svg>
-        <span style="color:white;margin-left:.5rem;">Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.82em;font-weight:400;color:rgba(255,255,255,0.45);">IT Solutions</span></span>
-      </a>
-      <p id="footerDesc">Cybersécurité, infogérance IT et formation au service des entreprises marocaines. Protection complète, accessible et indépendante.</p>
-    </div>
-    <div class="footer-col">
-      <h4 id="footerServices">Services</h4>
-      <ul>
-        <li><a href="infogerance.html">Support IT & Infogérance</a></li>
-        <li><a href="securite-reseau.html">Sécurité Réseau</a></li>
-        <li><a href="vapt.html">Pentest / VAPT</a></li>
-        <li><a href="soc-consultation.html">SOC Consultation</a></li>
-        <li><a href="cybercrime.html">Cybercrime</a></li>
-        <li><a href="noc.html">NOC Managé</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4 id="footerSectors">Secteurs</h4>
-      <ul>
-        <li><a href="secteur-banques.html">Banques & Finance</a></li>
-        <li><a href="secteur-ecommerce.html">E-commerce</a></li>
-        <li><a href="secteur-sante.html">Santé</a></li>
-        <li><a href="secteur-industrie.html">Industrie</a></li>
-        <li><a href="secteur-administrations.html">Administrations</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4 id="footerCompany">Entreprise</h4>
-      <ul>
-        <li><a href="qui-sommes-nous.html" id="footerAbout">Qui sommes-nous</a></li>
-        <li><a href="carrieres.html" id="footerCareers">Carrières</a></li>
-        <li><a href="contact.html" id="footerContact">Contact</a></li>
-      </ul>
-    </div>
+    <div class="footer-brand"><a href="index.html" class="logo" style="font-size:1.2rem;margin-bottom:.8rem;display:inline-flex;"><svg viewBox="0 0 24 24" width="28" height="28"><defs><linearGradient id="sgF" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1"/><stop offset="100%" style="stop-color:#FFB800;stop-opacity:1"/></linearGradient></defs><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#sgF)"/><path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/></svg><span style="color:white;margin-left:.5rem;">Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.82em;font-weight:400;color:rgba(255,255,255,0.45);">IT Solutions</span></span></a><p>Cabinet de conseil et d'ingénierie spécialisé en cybersécurité au Maroc.</p></div>
+    <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Audits & Pentest</a></li><li><a href="services.html">Architecture Réseau</a></li><li><a href="services.html">Cloud Security</a></li></ul></div>
+    <div class="footer-col"><h4>Liens</h4><ul><li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li><li><a href="carrieres.html">Carrières</a></li><li><a href="campus-cyber.html">Campus Cyber</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul style="color:var(--gray-light);font-size:0.88rem;"><li><i class="fas fa-phone" style="color:var(--accent);"></i>+212 728 31 28 01</li><li><i class="fas fa-envelope" style="color:var(--accent);"></i>contact@netvanguard.ma</li></ul></div>
   </div>
-  <div class="footer-bottom">
-    <span>© 2026 NetVanguard IT Solutions SARL · Casablanca</span>
-    <span>Excellence & Innovation</span>
-  </div>
+  <div class="footer-bottom"><div>© 2026 NetVanguard IT Solutions SARL · Casablanca</div><div><a href="#">Mentions légales</a>·<a href="#">Confidentialité</a></div></div>
 </footer>
- 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+
 <script>
-const translations={
-  fr:{
-    navHome:"Accueil",navServices:"Services",navSectors:"Secteurs",
-    navAbout:"Qui sommes-nous",navCareers:"Carrières",
-    navCampus:"Campus Cyber",navContact:"Contact",navAudit:"Audit gratuit",
-    bcHome:"Accueil",bcContact:"Contact",
-    hdrTitle1:"Parlons de votre",hdrTitleAccent:"projet IT",
-    hdrDesc:"Audit gratuit . Infogérance, sécurité réseau, cybersécurité — nous analysons vos besoins sans engagement.",
-    infoTag:"COORDONNÉES",infoTitle:"Restons en contact",
-    infoDesc:"Notre équipe répond sous 24h. Pour les urgences cyber, privilégiez WhatsApp.",
-    cBureau:"Bureau Casablanca",cBureauDesc:"Quartier business · Casablanca, Maroc",
-    cPhone:"Téléphone",cWhatsappDesc:"+212 728 31 28 01 · réponse rapide",
-    cHours:"Horaires",cHoursDesc:"Lun-Ven · 9h-18h<br>Hotline urgence : 24/7",
-    waBtn:"Discuter sur WhatsApp",
-    formTitle:"Parlez-nous de votre projet",
-    formSubtitle:"Infogérance, cybersécurité ou support IT — décrivez votre besoin et nous vous recontactons sous 24h.",
-    formSuccess:"Merci ! Votre demande a bien été envoyée. Nous vous recontactons sous 24h.",
-    formError:"Une erreur est survenue. Veuillez réessayer ou nous contacter directement.",
-    lblName:"Nom complet *",phName:"Votre nom",
-    lblCompany:"Entreprise",phCompany:"Nom de l'entreprise",
-    lblPhone:"Téléphone *",
-    lblService:"Service qui vous intéresse",
-    optAudit:"Audit cyber gratuit",optVapt:"VAPT - Tests d'intrusion",
-    optConformite:"Conformité & Régulation",optIncident:"Réponse à Incident urgente",
-    optFormation:"Formation Academy",optOther:"Autre",
-    lblMessage:"Votre message",phMessage:"Décrivez brièvement votre besoin...",
-    btnSubmit:"Envoyer ma demande",btnSending:"Envoi en cours...",
-    trust1Title:"Réponse sous 24h",trust1Desc:"Notre équipe répond à toutes les demandes en moins de 24 heures ouvrées.",
-    trust2Title:"100% Confidentiel",trust2Desc:"Vos informations sont traitées avec la plus stricte confidentialité.",
-    trust3Title:"Aucun engagement",trust3Desc:"L'audit initial est entièrement gratuit, sans obligation de souscription.",
-    footerDesc:"Infogérance, support IT et cybersécurité pour les PME marocaines. Votre partenaire de confiance.",
-    footerServices:"Services",footerSectors:"Secteurs",footerCompany:"Entreprise",
-    topPhone:"+212 728 31 28 01",topEmail:"contact@netvanguard.ma",topLocation:"Casablanca"
+// =====================================================
+// DICTIONNAIRE DE TRADUCTION
+// =====================================================
+const translations = {
+  fr: {
+    nav_home:"Accueil",nav_services:"Services",nav_sectors:"Secteurs",nav_about:"Qui sommes-nous",
+    nav_careers:"Carrières",nav_campus:"🎓 Campus Cyber",nav_contact:"Contact",nav_client:"Espace Client",
+    hero_title:"Votre Carrière chez<br><span class='accent'>NetVanguard</span>",
+    hero_desc:"Déposez votre CV, notre système intelligent l'analyse et vous oriente vers la prochaine étape.",
+    upload_title:"Déposez votre CV ici",upload_desc:"Formats acceptés : PDF, DOCX, TXT (Max 10 MB)",
+    btn_browse:"Parcourir les fichiers",processing_title:"Analyse de votre CV en cours...",
+    ps1:"Extraction du contenu...",ps2:"Lecture ligne par ligne...",
+    ps3:"Analyse et scoring...",ps4:"Évaluation finale...",
+    accepted_title:"📋 Profil Validé — Passez à l'étape d'examen",
+    accepted_desc:"Votre profil correspond à nos critères de recrutement. Un code d'accès vous sera envoyé par email pour accéder à l'examen technique.",
+    btn_goto_exam:"Accéder à l'Examen",
+    info_title:"📌 Instructions pour l'examen :",
+    info1:"1. Cliquez sur le bouton ci-dessus pour accéder à la plateforme d'examen.",
+    info2:"2. Le code d'accès vous sera envoyé par email dans quelques minutes.",
+    info3:"3. Vérifiez votre boîte de réception (et vos spams).",
+    info4:"4. Remplissez vos informations et choisissez votre filière.",
+    info5:"5. Vous avez 60 minutes pour répondre à 40 questions.",
+    info_warning:"⚠️ Une seule tentative autorisée. Pas de triche.",
+    info_contact_fallback:"Si vous n'avez pas reçu le code, contactez : <strong>mhirigueyoussef@gmail.com</strong>",
+    rejected_title:"📋 Profil Non Retenu",
+    rejected_desc:"Votre profil ne correspond pas aux critères requis pour le moment. Vous pouvez remplir le formulaire détaillé pour une évaluation par notre équipe RH.",
+    rejected_suspicious_title:"⚠️ CV Non Valide",
+    rejected_suspicious_desc:"Notre système a détecté des incohérences dans votre CV. Merci de soumettre un CV correspondant à un profil IT ou cybersécurité.",
+    rejected_noit_title:"❌ Profil Non IT",
+    rejected_noit_desc:"Votre CV ne contient pas de compétences IT ou cybersécurité. Cette plateforme est réservée aux profils techniques.",
+    btn_fill_form:"Remplir le formulaire",form_main_title:"Formulaire de Candidature Détaillé",
+    step1Title:"Vos informations personnelles",step1Desc:"Pour que nous puissions vous identifier et vous recontacter.",
+    step2Title:"Mobilité et disponibilité",step2Desc:"Pour évaluer la compatibilité avec nos besoins opérationnels.",
+    step3Title:"Parcours académique",step3Desc:"Votre formation et vos certifications professionnelles.",
+    step4Title:"Votre expérience",step4Desc:"Votre parcours professionnel.",
+    step5Title:"Auto-évaluation technique",step5Desc:"Évaluez honnêtement votre maîtrise.",
+    step6Title:"Compétences linguistiques",step7Title:"Motivation et Documents",step8Title:"Aspects financiers",
+    lbl_firstname:"Prénom",lbl_lastname:"Nom",lbl_email:"Email",lbl_phone:"Téléphone",
+    lbl_genre:"Genre",genre_f:"Femme",genre_h:"Homme",genre_o:"Préfère ne pas répondre",
+    lbl_city:"Ville",lbl_casa:"Notre siège est à Casablanca. Êtes-vous prêt(e) à y travailler ?",
+    mob1:"Je suis déjà à Casablanca",mob2:"Prêt(e) à m'y installer",mob3:"Mode hybride uniquement",mob4:"Non disponible",
+    lbl_dispo:"Délai de disponibilité",dispo1:"Immédiate",dispo2:"Sous 2 semaines",dispo3:"Sous 1 mois",dispo4:"Sous 2 mois",dispo5:"3 mois ou plus",
+    lbl_permis:"Permis de conduire",per1:"Oui, avec véhicule",per2:"Oui, sans véhicule",per3:"Non",
+    lbl_diploma:"Plus haut diplôme",lbl_etab:"Établissement",lbl_spec:"Spécialité",lbl_certifs:"Certifications professionnelles",
+    lbl_exp:"Années d'expérience",lbl_domain:"Domaine d'expertise",
+    lvl0:"Aucune",lvl1:"Débutant",lvl2:"Intermédiaire",lvl3:"Avancé",lvl4:"Expert",
+    lbl_fr:"Français",lbl_en:"Anglais",lbl_motivation:"Pourquoi nous rejoindre ?",
+    lbl_docs:"Joindre des documents (Diplômes, Certificats, Bulletins)",
+    lbl_linkedin:"LinkedIn (optionnel)",lbl_salaire:"Salaire actuel (DH net)",lbl_pretention:"Prétention salariale (DH net)",
+    btn_submit:"Envoyer au responsable recrutement",
+    msg_success:"✅ Documents envoyés au responsable recrutement ! Nous vous recontacterons sous 7 jours.",
+    msg_error:"Erreur lors de l'envoi. Veuillez réessayer."
   },
-  en:{
-    navHome:"Home",navServices:"Services",navSectors:"Sectors",
-    navAbout:"About us",navCareers:"Careers",
-    navCampus:"Cyber Campus",navContact:"Contact",navAudit:"Free audit",
-    bcHome:"Home",bcContact:"Contact",
-    hdrTitle1:"Let's talk about your",hdrTitleAccent:"cybersecurity",
-    hdrDesc:"Free audit. No commitment, just a clear view of your cyber exposure.",
-    infoTag:"CONTACT INFO",infoTitle:"Get in touch",
-    infoDesc:"Our team responds within 24h. For cyber emergencies, please use WhatsApp.",
-    cBureau:"Casablanca Office",cBureauDesc:"Business district · Casablanca, Morocco",
-    cPhone:"Phone",cWhatsappDesc:"+212 728 31 28 01 · quick reply",
-    cHours:"Hours",cHoursDesc:"Mon-Fri · 9am-6pm<br>Emergency hotline: 24/7",
-    waBtn:"Chat on WhatsApp",
-    formTitle:"Request your free audit",
-    formSubtitle:"Fill out this form — we'll get back to you within 24h.",
-    formSuccess:"Thank you! Your request has been sent. We'll contact you within 24h.",
-    formError:"An error occurred. Please try again or contact us directly.",
-    lblName:"Full name *",phName:"Your name",
-    lblCompany:"Company",phCompany:"Company name",
-    lblPhone:"Phone *",
-    lblService:"Service of interest",
-    optAudit:"Free cyber audit",optVapt:"VAPT - Penetration testing",
-    optConformite:"Compliance & Regulation",optIncident:"Urgent incident response",
-    optFormation:"Academy training",optOther:"Other",
-    lblMessage:"Your message",phMessage:"Briefly describe your needs...",
-    btnSubmit:"Send my request",btnSending:"Sending...",
-    trust1Title:"24h response time",trust1Desc:"Our team responds to all requests within 24 business hours.",
-    trust2Title:"100% Confidential",trust2Desc:"Your information is handled with the strictest confidentiality.",
-    trust3Title:"No commitment",trust3Desc:"The initial audit is completely free, with no subscription obligation.",
-    footerDesc:"Cybersecurity, consulting and training for businesses. Complete, accessible and independent protection.",
-    footerServices:"Services",footerSectors:"Sectors",footerCompany:"Company",
-    topPhone:"+212 728 31 28 01",topEmail:"contact@netvanguard.ma",topLocation:"Casablanca"
+  en: {
+    nav_home:"Home",nav_services:"Services",nav_sectors:"Sectors",nav_about:"About Us",
+    nav_careers:"Careers",nav_campus:"🎓 Cyber Campus",nav_contact:"Contact",nav_client:"Client Area",
+    hero_title:"Your Career at<br><span class='accent'>NetVanguard</span>",
+    hero_desc:"Submit your CV, our intelligent system analyzes it and guides you to the next step.",
+    upload_title:"Drop your CV here",upload_desc:"Accepted formats: PDF, DOCX, TXT (Max 10 MB)",
+    btn_browse:"Browse files",processing_title:"Analyzing your CV...",
+    ps1:"Extracting content...",ps2:"Reading line by line...",
+    ps3:"Analyzing and scoring...",ps4:"Final evaluation...",
+    accepted_title:"📋 Profile Approved — Proceed to Exam",
+    accepted_desc:"Your profile matches our recruitment criteria. An access code will be sent to you by email to access the technical exam.",
+    btn_goto_exam:"Access the Exam",
+    info_title:"📌 Exam Instructions:",
+    info1:"1. Click the button above to access the exam platform.",
+    info2:"2. The access code will be sent to you by email shortly.",
+    info3:"3. Check your inbox (and spam folder).",
+    info4:"4. Fill in your information and choose your track.",
+    info5:"5. You have 60 minutes to answer 40 questions.",
+    info_warning:"⚠️ One attempt only. No cheating.",
+    info_contact_fallback:"If you haven't received the code, contact: <strong>mhirigueyoussef@gmail.com</strong>",
+    rejected_title:"📋 Profile Not Selected",
+    rejected_desc:"Your profile does not match the required criteria at this time. You can fill out the detailed form for evaluation by our HR team.",
+    rejected_suspicious_title:"⚠️ Invalid CV",
+    rejected_suspicious_desc:"Our system detected inconsistencies in your CV. Please submit a CV matching an IT or cybersecurity profile.",
+    rejected_noit_title:"❌ Non-IT Profile",
+    rejected_noit_desc:"Your CV does not contain IT or cybersecurity skills. This platform is reserved for technical profiles.",
+    btn_fill_form:"Fill out the form",form_main_title:"Detailed Application Form",
+    step1Title:"Personal Information",step1Desc:"So we can identify you and get back to you.",
+    step2Title:"Mobility & Availability",step2Desc:"To assess compatibility with our operational needs.",
+    step3Title:"Academic Background",step3Desc:"Your education and professional certifications.",
+    step4Title:"Your Experience",step4Desc:"Your professional journey.",
+    step5Title:"Technical Self-Assessment",step5Desc:"Honestly evaluate your skills.",
+    step6Title:"Language Skills",step7Title:"Motivation & Documents",step8Title:"Financial Aspects",
+    lbl_firstname:"First Name",lbl_lastname:"Last Name",lbl_email:"Email",lbl_phone:"Phone",
+    lbl_genre:"Gender",genre_f:"Female",genre_h:"Male",genre_o:"Prefer not to answer",
+    lbl_city:"City",lbl_casa:"Our HQ is in Casablanca. Are you ready to work there?",
+    mob1:"Already in Casablanca",mob2:"Ready to relocate",mob3:"Hybrid only",mob4:"Not available",
+    lbl_dispo:"Availability",dispo1:"Immediate",dispo2:"Within 2 weeks",dispo3:"Within 1 month",dispo4:"Within 2 months",dispo5:"3+ months",
+    lbl_permis:"Driver's license",per1:"Yes, with vehicle",per2:"Yes, no vehicle",per3:"No",
+    lbl_diploma:"Highest degree",lbl_etab:"Institution",lbl_spec:"Major",lbl_certifs:"Professional certifications",
+    lbl_exp:"Years of experience",lbl_domain:"Area of expertise",
+    lvl0:"None",lvl1:"Beginner",lvl2:"Intermediate",lvl3:"Advanced",lvl4:"Expert",
+    lbl_fr:"French",lbl_en:"English",lbl_motivation:"Why join us?",
+    lbl_docs:"Attach documents (Diplomas, Certificates, Transcripts)",
+    lbl_linkedin:"LinkedIn (optional)",lbl_salaire:"Current salary",lbl_pretention:"Expected salary",
+    btn_submit:"Send to Recruitment Manager",
+    msg_success:"✅ Documents sent to recruitment manager! We will contact you within 7 days.",
+    msg_error:"Sending error. Please try again."
   }
 };
- 
+
 let currentLang = localStorage.getItem('netvanguard-lang') || 'fr';
- 
-function applyLanguage(lang){
-  const t=translations[lang];
-  if(!t)return;
-  document.querySelectorAll('[data-key]').forEach(el=>{
-    const key=el.getAttribute('data-key');
-    if(t[key]!==undefined)el.innerHTML=t[key];
-  });
-  document.querySelectorAll('[data-placeholder-key]').forEach(el=>{
-    const key=el.getAttribute('data-placeholder-key');
-    if(t[key]!==undefined)el.setAttribute('placeholder',t[key]);
-  });
-  const topPhone=document.querySelector('.top-phone');
-  const topEmail=document.querySelector('.top-email');
-  const topLocation=document.querySelector('.top-location');
-  if(topPhone)topPhone.textContent=t.topPhone;
-  if(topEmail)topEmail.textContent=t.topEmail;
-  if(topLocation)topLocation.textContent=t.topLocation;
-  document.querySelectorAll('.lang-btn').forEach(btn=>{
-    btn.classList.remove('active');
-    if(btn.getAttribute('data-lang')===lang)btn.classList.add('active');
-  });
-  document.documentElement.setAttribute('lang',lang);
-  localStorage.setItem('netvanguard-lang',lang);
+function applyLanguage(lang) {
+  currentLang = lang;
+  const t = translations[lang]; if (!t) return;
+  document.querySelectorAll('[data-i18n]').forEach(el => { const k = el.getAttribute('data-i18n'); if (t[k]) el.innerHTML = t[k]; });
+  document.querySelectorAll('.lang-btn').forEach(b => { b.classList.remove('active'); if (b.getAttribute('data-lang') === lang) b.classList.add('active'); });
+  localStorage.setItem('netvanguard-lang', lang);
 }
- 
-document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const lang = btn.getAttribute('data-lang');
-    if (lang) {
-      currentLang = lang;
-      applyLanguage(currentLang);
+document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => applyLanguage(btn.getAttribute('data-lang'))));
+applyLanguage(currentLang);
+
+// MOBILE MENU
+const menuToggle = document.getElementById('menuToggle'), mobileNav = document.getElementById('mobileNav');
+if (menuToggle && mobileNav) menuToggle.addEventListener('click', () => { mobileNav.classList.toggle('active'); menuToggle.querySelector('i').className = mobileNav.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'; });
+
+// =====================================================
+// ANALYSEUR CV + ENVOI CODE PAR EMAIL (MÉTHODE CONTACT)
+// =====================================================
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+const uploadZone = document.getElementById('uploadZone');
+const fileInput = document.getElementById('fileInput');
+const stepUpload = document.getElementById('stepUpload');
+const stepProcessing = document.getElementById('stepProcessing');
+const stepAccepted = document.getElementById('stepAccepted');
+const stepRejected = document.getElementById('stepRejected');
+
+uploadZone.addEventListener('dragover', (e) => { e.preventDefault(); uploadZone.classList.add('dragover'); });
+uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('dragover'));
+uploadZone.addEventListener('drop', (e) => { e.preventDefault(); uploadZone.classList.remove('dragover'); if (e.dataTransfer.files.length > 0) processFile(e.dataTransfer.files[0]); });
+
+function handleFileSelect(event) { if (event.target.files.length > 0) processFile(event.target.files[0]); }
+
+function processFile(file) {
+  document.getElementById('fileName').textContent = '📄 ' + file.name;
+  document.getElementById('fileName').style.display = 'block';
+  stepUpload.style.display = 'none';
+  stepProcessing.classList.add('active');
+  stepAccepted.classList.remove('active');
+  stepRejected.classList.remove('active');
+
+  ['ps1','ps2','ps3','ps4'].forEach(id => { const el = document.getElementById(id); el.querySelector('i').className = 'far fa-circle'; el.classList.remove('done'); });
+  document.getElementById('pdfPagesInfo').textContent = '';
+
+  const steps = [{ el: document.getElementById('ps1'), delay: 600 },{ el: document.getElementById('ps2'), delay: 1500 },{ el: document.getElementById('ps3'), delay: 2500 },{ el: document.getElementById('ps4'), delay: 3500 }];
+  steps.forEach((step) => { setTimeout(() => { step.el.querySelector('i').className = 'fas fa-check-circle'; step.el.classList.add('done'); }, step.delay); });
+
+  setTimeout(() => {
+    const fileType = file.type;
+    const fileName = file.name.toLowerCase();
+    const forbiddenNames = ['danse', 'dance', 'chanson', 'music', 'acteur', 'actrice', 'cuisine', 'coiffure', 'sport', 'football', 'basket', 'photo', 'design', 'mode', 'vente', 'commerce', 'boulanger', 'chauffeur', 'livreur', 'caissier'];
+    let nameBlocked = false;
+    forbiddenNames.forEach(kw => { if (fileName.includes(kw)) nameBlocked = true; });
+    if (nameBlocked) { showResult(false, 'suspicious'); return; }
+
+    if (fileType === 'application/pdf') {
+      extractTextFromPDF(file);
+    } else if (fileType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || fileName.endsWith('.docx')) {
+      extractTextFromDOCX(file);
+    } else if (fileType === 'text/plain' || fileName.endsWith('.txt')) {
+      const reader = new FileReader();
+      reader.onload = function(e) { analyzeCVContent(e.target.result, file); };
+      reader.readAsText(file);
+    } else {
+      showResult(false, 'suspicious');
     }
-  });
-});
- 
-// Menu mobile
-document.addEventListener('DOMContentLoaded', () => {
-  const menuToggle = document.getElementById('menuToggle');
-  const navLinks = document.getElementById('navLinks');
-  if (menuToggle && navLinks) {
-    menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => navLinks.classList.remove('active'));
-    });
+  }, 4000);
+}
+
+function extractTextFromPDF(file) {
+  const fileReader = new FileReader();
+  fileReader.onload = function() {
+    const typedarray = new Uint8Array(this.result);
+    pdfjsLib.getDocument({ data: typedarray }).promise.then(function(pdf) {
+      let fullText = '';
+      const totalPages = pdf.numPages;
+      const pagePromises = [];
+      for (let i = 1; i <= totalPages; i++) {
+        pagePromises.push(pdf.getPage(i).then(function(page) {
+          return page.getTextContent().then(function(textContent) {
+            fullText += textContent.items.map(item => item.str).join(' ') + ' ';
+          });
+        }));
+      }
+      Promise.all(pagePromises).then(() => {
+        document.getElementById('pdfPagesInfo').textContent = '✅ ' + totalPages + ' pages analysées';
+        analyzeCVContent(fullText.toLowerCase(), file);
+      }).catch(() => { analyzeCVContent(file.name.toLowerCase(), file); });
+    }).catch(() => { showResult(false, 'suspicious'); });
+  };
+  fileReader.readAsArrayBuffer(file);
+}
+
+function extractTextFromDOCX(file) {
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    if (typeof mammoth !== 'undefined') {
+      mammoth.extractRawText({ arrayBuffer: e.target.result }).then(function(result) {
+        analyzeCVContent(result.value.toLowerCase(), file);
+      }).catch(function() { analyzeCVContent(file.name.toLowerCase(), file); });
+    } else {
+      const reader2 = new FileReader();
+      reader2.onload = function(ev) { analyzeCVContent(ev.target.result, file); };
+      reader2.readAsText(file);
+    }
+  };
+  reader.readAsArrayBuffer(file);
+}
+
+function analyzeCVContent(content, file) {
+  if (!content || content.length < 30) { showResult(false, 'suspicious'); return; }
+
+  const nonITJobs = ['danceur','danseur','danse','chanteur','chanteuse','acteur','actrice','musicien','coiffeur','coiffeuse','cuisinier','boulanger','serveur','serveuse','vendeur','caissier','livreur','chauffeur','agriculteur','jardinier','maçon','plombier'];
+  let nonITScore = 0;
+  nonITJobs.forEach(kw => { if (content.includes(kw)) nonITScore += 3; });
+  const hasITWords = /support.it|technicien|réseau|network|sécurité|security|cyber|informatique|développeur|admin|ingénieur|cloud|linux|windows.server|cisco|firewall|pentest|vapt|soc|siem/i.test(content);
+  if (nonITScore >= 9 && !hasITWords) { showResult(false, 'suspicious'); return; }
+
+  const mandatoryIT = ['support','it','technique','réseau','network','security','sécurité','cyber','informatique','développeur','developer','admin','administrateur','ingenieur','ingénieur','technicien','analyste','consultant','infrastructure','cloud','système','system','software','logiciel','données','data'];
+  let mandatoryScore = 0;
+  mandatoryIT.forEach(kw => { if (content.includes(kw)) mandatoryScore++; });
+  if (mandatoryScore < 2) { showResult(false, 'no_it'); return; }
+
+  const technicalSkills = ['tcp/ip','dns','dhcp','vpn','firewall','pare-feu','vlan','ospf','bgp','wifi','radius','ids','ips','siem','soc','pentest','vapt','metasploit','nmap','wireshark','burp suite','owasp','xss','sql injection','ddos','ransomware','phishing','malware','edr','xdr','linux','windows server','active directory','azure','aws','gcp','virtualisation','vmware','hyper-v','docker','kubernetes','terraform','ansible','jenkins','gitlab','devops','python','powershell','bash','sql','mysql','postgresql','mongodb','splunk','elk','wazuh','ccna','ccnp','comptia','security+','ceh','cissp','oscp','itil','iso 27001'];
+  let techScore = 0;
+  technicalSkills.forEach(kw => { if (content.includes(kw)) techScore++; });
+
+  const education = ['diplôme','diploma','master','licence','bachelor','doctorat','phd','ingénieur','engineer','bts','dut','bac','formation','certification','certifié','certified','université','ecole','école','institut'];
+  let eduScore = 0;
+  education.forEach(kw => { if (content.includes(kw)) eduScore++; });
+
+  const experience = ['expérience','experience','année','years','an','ans','stage','internship','cdi','cdd','freelance','mission','projet','project','client','entreprise','company','société'];
+  let expScore = 0;
+  experience.forEach(kw => { if (content.includes(kw)) expScore++; });
+
+  let bonus = 0;
+  if (content.includes('@')) bonus += 2;
+  if (/\b(20\d{2}|19\d{2})\b/.test(content)) bonus += 2;
+  if (content.includes('expérience') || content.includes('experience') || content.includes('formation') || content.includes('education')) bonus += 2;
+
+  const finalScore = (techScore * 4) + (eduScore * 3) + (expScore * 3) + (mandatoryScore * 3) + bonus;
+  const isQualified = techScore >= 5 && mandatoryScore >= 3 && finalScore >= 30;
+
+  if (isQualified) {
+    const code = generateTempCode();
+    sendCVAndCodeByEmail(file, code);
   }
-});
- 
-// FORMSPREE
-document.getElementById('contactForm').addEventListener('submit', async function(e) {
+
+  showResult(isQualified, isQualified ? 'qualified' : 'low_score');
+}
+
+function generateTempCode() {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let code = '';
+  for (let i = 0; i < 8; i++) { code += chars.charAt(Math.floor(Math.random() * chars.length)); }
+  const expiration = Date.now() + (60 * 60 * 1000);
+  localStorage.setItem('nv_exam_code', code);
+  localStorage.setItem('nv_exam_expires', expiration.toString());
+  return code;
+}
+
+// =====================================================
+// ENVOI EMAIL - MÊME MÉTHODE QUE CONTACT.HTML
+// =====================================================
+function sendCVAndCodeByEmail(file, code) {
+  const formData = new FormData();
+  
+  // Ajouter le fichier CV
+  formData.append('cv', file, file.name);
+  
+  // Ajouter les champs texte (comme le formulaire de contact)
+  formData.append('code_acces', code);
+  formData.append('filename', file.name);
+  formData.append('filesize', (file.size / 1024).toFixed(1) + ' KB');
+  formData.append('filetype', file.type || 'inconnu');
+  formData.append('date_envoi', new Date().toLocaleString('fr-FR'));
+  formData.append('_subject', '✅ CV ACCEPTÉ - ' + file.name + ' | Code: ' + code);
+  formData.append('message', '📋 Profil Validé — Passez à l\'étape d\'examen\n\n🔑 Code d\'accès temporaire : ' + code + '\n⏰ Le code expire dans 1 heure\n📄 Fichier : ' + file.name + '\n📏 Taille : ' + (file.size / 1024).toFixed(1) + ' KB\n\n👤 Communiquez ce code au candidat pour l\'examen.');
+  
+  // Champ anti-spam (comme le formulaire contact)
+  formData.append('_gotcha', '');
+
+  console.log('📤 Envoi du CV + code (méthode Contact)...');
+  console.log('🔑 Code :', code);
+  console.log('📄 Fichier :', file.name);
+  console.log('📏 Taille :', (file.size / 1024).toFixed(1) + ' KB');
+
+  // Même méthode que contact.html
+  fetch('https://formspree.io/f/myklqdky', {
+    method: 'POST',
+    body: formData,
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(response => {
+    console.log('📥 Statut réponse:', response.status);
+    if (response.ok) {
+      console.log('✅ CV + code envoyés avec succès à mhirigueyoussef@gmail.com');
+    } else {
+      console.warn('⚠️ Statut:', response.status);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log('📬 Réponse Formspree:', data);
+  })
+  .catch(err => {
+    console.error('❌ Erreur envoi:', err);
+  });
+}
+
+function showResult(isQualified, reason) {
+  stepProcessing.classList.remove('active');
+  if (isQualified) {
+    stepAccepted.classList.add('active');
+  } else {
+    if (reason === 'suspicious') {
+      document.getElementById('rejected_title').textContent = translations[currentLang].rejected_suspicious_title;
+      document.getElementById('rejected_desc').textContent = translations[currentLang].rejected_suspicious_desc;
+    } else if (reason === 'no_it') {
+      document.getElementById('rejected_title').textContent = translations[currentLang].rejected_noit_title;
+      document.getElementById('rejected_desc').textContent = translations[currentLang].rejected_noit_desc;
+    } else {
+      document.getElementById('rejected_title').textContent = translations[currentLang].rejected_title;
+      document.getElementById('rejected_desc').textContent = translations[currentLang].rejected_desc;
+    }
+    stepRejected.classList.add('active');
+  }
+}
+
+function scrollToForm() {
+  const formSection = document.getElementById('detailedForm');
+  formSection.classList.add('visible');
+  formSection.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Formulaire détaillé (même méthode que contact.html)
+document.getElementById('careerForm').addEventListener('submit', async function(e) {
   e.preventDefault();
-  const form = e.target;
   const btn = document.getElementById('submitBtn');
-  const success = document.getElementById('formSuccess');
-  const error = document.getElementById('formError');
-  const t = translations[currentLang];
- 
-  success.style.display = 'none';
-  error.style.display = 'none';
   btn.disabled = true;
- 
+  
   try {
-    const data = new FormData(form);
-    const response = await fetch(form.action, {
+    const response = await fetch(this.action, {
       method: 'POST',
-      body: data,
+      body: new FormData(this),
       headers: { 'Accept': 'application/json' }
     });
     if (response.ok) {
-      success.style.display = 'block';
-      form.reset();
-      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      document.getElementById('formMsgSuccess').style.display = 'block';
+      document.getElementById('formMsgError').style.display = 'none';
+      this.reset();
+      document.getElementById('formMsgSuccess').scrollIntoView({ behavior: 'smooth', block: 'center' });
     } else {
-      error.style.display = 'block';
+      document.getElementById('formMsgError').style.display = 'block';
+      document.getElementById('formMsgSuccess').style.display = 'none';
     }
-  } catch (err) {
-    error.style.display = 'block';
+  } catch {
+    document.getElementById('formMsgError').style.display = 'block';
   } finally {
     btn.disabled = false;
   }
 });
- 
-applyLanguage(currentLang);
 </script>
 </body>
 </html>
