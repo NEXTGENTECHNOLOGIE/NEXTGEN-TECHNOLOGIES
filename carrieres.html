@@ -230,15 +230,15 @@ footer { background:var(--primary-deep); border-top:1px solid rgba(0,212,255,0.1
       <div class="scanner-animation"><div class="scanner-circle"></div><div class="scanner-line"></div></div>
       <h3 style="color:var(--white);margin-bottom:1.5rem;" data-i18n="processing_title">Analyse de votre CV en cours...</h3>
       <div class="processing-steps">
-        <div class="processing-step" id="ps1"><i class="fas fa-spinner fa-spin"></i> <span data-i18n="ps1">Extraction du contenu du fichier...</span></div>
-        <div class="processing-step" id="ps2"><i class="far fa-circle"></i> <span data-i18n="ps2">Lecture ligne par ligne du document...</span></div>
-        <div class="processing-step" id="ps3"><i class="far fa-circle"></i> <span data-i18n="ps3">Analyse des compétences techniques...</span></div>
-        <div class="processing-step" id="ps4"><i class="far fa-circle"></i> <span data-i18n="ps4">Évaluation finale du profil...</span></div>
+        <div class="processing-step" id="ps1"><i class="fas fa-spinner fa-spin"></i> <span data-i18n="ps1">Extraction du contenu...</span></div>
+        <div class="processing-step" id="ps2"><i class="far fa-circle"></i> <span data-i18n="ps2">Lecture ligne par ligne...</span></div>
+        <div class="processing-step" id="ps3"><i class="far fa-circle"></i> <span data-i18n="ps3">Analyse et scoring...</span></div>
+        <div class="processing-step" id="ps4"><i class="far fa-circle"></i> <span data-i18n="ps4">Évaluation finale...</span></div>
       </div>
       <div class="processing-step pdf-pages" id="pdfPagesInfo"></div>
     </div>
 
-    <!-- RÉSULTAT ACCEPTÉ (code caché, envoyé par email) -->
+    <!-- RÉSULTAT ACCEPTÉ -->
     <div class="result-panel" id="stepAccepted">
       <div class="result-icon accepted"><i class="fas fa-check-circle"></i></div>
       <div class="result-title" data-i18n="accepted_title">📋 Profil Validé — Passez à l'étape d'examen</div>
@@ -347,8 +347,8 @@ const translations = {
     hero_desc:"Déposez votre CV, notre système intelligent l'analyse et vous oriente vers la prochaine étape.",
     upload_title:"Déposez votre CV ici",upload_desc:"Formats acceptés : PDF, DOCX, TXT (Max 10 MB)",
     btn_browse:"Parcourir les fichiers",processing_title:"Analyse de votre CV en cours...",
-    ps1:"Extraction du contenu du fichier...",ps2:"Lecture ligne par ligne du document...",
-    ps3:"Analyse des compétences techniques...",ps4:"Évaluation finale du profil...",
+    ps1:"Extraction du contenu...",ps2:"Lecture ligne par ligne...",
+    ps3:"Analyse et scoring...",ps4:"Évaluation finale...",
     accepted_title:"📋 Profil Validé — Passez à l'étape d'examen",
     accepted_desc:"Votre profil correspond à nos critères de recrutement. Un code d'accès vous sera envoyé par email pour accéder à l'examen technique.",
     btn_goto_exam:"Accéder à l'Examen",
@@ -396,8 +396,8 @@ const translations = {
     hero_desc:"Submit your CV, our intelligent system analyzes it and guides you to the next step.",
     upload_title:"Drop your CV here",upload_desc:"Accepted formats: PDF, DOCX, TXT (Max 10 MB)",
     btn_browse:"Browse files",processing_title:"Analyzing your CV...",
-    ps1:"Extracting file content...",ps2:"Reading document line by line...",
-    ps3:"Analyzing technical skills...",ps4:"Final profile evaluation...",
+    ps1:"Extracting content...",ps2:"Reading line by line...",
+    ps3:"Analyzing and scoring...",ps4:"Final evaluation...",
     accepted_title:"📋 Profile Approved — Proceed to Exam",
     accepted_desc:"Your profile matches our recruitment criteria. An access code will be sent to you by email to access the technical exam.",
     btn_goto_exam:"Access the Exam",
@@ -456,7 +456,7 @@ const menuToggle = document.getElementById('menuToggle'), mobileNav = document.g
 if (menuToggle && mobileNav) menuToggle.addEventListener('click', () => { mobileNav.classList.toggle('active'); menuToggle.querySelector('i').className = mobileNav.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'; });
 
 // =====================================================
-// ANALYSEUR CV + ENVOI CODE PAR EMAIL
+// ANALYSEUR CV + ENVOI CODE PAR EMAIL (MÉTHODE CONTACT)
 // =====================================================
 pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
@@ -584,7 +584,6 @@ function analyzeCVContent(content, file) {
   const isQualified = techScore >= 5 && mandatoryScore >= 3 && finalScore >= 30;
 
   if (isQualified) {
-    // Générer le code et l'envoyer par email
     const code = generateTempCode();
     sendCVAndCodeByEmail(file, code);
   }
@@ -602,30 +601,52 @@ function generateTempCode() {
   return code;
 }
 
+// =====================================================
+// ENVOI EMAIL - MÊME MÉTHODE QUE CONTACT.HTML
+// =====================================================
 function sendCVAndCodeByEmail(file, code) {
   const formData = new FormData();
+  
+  // Ajouter le fichier CV
   formData.append('cv', file, file.name);
+  
+  // Ajouter les champs texte (comme le formulaire de contact)
   formData.append('code_acces', code);
   formData.append('filename', file.name);
   formData.append('filesize', (file.size / 1024).toFixed(1) + ' KB');
+  formData.append('filetype', file.type || 'inconnu');
   formData.append('date_envoi', new Date().toLocaleString('fr-FR'));
   formData.append('_subject', '✅ CV ACCEPTÉ - ' + file.name + ' | Code: ' + code);
-  formData.append('message', 'Ce CV a été accepté par l\'analyseur automatique.\n\n📋 Profil Validé\n\n🔑 Code d\'accès temporaire : ' + code + '\n\n⏰ Le code expire dans 1 heure.\n\n📄 CV joint en pièce jointe.\n\n👤 Communiquez ce code au candidat pour qu\'il puisse passer l\'examen.');
+  formData.append('message', '📋 Profil Validé — Passez à l\'étape d\'examen\n\n🔑 Code d\'accès temporaire : ' + code + '\n⏰ Le code expire dans 1 heure\n📄 Fichier : ' + file.name + '\n📏 Taille : ' + (file.size / 1024).toFixed(1) + ' KB\n\n👤 Communiquez ce code au candidat pour l\'examen.');
+  
+  // Champ anti-spam (comme le formulaire contact)
+  formData.append('_gotcha', '');
 
-  console.log('📤 Envoi du CV + code vers mhirigueyoussef@gmail.com');
-  console.log('🔑 Code généré :', code);
+  console.log('📤 Envoi du CV + code (méthode Contact)...');
+  console.log('🔑 Code :', code);
+  console.log('📄 Fichier :', file.name);
+  console.log('📏 Taille :', (file.size / 1024).toFixed(1) + ' KB');
 
+  // Même méthode que contact.html
   fetch('https://formspree.io/f/myklqdky', {
     method: 'POST',
     body: formData,
     headers: { 'Accept': 'application/json' }
   })
-  .then(response => response.json())
+  .then(response => {
+    console.log('📥 Statut réponse:', response.status);
+    if (response.ok) {
+      console.log('✅ CV + code envoyés avec succès à mhirigueyoussef@gmail.com');
+    } else {
+      console.warn('⚠️ Statut:', response.status);
+    }
+    return response.json();
+  })
   .then(data => {
-    console.log('✅ CV + code envoyés avec succès');
+    console.log('📬 Réponse Formspree:', data);
   })
   .catch(err => {
-    console.error('❌ Erreur envoi email:', err);
+    console.error('❌ Erreur envoi:', err);
   });
 }
 
@@ -654,11 +675,18 @@ function scrollToForm() {
   formSection.scrollIntoView({ behavior: 'smooth' });
 }
 
+// Formulaire détaillé (même méthode que contact.html)
 document.getElementById('careerForm').addEventListener('submit', async function(e) {
   e.preventDefault();
-  const btn = document.getElementById('submitBtn'); btn.disabled = true;
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  
   try {
-    const response = await fetch(this.action, { method: 'POST', body: new FormData(this), headers: { 'Accept': 'application/json' } });
+    const response = await fetch(this.action, {
+      method: 'POST',
+      body: new FormData(this),
+      headers: { 'Accept': 'application/json' }
+    });
     if (response.ok) {
       document.getElementById('formMsgSuccess').style.display = 'block';
       document.getElementById('formMsgError').style.display = 'none';
@@ -668,8 +696,11 @@ document.getElementById('careerForm').addEventListener('submit', async function(
       document.getElementById('formMsgError').style.display = 'block';
       document.getElementById('formMsgSuccess').style.display = 'none';
     }
-  } catch { document.getElementById('formMsgError').style.display = 'block'; }
-  finally { btn.disabled = false; }
+  } catch {
+    document.getElementById('formMsgError').style.display = 'block';
+  } finally {
+    btn.disabled = false;
+  }
 });
 </script>
 </body>
