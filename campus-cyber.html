@@ -60,6 +60,12 @@
     .mobile-nav-overlay a { color: var(--white); font-size: 1.1rem; font-weight: 600; }
     .btn-espace-client-mobile { background: linear-gradient(135deg,#00D4FF,#0891B2); color:#050B14!important; font-weight:700; padding:0.5rem 1.2rem; border-radius:6px; text-align:center; display:inline-flex; align-items:center; justify-content:center; gap:0.5rem; margin-top:1rem; }
 
+    /* ANTI-CHEAT BANNER */
+    .anti-cheat-banner { background: linear-gradient(135deg, rgba(239,68,68,0.1), rgba(239,68,68,0.05)); border: 1px solid rgba(239,68,68,0.25); border-radius: 14px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+    .anti-cheat-banner i { font-size: 2rem; color: var(--red); }
+    .anti-cheat-banner .ac-text h4 { color: var(--red); font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .anti-cheat-banner .ac-text p { color: var(--gray-light); font-size: 0.82rem; line-height: 1.4; }
+
     /* PAGE HEADER */
     .page-header { position: relative; padding: 4rem 4% 3rem; overflow: hidden; background: var(--primary-deep); text-align: center; }
     .page-header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 30%, rgba(0,212,255,0.12), transparent 50%); pointer-events: none; }
@@ -68,7 +74,6 @@
     .page-header h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); line-height: 1.15; margin-bottom: 1rem; color: var(--white); }
     .page-header h1 .accent { background: linear-gradient(90deg, #FFB800, #EF4444, #00D4FF, #FFB800); background-size: 300% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shine 6s linear infinite; }
     @keyframes shine { to { background-position: 300% center; } }
-    .page-header p { font-size: 1.05rem; color: var(--gray-light); max-width: 600px; margin: 0 auto; }
 
     /* CONTAINER */
     .exam-section { padding: 2rem 4% 5rem; }
@@ -93,9 +98,8 @@
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
     .form-group { margin-bottom: 1rem; }
     .form-group label { display: block; color: var(--accent); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.4rem; }
-    .form-group input, .form-group select { width: 100%; padding: 0.85rem 1rem; border: 1.5px solid rgba(255,255,255,0.1); border-radius: 10px; background: rgba(255,255,255,0.04); color: var(--white); font-family: inherit; font-size: 0.95rem; transition: var(--transition); }
-    .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--accent); background: rgba(0,212,255,0.06); }
-    .form-group select option { background: var(--primary); color: var(--white); }
+    .form-group input { width: 100%; padding: 0.85rem 1rem; border: 1.5px solid rgba(255,255,255,0.1); border-radius: 10px; background: rgba(255,255,255,0.04); color: var(--white); font-family: inherit; font-size: 0.95rem; transition: var(--transition); }
+    .form-group input:focus { outline: none; border-color: var(--accent); background: rgba(0,212,255,0.06); }
 
     /* SECTION CARDS */
     .section-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2rem; }
@@ -145,6 +149,8 @@
     .btn-nav.submit { background: linear-gradient(135deg, var(--red), var(--red-dark)); color: var(--white); display: none; }
     .btn-nav.submit:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(239,68,68,0.3); }
     .btn-nav.submit.show { display: flex; }
+    .btn-nav.quit { background: rgba(255,184,0,0.2); color: var(--gold); border: 1px solid rgba(255,184,0,0.3); }
+    .btn-nav.quit:hover { background: rgba(255,184,0,0.35); }
     .btn-nav:disabled { opacity: 0.4; cursor: not-allowed; }
 
     /* RESULTS */
@@ -181,6 +187,8 @@
       .form-row, .section-cards, .options-grid { grid-template-columns: 1fr; }
       .exam-header-bar { flex-direction: column; text-align: center; }
       .footer-grid { grid-template-columns: 1fr; }
+      .exam-nav { flex-direction: column; }
+      .exam-nav .btn-nav { width: 100%; justify-content: center; }
     }
   </style>
 </head>
@@ -198,6 +206,10 @@
       <span><i class="fas fa-map-marker-alt"></i> Casablanca</span>
     </div>
     <div class="top-bar-social" style="display:flex;align-items:center;">
+      <div class="lang-switch" style="margin-right:1rem;">
+        <button class="lang-btn active" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
       <a href="#"><i class="fab fa-linkedin-in"></i></a>
       <a href="#"><i class="fab fa-x-twitter"></i></a>
       <a href="#"><i class="fab fa-instagram"></i></a>
@@ -216,117 +228,136 @@
       <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em;font-weight:500;color:var(--gray-light);">IT Solutions</span></span>
     </a>
     <ul class="nav-links">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="secteurs.html">Secteurs</a></li>
-      <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
-      <li><a href="carrieres.html">Carrières</a></li>
-      <li><a href="campus-cyber.html" class="active">🎓 Campus Cyber</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="support.html" class="btn-espace-client"><i class="fa-solid fa-user-circle"></i> Espace Client</a></li>
+      <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+      <li><a href="services.html" data-i18n="nav_services">Services</a></li>
+      <li><a href="secteurs.html" data-i18n="nav_sectors">Secteurs</a></li>
+      <li><a href="qui-sommes-nous.html" data-i18n="nav_about">Qui sommes-nous</a></li>
+      <li><a href="carrieres.html" data-i18n="nav_careers">Carrières</a></li>
+      <li><a href="campus-cyber.html" class="active" data-i18n="nav_campus">🎓 Campus Cyber</a></li>
+      <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+      <li><a href="support.html" class="btn-espace-client"><i class="fa-solid fa-user-circle"></i> <span data-i18n="nav_client">Espace Client</span></a></li>
     </ul>
     <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
   </div>
 </nav>
 
 <div class="mobile-nav-overlay" id="mobileNav">
-  <a href="index.html">Accueil</a><a href="services.html">Services</a><a href="secteurs.html">Secteurs</a><a href="qui-sommes-nous.html">Qui sommes-nous</a><a href="carrieres.html">Carrières</a><a href="campus-cyber.html">🎓 Campus Cyber</a><a href="contact.html">Contact</a>
-  <a href="support.html" class="btn-espace-client-mobile"><i class="fa-solid fa-user-circle"></i> Espace Client</a>
+  <a href="index.html" data-i18n="nav_home">Accueil</a>
+  <a href="services.html" data-i18n="nav_services">Services</a>
+  <a href="secteurs.html" data-i18n="nav_sectors">Secteurs</a>
+  <a href="qui-sommes-nous.html" data-i18n="nav_about">Qui sommes-nous</a>
+  <a href="carrieres.html" data-i18n="nav_careers">Carrières</a>
+  <a href="campus-cyber.html" data-i18n="nav_campus">🎓 Campus Cyber</a>
+  <a href="contact.html" data-i18n="nav_contact">Contact</a>
+  <a href="support.html" class="btn-espace-client-mobile"><i class="fa-solid fa-user-circle"></i> <span data-i18n="nav_client">Espace Client</span></a>
 </div>
 
-<!-- PAGE HEADER -->
 <section class="page-header">
   <div class="page-header-container">
-    <span class="exam-badge">🔒 PLATEFORME D'ÉVALUATION TECHNIQUE</span>
-    <h1>Centre d'Examen<br><span class="accent">NetVanguard Recrutement</span></h1>
-    <p>4 filières d'évaluation · 100 questions par examen · Correction automatique · Résultats envoyés à la direction</p>
+    <span class="exam-badge">🔒 <span data-i18n="badge_secure">PLATEFORME D'ÉVALUATION TECHNIQUE</span></span>
+    <h1><span data-i18n="hero_title">Centre d'Examen</span><br><span class="accent" data-i18n="hero_subtitle">NetVanguard Recrutement</span></h1>
   </div>
 </section>
 
 <section class="exam-section">
   <div class="exam-container">
 
+    <!-- BANDEAU ANTI-TRICHE -->
+    <div class="anti-cheat-banner">
+      <i class="fas fa-shield-halved"></i>
+      <div class="ac-text">
+        <h4 data-i18n="ac_title">🚨 Plateforme Surveillée — Tolérance Zéro Triche</h4>
+        <p data-i18n="ac_desc">Cette plateforme est équipée d'un logiciel de surveillance avancé. Toute tentative de triche est détectée et entraînera l'annulation immédiate de votre examen.</p>
+      </div>
+    </div>
+
     <!-- ÉCRAN DE CONNEXION -->
     <div class="login-screen" id="loginScreen">
       <div class="lock-icon"><i class="fas fa-lock"></i></div>
-      <h3>Accès Sécurisé</h3>
-      <p>Cette plateforme est réservée aux examens de recrutement NetVanguard IT Solutions. Veuillez saisir le code d'accès.</p>
+      <h3 data-i18n="login_title">Accès Sécurisé</h3>
+      <p data-i18n="login_desc">Cette plateforme est réservée aux examens de recrutement NetVanguard IT Solutions. Veuillez saisir le code d'accès.</p>
       <div class="login-input-wrap">
-        <input type="password" id="accessCode" placeholder="Code d'accès...">
-        <button class="btn-nav next" onclick="checkAccess()" style="border-radius:10px;padding:0.9rem 1.8rem;"><i class="fas fa-sign-in-alt"></i> Accéder</button>
+        <input type="password" id="accessCode" data-i18n-placeholder="access_placeholder" placeholder="Code d'accès...">
+        <button class="btn-nav next" onclick="checkAccess()" style="border-radius:10px;padding:0.9rem 1.8rem;"><i class="fas fa-sign-in-alt"></i> <span data-i18n="btn_access">Accéder</span></button>
       </div>
-      <div class="login-error" id="loginError">Code d'accès incorrect. Veuillez réessayer.</div>
+      <div class="login-error" id="loginError" data-i18n="login_error">Code d'accès incorrect.</div>
     </div>
 
     <!-- FORMULAIRE CANDIDAT -->
     <div class="candidate-form" id="candidateForm">
-      <h3><i class="fas fa-user-check" style="color:var(--accent);margin-right:0.5rem;"></i> Informations du Candidat</h3>
-      <p>Veuillez remplir vos informations et choisir votre filière d'examen. Une seule tentative est autorisée par session.</p>
+      <h3 data-i18n="form_title">Informations du Candidat</h3>
+      <p data-i18n="form_desc">Veuillez remplir vos informations et choisir votre filière d'examen.</p>
       <div class="form-row">
-        <div class="form-group"><label>Nom *</label><input type="text" id="candLastName" placeholder="Votre nom" required></div>
-        <div class="form-group"><label>Prénom *</label><input type="text" id="candFirstName" placeholder="Votre prénom" required></div>
+        <div class="form-group"><label data-i18n="lbl_lastname">Nom *</label><input type="text" id="candLastName" data-i18n-placeholder="ph_lastname" placeholder="Votre nom" required></div>
+        <div class="form-group"><label data-i18n="lbl_firstname">Prénom *</label><input type="text" id="candFirstName" data-i18n-placeholder="ph_firstname" placeholder="Votre prénom" required></div>
       </div>
       <div class="form-row">
-        <div class="form-group"><label>Email *</label><input type="email" id="candEmail" placeholder="votre@email.com" required></div>
-        <div class="form-group"><label>Téléphone *</label><input type="tel" id="candPhone" placeholder="+212..." required></div>
+        <div class="form-group"><label data-i18n="lbl_email">Email *</label><input type="email" id="candEmail" data-i18n-placeholder="ph_email" placeholder="votre@email.com" required></div>
+        <div class="form-group"><label data-i18n="lbl_phone">Téléphone *</label><input type="tel" id="candPhone" data-i18n-placeholder="ph_phone" placeholder="+212..." required></div>
       </div>
-      <p style="color:var(--accent);font-weight:600;margin-top:1rem;">🎯 Choisissez votre filière d'examen :</p>
+      <p style="color:var(--accent);font-weight:600;margin-top:1rem;" data-i18n="lbl_choose">🎯 Choisissez votre filière d'examen :</p>
       <div class="section-cards" id="sectionCards">
         <div class="section-card" data-exam="support" onclick="selectExam('support')">
           <div class="card-icon">💻</div>
-          <h4>Support Technique IT</h4>
-          <div class="card-meta">100 questions · 90 min · Hardware, OS, Réseau, ITSM</div>
-          <div class="card-badge">Disponible</div>
+          <h4 data-i18n="card1_title">Support Technique IT</h4>
+          <div class="card-meta" data-i18n="card1_desc">40 questions · 60 min</div>
+          <div class="card-badge" data-i18n="badge_available">Disponible</div>
         </div>
         <div class="section-card" data-exam="reseau" onclick="selectExam('reseau')">
           <div class="card-icon">🌐</div>
-          <h4>Sécurité Réseau</h4>
-          <div class="card-meta">100 questions · 90 min · Firewall, IDS/IPS, VPN, Protocoles</div>
-          <div class="card-badge">Disponible</div>
+          <h4 data-i18n="card2_title">Sécurité Réseau</h4>
+          <div class="card-meta" data-i18n="card2_desc">40 questions · 60 min</div>
+          <div class="card-badge" data-i18n="badge_available">Disponible</div>
         </div>
         <div class="section-card" data-exam="pentest" onclick="selectExam('pentest')">
           <div class="card-icon">🛡️</div>
-          <h4>Pentest / VAPT</h4>
-          <div class="card-meta">100 questions · 90 min · Kali Linux, Metasploit, Web, Réseau</div>
-          <div class="card-badge" style="background:var(--gold);color:#000;">Bientôt</div>
+          <h4 data-i18n="card3_title">Pentest / VAPT</h4>
+          <div class="card-meta" data-i18n="card3_desc">40 questions · 60 min</div>
+          <div class="card-badge" data-i18n="badge_available">Disponible</div>
         </div>
         <div class="section-card" data-exam="admin" onclick="selectExam('admin')">
           <div class="card-icon">🖥️</div>
-          <h4>Administrateur Systèmes</h4>
-          <div class="card-meta">100 questions · 90 min · Windows Server, Linux, AD, Virtualisation</div>
-          <div class="card-badge" style="background:var(--gold);color:#000;">Bientôt</div>
+          <h4 data-i18n="card4_title">Administrateur Systèmes</h4>
+          <div class="card-meta" data-i18n="card4_desc">40 questions · 60 min</div>
+          <div class="card-badge" data-i18n="badge_available">Disponible</div>
         </div>
       </div>
       <button class="btn-start-exam" id="startExamBtn" onclick="startExam()" disabled>
-        <i class="fas fa-play-circle"></i> Démarrer l'Examen
+        <i class="fas fa-play-circle"></i> <span data-i18n="btn_start">Démarrer l'Examen</span>
       </button>
     </div>
 
     <!-- INTERFACE EXAMEN -->
     <div class="exam-interface" id="examInterface">
       <div class="exam-header-bar">
-        <div class="exam-info-item"><div class="label">Question</div><div class="value" id="currentQDisplay">1 / 100</div></div>
-        <div class="exam-info-item"><div class="label">Temps Restant</div><div class="value timer" id="timerDisplay">90:00</div></div>
-        <div class="exam-info-item"><div class="label">Répondues</div><div class="value" id="answeredCount">0 / 100</div></div>
+        <div class="exam-info-item"><div class="label" data-i18n="lbl_question">Question</div><div class="value" id="currentQDisplay">1 / 40</div></div>
+        <div class="exam-info-item"><div class="label" data-i18n="lbl_time">Temps Restant</div><div class="value timer" id="timerDisplay">60:00</div></div>
+        <div class="exam-info-item"><div class="label" data-i18n="lbl_answered">Répondues</div><div class="value" id="answeredCount">0 / 40</div></div>
       </div>
       <div class="exam-progress-wrap"><div class="exam-progress-fill" id="examProgress" style="width:0%;"></div></div>
       <div id="questionContainer"></div>
       <div class="exam-nav">
-        <button class="btn-nav prev" id="prevBtn" onclick="prevQuestion()"><i class="fas fa-chevron-left"></i> Précédent</button>
-        <button class="btn-nav next" id="nextBtn" onclick="nextQuestion()">Suivant <i class="fas fa-chevron-right"></i></button>
-        <button class="btn-nav submit" id="submitBtn" onclick="submitExam()"><i class="fas fa-paper-plane"></i> Terminer l'Examen</button>
+        <button class="btn-nav prev" id="prevBtn" onclick="prevQuestion()"><i class="fas fa-chevron-left"></i> <span data-i18n="btn_prev">Précédent</span></button>
+        <button class="btn-nav next" id="nextBtn" onclick="nextQuestion()"><span data-i18n="btn_next">Suivant</span> <i class="fas fa-chevron-right"></i></button>
+        <button class="btn-nav submit" id="submitBtn" onclick="submitExam()"><i class="fas fa-paper-plane"></i> <span data-i18n="btn_submit">Terminer l'Examen</span></button>
+      </div>
+      <div style="display:flex;gap:1rem;margin-top:1rem;flex-wrap:wrap;">
+        <button class="btn-nav quit" onclick="quitExam()" style="flex:1;"><i class="fas fa-door-open"></i> <span data-i18n="btn_quit">Abandonner l'examen</span></button>
+        <button class="btn-nav prev" onclick="backToSections()" style="flex:1;"><i class="fas fa-arrow-left"></i> <span data-i18n="btn_back_sections">Retour aux sections</span></button>
       </div>
     </div>
 
     <!-- RÉSULTATS -->
     <div class="results-panel" id="resultsPanel">
       <div class="results-card">
-        <h3 style="color:var(--white);margin-bottom:1.5rem;">📋 Résultats de l'Évaluation</h3>
+        <h3 style="color:var(--white);margin-bottom:1.5rem;" data-i18n="results_title">📋 Résultats de l'Évaluation</h3>
         <div class="results-score-circle" id="scoreCircle">0</div>
         <div class="results-msg" id="resultsMsg"></div>
         <div class="results-detail" id="resultsDetail"></div>
         <div class="results-email-status" id="emailStatus"></div>
-        <button class="btn-nav next" onclick="reviewExam()" style="margin:0 auto;"><i class="fas fa-search"></i> Revoir mes réponses</button>
+        <button class="btn-nav next" onclick="reviewExam()" style="margin:0 auto 1rem;"><i class="fas fa-search"></i> <span data-i18n="btn_review">Revoir mes réponses</span></button>
+        <br>
+        <button class="btn-nav prev" onclick="backToSections()" style="margin:0 auto;"><i class="fas fa-arrow-left"></i> <span data-i18n="btn_back_sections">Retour aux sections</span></button>
       </div>
     </div>
 
@@ -352,101 +383,276 @@
 
 <script>
 // =====================================================
-// BANQUES DE QUESTIONS (100 par catégorie)
+// BANQUES DE QUESTIONS - 40 QUESTIONS UNIQUES PAR SECTION
 // =====================================================
 
-// === SUPPORT TECHNIQUE IT (100 questions) ===
+// === SUPPORT TECHNIQUE IT (40 questions) ===
 const supportQuestions = [
-  { id:1, q:"Quel composant matériel est responsable de la vérification du POST lors du démarrage ?", options:["Le processeur (CPU)","Le BIOS/UEFI","La carte graphique (GPU)","Le contrôleur de disque"], correct:1, cat:"Hardware" },
-  { id:2, q:"Quelle est la différence fondamentale entre la RAM DDR4 et DDR5 ?", options:["La DDR5 consomme plus d'énergie","La DDR5 a une bande passante plus élevée et une latence CAS généralement plus élevée","La DDR4 est plus rapide que la DDR5","La DDR5 n'utilise pas de correction d'erreur ECC"], correct:1, cat:"Hardware" },
-  { id:3, q:"Un utilisateur signale un BSOD avec le code 'MEMORY_MANAGEMENT'. Cause la plus probable ?", options:["Problème de pilote graphique","Défaillance de la RAM ou corruption des données en mémoire","Secteur défectueux sur le disque dur","Pilote réseau corrompu"], correct:1, cat:"Hardware" },
-  { id:4, q:"Que signifie le code SMART 'Current Pending Sector Count' ?", options:["Le disque fonctionne parfaitement","Des secteurs instables sont en attente de réallocation","Le disque a atteint sa capacité maximale","Le câble SATA est défectueux"], correct:1, cat:"Hardware" },
-  { id:5, q:"Quelle commande Linux permet de lister tous les périphériques PCI connectés ?", options:["lsusb","lspci","lsblk","lscpu"], correct:1, cat:"Linux" },
-  { id:6, q:"Sur un serveur Windows, quel service gère la résolution des noms NetBIOS ?", options:["DNS Server","WINS Server","DHCP Server","IIS"], correct:1, cat:"Windows" },
-  { id:7, q:"Quel est le port par défaut utilisé par le protocole RDP ?", options:["Port 22","Port 443","Port 3389","Port 5900"], correct:2, cat:"Réseau" },
-  { id:8, q:"Dans Active Directory, quel type de groupe permet l'assignation de permissions à travers plusieurs domaines d'une même forêt ?", options:["Groupe Local de Domaine","Groupe Global","Groupe Universel","Groupe de Distribution"], correct:2, cat:"Windows" },
-  { id:9, q:"Quelle commande PowerShell obtient les 10 processus consommant le plus de mémoire ?", options:["Get-Process | Sort-Object WS -Descending | Select-Object -First 10","Get-Service | Sort Memory","Show-Process -Top 10","Get-TaskManager"], correct:0, cat:"Windows" },
-  { id:10, q:"Qu'est-ce qu'un enregistrement MX dans un fichier de zone DNS ?", options:["Il mappe un nom d'hôte à une adresse IPv6","Il identifie le serveur de messagerie responsable du domaine","Il définit un alias pour un nom d'hôte","Il spécifie le serveur de noms faisant autorité"], correct:1, cat:"Réseau" },
-  { id:11, q:"Quel protocole est utilisé pour synchroniser l'horloge des équipements réseau ?", options:["SNMP","NTP","SMTP","ICMP"], correct:1, cat:"Réseau" },
-  { id:12, q:"Dans un switch manageable, que permet la fonction 'Port Mirroring' (SPAN) ?", options:["De dupliquer un port physiquement","De copier le trafic d'un port source vers un port de destination pour analyse","D'augmenter la bande passante d'un port","De créer un VLAN supplémentaire"], correct:1, cat:"Réseau" },
-  { id:13, q:"Quelle est la différence entre TCP et UDP ?", options:["TCP est plus rapide que UDP","TCP est orienté connexion avec contrôle d'erreur, UDP est sans connexion sans garantie de livraison","UDP est plus fiable que TCP","Il n'y a aucune différence"], correct:1, cat:"Réseau" },
-  { id:14, q:"Quel outil en ligne de commande permet de tester la connectivité réseau vers une adresse IP sur un port donné ?", options:["ping","tracert","telnet","ipconfig"], correct:2, cat:"Réseau" },
-  { id:15, q:"Que signifie un code HTTP 502 Bad Gateway ?", options:["Le serveur est en maintenance","Le serveur proxy a reçu une réponse invalide du serveur amont","La ressource demandée n'existe pas","L'authentification est requise"], correct:1, cat:"Réseau" },
-  { id:16, q:"Quel est le subnet mask correspondant à un préfixe /27 en notation CIDR ?", options:["255.255.255.0","255.255.255.192","255.255.255.224","255.255.255.240"], correct:2, cat:"Réseau" },
-  { id:17, q:"Dans un environnement VMware, qu'est-ce qu'un 'VMkernel port' ?", options:["Un port USB virtuel","Une interface réseau spéciale pour le trafic de gestion, vMotion, stockage IP","Un port série virtuel","Un port d'affichage vidéo"], correct:1, cat:"Virtualisation" },
-  { id:18, q:"Quelle commande Linux permet de vérifier l'espace disque utilisé par chaque système de fichiers monté ?", options:["du -sh","df -h","lsblk","fdisk -l"], correct:1, cat:"Linux" },
-  { id:19, q:"Qu'est-ce que le 'Runlevel 3' dans un système Linux traditionnel ?", options:["Mode graphique multi-utilisateur","Mode mono-utilisateur","Mode multi-utilisateur en ligne de commande avec réseau","Arrêt du système"], correct:2, cat:"Linux" },
-  { id:20, q:"Quel fichier sous Linux contient la liste des systèmes de fichiers à monter automatiquement au démarrage ?", options:["/etc/hosts","/etc/fstab","/etc/mtab","/etc/network/interfaces"], correct:1, cat:"Linux" }
+  { id:1, q:"Quel composant est responsable du POST lors du démarrage ?", options:["Le processeur","Le BIOS/UEFI","La carte graphique","Le contrôleur disque"], correct:1, cat:"Hardware" },
+  { id:2, q:"Différence fondamentale entre RAM DDR4 et DDR5 ?", options:["DDR5 consomme plus","DDR5 a bande passante supérieure et latence CAS plus élevée","DDR4 est plus rapide","DDR5 sans ECC"], correct:1, cat:"Hardware" },
+  { id:3, q:"BSOD 'MEMORY_MANAGEMENT' : cause probable ?", options:["Pilote graphique","Défaillance RAM ou corruption mémoire","Secteur disque défectueux","Pilote réseau corrompu"], correct:1, cat:"Hardware" },
+  { id:4, q:"Code SMART 'Current Pending Sector Count' ?", options:["Disque parfait","Secteurs instables en attente de réallocation","Disque plein","Câble SATA défectueux"], correct:1, cat:"Hardware" },
+  { id:5, q:"Commande Linux pour lister les périphériques PCI ?", options:["lsusb","lspci","lsblk","lscpu"], correct:1, cat:"Linux" },
+  { id:6, q:"Service Windows pour résolution noms NetBIOS ?", options:["DNS Server","WINS Server","DHCP Server","IIS"], correct:1, cat:"Windows" },
+  { id:7, q:"Port par défaut du protocole RDP ?", options:["22","443","3389","5900"], correct:2, cat:"Réseau" },
+  { id:8, q:"Type de groupe AD pour permissions multi-domaines dans une forêt ?", options:["Local de Domaine","Global","Universel","Distribution"], correct:2, cat:"Windows" },
+  { id:9, q:"Commande PowerShell : 10 processus plus gourmands en mémoire ?", options:["Get-Process | Sort-Object WS -Descending | Select-Object -First 10","Get-Service | Sort Memory","Show-Process -Top 10","Get-TaskManager"], correct:0, cat:"Windows" },
+  { id:10, q:"Rôle d'un enregistrement MX dans DNS ?", options:["Mappe nom à IPv6","Identifie le serveur de messagerie du domaine","Définit un alias","Spécifie le serveur de noms"], correct:1, cat:"Réseau" },
+  { id:11, q:"Protocole de synchronisation d'horloge réseau ?", options:["SNMP","NTP","SMTP","ICMP"], correct:1, cat:"Réseau" },
+  { id:12, q:"Fonction 'Port Mirroring' (SPAN) sur un switch ?", options:["Dupliquer un port","Copier le trafic d'un port source vers un port destination pour analyse","Augmenter la bande passante","Créer un VLAN"], correct:1, cat:"Réseau" },
+  { id:13, q:"Différence entre TCP et UDP ?", options:["TCP plus rapide","TCP orienté connexion avec contrôle erreur, UDP sans connexion","UDP plus fiable","Aucune différence"], correct:1, cat:"Réseau" },
+  { id:14, q:"Outil pour tester connectivité vers IP:port ?", options:["ping","tracert","telnet","ipconfig"], correct:2, cat:"Réseau" },
+  { id:15, q:"Code HTTP 502 Bad Gateway signifie ?", options:["Serveur en maintenance","Le proxy a reçu une réponse invalide du serveur amont","Ressource inexistante","Authentification requise"], correct:1, cat:"Réseau" },
+  { id:16, q:"Subnet mask pour un préfixe /27 ?", options:["255.255.255.0","255.255.255.192","255.255.255.224","255.255.255.240"], correct:2, cat:"Réseau" },
+  { id:17, q:"VMkernel port dans VMware ?", options:["Port USB virtuel","Interface réseau pour gestion, vMotion, stockage IP","Port série virtuel","Port affichage vidéo"], correct:1, cat:"Virtualisation" },
+  { id:18, q:"Commande Linux : espace disque par système de fichiers ?", options:["du -sh","df -h","lsblk","fdisk -l"], correct:1, cat:"Linux" },
+  { id:19, q:"Runlevel 3 dans Linux traditionnel ?", options:["Mode graphique multi-utilisateur","Mode mono-utilisateur","Mode multi-utilisateur ligne de commande avec réseau","Arrêt système"], correct:2, cat:"Linux" },
+  { id:20, q:"Fichier Linux pour montage automatique au démarrage ?", options:["/etc/hosts","/etc/fstab","/etc/mtab","/etc/network/interfaces"], correct:1, cat:"Linux" },
+  { id:21, q:"Commande Windows : vérifier et réparer fichiers système ?", options:["chkdsk /f","sfc /scannow","diskpart","gpupdate /force"], correct:1, cat:"Windows" },
+  { id:22, q:"RAID 5 : caractéristique principale ?", options:["Mirroring pur","Striping avec parité distribuée, tolère perte d'un disque","Concaténation simple","Striping sans redondance"], correct:1, cat:"Hardware" },
+  { id:23, q:"Protocole pour sécuriser HTTP (HTTPS) ?", options:["FTP","SSL/TLS","SSH","SNMP v2"], correct:1, cat:"Sécurité" },
+  { id:24, q:"Distinguished Name (DN) dans LDAP ?", options:["Nom utilisateur seulement","Chemin complet unique identifiant une entrée dans l'arborescence","Mot de passe","Nom du serveur"], correct:1, cat:"Windows" },
+  { id:25, q:"Commande pour libérer/renouveler IP Windows ?", options:["ipconfig /release && ipconfig /renew","netsh reset","ping -release","dhcp restart"], correct:0, cat:"Windows" },
+  { id:26, q:"MAC Address Flooding : comment le contrer ?", options:["Antivirus","Port Security sur le switch","DNSSEC","MFA"], correct:1, cat:"Sécurité" },
+  { id:27, q:"Outil diagnostic démarrage Windows ?", options:["MSConfig","WinRE (Windows Recovery Environment)","Regedit","Task Manager"], correct:1, cat:"Windows" },
+  { id:28, q:"Commande 'chmod 755 script.sh' fait quoi ?", options:["Supprime le fichier","Donne droits rwx propriétaire, rx groupe, rx autres","Exécute le script","Compresse le fichier"], correct:1, cat:"Linux" },
+  { id:29, q:"Fonction principale d'un Reverse Proxy ?", options:["Masquer IP client","Distribuer requêtes vers serveurs backend et terminaison SSL","Stocker mots de passe","Accélérer CPU"], correct:1, cat:"Réseau" },
+  { id:30, q:"GPO (Group Policy Object) dans AD ?", options:["Type de licence Microsoft","Ensemble de règles de configuration pour utilisateurs et ordinateurs","Protocole chiffrement","Outil monitoring"], correct:1, cat:"Windows" },
+  { id:31, q:"Commande Linux : 10 dernières lignes d'un log en temps réel ?", options:["head -n 10","tail -f","cat | last 10","more"], correct:1, cat:"Linux" },
+  { id:32, q:"MTTR en ITSM ?", options:["Maximum Time To Respond","Mean Time To Repair","Minimum Time To Reboot","Monthly Total Ticket Resolution"], correct:1, cat:"ITSM" },
+  { id:33, q:"Rôle principal d'un serveur DHCP ?", options:["Résoudre DNS","Attribuer automatiquement IP et paramètres réseau aux clients","Filtrer trafic","Crypter communications"], correct:1, cat:"Réseau" },
+  { id:34, q:"Conteneurisation vs virtualisation ?", options:["Virtualisation complète","Isolation applicative avec bibliothèques sans virtualiser le noyau (Docker, LXC)","Émulation matérielle","Paravirtualisation"], correct:1, cat:"Virtualisation" },
+  { id:35, q:"Commande pour tester résolution DNS ?", options:["ping","nslookup","netstat","route"], correct:1, cat:"Réseau" },
+  { id:36, q:"Rétention Policy dans Microsoft 365 ?", options:["Règle de pare-feu","Politique de conservation ou suppression automatique des données","Stratégie de mot de passe","Plan de sauvegarde"], correct:1, cat:"Cloud" },
+  { id:37, q:"Port standard pour SSH ?", options:["21","22","23","25"], correct:1, cat:"Réseau" },
+  { id:38, q:"Attaque par force brute (Brute Force) ?", options:["Attaque DDoS","Tentative systématique de deviner un mot de passe par combinaisons","Phishing","Déni de service"], correct:1, cat:"Sécurité" },
+  { id:39, q:"Outil open-source monitoring infrastructure IT ?", options:["Microsoft Word","Nagios / Zabbix","Adobe Photoshop","Google Chrome"], correct:1, cat:"Monitoring" },
+  { id:40, q:"Buffer Overflow : définition ?", options:["Mémoire cache rapide","Vulnérabilité où un programme écrit au-delà de la mémoire allouée","Outil diagnostic réseau","Fonctionnalité de sécurité"], correct:1, cat:"Sécurité" }
 ];
-// Compléter jusqu'à 100 questions Support...
-// (J'ai mis 20 ici pour la démo, le reste est généré dynamiquement)
-for (let i = 21; i <= 100; i++) {
-  supportQuestions.push({
-    id: i,
-    q: `[Support IT Q${i}] Quelle commande permet de diagnostiquer un problème de connectivité réseau de bout en bout ?`,
-    options: ["ipconfig /all", "ping -t", "tracert", "netstat -an"],
-    correct: 2,
-    cat: "Réseau"
-  });
-}
 
-// === SÉCURITÉ RÉSEAU (100 questions) ===
+// === SÉCURITÉ RÉSEAU (40 questions) ===
 const reseauQuestions = [
-  { id:1, q:"Qu'est-ce qu'un firewall Stateful Inspection ?", options:["Un firewall qui filtre uniquement par adresse MAC","Un firewall qui maintient une table d'état des connexions et analyse le contexte du trafic","Un firewall qui ne filtre que les ports TCP","Un firewall sans état"], correct:1, cat:"Firewall" },
-  { id:2, q:"Quel est le port par défaut du protocole SSH ?", options:["Port 21","Port 22","Port 23","Port 80"], correct:1, cat:"Protocoles" },
-  { id:3, q:"Qu'est-ce qu'une attaque DDoS (Distributed Denial of Service) ?", options:["Une attaque par phishing","Une saturation des ressources d'un serveur par de multiples sources simultanées","Un vol de données","Une injection SQL"], correct:1, cat:"Attaques" },
-  { id:4, q:"Quel protocole permet de sécuriser les communications web (HTTPS) ?", options:["FTP","SSL/TLS","SSH","SNMP"], correct:1, cat:"Protocoles" },
-  { id:5, q:"Qu'est-ce que le 'Port Security' sur un switch Cisco ?", options:["Un protocole de routage","Une fonctionnalité qui limite le nombre d'adresses MAC autorisées sur un port","Un outil de monitoring","Un type de VLAN"], correct:1, cat:"Switch" },
-  { id:6, q:"Quel outil open-source est le plus utilisé pour les tests d'intrusion réseau ?", options:["Microsoft Word","Nmap","Adobe Photoshop","Google Chrome"], correct:1, cat:"Outils" },
-  { id:7, q:"Qu'est-ce que le 'MAC Flooding' ?", options:["Une saturation de la table CAM d'un switch pour le transformer en hub","Une attaque par force brute","Un type de chiffrement","Un protocole de redondance"], correct:0, cat:"Attaques" },
-  { id:8, q:"Quel protocole de routage dynamique est le plus utilisé en interne (IGP) ?", options:["BGP","OSPF","RIP v1","EIGRP (propriétaire)"], correct:1, cat:"Routage" },
-  { id:9, q:"Qu'est-ce que le 'NAT' (Network Address Translation) ?", options:["Un protocole de sécurité","Une technique de traduction d'adresses IP privées en adresse(s) publique(s)","Un type de câble réseau","Un système de fichiers"], correct:1, cat:"Réseau" },
-  { id:10, q:"Quel est le rôle d'un IDS (Intrusion Detection System) ?", options:["Bloquer automatiquement les attaques","Surveiller le trafic et générer des alertes en cas d'activité suspecte","Accélérer la connexion Internet","Gérer les mots de passe"], correct:1, cat:"Sécurité" },
-  { id:11, q:"Qu'est-ce que le 'DNS Spoofing' ?", options:["Une attaque qui corrompt le cache DNS pour rediriger le trafic vers un site malveillant","Un outil de diagnostic réseau","Un protocole de chiffrement","Un type de pare-feu"], correct:0, cat:"Attaques" },
-  { id:12, q:"Quel est le port standard pour le protocole SMTP sécurisé (SMTPS) ?", options:["Port 25","Port 465","Port 587","Port 993"], correct:1, cat:"Protocoles" },
-  { id:13, q:"Qu'est-ce que le 'VLAN Hopping' ?", options:["Une technique pour passer d'un VLAN à un autre sans autorisation","Un protocole de trunking","Un type de câble réseau","Une fonctionnalité de sécurité"], correct:0, cat:"Attaques" },
-  { id:14, q:"Quel protocole fournit un accès sécurisé à distance en ligne de commande ?", options:["Telnet","SSH","FTP","HTTP"], correct:1, cat:"Protocoles" },
-  { id:15, q:"Qu'est-ce que le '802.1X' ?", options:["Un type de câble Ethernet","Un standard pour le contrôle d'accès réseau basé sur les ports (authentification)","Un protocole de routage","Une fréquence Wi-Fi"], correct:1, cat:"Sécurité" },
-  { id:16, q:"Quel outil permet de capturer et d'analyser les paquets réseau en temps réel ?", options:["Notepad++","Wireshark","Microsoft Excel","VLC Media Player"], correct:1, cat:"Outils" },
-  { id:17, q:"Qu'est-ce que le 'ARP Spoofing' ?", options:["Une attaque qui associe l'adresse MAC de l'attaquant à l'adresse IP d'une victime","Un protocole de résolution d'adresse","Un outil de diagnostic","Un type de VLAN"], correct:0, cat:"Attaques" },
-  { id:18, q:"Quel est le port par défaut du protocole LDAP sécurisé (LDAPS) ?", options:["Port 389","Port 636","Port 3268","Port 443"], correct:1, cat:"Protocoles" },
-  { id:19, q:"Qu'est-ce que le 'SIEM' (Security Information and Event Management) ?", options:["Un type de pare-feu","Un système de gestion centralisée des logs et des événements de sécurité","Un protocole réseau","Un antivirus"], correct:1, cat:"Sécurité" },
-  { id:20, q:"Quelle commande Linux permet de configurer les règles de pare-feu Netfilter ?", options:["iptables","firewall-cmd","ufw","Toutes ces réponses"], correct:3, cat:"Linux" }
+  { id:1, q:"Firewall Stateful Inspection ?", options:["Filtre par MAC","Maintient table d'état des connexions et analyse le contexte","Filtre seulement ports TCP","Firewall sans état"], correct:1, cat:"Firewall" },
+  { id:2, q:"Port par défaut SSH ?", options:["21","22","23","80"], correct:1, cat:"Protocoles" },
+  { id:3, q:"Attaque DDoS ?", options:["Phishing","Saturation des ressources par multiples sources simultanées","Vol de données","Injection SQL"], correct:1, cat:"Attaques" },
+  { id:4, q:"Protocole sécurisant HTTPS ?", options:["FTP","SSL/TLS","SSH","SNMP"], correct:1, cat:"Protocoles" },
+  { id:5, q:"Port Security sur switch Cisco ?", options:["Protocole routage","Limite le nombre d'adresses MAC autorisées sur un port","Outil monitoring","Type de VLAN"], correct:1, cat:"Switch" },
+  { id:6, q:"Outil open-source pour tests intrusion réseau ?", options:["Word","Nmap","Photoshop","Chrome"], correct:1, cat:"Outils" },
+  { id:7, q:"MAC Flooding ?", options:["Saturation table CAM d'un switch pour le transformer en hub","Attaque force brute","Type chiffrement","Protocole redondance"], correct:0, cat:"Attaques" },
+  { id:8, q:"Protocole routage dynamique IGP le plus utilisé ?", options:["BGP","OSPF","RIP v1","EIGRP (propriétaire)"], correct:1, cat:"Routage" },
+  { id:9, q:"NAT (Network Address Translation) ?", options:["Protocole sécurité","Traduction adresses IP privées en publique(s)","Type câble réseau","Système de fichiers"], correct:1, cat:"Réseau" },
+  { id:10, q:"Rôle d'un IDS ?", options:["Bloquer automatiquement","Surveiller le trafic et générer des alertes","Accélérer Internet","Gérer mots de passe"], correct:1, cat:"Sécurité" },
+  { id:11, q:"DNS Spoofing ?", options:["Corrompt le cache DNS pour rediriger le trafic","Outil diagnostic réseau","Protocole chiffrement","Type pare-feu"], correct:0, cat:"Attaques" },
+  { id:12, q:"Port SMTP sécurisé (SMTPS) ?", options:["25","465","587","993"], correct:1, cat:"Protocoles" },
+  { id:13, q:"VLAN Hopping ?", options:["Passer d'un VLAN à un autre sans autorisation","Protocole trunking","Type câble réseau","Fonctionnalité sécurité"], correct:0, cat:"Attaques" },
+  { id:14, q:"Protocole accès sécurisé distant ligne commande ?", options:["Telnet","SSH","FTP","HTTP"], correct:1, cat:"Protocoles" },
+  { id:15, q:"802.1X ?", options:["Type câble Ethernet","Standard contrôle d'accès réseau basé sur les ports (authentification)","Protocole routage","Fréquence Wi-Fi"], correct:1, cat:"Sécurité" },
+  { id:16, q:"Outil capture et analyse paquets réseau ?", options:["Notepad++","Wireshark","Excel","VLC"], correct:1, cat:"Outils" },
+  { id:17, q:"ARP Spoofing ?", options:["Associe l'adresse MAC de l'attaquant à l'IP d'une victime","Protocole résolution adresse","Outil diagnostic","Type VLAN"], correct:0, cat:"Attaques" },
+  { id:18, q:"Port LDAP sécurisé (LDAPS) ?", options:["389","636","3268","443"], correct:1, cat:"Protocoles" },
+  { id:19, q:"SIEM ?", options:["Type pare-feu","Gestion centralisée des logs et événements de sécurité","Protocole réseau","Antivirus"], correct:1, cat:"Sécurité" },
+  { id:20, q:"Commande Linux pour règles pare-feu Netfilter ?", options:["iptables","firewall-cmd","ufw","Toutes ces réponses"], correct:3, cat:"Linux" },
+  { id:21, q:"VPN site-à-site : protocole de tunneling ?", options:["HTTP","IPsec","FTP","SMTP"], correct:1, cat:"VPN" },
+  { id:22, q:"Attaque Man-in-the-Middle (MITM) ?", options:["Phishing","Interception des communications entre deux parties","DDoS","Buffer Overflow"], correct:1, cat:"Attaques" },
+  { id:23, q:"WPA3 vs WPA2 : amélioration majeure ?", options:["Vitesse Wi-Fi","Protection contre attaques par dictionnaire hors ligne (SAE/Dragonfly)","Portée du signal","Compatibilité"], correct:1, cat:"Wi-Fi" },
+  { id:24, q:"Certificat SSL/TLS : rôle principal ?", options:["Accélérer connexion","Authentifier le serveur et chiffrer les échanges","Stocker cookies","Bloquer publicités"], correct:1, cat:"Sécurité" },
+  { id:25, q:"Honeypot en sécurité réseau ?", options:["Outil antivirus","Système leurre pour attirer et analyser les attaquants","Pare-feu nouvelle génération","Protocole VPN"], correct:1, cat:"Sécurité" },
+  { id:26, q:"ACL (Access Control List) sur routeur ?", options:["Liste de contacts","Règles de filtrage du trafic entrant/sortant","Protocole routage","Outil monitoring"], correct:1, cat:"Réseau" },
+  { id:27, q:"Attaque DDoS amplification DNS ?", options:["Vol de données","Utilisation de serveurs DNS ouverts pour amplifier le trafic vers une cible","Phishing","Ransomware"], correct:1, cat:"Attaques" },
+  { id:28, q:"Protocole BGP : fonction principale ?", options:["Routage interne","Routage inter-domaines (Internet)","Résolution DNS","Chiffrement"], correct:1, cat:"Routage" },
+  { id:29, q:"Zero Trust Architecture ?", options:["Faire confiance à tout le réseau interne","Ne jamais faire confiance, toujours vérifier chaque accès","Désactiver tous les pare-feux","Utiliser uniquement VPN"], correct:1, cat:"Sécurité" },
+  { id:30, q:"Outil pour scan de ports furtif ?", options:["Wireshark","Nmap -sS","tcpdump","netstat"], correct:1, cat:"Outils" },
+  { id:31, q:"Protocole RADIUS ?", options:["Routage","Authentification, autorisation et accounting (AAA)","Transfert fichiers","Messagerie"], correct:1, cat:"Protocoles" },
+  { id:32, q:"Attaque Ransomware ?", options:["Vol de données discrets","Chiffrement des données avec demande de rançon","DDoS","Phishing ciblé"], correct:1, cat:"Attaques" },
+  { id:33, q:"DMZ dans architecture réseau ?", options:["Type de VLAN","Zone isolée pour services accessibles depuis Internet","Protocole routage","Antivirus"], correct:1, cat:"Réseau" },
+  { id:34, q:"Fail2ban sous Linux ?", options:["Outil backup","Bloque IP après tentatives échouées répétées (anti-brute force)","Serveur web","Base de données"], correct:1, cat:"Linux" },
+  { id:35, q:"Protocole SFTP vs FTPS ?", options:["Identiques","SFTP utilise SSH, FTPS utilise SSL/TLS","SFTP plus lent","FTPS n'existe pas"], correct:1, cat:"Protocoles" },
+  { id:36, q:"Outil Nikto ?", options:["Scanner réseau","Scanner de vulnérabilités serveur web","Outil brute force","Analyseur de logs"], correct:1, cat:"Outils" },
+  { id:37, q:"Attaque CSRF ?", options:["Injection SQL","Force utilisateur authentifié à exécuter action non désirée","DDoS","Vol de session"], correct:1, cat:"Web" },
+  { id:38, q:"Protocole EAP-TLS ?", options:["Routage","Authentification réseau par certificats (WPA-Enterprise)","Transfert fichiers","VPN"], correct:1, cat:"Sécurité" },
+  { id:39, q:"NetFlow / sFlow ?", options:["Protocoles routage","Collecte et analyse des flux réseau","Pare-feux","Outils backup"], correct:1, cat:"Monitoring" },
+  { id:40, q:"Segmentation réseau : but principal ?", options:["Augmenter vitesse","Limiter la propagation des attaques et isoler les ressources","Réduire coût câblage","Simplifier configuration"], correct:1, cat:"Réseau" }
 ];
-// Compléter jusqu'à 100 questions Sécurité Réseau...
-for (let i = 21; i <= 100; i++) {
-  reseauQuestions.push({
-    id: i,
-    q: `[Sécurité Réseau Q${i}] Quel protocole de tunneling est utilisé pour créer un VPN sécurisé de site à site ?`,
-    options: ["HTTP", "IPsec", "FTP", "SMTP"],
-    correct: 1,
-    cat: "VPN"
-  });
-}
 
-// === PENTEST / VAPT (placeholder - 100 questions seront ajoutées) ===
-const pentestQuestions = [];
-for (let i = 1; i <= 100; i++) {
-  pentestQuestions.push({
-    id: i,
-    q: `[Pentest Q${i}] Question à venir pour la section Pentest / VAPT...`,
-    options: ["Option A", "Option B", "Option C", "Option D"],
-    correct: 0,
-    cat: "Pentest"
-  });
-}
+// === PENTEST / VAPT (40 questions) ===
+const pentestQuestions = [
+  { id:1, q:"Outil pour identifier services et versions sur ports ouverts ?", options:["Wireshark","Nmap -sV","Metasploit","Burp Suite"], correct:1, cat:"Reconnaissance" },
+  { id:2, q:"Commande Nmap pour scan furtif SYN (half-open) ?", options:["nmap -sT","nmap -sS","nmap -sU","nmap -sP"], correct:1, cat:"Scanning" },
+  { id:3, q:"Vulnérabilité SQL Injection ?", options:["Attaque DDoS","Injection de code SQL malveillant pour manipuler la base de données","Vol de session","Attaque force brute"], correct:1, cat:"Web" },
+  { id:4, q:"Outil Kali Linux pour exploitation de vulnérabilités ?", options:["Nmap","Metasploit Framework","Wireshark","Hydra"], correct:1, cat:"Exploitation" },
+  { id:5, q:"Privilege Escalation ?", options:["Créer un nouvel utilisateur","Obtenir des droits admin à partir d'un compte limité","Désactiver le pare-feu","Installer un antivirus"], correct:1, cat:"Post-Exploitation" },
+  { id:6, q:"Commande Linux pour fichiers avec bit SUID activé ?", options:["find / -perm -4000","ls -la","chmod 777","grep SUID"], correct:0, cat:"Linux" },
+  { id:7, q:"Cross-Site Scripting (XSS) ?", options:["Attaque réseau","Injection de code JavaScript exécuté par le navigateur de la victime","Type certificat SSL","Protocole transfert"], correct:1, cat:"Web" },
+  { id:8, q:"Outil pour brute-force mots de passe SSH ?", options:["Nmap","Hydra","tcpdump","netcat"], correct:1, cat:"Brute Force" },
+  { id:9, q:"Reverse Shell ?", options:["Shell local","Connexion initiée par la machine compromise vers l'attaquant","Outil diagnostic","Type pare-feu"], correct:1, cat:"Exploitation" },
+  { id:10, q:"Attaque Man-in-the-Middle (MITM) ?", options:["Phishing","Interception des communications entre deux parties","DDoS","Buffer Overflow"], correct:1, cat:"Attaques" },
+  { id:11, q:"OWASP Top 10 ?", options:["Classement antivirus","Liste des vulnérabilités web les plus critiques","Outil pentest","Framework développement"], correct:1, cat:"Web" },
+  { id:12, q:"Commande Netcat pour reverse shell basique ?", options:["nc -e /bin/bash IP PORT","nc -l -p PORT","nc -v IP PORT","nc -z IP PORT"], correct:0, cat:"Outils" },
+  { id:13, q:"Kerberoasting dans AD ?", options:["Attaque sur contrôleurs domaine","Extraction de hash depuis tickets de service Kerberos","Outil sauvegarde","Protocole chiffrement"], correct:1, cat:"AD" },
+  { id:14, q:"Outil analyse de paquets réseau en profondeur ?", options:["Nmap","Wireshark","Hydra","John the Ripper"], correct:1, cat:"Analyse" },
+  { id:15, q:"Buffer Overflow ?", options:["Type mémoire cache","Vulnérabilité où un programme écrit au-delà de la mémoire allouée","Outil monitoring","Protocole réseau"], correct:1, cat:"Exploitation" },
+  { id:16, q:"Langage de script le plus utilisé en pentest ?", options:["Java","Python","C#","PHP"], correct:1, cat:"Scripting" },
+  { id:17, q:"Pass-the-Hash ?", options:["Technique chiffrement","Attaque utilisant le hash NTLM pour s'authentifier sans mot de passe","Outil sauvegarde","Type VPN"], correct:1, cat:"AD" },
+  { id:18, q:"Outil pour découvrir répertoires cachés sur serveur web ?", options:["Gobuster / Dirb","Nmap","Hydra","Netcat"], correct:0, cat:"Web" },
+  { id:19, q:"Lateral Movement ?", options:["Technique sauvegarde","Déplacement au sein d'un réseau après compromission initiale","Protocole routage","Outil monitoring"], correct:1, cat:"Post-Exploitation" },
+  { id:20, q:"Port par défaut Metasploit pour reverse TCP ?", options:["80","443","4444","8080"], correct:2, cat:"Outils" },
+  { id:21, q:"CSRF (Cross-Site Request Forgery) ?", options:["Attaque réseau","Force utilisateur authentifié à exécuter action non désirée","Type malware","Outil pentest"], correct:1, cat:"Web" },
+  { id:22, q:"Outil cracking mots de passe hors ligne ?", options:["Nmap","John the Ripper / Hashcat","Wireshark","Burp Suite"], correct:1, cat:"Cracking" },
+  { id:23, q:"Pivoting en pentest ?", options:["Changer d'OS","Utiliser machine compromise comme point d'accès vers réseau interne","Réinstaller logiciel","Fermer connexion"], correct:1, cat:"Post-Exploitation" },
+  { id:24, q:"Protocole ciblé par LLMNR Poisoning ?", options:["HTTP","LLMNR / NetBIOS-NS","FTP","SSH"], correct:1, cat:"Réseau" },
+  { id:25, q:"XXE (XML External Entity) ?", options:["Type pare-feu","Vulnérabilité XML pour lecture fichiers locaux et SSRF","Outil monitoring","Protocole réseau"], correct:1, cat:"Web" },
+  { id:26, q:"Outil Kali pour analyse vulnérabilités web ?", options:["Nmap","Nikto / Burp Suite","Hydra","Aircrack-ng"], correct:1, cat:"Web" },
+  { id:27, q:"Golden Ticket dans AD ?", options:["Billet loterie","Ticket Kerberos forgé pour accès illimité au domaine","Type licence","Outil sauvegarde"], correct:1, cat:"AD" },
+  { id:28, q:"Injection permettant d'exécuter commandes système via web ?", options:["SQL Injection","Command Injection","XSS","CSRF"], correct:1, cat:"Web" },
+  { id:29, q:"Mimikatz ?", options:["Outil sauvegarde","Extraction mots de passe, hash, tickets Kerberos depuis mémoire Windows","Antivirus","Navigateur web"], correct:1, cat:"Outils" },
+  { id:30, q:"But d'un pentest Black Box ?", options:["Tester avec toutes informations","Simuler attaque externe sans connaissance préalable de l'infrastructure","Tester uniquement matériel","Auditer logs"], correct:1, cat:"Méthodologie" },
+  { id:31, q:"Directory Traversal (Path Traversal) ?", options:["Attaque DDoS","Accéder à des fichiers hors du répertoire web autorisé","Outil navigation","Protocole réseau"], correct:1, cat:"Web" },
+  { id:32, q:"Outil fuzzing paramètres web ?", options:["Nmap","ffuf / wfuzz","Metasploit","Wireshark"], correct:1, cat:"Web" },
+  { id:33, q:"Responder en pentest réseau ?", options:["Réponse automatique","Empoisonne requêtes LLMNR, NBT-NS, MDNS pour capturer hash","Serveur web","Firewall"], correct:1, cat:"Réseau" },
+  { id:34, q:"Pentest vs scan de vulnérabilités ?", options:["Aucune différence","Pentest inclut exploitation manuelle, pas seulement détection","Scan plus avancé","Pentest automatisé"], correct:1, cat:"Méthodologie" },
+  { id:35, q:"Living Off The Land (LOLBAS) ?", options:["Technique agricole","Utilisation outils légitimes de l'OS pour mener des attaques","Framework développement","Type VPN"], correct:1, cat:"Post-Exploitation" },
+  { id:36, q:"Outil automatisation exploitation vulnérabilités connues ?", options:["Nmap","Metasploit / AutoSploit","Wireshark","tcpdump"], correct:1, cat:"Exploitation" },
+  { id:37, q:"Attaque SMB Relay ?", options:["Attaque bases de données","Relais authentification SMB pour exécuter code sur machine distante","Phishing","Outil sauvegarde"], correct:1, cat:"Réseau" },
+  { id:38, q:"Port par défaut SMB ?", options:["21","445","3389","8080"], correct:1, cat:"Réseau" },
+  { id:39, q:"DLL Hijacking ?", options:["Type ransomware","Forcer application à charger DLL malveillante au lieu de la légitime","Outil monitoring","Protocole réseau"], correct:1, cat:"Windows" },
+  { id:40, q:"Outil capture trafic réseau en ligne de commande ?", options:["Nmap","tcpdump","Metasploit","Hydra"], correct:1, cat:"Analyse" }
+];
 
-// === ADMINISTRATEUR SYSTÈMES (placeholder - 100 questions seront ajoutées) ===
-const adminQuestions = [];
-for (let i = 1; i <= 100; i++) {
-  adminQuestions.push({
-    id: i,
-    q: `[Admin Sys Q${i}] Question à venir pour la section Administrateur Systèmes...`,
-    options: ["Option A", "Option B", "Option C", "Option D"],
-    correct: 0,
-    cat: "Admin"
-  });
-}
+// === ADMINISTRATEUR SYSTÈMES (40 questions) ===
+const adminQuestions = [
+  { id:1, q:"Service Windows Server pour authentification centralisée ?", options:["IIS","Active Directory Domain Services","DNS Server","DHCP Server"], correct:1, cat:"Windows" },
+  { id:2, q:"Commande PowerShell pour créer utilisateur AD ?", options:["New-User","New-ADUser","Add-User","Create-ADAccount"], correct:1, cat:"PowerShell" },
+  { id:3, q:"FSMO Roles dans AD ?", options:["Rôles sécurité","Rôles Flexible Single Master Operations pour fonctions spécifiques du domaine","Licences Microsoft","Outils monitoring"], correct:1, cat:"AD" },
+  { id:4, q:"Commande Linux pour gérer services avec systemd ?", options:["service start nom","systemctl start nom.service","init.d start nom","rc-service start nom"], correct:1, cat:"Linux" },
+  { id:5, q:"RAID 5 ?", options:["Mirroring pur","Striping avec parité distribuée, tolère perte d'un disque","Concaténation simple","Striping sans redondance"], correct:1, cat:"Stockage" },
+  { id:6, q:"Outil Microsoft pour déploiement OS en masse ?", options:["WSUS","WDS (Windows Deployment Services)","IIS","SCCM"], correct:1, cat:"Windows" },
+  { id:7, q:"LVM (Logical Volume Manager) sous Linux ?", options:["Antivirus","Gestionnaire volumes logiques pour redimensionnement dynamique","Pare-feu","Outil sauvegarde"], correct:1, cat:"Linux" },
+  { id:8, q:"Protocole synchronisation annuaire entre contrôleurs domaine ?", options:["FTP","AD Replication (NTDS)","HTTP","SMTP"], correct:1, cat:"AD" },
+  { id:9, q:"Failover Cluster ?", options:["Groupe de serveurs redondants pour haute disponibilité","Type RAID","Antivirus","Protocole réseau"], correct:0, cat:"Infrastructure" },
+  { id:10, q:"Commande Linux : utilisation ressources en temps réel ?", options:["df -h","top / htop","ls -la","ps aux"], correct:1, cat:"Linux" },
+  { id:11, q:"Group Policy Object (GPO) ?", options:["Type licence","Ensemble règles de configuration pour utilisateurs et ordinateurs AD","Protocole chiffrement","Outil monitoring"], correct:1, cat:"Windows" },
+  { id:12, q:"Service déploiement automatique mises à jour Windows ?", options:["IIS","WSUS (Windows Server Update Services)","DNS","DHCP"], correct:1, cat:"Windows" },
+  { id:13, q:"DNS Forwarder ?", options:["Type pare-feu","Serveur DNS transmettant requêtes non résolues à un autre DNS","Outil sauvegarde","Protocole réseau"], correct:1, cat:"Réseau" },
+  { id:14, q:"Commande vérification intégrité fichiers système Windows ?", options:["chkdsk","sfc /scannow","diskpart","gpupdate"], correct:1, cat:"Windows" },
+  { id:15, q:"Kernel Panic sous Linux ?", options:["Alerte sécurité mineure","Erreur fatale du noyau provoquant arrêt système","Message mise à jour","Redémarrage programmé"], correct:1, cat:"Linux" },
+  { id:16, q:"Rôle serveur DHCP ?", options:["Résoudre DNS","Attribuer automatiquement IP aux clients","Filtrer trafic","Crypter communications"], correct:1, cat:"Réseau" },
+  { id:17, q:"Réplication Multi-Maître dans AD ?", options:["Type sauvegarde","Modifier annuaire sur n'importe quel DC, modifications répliquées","Protocole réseau","Outil monitoring"], correct:1, cat:"AD" },
+  { id:18, q:"Commande Linux : créer archive tar.gz ?", options:["tar -czf archive.tar.gz dossier/","zip -r archive dossier/","gzip dossier/","compress dossier/"], correct:0, cat:"Linux" },
+  { id:19, q:"BitLocker ?", options:["Navigateur web","Outil chiffrement complet disque dur Microsoft","Logiciel messagerie","Éditeur code"], correct:1, cat:"Sécurité" },
+  { id:20, q:"Outil gestion machines virtuelles Hyper-V ?", options:["VMware Workstation","Hyper-V Manager","VirtualBox","Docker"], correct:1, cat:"Virtualisation" },
+  { id:21, q:"Sysvol dans AD ?", options:["Type compte utilisateur","Dossier partagé contenant scripts connexion et modèles GPO","Base de données","Outil diagnostic"], correct:1, cat:"AD" },
+  { id:22, q:"Commande Linux : modifier permissions fichier ?", options:["chown","chmod","chgrp","usermod"], correct:1, cat:"Linux" },
+  { id:23, q:"Shadow Copy (VSS) sous Windows ?", options:["Type virus","Technologie snapshot pour sauvegarde et restauration fichiers","Outil monitoring","Protocole réseau"], correct:1, cat:"Windows" },
+  { id:24, q:"Port par défaut protocole RDP ?", options:["22","443","3389","5900"], correct:2, cat:"Réseau" },
+  { id:25, q:"Cron sous Linux ?", options:["Antivirus","Planificateur de tâches pour exécution automatique","Pare-feu","Outil sauvegarde"], correct:1, cat:"Linux" },
+  { id:26, q:"Service AD pour relation de confiance entre domaines ?", options:["DNS","Kerberos / NTLM","DHCP","IIS"], correct:1, cat:"AD" },
+  { id:27, q:"SAN (Storage Area Network) ?", options:["Type virus","Réseau dédié au stockage haute vitesse","Outil monitoring","Protocole réseau"], correct:1, cat:"Stockage" },
+  { id:28, q:"Commande PowerShell : services en cours d'exécution ?", options:["Get-Service | Where-Object {$_.Status -eq 'Running'}","Show-Services","List-Running","Get-Process"], correct:0, cat:"PowerShell" },
+  { id:29, q:"Disaster Recovery Plan (DRP) ?", options:["Sauvegarde quotidienne","Plan documenté pour restaurer services IT après catastrophe","Outil monitoring","Protocole réseau"], correct:1, cat:"ITSM" },
+  { id:30, q:"Outil Linux : surveiller logs en temps réel ?", options:["cat","tail -f /var/log/syslog","ls -la","ps aux"], correct:1, cat:"Linux" },
+  { id:31, q:"Read-Only Domain Controller (RODC) ?", options:["Contrôleur domaine en lecture seule pour sites distants à sécurité limitée","Serveur fichiers","Pare-feu","Outil monitoring"], correct:0, cat:"AD" },
+  { id:32, q:"Commandes pour redémarrer serveur Linux ?", options:["shutdown -r now","reboot","init 6","Toutes ces réponses"], correct:3, cat:"Linux" },
+  { id:33, q:"Network Load Balancing (NLB) ?", options:["Type RAID","Répartition de charge réseau entre plusieurs serveurs","Antivirus","Protocole chiffrement"], correct:1, cat:"Infrastructure" },
+  { id:34, q:"Rôle service KCC dans AD ?", options:["Gérer mots de passe","Générer automatiquement topologie réplication entre DC","Filtrer trafic","Sauvegarder données"], correct:1, cat:"AD" },
+  { id:35, q:"iSCSI ?", options:["Type virus","Protocole stockage réseau utilisant TCP/IP pour transporter commandes SCSI","Outil monitoring","Pare-feu"], correct:1, cat:"Stockage" },
+  { id:36, q:"Commande Linux : espace disque par répertoire ?", options:["df -h","du -sh /*","lsblk","fdisk -l"], correct:1, cat:"Linux" },
+  { id:37, q:"AGDLP dans AD ?", options:["Protocole réseau","Méthodologie : Accounts -> Global Groups -> Domain Local Groups -> Permissions","Type licence","Outil sauvegarde"], correct:1, cat:"AD" },
+  { id:38, q:"Commande Linux pour cloner disque dur ?", options:["grep","dd if=/dev/sda of=/dev/sdb","top","ssh"], correct:1, cat:"Linux" },
+  { id:39, q:"Patch Tuesday Microsoft ?", options:["Événement commercial","Deuxième mardi du mois : publication mises à jour sécurité","Jour férié","Conférence"], correct:1, cat:"Windows" },
+  { id:40, q:"Rôle serveur NTP ?", options:["Résoudre DNS","Synchroniser horloge des équipements réseau","Filtrer trafic","Crypter données"], correct:1, cat:"Réseau" }
+];
+
+// =====================================================
+// DICTIONNAIRE DE TRADUCTION
+// =====================================================
+const translations = {
+  fr: {
+    badge_secure: "PLATEFORME D'ÉVALUATION TECHNIQUE",
+    hero_title: "Centre d'Examen",
+    hero_subtitle: "NetVanguard Recrutement",
+    login_title: "Accès Sécurisé",
+    login_desc: "Plateforme réservée aux examens de recrutement NetVanguard IT Solutions. Veuillez saisir le code d'accès.",
+    access_placeholder: "Code d'accès...",
+    btn_access: "Accéder",
+    login_error: "Code d'accès incorrect.",
+    ac_title: "🚨 Plateforme Surveillée — Tolérance Zéro Triche",
+    ac_desc: "Cette plateforme est équipée d'un logiciel de surveillance avancé. Toute tentative de triche est détectée et entraînera l'annulation immédiate de votre examen.",
+    form_title: "Informations du Candidat",
+    form_desc: "Veuillez remplir vos informations et choisir votre filière d'examen.",
+    lbl_lastname: "Nom *", lbl_firstname: "Prénom *", lbl_email: "Email *", lbl_phone: "Téléphone *",
+    ph_lastname: "Votre nom", ph_firstname: "Votre prénom", ph_email: "votre@email.com", ph_phone: "+212...",
+    lbl_choose: "🎯 Choisissez votre filière d'examen :",
+    card1_title: "Support Technique IT", card1_desc: "40 questions · 60 min",
+    card2_title: "Sécurité Réseau", card2_desc: "40 questions · 60 min",
+    card3_title: "Pentest / VAPT", card3_desc: "40 questions · 60 min",
+    card4_title: "Administrateur Systèmes", card4_desc: "40 questions · 60 min",
+    badge_available: "Disponible",
+    btn_start: "Démarrer l'Examen",
+    lbl_question: "Question", lbl_time: "Temps Restant", lbl_answered: "Répondues",
+    btn_prev: "Précédent", btn_next: "Suivant", btn_submit: "Terminer l'Examen",
+    btn_quit: "Abandonner l'examen", btn_back_sections: "Retour aux sections",
+    results_title: "📋 Résultats de l'Évaluation",
+    btn_review: "Revoir mes réponses",
+    msg_excellent: "🏆 Excellent ! Candidat hautement qualifié.",
+    msg_good: "👍 Bien ! Bon niveau technique.",
+    msg_average: "📚 Niveau moyen. Formation recommandée.",
+    msg_poor: "❌ Niveau insuffisant.",
+    email_sending: "Envoi du rapport à la direction...",
+    email_sent: "✅ Rapport envoyé avec succès à mhirigueyoussef@gmail.com",
+    email_error: "⚠️ Erreur d'envoi automatique.",
+    email_network: "⚠️ Erreur réseau.",
+    nav_home: "Accueil", nav_services: "Services", nav_sectors: "Secteurs",
+    nav_about: "Qui sommes-nous", nav_careers: "Carrières",
+    nav_campus: "🎓 Campus Cyber", nav_contact: "Contact", nav_client: "Espace Client",
+    alert_fill: "Veuillez remplir tous les champs obligatoires.",
+    alert_choose: "Veuillez choisir une filière d'examen.",
+    confirm_quit: "Êtes-vous sûr de vouloir abandonner l'examen ? Vos réponses seront perdues.",
+    confirm_back: "Êtes-vous sûr de vouloir retourner aux sections ? Vos réponses seront perdues."
+  },
+  en: {
+    badge_secure: "TECHNICAL ASSESSMENT PLATFORM",
+    hero_title: "Examination Center",
+    hero_subtitle: "NetVanguard Recruitment",
+    login_title: "Secure Access",
+    login_desc: "Platform reserved for NetVanguard IT Solutions recruitment exams. Please enter the access code.",
+    access_placeholder: "Access code...",
+    btn_access: "Access",
+    login_error: "Incorrect access code.",
+    ac_title: "🚨 Monitored Platform — Zero Tolerance Cheating",
+    ac_desc: "This platform is equipped with advanced monitoring software. Any cheating attempt is detected and will result in immediate cancellation of your exam.",
+    form_title: "Candidate Information",
+    form_desc: "Please fill in your information and choose your exam track.",
+    lbl_lastname: "Last Name *", lbl_firstname: "First Name *", lbl_email: "Email *", lbl_phone: "Phone *",
+    ph_lastname: "Your last name", ph_firstname: "Your first name", ph_email: "your@email.com", ph_phone: "+212...",
+    lbl_choose: "🎯 Choose your exam track:",
+    card1_title: "IT Technical Support", card1_desc: "40 questions · 60 min",
+    card2_title: "Network Security", card2_desc: "40 questions · 60 min",
+    card3_title: "Pentest / VAPT", card3_desc: "40 questions · 60 min",
+    card4_title: "Systems Administrator", card4_desc: "40 questions · 60 min",
+    badge_available: "Available",
+    btn_start: "Start Exam",
+    lbl_question: "Question", lbl_time: "Time Remaining", lbl_answered: "Answered",
+    btn_prev: "Previous", btn_next: "Next", btn_submit: "Submit Exam",
+    btn_quit: "Quit Exam", btn_back_sections: "Back to Sections",
+    results_title: "📋 Assessment Results",
+    btn_review: "Review my answers",
+    msg_excellent: "🏆 Excellent! Highly qualified candidate.",
+    msg_good: "👍 Good! Solid technical level.",
+    msg_average: "📚 Average level. Training recommended.",
+    msg_poor: "❌ Insufficient level.",
+    email_sending: "Sending report to management...",
+    email_sent: "✅ Report sent successfully to mhirigueyoussef@gmail.com",
+    email_error: "⚠️ Automatic sending error.",
+    email_network: "⚠️ Network error.",
+    nav_home: "Home", nav_services: "Services", nav_sectors: "Sectors",
+    nav_about: "About Us", nav_careers: "Careers",
+    nav_campus: "🎓 Cyber Campus", nav_contact: "Contact", nav_client: "Client Area",
+    alert_fill: "Please fill in all required fields.",
+    alert_choose: "Please choose an exam track.",
+    confirm_quit: "Are you sure you want to quit the exam? Your answers will be lost.",
+    confirm_back: "Are you sure you want to return to sections? Your answers will be lost."
+  }
+};
 
 // =====================================================
 // VARIABLES D'ÉTAT
@@ -459,12 +665,57 @@ let userAnswers = [];
 let examStarted = false;
 let examFinished = false;
 let timerInterval;
-let timeRemaining = 90 * 60;
+let timeRemaining = 60 * 60; // 60 minutes
 let candidateInfo = {};
+let currentLang = 'fr';
 
 // =====================================================
-// FONCTIONS
+// FONCTIONS DE TRADUCTION
 // =====================================================
+function applyLanguage(lang) {
+  currentLang = lang;
+  const t = translations[lang];
+  if (!t) return;
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key]) el.textContent = t[key];
+  });
+
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (t[key]) el.placeholder = t[key];
+  });
+
+  const cards = document.querySelectorAll('.section-card');
+  if (cards.length >= 4) {
+    cards[0].querySelector('h4').textContent = t.card1_title;
+    cards[0].querySelector('.card-meta').textContent = t.card1_desc;
+    cards[1].querySelector('h4').textContent = t.card2_title;
+    cards[1].querySelector('.card-meta').textContent = t.card2_desc;
+    cards[2].querySelector('h4').textContent = t.card3_title;
+    cards[2].querySelector('.card-meta').textContent = t.card3_desc;
+    cards[3].querySelector('h4').textContent = t.card4_title;
+    cards[3].querySelector('.card-meta').textContent = t.card4_desc;
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.remove('active');
+    if (b.getAttribute('data-lang') === lang) b.classList.add('active');
+  });
+}
+
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const lang = btn.getAttribute('data-lang');
+    if (lang) applyLanguage(lang);
+  });
+});
+
+// =====================================================
+// FONCTIONS EXAMEN
+// =====================================================
+function t(key) { return translations[currentLang][key] || key; }
 
 function checkAccess() {
   const code = document.getElementById('accessCode').value.trim();
@@ -477,24 +728,14 @@ function checkAccess() {
   }
 }
 
-// Touche Entrée sur le code d'accès
 document.getElementById('accessCode').addEventListener('keypress', (e) => {
   if (e.key === 'Enter') checkAccess();
 });
 
 function selectExam(examType) {
-  if (examType === 'pentest' || examType === 'admin') {
-    alert('Cette section sera disponible prochainement. Veuillez choisir Support Technique IT ou Sécurité Réseau.');
-    return;
-  }
-  
   selectedExam = examType;
-  
-  // Highlight selected card
   document.querySelectorAll('.section-card').forEach(c => c.classList.remove('selected'));
   document.querySelector(`.section-card[data-exam="${examType}"]`).classList.add('selected');
-  
-  // Enable start button
   document.getElementById('startExamBtn').disabled = false;
 }
 
@@ -504,19 +745,11 @@ function startExam() {
   const email = document.getElementById('candEmail').value.trim();
   const phone = document.getElementById('candPhone').value.trim();
 
-  if (!lastName || !firstName || !email || !phone) {
-    alert('Veuillez remplir tous les champs obligatoires.');
-    return;
-  }
-
-  if (!selectedExam) {
-    alert('Veuillez choisir une filière d\'examen.');
-    return;
-  }
+  if (!lastName || !firstName || !email || !phone) { alert(t('alert_fill')); return; }
+  if (!selectedExam) { alert(t('alert_choose')); return; }
 
   candidateInfo = { lastName, firstName, email, phone, examType: selectedExam };
 
-  // Charger les questions selon la filière
   switch (selectedExam) {
     case 'support': currentQuestions = supportQuestions; break;
     case 'reseau': currentQuestions = reseauQuestions; break;
@@ -529,10 +762,11 @@ function startExam() {
   currentQuestionIndex = 0;
   examStarted = true;
   examFinished = false;
-  timeRemaining = 90 * 60;
+  timeRemaining = 60 * 60;
 
   document.getElementById('candidateForm').classList.remove('active');
   document.getElementById('examInterface').classList.add('active');
+  document.getElementById('resultsPanel').classList.remove('active');
   
   renderQuestion();
   startTimer();
@@ -550,119 +784,71 @@ function renderQuestion() {
     if (examFinished) {
       if (idx === q.correct) btnClass += ' correct-show';
       if (selectedAnswer === idx && selectedAnswer !== q.correct) btnClass += ' wrong-show';
-    } else if (selectedAnswer === idx) {
-      btnClass += ' selected';
-    }
+    } else if (selectedAnswer === idx) { btnClass += ' selected'; }
     optionsHTML += `<button class="${btnClass}" ${examFinished ? 'disabled' : ''} onclick="selectAnswer(${idx})">${String.fromCharCode(65 + idx)}. ${opt}</button>`;
   });
 
   let cardClass = 'question-card';
-  if (examFinished) {
-    cardClass += selectedAnswer === q.correct ? ' correct-card' : ' wrong-card';
-  } else if (selectedAnswer !== null) {
-    cardClass += ' answered';
-  }
+  if (examFinished) { cardClass += selectedAnswer === q.correct ? ' correct-card' : ' wrong-card'; }
+  else if (selectedAnswer !== null) { cardClass += ' answered'; }
 
-  container.innerHTML = `
-    <div class="${cardClass}">
-      <div class="question-number">QUESTION ${currentQuestionIndex + 1} / ${currentQuestions.length} — ${q.cat || ''}</div>
-      <div class="question-text">${q.q}</div>
-      <div class="options-grid">${optionsHTML}</div>
-    </div>
-  `;
-
+  container.innerHTML = `<div class="${cardClass}"><div class="question-number">QUESTION ${currentQuestionIndex + 1} / ${currentQuestions.length} — ${q.cat || ''}</div><div class="question-text">${q.q}</div><div class="options-grid">${optionsHTML}</div></div>`;
   updateQuestionDisplay();
   updateProgress();
 }
 
-function selectAnswer(index) {
-  if (examFinished) return;
-  userAnswers[currentQuestionIndex] = index;
-  renderQuestion();
-  updateNavButtons();
-}
-
-function nextQuestion() {
-  if (currentQuestionIndex < currentQuestions.length - 1) {
-    currentQuestionIndex++;
-    renderQuestion();
-    updateNavButtons();
-  }
-}
-
-function prevQuestion() {
-  if (currentQuestionIndex > 0) {
-    currentQuestionIndex--;
-    renderQuestion();
-    updateNavButtons();
-  }
-}
+function selectAnswer(index) { if (examFinished) return; userAnswers[currentQuestionIndex] = index; renderQuestion(); updateNavButtons(); }
+function nextQuestion() { if (currentQuestionIndex < currentQuestions.length - 1) { currentQuestionIndex++; renderQuestion(); updateNavButtons(); } }
+function prevQuestion() { if (currentQuestionIndex > 0) { currentQuestionIndex--; renderQuestion(); updateNavButtons(); } }
 
 function updateNavButtons() {
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  const submitBtn = document.getElementById('submitBtn');
-
-  prevBtn.disabled = currentQuestionIndex === 0;
-  
+  document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
   if (currentQuestionIndex === currentQuestions.length - 1) {
-    nextBtn.style.display = 'none';
-    submitBtn.classList.add('show');
+    document.getElementById('nextBtn').style.display = 'none';
+    document.getElementById('submitBtn').classList.add('show');
   } else {
-    nextBtn.style.display = 'flex';
-    submitBtn.classList.remove('show');
+    document.getElementById('nextBtn').style.display = 'flex';
+    document.getElementById('submitBtn').classList.remove('show');
   }
 }
 
 function updateQuestionDisplay() {
   document.getElementById('currentQDisplay').textContent = `${currentQuestionIndex + 1} / ${currentQuestions.length}`;
-  const answeredCount = userAnswers.filter(a => a !== null).length;
-  document.getElementById('answeredCount').textContent = `${answeredCount} / ${currentQuestions.length}`;
+  document.getElementById('answeredCount').textContent = `${userAnswers.filter(a => a !== null).length} / ${currentQuestions.length}`;
 }
 
 function updateProgress() {
-  const answeredCount = userAnswers.filter(a => a !== null).length;
-  const pct = Math.round((answeredCount / currentQuestions.length) * 100);
-  document.getElementById('examProgress').style.width = `${pct}%`;
+  document.getElementById('examProgress').style.width = `${Math.round((userAnswers.filter(a => a !== null).length / currentQuestions.length) * 100)}%`;
 }
 
 function startTimer() {
   updateTimerDisplay();
-  timerInterval = setInterval(() => {
-    timeRemaining--;
-    updateTimerDisplay();
-    if (timeRemaining <= 0) {
-      clearInterval(timerInterval);
-      submitExam();
-    }
-  }, 1000);
+  clearInterval(timerInterval);
+  timerInterval = setInterval(() => { timeRemaining--; updateTimerDisplay(); if (timeRemaining <= 0) { clearInterval(timerInterval); submitExam(); } }, 1000);
 }
 
 function updateTimerDisplay() {
-  const minutes = Math.floor(timeRemaining / 60);
-  const seconds = timeRemaining % 60;
-  const display = document.getElementById('timerDisplay');
-  display.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-  display.classList.remove('warning', 'danger');
-  if (timeRemaining < 300) display.classList.add('danger');
-  else if (timeRemaining < 600) display.classList.add('warning');
+  const m = Math.floor(timeRemaining / 60), s = timeRemaining % 60;
+  const d = document.getElementById('timerDisplay');
+  d.textContent = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+  d.classList.remove('warning', 'danger');
+  if (timeRemaining < 180) d.classList.add('danger');
+  else if (timeRemaining < 360) d.classList.add('warning');
 }
 
 function calculateScore() {
   let correct = 0;
-  for (let i = 0; i < currentQuestions.length; i++) {
-    if (userAnswers[i] === currentQuestions[i].correct) correct++;
-  }
+  for (let i = 0; i < currentQuestions.length; i++) { if (userAnswers[i] === currentQuestions[i].correct) correct++; }
   return correct;
 }
 
 function getExamName() {
   switch (selectedExam) {
-    case 'support': return 'Support Technique IT';
-    case 'reseau': return 'Sécurité Réseau';
-    case 'pentest': return 'Pentest / VAPT';
-    case 'admin': return 'Administrateur Systèmes';
-    default: return 'Inconnu';
+    case 'support': return t('card1_title');
+    case 'reseau': return t('card2_title');
+    case 'pentest': return t('card3_title');
+    case 'admin': return t('card4_title');
+    default: return '';
   }
 }
 
@@ -672,60 +858,45 @@ function submitExam() {
   examFinished = true;
   
   const score = calculateScore();
-  
   document.getElementById('examInterface').classList.remove('active');
   document.getElementById('resultsPanel').classList.add('active');
   
-  const scoreCircle = document.getElementById('scoreCircle');
-  scoreCircle.textContent = `${score}/${currentQuestions.length}`;
+  const sc = document.getElementById('scoreCircle');
+  sc.textContent = `${score}/${currentQuestions.length}`;
   
-  let circleClass = '';
-  let msg = '';
-  if (score >= 85) { circleClass = 'excellent'; msg = '🏆 Excellent ! Candidat hautement qualifié.'; }
-  else if (score >= 70) { circleClass = 'good'; msg = '👍 Bien ! Bon niveau technique.'; }
-  else if (score >= 50) { circleClass = 'average'; msg = '📚 Niveau moyen. Formation recommandée.'; }
-  else { circleClass = 'poor'; msg = '❌ Niveau insuffisant.'; }
+  let cc = '', msg = '';
+  if (score >= 34) { cc = 'excellent'; msg = t('msg_excellent'); }
+  else if (score >= 28) { cc = 'good'; msg = t('msg_good'); }
+  else if (score >= 20) { cc = 'average'; msg = t('msg_average'); }
+  else { cc = 'poor'; msg = t('msg_poor'); }
   
-  scoreCircle.className = `results-score-circle ${circleClass}`;
+  sc.className = `results-score-circle ${cc}`;
   document.getElementById('resultsMsg').textContent = msg;
-  document.getElementById('resultsDetail').textContent = `${score} bonnes réponses sur ${currentQuestions.length} questions. Filière : ${getExamName()}. Temps utilisé : ${Math.floor((90*60 - timeRemaining) / 60)} min ${(90*60 - timeRemaining) % 60} sec.`;
-
+  document.getElementById('resultsDetail').textContent = `${score} bonnes réponses sur ${currentQuestions.length} questions. Filière : ${getExamName()}. Temps : ${Math.floor((60*60 - timeRemaining) / 60)} min ${(60*60 - timeRemaining) % 60} sec.`;
   sendResultsByEmail(score);
 }
 
 function sendResultsByEmail(score) {
-  const statusDiv = document.getElementById('emailStatus');
-  statusDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi du rapport à la direction...';
+  const sd = document.getElementById('emailStatus');
+  sd.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + t('email_sending');
   
-  const formData = new FormData();
-  formData.append('candidat_nom', candidateInfo.lastName);
-  formData.append('candidat_prenom', candidateInfo.firstName);
-  formData.append('candidat_email', candidateInfo.email);
-  formData.append('candidat_telephone', candidateInfo.phone);
-  formData.append('filiere', getExamName());
-  formData.append('score', `${score}/${currentQuestions.length}`);
-  formData.append('temps_utilise', `${Math.floor((90*60 - timeRemaining) / 60)} min ${(90*60 - timeRemaining) % 60} sec`);
-  formData.append('date_examen', new Date().toLocaleString('fr-FR'));
-  formData.append('_subject', `Résultat ${getExamName()} - ${candidateInfo.firstName} ${candidateInfo.lastName} - ${score}/${currentQuestions.length}`);
+  const fd = new FormData();
+  fd.append('candidat_nom', candidateInfo.lastName);
+  fd.append('candidat_prenom', candidateInfo.firstName);
+  fd.append('candidat_email', candidateInfo.email);
+  fd.append('candidat_telephone', candidateInfo.phone);
+  fd.append('filiere', getExamName());
+  fd.append('score', `${score}/${currentQuestions.length}`);
+  fd.append('temps_utilise', `${Math.floor((60*60 - timeRemaining) / 60)} min ${(60*60 - timeRemaining) % 60} sec`);
+  fd.append('date_examen', new Date().toLocaleString('fr-FR'));
+  fd.append('_subject', `Résultat ${getExamName()} - ${candidateInfo.firstName} ${candidateInfo.lastName} - ${score}/${currentQuestions.length}`);
 
-  fetch('https://formspree.io/f/myklqdky', {
-    method: 'POST',
-    body: formData,
-    headers: { 'Accept': 'application/json' }
-  })
-  .then(response => {
-    if (response.ok) {
-      statusDiv.className = 'results-email-status sent';
-      statusDiv.innerHTML = '✅ Rapport envoyé avec succès à mhirigueyoussef@gmail.com';
-    } else {
-      statusDiv.className = 'results-email-status error';
-      statusDiv.innerHTML = '⚠️ Erreur d\'envoi automatique. Résultat enregistré localement.';
-    }
-  })
-  .catch(() => {
-    statusDiv.className = 'results-email-status error';
-    statusDiv.innerHTML = '⚠️ Erreur réseau. Le résultat est affiché ci-dessus.';
-  });
+  fetch('https://formspree.io/f/myklqdky', { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } })
+    .then(r => {
+      if (r.ok) { sd.className = 'results-email-status sent'; sd.innerHTML = t('email_sent'); }
+      else { sd.className = 'results-email-status error'; sd.innerHTML = t('email_error'); }
+    })
+    .catch(() => { sd.className = 'results-email-status error'; sd.innerHTML = t('email_network'); });
 }
 
 function reviewExam() {
@@ -738,9 +909,42 @@ function reviewExam() {
   updateNavButtons();
 }
 
+function resetExam() {
+  clearInterval(timerInterval);
+  examStarted = false;
+  examFinished = false;
+  selectedExam = null;
+  currentQuestions = [];
+  currentQuestionIndex = 0;
+  userAnswers = [];
+  timeRemaining = 60 * 60;
+  
+  document.getElementById('examInterface').classList.remove('active');
+  document.getElementById('resultsPanel').classList.remove('active');
+  document.getElementById('candidateForm').classList.add('active');
+  document.getElementById('startExamBtn').disabled = true;
+  document.querySelectorAll('.section-card').forEach(c => c.classList.remove('selected'));
+  document.getElementById('timerDisplay').classList.remove('warning', 'danger');
+}
+
+function quitExam() {
+  if (confirm(t('confirm_quit'))) {
+    resetExam();
+  }
+}
+
+function backToSections() {
+  if (examStarted && !examFinished) {
+    if (confirm(t('confirm_back'))) {
+      resetExam();
+    }
+  } else {
+    resetExam();
+  }
+}
+
 // Mobile menu
-const menuToggle = document.getElementById('menuToggle');
-const mobileNav = document.getElementById('mobileNav');
+const menuToggle = document.getElementById('menuToggle'), mobileNav = document.getElementById('mobileNav');
 if (menuToggle && mobileNav) {
   menuToggle.addEventListener('click', () => {
     mobileNav.classList.toggle('active');
@@ -753,11 +957,11 @@ document.addEventListener('keydown', (e) => {
   if (!examStarted || examFinished) return;
   if (e.key === 'ArrowRight') nextQuestion();
   if (e.key === 'ArrowLeft') prevQuestion();
-  if (e.key >= '1' && e.key <= '4') {
-    const idx = parseInt(e.key) - 1;
-    if (idx < currentQuestions[currentQuestionIndex].options.length) selectAnswer(idx);
-  }
+  if (e.key >= '1' && e.key <= '4') { const idx = parseInt(e.key) - 1; if (idx < currentQuestions[currentQuestionIndex].options.length) selectAnswer(idx); }
 });
+
+// Init langue
+applyLanguage('fr');
 </script>
 </body>
 </html>
