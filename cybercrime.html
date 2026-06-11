@@ -2,11 +2,13 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="NextGen Technologies · Cybercrime & Investigation Numérique · Enquête forensique technique.">
-<title>Cybercrime & Investigation · NextGen Technologies</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="NetVanguard IT Solutions · Cybercrime & Investigation Numérique · Enquête forensique technique.">
+<title>Cybercrime & Investigation · NetVanguard IT Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+ 
 <style>
 :root {
   --primary: #0A1628;
@@ -16,14 +18,15 @@
   --accent-dark: #0891B2;
   --red: #EF4444;
   --red-dark: #DC2626;
-  --gold: #FFB800;
   --white: #FFFFFF;
   --off-white: #E2E8F0;
   --gray-light: #94A3B8;
   --gray-mid: #64748B;
-  --transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  --gold: #FFB800;
+  --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   font-family: 'Manrope', sans-serif;
   color: var(--off-white);
@@ -31,66 +34,61 @@ body {
   overflow-x: hidden;
   background: var(--primary-deep);
 }
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
   letter-spacing: -0.02em;
 }
 a { text-decoration: none; }
-
+ 
 /* TOP BAR */
 .top-bar {
-  background: rgba(5,11,20,0.95);
+  background: rgba(5, 11, 20, 0.95);
   backdrop-filter: blur(10px);
   color: var(--gray-light);
   padding: 0.5rem 4%;
   font-size: 0.8rem;
   border-bottom: 1px solid rgba(0,212,255,0.2);
-  z-index: 1001;
+  z-index: 1001; position: relative;
 }
 .top-bar-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  max-width: 1400px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 0.5rem;
+}
+.partner-badge {
+  display: flex; align-items: center; gap: 0.6rem;
+  background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(239,68,68,0.08));
+  padding: 0.3rem 1rem; border-radius: 40px; border-left: 2px solid var(--accent);
+}
+.partner-badge i { color: var(--accent); font-size: 0.8rem; }
+.partner-badge span {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px;
+  background: linear-gradient(135deg, #fff, var(--accent));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .top-bar-info { display: flex; gap: 2rem; flex-wrap: wrap; }
 .top-bar-info span { display: flex; align-items: center; gap: 0.4rem; }
 .top-bar-info i { color: var(--accent); }
+.top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; transition: var(--transition); display: inline-block; }
+.top-bar-social a:hover { color: var(--accent); transform: translateY(-2px); }
+ 
 .lang-switch {
-  display: flex;
-  gap: 0.25rem;
-  background: rgba(0,212,255,0.15);
-  padding: 0.2rem 0.6rem;
-  border-radius: 40px;
-  align-items: center;
+  display: flex; gap: 0.25rem; background: rgba(0,212,255,0.15);
+  padding: 0.2rem 0.6rem; border-radius: 40px; align-items: center;
 }
 .lang-btn {
-  background: none;
-  border: none;
-  color: var(--gray-light);
-  font-size: 0.8rem;
-  font-weight: 600;
-  cursor: pointer;
-  padding: 0.2rem 0.6rem;
-  border-radius: 30px;
-  transition: var(--transition);
+  background: none; border: none; color: var(--gray-light);
+  font-size: 0.8rem; font-weight: 600; cursor: pointer;
+  padding: 0.2rem 0.6rem; border-radius: 30px; transition: var(--transition);
   font-family: inherit;
 }
-.lang-btn.active {
-  background: var(--accent);
-  color: var(--primary);
-}
-
-/* NAV */
+.lang-btn.active { background: var(--accent); color: var(--primary); }
+ 
+/* NAVIGATION */
 .nav {
-  position: sticky; top: 0; z-index: 1000;
-  padding: 1rem 4%;
-  background: rgba(7,20,38,0.95);
-  backdrop-filter: blur(10px);
+  position: sticky; top: 0; z-index: 1000; padding: 1rem 4%;
+  background: rgba(7, 20, 38, 0.95); backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(0,212,255,0.15);
 }
 .nav-container {
@@ -99,43 +97,70 @@ a { text-decoration: none; }
 }
 .logo {
   display: flex; align-items: center; gap: 0.6rem;
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700; font-size: 1.3rem;
-  color: var(--white);
-  transition: var(--transition);
+  font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.3rem;
+  color: var(--white); transition: var(--transition);
 }
 .logo:hover { transform: scale(1.02); }
 .logo-shield {
-  width: 32px; height: 32px;
-  fill: var(--accent) !important;
-  flex-shrink: 0;
+  width: 36px; height: 36px; flex-shrink: 0;
   animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.5));
 }
 @keyframes float {
   0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
+  50% { transform: translateY(-6px); }
 }
 .logo-text-accent { color: var(--accent); }
+ 
 .nav-links { display: flex; gap: 0.4rem; list-style: none; align-items: center; }
 .nav-links > li > a {
   color: var(--off-white); font-size: 0.92rem; font-weight: 600;
-  padding: 0.6rem 1rem; border-radius: 4px;
+  padding: 0.6rem 1rem; border-radius: 4px; transition: var(--transition);
+  display: flex; align-items: center; gap: 0.3rem;
+}
+.nav-links > li > a:hover { background: rgba(0,212,255,0.1); color: var(--accent); }
+ 
+.nav-links > li > a.btn-espace-client {
+  background: linear-gradient(135deg, #00D4FF, #0891B2);
+  color: #050B14 !important;
+  font-weight: 700;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
   transition: var(--transition);
 }
-.nav-links > li > a:hover, .nav-links > li > a.active {
-  background: rgba(0,212,255,0.1);
-  color: var(--accent);
+.nav-links > li > a.btn-espace-client:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
 }
-.nav-cta {
-  background: linear-gradient(135deg, var(--red), var(--red-dark)) !important;
-  color: var(--white) !important;
-  padding: 0.7rem 1.4rem !important;
-  border-radius: 40px !important;
-  font-weight: 700 !important;
+ 
+.mobile-nav-overlay {
+  position: fixed; top: 0; right: -100%; width: 100%; max-width: 400px; height: 100vh;
+  background: rgba(5, 11, 20, 0.98); backdrop-filter: blur(25px); z-index: 10000;
+  padding: 8rem 2rem 2rem; display: flex; flex-direction: column; gap: 1.5rem;
+  box-shadow: -10px 0 30px rgba(0,0,0,0.5); border-left: 1px solid rgba(0,212,255,0.2);
+  transition: right 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
-.nav-cta:hover { transform: translateY(-2px) !important; background: var(--accent) !important; color: var(--primary) !important; }
-.menu-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
-
+.mobile-nav-overlay.active { right: 0; }
+.mobile-nav-overlay a { color: var(--white); font-size: 1.1rem; font-weight: 600; }
+.mobile-nav-overlay a.btn-espace-client-mobile {
+  background: linear-gradient(135deg, #00D4FF, #0891B2);
+  color: #050B14 !important;
+  font-weight: 700;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+ 
+.menu-toggle {
+  display: none; background: none; border: none; color: var(--white);
+  font-size: 1.5rem; cursor: pointer; z-index: 10001;
+}
+ 
 /* PAGE HEADER */
 .page-header {
   position: relative;
@@ -147,15 +172,16 @@ a { text-decoration: none; }
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 20% 30%, rgba(0,212,255,0.15), transparent 40%);
+  background: radial-gradient(circle at 20% 30%, rgba(239,68,68,0.12), transparent 40%),
+              radial-gradient(circle at 80% 60%, rgba(0,212,255,0.08), transparent 40%);
   pointer-events: none;
 }
 .page-header::after {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(239, 68, 68, 0.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(239, 68, 68, 0.03) 1px, transparent 1px);
   background-size: 50px 50px;
   pointer-events: none;
 }
@@ -170,22 +196,16 @@ a { text-decoration: none; }
   font-size: 0.85rem;
   margin-bottom: 1.2rem;
 }
-.breadcrumb a {
-  color: var(--accent);
-}
-.breadcrumb i {
-  margin: 0 0.5rem;
-  font-size: 0.7rem;
-  opacity: 0.6;
-}
+.breadcrumb a { color: var(--accent); }
+.breadcrumb i { margin: 0 0.5rem; font-size: 0.7rem; opacity: 0.6; }
 .page-header h1 {
   font-size: clamp(2.5rem, 5vw, 4rem);
-  line-height: 1.05;
+  line-height: 1.1;
   margin-bottom: 1.2rem;
   color: var(--white);
 }
 .page-header h1 .accent {
-  background: linear-gradient(90deg,#00D4FF,#38bdf8,#FFB800,#00D4FF);
+  background: linear-gradient(90deg,#EF4444,#FFB800,#EF4444,#00D4FF);
   background-size: 300% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -200,118 +220,261 @@ a { text-decoration: none; }
   max-width: 700px;
   line-height: 1.9;
 }
-
-/* CONTENT PREMIUM */
+ 
+/* DETAIL SECTION */
+.detail-section {
+  padding: 5rem 4%;
+  background: var(--primary-deep);
+}
+.detail-section.alt { background: rgba(10,22,40,0.8); }
+ 
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 4rem 4%;
 }
-.content-grid {
+ 
+.section-tag {
+  display: inline-block;
+  color: var(--red);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 0.8rem;
+}
+ 
+.section-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  color: var(--white);
+  margin-bottom: 0.8rem;
+  line-height: 1.15;
+}
+ 
+.detail-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  align-items: center;
+  align-items: start;
 }
-.content-left .service-icon {
-  font-size: 4rem;
-  color: var(--accent);
-  margin-bottom: 1.5rem;
-}
-.content-left h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: var(--white);
-}
-.content-left .desc {
-  color: var(--gray-light);
-  margin-bottom: 1.5rem;
-  line-height: 1.8;
-}
-.feature-list {
+ 
+.detail-text h2 { color: var(--white); }
+ 
+.detail-features {
   list-style: none;
-  margin: 2rem 0;
+  margin-top: 1.5rem;
 }
-.feature-list li {
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-.feature-list li i {
-  color: var(--accent);
-  font-size: 1.2rem;
-  width: 24px;
-}
-.content-right {
-  position: relative;
-}
-.content-right img {
-  width: 100%;
-  border-radius: 24px;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-  border: 1px solid rgba(0,212,255,0.2);
-  transition: var(--transition);
-}
-.content-right img:hover {
-  transform: scale(1.02);
-  border-color: var(--red);
-}
-.glow-effect {
-  position: absolute;
-  top: -20px;
-  right: -20px;
-  width: 150px;
-  height: 150px;
-  background: radial-gradient(circle, rgba(0,212,255,0.2), transparent);
-  border-radius: 50%;
-  z-index: -1;
-}
-
-/* STATS CARDS */
-.stats-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin: 3rem 0;
-}
-.stat-card {
-  background: rgba(15,42,62,0.6);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  padding: 1.5rem;
-  text-align: center;
-  border: 1px solid rgba(0,212,255,0.1);
-  transition: var(--transition);
-}
-.stat-card:hover {
-  transform: translateY(-8px);
-  border-color: var(--red);
-  box-shadow: 0 20px 40px rgba(239,68,68,0.1);
-}
-.stat-card i {
-  font-size: 2rem;
-  color: var(--accent);
-  margin-bottom: 1rem;
-}
-.stat-card h3 {
-  font-size: 1.8rem;
-  color: var(--accent);
-  margin-bottom: 0.3rem;
-}
-.stat-card p {
-  font-size: 0.85rem;
-  color: var(--gray-light);
-}
-
-/* CTA BUTTONS */
-.cta-buttons {
+ 
+.detail-features li {
   display: flex;
   gap: 1rem;
-  flex-wrap: wrap;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+ 
+.detail-features li:last-child { border-bottom: none; }
+ 
+.detail-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(239,68,68,0.12);
+  color: var(--red);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1rem;
+  border: 1px solid rgba(239,68,68,0.25);
+}
+ 
+.detail-features strong {
+  display: block;
+  color: var(--white);
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+ 
+.detail-features span { color: var(--gray-light); font-size: 0.88rem; }
+ 
+.detail-photo {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  border: 1px solid rgba(239,68,68,0.2);
+}
+ 
+.detail-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+ 
+.detail-photo:hover img { transform: scale(1.04); }
+ 
+.detail-photo-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent,rgba(5,11,20,0.95));
+  padding: 3rem 2rem 1.5rem;
+}
+ 
+.detail-photo-tag {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5rem;
+  background: rgba(255,184,0,0.15);
+  padding: 0.3rem 0.8rem;
+  border-radius: 30px;
+  border: 1px solid rgba(255,184,0,0.3);
+}
+ 
+.detail-photo h3 {
+  color: var(--white);
+  font-size: 1.4rem;
+  margin: 0;
+}
+ 
+.detail-visual {
+  background: rgba(10,22,40,0.8);
+  color: var(--white);
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(239,68,68,0.2);
+  margin-top: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+ 
+.detail-visual::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(239,68,68,0.06) 0%, transparent 70%);
+}
+ 
+.detail-visual h3 {
+  color: var(--red);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+ 
+.detail-stat {
+  position: relative;
+  z-index: 1;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+ 
+.detail-stat:last-child { border-bottom: none; }
+ 
+.detail-stat .label {
+  color: var(--gold);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.2rem;
+}
+ 
+.detail-stat .value {
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+ 
+/* STEP GRID */
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
   margin-top: 2rem;
 }
-.btn-primary, .btn-secondary {
+ 
+.step-card {
+  background: rgba(10,22,40,0.6);
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(239,68,68,0.2);
+  border-top: 3px solid var(--red);
+  transition: var(--transition);
+}
+ 
+.step-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(239,68,68,0.5);
+  box-shadow: 0 15px 40px rgba(239,68,68,0.12);
+}
+ 
+.step-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--red);
+  line-height: 1;
+  margin-bottom: 0.8rem;
+}
+ 
+.step-card h4 {
+  color: var(--white);
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+}
+ 
+.step-card p {
+  color: var(--gray-light);
+  font-size: 0.9rem;
+}
+ 
+/* CTA BLOCK */
+.cta-block {
+  background: linear-gradient(135deg, var(--primary), rgba(239,68,68,0.15));
+  text-align: center;
+  padding: 5rem 4%;
+  position: relative;
+  overflow: hidden;
+}
+ 
+.cta-block::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(239,68,68,0.1) 0%, transparent 60%);
+}
+ 
+.cta-block-content {
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+ 
+.cta-block h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+ 
+.cta-block p { color: var(--gray-light); margin-bottom: 2rem; }
+ 
+.btn-primary {
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
+  color: var(--white);
   padding: 1rem 2rem;
   border-radius: 40px;
   font-weight: 700;
@@ -319,245 +482,464 @@ a { text-decoration: none; }
   align-items: center;
   gap: 0.6rem;
   transition: var(--transition);
+  font-size: 0.95rem;
 }
-.btn-primary {
-  background: linear-gradient(135deg, var(--red), var(--red-dark));
-  color: white;
-}
+ 
 .btn-primary:hover {
-  background: var(--accent);
-  color: var(--primary);
   transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(239,68,68,0.3);
 }
-.btn-secondary {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(0,212,255,0.2);
-  color: var(--off-white);
-}
-.btn-secondary:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  transform: translateY(-3px);
-}
-
+ 
 /* FOOTER */
 footer {
   background: var(--primary-deep);
-  border-top: 1px solid rgba(0,212,255,0.1);
-  padding: 3rem 4% 1.5rem;
-  text-align: center;
+  padding: 5rem 4% 2rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
 }
-footer a {
+ 
+.footer-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 1fr);
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+ 
+.footer-brand p {
+  color: var(--gray-light);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  max-width: 320px;
+  margin-top: 1rem;
+}
+ 
+.footer-col h4 {
+  color: var(--white);
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+ 
+.footer-col ul { list-style: none; }
+ 
+.footer-col ul li { margin-bottom: 0.8rem; }
+ 
+.footer-col ul li a {
+  color: var(--gray-light);
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+ 
+.footer-col ul li a:hover {
   color: var(--accent);
+  padding-left: 4px;
 }
-
+ 
+.footer-bottom {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--gray-mid);
+}
+ 
 /* RESPONSIVE */
-@media (max-width: 768px) {
-  .nav-links {
-    position: fixed; top: 70px; right: 0;
-    flex-direction: column;
-    background: #071426;
-    padding: 1.5rem;
-    width: 100%;
-    gap: 0.5rem;
-    transform: translateX(100%);
-    transition: transform 0.3s;
-  }
-  .nav-links.active { transform: translateX(0); }
-  .menu-toggle { display: block; }
-  .content-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .stats-cards { grid-template-columns: 1fr; }
+@media(max-width:1024px) {
+  .nav-links { display: none !important; }
+  .menu-toggle { display: block !important; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .detail-grid { grid-template-columns: 1fr !important; gap: 2.5rem; }
+}
+ 
+@media(max-width:768px) {
+  .top-bar-container { flex-direction: column; align-items: center; text-align: center; gap: 0.8rem; }
+  .top-bar-info { flex-direction: column; align-items: center; gap: 0.3rem; width: 100%; }
+  .page-header { padding: 3rem 4% 2rem; }
   .page-header h1 { font-size: 2rem; }
+  .detail-section { padding: 3rem 4%; }
+  .step-grid { grid-template-columns: 1fr !important; }
+  .footer-grid { grid-template-columns: 1fr !important; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .btn-primary { width: 100%; justify-content: center; }
+  .detail-grid { gap: 2rem; }
+}
+ 
+@media(max-width:576px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
 }
 </style>
 </head>
 <body>
-
+ 
 <div class="top-bar">
   <div class="top-bar-container">
-    <div class="top-bar-info">
-      <span><i class="fas fa-phone"></i> +212 728 31 28 01</span>
-      <span><i class="fas fa-envelope"></i> contact@nextgentechnologies.net</span>
-      <span><i class="fas fa-map-marker-alt"></i> Casablanca</span>
+    <div class="partner-badge">
+      <i class="fa-solid fa-shield-halved"></i>
+      <span>Votre partenaire en cyberdéfense et infogérance</span>
     </div>
-    <div class="lang-switch">
-      <button class="lang-btn active" data-lang="fr">🇫🇷 FR</button>
-      <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
+    <div class="top-bar-info">
+      <span><i class="fa-solid fa-phone"></i> +212 728 31 28 01</span>
+      <span><i class="fa-solid fa-envelope"></i> contact@netvanguard.ma</span>
+      <span><i class="fa-solid fa-location-dot"></i> Casablanca</span>
+    </div>
+    <div class="top-bar-social" style="display: flex; align-items: center;">
+      <div class="lang-switch" style="margin-right: 1rem;">
+        <button class="lang-btn active" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-x-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
     </div>
   </div>
 </div>
-
+ 
 <nav class="nav">
   <div class="nav-container">
     <a href="index.html" class="logo">
-      <svg class="logo-shield" viewBox="0 0 64 64" width="32" height="32">
-        <path d="M32 4 L8 12 V28 C8 42 18 54 32 60 C46 54 56 42 56 28 V12 Z" fill="#00D4FF" stroke="#FFB800" stroke-width="1.5"/>
-        <path d="M38 12 L18 36 L28 36 L24 54 L46 28 L36 28 L40 12 Z" fill="#EF4444" stroke="#7F1D1D" stroke-width="1.5"/>
+      <svg class="logo-shield" viewBox="0 0 24 24" width="36" height="36">
+        <defs>
+          <linearGradient id="shieldGradNav" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#FFB800;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#shieldGradNav)"/>
+        <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
       </svg>
-      <span>NextGen <span class="logo-text-accent">Technologies</span></span>
+      <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em;font-weight:500;color:var(--gray-light);">IT Solutions</span></span>
     </a>
+    
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Accueil</a></li>
       <li><a href="services.html">Services</a></li>
+      <li><a href="secteurs.html">Secteurs</a></li>
+      <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
+      <li><a href="carrieres.html">Carrières</a></li>
+      <li><a href="campus-cyber.html">🎓 Campus Cyber</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="contact.html" class="nav-cta">Audit gratuit</a></li>
+      <li><a href="support.html" class="btn-espace-client"><i class="fa-solid fa-user-circle"></i> Espace Client</a></li>
     </ul>
-    <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+ 
+    <button class="menu-toggle" id="menuToggle">
+      <i class="fa-solid fa-bars"></i>
+    </button>
   </div>
 </nav>
-
+ 
+<div class="mobile-nav-overlay" id="mobileNav">
+  <a href="index.html">Accueil</a>
+  <a href="services.html">Services</a>
+  <a href="secteurs.html">Secteurs</a>
+  <a href="qui-sommes-nous.html">Qui sommes-nous</a>
+  <a href="carrieres.html">Carrières</a>
+  <a href="campus-cyber.html">🎓 Campus Cyber</a>
+  <a href="contact.html">Contact</a>
+  <a href="support.html" class="btn-espace-client-mobile"><i class="fa-solid fa-user-circle"></i> Espace Client</a>
+</div>
+ 
 <section class="page-header">
   <div class="page-header-container">
     <div class="breadcrumb">
-      <a href="index.html">Accueil</a> <i class="fas fa-chevron-right"></i> <span id="breadLabel">Cybercrime</span>
+      <a href="index.html">Accueil</a> <i class="fas fa-chevron-right"></i>
+      <span id="breadLabel">Cybercrime</span>
     </div>
-    <h1>Cybercrime & <span class="accent">Investigation</span><br><span id="headerSub">Numérique</span></h1>
+    <h1><span id="pageH1Main">Cybercrime &</span> <span class="accent" id="pageH1Accent">Investigation</span><br><span id="pageH1Sub">Numérique</span></h1>
     <p id="pageDesc">Investigation technique forensique, analyse d'incidents et recherche d'indicateurs de compromission (IoC).</p>
   </div>
 </section>
-
-<div class="container">
-  <div class="content-grid">
-    <div class="content-left">
-      <div class="service-icon">
-  <i class="fas fa-microscope"></i>
-  <i class="fas fa-fingerprint" style="margin-left: 1rem; font-size: 3rem;"></i>
-</div>
-      <h2 id="title1">Expertise en investigation numérique</h2>
-      <p class="desc" id="desc1">Suite à une compromission (ransomware, intrusion, exfiltration de données), notre équipe technique intervient pour analyser en profondeur votre infrastructure.</p>
-      <ul class="feature-list" id="featureList">
-        <li><i class="fas fa-search"></i> <span>Identification de la source et du vecteur d'attaque</span></li>
-        <li><i class="fas fa-chart-line"></i> <span>Reconstruction chronologique de l'incident</span></li>
-        <li><i class="fas fa-database"></i> <span>Collecte et analyse des logs et artefacts système</span></li>
-        <li><i class="fas fa-fingerprint"></i> <span>Recherche d'indicateurs de compromission (IoC)</span></li>
-        <li><i class="fas fa-chart-simple"></i> <span>Cartographie des déplacements latéraux</span></li>
-        <li><i class="fas fa-shield-halved"></i> <span>Recommandations techniques pour durcir l'infrastructure</span></li>
-      </ul>
-      <div class="cta-buttons">
-        <a href="contact.html" class="btn-primary" id="cta1"><i class="fas fa-bug"></i> Incident ? Intervention 24/7</a>
-        <a href="contact.html" class="btn-secondary" id="cta2"><i class="fas fa-file-alt"></i> Demander un audit technique</a>
+ 
+<section class="detail-section">
+  <div class="container">
+    <div class="detail-grid">
+      <div class="detail-text">
+        <span class="section-tag" id="tag1">Cybercrime</span>
+        <h2 id="title1">Investigation numérique et réponse à incident</h2>
+        <p style="color: var(--gray-light); font-size: 1.05rem;" id="desc1">Suite à une compromission (ransomware, intrusion, exfiltration de données), notre équipe technique intervient pour analyser en profondeur votre infrastructure et reconstituer le fil de l'attaque.</p>
+        <ul class="detail-features" id="featureList">
+          <li>
+            <div class="detail-icon"><i class="fas fa-search"></i></div>
+            <div>
+              <strong id="feat1Title">Identification de l'attaque</strong>
+              <span id="feat1Desc">Source, vecteur, chronologie complète de l'intrusion</span>
+            </div>
+          </li>
+          <li>
+            <div class="detail-icon"><i class="fas fa-database"></i></div>
+            <div>
+              <strong id="feat2Title">Collecte et analyse forensique</strong>
+              <span id="feat2Desc">Logs, artefacts système, mémoire vive, disques</span>
+            </div>
+          </li>
+          <li>
+            <div class="detail-icon"><i class="fas fa-fingerprint"></i></div>
+            <div>
+              <strong id="feat3Title">Recherche d'IoC</strong>
+              <span id="feat3Desc">Indicateurs de compromission, signatures, hash suspects</span>
+            </div>
+          </li>
+          <li>
+            <div class="detail-icon"><i class="fas fa-chart-simple"></i></div>
+            <div>
+              <strong id="feat4Title">Cartographie des mouvements</strong>
+              <span id="feat4Desc">Déplacements latéraux, rebonds, exfiltration</span>
+            </div>
+          </li>
+          <li>
+            <div class="detail-icon"><i class="fas fa-shield-halved"></i></div>
+            <div>
+              <strong id="feat5Title">Recommandations de durcissement</strong>
+              <span id="feat5Desc">Plan de remédiation complet pour éviter la récidive</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="detail-photo">
+        <img src="crime.jpg" alt="Cyber investigation forensic NetVanguard" loading="lazy">
+        <div class="detail-photo-overlay">
+          <span class="detail-photo-tag">INVESTIGATION</span>
+          <h3>Analyse forensique</h3>
+        </div>
       </div>
     </div>
-    <div class="content-right">
-      <div class="glow-effect"></div>
-      <img src="crime.jpg" alt="Cyber investigation forensic" id="pageImage">
+    <div class="detail-visual">
+      <h3><i class="fas fa-microscope" style="margin-right: 0.5rem;"></i> <span id="visualTitle">Notre expertise forensique</span></h3>
+      <div class="detail-stat"><div class="label" id="stat1Label">Intervention</div><div class="value" id="stat1Value">24/7 - Déplacement sur site si nécessaire</div></div>
+      <div class="detail-stat"><div class="label" id="stat2Label">Méthodologie</div><div class="value" id="stat2Value">Chaîne de custody respectée, recevabilité légale</div></div>
+      <div class="detail-stat"><div class="label" id="stat3Label">Outils</div><div class="value" id="stat3Value">Autopsy, Volatility, Wireshark, ELK, YARA</div></div>
+      <div class="detail-stat"><div class="label" id="stat4Label">Livrables</div><div class="value" id="stat4Value">Rapport détaillé, timeline, recommandations</div></div>
+      <div class="detail-stat"><div class="label" id="stat5Label">Confidentialité</div><div class="value" id="stat5Value">NDA systématique, données protégées</div></div>
     </div>
   </div>
-
-  <div class="stats-cards">
-    <div class="stat-card">
-      <i class="fas fa-clock"></i>
-      <h3 id="stat1Title">24h</h3>
-      <p id="stat1Desc">Intervention garantie</p>
-    </div>
-    <div class="stat-card">
-      <i class="fas fa-chart-line"></i>
-      <h3 id="stat2Title">100%</h3>
-      <p id="stat2Desc">Analyse forensique</p>
-    </div>
-    <div class="stat-card">
-      <i class="fas fa-eye-slash"></i>
-      <h3 id="stat3Title">NDA</h3>
-      <p id="stat3Desc">Confidentialité totale</p>
+</section>
+ 
+<section class="detail-section alt">
+  <div class="container">
+    <span class="section-tag" id="tag2">Méthodologie</span>
+    <h2 class="section-title" id="title2">Notre processus d'investigation</h2>
+    <div class="step-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h4 id="step1Title">Confinement</h4>
+        <p id="step1Desc">Isolation des systèmes compromis pour stopper la propagation.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h4 id="step2Title">Collecte</h4>
+        <p id="step2Desc">Acquisition forensique des preuves : logs, mémoire, disques.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h4 id="step3Title">Analyse</h4>
+        <p id="step3Desc">Reconstitution chronologique, identification de la cause racine.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <h4 id="step4Title">Remédiation</h4>
+        <p id="step4Desc">Nettoyage, restauration, durcissement et rapport final.</p>
+      </div>
     </div>
   </div>
-</div>
-
+</section>
+ 
+<section class="cta-block">
+  <div class="cta-block-content">
+    <h2 id="ctaH2">Victime d'un incident ? Intervenons maintenant.</h2>
+    <p id="ctaP">Équipe d'intervention disponible 24/7. Première analyse à distance en moins de 2 heures.</p>
+    <a href="contact.html" class="btn-primary"><i class="fas fa-bug"></i> <span id="ctaBtn">Signaler un incident</span></a>
+  </div>
+</section>
+ 
 <footer>
-  <p>© 2026 NextGen Technologies · Casablanca · <a href="contact.html">Contactez-nous</a></p>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo" style="font-size: 1.4rem;">
+        <svg class="logo-shield" viewBox="0 0 24 24" width="28" height="28">
+          <defs>
+            <linearGradient id="shieldGradFooter" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#FFB800;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#shieldGradFooter)"/>
+          <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
+        </svg>
+        <span style="color:white;margin-left:.5rem;">Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.82em;font-weight:400;color:rgba(255,255,255,0.45);">IT Solutions</span></span>
+      </a>
+      <p>Cybersécurité opérationnelle au Maroc. Infrastructure, Support IT, Sécurité Réseau, Pentest, Investigation.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="infogerance.html">Support IT & Infogérance</a></li>
+        <li><a href="securite-reseau.html">Sécurité Réseau</a></li>
+        <li><a href="vapt.html">Pentest / VAPT</a></li>
+        <li><a href="soc-consultation.html">SOC Consultation</a></li>
+        <li><a href="cybercrime.html">Cybercrime</a></li>
+        <li><a href="noc.html">NOC Managé</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Entreprise</h4>
+      <ul>
+        <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
+        <li><a href="carrieres.html">Carrières</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Légal</h4>
+      <ul>
+        <li><a href="#">Mentions légales</a></li>
+        <li><a href="#">Politique de confidentialité</a></li>
+        <li><a href="#">CGU</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 NetVanguard IT Solutions SARL · Casablanca</span>
+    <span>Excellence & Innovation</span>
+  </div>
 </footer>
-
+ 
 <script>
-// TRADUCTIONS FR/EN
 const translations = {
   fr: {
     breadLabel: "Cybercrime",
-    headerSub: "Numérique",
+    pageH1Main: "Cybercrime &",
+    pageH1Accent: "Investigation",
+    pageH1Sub: "Numérique",
     pageDesc: "Investigation technique forensique, analyse d'incidents et recherche d'indicateurs de compromission (IoC).",
-    title1: "Expertise en investigation numérique",
-    desc1: "Suite à une compromission (ransomware, intrusion, exfiltration de données), notre équipe technique intervient pour analyser en profondeur votre infrastructure.",
-    cta1: "Incident ? Intervention 24/7",
-    cta2: "Demander un audit technique",
-    stat1Title: "24h",
-    stat1Desc: "Intervention garantie",
-    stat2Title: "100%",
-    stat2Desc: "Analyse forensique",
-    stat3Title: "NDA",
-    stat3Desc: "Confidentialité totale",
-    features: [
-      "Identification de la source et du vecteur d'attaque",
-      "Reconstruction chronologique de l'incident",
-      "Collecte et analyse des logs et artefacts système",
-      "Recherche d'indicateurs de compromission (IoC)",
-      "Cartographie des déplacements latéraux",
-      "Recommandations techniques pour durcir l'infrastructure"
-    ]
+    tag1: "Cybercrime",
+    title1: "Investigation numérique et réponse à incident",
+    desc1: "Suite à une compromission (ransomware, intrusion, exfiltration de données), notre équipe technique intervient pour analyser en profondeur votre infrastructure et reconstituer le fil de l'attaque.",
+    feat1Title: "Identification de l'attaque",
+    feat1Desc: "Source, vecteur, chronologie complète de l'intrusion",
+    feat2Title: "Collecte et analyse forensique",
+    feat2Desc: "Logs, artefacts système, mémoire vive, disques",
+    feat3Title: "Recherche d'IoC",
+    feat3Desc: "Indicateurs de compromission, signatures, hash suspects",
+    feat4Title: "Cartographie des mouvements",
+    feat4Desc: "Déplacements latéraux, rebonds, exfiltration",
+    feat5Title: "Recommandations de durcissement",
+    feat5Desc: "Plan de remédiation complet pour éviter la récidive",
+    visualTitle: "Notre expertise forensique",
+    stat1Label: "Intervention", stat1Value: "24/7 - Déplacement sur site si nécessaire",
+    stat2Label: "Méthodologie", stat2Value: "Chaîne de custody respectée, recevabilité légale",
+    stat3Label: "Outils", stat3Value: "Autopsy, Volatility, Wireshark, ELK, YARA",
+    stat4Label: "Livrables", stat4Value: "Rapport détaillé, timeline, recommandations",
+    stat5Label: "Confidentialité", stat5Value: "NDA systématique, données protégées",
+    tag2: "Méthodologie",
+    title2: "Notre processus d'investigation",
+    step1Title: "Confinement", step1Desc: "Isolation des systèmes compromis pour stopper la propagation.",
+    step2Title: "Collecte", step2Desc: "Acquisition forensique des preuves : logs, mémoire, disques.",
+    step3Title: "Analyse", step3Desc: "Reconstitution chronologique, identification de la cause racine.",
+    step4Title: "Remédiation", step4Desc: "Nettoyage, restauration, durcissement et rapport final.",
+    ctaH2: "Victime d'un incident ? Intervenons maintenant.",
+    ctaP: "Équipe d'intervention disponible 24/7. Première analyse à distance en moins de 2 heures.",
+    ctaBtn: "Signaler un incident"
   },
   en: {
     breadLabel: "Cybercrime",
-    headerSub: "Investigation",
+    pageH1Main: "Cybercrime &",
+    pageH1Accent: "Investigation",
+    pageH1Sub: "Digital",
     pageDesc: "Technical forensic investigation, incident analysis and Indicators of Compromise (IoC) research.",
-    title1: "Digital Investigation Expertise",
-    desc1: "Following a compromise (ransomware, intrusion, data exfiltration), our technical team intervenes to deeply analyze your infrastructure.",
-    cta1: "Incident? 24/7 Response",
-    cta2: "Request a technical audit",
-    stat1Title: "24h",
-    stat1Desc: "Guaranteed response",
-    stat2Title: "100%",
-    stat2Desc: "Forensic analysis",
-    stat3Title: "NDA",
-    stat3Desc: "Total confidentiality",
-    features: [
-      "Source and attack vector identification",
-      "Incident chronological reconstruction",
-      "Logs and system artifacts collection & analysis",
-      "Indicators of Compromise (IoC) research",
-      "Lateral movement mapping",
-      "Technical recommendations to harden infrastructure"
-    ]
+    tag1: "Cybercrime",
+    title1: "Digital investigation and incident response",
+    desc1: "Following a compromise (ransomware, intrusion, data exfiltration), our technical team intervenes to deeply analyze your infrastructure and reconstruct the attack timeline.",
+    feat1Title: "Attack identification",
+    feat1Desc: "Source, vector, complete intrusion chronology",
+    feat2Title: "Forensic collection & analysis",
+    feat2Desc: "Logs, system artifacts, RAM, disks",
+    feat3Title: "IoC research",
+    feat3Desc: "Indicators of Compromise, signatures, suspicious hashes",
+    feat4Title: "Movement mapping",
+    feat4Desc: "Lateral movements, pivots, exfiltration paths",
+    feat5Title: "Hardening recommendations",
+    feat5Desc: "Complete remediation plan to prevent recurrence",
+    visualTitle: "Our forensic expertise",
+    stat1Label: "Response", stat1Value: "24/7 - On-site deployment if needed",
+    stat2Label: "Methodology", stat2Value: "Chain of custody respected, legal admissibility",
+    stat3Label: "Tools", stat3Value: "Autopsy, Volatility, Wireshark, ELK, YARA",
+    stat4Label: "Deliverables", stat4Value: "Detailed report, timeline, recommendations",
+    stat5Label: "Confidentiality", stat5Value: "Systematic NDA, protected data",
+    tag2: "Methodology",
+    title2: "Our investigation process",
+    step1Title: "Containment", step1Desc: "Isolation of compromised systems to stop propagation.",
+    step2Title: "Collection", step2Desc: "Forensic evidence acquisition: logs, memory, disks.",
+    step3Title: "Analysis", step3Desc: "Chronological reconstruction, root cause identification.",
+    step4Title: "Remediation", step4Desc: "Cleanup, restoration, hardening and final report.",
+    ctaH2: "Incident victim? Let's intervene now.",
+    ctaP: "Response team available 24/7. First remote analysis within 2 hours.",
+    ctaBtn: "Report an incident"
   }
 };
-
-let currentLang = localStorage.getItem('nextgen-lang') || 'fr';
-
+ 
+let currentLang = localStorage.getItem('netvanguard-lang') || 'fr';
+ 
 function applyLanguage(lang) {
   const t = translations[lang];
   if (!t) return;
   
   document.getElementById('breadLabel').innerText = t.breadLabel;
-  document.getElementById('headerSub').innerText = t.headerSub;
+  document.getElementById('pageH1Main').innerText = t.pageH1Main;
+  document.getElementById('pageH1Accent').innerText = t.pageH1Accent;
+  document.getElementById('pageH1Sub').innerText = t.pageH1Sub;
   document.getElementById('pageDesc').innerText = t.pageDesc;
+  document.getElementById('tag1').innerText = t.tag1;
   document.getElementById('title1').innerText = t.title1;
   document.getElementById('desc1').innerText = t.desc1;
-  document.getElementById('cta1').innerHTML = `<i class="fas fa-bug"></i> ${t.cta1}`;
-  document.getElementById('cta2').innerHTML = `<i class="fas fa-file-alt"></i> ${t.cta2}`;
-  document.getElementById('stat1Title').innerText = t.stat1Title;
-  document.getElementById('stat1Desc').innerText = t.stat1Desc;
-  document.getElementById('stat2Title').innerText = t.stat2Title;
-  document.getElementById('stat2Desc').innerText = t.stat2Desc;
-  document.getElementById('stat3Title').innerText = t.stat3Title;
-  document.getElementById('stat3Desc').innerText = t.stat3Desc;
-  
-  // Mettre à jour la liste des fonctionnalités
-  const featureList = document.getElementById('featureList');
-  const items = featureList.querySelectorAll('li');
-  t.features.forEach((text, index) => {
-    if (items[index]) {
-      items[index].querySelector('span').innerText = text;
-    }
-  });
-  
- // Garder l'image locale
-  document.getElementById('pageImage').src = "crime.jpg";
+  document.getElementById('feat1Title').innerText = t.feat1Title;
+  document.getElementById('feat1Desc').innerText = t.feat1Desc;
+  document.getElementById('feat2Title').innerText = t.feat2Title;
+  document.getElementById('feat2Desc').innerText = t.feat2Desc;
+  document.getElementById('feat3Title').innerText = t.feat3Title;
+  document.getElementById('feat3Desc').innerText = t.feat3Desc;
+  document.getElementById('feat4Title').innerText = t.feat4Title;
+  document.getElementById('feat4Desc').innerText = t.feat4Desc;
+  document.getElementById('feat5Title').innerText = t.feat5Title;
+  document.getElementById('feat5Desc').innerText = t.feat5Desc;
+  document.getElementById('visualTitle').innerText = t.visualTitle;
+  document.getElementById('stat1Label').innerText = t.stat1Label;
+  document.getElementById('stat1Value').innerText = t.stat1Value;
+  document.getElementById('stat2Label').innerText = t.stat2Label;
+  document.getElementById('stat2Value').innerText = t.stat2Value;
+  document.getElementById('stat3Label').innerText = t.stat3Label;
+  document.getElementById('stat3Value').innerText = t.stat3Value;
+  document.getElementById('stat4Label').innerText = t.stat4Label;
+  document.getElementById('stat4Value').innerText = t.stat4Value;
+  document.getElementById('stat5Label').innerText = t.stat5Label;
+  document.getElementById('stat5Value').innerText = t.stat5Value;
+  document.getElementById('tag2').innerText = t.tag2;
+  document.getElementById('title2').innerText = t.title2;
+  document.getElementById('step1Title').innerText = t.step1Title;
+  document.getElementById('step1Desc').innerText = t.step1Desc;
+  document.getElementById('step2Title').innerText = t.step2Title;
+  document.getElementById('step2Desc').innerText = t.step2Desc;
+  document.getElementById('step3Title').innerText = t.step3Title;
+  document.getElementById('step3Desc').innerText = t.step3Desc;
+  document.getElementById('step4Title').innerText = t.step4Title;
+  document.getElementById('step4Desc').innerText = t.step4Desc;
+  document.getElementById('ctaH2').innerText = t.ctaH2;
+  document.getElementById('ctaP').innerText = t.ctaP;
+  document.getElementById('ctaBtn').innerText = t.ctaBtn;
   
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
   });
   
-  localStorage.setItem('nextgen-lang', lang);
+  localStorage.setItem('netvanguard-lang', lang);
 }
-
-// GESTIONNAIRE DE LANGUE
+ 
 document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const lang = btn.getAttribute('data-lang');
@@ -567,13 +949,16 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
     }
   });
 });
-
-// MENU MOBILE
+ 
 document.getElementById('menuToggle')?.addEventListener('click', () => {
-  document.getElementById('navLinks')?.classList.toggle('active');
+  const mobileNav = document.getElementById('mobileNav');
+  if (mobileNav) {
+    mobileNav.classList.toggle('active');
+    const icon = document.getElementById('menuToggle').querySelector('i');
+    icon.className = mobileNav.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+  }
 });
-
-// INITIALISATION
+ 
 applyLanguage(currentLang);
 </script>
 </body>
