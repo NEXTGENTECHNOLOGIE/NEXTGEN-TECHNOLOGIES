@@ -92,16 +92,25 @@ a { text-decoration:none; }
 .processing-step i { color:var(--accent); }
 .processing-step.done i { color:var(--success); }
 .processing-step.done { color:var(--success); }
+.processing-step.pdf-pages { font-size:0.85rem; color:var(--accent); margin-top:0.5rem; }
 
 /* RESULT */
 .result-panel { display:none; text-align:center; padding:3rem 2rem; background:rgba(255,255,255,0.03); border:1px solid rgba(0,212,255,0.2); border-radius:24px; }
 .result-panel.active { display:block; }
-.result-icon { font-size:5rem; margin-bottom:1rem; color:var(--accent); }
+.result-icon { font-size:5rem; margin-bottom:1rem; }
+.result-icon.accepted { color:var(--success); }
+.result-icon.rejected { color:var(--red); }
 .result-title { font-size:1.8rem; color:var(--white); margin-bottom:1rem; }
 .result-desc { color:var(--gray-light); font-size:1rem; margin-bottom:2rem; max-width:500px; margin-left:auto; margin-right:auto; }
+.result-action-btn { display:inline-block; padding:1rem 2.5rem; border-radius:50px; font-weight:700; font-size:1rem; cursor:pointer; transition:var(--transition); text-decoration:none; }
+.btn-goto-exam { background:linear-gradient(135deg,var(--red),var(--red-dark)); color:var(--white); }
+.btn-goto-exam:hover { transform:translateY(-3px); box-shadow:0 15px 35px rgba(239,68,68,0.4); }
 .result-info-box { background:rgba(0,212,255,0.08); border:1px solid rgba(0,212,255,0.2); border-radius:14px; padding:1.5rem; margin-top:2rem; text-align:left; }
 .result-info-box h4 { color:var(--accent); margin-bottom:0.8rem; }
 .result-info-box p { color:var(--gray-light); font-size:0.9rem; margin-bottom:0.5rem; }
+#tempCodeBox { background:linear-gradient(135deg,rgba(255,184,0,0.1),rgba(0,212,255,0.1));border:2px dashed var(--gold);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;text-align:center; }
+#tempCodeDisplay { font-family:'Space Grotesk',monospace;font-size:2rem;font-weight:800;color:var(--gold);letter-spacing:0.1em;background:rgba(0,0,0,0.4);padding:0.8rem;border-radius:8px;margin:0.8rem 0; }
+#tempCodeTimer { color:var(--accent);font-weight:700;margin-top:0.5rem;font-size:0.9rem; }
 
 /* FORM SECTION */
 .form-section { background:linear-gradient(180deg,var(--primary-deep),#030d1a); display:none; }
@@ -178,10 +187,21 @@ footer { background:var(--primary-deep); border-top:1px solid rgba(0,212,255,0.1
       <i class="fa-solid fa-shield-halved" style="color:#00D4FF;font-size:.8rem;"></i>
       <span style="font-size:.7rem;font-weight:700;letter-spacing:.5px;background:linear-gradient(135deg,#fff,#00D4FF);-webkit-background-clip:text;background-clip:text;color:transparent;">Votre partenaire IT & cybersécurité au Maroc</span>
     </div>
-    <div class="top-bar-info"><span><i class="fas fa-phone"></i> +212 728 31 28 01</span><span><i class="fas fa-envelope"></i> contact@netvanguard.ma</span><span><i class="fas fa-map-marker-alt"></i> Casablanca</span></div>
+    <div class="top-bar-info">
+      <span><i class="fas fa-phone"></i> +212 728 31 28 01</span>
+      <span><i class="fas fa-envelope"></i> contact@netvanguard.ma</span>
+      <span><i class="fas fa-map-marker-alt"></i> Casablanca</span>
+    </div>
     <div class="top-bar-social">
-      <div class="lang-switch"><button class="lang-btn active" data-lang="fr">FR</button><button class="lang-btn" data-lang="en">EN</button></div>
-      <div class="social-icons"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-x-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div>
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
     </div>
   </div>
 </div>
@@ -189,25 +209,49 @@ footer { background:var(--primary-deep); border-top:1px solid rgba(0,212,255,0.1
 <nav class="nav">
   <div class="nav-container">
     <a href="index.html" class="logo">
-      <svg class="logo-shield" viewBox="0 0 24 24" width="36" height="36"><defs><linearGradient id="sgN" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1"/><stop offset="100%" style="stop-color:#FFB800;stop-opacity:1"/></linearGradient></defs><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#sgN)"/><path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/></svg>
+      <svg class="logo-shield" viewBox="0 0 24 24" width="36" height="36">
+        <defs><linearGradient id="sgN" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1"/><stop offset="100%" style="stop-color:#FFB800;stop-opacity:1"/></linearGradient></defs>
+        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#sgN)"/>
+        <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
+      </svg>
       <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em;font-weight:500;color:var(--gray-light);">IT Solutions</span></span>
     </a>
     <ul class="nav-links">
-      <li><a href="index.html" data-i18n="nav_home">Accueil</a></li><li><a href="services.html" data-i18n="nav_services">Services</a></li><li><a href="secteurs.html" data-i18n="nav_sectors">Secteurs</a></li><li><a href="qui-sommes-nous.html" data-i18n="nav_about">Qui sommes-nous</a></li><li><a href="carrieres.html" class="active" data-i18n="nav_careers">Carrières</a></li><li><a href="campus-cyber.html" data-i18n="nav_campus">🎓 Campus Cyber</a></li><li><a href="contact.html" data-i18n="nav_contact">Contact</a></li><li><a href="support.html" class="btn-espace-client"><i class="fa-solid fa-user-circle"></i> <span data-i18n="nav_client">Espace Client</span></a></li>
+      <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+      <li><a href="services.html" data-i18n="nav_services">Services</a></li>
+      <li><a href="secteurs.html" data-i18n="nav_sectors">Secteurs</a></li>
+      <li><a href="qui-sommes-nous.html" data-i18n="nav_about">Qui sommes-nous</a></li>
+      <li><a href="carrieres.html" class="active" data-i18n="nav_careers">Carrières</a></li>
+      <li><a href="campus-cyber.html" data-i18n="nav_campus">🎓 Campus Cyber</a></li>
+      <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+      <li><a href="support.html" class="btn-espace-client"><i class="fa-solid fa-user-circle"></i> <span data-i18n="nav_client">Espace Client</span></a></li>
     </ul>
     <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
   </div>
 </nav>
 
 <div class="mobile-nav-overlay" id="mobileNav">
-  <a href="index.html" data-i18n="nav_home">Accueil</a><a href="services.html" data-i18n="nav_services">Services</a><a href="secteurs.html" data-i18n="nav_sectors">Secteurs</a><a href="qui-sommes-nous.html" data-i18n="nav_about">Qui sommes-nous</a><a href="carrieres.html" data-i18n="nav_careers">Carrières</a><a href="campus-cyber.html" data-i18n="nav_campus">🎓 Campus Cyber</a><a href="contact.html" data-i18n="nav_contact">Contact</a><a href="support.html" class="btn-espace-client-mobile"><i class="fa-solid fa-user-circle"></i> <span data-i18n="nav_client">Espace Client</span></a>
+  <a href="index.html" data-i18n="nav_home">Accueil</a>
+  <a href="services.html" data-i18n="nav_services">Services</a>
+  <a href="secteurs.html" data-i18n="nav_sectors">Secteurs</a>
+  <a href="qui-sommes-nous.html" data-i18n="nav_about">Qui sommes-nous</a>
+  <a href="carrieres.html" data-i18n="nav_careers">Carrières</a>
+  <a href="campus-cyber.html" data-i18n="nav_campus">🎓 Campus Cyber</a>
+  <a href="contact.html" data-i18n="nav_contact">Contact</a>
+  <a href="support.html" class="btn-espace-client-mobile"><i class="fa-solid fa-user-circle"></i> <span data-i18n="nav_client">Espace Client</span></a>
 </div>
 
-<section class="page-header"><div class="page-header-container"><h1 data-i18n="hero_title">Votre Carrière chez<br><span class="accent">NetVanguard</span></h1><p data-i18n="hero_desc">Déposez votre CV, notre équipe l'analyse et vous recontacte si votre profil est retenu.</p></div></section>
+<section class="page-header">
+  <div class="page-header-container">
+    <h1 data-i18n="hero_title">Votre Carrière chez<br><span class="accent">NetVanguard</span></h1>
+    <p data-i18n="hero_desc">Déposez votre CV, notre système intelligent l'analyse et vous oriente vers la prochaine étape.</p>
+  </div>
+</section>
 
 <section class="section">
   <div class="section-container">
 
+    <!-- ÉTAPE 1 : UPLOAD CV -->
     <div id="stepUpload">
       <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
         <div class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
@@ -219,96 +263,201 @@ footer { background:var(--primary-deep); border-top:1px solid rgba(0,212,255,0.1
       </div>
     </div>
 
+    <!-- ÉTAPE 2 : PROCESSING -->
     <div class="processing-overlay" id="stepProcessing">
-      <div class="scanner-animation"><div class="scanner-circle"></div><div class="scanner-line"></div></div>
+      <div class="scanner-animation">
+        <div class="scanner-circle"></div>
+        <div class="scanner-line"></div>
+      </div>
       <h3 style="color:var(--white);margin-bottom:1.5rem;" data-i18n="processing_title">Analyse de votre CV en cours...</h3>
       <div class="processing-steps">
-        <div class="processing-step" id="ps1"><i class="fas fa-spinner fa-spin"></i> <span data-i18n="ps1">Extraction du contenu...</span></div>
-        <div class="processing-step" id="ps2"><i class="far fa-circle"></i> <span data-i18n="ps2">Lecture ligne par ligne...</span></div>
-        <div class="processing-step" id="ps3"><i class="far fa-circle"></i> <span data-i18n="ps3">Analyse et scoring...</span></div>
-        <div class="processing-step" id="ps4"><i class="far fa-circle"></i> <span data-i18n="ps4">Transmission à la direction...</span></div>
+        <div class="processing-step" id="ps1"><i class="fas fa-spinner fa-spin"></i> <span data-i18n="ps1">Extraction du contenu du fichier...</span></div>
+        <div class="processing-step" id="ps2"><i class="far fa-circle"></i> <span data-i18n="ps2">Lecture ligne par ligne du document...</span></div>
+        <div class="processing-step" id="ps3"><i class="far fa-circle"></i> <span data-i18n="ps3">Analyse des compétences techniques...</span></div>
+        <div class="processing-step" id="ps4"><i class="far fa-circle"></i> <span data-i18n="ps4">Évaluation finale du profil...</span></div>
+      </div>
+      <div class="processing-step pdf-pages" id="pdfPagesInfo"></div>
+    </div>
+
+    <!-- ÉTAPE 3 : RÉSULTAT ACCEPTÉ -->
+    <div class="result-panel" id="stepAccepted">
+      <div class="result-icon accepted"><i class="fas fa-check-circle"></i></div>
+      <div class="result-title" data-i18n="accepted_title">🎉 Profil Éligible !</div>
+      <div class="result-desc" data-i18n="accepted_desc">Votre profil correspond à nos critères de recrutement. Un code d'accès temporaire vous a été généré pour l'examen technique.</div>
+      <a href="campus-cyber.html" class="result-action-btn btn-goto-exam" style="margin-bottom:1.5rem;"><i class="fas fa-arrow-right"></i> <span data-i18n="btn_goto_exam">Accéder à l'Examen</span></a>
+      
+      <div id="tempCodeBox">
+        <h4 style="color:var(--gold);margin-bottom:0.5rem;" data-i18n="temp_code_title">🔑 Votre Code d'Accès Temporaire</h4>
+        <div id="tempCodeDisplay"></div>
+        <p style="color:var(--red);font-weight:700;font-size:0.9rem;" data-i18n="temp_code_warning">⚠️ Ce code expire dans 1 heure. Copiez-le maintenant !</p>
+        <p style="color:var(--gray-light);font-size:0.82rem;margin-top:0.5rem;" data-i18n="temp_code_info">Utilisez ce code sur la page d'examen. Il ne sera plus visible après actualisation de la page.</p>
+        <div id="tempCodeTimer"></div>
+      </div>
+
+      <div class="result-info-box">
+        <h4 data-i18n="info_title">📌 Instructions pour l'examen :</h4>
+        <p data-i18n="info1">1. Cliquez sur le bouton ci-dessus pour accéder à la plateforme d'examen.</p>
+        <p data-i18n="info2">2. Utilisez le code d'accès temporaire affiché CI-DESSUS.</p>
+        <p data-i18n="info3">3. Remplissez vos informations et choisissez votre filière.</p>
+        <p data-i18n="info4">4. Vous avez 60 minutes pour répondre à 40 questions.</p>
+        <p data-i18n="info5">5. Votre score sera automatiquement envoyé à notre équipe de recrutement.</p>
+        <p style="color:var(--gold);margin-top:1rem;font-weight:600;" data-i18n="info_warning">⚠️ Une seule tentative autorisée. Pas de triche.</p>
+        <p style="color:var(--gray-light);margin-top:0.5rem;font-size:0.85rem;" data-i18n="info_contact_fallback">Si votre code a expiré, contactez le responsable : <strong>mhirigueyoussef@gmail.com</strong></p>
       </div>
     </div>
 
-    <!-- RÉSULTAT NEUTRE -->
-    <div class="result-panel" id="stepNeutral">
-      <div class="result-icon"><i class="fas fa-check-circle"></i></div>
-      <div class="result-title" data-i18n="neutral_title">📋 Analyse Terminée</div>
-      <div class="result-desc" data-i18n="neutral_desc">Votre CV a bien été transmis à notre équipe de recrutement. Si votre profil est retenu, vous recevrez un email avec votre code d'accès pour l'examen technique.</div>
-      <div class="result-info-box">
-        <h4 data-i18n="neutral_info_title">📌 Prochaines étapes :</h4>
-        <p data-i18n="neutral_info1">✅ Votre CV a bien été réceptionné.</p>
-        <p data-i18n="neutral_info2">⏳ Notre équipe analyse votre profil.</p>
-        <p data-i18n="neutral_info3">📧 Si retenu, vous recevrez un email avec votre code d'accès.</p>
-        <p data-i18n="neutral_info4">⏰ Délai de réponse : 24 à 48 heures ouvrées.</p>
-        <p style="color:var(--gold);margin-top:1rem;font-weight:600;" data-i18n="neutral_warning">📬 Vérifiez votre boîte de réception (et vos spams).</p>
-      </div>
-    </div>
-
-    <!-- RÉSULTAT ERREUR -->
-    <div class="result-panel" id="stepError">
-      <div class="result-icon" style="color:var(--red);"><i class="fas fa-exclamation-circle"></i></div>
-      <div class="result-title" data-i18n="error_title">⚠️ Erreur Technique</div>
-      <div class="result-desc" data-i18n="error_desc">Une erreur est survenue lors de la transmission. Veuillez réessayer ou nous contacter directement.</div>
-      <div class="result-info-box">
-        <p data-i18n="error_contact">📧 Contactez-nous : <strong>contact@netvanguard.ma</strong></p>
-        <button class="btn-submit" onclick="location.reload()" style="margin-top:1rem;"><i class="fas fa-redo"></i> Réessayer</button>
-      </div>
+    <!-- ÉTAPE 3bis : RÉSULTAT REFUSÉ -->
+    <div class="result-panel" id="stepRejected">
+      <div class="result-icon rejected"><i class="fas fa-times-circle"></i></div>
+      <div class="result-title" id="rejected_title" data-i18n="rejected_title">📋 Profil Non Retenu</div>
+      <div class="result-desc" id="rejected_desc" data-i18n="rejected_desc">Votre profil ne correspond pas aux critères requis pour le moment. Vous pouvez remplir le formulaire détaillé pour une évaluation par notre équipe RH.</div>
+      <button class="result-action-btn btn-goto-exam" onclick="scrollToForm()"><i class="fas fa-arrow-down"></i> <span data-i18n="btn_fill_form">Remplir le formulaire</span></button>
     </div>
 
   </div>
 </section>
 
+<!-- FORMULAIRE DÉTAILLÉ -->
 <section class="form-section" id="detailedForm">
   <div class="section-container">
     <h2 style="text-align:center;margin-bottom:2rem;color:var(--white);" data-i18n="form_main_title">Formulaire de Candidature Détaillé</h2>
     <form id="careerForm" action="https://formspree.io/f/myklqdky" method="POST" enctype="multipart/form-data">
       <div class="form-card">
-        <div id="formMsgSuccess" class="form-message" style="display:none;"><i class="fas fa-check-circle"></i> <span data-i18n="msg_success">✅ Documents envoyés ! Nous vous recontacterons sous 7 jours.</span></div>
+        <div id="formMsgSuccess" class="form-message" style="display:none;"><i class="fas fa-check-circle"></i> <span data-i18n="msg_success">✅ Documents envoyés au responsable recrutement ! Nous vous recontacterons sous 7 jours.</span></div>
         <div id="formMsgError" class="form-message" style="display:none;"><i class="fas fa-exclamation-circle"></i> <span data-i18n="msg_error">Erreur lors de l'envoi. Veuillez réessayer.</span></div>
-        <div class="form-step"><h3><span class="step-num">1</span><span data-i18n="step1Title">Vos informations personnelles</span></h3><p class="step-desc" data-i18n="step1Desc">Pour que nous puissions vous identifier et vous recontacter.</p>
-          <div class="form-row"><div class="form-group"><label data-i18n="lbl_firstname">Prénom <span class="required">*</span></label><input type="text" name="prenom" required></div><div class="form-group"><label data-i18n="lbl_lastname">Nom <span class="required">*</span></label><input type="text" name="nom" required></div></div>
-          <div class="form-row"><div class="form-group"><label data-i18n="lbl_email">Email <span class="required">*</span></label><input type="email" name="email" required></div><div class="form-group"><label data-i18n="lbl_phone">Téléphone <span class="required">*</span></label><input type="tel" name="telephone" required></div></div>
-          <div class="form-row"><div class="form-group"><label data-i18n="lbl_genre">Genre</label><div class="radio-group"><label class="radio-option"><input type="radio" name="genre" value="Femme"><span data-i18n="genre_f">Femme</span></label><label class="radio-option"><input type="radio" name="genre" value="Homme"><span data-i18n="genre_h">Homme</span></label><label class="radio-option"><input type="radio" name="genre" value="Autre"><span data-i18n="genre_o">Préfère ne pas répondre</span></label></div></div><div class="form-group"><label data-i18n="lbl_city">Ville <span class="required">*</span></label><input type="text" name="ville" required></div></div>
+
+        <div class="form-step">
+          <h3><span class="step-num">1</span><span data-i18n="step1Title">Vos informations personnelles</span></h3>
+          <p class="step-desc" data-i18n="step1Desc">Pour que nous puissions vous identifier et vous recontacter.</p>
+          <div class="form-row">
+            <div class="form-group"><label data-i18n="lbl_firstname">Prénom <span class="required">*</span></label><input type="text" name="prenom" required></div>
+            <div class="form-group"><label data-i18n="lbl_lastname">Nom <span class="required">*</span></label><input type="text" name="nom" required></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label data-i18n="lbl_email">Email <span class="required">*</span></label><input type="email" name="email" required></div>
+            <div class="form-group"><label data-i18n="lbl_phone">Téléphone <span class="required">*</span></label><input type="tel" name="telephone" required></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label data-i18n="lbl_genre">Genre</label><div class="radio-group">
+              <label class="radio-option"><input type="radio" name="genre" value="Femme"><span data-i18n="genre_f">Femme</span></label>
+              <label class="radio-option"><input type="radio" name="genre" value="Homme"><span data-i18n="genre_h">Homme</span></label>
+              <label class="radio-option"><input type="radio" name="genre" value="Autre"><span data-i18n="genre_o">Préfère ne pas répondre</span></label>
+            </div></div>
+            <div class="form-group"><label data-i18n="lbl_city">Ville <span class="required">*</span></label><input type="text" name="ville" required></div>
+          </div>
         </div>
-        <div class="form-step"><h3><span class="step-num">2</span><span data-i18n="step2Title">Mobilité et disponibilité</span></h3><p class="step-desc" data-i18n="step2Desc">Pour évaluer la compatibilité avec nos besoins opérationnels.</p>
-          <div class="form-group"><label data-i18n="lbl_casa">Notre siège est à Casablanca. Êtes-vous prêt(e) à y travailler ? <span class="required">*</span></label><div class="radio-group"><label class="radio-option"><input type="radio" name="base_casablanca" value="Déjà resident" required><span data-i18n="mob1">Je suis déjà à Casablanca</span></label><label class="radio-option"><input type="radio" name="base_casablanca" value="Prêt à déménager"><span data-i18n="mob2">Prêt(e) à m'y installer</span></label><label class="radio-option"><input type="radio" name="base_casablanca" value="Hybride uniquement"><span data-i18n="mob3">Mode hybride uniquement</span></label><label class="radio-option"><input type="radio" name="base_casablanca" value="Non"><span data-i18n="mob4">Non disponible</span></label></div></div>
-          <div class="form-row"><div class="form-group"><label data-i18n="lbl_dispo">Délai de disponibilité</label><select name="disponibilite"><option value="Immédiate" data-i18n="dispo1">Immédiate</option><option value="2 semaines" data-i18n="dispo2">Sous 2 semaines</option><option value="1 mois" data-i18n="dispo3">Sous 1 mois</option><option value="2 mois" data-i18n="dispo4">Sous 2 mois</option><option value="3 mois ou plus" data-i18n="dispo5">3 mois ou plus</option></select></div><div class="form-group"><label data-i18n="lbl_permis">Permis de conduire</label><div class="radio-group"><label class="radio-option"><input type="radio" name="permis" value="Oui avec véhicule"><span data-i18n="per1">Oui, avec véhicule</span></label><label class="radio-option"><input type="radio" name="permis" value="Oui sans véhicule"><span data-i18n="per2">Oui, sans véhicule</span></label><label class="radio-option"><input type="radio" name="permis" value="Non"><span data-i18n="per3">Non</span></label></div></div></div>
+
+        <div class="form-step">
+          <h3><span class="step-num">2</span><span data-i18n="step2Title">Mobilité et disponibilité</span></h3>
+          <p class="step-desc" data-i18n="step2Desc">Pour évaluer la compatibilité avec nos besoins opérationnels.</p>
+          <div class="form-group"><label data-i18n="lbl_casa">Notre siège est à Casablanca. Êtes-vous prêt(e) à y travailler ? <span class="required">*</span></label>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="base_casablanca" value="Déjà resident" required><span data-i18n="mob1">Je suis déjà à Casablanca</span></label>
+              <label class="radio-option"><input type="radio" name="base_casablanca" value="Prêt à déménager"><span data-i18n="mob2">Prêt(e) à m'y installer</span></label>
+              <label class="radio-option"><input type="radio" name="base_casablanca" value="Hybride uniquement"><span data-i18n="mob3">Mode hybride uniquement</span></label>
+              <label class="radio-option"><input type="radio" name="base_casablanca" value="Non"><span data-i18n="mob4">Non disponible</span></label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label data-i18n="lbl_dispo">Délai de disponibilité</label><select name="disponibilite">
+              <option value="Immédiate" data-i18n="dispo1">Immédiate</option>
+              <option value="2 semaines" data-i18n="dispo2">Sous 2 semaines</option>
+              <option value="1 mois" data-i18n="dispo3">Sous 1 mois</option>
+              <option value="2 mois" data-i18n="dispo4">Sous 2 mois</option>
+              <option value="3 mois ou plus" data-i18n="dispo5">3 mois ou plus</option>
+            </select></div>
+            <div class="form-group"><label data-i18n="lbl_permis">Permis de conduire</label><div class="radio-group">
+              <label class="radio-option"><input type="radio" name="permis" value="Oui avec véhicule"><span data-i18n="per1">Oui, avec véhicule</span></label>
+              <label class="radio-option"><input type="radio" name="permis" value="Oui sans véhicule"><span data-i18n="per2">Oui, sans véhicule</span></label>
+              <label class="radio-option"><input type="radio" name="permis" value="Non"><span data-i18n="per3">Non</span></label>
+            </div></div>
+          </div>
         </div>
-        <div class="form-step"><h3><span class="step-num">3</span><span data-i18n="step3Title">Parcours académique</span></h3><p class="step-desc" data-i18n="step3Desc">Votre formation et vos certifications professionnelles.</p>
-          <div class="form-row"><div class="form-group"><label data-i18n="lbl_diploma">Plus haut diplôme <span class="required">*</span></label><select name="niveau_etudes" required><option value="">Choisissez...</option><option value="Bac">Baccalauréat</option><option value="Bac+2">Bac+2</option><option value="Bac+3">Bac+3 (Licence)</option><option value="Bac+4">Bac+4 (Maîtrise)</option><option value="Bac+5">Bac+5 (Master/Ingénieur)</option><option value="Doctorat">Doctorat</option></select></div><div class="form-group"><label data-i18n="lbl_etab">Établissement</label><input type="text" name="etablissement"></div></div>
-          <div class="form-group"><label data-i18n="lbl_spec">Spécialité</label><input type="text" name="specialite"></div><div class="form-group"><label data-i18n="lbl_certifs">Certifications professionnelles</label><textarea name="certifications" rows="2"></textarea></div>
+
+        <div class="form-step">
+          <h3><span class="step-num">3</span><span data-i18n="step3Title">Parcours académique</span></h3>
+          <p class="step-desc" data-i18n="step3Desc">Votre formation et vos certifications professionnelles.</p>
+          <div class="form-row">
+            <div class="form-group"><label data-i18n="lbl_diploma">Plus haut diplôme <span class="required">*</span></label><select name="niveau_etudes" required>
+              <option value="">Choisissez...</option><option value="Bac">Baccalauréat</option><option value="Bac+2">Bac+2</option>
+              <option value="Bac+3">Bac+3 (Licence)</option><option value="Bac+4">Bac+4 (Maîtrise)</option>
+              <option value="Bac+5">Bac+5 (Master/Ingénieur)</option><option value="Doctorat">Doctorat</option>
+            </select></div>
+            <div class="form-group"><label data-i18n="lbl_etab">Établissement</label><input type="text" name="etablissement"></div>
+          </div>
+          <div class="form-group"><label data-i18n="lbl_spec">Spécialité</label><input type="text" name="specialite"></div>
+          <div class="form-group"><label data-i18n="lbl_certifs">Certifications professionnelles</label><textarea name="certifications" rows="2"></textarea></div>
         </div>
-        <div class="form-step"><h3><span class="step-num">4</span><span data-i18n="step4Title">Votre expérience</span></h3><p class="step-desc" data-i18n="step4Desc">Votre parcours professionnel.</p>
-          <div class="form-row"><div class="form-group"><label data-i18n="lbl_exp">Années d'expérience <span class="required">*</span></label><select name="experience" required><option value="">Choisissez...</option><option value="0-1">Moins d'1 an</option><option value="1-3">1 à 3 ans</option><option value="3-5">3 à 5 ans</option><option value="5-10">5 à 10 ans</option><option value="10+">Plus de 10 ans</option></select></div><div class="form-group"><label data-i18n="lbl_domain">Domaine d'expertise</label><select name="domaine"><option value="">Choisissez...</option><option value="Support IT">Support IT</option><option value="Réseau">Réseau</option><option value="Sécurité">Cybersécurité</option><option value="Cloud">Cloud</option><option value="Développement">Développement</option><option value="Autre">Autre</option></select></div></div>
+
+        <div class="form-step">
+          <h3><span class="step-num">4</span><span data-i18n="step4Title">Votre expérience</span></h3>
+          <p class="step-desc" data-i18n="step4Desc">Votre parcours professionnel.</p>
+          <div class="form-row">
+            <div class="form-group"><label data-i18n="lbl_exp">Années d'expérience <span class="required">*</span></label><select name="experience" required>
+              <option value="">Choisissez...</option><option value="0-1">Moins d'1 an</option><option value="1-3">1 à 3 ans</option>
+              <option value="3-5">3 à 5 ans</option><option value="5-10">5 à 10 ans</option><option value="10+">Plus de 10 ans</option>
+            </select></div>
+            <div class="form-group"><label data-i18n="lbl_domain">Domaine d'expertise</label><select name="domaine">
+              <option value="">Choisissez...</option><option value="Support IT">Support IT</option><option value="Réseau">Réseau</option>
+              <option value="Sécurité">Cybersécurité</option><option value="Cloud">Cloud</option>
+              <option value="Développement">Développement</option><option value="Autre">Autre</option>
+            </select></div>
+          </div>
         </div>
-        <div class="form-step"><h3><span class="step-num">5</span><span data-i18n="step5Title">Auto-évaluation technique</span></h3><p class="step-desc" data-i18n="step5Desc">Évaluez honnêtement votre maîtrise.</p>
+
+        <div class="form-step">
+          <h3><span class="step-num">5</span><span data-i18n="step5Title">Auto-évaluation technique</span></h3>
+          <p class="step-desc" data-i18n="step5Desc">Évaluez honnêtement votre maîtrise.</p>
           <div class="skills-matrix">
             <div class="skill-row header"><div></div><div data-i18n="lvl0">Aucune</div><div data-i18n="lvl1">Débutant</div><div data-i18n="lvl2">Intermédiaire</div><div data-i18n="lvl3">Avancé</div><div data-i18n="lvl4">Expert</div></div>
             <div class="skill-row"><div>SIEM / SOC</div><label data-label="Aucune"><input type="radio" name="skill_siem" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_siem" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_siem" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_siem" value="3"></label><label data-label="Expert"><input type="radio" name="skill_siem" value="4"></label></div>
             <div class="skill-row"><div>Pentest</div><label data-label="Aucune"><input type="radio" name="skill_pentest" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_pentest" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_pentest" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_pentest" value="3"></label><label data-label="Expert"><input type="radio" name="skill_pentest" value="4"></label></div>
             <div class="skill-row"><div>Pare-feu</div><label data-label="Aucune"><input type="radio" name="skill_firewall" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_firewall" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_firewall" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_firewall" value="3"></label><label data-label="Expert"><input type="radio" name="skill_firewall" value="4"></label></div>
-            <div class="skill-row"><div>Cloud</div><label data-label="Aucune"><input type="radio" name="skill_cloud" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_cloud" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_cloud" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_cloud" value="3"></label><label data-label="Expert"><input type="radio" name="skill_cloud" value="4"></label></div>
-            <div class="skill-row"><div>Windows/AD</div><label data-label="Aucune"><input type="radio" name="skill_windows" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_windows" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_windows" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_windows" value="3"></label><label data-label="Expert"><input type="radio" name="skill_windows" value="4"></label></div>
+            <div class="skill-row"><div>Cloud (Azure/AWS)</div><label data-label="Aucune"><input type="radio" name="skill_cloud" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_cloud" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_cloud" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_cloud" value="3"></label><label data-label="Expert"><input type="radio" name="skill_cloud" value="4"></label></div>
+            <div class="skill-row"><div>Windows Server/AD</div><label data-label="Aucune"><input type="radio" name="skill_windows" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_windows" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_windows" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_windows" value="3"></label><label data-label="Expert"><input type="radio" name="skill_windows" value="4"></label></div>
             <div class="skill-row"><div>Linux</div><label data-label="Aucune"><input type="radio" name="skill_linux" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_linux" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_linux" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_linux" value="3"></label><label data-label="Expert"><input type="radio" name="skill_linux" value="4"></label></div>
             <div class="skill-row"><div>Scripting</div><label data-label="Aucune"><input type="radio" name="skill_scripting" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_scripting" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_scripting" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_scripting" value="3"></label><label data-label="Expert"><input type="radio" name="skill_scripting" value="4"></label></div>
           </div>
         </div>
-        <div class="form-step"><h3><span class="step-num">6</span><span data-i18n="step6Title">Compétences linguistiques</span></h3>
-          <div class="form-row"><div class="form-group"><label data-i18n="lbl_fr">Français <span class="required">*</span></label><select name="francais" required><option value="">Choisissez...</option><option value="Notions">Notions</option><option value="Conversationnel">Conversationnel</option><option value="Professionnel">Professionnel</option><option value="Courant">Courant</option><option value="Langue maternelle">Langue maternelle</option></select></div><div class="form-group"><label data-i18n="lbl_en">Anglais</label><select name="anglais"><option value="">Choisissez...</option><option value="Notions">Notions</option><option value="Conversationnel">Conversationnel</option><option value="Professionnel">Professionnel</option><option value="Courant">Courant</option><option value="Langue maternelle">Langue maternelle</option></select></div></div>
+
+        <div class="form-step">
+          <h3><span class="step-num">6</span><span data-i18n="step6Title">Compétences linguistiques</span></h3>
+          <div class="form-row">
+            <div class="form-group"><label data-i18n="lbl_fr">Français <span class="required">*</span></label><select name="francais" required>
+              <option value="">Choisissez...</option><option value="Notions">Notions</option><option value="Conversationnel">Conversationnel</option>
+              <option value="Professionnel">Professionnel</option><option value="Courant">Courant</option><option value="Langue maternelle">Langue maternelle</option>
+            </select></div>
+            <div class="form-group"><label data-i18n="lbl_en">Anglais</label><select name="anglais">
+              <option value="">Choisissez...</option><option value="Notions">Notions</option><option value="Conversationnel">Conversationnel</option>
+              <option value="Professionnel">Professionnel</option><option value="Courant">Courant</option><option value="Langue maternelle">Langue maternelle</option>
+            </select></div>
+          </div>
         </div>
-        <div class="form-step"><h3><span class="step-num">7</span><span data-i18n="step7Title">Motivation et Documents</span></h3>
+
+        <div class="form-step">
+          <h3><span class="step-num">7</span><span data-i18n="step7Title">Motivation et Documents</span></h3>
           <div class="form-group"><label data-i18n="lbl_motivation">Pourquoi nous rejoindre ? <span class="required">*</span></label><textarea name="motivation" required rows="3"></textarea></div>
-          <div class="form-group"><label data-i18n="lbl_docs">Joindre des documents (Diplômes, Certificats, Bulletins) <span class="required">*</span></label><input type="file" name="documents" accept=".pdf,.docx,.jpg,.jpeg,.png" multiple required></div>
-          <div class="form-group"><label data-i18n="lbl_linkedin">LinkedIn (optionnel)</label><input type="url" name="linkedin"></div>
+          <div class="form-group">
+            <label data-i18n="lbl_docs">Joindre des documents (Diplômes, Certificats, Bulletins de notes) <span class="required">*</span></label>
+            <input type="file" name="documents" accept=".pdf,.docx,.jpg,.jpeg,.png" multiple required>
+            <p class="form-help" data-i18n="help_docs">Formats acceptés : PDF, DOCX, JPG, PNG. Vous pouvez sélectionner plusieurs fichiers.</p>
+          </div>
+          <div class="form-group"><label data-i18n="lbl_linkedin">LinkedIn (optionnel)</label><input type="url" name="linkedin" placeholder="https://linkedin.com/in/votre-profil"></div>
         </div>
-        <div class="form-step"><h3><span class="step-num">8</span><span data-i18n="step8Title">Aspects financiers</span></h3>
-          <div class="form-row"><div class="form-group"><label data-i18n="lbl_salaire">Salaire actuel (DH net)</label><input type="text" name="salaire_actuel"></div><div class="form-group"><label data-i18n="lbl_pretention">Prétention salariale (DH net)</label><input type="text" name="pretention"></div></div>
+
+        <div class="form-step">
+          <h3><span class="step-num">8</span><span data-i18n="step8Title">Aspects financiers</span></h3>
+          <div class="form-row">
+            <div class="form-group"><label data-i18n="lbl_salaire">Salaire actuel (DH net)</label><input type="text" name="salaire_actuel"></div>
+            <div class="form-group"><label data-i18n="lbl_pretention">Prétention salariale (DH net)</label><input type="text" name="pretention"></div>
+          </div>
         </div>
-        <input type="hidden" name="_subject" value="Nouvelle candidature - Carrières NetVanguard">
+
+        <input type="hidden" name="_subject" value="Nouvelle candidature - Carrières NetVanguard IT Solutions">
         <input type="text" name="_gotcha" style="display:none">
+
         <button type="submit" class="btn-submit" id="submitBtn"><i class="fas fa-paper-plane"></i> <span data-i18n="btn_submit">Envoyer au responsable recrutement</span></button>
-        <p style="text-align:center;font-size:.78rem;color:var(--gray-mid);margin-top:1rem;" data-i18n="privacy_note">🔒 Vos documents sont envoyés à <strong>mhirigueyoussef@gmail.com</strong></p>
+        <p style="text-align:center;font-size:.78rem;color:var(--gray-mid);margin-top:1rem;" data-i18n="privacy_note">🔒 Vos documents sont envoyés directement à <strong>contact@netvanguard.ma</strong> et traités de manière confidentielle.</p>
       </div>
     </form>
   </div>
@@ -316,12 +465,19 @@ footer { background:var(--primary-deep); border-top:1px solid rgba(0,212,255,0.1
 
 <footer>
   <div class="footer-grid">
-    <div class="footer-brand"><a href="index.html" class="logo" style="font-size:1.2rem;margin-bottom:.8rem;display:inline-flex;"><svg viewBox="0 0 24 24" width="28" height="28"><defs><linearGradient id="sgF" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1"/><stop offset="100%" style="stop-color:#FFB800;stop-opacity:1"/></linearGradient></defs><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#sgF)"/><path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/></svg><span style="color:white;margin-left:.5rem;">Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.82em;font-weight:400;color:rgba(255,255,255,0.45);">IT Solutions</span></span></a><p>Cabinet de conseil et d'ingénierie spécialisé en cybersécurité au Maroc.</p></div>
+    <div class="footer-brand">
+      <a href="index.html" class="logo" style="font-size:1.2rem;margin-bottom:.8rem;display:inline-flex;">
+        <svg viewBox="0 0 24 24" width="28" height="28"><defs><linearGradient id="sgF" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1"/><stop offset="100%" style="stop-color:#FFB800;stop-opacity:1"/></linearGradient></defs>
+        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#sgF)"/><path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/></svg>
+        <span style="color:white;margin-left:.5rem;">Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.82em;font-weight:400;color:rgba(255,255,255,0.45);">IT Solutions</span></span>
+      </a>
+      <p>Cabinet de conseil et d'ingénierie spécialisé en cybersécurité au Maroc.</p>
+    </div>
     <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Audits & Pentest</a></li><li><a href="services.html">Architecture Réseau</a></li><li><a href="services.html">Cloud Security</a></li></ul></div>
     <div class="footer-col"><h4>Liens</h4><ul><li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li><li><a href="carrieres.html">Carrières</a></li><li><a href="campus-cyber.html">Campus Cyber</a></li></ul></div>
-    <div class="footer-col"><h4>Contact</h4><ul style="color:var(--gray-light);font-size:0.88rem;"><li><i class="fas fa-phone" style="color:var(--accent);"></i>+212 728 31 28 01</li><li><i class="fas fa-envelope" style="color:var(--accent);"></i>contact@netvanguard.ma</li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul style="color:var(--gray-light);font-size:0.88rem;"><li><i class="fas fa-phone" style="color:var(--accent);margin-right:0.5rem;"></i> +212 728 31 28 01</li><li><i class="fas fa-envelope" style="color:var(--accent);margin-right:0.5rem;"></i> contact@netvanguard.ma</li></ul></div>
   </div>
-  <div class="footer-bottom"><div>© 2026 NetVanguard IT Solutions SARL · Casablanca</div><div><a href="#">Mentions légales</a>·<a href="#">Confidentialité</a></div></div>
+  <div class="footer-bottom"><div>© 2026 NetVanguard IT Solutions SARL · Casablanca</div><div><a href="#">Mentions légales</a> · <a href="#">Confidentialité</a></div></div>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
@@ -336,29 +492,39 @@ const translations = {
     nav_home:"Accueil",nav_services:"Services",nav_sectors:"Secteurs",nav_about:"Qui sommes-nous",
     nav_careers:"Carrières",nav_campus:"🎓 Campus Cyber",nav_contact:"Contact",nav_client:"Espace Client",
     hero_title:"Votre Carrière chez<br><span class='accent'>NetVanguard</span>",
-    hero_desc:"Déposez votre CV, notre équipe l'analyse et vous recontacte si votre profil est retenu.",
+    hero_desc:"Déposez votre CV, notre système intelligent l'analyse et vous oriente vers la prochaine étape.",
     upload_title:"Déposez votre CV ici",upload_desc:"Formats acceptés : PDF, DOCX, TXT (Max 10 MB)",
     btn_browse:"Parcourir les fichiers",processing_title:"Analyse de votre CV en cours...",
-    ps1:"Extraction du contenu...",ps2:"Lecture ligne par ligne...",
-    ps3:"Analyse et scoring...",ps4:"Transmission à la direction...",
-    neutral_title:"📋 Analyse Terminée",
-    neutral_desc:"Votre CV a bien été transmis à notre équipe de recrutement. Si votre profil est retenu, vous recevrez un email avec votre code d'accès pour l'examen technique.",
-    neutral_info_title:"📌 Prochaines étapes :",
-    neutral_info1:"✅ Votre CV a bien été réceptionné.",
-    neutral_info2:"⏳ Notre équipe analyse votre profil.",
-    neutral_info3:"📧 Si retenu, vous recevrez un email avec votre code d'accès.",
-    neutral_info4:"⏰ Délai de réponse : 24 à 48 heures ouvrées.",
-    neutral_warning:"📬 Vérifiez votre boîte de réception (et vos spams).",
-    error_title:"⚠️ Erreur Technique",
-    error_desc:"Une erreur est survenue lors de la transmission. Veuillez réessayer ou nous contacter directement.",
-    error_contact:"📧 Contactez-nous : <strong>contact@netvanguard.ma</strong>",
+    ps1:"Extraction du contenu du fichier...",ps2:"Lecture ligne par ligne du document...",
+    ps3:"Analyse des compétences techniques...",ps4:"Évaluation finale du profil...",
+    accepted_title:"🎉 Profil Éligible !",accepted_desc:"Votre profil correspond à nos critères de recrutement. Un code d'accès temporaire vous a été généré pour l'examen technique.",
+    btn_goto_exam:"Accéder à l'Examen",
+    temp_code_title:"🔑 Votre Code d'Accès Temporaire",
+    temp_code_warning:"⚠️ Ce code expire dans 1 heure. Copiez-le maintenant !",
+    temp_code_info:"Utilisez ce code sur la page d'examen. Il ne sera plus visible après actualisation de la page.",
+    temp_code_expired:"❌ Code expiré",
+    info_title:"📌 Instructions pour l'examen :",
+    info1:"1. Cliquez sur le bouton ci-dessus pour accéder à la plateforme d'examen.",
+    info2:"2. Utilisez le code d'accès temporaire affiché CI-DESSUS.",
+    info3:"3. Remplissez vos informations et choisissez votre filière.",
+    info4:"4. Vous avez 60 minutes pour répondre à 40 questions.",
+    info5:"5. Votre score sera automatiquement envoyé à notre équipe de recrutement.",
+    info_warning:"⚠️ Une seule tentative autorisée. Pas de triche.",
+    info_contact_fallback:"Si votre code a expiré, contactez le responsable : <strong>mhirigueyoussef@gmail.com</strong>",
+    rejected_title:"📋 Profil Non Retenu",
+    rejected_desc:"Votre profil ne correspond pas aux critères requis pour le moment. Vous pouvez remplir le formulaire détaillé pour une évaluation par notre équipe RH.",
+    rejected_suspicious_title:"⚠️ CV Non Valide",
+    rejected_suspicious_desc:"Notre système a détecté des incohérences dans votre CV. Merci de soumettre un CV correspondant à un profil IT ou cybersécurité.",
+    rejected_noit_title:"❌ Profil Non IT",
+    rejected_noit_desc:"Votre CV ne contient pas de compétences IT ou cybersécurité. Cette plateforme est réservée aux profils techniques.",
     btn_fill_form:"Remplir le formulaire",form_main_title:"Formulaire de Candidature Détaillé",
     step1Title:"Vos informations personnelles",step1Desc:"Pour que nous puissions vous identifier et vous recontacter.",
     step2Title:"Mobilité et disponibilité",step2Desc:"Pour évaluer la compatibilité avec nos besoins opérationnels.",
     step3Title:"Parcours académique",step3Desc:"Votre formation et vos certifications professionnelles.",
     step4Title:"Votre expérience",step4Desc:"Votre parcours professionnel.",
     step5Title:"Auto-évaluation technique",step5Desc:"Évaluez honnêtement votre maîtrise.",
-    step6Title:"Compétences linguistiques",step7Title:"Motivation et Documents",step8Title:"Aspects financiers",
+    step6Title:"Compétences linguistiques",step7Title:"Motivation et Documents",
+    step8Title:"Aspects financiers",
     lbl_firstname:"Prénom",lbl_lastname:"Nom",lbl_email:"Email",lbl_phone:"Téléphone",
     lbl_genre:"Genre",genre_f:"Femme",genre_h:"Homme",genre_o:"Préfère ne pas répondre",
     lbl_city:"Ville",lbl_casa:"Notre siège est à Casablanca. Êtes-vous prêt(e) à y travailler ?",
@@ -368,41 +534,54 @@ const translations = {
     lbl_diploma:"Plus haut diplôme",lbl_etab:"Établissement",lbl_spec:"Spécialité",lbl_certifs:"Certifications professionnelles",
     lbl_exp:"Années d'expérience",lbl_domain:"Domaine d'expertise",
     lvl0:"Aucune",lvl1:"Débutant",lvl2:"Intermédiaire",lvl3:"Avancé",lvl4:"Expert",
-    lbl_fr:"Français",lbl_en:"Anglais",lbl_motivation:"Pourquoi nous rejoindre ?",
-    lbl_docs:"Joindre des documents (Diplômes, Certificats, Bulletins)",
-    lbl_linkedin:"LinkedIn (optionnel)",lbl_salaire:"Salaire actuel (DH net)",lbl_pretention:"Prétention salariale (DH net)",
+    lbl_fr:"Français",lbl_en:"Anglais",
+    lbl_motivation:"Pourquoi nous rejoindre ?",
+    lbl_docs:"Joindre des documents (Diplômes, Certificats, Bulletins de notes)",
+    help_docs:"Formats acceptés : PDF, DOCX, JPG, PNG. Vous pouvez sélectionner plusieurs fichiers.",
+    lbl_linkedin:"LinkedIn (optionnel)",
+    lbl_salaire:"Salaire actuel (DH net)",lbl_pretention:"Prétention salariale (DH net)",
     btn_submit:"Envoyer au responsable recrutement",
-    msg_success:"✅ Documents envoyés ! Nous vous recontacterons sous 7 jours.",
+    msg_success:"✅ Documents envoyés au responsable recrutement ! Nous vous recontacterons sous 7 jours.",
     msg_error:"Erreur lors de l'envoi. Veuillez réessayer.",
-    privacy_note:"🔒 Vos documents sont envoyés à <strong>mhirigueyoussef@gmail.com</strong>"
+    privacy_note:"🔒 Vos documents sont envoyés directement à <strong>contact@netvanguard.ma</strong> et traités de manière confidentielle."
   },
   en: {
     nav_home:"Home",nav_services:"Services",nav_sectors:"Sectors",nav_about:"About Us",
     nav_careers:"Careers",nav_campus:"🎓 Cyber Campus",nav_contact:"Contact",nav_client:"Client Area",
     hero_title:"Your Career at<br><span class='accent'>NetVanguard</span>",
-    hero_desc:"Submit your CV, our team analyzes it and contacts you if your profile is selected.",
+    hero_desc:"Submit your CV, our intelligent system analyzes it and guides you to the next step.",
     upload_title:"Drop your CV here",upload_desc:"Accepted formats: PDF, DOCX, TXT (Max 10 MB)",
     btn_browse:"Browse files",processing_title:"Analyzing your CV...",
-    ps1:"Extracting content...",ps2:"Reading line by line...",
-    ps3:"Analyzing and scoring...",ps4:"Sending to management...",
-    neutral_title:"📋 Analysis Complete",
-    neutral_desc:"Your CV has been forwarded to our recruitment team. If selected, you will receive an email with your exam access code.",
-    neutral_info_title:"📌 Next Steps:",
-    neutral_info1:"✅ Your CV has been received.",
-    neutral_info2:"⏳ Our team is reviewing your profile.",
-    neutral_info3:"📧 If selected, you will receive an email with your access code.",
-    neutral_info4:"⏰ Response time: 24 to 48 business hours.",
-    neutral_warning:"📬 Check your inbox (and spam folder).",
-    error_title:"⚠️ Technical Error",
-    error_desc:"An error occurred during transmission. Please try again or contact us directly.",
-    error_contact:"📧 Contact us: <strong>contact@netvanguard.ma</strong>",
+    ps1:"Extracting file content...",ps2:"Reading document line by line...",
+    ps3:"Analyzing technical skills...",ps4:"Final profile evaluation...",
+    accepted_title:"🎉 Eligible Profile!",accepted_desc:"Your profile matches our recruitment criteria. A temporary access code has been generated for the technical exam.",
+    btn_goto_exam:"Access the Exam",
+    temp_code_title:"🔑 Your Temporary Access Code",
+    temp_code_warning:"⚠️ This code expires in 1 hour. Copy it now!",
+    temp_code_info:"Use this code on the exam page. It will not be visible after page refresh.",
+    temp_code_expired:"❌ Code Expired",
+    info_title:"📌 Exam Instructions:",
+    info1:"1. Click the button above to access the exam platform.",
+    info2:"2. Use the temporary access code displayed ABOVE.",
+    info3:"3. Fill in your information and choose your track.",
+    info4:"4. You have 60 minutes to answer 40 questions.",
+    info5:"5. Your score will be automatically sent to our recruitment team.",
+    info_warning:"⚠️ One attempt only. No cheating.",
+    info_contact_fallback:"If your code has expired, contact the manager: <strong>mhirigueyoussef@gmail.com</strong>",
+    rejected_title:"📋 Profile Not Selected",
+    rejected_desc:"Your profile does not match the required criteria at this time. You can fill out the detailed form for evaluation by our HR team.",
+    rejected_suspicious_title:"⚠️ Invalid CV",
+    rejected_suspicious_desc:"Our system detected inconsistencies in your CV. Please submit a CV matching an IT or cybersecurity profile.",
+    rejected_noit_title:"❌ Non-IT Profile",
+    rejected_noit_desc:"Your CV does not contain IT or cybersecurity skills. This platform is reserved for technical profiles.",
     btn_fill_form:"Fill out the form",form_main_title:"Detailed Application Form",
     step1Title:"Personal Information",step1Desc:"So we can identify you and get back to you.",
     step2Title:"Mobility & Availability",step2Desc:"To assess compatibility with our operational needs.",
     step3Title:"Academic Background",step3Desc:"Your education and professional certifications.",
     step4Title:"Your Experience",step4Desc:"Your professional journey.",
     step5Title:"Technical Self-Assessment",step5Desc:"Honestly evaluate your skills.",
-    step6Title:"Language Skills",step7Title:"Motivation & Documents",step8Title:"Financial Aspects",
+    step6Title:"Language Skills",step7Title:"Motivation & Documents",
+    step8Title:"Financial Aspects",
     lbl_firstname:"First Name",lbl_lastname:"Last Name",lbl_email:"Email",lbl_phone:"Phone",
     lbl_genre:"Gender",genre_f:"Female",genre_h:"Male",genre_o:"Prefer not to answer",
     lbl_city:"City",lbl_casa:"Our HQ is in Casablanca. Are you ready to work there?",
@@ -412,13 +591,16 @@ const translations = {
     lbl_diploma:"Highest degree",lbl_etab:"Institution",lbl_spec:"Major",lbl_certifs:"Professional certifications",
     lbl_exp:"Years of experience",lbl_domain:"Area of expertise",
     lvl0:"None",lvl1:"Beginner",lvl2:"Intermediate",lvl3:"Advanced",lvl4:"Expert",
-    lbl_fr:"French",lbl_en:"English",lbl_motivation:"Why join us?",
+    lbl_fr:"French",lbl_en:"English",
+    lbl_motivation:"Why join us?",
     lbl_docs:"Attach documents (Diplomas, Certificates, Transcripts)",
-    lbl_linkedin:"LinkedIn (optional)",lbl_salaire:"Current salary",lbl_pretention:"Expected salary",
+    help_docs:"Accepted formats: PDF, DOCX, JPG, PNG. Multiple files allowed.",
+    lbl_linkedin:"LinkedIn (optional)",
+    lbl_salaire:"Current salary",lbl_pretention:"Expected salary",
     btn_submit:"Send to Recruitment Manager",
-    msg_success:"✅ Documents sent! We will contact you within 7 days.",
+    msg_success:"✅ Documents sent to recruitment manager! We will contact you within 7 days.",
     msg_error:"Sending error. Please try again.",
-    privacy_note:"🔒 Your documents are sent to <strong>mhirigueyoussef@gmail.com</strong>"
+    privacy_note:"🔒 Your documents are sent directly to <strong>contact@netvanguard.ma</strong> and processed confidentially."
   }
 };
 
@@ -438,16 +620,18 @@ const menuToggle = document.getElementById('menuToggle'), mobileNav = document.g
 if (menuToggle && mobileNav) menuToggle.addEventListener('click', () => { mobileNav.classList.toggle('active'); menuToggle.querySelector('i').className = mobileNav.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'; });
 
 // =====================================================
-// ANALYSEUR CV + ENVOI EMAIL (DOUBLE TENTATIVE)
+// ANALYSEUR CV PREMIUM - LECTURE PDF/DOCX LIGNE PAR LIGNE
 // =====================================================
+
+// Initialiser PDF.js
 pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
 const uploadZone = document.getElementById('uploadZone');
 const fileInput = document.getElementById('fileInput');
 const stepUpload = document.getElementById('stepUpload');
 const stepProcessing = document.getElementById('stepProcessing');
-const stepNeutral = document.getElementById('stepNeutral');
-const stepError = document.getElementById('stepError');
+const stepAccepted = document.getElementById('stepAccepted');
+const stepRejected = document.getElementById('stepRejected');
 
 uploadZone.addEventListener('dragover', (e) => { e.preventDefault(); uploadZone.classList.add('dragover'); });
 uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('dragover'));
@@ -456,142 +640,225 @@ uploadZone.addEventListener('drop', (e) => { e.preventDefault(); uploadZone.clas
 function handleFileSelect(event) { if (event.target.files.length > 0) processFile(event.target.files[0]); }
 
 function processFile(file) {
-  if (file.size > 10 * 1024 * 1024) {
-    alert('Fichier trop volumineux. Maximum 10 MB.');
-    return;
-  }
-
   document.getElementById('fileName').textContent = '📄 ' + file.name;
   document.getElementById('fileName').style.display = 'block';
   stepUpload.style.display = 'none';
   stepProcessing.classList.add('active');
-  stepNeutral.classList.remove('active');
-  stepError.classList.remove('active');
+  stepAccepted.classList.remove('active');
+  stepRejected.classList.remove('active');
 
-  ['ps1','ps2','ps3','ps4'].forEach(id => { const el = document.getElementById(id); el.querySelector('i').className = 'far fa-circle'; el.classList.remove('done'); });
+  // Reset processing steps
+  ['ps1','ps2','ps3','ps4'].forEach(id => {
+    const el = document.getElementById(id);
+    el.querySelector('i').className = 'far fa-circle';
+    el.classList.remove('done');
+  });
+  document.getElementById('pdfPagesInfo').textContent = '';
 
-  const steps = [{ el: document.getElementById('ps1'), delay: 600 },{ el: document.getElementById('ps2'), delay: 1500 },{ el: document.getElementById('ps3'), delay: 2500 },{ el: document.getElementById('ps4'), delay: 3500 }];
+  const steps = [
+    { el: document.getElementById('ps1'), delay: 600 },
+    { el: document.getElementById('ps2'), delay: 1500 },
+    { el: document.getElementById('ps3'), delay: 2500 },
+    { el: document.getElementById('ps4'), delay: 3500 }
+  ];
   steps.forEach((step) => { setTimeout(() => { step.el.querySelector('i').className = 'fas fa-check-circle'; step.el.classList.add('done'); }, step.delay); });
 
   setTimeout(() => {
     const fileType = file.type;
     const fileName = file.name.toLowerCase();
+    
+    // Vérification rapide du nom
+    const forbiddenNames = ['danse', 'dance', 'chanson', 'music', 'acteur', 'actrice', 'cuisine', 'coiffure', 'sport', 'football', 'basket', 'photo', 'design', 'mode', 'vente', 'commerce', 'boulanger', 'chauffeur', 'livreur', 'caissier'];
+    let nameBlocked = false;
+    forbiddenNames.forEach(kw => { if (fileName.includes(kw)) nameBlocked = true; });
+    
+    if (nameBlocked) {
+      showResult(false, 'suspicious');
+      return;
+    }
+
     if (fileType === 'application/pdf') {
-      extractTextAndSend(file, 'pdf');
+      extractTextFromPDF(file);
     } else if (fileType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || fileName.endsWith('.docx')) {
-      extractTextAndSend(file, 'docx');
+      extractTextFromDOCX(file);
     } else if (fileType === 'text/plain' || fileName.endsWith('.txt')) {
       const reader = new FileReader();
-      reader.onload = function(e) { sendCVToEmail(file, e.target.result); };
-      reader.onloaderror = function() { showError(); };
+      reader.onload = function(e) { analyzeCVContent(e.target.result); };
       reader.readAsText(file);
     } else {
-      sendCVToEmail(file, '');
+      showResult(false, 'suspicious');
     }
   }, 4000);
 }
 
-function extractTextAndSend(file, type) {
+function extractTextFromPDF(file) {
   const fileReader = new FileReader();
   fileReader.onload = function() {
-    if (type === 'pdf') {
-      const typedarray = new Uint8Array(this.result);
-      pdfjsLib.getDocument({ data: typedarray }).promise.then(function(pdf) {
-        let fullText = '';
-        const pagePromises = [];
-        for (let i = 1; i <= pdf.numPages; i++) {
-          pagePromises.push(pdf.getPage(i).then(function(page) {
+    const typedarray = new Uint8Array(this.result);
+    pdfjsLib.getDocument({ data: typedarray }).promise.then(function(pdf) {
+      let fullText = '';
+      const totalPages = pdf.numPages;
+      const pagePromises = [];
+      
+      for (let i = 1; i <= totalPages; i++) {
+        pagePromises.push(
+          pdf.getPage(i).then(function(page) {
             return page.getTextContent().then(function(textContent) {
               fullText += textContent.items.map(item => item.str).join(' ') + ' ';
             });
-          }));
-        }
-        Promise.all(pagePromises).then(() => { sendCVToEmail(file, fullText); }).catch(() => { sendCVToEmail(file, ''); });
-      }).catch(() => { sendCVToEmail(file, ''); });
-    } else if (type === 'docx') {
-      if (typeof mammoth !== 'undefined') {
-        mammoth.extractRawText({ arrayBuffer: this.result }).then(function(result) {
-          sendCVToEmail(file, result.value);
-        }).catch(() => { sendCVToEmail(file, ''); });
-      } else {
-        sendCVToEmail(file, '');
+          })
+        );
       }
-    }
+      
+      Promise.all(pagePromises).then(() => {
+        document.getElementById('pdfPagesInfo').textContent = '✅ ' + totalPages + ' pages analysées';
+        analyzeCVContent(fullText.toLowerCase());
+      }).catch(() => {
+        analyzeCVContent(file.name.toLowerCase());
+      });
+    }).catch(() => {
+      showResult(false, 'suspicious');
+    });
   };
-  fileReader.onerror = function() { showError(); };
   fileReader.readAsArrayBuffer(file);
 }
 
-function sendCVToEmail(file, content) {
-  const formData = new FormData();
-  formData.append('cv', file, file.name);
-  formData.append('filename', file.name);
-  formData.append('filesize', (file.size / 1024).toFixed(1) + ' KB');
-  formData.append('filetype', file.type || 'inconnu');
-  formData.append('date_envoi', new Date().toLocaleString('fr-FR'));
-  formData.append('_subject', '📄 CV - ' + file.name);
-  
-  if (content && content.length > 0) {
-    formData.append('contenu_cv', content.substring(0, 5000));
+function extractTextFromDOCX(file) {
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    if (typeof mammoth !== 'undefined') {
+      mammoth.extractRawText({ arrayBuffer: e.target.result })
+        .then(function(result) {
+          analyzeCVContent(result.value.toLowerCase());
+        })
+        .catch(function() {
+          analyzeCVContent(file.name.toLowerCase());
+        });
+    } else {
+      const reader2 = new FileReader();
+      reader2.onload = function(ev) { analyzeCVContent(ev.target.result); };
+      reader2.readAsText(file);
+    }
+  };
+  reader.readAsArrayBuffer(file);
+}
+
+function analyzeCVContent(content) {
+  if (!content || content.length < 30) {
+    showResult(false, 'suspicious');
+    return;
   }
 
-  fetch('https://formspree.io/f/myklqdky', {
-    method: 'POST',
-    body: formData,
-    headers: { 'Accept': 'application/json' }
-  })
-  .then(response => response.json())
-  .then(data => {
-    if (data.ok || data.status === 'ok' || response.status === 200) {
-      console.log('✅ CV envoyé avec succès');
-      showNeutral();
-    } else {
-      console.warn('⚠️ Première tentative échouée, 2e tentative...');
-      retrySendCV(file, content);
-    }
-  })
-  .catch(err => {
-    console.warn('⚠️ Erreur réseau, 2e tentative...');
-    retrySendCV(file, content);
-  });
+  // Détection CV non-IT
+  const nonITJobs = [
+    'danceur','danseur','danse','chanteur','chanteuse','acteur','actrice','musicien',
+    'coiffeur','coiffeuse','cuisinier','boulanger','serveur','serveuse','vendeur',
+    'caissier','livreur','chauffeur','agriculteur','jardinier','maçon','plombier'
+  ];
+  let nonITScore = 0;
+  nonITJobs.forEach(kw => { if (content.includes(kw)) nonITScore += 3; });
+  
+  const hasITWords = /support.it|technicien|réseau|network|sécurité|security|cyber|informatique|développeur|admin|ingénieur|cloud|linux|windows.server|cisco|firewall|pentest|vapt|soc|siem/i.test(content);
+  
+  if (nonITScore >= 9 && !hasITWords) {
+    showResult(false, 'suspicious');
+    return;
+  }
+
+  // Mots-clés IT obligatoires
+  const mandatoryIT = ['support','it','technique','réseau','network','security','sécurité','cyber','informatique','développeur','developer','admin','administrateur','ingenieur','ingénieur','technicien','analyste','consultant','infrastructure','cloud','système','system','software','logiciel','données','data'];
+  let mandatoryScore = 0;
+  mandatoryIT.forEach(kw => { if (content.includes(kw)) mandatoryScore++; });
+  if (mandatoryScore < 2) { showResult(false, 'no_it'); return; }
+
+  // Score technique
+  const technicalSkills = [
+    'tcp/ip','dns','dhcp','vpn','firewall','pare-feu','vlan','ospf','bgp','wifi','radius',
+    'ids','ips','siem','soc','pentest','vapt','metasploit','nmap','wireshark','burp suite',
+    'owasp','xss','sql injection','ddos','ransomware','phishing','malware','edr','xdr',
+    'linux','windows server','active directory','azure','aws','gcp','virtualisation','vmware',
+    'hyper-v','docker','kubernetes','terraform','ansible','jenkins','gitlab','devops',
+    'python','powershell','bash','sql','mysql','postgresql','mongodb','splunk','elk','wazuh',
+    'ccna','ccnp','comptia','security+','ceh','cissp','oscp','itil','iso 27001'
+  ];
+  let techScore = 0;
+  technicalSkills.forEach(kw => { if (content.includes(kw)) techScore++; });
+
+  // Score formation
+  const education = ['diplôme','diploma','master','licence','bachelor','doctorat','phd','ingénieur','engineer','bts','dut','bac','formation','certification','certifié','certified','université','ecole','école','institut'];
+  let eduScore = 0;
+  education.forEach(kw => { if (content.includes(kw)) eduScore++; });
+
+  // Score expérience
+  const experience = ['expérience','experience','année','years','an','ans','stage','internship','cdi','cdd','freelance','mission','projet','project','client','entreprise','company','société'];
+  let expScore = 0;
+  experience.forEach(kw => { if (content.includes(kw)) expScore++; });
+
+  // Bonus structure
+  let bonus = 0;
+  if (content.includes('@')) bonus += 2;
+  if (/\b(20\d{2}|19\d{2})\b/.test(content)) bonus += 2;
+  if (content.includes('expérience') || content.includes('experience') || content.includes('formation') || content.includes('education')) bonus += 2;
+
+  const finalScore = (techScore * 4) + (eduScore * 3) + (expScore * 3) + (mandatoryScore * 3) + bonus;
+  const isQualified = techScore >= 5 && mandatoryScore >= 3 && finalScore >= 30;
+  
+  showResult(isQualified, isQualified ? 'qualified' : 'low_score');
 }
 
-function retrySendCV(file, content) {
-  const formData = new FormData();
-  formData.append('cv', file, file.name);
-  formData.append('filename', file.name);
-  formData.append('date', new Date().toLocaleString('fr-FR'));
-  formData.append('_subject', '📄 CV - ' + file.name);
-
-  fetch('https://formspree.io/f/myklqdky', {
-    method: 'POST',
-    body: formData,
-    headers: { 'Accept': 'application/json' }
-  })
-  .then(response => response.json())
-  .then(data => {
-    if (data.ok || data.status === 'ok') {
-      console.log('✅ CV envoyé (2e tentative)');
-      showNeutral();
-    } else {
-      console.error('❌ Échec des 2 tentatives');
-      showError();
-    }
-  })
-  .catch(err => {
-    console.error('❌ Échec final:', err);
-    showError();
-  });
-}
-
-function showNeutral() {
+function showResult(isQualified, reason) {
   stepProcessing.classList.remove('active');
-  stepNeutral.classList.add('active');
+  if (isQualified) {
+    stepAccepted.classList.add('active');
+    generateTempCode();
+  } else {
+    if (reason === 'suspicious') {
+      document.getElementById('rejected_title').textContent = translations[currentLang].rejected_suspicious_title;
+      document.getElementById('rejected_desc').textContent = translations[currentLang].rejected_suspicious_desc;
+    } else if (reason === 'no_it') {
+      document.getElementById('rejected_title').textContent = translations[currentLang].rejected_noit_title;
+      document.getElementById('rejected_desc').textContent = translations[currentLang].rejected_noit_desc;
+    } else {
+      document.getElementById('rejected_title').textContent = translations[currentLang].rejected_title;
+      document.getElementById('rejected_desc').textContent = translations[currentLang].rejected_desc;
+    }
+    stepRejected.classList.add('active');
+  }
 }
 
-function showError() {
-  stepProcessing.classList.remove('active');
-  stepError.classList.add('active');
+function generateTempCode() {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let code = '';
+  for (let i = 0; i < 8; i++) { code += chars.charAt(Math.floor(Math.random() * chars.length)); }
+  document.getElementById('tempCodeDisplay').textContent = code;
+  const expiration = Date.now() + (60 * 60 * 1000);
+  localStorage.setItem('nv_exam_code', code);
+  localStorage.setItem('nv_exam_expires', expiration.toString());
+  startTempCodeTimer(expiration);
+}
+
+function startTempCodeTimer(expiration) {
+  const timerEl = document.getElementById('tempCodeTimer');
+  function updateTimer() {
+    const now = Date.now();
+    const remaining = expiration - now;
+    if (remaining <= 0) {
+      timerEl.textContent = translations[currentLang].temp_code_expired || '❌ Code expiré';
+      timerEl.style.color = 'var(--red)';
+      document.getElementById('tempCodeDisplay').style.opacity = '0.3';
+      document.getElementById('tempCodeDisplay').style.textDecoration = 'line-through';
+      localStorage.removeItem('nv_exam_code');
+      localStorage.removeItem('nv_exam_expires');
+      return;
+    }
+    const minutes = Math.floor(remaining / 60000);
+    const seconds = Math.floor((remaining % 60000) / 1000);
+    timerEl.textContent = `⏳ Expire dans : ${minutes}min ${String(seconds).padStart(2, '0')}sec`;
+    if (remaining < 600000) timerEl.style.color = 'var(--red)';
+    else if (remaining < 1800000) timerEl.style.color = 'var(--gold)';
+    setTimeout(updateTimer, 1000);
+  }
+  updateTimer();
 }
 
 function scrollToForm() {
@@ -600,21 +867,25 @@ function scrollToForm() {
   formSection.scrollIntoView({ behavior: 'smooth' });
 }
 
+// FORM SUBMISSION
 document.getElementById('careerForm').addEventListener('submit', async function(e) {
   e.preventDefault();
-  const btn = document.getElementById('submitBtn'); btn.disabled = true;
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
   try {
     const response = await fetch(this.action, { method: 'POST', body: new FormData(this), headers: { 'Accept': 'application/json' } });
     if (response.ok) {
       document.getElementById('formMsgSuccess').style.display = 'block';
       document.getElementById('formMsgError').style.display = 'none';
       this.reset();
+      document.getElementById('formMsgSuccess').scrollIntoView({ behavior: 'smooth', block: 'center' });
     } else {
       document.getElementById('formMsgError').style.display = 'block';
       document.getElementById('formMsgSuccess').style.display = 'none';
     }
-  } catch { document.getElementById('formMsgError').style.display = 'block'; }
-  finally { btn.disabled = false; }
+  } catch {
+    document.getElementById('formMsgError').style.display = 'block';
+  } finally { btn.disabled = false; }
 });
 </script>
 </body>
