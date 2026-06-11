@@ -1,0 +1,152 @@
+pentest
+firewall
+cybersécurité
+cybersecurity
+sécurité réseau
+network security
+active directory
+linux
+windows server
+cisco
+ccna
+siem
+soc
+vapt
+nmap
+wireshark
+metasploit
+kali linux
+burp suite
+owasp
+dns
+dhcp
+vpn
+tcp/ip
+azure
+aws
+cloud
+virtualisation
+vmware
+hyper-v
+docker
+kubernetes
+python
+powershell
+bash
+sql
+mysql
+postgresql
+splunk
+elk
+wazuh
+zabbix
+grafana
+ansible
+terraform
+jenkins
+devops
+comptia
+security+
+ceh
+cissp
+oscp
+itil
+iso 27001
+rgpd
+gdpr
+ransomware
+phishing
+malware
+ids
+ips
+fortinet
+palo alto
+pfsense
+vlan
+ospf
+bgp
+ipsec
+openvpn
+zero trust
+dmz
+ldap
+kerberos
+mfa
+authentification
+chiffrement
+cryptographie
+forensic
+dfir
+incident response
+threat intelligence
+mitre att&ck
+red team
+blue team
+pentesting
+bug bounty
+exploit
+payload
+sql injection
+xss
+csrf
+edr
+xdr
+crowdstrike
+sentinelone
+darktrace
+proofpoint
+mimecast
+barracuda
+veeam
+acronis
+datto
+connectwise
+autotask
+kaseya
+syncro
+ninjarmm
+atera
+pulseway
+domotz
+unifi
+meraki
+aruba
+juniper
+mikrotik
+sophos
+bitdefender
+kaspersky
+eset
+malwarebytes
+qualys
+tenable
+rapid7
+nessus
+openvas
+graylog
+prometheus
+influxdb
+telegraf
+grafana loki
+ansible tower
+puppet
+chef
+saltstack
+proxmox
+xcp-ng
+freebsd
+openbsd
+hardening
+durcissement
+pare-feu
+cyber
+informatique
+technicien support
+administrateur systèmes
+administrateur réseau
+ingénieur sécurité
+consultant cybersécurité
+analyste soc
+développeur sécurité
+architecte cloud
+devsecops
