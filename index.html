@@ -97,6 +97,8 @@ a { text-decoration: none; }
 .top-bar-info { display: flex; gap: 2rem; flex-wrap: wrap; }
 .top-bar-info span { display: flex; align-items: center; gap: 0.4rem; }
 .top-bar-info i { color: var(--accent); }
+.top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; transition: var(--transition); display: inline-block; }
+.top-bar-social a:hover { color: var(--accent); transform: translateY(-2px); }
 
 .lang-switch {
   display: flex; gap: 0.2rem; background: rgba(0, 212, 255, 0.1);
@@ -771,6 +773,13 @@ a { text-decoration: none; }
 .footer-container { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1.8fr repeat(3, 1fr); gap: 3rem; margin-bottom: 3rem; }
 .footer-brand .logo { margin-bottom: 1.2rem; }
 .footer-brand p { color: var(--gray-light); font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.8; }
+.footer-socials { display: flex; gap: 1rem; margin-top: 1rem; }
+.footer-socials a {
+  width: 42px; height: 42px; background: rgba(15, 43, 77, 0.5); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; color: var(--off-white);
+  border: 1px solid rgba(0, 212, 255, 0.1); transition: var(--transition);
+}
+.footer-socials a:hover { background: var(--accent); color: var(--primary-deep); transform: translateY(-3px); }
 .footer-links h4 { color: var(--white); font-size: 1.05rem; margin-bottom: 1.5rem; position: relative; display: inline-block; }
 .footer-links h4::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 30px; height: 2px; background: var(--accent); }
 .footer-links ul { list-style: none; }
@@ -805,6 +814,7 @@ a { text-decoration: none; }
   .legal-grid { grid-template-columns: 1fr !important; }
   .legal-card { text-align: center; }
   .legal-footer-note { flex-direction: column; text-align: center; }
+  .footer-socials { justify-content: center; }
 }
 @media (max-width: 600px) {
   .slide-logo-frame { width: 140px; height: 140px; } .slide-logo-img { width: 120px; height: 120px; }
@@ -838,6 +848,9 @@ a { text-decoration: none; }
         <button class="lang-btn active" data-lang="fr">FR</button>
         <button class="lang-btn" data-lang="en">EN</button>
       </div>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-x-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
     </div>
   </div>
 </div>
@@ -1060,6 +1073,11 @@ a { text-decoration: none; }
         <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em; font-weight:500; color: var(--gray-light);">IT Solutions</span></span>
       </a>
       <p data-i18n="footer_brand_desc">Pionnier de la souveraineté numérique et de la cyber-résilience avancée au Maroc. Nous sécurisons les infrastructures d'importance vitale.</p>
+      <div class="footer-socials">
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
     </div>
     <div class="footer-links"><h4 data-i18n="footer_col1">Expertises</h4><ul><li><a href="infogerance.html" data-i18n="srv_7_title">Support IT & Infogérance</a></li><li><a href="securite-reseau.html" data-i18n="srv_3_title">Sécurité Réseau</a></li><li><a href="contact.html" data-i18n="srv_1_title">Audit & Diagnostic</a></li><li><a href="vapt.html" data-i18n="srv_2_title">Pentest / VAPT</a></li></ul></div>
     <div class="footer-links"><h4 data-i18n="footer_col2">Société</h4><ul><li><a href="qui-sommes-nous.html" data-i18n="nav_about">Qui sommes-nous</a></li><li><a href="carrieres.html" data-i18n="nav_careers">Carrières</a></li><li><a href="campus-cyber.html" data-i18n="nav_campus">🎓 Campus Cyber</a></li><li><a href="contact.html" data-i18n="nav_contact">Contact</a></li></ul></div>
@@ -1109,7 +1127,7 @@ const translations = {
     legal_address: "Adresse",
     legal_contact_title: "Coordonnées",
     legal_headquarters: "Siège social",
-    legal_footer_note: "NetVanguard IT Solutions SARL AU.Conformément à la loi 09-08, nous nous engageons à la protection de vos données personnelles."
+    legal_footer_note: "NetVanguard IT Solutions SARL AU. Conformément à la loi 09-08, nous nous engageons à la protection de vos données personnelles."
   },
   en: {
     top_badge: "Your trusted partner in cyber defense and IT management",
@@ -1150,7 +1168,7 @@ const translations = {
     legal_address: "Address",
     legal_contact_title: "Contact Information",
     legal_headquarters: "Head office",
-    legal_footer_note: "NetVanguard IT Solutions SARL AU. In accordance with Law 09-08. we are committed to protecting your personal data."
+    legal_footer_note: "NetVanguard IT Solutions SARL AU. In accordance with Law 09-08, we are committed to protecting your personal data."
   }
 };
 
