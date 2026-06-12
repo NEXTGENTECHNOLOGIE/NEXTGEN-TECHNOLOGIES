@@ -70,8 +70,6 @@ a { text-decoration: none; }
 .top-bar-info { display: flex; gap: 2rem; flex-wrap: wrap; }
 .top-bar-info span { display: flex; align-items: center; gap: 0.4rem; }
 .top-bar-info i { color: var(--accent); }
-.top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; transition: var(--transition); display: inline-block; }
-.top-bar-social a:hover { color: var(--accent); transform: translateY(-2px); }
  
 .lang-switch {
   display: flex; gap: 0.25rem; background: rgba(0,212,255,0.15);
@@ -343,10 +341,10 @@ a { text-decoration: none; }
 .detail-visual {
   background: rgba(10,22,40,0.8);
   color: var(--white);
-  padding: 2.5rem;
+  padding: 2rem;
   border-radius: 20px;
   border: 1px solid rgba(0,212,255,0.15);
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   position: relative;
   overflow: hidden;
 }
@@ -358,12 +356,12 @@ a { text-decoration: none; }
   right: -50%;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, rgba(0,212,255,0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0,212,255,0.06) 0%, transparent 70%);
 }
  
 .detail-visual h3 {
   color: var(--accent);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   margin-bottom: 1.5rem;
   position: relative;
   z-index: 1;
@@ -380,29 +378,27 @@ a { text-decoration: none; }
  
 .detail-stat .label {
   color: var(--gold);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 0.2rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
 }
  
 .detail-stat .value {
-  color: var(--white);
-  font-size: 0.95rem;
-  font-weight: 600;
+  color: var(--gray-light);
+  font-size: 0.9rem;
 }
  
 /* STEP GRID */
 .step-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
 }
  
 .step-card {
   background: rgba(10,22,40,0.6);
-  padding: 2rem;
+  padding: 1.8rem;
   border-radius: 16px;
   border: 1px solid rgba(0,212,255,0.15);
   border-top: 3px solid var(--accent);
@@ -432,7 +428,7 @@ a { text-decoration: none; }
  
 .step-card p {
   color: var(--gray-light);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
  
 /* CTA BLOCK */
@@ -588,14 +584,9 @@ footer {
       <span><i class="fa-solid fa-envelope"></i> contact@netvanguard.ma</span>
       <span><i class="fa-solid fa-location-dot"></i> Casablanca</span>
     </div>
-    <div class="top-bar-social" style="display: flex; align-items: center;">
-      <div class="lang-switch" style="margin-right: 1rem;">
-        <button class="lang-btn active" data-lang="fr">FR</button>
-        <button class="lang-btn" data-lang="en">EN</button>
-      </div>
-      <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      <a href="#"><i class="fab fa-x-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
+    <div class="lang-switch">
+      <button class="lang-btn active" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="en">EN</button>
     </div>
   </div>
 </div>
@@ -610,7 +601,7 @@ footer {
       <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em; font-weight:500; color: var(--gray-light);">IT Solutions</span></span>
     </a>
     
-    <ul class="nav-links" id="navLinks">
+    <ul class="nav-links">
       <li><a href="index.html">Accueil</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="secteurs.html">Secteurs</a></li>
@@ -703,12 +694,27 @@ footer {
       </div>
     </div>
     <div class="detail-visual">
-      <h3><i class="fas fa-bug" style="margin-right: 0.5rem;"></i> <span id="visualTitle">Notre arsenal</span></h3>
-      <div class="detail-stat"><div class="label" id="stat1Label">Méthodologies</div><div class="value" id="stat1Value">OWASP · PTES · OSSTMM · NIST</div></div>
-      <div class="detail-stat"><div class="label" id="stat2Label">Certifications</div><div class="value" id="stat2Value">Pentest+ · CEH · OSCP</div></div>
-      <div class="detail-stat"><div class="label" id="stat3Label">Bug Bounty actif</div><div class="value" id="stat3Value">Membres reconnus YesWeHack</div></div>
-      <div class="detail-stat"><div class="label" id="stat4Label">Reporting</div><div class="value" id="stat4Value">Rapports exécutifs & techniques</div></div>
-      <div class="detail-stat"><div class="label" id="stat5Label">Re-test</div><div class="value" id="stat5Value">Inclus dans toutes les prestations</div></div>
+      <h3><i class="fas fa-clipboard-list" style="margin-right: 0.5rem; color: var(--accent);"></i> <span id="visualTitle">Ce que nous vous livrons</span></h3>
+      <div class="detail-stat">
+        <div class="label" id="stat1Label">📊 Rapport exécutif</div>
+        <div class="value" id="stat1Value">Synthèse claire pour la direction</div>
+      </div>
+      <div class="detail-stat">
+        <div class="label" id="stat2Label">🔧 Rapport technique</div>
+        <div class="value" id="stat2Value">Vulnérabilités détaillées + preuves + correctifs</div>
+      </div>
+      <div class="detail-stat">
+        <div class="label" id="stat3Label">⏱️ Délai moyen</div>
+        <div class="value" id="stat3Value">7 à 14 jours ouvrés selon périmètre</div>
+      </div>
+      <div class="detail-stat">
+        <div class="label" id="stat4Label">🔄 Re-test inclus</div>
+        <div class="value" id="stat4Value">Validation des correctifs sans frais</div>
+      </div>
+      <div class="detail-stat">
+        <div class="label" id="stat5Label">🔒 Confidentialité</div>
+        <div class="value" id="stat5Value">NDA signée avant toute intervention</div>
+      </div>
     </div>
   </div>
 </section>
@@ -789,8 +795,8 @@ footer {
     <div class="footer-col">
       <h4>Légal</h4>
       <ul>
-        <li><a href="#">Mentions légales</a></li>
-        <li><a href="#">Politique de confidentialité</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="cookies.html">Politique de confidentialité</a></li>
         <li><a href="#">CGU</a></li>
       </ul>
     </div>
@@ -822,17 +828,17 @@ const translations = {
     feat4Desc: "Évaluation de la sensibilisation de vos équipes",
     feat5Title: "Audit configuration",
     feat5Desc: "Revue des configurations sécurité de vos équipements critiques",
-    visualTitle: "Notre arsenal",
-    stat1Label: "Méthodologies",
-    stat1Value: "OWASP · PTES · OSSTMM · NIST",
-    stat2Label: "Certifications",
-    stat2Value: "Pentest+ · CEH · OSCP",
-    stat3Label: "Bug Bounty actif",
-    stat3Value: "Membres reconnus YesWeHack",
-    stat4Label: "Reporting",
-    stat4Value: "Rapports exécutifs & techniques",
-    stat5Label: "Re-test",
-    stat5Value: "Inclus dans toutes les prestations",
+    visualTitle: "Ce que nous vous livrons",
+    stat1Label: "Rapport exécutif",
+    stat1Value: "Synthèse claire pour la direction",
+    stat2Label: "Rapport technique",
+    stat2Value: "Vulnérabilités détaillées + preuves + correctifs",
+    stat3Label: "Délai moyen",
+    stat3Value: "7 à 14 jours ouvrés selon périmètre",
+    stat4Label: "Re-test inclus",
+    stat4Value: "Validation des correctifs sans frais",
+    stat5Label: "Confidentialité",
+    stat5Value: "NDA signée avant toute intervention",
     tag2: "Notre méthodologie",
     title2: "5 phases d'un pentest professionnel",
     step1Title: "Cadrage",
@@ -868,17 +874,17 @@ const translations = {
     feat4Desc: "Assessment of your team's security awareness",
     feat5Title: "Configuration Audit",
     feat5Desc: "Review of security configurations on critical equipment",
-    visualTitle: "Our arsenal",
-    stat1Label: "Methodologies",
-    stat1Value: "OWASP · PTES · OSSTMM · NIST",
-    stat2Label: "Certifications",
-    stat2Value: "Pentest+ · CEH · OSCP",
-    stat3Label: "Active Bug Bounty",
-    stat3Value: "Recognized members YesWeHack",
-    stat4Label: "Reporting",
-    stat4Value: "Executive & technical reports",
-    stat5Label: "Re-test",
-    stat5Value: "Included in all services",
+    visualTitle: "What we deliver",
+    stat1Label: "Executive report",
+    stat1Value: "Clear summary for management",
+    stat2Label: "Technical report",
+    stat2Value: "Detailed vulnerabilities + evidence + fixes",
+    stat3Label: "Average timeline",
+    stat3Value: "7 to 14 business days depending on scope",
+    stat4Label: "Re-test included",
+    stat4Value: "Validation of fixes at no extra cost",
+    stat5Label: "Confidentiality",
+    stat5Value: "NDA signed before any intervention",
     tag2: "Our methodology",
     title2: "5 phases of professional pentesting",
     step1Title: "Scoping",
@@ -897,7 +903,7 @@ const translations = {
   }
 };
  
-let currentLang = localStorage.getItem('nextgen-lang') || 'fr';
+let currentLang = localStorage.getItem('vapt-lang') || 'fr';
  
 function applyLanguage(lang) {
   const t = translations[lang];
@@ -952,7 +958,7 @@ function applyLanguage(lang) {
     btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
   });
   
-  localStorage.setItem('nextgen-lang', lang);
+  localStorage.setItem('vapt-lang', lang);
 }
  
 document.querySelectorAll('.lang-btn').forEach(btn => {
