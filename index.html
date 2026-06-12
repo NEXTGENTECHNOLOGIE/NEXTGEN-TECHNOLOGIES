@@ -97,8 +97,6 @@ a { text-decoration: none; }
 .top-bar-info { display: flex; gap: 2rem; flex-wrap: wrap; }
 .top-bar-info span { display: flex; align-items: center; gap: 0.4rem; }
 .top-bar-info i { color: var(--accent); }
-.top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; transition: var(--transition); display: inline-block; }
-.top-bar-social a:hover { color: var(--accent); transform: translateY(-2px); }
 
 .lang-switch {
   display: flex; gap: 0.2rem; background: rgba(0, 212, 255, 0.1);
@@ -130,7 +128,6 @@ a { text-decoration: none; }
 }
 .logo:hover { transform: scale(1.02); }
 
-/* Logo bouclier SVG */
 .logo-shield {
   width: 36px; height: 36px; flex-shrink: 0;
   animation: float 3s ease-in-out infinite;
@@ -205,7 +202,7 @@ a { text-decoration: none; }
 .mobile-nav-overlay.active { right: 0; }
 .mobile-nav-overlay a { color: var(--white); font-size: 1.1rem; font-weight: 600; }
 
-/* ============ HERO SLIDER ULTRA LUXE ============ */
+/* HERO SLIDER */
 .hero-slider {
   position: relative;
   width: 100%;
@@ -213,15 +210,11 @@ a { text-decoration: none; }
   overflow: hidden;
   background: var(--primary-deep);
 }
-
-/* Canvas particules */
 .hero-particles-canvas {
   position: absolute;
   inset: 0;
   z-index: 2;
 }
-
-/* Grille cyber */
 .hero-grid {
   position: absolute;
   inset: 0;
@@ -233,8 +226,6 @@ a { text-decoration: none; }
   mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 70%);
   -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 70%);
 }
-
-/* Orbes lumineuses */
 .hero-orb {
   position: absolute;
   border-radius: 50%;
@@ -275,16 +266,12 @@ a { text-decoration: none; }
   0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
   50% { transform: translate(-50%, -50%) scale(1.3); opacity: 0.8; }
 }
-
-/* Wrapper des slides */
 .slides-wrapper {
   position: relative;
   z-index: 10;
   width: 100%;
   height: 100vh;
 }
-
-/* Slide individuel - REMONTÉ VERS LE HAUT */
 .slide {
   position: absolute;
   inset: 0;
@@ -300,16 +287,12 @@ a { text-decoration: none; }
   opacity: 1;
   visibility: visible;
 }
-
-/* Contenu du slide */
 .slide-content {
   text-align: center;
   max-width: 1100px;
   width: 100%;
   padding-top: 1.5rem;
 }
-
-/* Logo dans les slides - PLUS GRAND, SANS FOND NOIR, CENTRÉ */
 .slide-logo-container {
   position: relative;
   display: inline-block;
@@ -343,7 +326,6 @@ a { text-decoration: none; }
   border: 1.5px solid rgba(0, 212, 255, 0.25);
   animation: circlePulse 3s ease-in-out infinite;
 }
-/* Logo image - TRANSPARENT, SANS FOND, AUCUNE BANDE NOIRE */
 .slide-logo-img {
   position: relative;
   z-index: 2;
@@ -353,9 +335,7 @@ a { text-decoration: none; }
   object-fit: contain;
   background: none;
   border: 2px solid rgba(0, 212, 255, 0.5);
-  box-shadow: 
-    0 0 50px rgba(0, 212, 255, 0.35),
-    0 0 100px rgba(0, 212, 255, 0.12);
+  box-shadow: 0 0 50px rgba(0, 212, 255, 0.35), 0 0 100px rgba(0, 212, 255, 0.12);
   animation: logoFloat 5s ease-in-out infinite;
 }
 @keyframes logoFloat {
@@ -370,8 +350,6 @@ a { text-decoration: none; }
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-
-/* Titre */
 .slide-title {
   font-size: clamp(2.2rem, 5vw, 3.8rem);
   font-weight: 800;
@@ -380,27 +358,18 @@ a { text-decoration: none; }
   color: var(--white);
   letter-spacing: -0.03em;
 }
-
 .slide-title-gradient {
-  background: linear-gradient(135deg, 
-    var(--accent) 0%, 
-    #7dd3fc 25%, 
-    var(--gold-light) 50%, 
-    #fbbf24 75%, 
-    var(--accent) 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, #7dd3fc 25%, var(--gold-light) 50%, #fbbf24 75%, var(--accent) 100%);
   background-size: 300% auto;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   animation: titleShine 8s linear infinite;
 }
-
 @keyframes titleShine {
   0% { background-position: 0% center; }
   100% { background-position: 300% center; }
 }
-
-/* Curseur clignotant */
 .cursor-blink {
   display: inline-block;
   width: 3px;
@@ -414,15 +383,12 @@ a { text-decoration: none; }
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
-
-/* Boutons */
 .slide-buttons {
   display: flex;
   gap: 1.5rem;
   justify-content: center;
   flex-wrap: wrap;
 }
-
 .btn-slide-primary {
   background: linear-gradient(135deg, var(--accent), var(--accent-dark));
   color: var(--primary-deep);
@@ -458,7 +424,6 @@ a { text-decoration: none; }
   transform: translateY(-5px);
   box-shadow: 0 20px 60px rgba(0, 212, 255, 0.5);
 }
-
 .btn-slide-outline {
   background: transparent;
   border: 2px solid rgba(0, 212, 255, 0.3);
@@ -482,8 +447,6 @@ a { text-decoration: none; }
   transform: translateY(-5px);
   box-shadow: 0 20px 60px rgba(0, 212, 255, 0.4);
 }
-
-/* Navigation flèches */
 .slider-nav {
   position: absolute;
   bottom: 3rem;
@@ -513,8 +476,6 @@ a { text-decoration: none; }
   color: var(--primary-deep);
   box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
 }
-
-/* Indicateurs dots */
 .slider-dots {
   display: flex;
   gap: 0.8rem;
@@ -577,7 +538,6 @@ a { text-decoration: none; }
   max-width: 1300px;
   margin: 0 auto;
 }
-
 .service-card {
   background: linear-gradient(160deg, rgba(255, 255, 255, 0.02), rgba(15, 43, 77, 0.15));
   border-radius: 20px;
@@ -662,7 +622,6 @@ a { text-decoration: none; }
   border-radius: 20px; height: 140px; width: 250px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center; padding: 1.8rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative; overflow: hidden;
 }
 .partner-tile img { max-height: 52px; max-width: 90%; object-fit: contain; }
 .partner-tile:hover {
@@ -703,18 +662,115 @@ a { text-decoration: none; }
 .stat-number { font-family: 'Space Grotesk', sans-serif; font-size: 2.8rem; font-weight: 700; color: var(--accent); margin-bottom: 0.3rem; }
 .stat-label { font-size: 0.85rem; color: var(--off-white); font-weight: 500; }
 
+/* MENTIONS LÉGALES SECTION */
+.legal-mentions-section {
+  padding: 5rem 4%;
+  background: linear-gradient(180deg, #030d1a 0%, var(--primary-deep) 100%);
+  border-top: 1px solid rgba(0, 212, 255, 0.1);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.05);
+}
+.legal-container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.legal-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.legal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(0, 212, 255, 0.1);
+  padding: 0.5rem 1.4rem;
+  border-radius: 40px;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+}
+.legal-header h3 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  background: linear-gradient(135deg, var(--white), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1rem;
+}
+.legal-header p {
+  color: var(--gray-light);
+  font-size: 0.95rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.legal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+}
+.legal-card {
+  background: rgba(15, 43, 77, 0.25);
+  border-radius: 20px;
+  padding: 1.8rem;
+  border: 1px solid rgba(0, 212, 255, 0.08);
+  transition: var(--transition);
+  backdrop-filter: blur(4px);
+}
+.legal-card:hover {
+  border-color: rgba(0, 212, 255, 0.3);
+  transform: translateY(-5px);
+  background: rgba(0, 212, 255, 0.03);
+}
+.legal-card i {
+  font-size: 2.2rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+.legal-card h4 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--white);
+}
+.legal-card p {
+  color: var(--gray-light);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+.legal-card strong {
+  color: var(--off-white);
+  font-weight: 600;
+}
+.legal-footer-note {
+  background: rgba(0, 212, 255, 0.05);
+  border-radius: 16px;
+  padding: 1.2rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  border: 1px solid rgba(0, 212, 255, 0.12);
+  text-align: center;
+}
+.legal-footer-note i {
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+.legal-footer-note span {
+  color: var(--gray-light);
+  font-size: 0.85rem;
+  max-width: 800px;
+}
+
 /* FOOTER */
 .footer { background: var(--primary-deep); padding: 5rem 4% 2rem; border-top: 1px solid rgba(0, 212, 255, 0.1); }
 .footer-container { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1.8fr repeat(3, 1fr); gap: 3rem; margin-bottom: 3rem; }
 .footer-brand .logo { margin-bottom: 1.2rem; }
 .footer-brand p { color: var(--gray-light); font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.8; }
-.footer-socials { display: flex; gap: 1rem; }
-.footer-socials a {
-  width: 42px; height: 42px; background: rgba(15, 43, 77, 0.5); border-radius: 50%;
-  display: flex; align-items: center; justify-content: center; color: var(--off-white);
-  border: 1px solid rgba(0, 212, 255, 0.1); transition: var(--transition);
-}
-.footer-socials a:hover { background: var(--accent); color: var(--primary-deep); transform: translateY(-3px); }
 .footer-links h4 { color: var(--white); font-size: 1.05rem; margin-bottom: 1.5rem; position: relative; display: inline-block; }
 .footer-links h4::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 30px; height: 2px; background: var(--accent); }
 .footer-links ul { list-style: none; }
@@ -740,13 +796,15 @@ a { text-decoration: none; }
 @media (max-width: 768px) {
   .top-bar-container { flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 0.8rem; }
   .top-bar-info { display: flex !important; flex-direction: column; align-items: center; justify-content: center; gap: 0.4rem; width: 100%; }
-  .top-bar-social { justify-content: center; width: 100%; }
   .values-grid { grid-template-columns: 1fr; } .footer-container { grid-template-columns: 1fr; }
   .stats-grid-centered { grid-template-columns: 1fr; } .map-iframe-container { height: 400px; }
   .hero-slider { min-height: 90vh; } .slides-wrapper { height: 90vh; }
   .slide-logo-frame { width: 170px; height: 170px; } .slide-logo-img { width: 150px; height: 150px; }
   .slide { padding: 4rem 2rem 2rem; }
   .slider-nav { bottom: 2rem; gap: 1rem; } .slider-arrow { width: 40px; height: 40px; font-size: 0.9rem; }
+  .legal-grid { grid-template-columns: 1fr !important; }
+  .legal-card { text-align: center; }
+  .legal-footer-note { flex-direction: column; text-align: center; }
 }
 @media (max-width: 600px) {
   .slide-logo-frame { width: 140px; height: 140px; } .slide-logo-img { width: 120px; height: 120px; }
@@ -780,14 +838,11 @@ a { text-decoration: none; }
         <button class="lang-btn active" data-lang="fr">FR</button>
         <button class="lang-btn" data-lang="en">EN</button>
       </div>
-      <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      <a href="#"><i class="fab fa-x-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
     </div>
   </div>
 </div>
 
-<!-- NAVIGATION AVEC LOGO BOUCLIER SVG -->
+<!-- NAVIGATION -->
 <nav class="nav">
   <div class="nav-container">
     <a href="index.html" class="logo">
@@ -829,7 +884,7 @@ a { text-decoration: none; }
   <a href="support.html" class="btn-espace-client-mobile" data-i18n="nav_espace_client"><i class="fa-solid fa-user-circle"></i> Espace Client</a>
 </div>
 
-<!-- ============ HERO SLIDER ============ -->
+<!-- HERO SLIDER -->
 <section class="hero-slider" id="hero">
   <canvas class="hero-particles-canvas" id="heroParticles"></canvas>
   <div class="hero-grid"></div>
@@ -838,8 +893,6 @@ a { text-decoration: none; }
   <div class="hero-orb hero-orb-3"></div>
   
   <div class="slides-wrapper" id="slidesWrapper">
-    
-    <!-- SLIDE 1 -->
     <div class="slide active" data-index="0">
       <div class="slide-content">
         <div class="slide-logo-container">
@@ -858,8 +911,6 @@ a { text-decoration: none; }
         </div>
       </div>
     </div>
-
-    <!-- SLIDE 2 -->
     <div class="slide" data-index="1">
       <div class="slide-content">
         <div class="slide-logo-container">
@@ -878,8 +929,6 @@ a { text-decoration: none; }
         </div>
       </div>
     </div>
-
-    <!-- SLIDE 3 -->
     <div class="slide" data-index="2">
       <div class="slide-content">
         <div class="slide-logo-container">
@@ -898,7 +947,6 @@ a { text-decoration: none; }
         </div>
       </div>
     </div>
-
   </div>
   
   <div class="slider-nav">
@@ -963,7 +1011,38 @@ a { text-decoration: none; }
   </div>
 </section>
 
-<!-- FOOTER AVEC LOGO BOUCLIER SVG -->
+<!-- MENTIONS LÉGALES SECTION -->
+<section class="legal-mentions-section">
+  <div class="legal-container">
+    <div class="legal-header">
+      <span class="legal-badge"><i class="fa-solid fa-gavel"></i> <span data-i18n="legal_badge">Conformité Loi 09-08</span></span>
+      <h3><span data-i18n="legal_title">Mentions Légales</span></h3>
+      <p data-i18n="legal_desc">Conformément aux dispositions de la loi marocaine n°09-08 relative à la protection des données et à la cybersécurité.</p>
+    </div>
+    <div class="legal-grid">
+      <div class="legal-card">
+        <i class="fa-solid fa-building"></i>
+        <h4 data-i18n="legal_identity_title">Identité Société</h4>
+        <p><strong data-i18n="legal_company_name">NetVanguard IT Solutions SARL AU</strong><br>
+        <span data-i18n="legal_ice">ICE</span> : 003986584000028<br>
+        <span data-i18n="legal_address">Adresse</span> : BD 30 JUILLET, Rés Les Champs Du Printemps, GH 1, IMM F, 5ème Étage N°15, Sidi Moumen, Casablanca, Maroc</p>
+      </div>
+      <div class="legal-card">
+        <i class="fa-solid fa-envelope"></i>
+        <h4 data-i18n="legal_contact_title">Coordonnées</h4>
+        <p><strong>Tel :</strong> +212 728 31 28 01<br>
+        <strong>Email :</strong> contact@netvanguard.ma<br>
+        <strong data-i18n="legal_headquarters">Siège social :</strong> Casablanca, Maroc</p>
+      </div>
+    </div>
+    <div class="legal-footer-note">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <span data-i18n="legal_footer_note">NetVanguard IT Solutions SARL AU est immatriculée au registre de commerce de Casablanca. Conformément à la loi 09-08, nous nous engageons à la protection de vos données personnelles.</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-brand">
@@ -981,7 +1060,6 @@ a { text-decoration: none; }
         <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em; font-weight:500; color: var(--gray-light);">IT Solutions</span></span>
       </a>
       <p data-i18n="footer_brand_desc">Pionnier de la souveraineté numérique et de la cyber-résilience avancée au Maroc. Nous sécurisons les infrastructures d'importance vitale.</p>
-      <div class="footer-socials"><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-x-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div>
     </div>
     <div class="footer-links"><h4 data-i18n="footer_col1">Expertises</h4><ul><li><a href="infogerance.html" data-i18n="srv_7_title">Support IT & Infogérance</a></li><li><a href="securite-reseau.html" data-i18n="srv_3_title">Sécurité Réseau</a></li><li><a href="contact.html" data-i18n="srv_1_title">Audit & Diagnostic</a></li><li><a href="vapt.html" data-i18n="srv_2_title">Pentest / VAPT</a></li></ul></div>
     <div class="footer-links"><h4 data-i18n="footer_col2">Société</h4><ul><li><a href="qui-sommes-nous.html" data-i18n="nav_about">Qui sommes-nous</a></li><li><a href="carrieres.html" data-i18n="nav_careers">Carrières</a></li><li><a href="campus-cyber.html" data-i18n="nav_campus">🎓 Campus Cyber</a></li><li><a href="contact.html" data-i18n="nav_contact">Contact</a></li></ul></div>
@@ -1021,7 +1099,17 @@ const translations = {
     footer_brand_desc: "Engagé pour la souveraineté numérique au Maroc. Nous sécurisons les infrastructures informatiques essentielles.",
     footer_col1: "Expertises", footer_col2: "Société", footer_col3: "Légal",
     leg_mentions: "Mentions Légales", leg_cookies: "Gestion des Cookies",
-    footer_sub_text: "Conçu avec excellence opérationnelle au Maroc."
+    footer_sub_text: "Conçu avec excellence opérationnelle au Maroc.",
+    legal_badge: "Conformité Loi 09-08",
+    legal_title: "Mentions Légales",
+    legal_desc: "Conformément aux dispositions de la loi marocaine n°09-08 relative à la protection des données et à la cybersécurité.",
+    legal_identity_title: "Identité Société",
+    legal_company_name: "NetVanguard IT Solutions SARL AU",
+    legal_ice: "ICE",
+    legal_address: "Adresse",
+    legal_contact_title: "Coordonnées",
+    legal_headquarters: "Siège social",
+    legal_footer_note: "NetVanguard IT Solutions SARL AU est immatriculée au registre de commerce de Casablanca. Conformément à la loi 09-08, nous nous engageons à la protection de vos données personnelles."
   },
   en: {
     top_badge: "Your trusted partner in cyber defense and IT management",
@@ -1052,7 +1140,17 @@ const translations = {
     footer_brand_desc: "Committed to digital sovereignty in Morocco. We secure essential IT infrastructures.",
     footer_col1: "Expertise", footer_col2: "Company", footer_col3: "Legal",
     leg_mentions: "Legal Notices", leg_cookies: "Cookie Management",
-    footer_sub_text: "Designed with operational excellence in Morocco."
+    footer_sub_text: "Designed with operational excellence in Morocco.",
+    legal_badge: "Compliance Law 09-08",
+    legal_title: "Legal Notices",
+    legal_desc: "In accordance with the provisions of Moroccan law n°09-08 on data protection and cybersecurity.",
+    legal_identity_title: "Company Identity",
+    legal_company_name: "NetVanguard IT Solutions SARL AU",
+    legal_ice: "ICE",
+    legal_address: "Address",
+    legal_contact_title: "Contact Information",
+    legal_headquarters: "Head office",
+    legal_footer_note: "NetVanguard IT Solutions SARL AU is registered with the Casablanca trade register. In accordance with law 09-08, we are committed to protecting your personal data."
   }
 };
 
