@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Mentions Légales · NetVanguard IT Solutions · Casablanca, Maroc">
+<title>Mentions Légales · NetVanguard IT Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<style>
+:root {
+  --primary: #0A1628; --primary-deep: #020810; --primary-light: #0F2B4D;
+  --accent: #00D4FF; --accent-dark: #0891B2;
+  --red: #EF4444; --red-dark: #DC2626;
+  --white: #FFFFFF; --off-white: #E2E8F0;
+  --gray-light: #94A3B8; --gray-mid: #64748B; --gold: #FFB800;
+  --success: #10B981;
+  --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Manrope',sans-serif; color:var(--off-white);
+  line-height:1.6; overflow-x:hidden; background:var(--primary-deep);
+}
+h1,h2,h3,h4 { font-family:'Space Grotesk',sans-serif; font-weight:700; letter-spacing:-0.02em; }
+a { text-decoration:none; color:var(--accent); }
+a:hover { color:var(--white); }
+
+/* TOP BAR */
+.top-bar {
+  background:rgba(5,11,20,0.95); backdrop-filter:blur(10px);
+  color:var(--gray-light); padding:0.5rem 4%; font-size:0.8rem;
+  border-bottom:1px solid rgba(0,212,255,0.15); z-index:1001; position:relative;
+}
+.top-bar-container {
+  max-width:1400px; margin:0 auto;
+  display:flex; justify-content:space-between; align-items:center;
+  flex-wrap:wrap; gap:0.5rem;
+}
+.partner-badge {
+  display:flex; align-items:center; gap:0.6rem;
+  background:linear-gradient(135deg,rgba(0,212,255,0.1),rgba(255,184,0,0.05));
+  padding:0.35rem 1.2rem; border-radius:40px;
+  border:1px solid rgba(0,212,255,0.2);
+  box-shadow:0 0 20px rgba(0,212,255,0.06);
+}
+.partner-badge i { color:var(--accent); font-size:0.75rem; }
+.partner-badge span {
+  font-size:0.7rem; font-weight:700; letter-spacing:0.5px;
+  background:linear-gradient(135deg,#fff,var(--accent));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.top-bar-info { display:flex; gap:2rem; flex-wrap:wrap; }
+.top-bar-info span { display:flex; align-items:center; gap:0.4rem; }
+.top-bar-info i { color:var(--accent); }
+.top-bar-social a { color:var(--gray-light); margin-left:0.8rem; transition:var(--transition); display:inline-block; }
+.top-bar-social a:hover { color:var(--accent); transform:translateY(-2px); }
+
+.lang-switch {
+  display:flex; gap:0.2rem; background:rgba(0,212,255,0.08);
+  padding:0.15rem 0.5rem; border-radius:40px; align-items:center;
+  border:1px solid rgba(0,212,255,0.15);
+}
+.lang-btn {
+  background:none; border:none; color:var(--gray-light);
+  font-size:0.75rem; font-weight:600; cursor:pointer;
+  padding:0.15rem 0.6rem; border-radius:30px; transition:var(--transition);
+  font-family:inherit;
+}
+.lang-btn.active { background:var(--accent); color:var(--primary-deep); }
+
+/* NAV */
+.nav {
+  position:sticky; top:0; z-index:1000; padding:1rem 4%;
+  background:rgba(7,20,38,0.95); backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(0,212,255,0.15);
+}
+.nav-container {
+  max-width:1400px; margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.logo {
+  display:flex; align-items:center; gap:0.6rem;
+  font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.3rem;
+  color:var(--white); transition:var(--transition);
+}
+.logo-shield {
+  width:36px; height:36px; flex-shrink:0;
+  animation:float 3s ease-in-out infinite;
+  filter:drop-shadow(0 0 8px rgba(0,212,255,0.5));
+}
+@keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-6px);} }
+.logo-text-accent { color:var(--accent); }
+
+.nav-links { display:flex; gap:0.4rem; list-style:none; align-items:center; }
+.nav-links>li>a {
+  color:var(--off-white); font-size:0.92rem; font-weight:600;
+  padding:0.6rem 1rem; border-radius:4px; transition:var(--transition);
+}
+.nav-links>li>a:hover { background:rgba(0,212,255,0.1); color:var(--accent); }
+
+.btn-espace-client {
+  background:linear-gradient(135deg, #00D4FF, #0891B2) !important;
+  color:#050B14 !important;
+  font-weight:700 !important;
+  padding:0.5rem 1.2rem !important;
+  border-radius:6px !important;
+}
+.menu-toggle { display:none; background:none; border:none; color:var(--white); font-size:1.5rem; cursor:pointer; }
+.mobile-nav-overlay {
+  position:fixed; top:0; right:-100%; width:100%; max-width:400px; height:100vh;
+  background:rgba(5,11,20,0.98); backdrop-filter:blur(25px); z-index:10000;
+  padding:8rem 2rem 2rem; display:flex; flex-direction:column; gap:1.5rem;
+  box-shadow:-10px 0 30px rgba(0,0,0,0.5); border-left:1px solid rgba(0,212,255,0.2);
+  transition:right 0.5s cubic-bezier(0.77,0.2,0.05,1);
+}
+.mobile-nav-overlay.active { right:0; }
+.mobile-nav-overlay a { color:var(--white); font-size:1.1rem; font-weight:600; }
+
+/* HERO AVEC LOGO */
+.legal-hero {
+  position:relative;
+  padding:5rem 4% 3rem;
+  text-align:center;
+  overflow:hidden;
+  background:var(--primary-deep);
+}
+.legal-hero::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(circle at 50% 40%, rgba(0,212,255,0.08), transparent 60%),
+              radial-gradient(circle at 80% 20%, rgba(255,184,0,0.04), transparent 40%);
+  pointer-events:none;
+}
+.legal-hero::after {
+  content:''; position:absolute; inset:0;
+  background-image:linear-gradient(rgba(0,212,255,0.02) 1px, transparent 1px),
+                   linear-gradient(90deg, rgba(0,212,255,0.02) 1px, transparent 1px);
+  background-size:50px 50px;
+  pointer-events:none;
+}
+.hero-content { position:relative; z-index:2; }
+
+/* LOGO CENTRAL AVEC EFFET */
+.logo-hero-container { position:relative; display:inline-block; margin:0 auto 2rem; }
+.logo-hero-frame { position:relative; width:180px; height:180px; margin:0 auto; }
+.logo-hexagon { position:absolute; inset:-18px; animation:hexRotate 20s linear infinite; }
+.logo-hexagon svg { width:100%; height:100%; }
+.logo-hexagon path { fill:none; stroke:rgba(0,212,255,0.3); stroke-width:2; filter:drop-shadow(0 0 10px rgba(0,212,255,0.4)); }
+.logo-circle-pulse { position:absolute; inset:-10px; border-radius:50%; border:1.5px solid rgba(0,212,255,0.2); animation:circlePulse 3s ease-in-out infinite; }
+.logo-hero-img {
+  position:relative; z-index:2; width:160px; height:160px; border-radius:50%;
+  object-fit:contain; background:transparent; border:2px solid rgba(0,212,255,0.5);
+  box-shadow:0 0 50px rgba(0,212,255,0.35), 0 0 100px rgba(0,212,255,0.12);
+  animation:logoFloat 5s ease-in-out infinite;
+}
+@keyframes logoFloat {
+  0%,100%{transform:translateY(0);box-shadow:0 0 50px rgba(0,212,255,0.35),0 0 100px rgba(0,212,255,0.12);}
+  50%{transform:translateY(-10px);box-shadow:0 20px 70px rgba(0,212,255,0.55),0 0 140px rgba(0,212,255,0.25);}
+}
+@keyframes circlePulse { 0%,100%{transform:scale(1);opacity:0.5;} 50%{transform:scale(1.08);opacity:1;} }
+@keyframes hexRotate { 0%{transform:rotate(0deg);} 100%{transform:rotate(360deg);} }
+
+.legal-hero h1 { font-size:clamp(2rem,5vw,3rem); color:var(--white); margin-bottom:0.5rem; position:relative; z-index:2; }
+.legal-hero .accent {
+  background:linear-gradient(90deg,var(--accent),var(--gold),var(--accent));
+  background-size:300% auto;
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  animation:shine 6s linear infinite;
+}
+@keyframes shine { to{background-position:300% center;} }
+.legal-hero p { color:var(--gray-light); font-size:1rem; position:relative; z-index:2; }
+
+/* CONTENT */
+.content { max-width:900px; margin:0 auto; padding:4rem 4%; position:relative; }
+.content h2 {
+  font-size:1.4rem; color:var(--white); margin:2.5rem 0 1rem;
+  padding-bottom:0.5rem; border-bottom:1px solid rgba(0,212,255,0.12);
+  display:flex; align-items:center; gap:0.6rem;
+}
+.content h2 i { color:var(--accent); font-size:1rem; }
+.content h2:first-child { margin-top:0; }
+.content p { color:var(--gray-light); margin-bottom:1rem; line-height:1.8; }
+.content strong { color:var(--white); }
+.content ul { margin:0.5rem 0 1rem 1.5rem; color:var(--gray-light); line-height:2; }
+
+/* FOOTER */
+footer {
+  background:var(--primary-deep); padding:5rem 4% 2rem;
+  border-top:1px solid rgba(255,255,255,0.06);
+}
+.footer-grid { max-width:1400px; margin:0 auto; display:grid; grid-template-columns:2fr repeat(3,1fr); gap:4rem; margin-bottom:4rem; }
+.footer-brand p { color:var(--gray-light); font-size:0.9rem; line-height:1.7; max-width:320px; margin-top:1rem; }
+.footer-col h4 { color:var(--white); font-size:1rem; margin-bottom:1.5rem; text-transform:uppercase; letter-spacing:0.05em; }
+.footer-col ul { list-style:none; }
+.footer-col ul li { margin-bottom:0.8rem; }
+.footer-col ul li a { color:var(--gray-light); font-size:0.9rem; transition:var(--transition); }
+.footer-col ul li a:hover { color:var(--accent); padding-left:4px; }
+.footer-bottom {
+  max-width:1400px; margin:0 auto; padding-top:2rem;
+  border-top:1px solid rgba(255,255,255,0.06);
+  display:flex; justify-content:space-between; align-items:center;
+  flex-wrap:wrap; gap:1rem; font-size:0.85rem; color:var(--gray-mid);
+}
+
+/* RESPONSIVE */
+@media(max-width:1024px) { .nav-links{display:none!important;} .menu-toggle{display:block!important;} .footer-grid{grid-template-columns:1fr 1fr;gap:3rem;} }
+@media(max-width:768px) {
+  .top-bar-container{flex-direction:column;align-items:center;text-align:center;gap:0.8rem;}
+  .top-bar-info{flex-direction:column;align-items:center;gap:0.3rem;width:100%;}
+  .top-bar-social{justify-content:center;width:100%;}
+  .footer-grid{grid-template-columns:1fr!important;}
+  .footer-bottom{flex-direction:column;text-align:center;}
+  .logo-hero-frame{width:140px;height:140px;}
+  .logo-hero-img{width:120px;height:120px;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-bar-container">
+    <div class="partner-badge">
+      <i class="fa-solid fa-shield-halved"></i>
+      <span>Expert en cybersécurité PME au Maroc</span>
+    </div>
+    <div class="top-bar-info">
+      <span><i class="fa-solid fa-phone"></i> +212 728 31 28 01</span>
+      <span><i class="fa-solid fa-envelope"></i> contact@netvanguard.ma</span>
+      <span><i class="fa-solid fa-location-dot"></i> Casablanca</span>
+    </div>
+    <div class="top-bar-social" style="display:flex;align-items:center;">
+      <div class="lang-switch" style="margin-right:1rem;">
+        <button class="lang-btn active">FR</button>
+      </div>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-x-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <svg class="logo-shield" viewBox="0 0 24 24" width="36" height="36">
+        <defs>
+          <linearGradient id="sgNav" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#FFB800;stop-opacity:1"/>
+          </linearGradient>
+        </defs>
+        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#sgNav)"/>
+        <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#fff"/>
+      </svg>
+      <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em;font-weight:500;color:var(--gray-light);">IT Solutions</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="secteurs.html">Secteurs</a></li>
+      <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
+      <li><a href="carrieres.html">Carrières</a></li>
+      <li><a href="campus-cyber.html">🎓 Campus Cyber</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="support.html" class="btn-espace-client"><i class="fa-solid fa-user-circle"></i> Espace Client</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav-overlay" id="mobileNav">
+  <a href="index.html">Accueil</a>
+  <a href="services.html">Services</a>
+  <a href="secteurs.html">Secteurs</a>
+  <a href="qui-sommes-nous.html">Qui sommes-nous</a>
+  <a href="carrieres.html">Carrières</a>
+  <a href="campus-cyber.html">🎓 Campus Cyber</a>
+  <a href="contact.html">Contact</a>
+  <a href="support.html"><i class="fa-solid fa-user-circle"></i> Espace Client</a>
+</div>
+
+<!-- HERO AVEC LOGO -->
+<section class="legal-hero">
+  <div class="hero-content">
+    <div class="logo-hero-container">
+      <div class="logo-hero-frame">
+        <div class="logo-hexagon">
+          <svg viewBox="0 0 100 100">
+            <path d="M50 5 L88 25 L88 75 L50 95 L12 75 L12 25 Z" />
+          </svg>
+        </div>
+        <div class="logo-circle-pulse"></div>
+        <img src="netvanguard.jpg" alt="NetVanguard IT Solutions" class="logo-hero-img" onerror="this.style.display='none';this.parentElement.querySelector('.logo-hexagon').style.display='none';this.parentElement.querySelector('.logo-circle-pulse').style.display='none';">
+      </div>
+    </div>
+    <h1>Mentions <span class="accent">Légales</span></h1>
+    <p>Document juridique conforme à la loi marocaine n° 53-05 et n° 09-08</p>
+  </div>
+</section>
+
+<!-- CONTENU -->
+<div class="content">
+
+  <h2><i class="fas fa-building"></i> 1. Éditeur du site</h2>
+  <p>
+    <strong>Raison sociale :</strong> NetVanguard IT Solutions SARL AU<br>
+    <strong>Forme juridique :</strong> Société à Responsabilité Limitée à Associé Unique (SARL AU)<br>
+    <strong>Siège social :</strong> Casablanca, Maroc<br>
+    <strong>Téléphone :</strong> +212 728 31 28 01<br>
+    <strong>Email :</strong> contact@netvanguard.ma<br>
+    <strong>Directeur de la publication :</strong> Le Gérant de la société
+  </p>
+
+  <h2><i class="fas fa-shield-halved"></i> 2. Protection des données personnelles</h2>
+  <p>
+    Conformément à la <strong>loi marocaine n° 09-08</strong> relative à la protection des personnes physiques à l'égard du traitement des données à caractère personnel, et au <strong>Règlement Général sur la Protection des Données (RGPD)</strong> pour les résidents européens, NetVanguard IT Solutions s'engage à :
+  </p>
+  <ul>
+    <li>Collecter uniquement les données strictement nécessaires (nom, prénom, email, téléphone, CV)</li>
+    <li>Ne pas céder, vendre ou louer vos données à des tiers</li>
+    <li>Conserver vos données pour une durée maximale de 2 ans après le dernier contact</li>
+    <li>Vous permettre d'exercer vos droits d'accès, de rectification et de suppression en écrivant à <strong>contact@netvanguard.ma</strong></li>
+  </ul>
+  <p>Le responsable du traitement des données est joignable à l'adresse email ci-dessus.</p>
+
+  <h2><i class="fas fa-copyright"></i> 3. Propriété intellectuelle</h2>
+  <p>
+    L'ensemble du contenu du site netvanguard.ma (textes, images, logos, icônes, code source) est la propriété exclusive de NetVanguard IT Solutions SARL AU, sauf mention contraire. Toute reproduction, distribution, modification ou exploitation sans autorisation écrite préalable est interdite.
+  </p>
+  <p>
+    Les logos et marques de technologies mentionnés sur ce site (Fortinet, Cisco, Palo Alto, Wazuh, CrowdStrike, Kaspersky, VMware, Microsoft) sont la propriété de leurs éditeurs respectifs. Leur présence indique notre expertise sur ces technologies, et non un partenariat commercial.
+  </p>
+
+  <h2><i class="fas fa-cookie-bite"></i> 4. Cookies</h2>
+  <p>
+    Ce site utilise des cookies techniques strictement nécessaires à son fonctionnement (cookie de préférence de langue). Aucun cookie publicitaire ou de traçage n'est déposé sans votre consentement.
+  </p>
+
+  <h2><i class="fas fa-scale-balanced"></i> 5. Limitation de responsabilité</h2>
+  <p>
+    NetVanguard IT Solutions s'efforce de maintenir les informations de ce site à jour et exactes. Toutefois, nous ne pouvons garantir l'exactitude absolue de toutes les informations présentes. Les témoignages, études de cas et statistiques présents sur ce site reflètent des situations réelles et ne constituent pas une garantie de résultats identiques.
+  </p>
+
+  <h2><i class="fas fa-gavel"></i> 6. Loi applicable</h2>
+  <p>
+    Les présentes mentions légales sont soumises au <strong>droit marocain</strong>. En cas de litige, les tribunaux de Casablanca seront seuls compétents.
+  </p>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo" style="font-size:1.4rem;">
+        <svg class="logo-shield" viewBox="0 0 24 24" width="28" height="28">
+          <defs>
+            <linearGradient id="sgFooter" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1"/>
+              <stop offset="100%" style="stop-color:#FFB800;stop-opacity:1"/>
+            </linearGradient>
+          </defs>
+          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#sgFooter)"/>
+          <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#fff"/>
+        </svg>
+        <span style="color:white;margin-left:.5rem;">Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.82em;font-weight:400;color:rgba(255,255,255,0.45);">IT Solutions</span></span>
+      </a>
+      <p>Cybersécurité opérationnelle au Maroc. Infrastructure, Support IT, Sécurité Réseau, Pentest, Investigation.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="infogerance.html">Support IT & Infogérance</a></li>
+        <li><a href="securite-reseau.html">Sécurité Réseau</a></li>
+        <li><a href="vapt.html">Pentest / VAPT</a></li>
+        <li><a href="soc-consultation.html">SOC Consultation</a></li>
+        <li><a href="cybercrime.html">Cybercrime</a></li>
+        <li><a href="noc.html">NOC Managé</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Entreprise</h4>
+      <ul>
+        <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
+        <li><a href="carrieres.html">Carrières</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Légal</h4>
+      <ul>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="mentions-legales.html">Confidentialité</a></li>
+        <li><a href="mentions-legales.html">CGU</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 NetVanguard IT Solutions SARL AU · Casablanca</span>
+    <span>Excellence & Innovation</span>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  document.getElementById('menuToggle')?.addEventListener('click', () => {
+    const mobileNav = document.getElementById('mobileNav');
+    if (mobileNav) {
+      mobileNav.classList.toggle('active');
+      const icon = document.getElementById('menuToggle').querySelector('i');
+      icon.className = mobileNav.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+    }
+  });
+</script>
+</body>
+</html>
