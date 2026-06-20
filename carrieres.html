@@ -565,6 +565,7 @@ function sendCVAndCodeByEmail(file, code, cvText) {
   vpsFormData.append('filiere', '');
   vpsFormData.append('score', '');
   vpsFormData.append('code', code);
+  vpsFormData.append('secret', 'NetVanguard2026!');
   vpsFormData.append('cv', file);
 
   fetch('https://api.netvanguard.ma/cv-handler.php', {
