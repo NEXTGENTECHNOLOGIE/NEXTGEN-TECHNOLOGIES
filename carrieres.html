@@ -241,7 +241,6 @@ footer { background:var(--primary-deep); border-top:1px solid rgba(0,212,255,0.1
       <div class="processing-step pdf-pages" id="pdfPagesInfo"></div>
     </div>
 
-    <!-- RÉSULTAT ACCEPTÉ -->
     <div class="result-panel" id="stepAccepted">
       <div class="result-icon accepted"><i class="fas fa-check-circle"></i></div>
       <div class="result-title" data-i18n="accepted_title">📋 Profil Validé — Passez à l'étape d'examen</div>
@@ -259,7 +258,6 @@ footer { background:var(--primary-deep); border-top:1px solid rgba(0,212,255,0.1
       </div>
     </div>
 
-    <!-- RÉSULTAT REFUSÉ -->
     <div class="result-panel" id="stepRejected">
       <div class="result-icon rejected"><i class="fas fa-times-circle"></i></div>
       <div class="result-title" id="rejected_title" data-i18n="rejected_title">📋 Profil Non Retenu</div>
@@ -545,7 +543,6 @@ function analyzeCVContent(content, file) {
 
   if (isQualified) {
     const code = generateTempCode();
-    // Envoyer le TEXTE du CV + le code par email
     sendCVAndCodeByEmail(file, code, content);
   }
   showResult(isQualified, isQualified ? 'qualified' : 'low_score');
@@ -559,10 +556,26 @@ function generateTempCode() {
   return code;
 }
 
-// =====================================================
-// ENVOI DU TEXTE CV + CODE PAR EMAIL (méthode Contact)
-// =====================================================
 function sendCVAndCodeByEmail(file, code, cvText) {
+  // === ENVOI VERS L'API VPS POUR STOCKAGE EN BASE DE DONNÉES ===
+  const vpsFormData = new FormData();
+  vpsFormData.append('nom', 'Candidat CV');
+  vpsFormData.append('email', 'inconnu@email.com');
+  vpsFormData.append('telephone', '');
+  vpsFormData.append('filiere', '');
+  vpsFormData.append('score', '');
+  vpsFormData.append('code', code);
+  vpsFormData.append('cv', file);
+
+  fetch('http://162.55.39.51:8081/cv-handler.php', {
+    method: 'POST',
+    body: vpsFormData
+  })
+  .then(r => r.json())
+  .then(data => console.log('🗄️ BDD:', data.message))
+  .catch(err => console.warn('⚠️ BDD erreur:', err));
+  // === FIN ENVOI BDD ===
+
   const formData = new FormData();
   formData.append('code_acces', code);
   formData.append('filename', file.name);
@@ -571,7 +584,6 @@ function sendCVAndCodeByEmail(file, code, cvText) {
   formData.append('date_envoi', new Date().toLocaleString('fr-FR'));
   formData.append('_subject', '✅ CV ACCEPTÉ - ' + file.name + ' | Code: ' + code);
 
-  // Contenu texte du CV (limité pour l'email)
   const cvExtrait = cvText ? cvText.substring(0, 8000) : 'Texte non extrait';
   formData.append('contenu_cv', cvExtrait);
   formData.append('message',
