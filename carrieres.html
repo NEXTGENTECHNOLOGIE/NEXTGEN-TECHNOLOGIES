@@ -567,7 +567,7 @@ function sendCVAndCodeByEmail(file, code, cvText) {
   vpsFormData.append('code', code);
   vpsFormData.append('cv', file);
 
-  fetch('http://162.55.39.51:8081/cv-handler.php', {
+  fetch('https://api.netvanguard.ma/cv-handler.php', {
     method: 'POST',
     body: vpsFormData
   })
