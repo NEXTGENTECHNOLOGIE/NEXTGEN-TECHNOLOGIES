@@ -62,6 +62,12 @@
     .mobile-nav-overlay a { color: var(--white); font-size: 1.1rem; font-weight: 600; }
     .btn-espace-client-mobile { background: linear-gradient(135deg,#00D4FF,#0891B2); color:#050B14!important; font-weight:700; padding:0.5rem 1.2rem; border-radius:6px; text-align:center; display:inline-flex; align-items:center; justify-content:center; gap:0.5rem; margin-top:1rem; }
 
+    /* SPECIALITY INFO BANNER */
+    .speciality-info { background: linear-gradient(135deg, rgba(0,212,255,0.1), rgba(0,212,255,0.03)); border: 1px solid rgba(0,212,255,0.25); border-radius: 14px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+    .speciality-info i { font-size: 2rem; color: var(--accent); }
+    .speciality-info .si-text h4 { color: var(--accent); font-size: 0.95rem; margin-bottom: 0.2rem; }
+    .speciality-info .si-text p { color: var(--gray-light); font-size: 0.82rem; line-height: 1.4; }
+
     /* ANTI-CHEAT BANNER */
     .anti-cheat-banner { background: linear-gradient(135deg, rgba(239,68,68,0.1), rgba(239,68,68,0.05)); border: 1px solid rgba(239,68,68,0.25); border-radius: 14px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
     .anti-cheat-banner i { font-size: 2rem; color: var(--red); }
@@ -74,7 +80,7 @@
     .page-header-container { max-width: 1000px; margin: 0 auto; position: relative; z-index: 2; }
     .exam-badge { display: inline-block; padding: 0.5rem 1.4rem; background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.3); border-radius: 50px; color: var(--red); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.25em; margin-bottom: 1.5rem; }
     .page-header h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); line-height: 1.15; margin-bottom: 1rem; color: var(--white); }
-    .page-header h1 .accent { background: linear-gradient(90deg, #FFB800, #EF4444, #00D4FF, #FFB800); background-size: 300% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shine 6s linear infinite; }
+    .page-header h1 .accent { background: linear-gradient(90deg, #FFB800, #EF4444, #00D4FF, #FFB800); background-size: 300% auto; -webkit-background-clip: text; -webkit-fill-color: transparent; animation: shine 6s linear infinite; }
     @keyframes shine { to { background-position: 300% center; } }
 
     /* CONTAINER */
@@ -106,12 +112,19 @@
     /* SECTION CARDS */
     .section-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2rem; }
     .section-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 2rem; cursor: pointer; transition: var(--transition); text-align: center; position: relative; overflow: hidden; }
-    .section-card:hover { border-color: var(--accent); background: rgba(0,212,255,0.05); transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,212,255,0.1); }
+    .section-card:hover:not(.locked) { border-color: var(--accent); background: rgba(0,212,255,0.05); transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,212,255,0.1); }
     .section-card.selected { border-color: var(--accent) !important; background: rgba(0,212,255,0.08) !important; box-shadow: 0 0 30px rgba(0,212,255,0.2); }
+    .section-card.locked { opacity: 0.4; cursor: not-allowed; filter: grayscale(50%); border-color: rgba(255,255,255,0.05); }
+    .section-card.locked:hover { transform: none; box-shadow: none; }
     .section-card .card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
     .section-card h4 { color: var(--white); font-size: 1.1rem; margin-bottom: 0.5rem; }
     .section-card .card-meta { color: var(--gray-light); font-size: 0.82rem; }
-    .section-card .card-badge { position: absolute; top: 1rem; right: 1rem; background: var(--success); color: #000; font-size: 0.65rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 20px; text-transform: uppercase; }
+    .section-card .card-badge { position: absolute; top: 1rem; right: 1rem; font-size: 0.65rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 20px; text-transform: uppercase; }
+    .section-card .card-badge.available { background: var(--success); color: #000; }
+    .section-card .card-badge.locked-badge { background: rgba(239,68,68,0.3); color: var(--red); }
+    .section-card .card-lock-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 2rem; color: var(--red); opacity: 0; transition: opacity 0.3s ease; pointer-events: none; }
+    .section-card.locked .card-lock-icon { opacity: 1; }
+    .section-card.locked .card-icon, .section-card.locked h4, .section-card.locked .card-meta { filter: blur(1px); }
     .btn-start-exam { width: 100%; padding: 1rem; background: linear-gradient(135deg, var(--red), var(--red-dark)); color: var(--white); border: none; border-radius: 12px; font-weight: 700; font-size: 1.05rem; cursor: pointer; transition: var(--transition); font-family: inherit; display: flex; align-items: center; justify-content: center; gap: 0.6rem; margin-top: 1.5rem; }
     .btn-start-exam:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(239,68,68,0.3); }
     .btn-start-exam:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
@@ -277,6 +290,15 @@
 <section class="exam-section">
   <div class="exam-container">
 
+    <!-- SPECIALITY INFO BANNER (affiché après connexion) -->
+    <div class="speciality-info" id="specialityInfoBanner" style="display:none;">
+      <i class="fas fa-tag"></i>
+      <div class="si-text">
+        <h4>🎯 Spécialité détectée : <span id="detectedSpeciality">—</span></h4>
+        <p data-i18n="si_desc">Votre spécialité a été automatiquement détectée depuis votre candidature. Seul l'examen correspondant est déverrouillé.</p>
+      </div>
+    </div>
+
     <div class="anti-cheat-banner">
       <i class="fas fa-shield-halved"></i>
       <div class="ac-text">
@@ -309,10 +331,34 @@
       </div>
       <p style="color:var(--accent);font-weight:600;margin-top:1rem;" data-i18n="lbl_choose">🎯 Choisissez votre filière d'examen :</p>
       <div class="section-cards" id="sectionCards">
-        <div class="section-card" data-exam="support" onclick="selectExam('support')"><div class="card-icon">💻</div><h4 data-i18n="card1_title">Support Technique IT</h4><div class="card-meta" data-i18n="card1_desc">40 questions · 60 min</div><div class="card-badge" data-i18n="badge_available">Disponible</div></div>
-        <div class="section-card" data-exam="reseau" onclick="selectExam('reseau')"><div class="card-icon">🌐</div><h4 data-i18n="card2_title">Sécurité Réseau</h4><div class="card-meta" data-i18n="card2_desc">40 questions · 60 min</div><div class="card-badge" data-i18n="badge_available">Disponible</div></div>
-        <div class="section-card" data-exam="pentest" onclick="selectExam('pentest')"><div class="card-icon">🛡️</div><h4 data-i18n="card3_title">Pentest / VAPT</h4><div class="card-meta" data-i18n="card3_desc">40 questions · 60 min</div><div class="card-badge" data-i18n="badge_available">Disponible</div></div>
-        <div class="section-card" data-exam="admin" onclick="selectExam('admin')"><div class="card-icon">🖥️</div><h4 data-i18n="card4_title">Administrateur Systèmes</h4><div class="card-meta" data-i18n="card4_desc">40 questions · 60 min</div><div class="card-badge" data-i18n="badge_available">Disponible</div></div>
+        <div class="section-card" data-exam="support" onclick="selectExam('support')">
+          <div class="card-icon">💻</div>
+          <h4 data-i18n="card1_title">Support Technique IT</h4>
+          <div class="card-meta" data-i18n="card1_desc">40 questions · 60 min</div>
+          <div class="card-badge available" data-i18n="badge_available">Disponible</div>
+          <i class="fas fa-lock card-lock-icon"></i>
+        </div>
+        <div class="section-card" data-exam="reseau" onclick="selectExam('reseau')">
+          <div class="card-icon">🌐</div>
+          <h4 data-i18n="card2_title">Sécurité Réseau</h4>
+          <div class="card-meta" data-i18n="card2_desc">40 questions · 60 min</div>
+          <div class="card-badge available" data-i18n="badge_available">Disponible</div>
+          <i class="fas fa-lock card-lock-icon"></i>
+        </div>
+        <div class="section-card" data-exam="pentest" onclick="selectExam('pentest')">
+          <div class="card-icon">🛡️</div>
+          <h4 data-i18n="card3_title">Pentest / VAPT</h4>
+          <div class="card-meta" data-i18n="card3_desc">40 questions · 60 min</div>
+          <div class="card-badge available" data-i18n="badge_available">Disponible</div>
+          <i class="fas fa-lock card-lock-icon"></i>
+        </div>
+        <div class="section-card" data-exam="admin" onclick="selectExam('admin')">
+          <div class="card-icon">🖥️</div>
+          <h4 data-i18n="card4_title">Administrateur Systèmes</h4>
+          <div class="card-meta" data-i18n="card4_desc">40 questions · 60 min</div>
+          <div class="card-badge available" data-i18n="badge_available">Disponible</div>
+          <i class="fas fa-lock card-lock-icon"></i>
+        </div>
       </div>
       <button class="btn-start-exam" id="startExamBtn" onclick="startExam()" disabled><i class="fas fa-play-circle"></i> <span data-i18n="btn_start">Démarrer l'Examen</span></button>
     </div>
@@ -547,6 +593,19 @@ const adminQuestions = [
 ];
 
 // =====================================================
+// MAPPING SPÉCIALITÉ -> EXAMEN
+// =====================================================
+const specialityToExamMap = {
+  'Support Technique IT': 'support',
+  'Administrateur Systèmes': 'admin',
+  'Sécurité Réseau': 'reseau',
+  'Pentest / VAPT': 'pentest',
+  'SOC Analyst': 'reseau',        // SOC Analyst -> Sécurité Réseau
+  'GRC / Conformité': 'reseau',   // GRC -> Sécurité Réseau
+  'Forensic / Investigation': 'pentest' // Forensic -> Pentest
+};
+
+// =====================================================
 // DICTIONNAIRE DE TRADUCTION
 // =====================================================
 const translations = {
@@ -554,6 +613,7 @@ const translations = {
     badge_secure: "PLATEFORME D'ÉVALUATION TECHNIQUE", hero_title: "Centre d'Examen", hero_subtitle: "NetVanguard Recrutement",
     login_title: "Accès Sécurisé", login_desc: "Plateforme réservée aux examens de recrutement NetVanguard IT Solutions.",
     access_placeholder: "Code d'accès...", btn_access: "Accéder", login_error: "Code d'accès incorrect.",
+    si_desc: "Votre spécialité a été automatiquement détectée depuis votre candidature. Seul l'examen correspondant est déverrouillé.",
     ac_title: "🚨 Session contrôlée par ExamSecure ",
     ac_desc: "Cette plateforme est équipée d'un logiciel de surveillance avancé. Toute tentative de triche est détectée.",
     form_title: "Informations du Candidat", form_desc: "Veuillez remplir vos informations et choisir votre filière d'examen.",
@@ -564,7 +624,8 @@ const translations = {
     card2_title: "Sécurité Réseau", card2_desc: "40 questions · 60 min",
     card3_title: "Pentest / VAPT", card3_desc: "40 questions · 60 min",
     card4_title: "Administrateur Systèmes", card4_desc: "40 questions · 60 min",
-    badge_available: "Disponible", btn_start: "Démarrer l'Examen",
+    badge_available: "Disponible", badge_locked: "🔒 Verrouillé",
+    btn_start: "Démarrer l'Examen",
     lbl_question: "Question", lbl_time: "Temps Restant", lbl_answered: "Répondues",
     btn_prev: "Précédent", btn_next: "Suivant", btn_submit: "Terminer l'Examen",
     btn_quit: "Abandonner l'examen", btn_back_sections: "Retour aux sections",
@@ -574,12 +635,14 @@ const translations = {
     nav_home: "Accueil", nav_services: "Services", nav_sectors: "Secteurs", nav_about: "Qui sommes-nous",
     nav_careers: "Carrières", nav_campus: "🎓 Campus Cyber", nav_contact: "Contact", nav_client: "Espace Client",
     alert_fill: "Veuillez remplir tous les champs.", alert_choose: "Veuillez choisir une filière.",
-    confirm_quit: "Abandonner l'examen ?", confirm_back: "Retourner aux sections ?"
+    confirm_quit: "Abandonner l'examen ?", confirm_back: "Retourner aux sections ?",
+    locked_tooltip: "Cet examen est verrouillé. Votre spécialité ne correspond pas à cette filière."
   },
   en: {
     badge_secure: "TECHNICAL ASSESSMENT PLATFORM", hero_title: "Examination Center", hero_subtitle: "NetVanguard Recruitment",
     login_title: "Secure Access", login_desc: "Platform reserved for NetVanguard IT Solutions recruitment exams.",
     access_placeholder: "Access code...", btn_access: "Access", login_error: "Incorrect access code.",
+    si_desc: "Your specialty has been automatically detected from your application. Only the corresponding exam is unlocked.",
     ac_title: "🚨 Session monitored by ExamSecure",
     ac_desc: "This platform is equipped with advanced monitoring software. Any cheating attempt is detected.",
     form_title: "Candidate Information", form_desc: "Please fill in your information and choose your exam track.",
@@ -590,7 +653,8 @@ const translations = {
     card2_title: "Network Security", card2_desc: "40 questions · 60 min",
     card3_title: "Pentest / VAPT", card3_desc: "40 questions · 60 min",
     card4_title: "Systems Administrator", card4_desc: "40 questions · 60 min",
-    badge_available: "Available", btn_start: "Start Exam",
+    badge_available: "Available", badge_locked: "🔒 Locked",
+    btn_start: "Start Exam",
     lbl_question: "Question", lbl_time: "Time Remaining", lbl_answered: "Answered",
     btn_prev: "Previous", btn_next: "Next", btn_submit: "Submit Exam",
     btn_quit: "Quit Exam", btn_back_sections: "Back to Sections",
@@ -600,7 +664,8 @@ const translations = {
     nav_home: "Home", nav_services: "Services", nav_sectors: "Sectors", nav_about: "About Us",
     nav_careers: "Careers", nav_campus: "🎓 Cyber Campus", nav_contact: "Contact", nav_client: "Client Area",
     alert_fill: "Please fill in all fields.", alert_choose: "Please choose a track.",
-    confirm_quit: "Quit the exam?", confirm_back: "Return to sections?"
+    confirm_quit: "Quit the exam?", confirm_back: "Return to sections?",
+    locked_tooltip: "This exam is locked. Your specialty does not match this track."
   }
 };
 
@@ -609,6 +674,7 @@ const translations = {
 // =====================================================
 let selectedExam = null, currentQuestions = [], currentQuestionIndex = 0, userAnswers = [];
 let examStarted = false, examFinished = false, timerInterval, timeRemaining = 60 * 60, candidateInfo = {}, currentLang = 'fr';
+let unlockedExam = null; // L'examen déverrouillé par la spécialité
 
 // =====================================================
 // FONCTIONS DE TRADUCTION
@@ -617,18 +683,76 @@ function applyLanguage(lang) {
   currentLang = lang; const t = translations[lang]; if (!t) return;
   document.querySelectorAll('[data-i18n]').forEach(el => { const k = el.getAttribute('data-i18n'); if (t[k]) el.textContent = t[k]; });
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { const k = el.getAttribute('data-i18n-placeholder'); if (t[k]) el.placeholder = t[k]; });
-  const cards = document.querySelectorAll('.section-card');
-  if (cards.length >= 4) {
-    cards[0].querySelector('h4').textContent = t.card1_title; cards[0].querySelector('.card-meta').textContent = t.card1_desc;
-    cards[1].querySelector('h4').textContent = t.card2_title; cards[1].querySelector('.card-meta').textContent = t.card2_desc;
-    cards[2].querySelector('h4').textContent = t.card3_title; cards[2].querySelector('.card-meta').textContent = t.card3_desc;
-    cards[3].querySelector('h4').textContent = t.card4_title; cards[3].querySelector('.card-meta').textContent = t.card4_desc;
-  }
+  // Mise à jour des badges verrouillés
+  document.querySelectorAll('.section-card.locked .card-badge').forEach(badge => {
+    badge.textContent = t.badge_locked || '🔒 Verrouillé';
+  });
+  document.querySelectorAll('.section-card:not(.locked) .card-badge').forEach(badge => {
+    badge.textContent = t.badge_available || 'Disponible';
+  });
   document.querySelectorAll('.lang-btn').forEach(b => { b.classList.remove('active'); if (b.getAttribute('data-lang') === lang) b.classList.add('active'); });
 }
 document.querySelectorAll('.lang-btn').forEach(btn => { btn.addEventListener('click', () => { const l = btn.getAttribute('data-lang'); if (l) applyLanguage(l); }); });
 
 function t(key) { return translations[currentLang][key] || key; }
+
+// =====================================================
+// FONCTIONS DE VERROUILLAGE PAR SPÉCIALITÉ
+// =====================================================
+function getDetectedSpeciality() {
+  return localStorage.getItem('nv_selected_speciality') || null;
+}
+
+function getUnlockedExamFromSpeciality() {
+  const spec = getDetectedSpeciality();
+  if (spec && specialityToExamMap[spec]) {
+    return specialityToExamMap[spec];
+  }
+  return null;
+}
+
+function applyLocking() {
+  const allowedExam = getUnlockedExamFromSpeciality();
+  
+  document.querySelectorAll('.section-card').forEach(card => {
+    const examType = card.getAttribute('data-exam');
+    const badge = card.querySelector('.card-badge');
+    const lockIcon = card.querySelector('.card-lock-icon');
+    
+    if (allowedExam && examType !== allowedExam) {
+      // Verrouiller cette carte
+      card.classList.add('locked');
+      card.setAttribute('title', t('locked_tooltip'));
+      if (badge) {
+        badge.classList.remove('available');
+        badge.classList.add('locked-badge');
+        badge.textContent = t('badge_locked');
+      }
+      // Rendre non cliquable
+      card.style.pointerEvents = 'none';
+    } else {
+      // Déverrouiller cette carte (celle qui correspond ou tout si pas de spécialité)
+      card.classList.remove('locked');
+      card.removeAttribute('title');
+      if (badge) {
+        badge.classList.add('available');
+        badge.classList.remove('locked-badge');
+        badge.textContent = t('badge_available');
+      }
+      card.style.pointerEvents = 'auto';
+    }
+  });
+  
+  // Afficher le bandeau de spécialité si une spécialité est détectée
+  const specBanner = document.getElementById('specialityInfoBanner');
+  const detectedSpecEl = document.getElementById('detectedSpeciality');
+  if (specBanner && detectedSpecEl && allowedExam) {
+    specBanner.style.display = 'flex';
+    detectedSpecEl.textContent = getDetectedSpeciality();
+    // Pré-sélectionner automatiquement l'examen déverrouillé
+    selectExam(allowedExam);
+  }
+}
 
 // =====================================================
 // FONCTION CHECKACCESS MODIFIÉE (CODE TEMPORAIRE + FALLBACK)
@@ -648,7 +772,23 @@ function checkAccess() {
   // 2. Fallback : code permanent pour le responsable (encodé en base64)
   const PERMANENT_CODE = 'eW91c3NlZg=='; // base64 de 'youssef'
   if (code === atob(PERMANENT_CODE)) {
-    unlockExam();
+    // Code permanent : déverrouille tout (pas de restriction de spécialité)
+    unlockedExam = 'all';
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('candidateForm').classList.add('active');
+    document.getElementById('loginError').style.display = 'none';
+    document.getElementById('specialityInfoBanner').style.display = 'none';
+    // Déverrouiller toutes les cartes
+    document.querySelectorAll('.section-card').forEach(card => {
+      card.classList.remove('locked');
+      card.style.pointerEvents = 'auto';
+      const badge = card.querySelector('.card-badge');
+      if (badge) {
+        badge.classList.add('available');
+        badge.classList.remove('locked-badge');
+        badge.textContent = t('badge_available');
+      }
+    });
     return;
   }
   
@@ -660,19 +800,40 @@ function unlockExam() {
   document.getElementById('loginScreen').style.display = 'none';
   document.getElementById('candidateForm').classList.add('active');
   document.getElementById('loginError').style.display = 'none';
+  
+  // Appliquer le verrouillage par spécialité
+  applyLocking();
 }
 
 // Touche Entrée sur le code d'accès
 document.getElementById('accessCode').addEventListener('keypress', (e) => { if (e.key === 'Enter') checkAccess(); });
 
 // =====================================================
-// FONCTIONS EXAMEN (INTACTES)
+// FONCTIONS EXAMEN (MODIFIÉES POUR RESPECTER LE VERROUILLAGE)
 // =====================================================
-function selectExam(examType) { selectedExam = examType; document.querySelectorAll('.section-card').forEach(c => c.classList.remove('selected')); document.querySelector(`.section-card[data-exam="${examType}"]`).classList.add('selected'); document.getElementById('startExamBtn').disabled = false; }
+function selectExam(examType) {
+  const card = document.querySelector(`.section-card[data-exam="${examType}"]`);
+  
+  // Vérifier si la carte est verrouillée
+  if (card && card.classList.contains('locked')) {
+    // Animation de secousse
+    card.style.animation = 'none';
+    card.offsetHeight;
+    card.style.animation = 'shake 0.5s ease';
+    return;
+  }
+  
+  selectedExam = examType;
+  document.querySelectorAll('.section-card').forEach(c => c.classList.remove('selected'));
+  if (card) card.classList.add('selected');
+  document.getElementById('startExamBtn').disabled = false;
+}
+
 function startExam() {
   const ln = document.getElementById('candLastName').value.trim(), fn = document.getElementById('candFirstName').value.trim(), em = document.getElementById('candEmail').value.trim(), ph = document.getElementById('candPhone').value.trim();
   if (!ln || !fn || !em || !ph) { alert(t('alert_fill')); return; }
   if (!selectedExam) { alert(t('alert_choose')); return; }
+  
   candidateInfo = { lastName: ln, firstName: fn, email: em, phone: ph, examType: selectedExam };
   switch (selectedExam) { case 'support': currentQuestions = supportQuestions; break; case 'reseau': currentQuestions = reseauQuestions; break; case 'pentest': currentQuestions = pentestQuestions; break; case 'admin': currentQuestions = adminQuestions; break; default: currentQuestions = supportQuestions; }
   userAnswers = new Array(currentQuestions.length).fill(null); currentQuestionIndex = 0; examStarted = true; examFinished = false; timeRemaining = 60 * 60;
@@ -702,6 +863,11 @@ function reviewExam() { currentQuestionIndex = 0; document.getElementById('resul
 function resetExam() { clearInterval(timerInterval); examStarted = false; examFinished = false; selectedExam = null; currentQuestions = []; currentQuestionIndex = 0; userAnswers = []; timeRemaining = 60*60; document.getElementById('examInterface').classList.remove('active'); document.getElementById('resultsPanel').classList.remove('active'); document.getElementById('candidateForm').classList.add('active'); document.getElementById('startExamBtn').disabled = true; document.querySelectorAll('.section-card').forEach(c=>c.classList.remove('selected')); document.getElementById('timerDisplay').classList.remove('warning','danger'); }
 function quitExam() { if (confirm(t('confirm_quit'))) resetExam(); }
 function backToSections() { if (examStarted && !examFinished) { if (confirm(t('confirm_back'))) resetExam(); } else resetExam(); }
+
+// Animation shake pour cartes verrouillées
+const shakeStyle = document.createElement('style');
+shakeStyle.textContent = '@keyframes shake { 0%,100%{transform:translateX(0);} 25%{transform:translateX(-8px);} 50%{transform:translateX(8px);} 75%{transform:translateX(-4px);} }';
+document.head.appendChild(shakeStyle);
 
 // Mobile menu
 const menuToggle = document.getElementById('menuToggle'), mobileNav = document.getElementById('mobileNav');
