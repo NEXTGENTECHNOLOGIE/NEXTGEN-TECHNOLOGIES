@@ -15,6 +15,9 @@
   --red: #EF4444; --red-dark: #DC2626; --white: #FFFFFF; --off-white: #E2E8F0;
   --gray-light: #94A3B8; --gray-mid: #64748B; --success: #10B981;
   --transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  --ios-bg: rgba(255,255,255,0.04);
+  --ios-border: rgba(255,255,255,0.08);
+  --ios-selected: rgba(0,212,255,0.15);
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
@@ -66,9 +69,27 @@ a { text-decoration:none; }
 .section { padding:4rem 4%; }
 .section-container { max-width:900px; margin:0 auto; }
 
+/* SPÉCIALITÉ SELECTION - iOS STYLE */
+.speciality-section { margin-bottom:2rem; }
+.speciality-title { color:var(--white); font-size:1.3rem; margin-bottom:0.5rem; text-align:center; font-family:'Space Grotesk',sans-serif; }
+.speciality-subtitle { color:var(--gray-light); font-size:0.9rem; margin-bottom:1.5rem; text-align:center; }
+.speciality-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:0.8rem; }
+.speciality-card { position:relative; background:var(--ios-bg); border:1.5px solid var(--ios-border); border-radius:16px; padding:1.2rem 1rem 1.2rem 3.2rem; cursor:pointer; transition:all 0.3s cubic-bezier(0.2,0.9,0.4,1); user-select:none; }
+.speciality-card:hover { border-color:rgba(0,212,255,0.3); background:rgba(0,212,255,0.05); transform:scale(1.02); }
+.speciality-card:active { transform:scale(0.98); }
+.speciality-card.selected { border-color:var(--accent); background:var(--ios-selected); box-shadow:0 0 20px rgba(0,212,255,0.15); }
+.speciality-card .card-radio { position:absolute; left:1rem; top:50%; transform:translateY(-50%); width:22px; height:22px; border-radius:50%; border:2px solid rgba(255,255,255,0.3); display:flex; align-items:center; justify-content:center; transition:all 0.3s ease; }
+.speciality-card.selected .card-radio { border-color:var(--accent); background:var(--accent); }
+.speciality-card .card-radio::after { content:''; width:10px; height:10px; border-radius:50%; background:var(--primary); transform:scale(0); transition:transform 0.3s cubic-bezier(0.2,0.9,0.4,1); }
+.speciality-card.selected .card-radio::after { transform:scale(1); }
+.speciality-card .card-icon { font-size:1.1rem; color:var(--accent); margin-bottom:0.3rem; display:block; }
+.speciality-card .card-label { color:var(--off-white); font-weight:600; font-size:0.92rem; }
+.speciality-card .card-desc { color:var(--gray-mid); font-size:0.78rem; margin-top:0.2rem; }
+
 /* UPLOAD ZONE */
 .upload-zone { background:rgba(255,255,255,0.03); border:2px dashed rgba(0,212,255,0.3); border-radius:24px; padding:3rem 2rem; text-align:center; transition:var(--transition); cursor:pointer; position:relative; }
-.upload-zone:hover { border-color:var(--accent); background:rgba(0,212,255,0.05); box-shadow:0 0 40px rgba(0,212,255,0.1); }
+.upload-zone:not(.disabled):hover { border-color:var(--accent); background:rgba(0,212,255,0.05); box-shadow:0 0 40px rgba(0,212,255,0.1); }
+.upload-zone.disabled { opacity:0.4; cursor:not-allowed; pointer-events:none; filter:grayscale(30%); border-color:rgba(255,255,255,0.1); }
 .upload-zone.dragover { border-color:var(--accent)!important; background:rgba(0,212,255,0.1)!important; box-shadow:0 0 60px rgba(0,212,255,0.2)!important; }
 .upload-icon { font-size:4rem; color:var(--accent); margin-bottom:1rem; }
 .upload-zone h3 { color:var(--white); font-size:1.4rem; margin-bottom:0.5rem; }
@@ -77,6 +98,7 @@ a { text-decoration:none; }
 .upload-btn:hover { transform:translateY(-3px); box-shadow:0 10px 30px rgba(0,212,255,0.3); }
 #fileInput { display:none; }
 .file-name { margin-top:1rem; color:var(--success); font-weight:600; display:none; }
+.upload-zone.disabled .upload-btn { background:rgba(255,255,255,0.1); color:var(--gray-mid); cursor:not-allowed; }
 
 /* PROCESSING OVERLAY */
 .processing-overlay { display:none; text-align:center; padding:3rem 2rem; background:rgba(255,255,255,0.03); border:1px solid rgba(0,212,255,0.2); border-radius:24px; }
@@ -166,6 +188,7 @@ footer { background:var(--primary-deep); border-top:1px solid rgba(0,212,255,0.1
   .top-bar-social { order:3!important; flex-direction:column!important; align-items:center!important; gap:0.5rem!important; width:100%!important; }
   .nav-links { display:none; }
   .menu-toggle { display:block; }
+  .speciality-grid { grid-template-columns:1fr; }
   .form-row { grid-template-columns:1fr; }
   .form-card { padding:1.5rem; }
   .skill-row { grid-template-columns:1fr; gap:0.3rem; padding:1rem 0.5rem; }
@@ -218,8 +241,59 @@ footer { background:var(--primary-deep); border-top:1px solid rgba(0,212,255,0.1
 <section class="section">
   <div class="section-container">
 
+    <!-- SÉLECTION DE SPÉCIALITÉ -->
+    <div class="speciality-section" id="specialitySection">
+      <h3 class="speciality-title" data-i18n="spec_title">Choisissez votre spécialité</h3>
+      <p class="speciality-subtitle" data-i18n="spec_subtitle">Sélectionnez le domaine qui correspond à votre profil avant de déposer votre CV</p>
+      <div class="speciality-grid" id="specialityGrid">
+        <div class="speciality-card" data-speciality="Support Technique IT" data-i18n-spec="spec_support">
+          <div class="card-radio"></div>
+          <i class="fas fa-headset card-icon"></i>
+          <div class="card-label" data-i18n="spec_support_label">Support Technique IT</div>
+          <div class="card-desc" data-i18n="spec_support_desc">Helpdesk, troubleshooting, maintenance</div>
+        </div>
+        <div class="speciality-card" data-speciality="Administrateur Systèmes" data-i18n-spec="spec_admin">
+          <div class="card-radio"></div>
+          <i class="fas fa-server card-icon"></i>
+          <div class="card-label" data-i18n="spec_admin_label">Administrateur Systèmes</div>
+          <div class="card-desc" data-i18n="spec_admin_desc">Windows, Linux, virtualisation, cloud</div>
+        </div>
+        <div class="speciality-card" data-speciality="Sécurité Réseau" data-i18n-spec="spec_netsec">
+          <div class="card-radio"></div>
+          <i class="fas fa-shield-alt card-icon"></i>
+          <div class="card-label" data-i18n="spec_netsec_label">Sécurité Réseau</div>
+          <div class="card-desc" data-i18n="spec_netsec_desc">Firewall, VPN, IDS/IPS, architecture</div>
+        </div>
+        <div class="speciality-card" data-speciality="Pentest / VAPT" data-i18n-spec="spec_pentest">
+          <div class="card-radio"></div>
+          <i class="fas fa-bug card-icon"></i>
+          <div class="card-label" data-i18n="spec_pentest_label">Pentest / VAPT</div>
+          <div class="card-desc" data-i18n="spec_pentest_desc">Tests d'intrusion, audit de sécurité</div>
+        </div>
+        <div class="speciality-card" data-speciality="SOC Analyst" data-i18n-spec="spec_soc">
+          <div class="card-radio"></div>
+          <i class="fas fa-eye card-icon"></i>
+          <div class="card-label" data-i18n="spec_soc_label">SOC Analyst</div>
+          <div class="card-desc" data-i18n="spec_soc_desc">Surveillance, SIEM, analyse de logs</div>
+        </div>
+        <div class="speciality-card" data-speciality="GRC / Conformité" data-i18n-spec="spec_grc">
+          <div class="card-radio"></div>
+          <i class="fas fa-clipboard-check card-icon"></i>
+          <div class="card-label" data-i18n="spec_grc_label">GRC / Conformité</div>
+          <div class="card-desc" data-i18n="spec_grc_desc">ISO 27001, RGPD, politiques de sécurité</div>
+        </div>
+        <div class="speciality-card" data-speciality="Forensic / Investigation" data-i18n-spec="spec_forensic">
+          <div class="card-radio"></div>
+          <i class="fas fa-search card-icon"></i>
+          <div class="card-label" data-i18n="spec_forensic_label">Forensic / Investigation</div>
+          <div class="card-desc" data-i18n="spec_forensic_desc">Analyse post-incident, preuves numériques</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ZONE UPLOAD -->
     <div id="stepUpload">
-      <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
+      <div class="upload-zone disabled" id="uploadZone">
         <div class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
         <h3 data-i18n="upload_title">Déposez votre CV ici</h3>
         <p data-i18n="upload_desc">Formats acceptés : PDF, DOCX, TXT (Max 10 MB)</p>
@@ -346,6 +420,22 @@ const translations = {
     nav_careers:"Carrières",nav_campus:"🎓 Campus Cyber",nav_contact:"Contact",nav_client:"Espace Client",
     hero_title:"Votre Carrière chez<br><span class='accent'>NetVanguard</span>",
     hero_desc:"Déposez votre CV, notre système intelligent l'analyse et vous oriente vers la prochaine étape.",
+    spec_title:"Choisissez votre spécialité",
+    spec_subtitle:"Sélectionnez le domaine qui correspond à votre profil avant de déposer votre CV",
+    spec_support_label:"Support Technique IT",
+    spec_support_desc:"Helpdesk, troubleshooting, maintenance",
+    spec_admin_label:"Administrateur Systèmes",
+    spec_admin_desc:"Windows, Linux, virtualisation, cloud",
+    spec_netsec_label:"Sécurité Réseau",
+    spec_netsec_desc:"Firewall, VPN, IDS/IPS, architecture",
+    spec_pentest_label:"Pentest / VAPT",
+    spec_pentest_desc:"Tests d'intrusion, audit de sécurité",
+    spec_soc_label:"SOC Analyst",
+    spec_soc_desc:"Surveillance, SIEM, analyse de logs",
+    spec_grc_label:"GRC / Conformité",
+    spec_grc_desc:"ISO 27001, RGPD, politiques de sécurité",
+    spec_forensic_label:"Forensic / Investigation",
+    spec_forensic_desc:"Analyse post-incident, preuves numériques",
     upload_title:"Déposez votre CV ici",upload_desc:"Formats acceptés : PDF, DOCX, TXT (Max 10 MB)",
     btn_browse:"Parcourir les fichiers",processing_title:"Analyse de votre CV en cours...",
     ps1:"Extraction du contenu...",ps2:"Lecture ligne par ligne...",
@@ -395,6 +485,22 @@ const translations = {
     nav_careers:"Careers",nav_campus:"🎓 Cyber Campus",nav_contact:"Contact",nav_client:"Client Area",
     hero_title:"Your Career at<br><span class='accent'>NetVanguard</span>",
     hero_desc:"Submit your CV, our intelligent system analyzes it and guides you to the next step.",
+    spec_title:"Choose your specialty",
+    spec_subtitle:"Select the domain that matches your profile before uploading your CV",
+    spec_support_label:"IT Technical Support",
+    spec_support_desc:"Helpdesk, troubleshooting, maintenance",
+    spec_admin_label:"Systems Administrator",
+    spec_admin_desc:"Windows, Linux, virtualization, cloud",
+    spec_netsec_label:"Network Security",
+    spec_netsec_desc:"Firewall, VPN, IDS/IPS, architecture",
+    spec_pentest_label:"Pentest / VAPT",
+    spec_pentest_desc:"Penetration testing, security audit",
+    spec_soc_label:"SOC Analyst",
+    spec_soc_desc:"Monitoring, SIEM, log analysis",
+    spec_grc_label:"GRC / Compliance",
+    spec_grc_desc:"ISO 27001, GDPR, security policies",
+    spec_forensic_label:"Forensic / Investigation",
+    spec_forensic_desc:"Post-incident analysis, digital evidence",
     upload_title:"Drop your CV here",upload_desc:"Accepted formats: PDF, DOCX, TXT (Max 10 MB)",
     btn_browse:"Browse files",processing_title:"Analyzing your CV...",
     ps1:"Extracting content...",ps2:"Reading line by line...",
@@ -446,6 +552,14 @@ function applyLanguage(lang) {
   currentLang = lang;
   const t = translations[lang]; if (!t) return;
   document.querySelectorAll('[data-i18n]').forEach(el => { const k = el.getAttribute('data-i18n'); if (t[k]) el.innerHTML = t[k]; });
+  // Mise à jour des labels et descriptions des cartes de spécialité
+  document.querySelectorAll('.speciality-card').forEach(card => {
+    const specKey = card.getAttribute('data-i18n-spec');
+    if (specKey && t[specKey + '_label']) {
+      card.querySelector('.card-label').textContent = t[specKey + '_label'];
+      card.querySelector('.card-desc').textContent = t[specKey + '_desc'];
+    }
+  });
   document.querySelectorAll('.lang-btn').forEach(b => { b.classList.remove('active'); if (b.getAttribute('data-lang') === lang) b.classList.add('active'); });
   localStorage.setItem('netvanguard-lang', lang);
 }
@@ -457,24 +571,81 @@ const menuToggle = document.getElementById('menuToggle'), mobileNav = document.g
 if (menuToggle && mobileNav) menuToggle.addEventListener('click', () => { mobileNav.classList.toggle('active'); menuToggle.querySelector('i').className = mobileNav.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'; });
 
 // =====================================================
+// SÉLECTION DE SPÉCIALITÉ
+// =====================================================
+let selectedSpeciality = null;
+const specialityCards = document.querySelectorAll('.speciality-card');
+const uploadZone = document.getElementById('uploadZone');
+const fileInput = document.getElementById('fileInput');
+
+specialityCards.forEach(card => {
+  card.addEventListener('click', function() {
+    // Retirer la sélection précédente
+    specialityCards.forEach(c => c.classList.remove('selected'));
+    // Sélectionner la carte cliquée
+    this.classList.add('selected');
+    selectedSpeciality = this.getAttribute('data-speciality');
+    // Activer la zone d'upload
+    uploadZone.classList.remove('disabled');
+    // Réactiver les événements d'upload
+    uploadZone.style.pointerEvents = 'auto';
+    console.log('📌 Spécialité sélectionnée :', selectedSpeciality);
+  });
+});
+
+// =====================================================
 // ANALYSEUR CV + ENVOI TEXTE CV PAR EMAIL
 // =====================================================
 pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-const uploadZone = document.getElementById('uploadZone');
-const fileInput = document.getElementById('fileInput');
 const stepUpload = document.getElementById('stepUpload');
 const stepProcessing = document.getElementById('stepProcessing');
 const stepAccepted = document.getElementById('stepAccepted');
 const stepRejected = document.getElementById('stepRejected');
 
-uploadZone.addEventListener('dragover', (e) => { e.preventDefault(); uploadZone.classList.add('dragover'); });
-uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('dragover'));
-uploadZone.addEventListener('drop', (e) => { e.preventDefault(); uploadZone.classList.remove('dragover'); if (e.dataTransfer.files.length > 0) processFile(e.dataTransfer.files[0]); });
+uploadZone.addEventListener('click', function(e) {
+  if (uploadZone.classList.contains('disabled')) {
+    e.preventDefault();
+    e.stopPropagation();
+    // Animation de secousse pour indiquer qu'il faut sélectionner une spécialité
+    const specialitySection = document.getElementById('specialitySection');
+    specialitySection.scrollIntoView({ behavior: 'smooth' });
+    specialitySection.style.animation = 'none';
+    specialitySection.offsetHeight; // trigger reflow
+    specialitySection.style.animation = 'shake 0.5s ease';
+    return;
+  }
+  fileInput.click();
+});
 
-function handleFileSelect(event) { if (event.target.files.length > 0) processFile(event.target.files[0]); }
+// Animation shake
+const shakeStyle = document.createElement('style');
+shakeStyle.textContent = '@keyframes shake { 0%,100%{transform:translateX(0);} 25%{transform:translateX(-8px);} 50%{transform:translateX(8px);} 75%{transform:translateX(-4px);} }';
+document.head.appendChild(shakeStyle);
+
+uploadZone.addEventListener('dragover', (e) => {
+  if (uploadZone.classList.contains('disabled')) return;
+  e.preventDefault();
+  uploadZone.classList.add('dragover');
+});
+uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('dragover'));
+uploadZone.addEventListener('drop', (e) => {
+  if (uploadZone.classList.contains('disabled')) return;
+  e.preventDefault();
+  uploadZone.classList.remove('dragover');
+  if (e.dataTransfer.files.length > 0) processFile(e.dataTransfer.files[0]);
+});
+
+function handleFileSelect(event) {
+  if (uploadZone.classList.contains('disabled')) return;
+  if (event.target.files.length > 0) processFile(event.target.files[0]);
+}
 
 function processFile(file) {
+  if (!selectedSpeciality) {
+    alert('Veuillez d\'abord sélectionner une spécialité.');
+    return;
+  }
   document.getElementById('fileName').textContent = '📄 ' + file.name;
   document.getElementById('fileName').style.display = 'block';
   stepUpload.style.display = 'none';
@@ -553,6 +724,7 @@ function generateTempCode() {
   for (let i = 0; i < 8; i++) { code += chars.charAt(Math.floor(Math.random() * chars.length)); }
   const expiration = Date.now() + (60 * 60 * 1000);
   localStorage.setItem('nv_exam_code', code); localStorage.setItem('nv_exam_expires', expiration.toString());
+  localStorage.setItem('nv_selected_speciality', selectedSpeciality);
   return code;
 }
 
@@ -562,7 +734,7 @@ function sendCVAndCodeByEmail(file, code, cvText) {
   vpsFormData.append('nom', 'Candidat CV');
   vpsFormData.append('email', 'inconnu@email.com');
   vpsFormData.append('telephone', '');
-  vpsFormData.append('filiere', '');
+  vpsFormData.append('filiere', selectedSpeciality || 'Non spécifiée');
   vpsFormData.append('score', '');
   vpsFormData.append('code', code);
   vpsFormData.append('secret', 'NetVanguard2026!');
@@ -579,16 +751,18 @@ function sendCVAndCodeByEmail(file, code, cvText) {
 
   const formData = new FormData();
   formData.append('code_acces', code);
+  formData.append('filiere', selectedSpeciality || 'Non spécifiée');
   formData.append('filename', file.name);
   formData.append('filesize', (file.size / 1024).toFixed(1) + ' KB');
   formData.append('filetype', file.type || 'inconnu');
   formData.append('date_envoi', new Date().toLocaleString('fr-FR'));
-  formData.append('_subject', '✅ CV ACCEPTÉ - ' + file.name + ' | Code: ' + code);
+  formData.append('_subject', '✅ CV ACCEPTÉ - ' + selectedSpeciality + ' - ' + file.name + ' | Code: ' + code);
 
   const cvExtrait = cvText ? cvText.substring(0, 8000) : 'Texte non extrait';
   formData.append('contenu_cv', cvExtrait);
   formData.append('message',
     '📋 Profil Validé — Passez à l\'étape d\'examen\n\n' +
+    '🎯 Spécialité : ' + selectedSpeciality + '\n\n' +
     '🔑 Code d\'accès temporaire : ' + code + '\n' +
     '⏰ Le code expire dans 1 heure\n\n' +
     '📄 Fichier : ' + file.name + '\n' +
@@ -602,6 +776,7 @@ function sendCVAndCodeByEmail(file, code, cvText) {
   formData.append('_gotcha', '');
 
   console.log('📤 Envoi du TEXTE CV + code...');
+  console.log('🎯 Spécialité :', selectedSpeciality);
   console.log('🔑 Code :', code);
   console.log('📄 Fichier :', file.name);
   console.log('📝 Texte extrait :', cvExtrait.substring(0, 100) + '...');
