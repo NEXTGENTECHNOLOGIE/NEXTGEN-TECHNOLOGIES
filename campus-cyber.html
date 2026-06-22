@@ -65,7 +65,6 @@
     .speciality-info .si-text h4 { color: var(--accent); font-size: 0.95rem; margin-bottom: 0.2rem; }
     .speciality-info .si-text p { color: var(--gray-light); font-size: 0.82rem; line-height: 1.4; }
 
-    /* ACADEMIC INTEGRITY BANNER - Nouveau design professionnel */
     .integrity-banner { background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(0,212,255,0.02)); border: 1px solid rgba(0,212,255,0.2); border-radius: 16px; padding: 1.5rem 1.8rem; display: flex; align-items: flex-start; gap: 1.2rem; margin-bottom: 2rem; }
     .integrity-banner .ib-icon { font-size: 2.2rem; color: var(--accent); flex-shrink: 0; opacity: 0.9; }
     .integrity-banner .ib-content h4 { color: var(--white); font-size: 1rem; margin-bottom: 0.4rem; font-weight: 600; letter-spacing: -0.01em; }
@@ -73,6 +72,34 @@
     .integrity-banner .ib-content .ib-principles { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 0.6rem; }
     .integrity-banner .ib-content .ib-principles span { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--accent); font-weight: 500; }
     .integrity-banner .ib-content .ib-principles span i { font-size: 0.7rem; opacity: 0.8; }
+
+    /* MONITORING WIDGET */
+    .monitoring-widget { display: none; background: rgba(0,212,255,0.06); border: 1px solid rgba(0,212,255,0.15); border-radius: 14px; padding: 0.9rem 1.3rem; margin-bottom: 1.5rem; }
+    .monitoring-widget.active { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .monitoring-widget .mw-status { display: flex; align-items: center; gap: 0.6rem; }
+    .monitoring-widget .mw-status .mw-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--success); animation: pulse-dot 2s infinite; }
+    @keyframes pulse-dot { 0%,100% { opacity: 1; box-shadow: 0 0 6px var(--success); } 50% { opacity: 0.5; box-shadow: 0 0 2px var(--success); } }
+    .monitoring-widget .mw-status .mw-dot.warning-state { background: var(--gold); animation: pulse-dot-warn 0.8s infinite; }
+    @keyframes pulse-dot-warn { 0%,100% { opacity: 1; box-shadow: 0 0 10px var(--gold); } 50% { opacity: 0.3; } }
+    .monitoring-widget .mw-status .mw-dot.danger-state { background: var(--red); animation: pulse-dot-danger 0.4s infinite; }
+    @keyframes pulse-dot-danger { 0%,100% { opacity: 1; box-shadow: 0 0 14px var(--red); } 50% { opacity: 0.2; } }
+    .monitoring-widget .mw-status span { font-size: 0.82rem; color: var(--off-white); font-weight: 500; }
+    .monitoring-widget .mw-strikes { display: flex; gap: 0.5rem; align-items: center; }
+    .monitoring-widget .mw-strikes .strike-dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid rgba(239,68,68,0.4); transition: all 0.3s ease; }
+    .monitoring-widget .mw-strikes .strike-dot.active-strike { background: var(--red); border-color: var(--red); box-shadow: 0 0 10px rgba(239,68,68,0.5); }
+    .monitoring-widget .mw-strikes .strike-label { font-size: 0.7rem; color: var(--gray-light); text-transform: uppercase; letter-spacing: 0.1em; }
+
+    /* TOAST / WARNING OVERLAY */
+    .warning-toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 9999; background: rgba(239,68,68,0.95); color: #fff; padding: 1rem 2rem; border-radius: 12px; font-weight: 600; font-size: 0.95rem; box-shadow: 0 10px 40px rgba(239,68,68,0.4); animation: slideDown 0.4s ease; display: none; text-align: center; max-width: 90%; }
+    .warning-toast.show { display: block; }
+    @keyframes slideDown { from { transform: translateX(-50%) translateY(-100%); opacity: 0; } to { transform: translateX(-50%) translateY(0); opacity: 1; } }
+
+    /* EXAM CANCELLED OVERLAY */
+    .cancelled-overlay { position: fixed; inset: 0; z-index: 9998; background: rgba(5,11,20,0.97); display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; }
+    .cancelled-overlay.active { display: flex; }
+    .cancelled-overlay .co-icon { font-size: 5rem; color: var(--red); margin-bottom: 1.5rem; }
+    .cancelled-overlay h2 { color: var(--white); font-size: 1.8rem; margin-bottom: 1rem; }
+    .cancelled-overlay p { color: var(--gray-light); max-width: 500px; margin-bottom: 2rem; font-size: 1rem; line-height: 1.6; }
 
     .page-header { position: relative; padding: 4rem 4% 3rem; overflow: hidden; background: var(--primary-deep); text-align: center; }
     .page-header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 30%, rgba(0,212,255,0.12), transparent 50%); pointer-events: none; }
@@ -200,6 +227,7 @@
       .exam-nav .btn-nav { width: 100%; justify-content: center; }
       .integrity-banner { flex-direction: column; text-align: center; }
       .integrity-banner .ib-content .ib-principles { justify-content: center; }
+      .monitoring-widget.active { flex-direction: column; text-align: center; }
     }
     @media (max-width: 600px) { .section-cards { grid-template-columns: 1fr; } }
   </style>
@@ -284,7 +312,6 @@
       </div>
     </div>
 
-    <!-- NOUVELLE BANNIÈRE D'INTÉGRITÉ ACADÉMIQUE -->
     <div class="integrity-banner">
       <div class="ib-icon"><i class="fas fa-graduation-cap"></i></div>
       <div class="ib-content">
@@ -296,6 +323,30 @@
           <span><i class="fas fa-check-circle"></i> <span data-i18n="ib_p3">Dans le temps imparti</span></span>
         </div>
       </div>
+    </div>
+
+    <!-- MONITORING WIDGET -->
+    <div class="monitoring-widget" id="monitoringWidget">
+      <div class="mw-status">
+        <div class="mw-dot" id="mwDot"></div>
+        <span data-i18n="mw_active">Session surveillée</span>
+      </div>
+      <div class="mw-strikes">
+        <span class="strike-label" data-i18n="mw_strikes">Infractions</span>
+        <div class="strike-dot" id="strike1"></div>
+        <div class="strike-dot" id="strike2"></div>
+      </div>
+    </div>
+
+    <!-- WARNING TOAST -->
+    <div class="warning-toast" id="warningToast"></div>
+
+    <!-- CANCELLED OVERLAY -->
+    <div class="cancelled-overlay" id="cancelledOverlay">
+      <div class="co-icon"><i class="fas fa-times-octagon"></i></div>
+      <h2 data-i18n="cancelled_title">Examen Annulé</h2>
+      <p data-i18n="cancelled_desc">Notre système de surveillance a détecté des comportements non conformes au règlement de l'examen. Votre session a été automatiquement interrompue. Un rapport a été envoyé au responsable recrutement.</p>
+      <button class="btn-nav quit" onclick="location.reload()"><i class="fas fa-redo"></i> <span data-i18n="cancelled_btn">Retour à l'accueil</span></button>
     </div>
 
     <div class="login-screen" id="loginScreen">
@@ -607,6 +658,14 @@ const translations = {
     ib_title: "Engagement d'Intégrité Académique",
     ib_desc: "Cet examen s'inscrit dans le cadre du processus de recrutement de NetVanguard IT Solutions. Nous attendons de chaque candidat qu'il réponde avec honnêteté et transparence, dans le respect des standards éthiques qui définissent notre profession.",
     ib_p1: "Travail individuel", ib_p2: "Sans assistance externe", ib_p3: "Dans le temps imparti",
+    mw_active: "Session surveillée", mw_strikes: "Infractions",
+    cancelled_title: "Examen Annulé",
+    cancelled_desc: "Notre système de surveillance a détecté des comportements non conformes au règlement de l'examen. Votre session a été automatiquement interrompue. Un rapport détaillé a été envoyé au responsable recrutement.",
+    cancelled_btn: "Retour à l'accueil",
+    warning_tab_change: "⚠️ Changement d'onglet détecté ! Restez sur cette page. Infraction ",
+    warning_focus_lost: "⚠️ Perte de focus détectée ! Restez concentré sur l'examen. Infraction ",
+    warning_copy: "⚠️ Tentative de copie détectée ! Infraction ",
+    warning_inactive: "⚠️ Inactivité prolongée détectée ! Infraction ",
     form_title: "Informations du Candidat", form_desc: "Veuillez remplir vos informations et choisir votre filière d'examen.",
     lbl_lastname: "Nom *", lbl_firstname: "Prénom *", lbl_email: "Email *", lbl_phone: "Téléphone *",
     ph_lastname: "Votre nom", ph_firstname: "Votre prénom", ph_email: "votre@email.com", ph_phone: "+212...",
@@ -637,6 +696,14 @@ const translations = {
     ib_title: "Academic Integrity Commitment",
     ib_desc: "This examination is part of the NetVanguard IT Solutions recruitment process. We expect each candidate to respond with honesty and transparency, in accordance with the ethical standards that define our profession.",
     ib_p1: "Individual work", ib_p2: "No external assistance", ib_p3: "Within the time limit",
+    mw_active: "Monitored session", mw_strikes: "Strikes",
+    cancelled_title: "Exam Cancelled",
+    cancelled_desc: "Our monitoring system has detected behavior that does not comply with the exam regulations. Your session has been automatically terminated. A detailed report has been sent to the recruitment manager.",
+    cancelled_btn: "Return to Home",
+    warning_tab_change: "⚠️ Tab change detected! Stay on this page. Strike ",
+    warning_focus_lost: "⚠️ Focus lost detected! Stay focused on the exam. Strike ",
+    warning_copy: "⚠️ Copy attempt detected! Strike ",
+    warning_inactive: "⚠️ Prolonged inactivity detected! Strike ",
     form_title: "Candidate Information", form_desc: "Please fill in your information and choose your exam track.",
     lbl_lastname: "Last Name *", lbl_firstname: "First Name *", lbl_email: "Email *", lbl_phone: "Phone *",
     ph_lastname: "Your last name", ph_firstname: "Your first name", ph_email: "your@email.com", ph_phone: "+212...",
@@ -666,6 +733,8 @@ const translations = {
 // =====================================================
 let selectedExam = null, currentQuestions = [], currentQuestionIndex = 0, userAnswers = [];
 let examStarted = false, examFinished = false, timerInterval, timeRemaining = 60 * 60, candidateInfo = {}, currentLang = 'fr';
+let securityStrikes = 0, monitoringLog = [], inactiveTimer = null, lastActivity = Date.now();
+const MAX_STRIKES = 2;
 
 // =====================================================
 // FONCTIONS DE TRADUCTION
@@ -677,13 +746,163 @@ function applyLanguage(lang) {
   document.querySelectorAll('.section-card.locked .card-badge').forEach(badge => { badge.textContent = t.badge_locked || '🔒 Verrouillé'; });
   document.querySelectorAll('.section-card:not(.locked) .card-badge').forEach(badge => { badge.textContent = t.badge_available || 'Disponible'; });
   document.querySelectorAll('.lang-btn').forEach(b => { b.classList.remove('active'); if (b.getAttribute('data-lang') === lang) b.classList.add('active'); });
-  // Re-render la question courante si l'examen est en cours
   if (examStarted && currentQuestions.length > 0) renderQuestion();
 }
 document.querySelectorAll('.lang-btn').forEach(btn => { btn.addEventListener('click', () => { const l = btn.getAttribute('data-lang'); if (l) applyLanguage(l); }); });
 
 function t(key) { return translations[currentLang][key] || key; }
 
+// =====================================================
+// SYSTÈME DE SURVEILLANCE
+// =====================================================
+function addSecurityStrike(reason) {
+  if (examFinished || !examStarted) return;
+  securityStrikes++;
+  monitoringLog.push({ time: new Date().toISOString(), reason: reason, strike: securityStrikes });
+  
+  // Mise à jour des points visuels
+  document.getElementById('strike1').classList.add('active-strike');
+  if (securityStrikes >= 2) document.getElementById('strike2').classList.add('active-strike');
+  
+  // Mise à jour du point de statut
+  const dot = document.getElementById('mwDot');
+  dot.classList.remove('warning-state', 'danger-state');
+  if (securityStrikes >= 2) dot.classList.add('danger-state');
+  else if (securityStrikes >= 1) dot.classList.add('warning-state');
+  
+  // Afficher le toast
+  showWarningToast(reason);
+  
+  // Vérifier si annulation
+  if (securityStrikes >= MAX_STRIKES) {
+    cancelExam(reason);
+  }
+}
+
+function showWarningToast(reason) {
+  const toast = document.getElementById('warningToast');
+  const strikeLabel = `${securityStrikes}/${MAX_STRIKES}`;
+  let msg = '';
+  switch(reason) {
+    case 'tab_change': msg = t('warning_tab_change') + strikeLabel; break;
+    case 'focus_lost': msg = t('warning_focus_lost') + strikeLabel; break;
+    case 'copy_attempt': msg = t('warning_copy') + strikeLabel; break;
+    case 'inactive': msg = t('warning_inactive') + strikeLabel; break;
+    default: msg = '⚠️ ' + reason + ' ' + strikeLabel;
+  }
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 4000);
+}
+
+function cancelExam(reason) {
+  clearInterval(timerInterval);
+  clearInterval(inactiveTimer);
+  examFinished = true;
+  monitoringLog.push({ time: new Date().toISOString(), reason: 'EXAM_CANCELLED', final_reason: reason });
+  
+  document.getElementById('examInterface').classList.remove('active');
+  document.getElementById('cancelledOverlay').classList.add('active');
+  
+  // Envoyer rapport d'annulation par email
+  sendCancellationReport(reason);
+}
+
+function sendCancellationReport(reason) {
+  const fd = new FormData();
+  fd.append('candidat_nom', candidateInfo.lastName || 'Inconnu');
+  fd.append('candidat_prenom', candidateInfo.firstName || 'Inconnu');
+  fd.append('candidat_email', candidateInfo.email || 'Inconnu');
+  fd.append('filiere', getExamName());
+  fd.append('score', 'EXAMEN ANNULÉ - TRICHE');
+  fd.append('infractions', securityStrikes);
+  fd.append('raison', reason);
+  fd.append('log_surveillance', JSON.stringify(monitoringLog));
+  fd.append('date_examen', new Date().toLocaleString('fr-FR'));
+  fd.append('_subject', '🚨 EXAMEN ANNULÉ - ' + getExamName() + ' - ' + (candidateInfo.firstName || '') + ' ' + (candidateInfo.lastName || ''));
+  fd.append('message', 'EXAMEN ANNULÉ POUR SUSPICION DE TRICHE\n\n' +
+    'Candidat : ' + (candidateInfo.firstName || '') + ' ' + (candidateInfo.lastName || '') + '\n' +
+    'Email : ' + (candidateInfo.email || '') + '\n' +
+    'Filière : ' + getExamName() + '\n' +
+    'Infractions : ' + securityStrikes + '/' + MAX_STRIKES + '\n' +
+    'Raison finale : ' + reason + '\n\n' +
+    'Journal de surveillance :\n' + JSON.stringify(monitoringLog, null, 2));
+  fd.append('_gotcha', '');
+  
+  fetch('https://formspree.io/f/myklqdky', { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } })
+    .then(r => console.log('📤 Rapport annulation envoyé'))
+    .catch(err => console.warn('⚠️ Erreur envoi rapport annulation:', err));
+}
+
+function startMonitoring() {
+  // Détection changement d'onglet
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && examStarted && !examFinished) {
+      addSecurityStrike('tab_change');
+    }
+  });
+  
+  // Détection perte de focus (double écran)
+  window.addEventListener('blur', () => {
+    if (examStarted && !examFinished) {
+      addSecurityStrike('focus_lost');
+    }
+  });
+  
+  // Anti copier/coller
+  document.addEventListener('copy', (e) => {
+    if (examStarted && !examFinished) {
+      e.preventDefault();
+      addSecurityStrike('copy_attempt');
+    }
+  });
+  document.addEventListener('cut', (e) => {
+    if (examStarted && !examFinished) {
+      e.preventDefault();
+      addSecurityStrike('copy_attempt');
+    }
+  });
+  document.addEventListener('paste', (e) => {
+    if (examStarted && !examFinished) {
+      e.preventDefault();
+      addSecurityStrike('copy_attempt');
+    }
+  });
+  
+  // Anti clic droit
+  document.addEventListener('contextmenu', (e) => {
+    if (examStarted && !examFinished) {
+      e.preventDefault();
+    }
+  });
+  
+  // Anti raccourcis clavier suspects
+  document.addEventListener('keydown', (e) => {
+    if (!examStarted || examFinished) return;
+    if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'v' || e.key === 'u' || e.key === 'p' || e.key === 's')) {
+      e.preventDefault();
+      addSecurityStrike('copy_attempt');
+    }
+  });
+  
+  // Détection inactivité (double écran)
+  ['mousemove', 'keydown', 'click', 'scroll', 'touchstart'].forEach(event => {
+    document.addEventListener(event, () => { lastActivity = Date.now(); });
+  });
+  
+  inactiveTimer = setInterval(() => {
+    if (!examStarted || examFinished) return;
+    const inactiveTime = (Date.now() - lastActivity) / 1000;
+    if (inactiveTime > 45) {
+      addSecurityStrike('inactive');
+      lastActivity = Date.now(); // Réinitialiser pour éviter les strikes en rafale
+    }
+  }, 10000);
+}
+
+// =====================================================
+// FONCTIONS EXAMEN
+// =====================================================
 function getDetectedSpeciality() { return localStorage.getItem('nv_selected_speciality') || null; }
 function getUnlockedExamFromSpeciality() { const spec = getDetectedSpeciality(); return spec && specialityToExamMap[spec] ? specialityToExamMap[spec] : null; }
 
@@ -760,30 +979,31 @@ function startExam() {
   if (!selectedExam) { alert(t('alert_choose')); return; }
   candidateInfo = { lastName: ln, firstName: fn, email: em, phone: ph, examType: selectedExam };
   switch (selectedExam) { case 'support': currentQuestions = supportQuestions; break; case 'reseau': currentQuestions = reseauQuestions; break; case 'pentest': currentQuestions = pentestQuestions; break; case 'admin': currentQuestions = adminQuestions; break; default: currentQuestions = supportQuestions; }
-  userAnswers = new Array(currentQuestions.length).fill(null); currentQuestionIndex = 0; examStarted = true; examFinished = false; timeRemaining = 60 * 60;
+  userAnswers = new Array(currentQuestions.length).fill(null); currentQuestionIndex = 0; examStarted = true; examFinished = false; timeRemaining = 60 * 60; securityStrikes = 0; monitoringLog = [];
   document.getElementById('candidateForm').classList.remove('active'); document.getElementById('examInterface').classList.add('active'); document.getElementById('resultsPanel').classList.remove('active');
+  document.getElementById('monitoringWidget').classList.add('active');
+  document.getElementById('strike1').classList.remove('active-strike');
+  document.getElementById('strike2').classList.remove('active-strike');
+  document.getElementById('mwDot').classList.remove('warning-state', 'danger-state');
+  startMonitoring();
   renderQuestion(); startTimer(); updateNavButtons();
+  lastActivity = Date.now();
 }
 
-function getCurrentQuestionText(q) {
-  return currentLang === 'en' ? q.q_en : q.q_fr;
-}
-function getCurrentOptions(q) {
-  return currentLang === 'en' ? q.options_en : q.options_fr;
-}
+function getCurrentQuestionText(q) { return currentLang === 'en' ? q.q_en : q.q_fr; }
+function getCurrentOptions(q) { return currentLang === 'en' ? q.options_en : q.options_fr; }
 
 function renderQuestion() {
   const q = currentQuestions[currentQuestionIndex], sa = userAnswers[currentQuestionIndex];
-  const qText = getCurrentQuestionText(q);
-  const qOptions = getCurrentOptions(q);
+  const qText = getCurrentQuestionText(q), qOptions = getCurrentOptions(q);
   let opts = ''; qOptions.forEach((o, i) => { let cls = 'option-btn'; if (examFinished) { if (i === q.correct) cls += ' correct-show'; if (sa === i && sa !== q.correct) cls += ' wrong-show'; } else if (sa === i) cls += ' selected'; opts += `<button class="${cls}" ${examFinished ? 'disabled' : ''} onclick="selectAnswer(${i})">${String.fromCharCode(65+i)}. ${o}</button>`; });
   let cc = 'question-card'; if (examFinished) cc += sa === q.correct ? ' correct-card' : ' wrong-card'; else if (sa !== null) cc += ' answered';
   document.getElementById('questionContainer').innerHTML = `<div class="${cc}"><div class="question-number">QUESTION ${currentQuestionIndex+1} / ${currentQuestions.length} — ${q.cat||''}</div><div class="question-text">${qText}</div><div class="options-grid">${opts}</div></div>`;
   updateQuestionDisplay(); updateProgress();
 }
-function selectAnswer(i) { if (examFinished) return; userAnswers[currentQuestionIndex] = i; renderQuestion(); updateNavButtons(); }
-function nextQuestion() { if (currentQuestionIndex < currentQuestions.length-1) { currentQuestionIndex++; renderQuestion(); updateNavButtons(); } }
-function prevQuestion() { if (currentQuestionIndex > 0) { currentQuestionIndex--; renderQuestion(); updateNavButtons(); } }
+function selectAnswer(i) { if (examFinished) return; userAnswers[currentQuestionIndex] = i; lastActivity = Date.now(); renderQuestion(); updateNavButtons(); }
+function nextQuestion() { if (currentQuestionIndex < currentQuestions.length-1) { currentQuestionIndex++; lastActivity = Date.now(); renderQuestion(); updateNavButtons(); } }
+function prevQuestion() { if (currentQuestionIndex > 0) { currentQuestionIndex--; lastActivity = Date.now(); renderQuestion(); updateNavButtons(); } }
 function updateNavButtons() { document.getElementById('prevBtn').disabled = currentQuestionIndex === 0; if (currentQuestionIndex === currentQuestions.length-1) { document.getElementById('nextBtn').style.display = 'none'; document.getElementById('submitBtn').classList.add('show'); } else { document.getElementById('nextBtn').style.display = 'flex'; document.getElementById('submitBtn').classList.remove('show'); } }
 function updateQuestionDisplay() { document.getElementById('currentQDisplay').textContent = `${currentQuestionIndex+1} / ${currentQuestions.length}`; document.getElementById('answeredCount').textContent = `${userAnswers.filter(a=>a!==null).length} / ${currentQuestions.length}`; }
 function updateProgress() { document.getElementById('examProgress').style.width = `${Math.round((userAnswers.filter(a=>a!==null).length/currentQuestions.length)*100)}%`; }
@@ -791,11 +1011,11 @@ function startTimer() { updateTimerDisplay(); clearInterval(timerInterval); time
 function updateTimerDisplay() { const m = Math.floor(timeRemaining/60), s = timeRemaining%60; const d = document.getElementById('timerDisplay'); d.textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`; d.classList.remove('warning','danger'); if (timeRemaining < 180) d.classList.add('danger'); else if (timeRemaining < 360) d.classList.add('warning'); }
 function calculateScore() { let c = 0; for (let i=0; i<currentQuestions.length; i++) { if (userAnswers[i] === currentQuestions[i].correct) c++; } return c; }
 function getExamName() { switch(selectedExam) { case 'support': return t('card1_title'); case 'reseau': return t('card2_title'); case 'pentest': return t('card3_title'); case 'admin': return t('card4_title'); default: return ''; } }
-function submitExam() { if (examFinished) return; clearInterval(timerInterval); examFinished = true; const score = calculateScore(); document.getElementById('examInterface').classList.remove('active'); document.getElementById('resultsPanel').classList.add('active'); const sc = document.getElementById('scoreCircle'); sc.textContent = `${score}/${currentQuestions.length}`; let cc='', msg=''; if (score>=34) { cc='excellent'; msg=t('msg_excellent'); } else if (score>=28) { cc='good'; msg=t('msg_good'); } else if (score>=20) { cc='average'; msg=t('msg_average'); } else { cc='poor'; msg=t('msg_poor'); } sc.className = `results-score-circle ${cc}`; document.getElementById('resultsMsg').textContent = msg; document.getElementById('resultsDetail').textContent = `${score} bonnes réponses sur ${currentQuestions.length}. Filière: ${getExamName()}.`; sendResultsByEmail(score); }
-function sendResultsByEmail(score) { const sd = document.getElementById('emailStatus'); sd.innerHTML = '<i class="fas fa-spinner fa-spin"></i> '+t('email_sending'); const fd = new FormData(); fd.append('candidat_nom',candidateInfo.lastName); fd.append('candidat_prenom',candidateInfo.firstName); fd.append('candidat_email',candidateInfo.email); fd.append('candidat_telephone',candidateInfo.phone); fd.append('filiere',getExamName()); fd.append('score',`${score}/${currentQuestions.length}`); fd.append('date_examen',new Date().toLocaleString('fr-FR')); fd.append('_subject',`Résultat ${getExamName()} - ${candidateInfo.firstName} ${candidateInfo.lastName} - ${score}/${currentQuestions.length}`); fetch('https://formspree.io/f/myklqdky',{method:'POST',body:fd,headers:{'Accept':'application/json'}}).then(r=>{if(r.ok){sd.className='results-email-status sent';sd.innerHTML=t('email_sent');}else{sd.className='results-email-status error';sd.innerHTML=t('email_error');}}).catch(()=>{sd.className='results-email-status error';sd.innerHTML=t('email_network');}); }
+function submitExam() { if (examFinished) return; clearInterval(timerInterval); clearInterval(inactiveTimer); examFinished = true; const score = calculateScore(); document.getElementById('examInterface').classList.remove('active'); document.getElementById('resultsPanel').classList.add('active'); const sc = document.getElementById('scoreCircle'); sc.textContent = `${score}/${currentQuestions.length}`; let cc='', msg=''; if (score>=34) { cc='excellent'; msg=t('msg_excellent'); } else if (score>=28) { cc='good'; msg=t('msg_good'); } else if (score>=20) { cc='average'; msg=t('msg_average'); } else { cc='poor'; msg=t('msg_poor'); } sc.className = `results-score-circle ${cc}`; document.getElementById('resultsMsg').textContent = msg; document.getElementById('resultsDetail').textContent = `${score} bonnes réponses sur ${currentQuestions.length}. Filière: ${getExamName()}.`; sendResultsByEmail(score); }
+function sendResultsByEmail(score) { const sd = document.getElementById('emailStatus'); sd.innerHTML = '<i class="fas fa-spinner fa-spin"></i> '+t('email_sending'); const fd = new FormData(); fd.append('candidat_nom',candidateInfo.lastName); fd.append('candidat_prenom',candidateInfo.firstName); fd.append('candidat_email',candidateInfo.email); fd.append('candidat_telephone',candidateInfo.phone); fd.append('filiere',getExamName()); fd.append('score',`${score}/${currentQuestions.length}`); fd.append('infractions', securityStrikes); fd.append('log_surveillance', JSON.stringify(monitoringLog)); fd.append('date_examen',new Date().toLocaleString('fr-FR')); fd.append('_subject',`Résultat ${getExamName()} - ${candidateInfo.firstName} ${candidateInfo.lastName} - ${score}/${currentQuestions.length}`); fetch('https://formspree.io/f/myklqdky',{method:'POST',body:fd,headers:{'Accept':'application/json'}}).then(r=>{if(r.ok){sd.className='results-email-status sent';sd.innerHTML=t('email_sent');}else{sd.className='results-email-status error';sd.innerHTML=t('email_error');}}).catch(()=>{sd.className='results-email-status error';sd.innerHTML=t('email_network');}); }
 function reviewExam() { currentQuestionIndex = 0; document.getElementById('resultsPanel').classList.remove('active'); document.getElementById('examInterface').classList.add('active'); document.getElementById('submitBtn').style.display = 'none'; document.getElementById('nextBtn').style.display = 'flex'; renderQuestion(); updateNavButtons(); }
-function resetExam() { clearInterval(timerInterval); examStarted = false; examFinished = false; selectedExam = null; currentQuestions = []; currentQuestionIndex = 0; userAnswers = []; timeRemaining = 60*60; document.getElementById('examInterface').classList.remove('active'); document.getElementById('resultsPanel').classList.remove('active'); document.getElementById('candidateForm').classList.add('active'); document.getElementById('startExamBtn').disabled = true; document.querySelectorAll('.section-card').forEach(c=>c.classList.remove('selected')); document.getElementById('timerDisplay').classList.remove('warning','danger'); }
-function quitExam() { if (confirm(t('confirm_quit'))) resetExam(); }
+function resetExam() { clearInterval(timerInterval); clearInterval(inactiveTimer); examStarted = false; examFinished = false; selectedExam = null; currentQuestions = []; currentQuestionIndex = 0; userAnswers = []; timeRemaining = 60*60; securityStrikes = 0; monitoringLog = []; document.getElementById('examInterface').classList.remove('active'); document.getElementById('resultsPanel').classList.remove('active'); document.getElementById('cancelledOverlay').classList.remove('active'); document.getElementById('candidateForm').classList.add('active'); document.getElementById('startExamBtn').disabled = true; document.getElementById('monitoringWidget').classList.remove('active'); document.querySelectorAll('.section-card').forEach(c=>c.classList.remove('selected')); document.getElementById('timerDisplay').classList.remove('warning','danger'); }
+function quitExam() { if (confirm(t('confirm_quit'))) { clearInterval(timerInterval); clearInterval(inactiveTimer); examFinished = true; document.getElementById('examInterface').classList.remove('active'); document.getElementById('cancelledOverlay').classList.add('active'); monitoringLog.push({ time: new Date().toISOString(), reason: 'Candidat a abandonné' }); sendCancellationReport('Abandon volontaire'); } }
 function backToSections() { if (examStarted && !examFinished) { if (confirm(t('confirm_back'))) resetExam(); } else resetExam(); }
 
 const shakeStyle = document.createElement('style');
