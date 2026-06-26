@@ -938,7 +938,7 @@ function checkAccess() {
   const storedCode = localStorage.getItem('nv_exam_code');
   const expiration = localStorage.getItem('nv_exam_expires');
   if (storedCode && expiration && Date.now() < parseInt(expiration) && code === storedCode) { unlockExam(); return; }
-  const PERMANENT_CODE = 'eW91c3NlZg==';
+  const PERMANENT_CODE = 'YWRtaW4xMjM=';
   if (code === atob(PERMANENT_CODE)) {
     document.getElementById('loginScreen').style.display = 'none';
     document.getElementById('candidateForm').classList.add('active');
