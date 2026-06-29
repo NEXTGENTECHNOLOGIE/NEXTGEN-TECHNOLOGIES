@@ -175,21 +175,6 @@ a { text-decoration: none; }
   margin-top: 1rem;
 }
 
-.dropdown-menu {
-  position: absolute; top: 100%; left: 0; background: rgba(7, 20, 38, 0.98);
-  min-width: 280px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-  border-radius: 12px; padding: 0.6rem; list-style: none;
-  opacity: 0; visibility: hidden; transform: translateY(10px);
-  transition: var(--transition); border-top: 3px solid var(--accent);
-  backdrop-filter: blur(20px);
-}
-.nav-links > li:hover > .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
-.dropdown-menu li a {
-  display: block; padding: 0.7rem 1rem; color: var(--gray-light);
-  font-size: 0.88rem; border-radius: 8px; transition: var(--transition);
-}
-.dropdown-menu li a:hover { background: rgba(0, 212, 255, 0.1); color: var(--accent); padding-left: 1.4rem; }
-
 .menu-toggle {
   display: none; background: none; border: none; color: var(--white);
   font-size: 1.5rem; cursor: pointer; z-index: 10001;
@@ -214,7 +199,10 @@ a { text-decoration: none; }
 }
 .hero-slide-bg {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -228,7 +216,10 @@ a { text-decoration: none; }
 .hero-slide-bg::after {
   content: '';
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(180deg, rgba(2,8,16,0.7) 0%, rgba(2,8,16,0.5) 50%, rgba(2,8,16,0.85) 100%);
 }
 .hero-particles-canvas {
@@ -298,12 +289,12 @@ a { text-decoration: none; }
   position: absolute;
   inset: 0;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   opacity: 0;
   visibility: hidden;
   transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), visibility 1s;
-  padding: 5rem 2rem 2rem;
+  padding: 2rem;
 }
 .slide.active {
   opacity: 1;
@@ -313,111 +304,15 @@ a { text-decoration: none; }
   text-align: center;
   max-width: 1100px;
   width: 100%;
-  padding-top: 1.5rem;
 }
-
-/* ========== LOGO ANIMÉ STRATÉGIQUE ========== */
-.hero-logo-spinner {
-  position: relative;
-  z-index: 5;
-  margin: 0 auto 1.8rem auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.logo-orbit {
-  position: relative;
-  width: 160px;
-  height: 160px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.logo-core {
-  position: relative;
-  z-index: 3;
-  background: rgba(10, 22, 40, 0.85);
-  border-radius: 50%;
-  width: 95px;
-  height: 95px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid rgba(0, 212, 255, 0.5);
-  box-shadow: 
-    0 0 40px rgba(0, 212, 255, 0.35),
-    inset 0 0 25px rgba(0, 212, 255, 0.12);
-  animation: corePulse 3s ease-in-out infinite;
-}
-.logo-core svg {
-  width: 55px;
-  height: 55px;
-  filter: drop-shadow(0 0 12px rgba(0, 212, 255, 0.7));
-  animation: logoFloat 3s ease-in-out infinite;
-}
-.orbit-ring {
-  position: absolute;
-  width: 145px;
-  height: 145px;
-  border-radius: 50%;
-  border: 1.5px dashed rgba(0, 212, 255, 0.3);
-  animation: orbitSpin 15s linear infinite;
-}
-.orbit-dot {
-  position: absolute;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 14px rgba(0, 212, 255, 0.9), 0 0 30px rgba(0, 212, 255, 0.5);
-}
-.orbit-dot.dot-1 {
-  top: -3.5px;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: dotPulse 2s ease-in-out infinite;
-}
-.orbit-dot.dot-2 {
-  bottom: -3.5px;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: dotPulse 2s ease-in-out 0.7s infinite;
-  background: var(--gold);
-  box-shadow: 0 0 14px rgba(255, 184, 0, 0.9), 0 0 30px rgba(255, 184, 0, 0.5);
-}
-.orbit-dot.dot-3 {
-  top: 50%;
-  right: -3.5px;
-  transform: translateY(-50%);
-  animation: dotPulse 2s ease-in-out 1.4s infinite;
-}
-
-@keyframes orbitSpin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-@keyframes corePulse {
-  0%, 100% { box-shadow: 0 0 40px rgba(0, 212, 255, 0.35), inset 0 0 25px rgba(0, 212, 255, 0.12); }
-  50% { box-shadow: 0 0 65px rgba(0, 212, 255, 0.55), inset 0 0 40px rgba(0, 212, 255, 0.25); }
-}
-@keyframes logoFloat {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-5px) scale(1.06); }
-}
-@keyframes dotPulse {
-  0%, 100% { opacity: 0.3; transform: translateX(-50%) scale(1); }
-  50% { opacity: 1; transform: translateX(-50%) scale(2); }
-}
-
 .slide-title {
-  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 800;
-  line-height: 1.15;
-  margin-bottom: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 2rem;
   color: var(--white);
   letter-spacing: -0.03em;
-  position: relative;
-  z-index: 5;
+  text-shadow: 0 0 80px rgba(0, 212, 255, 0.3);
 }
 .slide-title-gradient {
   background: linear-gradient(135deg, var(--accent) 0%, #7dd3fc 25%, var(--gold-light) 50%, #fbbf24 75%, var(--accent) 100%);
@@ -433,10 +328,10 @@ a { text-decoration: none; }
 }
 .cursor-blink {
   display: inline-block;
-  width: 3px;
+  width: 4px;
   height: 0.9em;
   background: var(--accent);
-  margin-left: 4px;
+  margin-left: 6px;
   vertical-align: text-bottom;
   animation: cursorBlink 0.8s step-end infinite;
 }
@@ -449,16 +344,14 @@ a { text-decoration: none; }
   gap: 1.5rem;
   justify-content: center;
   flex-wrap: wrap;
-  position: relative;
-  z-index: 5;
 }
 .btn-slide-primary {
   background: linear-gradient(135deg, var(--accent), var(--accent-dark));
   color: var(--primary-deep);
-  padding: 1rem 2.2rem;
+  padding: 1.1rem 2.5rem;
   border-radius: 60px;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.05rem;
   transition: var(--transition);
   display: inline-flex;
   align-items: center;
@@ -480,21 +373,19 @@ a { text-decoration: none; }
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
   transition: left 0.5s ease;
 }
-.btn-slide-primary:hover::before {
-  left: 100%;
-}
+.btn-slide-primary:hover::before { left: 100%; }
 .btn-slide-primary:hover {
   transform: translateY(-5px);
   box-shadow: 0 20px 60px rgba(0, 212, 255, 0.5);
 }
 .btn-slide-outline {
   background: transparent;
-  border: 2px solid rgba(0, 212, 255, 0.3);
+  border: 2px solid rgba(0, 212, 255, 0.4);
   color: var(--accent);
-  padding: 1rem 2.2rem;
+  padding: 1.1rem 2.5rem;
   border-radius: 60px;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.05rem;
   transition: var(--transition);
   display: inline-flex;
   align-items: center;
@@ -539,13 +430,9 @@ a { text-decoration: none; }
   color: var(--primary-deep);
   box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
 }
-.slider-dots {
-  display: flex;
-  gap: 0.8rem;
-}
+.slider-dots { display: flex; gap: 0.8rem; }
 .slider-dot {
-  width: 10px;
-  height: 10px;
+  width: 10px; height: 10px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.2);
   cursor: pointer;
@@ -590,10 +477,7 @@ a { text-decoration: none; }
   background-clip: text;
   color: transparent;
 }
-.section-header p {
-  color: var(--gray-light);
-  font-size: 1.05rem;
-}
+.section-header p { color: var(--gray-light); font-size: 1.05rem; }
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -732,102 +616,40 @@ a { text-decoration: none; }
   border-top: 1px solid rgba(0, 212, 255, 0.1);
   border-bottom: 1px solid rgba(0, 212, 255, 0.05);
 }
-.legal-container {
-  max-width: 1300px;
-  margin: 0 auto;
-}
-.legal-header {
-  text-align: center;
-  margin-bottom: 3.5rem;
-}
+.legal-container { max-width: 1300px; margin: 0 auto; }
+.legal-header { text-align: center; margin-bottom: 3.5rem; }
 .legal-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  background: rgba(0, 212, 255, 0.1);
-  padding: 0.5rem 1.4rem;
-  border-radius: 40px;
-  color: var(--accent);
-  font-size: 0.8rem;
-  font-weight: 600;
-  margin-bottom: 1.2rem;
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  background: rgba(0, 212, 255, 0.1); padding: 0.5rem 1.4rem; border-radius: 40px;
+  color: var(--accent); font-size: 0.8rem; font-weight: 600; margin-bottom: 1.2rem;
   border: 1px solid rgba(0, 212, 255, 0.2);
 }
 .legal-header h3 {
   font-size: clamp(1.6rem, 3vw, 2.2rem);
   background: linear-gradient(135deg, var(--white), var(--accent));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  margin-bottom: 1rem;
+  -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 1rem;
 }
-.legal-header p {
-  color: var(--gray-light);
-  font-size: 0.95rem;
-  max-width: 700px;
-  margin: 0 auto;
-}
-.legal-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  max-width: 800px;
-  margin: 0 auto 3rem auto;
-}
+.legal-header p { color: var(--gray-light); font-size: 0.95rem; max-width: 700px; margin: 0 auto; }
+.legal-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 800px; margin: 0 auto 3rem auto; }
 .legal-card {
-  background: rgba(15, 43, 77, 0.25);
-  border-radius: 20px;
-  padding: 1.8rem;
-  border: 1px solid rgba(0, 212, 255, 0.08);
-  transition: var(--transition);
-  backdrop-filter: blur(4px);
+  background: rgba(15, 43, 77, 0.25); border-radius: 20px; padding: 1.8rem;
+  border: 1px solid rgba(0, 212, 255, 0.08); transition: var(--transition); backdrop-filter: blur(4px);
 }
 .legal-card:hover {
-  border-color: rgba(0, 212, 255, 0.3);
-  transform: translateY(-5px);
+  border-color: rgba(0, 212, 255, 0.3); transform: translateY(-5px);
   background: rgba(0, 212, 255, 0.03);
 }
-.legal-card i {
-  font-size: 2.2rem;
-  color: var(--accent);
-  margin-bottom: 1rem;
-  display: inline-block;
-}
-.legal-card h4 {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  color: var(--white);
-}
-.legal-card p {
-  color: var(--gray-light);
-  font-size: 0.85rem;
-  line-height: 1.6;
-}
-.legal-card strong {
-  color: var(--off-white);
-  font-weight: 600;
-}
+.legal-card i { font-size: 2.2rem; color: var(--accent); margin-bottom: 1rem; display: inline-block; }
+.legal-card h4 { font-size: 1.2rem; margin-bottom: 1rem; color: var(--white); }
+.legal-card p { color: var(--gray-light); font-size: 0.85rem; line-height: 1.6; }
+.legal-card strong { color: var(--off-white); font-weight: 600; }
 .legal-footer-note {
-  background: rgba(0, 212, 255, 0.05);
-  border-radius: 16px;
-  padding: 1.2rem 2rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  border: 1px solid rgba(0, 212, 255, 0.12);
-  text-align: center;
+  background: rgba(0, 212, 255, 0.05); border-radius: 16px; padding: 1.2rem 2rem;
+  display: flex; align-items: center; gap: 1rem; justify-content: center; flex-wrap: wrap;
+  border: 1px solid rgba(0, 212, 255, 0.12); text-align: center;
 }
-.legal-footer-note i {
-  font-size: 1.5rem;
-  color: var(--accent);
-}
-.legal-footer-note span {
-  color: var(--gray-light);
-  font-size: 0.85rem;
-  max-width: 800px;
-}
+.legal-footer-note i { font-size: 1.5rem; color: var(--accent); }
+.legal-footer-note span { color: var(--gray-light); font-size: 0.85rem; max-width: 800px; }
 
 /* FOOTER */
 .footer { background: var(--primary-deep); padding: 5rem 4% 2rem; border-top: 1px solid rgba(0, 212, 255, 0.1); }
@@ -869,11 +691,8 @@ a { text-decoration: none; }
   .values-grid { grid-template-columns: 1fr; } .footer-container { grid-template-columns: 1fr; }
   .stats-grid-centered { grid-template-columns: 1fr; } .map-iframe-container { height: 400px; }
   .hero-slider { min-height: 90vh; } .slides-wrapper { height: 90vh; }
-  .logo-orbit { width: 130px; height: 130px; }
-  .logo-core { width: 75px; height: 75px; }
-  .logo-core svg { width: 42px; height: 42px; }
-  .orbit-ring { width: 118px; height: 118px; }
-  .slide { padding: 4rem 2rem 2rem; }
+  .slide { padding: 2rem 1.5rem; }
+  .slide-title { font-size: clamp(1.8rem, 5vw, 2.5rem); }
   .slider-nav { bottom: 2rem; gap: 1rem; } .slider-arrow { width: 40px; height: 40px; font-size: 0.9rem; }
   .legal-grid { grid-template-columns: 1fr !important; }
   .legal-card { text-align: center; }
@@ -881,13 +700,9 @@ a { text-decoration: none; }
   .footer-socials { justify-content: center; }
 }
 @media (max-width: 600px) {
-  .logo-orbit { width: 110px; height: 110px; }
-  .logo-core { width: 65px; height: 65px; }
-  .logo-core svg { width: 36px; height: 36px; }
-  .orbit-ring { width: 100px; height: 100px; }
-  .slide { padding: 3.5rem 1.5rem 1.5rem; }
+  .slide { padding: 1.5rem 1rem; }
   .slide-buttons { flex-direction: column; align-items: center; }
-  .btn-slide-primary, .btn-slide-outline { width: 100%; justify-content: center; }
+  .btn-slide-primary, .btn-slide-outline { width: 100%; justify-content: center; font-size: 0.95rem; padding: 0.9rem 1.5rem; }
   .services-grid { grid-template-columns: 1fr; }
 }
 </style>
@@ -978,30 +793,9 @@ a { text-decoration: none; }
   <div class="hero-orb hero-orb-3"></div>
   
   <div class="slides-wrapper" id="slidesWrapper">
-    <!-- SLIDE 1 : BÂTISSEZ -->
+    <!-- SLIDE 1 -->
     <div class="slide active" data-index="0">
       <div class="slide-content">
-        <!-- LOGO ANIMÉ STRATÉGIQUE -->
-        <div class="hero-logo-spinner">
-          <div class="logo-orbit">
-            <div class="logo-core">
-              <svg viewBox="0 0 24 24">
-                <defs>
-                  <linearGradient id="heroLogoGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#FFB800;stop-opacity:1" />
-                  </linearGradient>
-                </defs>
-                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#heroLogoGrad1)"/>
-                <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
-              </svg>
-            </div>
-            <div class="orbit-ring"></div>
-            <div class="orbit-dot dot-1"></div>
-            <div class="orbit-dot dot-2"></div>
-            <div class="orbit-dot dot-3"></div>
-          </div>
-        </div>
         <h1 class="slide-title">
           <span class="slide-title-gradient" id="typingTitle1"></span><span class="cursor-blink" id="cursor1"></span>
         </h1>
@@ -1012,29 +806,9 @@ a { text-decoration: none; }
       </div>
     </div>
 
-    <!-- SLIDE 2 : FORGEZ -->
+    <!-- SLIDE 2 -->
     <div class="slide" data-index="1">
       <div class="slide-content">
-        <div class="hero-logo-spinner">
-          <div class="logo-orbit">
-            <div class="logo-core">
-              <svg viewBox="0 0 24 24">
-                <defs>
-                  <linearGradient id="heroLogoGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#FFB800;stop-opacity:1" />
-                  </linearGradient>
-                </defs>
-                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#heroLogoGrad2)"/>
-                <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
-              </svg>
-            </div>
-            <div class="orbit-ring"></div>
-            <div class="orbit-dot dot-1"></div>
-            <div class="orbit-dot dot-2"></div>
-            <div class="orbit-dot dot-3"></div>
-          </div>
-        </div>
         <h1 class="slide-title">
           <span class="slide-title-gradient" id="typingTitle2"></span><span class="cursor-blink" id="cursor2"></span>
         </h1>
@@ -1045,29 +819,9 @@ a { text-decoration: none; }
       </div>
     </div>
 
-    <!-- SLIDE 3 : PROPULSEZ -->
+    <!-- SLIDE 3 -->
     <div class="slide" data-index="2">
       <div class="slide-content">
-        <div class="hero-logo-spinner">
-          <div class="logo-orbit">
-            <div class="logo-core">
-              <svg viewBox="0 0 24 24">
-                <defs>
-                  <linearGradient id="heroLogoGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#FFB800;stop-opacity:1" />
-                  </linearGradient>
-                </defs>
-                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#heroLogoGrad3)"/>
-                <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
-              </svg>
-            </div>
-            <div class="orbit-ring"></div>
-            <div class="orbit-dot dot-1"></div>
-            <div class="orbit-dot dot-2"></div>
-            <div class="orbit-dot dot-3"></div>
-          </div>
-        </div>
         <h1 class="slide-title">
           <span class="slide-title-gradient" id="typingTitle3"></span><span class="cursor-blink" id="cursor3"></span>
         </h1>
@@ -1352,11 +1106,8 @@ function typeCurrentSlide() {
 function updateSlideBackgrounds() {
   const bgs = document.querySelectorAll('.hero-slide-bg');
   bgs.forEach((bg, i) => {
-    if (i === currentSlide) {
-      bg.classList.add('active');
-    } else {
-      bg.classList.remove('active');
-    }
+    if (i === currentSlide) { bg.classList.add('active'); }
+    else { bg.classList.remove('active'); }
   });
 }
 
