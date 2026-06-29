@@ -79,7 +79,7 @@ a { text-decoration: none; }
 .top-bar-container {
   max-width: 1400px; margin: 0 auto;
   display: flex; justify-content: space-between; align-items: center;
-  flex-wrap: wrap; gap: 0.6rem;
+  flex-wrap: nowrap; gap: 0.6rem;
 }
 .partner-badge {
   display: flex; align-items: center; gap: 0.6rem;
@@ -87,16 +87,32 @@ a { text-decoration: none; }
   padding: 0.35rem 1.2rem; border-radius: 40px;
   border: 1px solid rgba(0, 212, 255, 0.2);
   box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+  flex-shrink: 0;
+  max-width: 340px;
+  overflow: hidden;
 }
-.partner-badge i { color: var(--accent); font-size: 0.75rem; }
+.partner-badge i { color: var(--accent); font-size: 0.75rem; flex-shrink: 0; }
 .partner-badge span {
   font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px;
   background: linear-gradient(135deg, #fff, var(--accent));
   -webkit-background-clip: text; background-clip: text; color: transparent;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.top-bar-info { display: flex; gap: 2rem; flex-wrap: wrap; }
-.top-bar-info span { display: flex; align-items: center; gap: 0.4rem; }
-.top-bar-info i { color: var(--accent); }
+.top-bar-info { 
+  display: flex; 
+  gap: 1.5rem; 
+  flex-wrap: nowrap; 
+  flex-shrink: 0;
+}
+.top-bar-info span { display: flex; align-items: center; gap: 0.4rem; white-space: nowrap; }
+.top-bar-info i { color: var(--accent); flex-shrink: 0; }
+.top-bar-social { 
+  display: flex; 
+  align-items: center; 
+  flex-shrink: 0;
+}
 .top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; transition: var(--transition); display: inline-block; }
 .top-bar-social a:hover { color: var(--accent); transform: translateY(-2px); }
 
@@ -104,6 +120,7 @@ a { text-decoration: none; }
   display: flex; gap: 0.2rem; background: rgba(0, 212, 255, 0.1);
   padding: 0.15rem 0.5rem; border-radius: 40px; align-items: center;
   border: 1px solid rgba(0, 212, 255, 0.2);
+  flex-shrink: 0;
 }
 .lang-btn {
   background: none; border: none; color: var(--gray-light);
@@ -127,6 +144,7 @@ a { text-decoration: none; }
   display: flex; align-items: center; gap: 0.6rem;
   font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.3rem;
   color: var(--white); transition: var(--transition);
+  flex-shrink: 0;
 }
 .logo:hover { transform: scale(1.02); }
 
@@ -139,27 +157,55 @@ a { text-decoration: none; }
 
 .logo-text-accent { color: var(--accent); }
 
-.nav-links { display: flex; gap: 0.3rem; list-style: none; align-items: center; }
-.nav-links > li { position: relative; }
-.nav-links > li > a {
-  color: var(--off-white); font-size: 0.9rem; font-weight: 600;
-  padding: 0.6rem 1rem; border-radius: 6px; transition: var(--transition);
-  display: flex; align-items: center; gap: 0.3rem;
+/* ========== NAVBAR CORRIGÉE - STABLE FR/EN ========== */
+.nav-links { 
+  display: flex; 
+  gap: 0; 
+  list-style: none; 
+  align-items: center; 
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
 }
-.nav-links > li > a:hover { background: rgba(0, 212, 255, 0.1); color: var(--accent); }
+.nav-links > li { 
+  position: relative; 
+  flex-shrink: 0;
+  display: flex;
+}
+.nav-links > li > a {
+  color: var(--off-white); 
+  font-size: 0.82rem; 
+  font-weight: 600;
+  padding: 0.55rem 0.7rem; 
+  border-radius: 6px; 
+  transition: var(--transition);
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  gap: 0.3rem;
+  white-space: nowrap;
+  min-width: 70px;
+  text-align: center;
+}
+.nav-links > li > a:hover { 
+  background: rgba(0, 212, 255, 0.1); 
+  color: var(--accent); 
+}
 
 .nav-links > li > a.btn-espace-client {
   background: linear-gradient(135deg, #00D4FF, #0891B2);
   color: #020810 !important;
   font-weight: 700;
-  padding: 0.5rem 1.2rem;
+  padding: 0.5rem 1rem;
   border-radius: 6px;
   transition: var(--transition);
+  min-width: 130px;
 }
 .nav-links > li > a.btn-espace-client:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
 }
+/* ========== FIN NAVBAR CORRIGÉE ========== */
 
 .mobile-nav-overlay a.btn-espace-client-mobile {
   background: linear-gradient(135deg, #00D4FF, #0891B2);
@@ -691,7 +737,7 @@ a { text-decoration: none; }
       <span><i class="fa-solid fa-envelope"></i> contact@netvanguard.ma</span>
       <span><i class="fa-solid fa-location-dot"></i> Casablanca</span>
     </div>
-    <div class="top-bar-social" style="display: flex; align-items: center;">
+    <div class="top-bar-social">
       <div class="lang-switch" style="margin-right: 1rem;">
         <button class="lang-btn active" data-lang="fr">FR</button>
         <button class="lang-btn" data-lang="en">EN</button>
@@ -747,7 +793,6 @@ a { text-decoration: none; }
 
 <!-- HERO SLIDER AVEC PHOTOS -->
 <section class="hero-slider" id="hero">
-  <!-- ARRIÈRE-PLANS DES SLIDES -->
   <div class="hero-slide-bg active" id="slideBg1" style="background-image: url('bg1.jpg');"></div>
   <div class="hero-slide-bg" id="slideBg2" style="background-image: url('bg0.jpg');"></div>
   <div class="hero-slide-bg" id="slideBg3" style="background-image: url('bg3.jpg');"></div>
@@ -759,7 +804,6 @@ a { text-decoration: none; }
   <div class="hero-orb hero-orb-3"></div>
   
   <div class="slides-wrapper" id="slidesWrapper">
-    <!-- SLIDE 1 -->
     <div class="slide active" data-index="0">
       <div class="slide-content">
         <h1 class="slide-title">
@@ -771,7 +815,6 @@ a { text-decoration: none; }
         </div>
       </div>
     </div>
-    <!-- SLIDE 2 -->
     <div class="slide" data-index="1">
       <div class="slide-content">
         <h1 class="slide-title">
@@ -783,7 +826,6 @@ a { text-decoration: none; }
         </div>
       </div>
     </div>
-    <!-- SLIDE 3 -->
     <div class="slide" data-index="2">
       <div class="slide-content">
         <h1 class="slide-title">
