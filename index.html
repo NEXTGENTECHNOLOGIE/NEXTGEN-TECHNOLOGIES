@@ -149,7 +149,7 @@ a { text-decoration: none; }
 .logo:hover { transform: scale(1.02); }
 
 .logo-shield {
-  width: 36px; height: 36px; flex-shrink: 0;
+  width: 32px; height: 32px; flex-shrink: 0;
   animation: float 3s ease-in-out infinite;
   filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.5));
 }
@@ -157,10 +157,10 @@ a { text-decoration: none; }
 
 .logo-text-accent { color: var(--accent); }
 
-/* ========== NAVBAR CORRIGÉE - STABLE FR/EN ========== */
+/* ========== NAVBAR IDENTIQUE À SERVICES.HTML ========== */
 .nav-links { 
   display: flex; 
-  gap: 0; 
+  gap: 0.4rem; 
   list-style: none; 
   align-items: center; 
   margin: 0;
@@ -174,17 +174,17 @@ a { text-decoration: none; }
 }
 .nav-links > li > a {
   color: var(--off-white); 
-  font-size: 0.82rem; 
+  font-size: 0.92rem; 
   font-weight: 600;
-  padding: 0.55rem 0.7rem; 
-  border-radius: 6px; 
+  padding: 0.6rem 1rem; 
+  border-radius: 4px; 
   transition: var(--transition);
   display: flex; 
   align-items: center; 
   justify-content: center;
   gap: 0.3rem;
   white-space: nowrap;
-  min-width: 70px;
+  min-width: 75px;
   text-align: center;
 }
 .nav-links > li > a:hover { 
@@ -196,16 +196,16 @@ a { text-decoration: none; }
   background: linear-gradient(135deg, #00D4FF, #0891B2);
   color: #020810 !important;
   font-weight: 700;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.2rem;
   border-radius: 6px;
   transition: var(--transition);
-  min-width: 130px;
+  min-width: 140px;
 }
 .nav-links > li > a.btn-espace-client:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
 }
-/* ========== FIN NAVBAR CORRIGÉE ========== */
+/* ========== FIN NAVBAR ========== */
 
 .mobile-nav-overlay a.btn-espace-client-mobile {
   background: linear-gradient(135deg, #00D4FF, #0891B2);
@@ -753,7 +753,7 @@ a { text-decoration: none; }
 <nav class="nav">
   <div class="nav-container">
     <a href="index.html" class="logo">
-      <svg class="logo-shield" viewBox="0 0 24 24" width="36" height="36">
+      <svg class="logo-shield" viewBox="0 0 24 24" width="32" height="32">
         <defs>
           <linearGradient id="shieldGradNav" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1" />
