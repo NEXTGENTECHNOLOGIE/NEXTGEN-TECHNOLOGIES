@@ -157,15 +157,16 @@ a { text-decoration: none; }
 
 .logo-text-accent { color: var(--accent); }
 
-/* ========== NAVBAR IDENTIQUE À SERVICES.HTML ========== */
+/* ========== NAVBAR CENTRÉE COMME DATAPROTECT ========== */
 .nav-links { 
   display: flex; 
-  gap: 0.4rem; 
+  gap: 0.8rem; 
   list-style: none; 
   align-items: center; 
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   flex-shrink: 0;
+  justify-content: center;
 }
 .nav-links > li { 
   position: relative; 
@@ -174,18 +175,17 @@ a { text-decoration: none; }
 }
 .nav-links > li > a {
   color: var(--off-white); 
-  font-size: 0.92rem; 
+  font-size: 0.9rem; 
   font-weight: 600;
-  padding: 0.6rem 1rem; 
+  padding: 0.5rem 0.9rem; 
   border-radius: 4px; 
   transition: var(--transition);
   display: flex; 
   align-items: center; 
-  justify-content: center;
   gap: 0.3rem;
   white-space: nowrap;
-  min-width: 75px;
   text-align: center;
+  justify-content: center;
 }
 .nav-links > li > a:hover { 
   background: rgba(0, 212, 255, 0.1); 
@@ -199,7 +199,7 @@ a { text-decoration: none; }
   padding: 0.5rem 1.2rem;
   border-radius: 6px;
   transition: var(--transition);
-  min-width: 140px;
+  margin-left: 0.5rem;
 }
 .nav-links > li > a.btn-espace-client:hover {
   transform: translateY(-2px);
