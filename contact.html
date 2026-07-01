@@ -24,10 +24,10 @@ body{font-family:'Manrope',sans-serif;color:var(--off-white);line-height:1.6;ove
 h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-.02em;}
 a{text-decoration:none;}
 
-/* ========== TOP BAR - IDENTIQUE À L'INDEX ========== */
+/* ========== TOP BAR - STABLE FR/EN ========== */
 .top-bar{background:rgba(2,8,16,0.98);backdrop-filter:blur(20px);color:var(--gray-light);padding:0.6rem 4%;font-size:0.78rem;border-bottom:1px solid rgba(0,212,255,0.15);z-index:1001;position:relative;letter-spacing:0.02em;}
 .top-bar-container{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:nowrap;gap:0.6rem;}
-.partner-badge{display:flex;align-items:center;gap:0.6rem;background:linear-gradient(135deg,rgba(0,212,255,0.1),rgba(255,184,0,0.05));padding:0.35rem 1.2rem;border-radius:40px;border:1px solid rgba(0,212,255,0.2);box-shadow:0 0 20px rgba(0,212,255,0.1);flex-shrink:0;max-width:340px;overflow:hidden;}
+.partner-badge{display:flex;align-items:center;gap:0.6rem;background:linear-gradient(135deg,rgba(0,212,255,0.1),rgba(255,184,0,0.05));padding:0.35rem 1.2rem;border-radius:40px;border:1px solid rgba(0,212,255,0.2);box-shadow:0 0 20px rgba(0,212,255,0.1);flex-shrink:0;width:320px;overflow:hidden;}
 .partner-badge i{color:var(--accent);font-size:0.75rem;flex-shrink:0;}
 .partner-badge span{font-size:0.7rem;font-weight:700;letter-spacing:0.5px;background:linear-gradient(135deg,#fff,var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .top-bar-info{display:flex;gap:1.5rem;flex-wrap:nowrap;flex-shrink:0;}
@@ -41,7 +41,7 @@ a{text-decoration:none;}
 .lang-btn.active{background:var(--accent);color:var(--primary-deep);}
 /* ========== FIN TOP BAR ========== */
 
-/* ========== NAVBAR - IDENTIQUE À L'INDEX (CENTRÉE) ========== */
+/* ========== NAVBAR - STABLE FR/EN (LARGEUR FIXE) ========== */
 .nav{position:sticky;top:0;z-index:1000;padding:1rem 4%;background:rgba(5,12,24,0.92);backdrop-filter:blur(25px);border-bottom:1px solid rgba(0,212,255,0.1);}
 .nav-container{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
 .logo{display:flex;align-items:center;gap:0.6rem;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.3rem;color:var(--white);transition:var(--transition);flex-shrink:0;}
@@ -49,11 +49,11 @@ a{text-decoration:none;}
 .logo-shield{width:32px;height:32px;flex-shrink:0;animation:float 3s ease-in-out infinite;filter:drop-shadow(0 0 8px rgba(0,212,255,0.5));}
 @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
 .logo-text-accent{color:var(--accent);}
-.nav-links{display:flex;gap:0.8rem;list-style:none;align-items:center;margin:0 auto;padding:0;flex-shrink:0;justify-content:center;}
+.nav-links{display:flex;gap:0.8rem;list-style:none;align-items:center;margin:0 auto;padding:0;flex-shrink:0;justify-content:space-between;width:750px;}
 .nav-links>li{position:relative;flex-shrink:0;display:flex;}
-.nav-links>li>a{color:var(--off-white);font-size:0.9rem;font-weight:600;padding:0.5rem 0.9rem;border-radius:4px;transition:var(--transition);display:flex;align-items:center;gap:0.3rem;white-space:nowrap;text-align:center;justify-content:center;}
+.nav-links>li>a{color:var(--off-white);font-size:0.9rem;font-weight:600;padding:0.5rem 0.9rem;border-radius:4px;transition:var(--transition);display:flex;align-items:center;gap:0.3rem;white-space:nowrap;text-align:center;justify-content:center;min-width:70px;}
 .nav-links>li>a:hover,.nav-links>li>a.active{background:rgba(0,212,255,0.1);color:var(--accent);}
-.nav-links>li>a.btn-espace-client{background:linear-gradient(135deg,#00D4FF,#0891B2);color:#020810!important;font-weight:700;padding:0.5rem 1.2rem;border-radius:6px;transition:var(--transition);margin-left:0.5rem;}
+.nav-links>li>a.btn-espace-client{background:linear-gradient(135deg,#00D4FF,#0891B2);color:#020810!important;font-weight:700;padding:0.5rem 1.2rem;border-radius:6px;transition:var(--transition);min-width:auto;}
 .nav-links>li>a.btn-espace-client:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,212,255,0.4);}
 .menu-toggle{display:none;background:none;border:none;color:var(--white);font-size:1.5rem;cursor:pointer;z-index:10001;}
 /* ========== FIN NAVBAR ========== */
@@ -137,7 +137,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
 .footer-bottom{max-width:1400px;margin:auto;border-top:1px solid rgba(255,255,255,.05);margin-top:3rem;padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:#64748b;font-size:.85rem;}
 
 @media(max-width:1024px){
-  .nav-links{display:none;}.menu-toggle{display:block;}
+  .nav-links{width:auto;display:none;}.menu-toggle{display:block;}
   .contact-grid{grid-template-columns:1fr;}
   .contact-info{position:static;}
   .trust-row{grid-template-columns:1fr;}
@@ -155,7 +155,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
 </head>
 <body>
 
-<!-- ========== TOP BAR - IDENTIQUE À L'INDEX ========== -->
+<!-- ========== TOP BAR - STABLE FR/EN ========== -->
 <div class="top-bar">
   <div class="top-bar-container">
     <div class="partner-badge"><i class="fa-solid fa-shield-halved"></i><span data-i18n="top_badge">Votre partenaire en cyberdéfense et infogérance</span></div>
@@ -174,7 +174,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
   </div>
 </div>
 
-<!-- ========== NAVBAR - IDENTIQUE À L'INDEX (CENTRÉE) ========== -->
+<!-- ========== NAVBAR - STABLE FR/EN (LARGEUR FIXE) ========== -->
 <nav class="nav">
   <div class="nav-container">
     <a href="index.html" class="logo">
