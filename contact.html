@@ -23,7 +23,7 @@ body{font-family:'Manrope',sans-serif;color:var(--off-white);line-height:1.6;ove
 h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-.02em;}
 a{text-decoration:none;}
 
-/* ========== TOP BAR ========== */
+/* ========== TOP BAR - IDENTIQUE À L'INDEX ========== */
 .top-bar{background:rgba(2,8,16,0.98);backdrop-filter:blur(20px);color:var(--gray-light);padding:0.6rem 4%;font-size:0.78rem;border-bottom:1px solid rgba(0,212,255,0.15);z-index:1001;position:relative;letter-spacing:0.02em;}
 .top-bar-container{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:nowrap;gap:0.6rem;}
 .partner-badge{display:flex;align-items:center;gap:0.6rem;background:linear-gradient(135deg,rgba(0,212,255,0.1),rgba(255,184,0,0.05));padding:0.35rem 1.2rem;border-radius:40px;border:1px solid rgba(0,212,255,0.2);box-shadow:0 0 20px rgba(0,212,255,0.1);flex-shrink:0;max-width:340px;overflow:hidden;}
@@ -39,7 +39,7 @@ a{text-decoration:none;}
 .lang-btn{background:none;border:none;color:var(--gray-light);font-size:0.75rem;font-weight:600;cursor:pointer;padding:0.15rem 0.6rem;border-radius:30px;transition:var(--transition);font-family:inherit;}
 .lang-btn.active{background:var(--accent);color:var(--primary-deep);}
 
-/* ========== NAVBAR - STABLE FR/EN ========== */
+/* ========== NAVBAR - 100% IDENTIQUE À L'INDEX ========== */
 .nav{position:sticky;top:0;z-index:1000;padding:1rem 4%;background:rgba(5,12,24,0.92);backdrop-filter:blur(25px);border-bottom:1px solid rgba(0,212,255,0.1);}
 .nav-container{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
 .logo{display:flex;align-items:center;gap:0.6rem;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.3rem;color:var(--white);transition:var(--transition);flex-shrink:0;}
@@ -47,11 +47,11 @@ a{text-decoration:none;}
 .logo-shield{width:32px;height:32px;flex-shrink:0;animation:float 3s ease-in-out infinite;filter:drop-shadow(0 0 8px rgba(0,212,255,0.5));}
 @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
 .logo-text-accent{color:var(--accent);}
-.nav-links{display:flex;gap:0.8rem;list-style:none;align-items:center;margin:0 auto;padding:0;flex-shrink:0;justify-content:space-between;width:750px;}
+.nav-links{display:flex;gap:0.8rem;list-style:none;align-items:center;margin:0 auto;padding:0;flex-shrink:0;justify-content:center;}
 .nav-links>li{position:relative;flex-shrink:0;display:flex;}
-.nav-links>li>a{color:var(--off-white);font-size:0.9rem;font-weight:600;padding:0.5rem 0.9rem;border-radius:4px;transition:var(--transition);display:flex;align-items:center;gap:0.3rem;white-space:nowrap;text-align:center;justify-content:center;min-width:70px;}
+.nav-links>li>a{color:var(--off-white);font-size:0.9rem;font-weight:600;padding:0.5rem 0.9rem;border-radius:4px;transition:var(--transition);display:flex;align-items:center;gap:0.3rem;white-space:nowrap;text-align:center;justify-content:center;}
 .nav-links>li>a:hover,.nav-links>li>a.active{background:rgba(0,212,255,0.1);color:var(--accent);}
-.nav-links>li>a.btn-espace-client{background:linear-gradient(135deg,#00D4FF,#0891B2);color:#020810!important;font-weight:700;padding:0.5rem 1.2rem;border-radius:6px;transition:var(--transition);min-width:auto;}
+.nav-links>li>a.btn-espace-client{background:linear-gradient(135deg,#00D4FF,#0891B2);color:#020810!important;font-weight:700;padding:0.5rem 1.2rem;border-radius:6px;transition:var(--transition);margin-left:0.5rem;}
 .nav-links>li>a.btn-espace-client:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,212,255,0.4);}
 .menu-toggle{display:none;background:none;border:none;color:var(--white);font-size:1.5rem;cursor:pointer;z-index:10001;}
 
@@ -132,21 +132,8 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
 .footer-bottom{max-width:1400px;margin:auto;border-top:1px solid rgba(255,255,255,.05);margin-top:3rem;padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:#64748b;font-size:.85rem;}
 
 /* ========== RESPONSIVE ========== */
-@media(max-width:1024px){
-  .nav-links{width:auto;display:none;}.menu-toggle{display:block;}
-  .contact-grid{grid-template-columns:1fr;}
-  .contact-info{position:static;}
-  .trust-row{grid-template-columns:1fr;}
-  .footer-grid{grid-template-columns:1fr 1fr;}
-}
-@media(max-width:768px){
-  .top-bar-container{flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:0.8rem;}
-  .top-bar-info{display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:0.4rem;width:100%;}
-  .form-row{grid-template-columns:1fr;}
-  .contact-form-wrap{padding:2rem 1.5rem;}
-  .footer-grid{grid-template-columns:1fr;}
-  .page-header::before{background-size:20px 20px;}
-}
+@media(max-width:1024px){.nav-links{display:none;}.menu-toggle{display:block;}.contact-grid{grid-template-columns:1fr;}.contact-info{position:static;}.trust-row{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:768px){.top-bar-container{flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:0.8rem;}.top-bar-info{display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:0.4rem;width:100%;}.form-row{grid-template-columns:1fr;}.contact-form-wrap{padding:2rem 1.5rem;}.footer-grid{grid-template-columns:1fr;}.page-header::before{background-size:20px 20px;}}
 </style>
 </head>
 <body>
@@ -206,11 +193,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
 
 <section class="page-header">
   <div class="page-header-container">
-    <div class="breadcrumb">
-      <a href="index.html" data-i18n="bcHome">Accueil</a>
-      <i class="fas fa-chevron-right"></i>
-      <span style="color:#fff" data-i18n="bcContact">Contact</span>
-    </div>
+    <div class="breadcrumb"><a href="index.html" data-i18n="bcHome">Accueil</a><i class="fas fa-chevron-right"></i><span style="color:#fff" data-i18n="bcContact">Contact</span></div>
     <h1><span data-i18n="hdrTitle1">Parlons de votre</span> <span class="accent-text" data-i18n="hdrTitleAccent">cybersécurité</span></h1>
     <p data-i18n="hdrDesc">Audit gratuit. Aucun engagement, juste une vision claire de votre exposition cyber.</p>
   </div>
@@ -298,14 +281,11 @@ const translations={
     cPhone:"Téléphone",cWhatsappDesc:"+212 728 31 28 01 · réponse rapide",
     cHours:"Horaires",cHoursDesc:"Lun-Ven · 9h-18h<br>Hotline urgence : 24/7",
     waBtn:"Discuter sur WhatsApp",
-    formTitle:"Demandez votre audit gratuit",
-    formSubtitle:"Remplissez ce formulaire — nous vous recontactons sous 24h.",
+    formTitle:"Demandez votre audit gratuit",formSubtitle:"Remplissez ce formulaire — nous vous recontactons sous 24h.",
     formSuccess:"Merci ! Votre demande a bien été envoyée. Nous vous recontactons sous 24h.",
     formError:"Une erreur est survenue. Veuillez réessayer ou nous contacter directement.",
-    lblName:"Nom complet *",phName:"Votre nom",
-    lblCompany:"Entreprise",phCompany:"Nom de l'entreprise",
-    lblEmail:"Email *",lblPhone:"Téléphone *",
-    lblService:"Service qui vous intéresse",
+    lblName:"Nom complet *",phName:"Votre nom",lblCompany:"Entreprise",phCompany:"Nom de l'entreprise",
+    lblEmail:"Email *",lblPhone:"Téléphone *",lblService:"Service qui vous intéresse",
     optAudit:"Audit cyber gratuit",optVapt:"Pentest / VAPT",optOther:"Autre",
     lblMessage:"Votre message",phMessage:"Décrivez brièvement votre besoin...",
     btnSubmit:"Envoyer ma demande",
@@ -329,14 +309,11 @@ const translations={
     cPhone:"Phone",cWhatsappDesc:"+212 728 31 28 01 · quick reply",
     cHours:"Hours",cHoursDesc:"Mon-Fri · 9am-6pm<br>Emergency hotline: 24/7",
     waBtn:"Chat on WhatsApp",
-    formTitle:"Request your free audit",
-    formSubtitle:"Fill out this form — we'll get back to you within 24h.",
+    formTitle:"Request your free audit",formSubtitle:"Fill out this form — we'll get back to you within 24h.",
     formSuccess:"Thank you! Your request has been sent. We'll contact you within 24h.",
     formError:"An error occurred. Please try again or contact us directly.",
-    lblName:"Full name *",phName:"Your name",
-    lblCompany:"Company",phCompany:"Company name",
-    lblEmail:"Email *",lblPhone:"Phone *",
-    lblService:"Service of interest",
+    lblName:"Full name *",phName:"Your name",lblCompany:"Company",phCompany:"Company name",
+    lblEmail:"Email *",lblPhone:"Phone *",lblService:"Service of interest",
     optAudit:"Free cyber audit",optVapt:"VAPT - Penetration testing",optOther:"Other",
     lblMessage:"Your message",phMessage:"Briefly describe your needs...",
     btnSubmit:"Send my request",
