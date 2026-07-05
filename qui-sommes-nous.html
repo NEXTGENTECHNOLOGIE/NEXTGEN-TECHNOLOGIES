@@ -173,11 +173,11 @@ a { text-decoration: none; }
   background: linear-gradient(160deg, rgba(255, 255, 255, 0.02), rgba(15, 43, 77, 0.15));
   border: 1px solid rgba(0, 212, 255, 0.08);
   border-radius: 24px;
-  padding: 2.5rem;
+  padding: 2rem;
   position: relative;
   overflow: hidden;
   transition: var(--transition);
-  min-height: 380px;
+  min-height: 420px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -190,23 +190,14 @@ a { text-decoration: none; }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(10, 22, 40, 0.95) 0%, rgba(10, 22, 40, 0.55) 60%, rgba(10, 22, 40, 0.3) 100%);
+  background: linear-gradient(to top, rgba(2, 8, 16, 0.97) 0%, rgba(2, 8, 16, 0.6) 50%, rgba(2, 8, 16, 0.2) 100%);
   z-index: 0;
   transition: var(--transition);
 }
-.pillar-card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 20px 50px rgba(0, 212, 255, 0.1); }
-.pillar-card:hover::before { background: linear-gradient(to top, rgba(10, 22, 40, 0.98) 0%, rgba(10, 22, 40, 0.45) 60%, rgba(10, 22, 40, 0.2) 100%); }
-.pillar-icon-wrap {
-  width: 60px; height: 60px; border-radius: 16px;
-  background: rgba(0, 212, 255, 0.08); border: 1px solid rgba(0, 212, 255, 0.2);
-  display: flex; justify-content: center; align-items: center;
-  font-size: 1.5rem; color: var(--accent);
-  margin-bottom: 1.8rem; transition: all 0.4s ease;
-  position: relative; z-index: 1;
-}
-.pillar-card:hover .pillar-icon-wrap { background: var(--accent); color: var(--primary-deep); box-shadow: 0 0 25px var(--accent); }
-.pillar-card h3 { font-size: 1.3rem; margin-bottom: 1rem; color: var(--white); position: relative; z-index: 1; }
-.pillar-card p { color: #cbd5e1; line-height: 1.8; font-size: 0.95rem; position: relative; z-index: 1; }
+.pillar-card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 20px 50px rgba(0, 212, 255, 0.15); }
+.pillar-card:hover::before { background: linear-gradient(to top, rgba(2, 8, 16, 0.98) 0%, rgba(2, 8, 16, 0.55) 50%, rgba(2, 8, 16, 0.15) 100%); }
+.pillar-card h3 { font-size: 1.4rem; margin-bottom: 0.8rem; color: var(--white); position: relative; z-index: 1; }
+.pillar-card p { color: #cbd5e1; line-height: 1.7; font-size: 0.95rem; position: relative; z-index: 1; }
 
 .highlights-section { background: linear-gradient(180deg, #040914 0%, #02050b 100%); }
 .highlights-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
@@ -366,17 +357,14 @@ a { text-decoration: none; }
     <p class="section-desc" data-key="pillarsDesc"></p>
     <div class="pillars-grid">
       <div class="pillar-card" style="background-image: url('fondation.jpg');">
-        <div class="pillar-icon-wrap"><i class="fas fa-building"></i></div>
         <h3 data-key="pCard1Title">Notre Fondation</h3>
         <p data-key="pCard1Desc"></p>
       </div>
       <div class="pillar-card" style="background-image: url('equipe.jpg');">
-        <div class="pillar-icon-wrap"><i class="fas fa-users"></i></div>
         <h3 data-key="pCard2Title">Notre Équipe</h3>
         <p data-key="pCard2Desc"></p>
       </div>
       <div class="pillar-card" style="background-image: url('mission.jpg');">
-        <div class="pillar-icon-wrap"><i class="fas fa-bullseye"></i></div>
         <h3 data-key="pCard3Title">Notre Mission</h3>
         <p data-key="pCard3Desc">Démocratiser la cybersécurité au Maroc. Nous croyons que chaque entreprise, quelle que soit sa taille, mérite une protection de niveau entreprise. C'est cette conviction qui nous pousse à innover chaque jour.</p>
       </div>
