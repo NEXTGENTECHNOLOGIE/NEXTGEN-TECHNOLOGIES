@@ -44,7 +44,6 @@ h1, h2, h3, h4 {
 }
 a { text-decoration: none; }
 
-/* SCROLL PROGRESS BAR */
 .scroll-progress {
   position: fixed;
   top: 0; left: 0; width: 0%; height: 3px;
@@ -53,7 +52,6 @@ a { text-decoration: none; }
   transition: width 0.1s ease;
 }
 
-/* CURSOR GLOW */
 @media (min-width: 1025px) {
   .cursor-glow {
     width: 500px; height: 500px; position: fixed; left: 0; top: 0;
@@ -64,7 +62,6 @@ a { text-decoration: none; }
   }
 }
 
-/* ========== TOP BAR ========== */
 .top-bar {
   background: rgba(2, 8, 16, 0.98);
   backdrop-filter: blur(20px);
@@ -101,7 +98,6 @@ a { text-decoration: none; }
 .lang-btn { background: none; border: none; color: var(--gray-light); font-size: 0.75rem; font-weight: 600; cursor: pointer; padding: 0.15rem 0.6rem; border-radius: 30px; transition: var(--transition); font-family: inherit; }
 .lang-btn.active { background: var(--accent); color: var(--primary-deep); }
 
-/* ========== NAVBAR ========== */
 .nav { position: sticky; top: 0; z-index: 1000; padding: 1rem 4%; background: rgba(5, 12, 24, 0.92); backdrop-filter: blur(25px); border-bottom: 1px solid rgba(0, 212, 255, 0.1); }
 .nav-container { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
 .logo { display: flex; align-items: center; gap: 0.6rem; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.3rem; color: var(--white); transition: var(--transition); flex-shrink: 0; }
@@ -122,7 +118,6 @@ a { text-decoration: none; }
 .mobile-nav-overlay.active { right: 0; }
 .mobile-nav-overlay a { color: var(--white); font-size: 1.1rem; font-weight: 600; }
 
-/* ========== HERO ========== */
 .page-header-hero { position: relative; width: 100%; min-height: 85vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background: var(--primary-deep); }
 .header-particles-canvas { position: absolute; inset: 0; z-index: 2; }
 .header-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(0, 212, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 212, 255, 0.04) 1px, transparent 1px); background-size: 80px 80px; z-index: 3; mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 70%); -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 70%); }
@@ -159,7 +154,6 @@ a { text-decoration: none; }
 @keyframes titleShine { 0% { background-position: 0% center; } 100% { background-position: 300% center; } }
 .header-desc { font-size: 1.2rem; color: rgba(226, 232, 240, 0.75); max-width: 750px; margin-left: auto; margin-right: auto; font-weight: 300; line-height: 1.8; }
 
-/* ========== SECTIONS ========== */
 .section { padding: 6rem 4%; position: relative; z-index: 2; }
 .section-container { max-width: 1300px; margin: auto; }
 .section-tag { display: inline-block; color: var(--accent); text-transform: uppercase; font-size: 0.78rem; letter-spacing: 0.22em; margin-bottom: 1rem; font-weight: 700; background: rgba(0, 212, 255, 0.08); padding: 0.4rem 1.2rem; border-radius: 50px; border: 1px solid rgba(0, 212, 255, 0.2); }
@@ -225,7 +219,6 @@ a { text-decoration: none; }
 .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: var(--primary-deep); padding: 1rem 2.2rem; border-radius: 60px; font-weight: 700; display: inline-flex; align-items: center; gap: 0.6rem; transition: var(--transition); box-shadow: 0 10px 35px rgba(0, 212, 255, 0.3); }
 .btn-primary:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0, 212, 255, 0.5); }
 
-/* ========== FOOTER ========== */
 .footer { background: var(--primary-deep); padding: 5rem 4% 2rem; border-top: 1px solid rgba(0, 212, 255, 0.1); }
 .footer-container { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1.8fr repeat(3, 1fr); gap: 3rem; margin-bottom: 3rem; }
 .footer-brand .logo { margin-bottom: 1.2rem; }
@@ -241,7 +234,6 @@ a { text-decoration: none; }
 .footer-links ul li a:hover { color: var(--accent); padding-left: 0.4rem; }
 .footer-bottom { max-width: 1300px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; color: var(--gray-mid); font-size: 0.85rem; }
 
-/* ========== RESPONSIVE ========== */
 @media (max-width: 1200px) { .values-grid { grid-template-columns: repeat(2, 1fr); } .footer-container { grid-template-columns: repeat(2, 1fr); } .pillars-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 1024px) { .nav-links { display: none; } .menu-toggle { display: block; } .highlights-grid { grid-template-columns: 1fr; gap: 3rem; } .mission-row { grid-template-columns: 1fr; } }
 @media (max-width: 768px) {
@@ -266,7 +258,6 @@ a { text-decoration: none; }
 <div class="scroll-progress" id="scrollProgress"></div>
 <div class="cursor-glow" id="cursorGlow"></div>
 
-<!-- TOP BAR -->
 <div class="top-bar">
   <div class="top-bar-container">
     <div class="partner-badge"><i class="fa-solid fa-shield-halved"></i><span data-i18n="top_badge">Votre partenaire en cyberdéfense et infogérance</span></div>
@@ -284,7 +275,6 @@ a { text-decoration: none; }
   </div>
 </div>
 
-<!-- NAVBAR -->
 <nav class="nav">
   <div class="nav-container">
     <a href="index.html" class="logo">
@@ -309,7 +299,6 @@ a { text-decoration: none; }
   </div>
 </nav>
 
-<!-- MOBILE NAV -->
 <div class="mobile-nav-overlay" id="mobileNav">
   <a href="index.html" data-i18n="nav_home">Accueil</a>
   <a href="services.html" data-i18n="nav_services">Services</a>
@@ -321,7 +310,6 @@ a { text-decoration: none; }
   <a href="support.html" class="btn-espace-client-mobile" data-i18n="nav_espace_client"><i class="fa-solid fa-user-circle"></i> Espace Client</a>
 </div>
 
-<!-- HERO -->
 <section class="page-header-hero" id="headerHero">
   <canvas class="header-particles-canvas" id="headerParticles"></canvas>
   <div class="header-grid"></div>
@@ -343,7 +331,6 @@ a { text-decoration: none; }
   </div>
 </section>
 
-<!-- PILLARS -->
 <section class="section" style="background:#040914;">
   <div class="section-container">
     <span class="section-tag" data-key="pillarsTag">NOTRE HISTOIRE</span>
@@ -365,7 +352,7 @@ a { text-decoration: none; }
         </div>
       </div>
       <div class="pillar-card">
-        <img src="mission.jpg" alt="Notre Mission" class="pillar-card-img">
+        <img src="mission.jpg?v=2" alt="Notre Mission" class="pillar-card-img">
         <div class="pillar-card-body">
           <h3 data-key="pCard3Title">Notre Mission</h3>
           <p data-key="pCard3Desc">Simplifier l'IT, sécuriser l'avenir. Nous croyons que chaque entreprise, quelle que soit sa taille, mérite une infrastructure fiable et une protection de niveau entreprise. C'est cette conviction qui nous pousse à innover chaque jour.</p>
@@ -375,7 +362,6 @@ a { text-decoration: none; }
   </div>
 </section>
 
-<!-- HIGHLIGHTS -->
 <section class="section highlights-section">
   <div class="section-container">
     <div class="highlights-grid">
@@ -399,7 +385,6 @@ a { text-decoration: none; }
   </div>
 </section>
 
-<!-- VALUES -->
 <section class="section">
   <div class="section-container">
     <span class="section-tag" data-key="valuesTag">CULTURE D'ENTREPRISE</span>
@@ -414,7 +399,6 @@ a { text-decoration: none; }
   </div>
 </section>
 
-<!-- CTA -->
 <section class="section cta">
   <div class="cta-content">
     <h2 data-key="ctaTitle">Optimisons et sécurisons ensemble vos infrastructures numériques</h2>
@@ -423,7 +407,6 @@ a { text-decoration: none; }
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-brand">
