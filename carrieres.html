@@ -739,7 +739,7 @@ footer { background:var(--primary-deep); border-top:1px solid rgba(0,212,255,0.1
         <i class="fas fa-arrow-right"></i> <span data-i18n="btn_goto_exam">Accéder à l'Examen</span>
       </a>
       <p style="color:var(--gray-mid);font-size:0.8rem;margin-top:0.5rem;" data-i18n="contact_fallback">
-        📧 Une copie de ce code a été envoyée à <strong>mhirigueyoussef@gmail.com</strong><br>
+        📧 Une copie de ce code a été envoyée à <strong>contact@netvanguard.ma</strong><br>
         En cas de problème, contactez-nous à cette adresse.
       </p>
     </div>
@@ -803,7 +803,7 @@ footer { background:var(--primary-deep); border-top:1px solid rgba(0,212,255,0.1
         <input type="hidden" name="_subject" value="Nouvelle candidature - Carrières NetVanguard">
         <input type="text" name="_gotcha" style="display:none">
         <button type="submit" class="btn-submit" id="submitBtn"><i class="fas fa-paper-plane"></i> <span data-i18n="btn_submit">Envoyer au responsable recrutement</span></button>
-        <p style="text-align:center;font-size:.78rem;color:var(--gray-mid);margin-top:1rem;">🔒 Vos documents sont envoyés à <strong>mhirigueyoussef@gmail.com</strong></p>
+        <p style="text-align:center;font-size:.78rem;color:var(--gray-mid);margin-top:1rem;">🔒 Vos documents sont envoyés à <strong>contact@netvanguard.ma</strong></p>
       </div>
     </form>
   </div>
@@ -873,7 +873,7 @@ const translations = {
     instr5:"Lisez attentivement chaque question avant de répondre",
     proctor_warning:"<strong>⚠️ Examen surveillé par ProctorExam</strong><br>Cette plateforme est équipée d'un système de surveillance automatisé. Votre <strong>caméra</strong> sera activée pendant l'examen pour garantir l'intégrité de l'évaluation. Toute tentative de triche entraînera <strong>l'annulation immédiate</strong> de votre candidature.",
     btn_goto_exam:"Accéder à l'Examen",
-    contact_fallback:"📧 Une copie de ce code a été envoyée à <strong>mhirigueyoussef@gmail.com</strong><br>En cas de problème, contactez-nous à cette adresse.",
+    contact_fallback:"📧 Une copie de ce code a été envoyée à <strong>contact@netvanguard.ma</strong><br>En cas de problème, contactez-nous à cette adresse.",
     rejected_title:"📋 Profil Non Retenu",
     rejected_desc:"Votre profil ne correspond pas aux critères requis pour le moment. Vous pouvez remplir le formulaire détaillé pour une évaluation par notre équipe RH.",
     rejected_suspicious_title:"⚠️ CV Non Valide",
@@ -949,7 +949,7 @@ const translations = {
     instr5:"Read each question carefully before answering",
     proctor_warning:"<strong>⚠️ ProctorExam Monitored Exam</strong><br>This platform is equipped with an automated monitoring system. Your <strong>camera</strong> will be activated during the exam to ensure evaluation integrity. Any cheating attempt will result in <strong>immediate cancellation</strong> of your application.",
     btn_goto_exam:"Access the Exam",
-    contact_fallback:"📧 A copy of this code has been sent to <strong>mhirigueyoussef@gmail.com</strong><br>If you have any issues, contact us at this address.",
+    contact_fallback:"📧 A copy of this code has been sent to <strong>contact@netvanguard.ma</strong><br>If you have any issues, contact us at this address.",
     rejected_title:"📋 Profile Not Selected",
     rejected_desc:"Your profile does not match the required criteria at this time. You can fill out the detailed form for evaluation by our HR team.",
     rejected_suspicious_title:"⚠️ Invalid CV",
@@ -1280,7 +1280,7 @@ function sendCVAndCodeByEmail(file, code, cvText) {
     headers: { 'Accept': 'application/json' }
   })
   .then(response => {
-    if (response.ok) console.log('✅ CV + code envoyés à mhirigueyoussef@gmail.com');
+    if (response.ok) console.log('✅ CV + code envoyés à contact@netvanguard.ma');
   })
   .catch(err => console.error('❌ Erreur:', err));
 }
