@@ -394,6 +394,59 @@
       .login-input-wrap input { min-width: 100%; }
     }
     @media (max-width: 600px) { .section-cards { grid-template-columns: 1fr; } }
+
+    /* ===== CAMERA OVERLAYS ===== */
+    .camera-permission-overlay {
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(2,8,16,0.97);
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    .camera-permission-overlay.active { display: flex; }
+    .camera-permission-overlay .cp-icon { font-size: 4rem; color: var(--accent); margin-bottom: 1.5rem; animation: float 3s ease-in-out infinite; }
+    .camera-permission-overlay h2 { color: var(--white); font-size: 1.5rem; margin-bottom: 1rem; font-family: 'Space Grotesk', sans-serif; }
+    .camera-permission-overlay p { color: var(--gray-light); max-width: 450px; margin-bottom: 0.8rem; font-size: 0.95rem; line-height: 1.6; }
+    .camera-permission-overlay .cp-warning { color: var(--red); font-weight: 600; margin-bottom: 1.5rem; }
+    .camera-permission-overlay .cp-buttons { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .btn-cp {
+      padding: 0.8rem 2rem; border-radius: 10px;
+      font-weight: 700; font-size: 0.95rem;
+      cursor: pointer; transition: var(--transition);
+      font-family: inherit; border: none;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-cp-allow { background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: var(--primary-deep); }
+    .btn-cp-allow:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0, 212, 255, 0.3); }
+    .btn-cp-deny { background: rgba(239, 68, 68, 0.15); color: var(--red); border: 1px solid rgba(239, 68, 68, 0.3); }
+    .btn-cp-deny:hover { background: rgba(239, 68, 68, 0.25); }
+
+    .camera-denied-overlay {
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(2,8,16,0.97);
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    .camera-denied-overlay.active { display: flex; }
+    .camera-denied-overlay .cd-icon { font-size: 4rem; color: var(--red); margin-bottom: 1.5rem; }
+    .camera-denied-overlay h2 { color: var(--white); font-size: 1.5rem; margin-bottom: 1rem; font-family: 'Space Grotesk', sans-serif; }
+    .camera-denied-overlay p { color: var(--gray-light); max-width: 450px; margin-bottom: 1rem; font-size: 0.95rem; line-height: 1.6; }
+    .btn-cd {
+      padding: 0.8rem 2rem; border-radius: 10px;
+      font-weight: 700; font-size: 0.95rem;
+      cursor: pointer; transition: var(--transition);
+      font-family: inherit; border: 1px solid rgba(255,255,255,0.1);
+      display: flex; align-items: center; gap: 0.5rem;
+      background: rgba(255,255,255,0.06); color: var(--off-white);
+    }
+    .btn-cd:hover { background: rgba(255,255,255,0.12); }
   </style>
 </head>
 <body>
@@ -471,6 +524,29 @@
   <div class="shortcut-hint">
     <i class="fas fa-keyboard"></i> Admin accessible via <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd>
   </div>
+</div>
+
+<!-- ========== CAMERA PERMISSION OVERLAY ========== -->
+<div class="camera-permission-overlay" id="cameraPermissionOverlay">
+  <div class="cp-icon"><i class="fas fa-camera"></i></div>
+  <h2 data-i18n="cp_title">Vérification d'identité requise</h2>
+  <p data-i18n="cp_desc1">Pour garantir l'intégrité de cette évaluation, l'activation de votre caméra est obligatoire.</p>
+  <p data-i18n="cp_desc2">Votre flux vidéo sera diffusé en direct pendant toute la durée de l'examen. Aucune image n'est stockée.</p>
+  <div class="cp-warning"><i class="fas fa-exclamation-triangle"></i> <span data-i18n="cp_warning">Sans caméra activée, vous ne pourrez pas accéder à l'examen.</span></div>
+  <div class="cp-buttons">
+    <button class="btn-cp btn-cp-allow" onclick="requestCamera()"><i class="fas fa-check-circle"></i> <span data-i18n="cp_allow">Autoriser la caméra</span></button>
+    <button class="btn-cp btn-cp-deny" onclick="denyCamera()"><i class="fas fa-times-circle"></i> <span data-i18n="cp_deny">Refuser</span></button>
+  </div>
+</div>
+
+<!-- ========== CAMERA DENIED OVERLAY ========== -->
+<div class="camera-denied-overlay" id="cameraDeniedOverlay">
+  <div class="cd-icon"><i class="fas fa-camera-slash"></i></div>
+  <h2 data-i18n="cd_title">Accès à l'examen impossible</h2>
+  <p data-i18n="cd_desc1">Vous avez refusé l'accès à votre caméra.</p>
+  <p data-i18n="cd_desc2">La surveillance par caméra est obligatoire pour valider votre identité et garantir l'équité entre tous les candidats.</p>
+  <p data-i18n="cd_desc3">Sans caméra, votre candidature ne peut pas être prise en compte.</p>
+  <button class="btn-cd" onclick="location.reload()"><i class="fas fa-redo"></i> <span data-i18n="cd_retry">Réessayer</span></button>
 </div>
 
 <!-- ========== PAGE HEADER ========== -->
@@ -692,7 +768,7 @@ const supportQuestions = [
   { id:40, q_fr:"Qu'est-ce qu'une vulnérabilité de type Buffer Overflow ?", q_en:"What is a Buffer Overflow vulnerability?", options_fr:["Une zone de mémoire cache rapide","Une faille où un programme écrit des données au-delà de la mémoire tampon qui lui est allouée","Un outil de diagnostic réseau","Une fonctionnalité de sécurité intégrée"], options_en:["A fast cache memory area","A flaw where a program writes data beyond the allocated memory buffer","A network diagnostic tool","A built-in security feature"], correct:1, cat:"Sécurité" }
 ];
 
-// Reseau (40 questions - version simplifiée pour l'exemple, mais tu peux mettre tes vraies questions)
+// Reseau (40 questions - version simplifiée pour l'exemple)
 const reseauQuestions = supportQuestions.map(q => ({...q, q_fr: q.q_fr + " (Réseau)"}));
 const pentestQuestions = supportQuestions.map(q => ({...q, q_fr: q.q_fr + " (Pentest)"}));
 const adminQuestions = supportQuestions.map(q => ({...q, q_fr: q.q_fr + " (Admin)"}));
@@ -725,6 +801,17 @@ const translations = {
     ib_desc: "Cet examen s'inscrit dans le processus de recrutement. Nous attendons honnêteté et transparence.",
     ib_p1: "Travail individuel", ib_p2: "Sans assistance externe", ib_p3: "Dans le temps imparti",
     mw_active: "Session surveillée", mw_strikes: "Infractions",
+    cp_title: "Vérification d'identité requise",
+    cp_desc1: "Pour garantir l'intégrité de cette évaluation, l'activation de votre caméra est obligatoire.",
+    cp_desc2: "Votre flux vidéo sera diffusé en direct pendant toute la durée de l'examen. Aucune image n'est stockée.",
+    cp_warning: "Sans caméra activée, vous ne pourrez pas accéder à l'examen.",
+    cp_allow: "Autoriser la caméra",
+    cp_deny: "Refuser",
+    cd_title: "Accès à l'examen impossible",
+    cd_desc1: "Vous avez refusé l'accès à votre caméra.",
+    cd_desc2: "La surveillance par caméra est obligatoire pour valider votre identité et garantir l'équité entre tous les candidats.",
+    cd_desc3: "Sans caméra, votre candidature ne peut pas être prise en compte.",
+    cd_retry: "Réessayer",
     cancelled_title: "Examen Annulé",
     cancelled_desc: "Notre système a détecté des comportements non conformes. Votre session a été interrompue.",
     cancelled_btn: "Retour à l'accueil",
@@ -767,6 +854,17 @@ const translations = {
     ib_desc: "This exam is part of the recruitment process. We expect honesty and transparency.",
     ib_p1: "Individual work", ib_p2: "No external assistance", ib_p3: "Within the time limit",
     mw_active: "Monitored session", mw_strikes: "Strikes",
+    cp_title: "Identity Verification Required",
+    cp_desc1: "Camera activation is mandatory.",
+    cp_desc2: "Your video feed is streamed live during the exam.",
+    cp_warning: "Without a camera, you cannot access the exam.",
+    cp_allow: "Allow Camera",
+    cp_deny: "Deny",
+    cd_title: "Access Denied",
+    cd_desc1: "You have denied camera access.",
+    cd_desc2: "The camera is required to verify your identity.",
+    cd_desc3: "Without a camera, your application cannot be processed.",
+    cd_retry: "Try Again",
     cancelled_title: "Exam Cancelled",
     cancelled_desc: "Our system has detected non-compliant behavior. Your session has been terminated.",
     cancelled_btn: "Return to Home",
@@ -804,6 +902,7 @@ let selectedExam = null, currentQuestions = [], currentQuestionIndex = 0, userAn
 let examStarted = false, examFinished = false, timerInterval = null, timeRemaining = 60 * 60;
 let candidateInfo = {}, currentLang = 'fr';
 let securityStrikes = 0, monitoringLog = [], inactiveTimer = null, lastActivity = Date.now();
+let cameraStream = null;
 const MAX_STRIKES = 2;
 
 // ============================================================
@@ -905,6 +1004,48 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 function t(key) { return translations[currentLang][key] || key; }
 
 // ============================================================
+// CAMÉRA
+// ============================================================
+function requestCamera() {
+  try {
+    navigator.mediaDevices.getUserMedia({
+      video: { width: 320, height: 240, facingMode: 'user' },
+      audio: false
+    })
+    .then(stream => {
+      cameraStream = stream;
+      document.getElementById('cameraPermissionOverlay').classList.remove('active');
+      document.getElementById('loginScreen').style.display = 'none';
+      document.getElementById('candidateForm').classList.add('active');
+      document.getElementById('loginError').style.display = 'none';
+      document.getElementById('startExamBtn').disabled = false;
+      applyLocking();
+      console.log('📷 Caméra activée');
+    })
+    .catch(err => {
+      console.error('❌ Erreur caméra:', err);
+      denyCamera();
+    });
+  } catch (err) {
+    console.error('❌ Erreur caméra:', err);
+    denyCamera();
+  }
+}
+
+function denyCamera() {
+  document.getElementById('cameraPermissionOverlay').classList.remove('active');
+  document.getElementById('cameraDeniedOverlay').classList.add('active');
+}
+
+function stopCamera() {
+  if (cameraStream) {
+    cameraStream.getTracks().forEach(t => t.stop());
+    cameraStream = null;
+    console.log('📷 Caméra arrêtée');
+  }
+}
+
+// ============================================================
 // LOGIN : VÉRIFICATION DU CODE
 // ============================================================
 function checkAccess() {
@@ -922,7 +1063,7 @@ function checkAccess() {
   }
 
   // ==========================================================
-  // 🔑 CODES PERMANENTS (AJOUTE ICI TOUS TES CODES)
+  // 🔑 CODES PERMANENTS
   // ==========================================================
   const PERMANENT_CODES = [
     'NETVANGUARD2026',
@@ -939,10 +1080,7 @@ function checkAccess() {
     document.getElementById('candEmail').value = 'candidat@netvanguard.ma';
     setTimeout(() => {
       successEl.style.display = 'none';
-      document.getElementById('loginScreen').style.display = 'none';
-      document.getElementById('candidateForm').classList.add('active');
-      document.getElementById('startExamBtn').disabled = false;
-      applyLocking();
+      document.getElementById('cameraPermissionOverlay').classList.add('active');
     }, 800);
     return;
   }
@@ -965,10 +1103,7 @@ function checkAccess() {
     
     setTimeout(() => {
       successEl.style.display = 'none';
-      document.getElementById('loginScreen').style.display = 'none';
-      document.getElementById('candidateForm').classList.add('active');
-      document.getElementById('startExamBtn').disabled = false;
-      applyLocking();
+      document.getElementById('cameraPermissionOverlay').classList.add('active');
     }, 800);
     return;
   }
@@ -979,13 +1114,13 @@ function checkAccess() {
   const codes = getCodes();
   
   if (!codes[code]) {
-    errorEl.textContent = '❌ Code invalide. Utilisez Ctrl+Shift+A pour générer des codes.';
+    errorEl.textContent = '❌ Code invalide.';
     errorEl.style.display = 'block';
     return;
   }
 
   if (codes[code].expires && codes[code].expires < Date.now()) {
-    errorEl.textContent = '❌ Ce code a expiré (24h).';
+    errorEl.textContent = '❌ Ce code a expiré.';
     errorEl.style.display = 'block';
     return;
   }
@@ -1008,10 +1143,7 @@ function checkAccess() {
 
   setTimeout(() => {
     successEl.style.display = 'none';
-    document.getElementById('loginScreen').style.display = 'none';
-    document.getElementById('candidateForm').classList.add('active');
-    document.getElementById('startExamBtn').disabled = false;
-    applyLocking();
+    document.getElementById('cameraPermissionOverlay').classList.add('active');
   }, 800);
 }
 
@@ -1286,6 +1418,7 @@ function cancelExam(reason) {
   clearInterval(timerInterval);
   clearInterval(inactiveTimer);
   examFinished = true;
+  stopCamera();
   monitoringLog.push({ time: new Date().toISOString(), reason: 'EXAM_CANCELLED', final_reason: reason });
   document.getElementById('examInterface').classList.remove('active');
   document.getElementById('cancelledOverlay').classList.add('active');
@@ -1300,6 +1433,7 @@ function submitExam() {
   clearInterval(timerInterval);
   clearInterval(inactiveTimer);
   examFinished = true;
+  stopCamera();
 
   const score = currentQuestions.reduce((acc, q, i) => acc + (userAnswers[i] === q.correct ? 1 : 0), 0);
   const total = currentQuestions.length;
@@ -1395,6 +1529,7 @@ function quitExam() {
   if (confirm(t('confirm_quit'))) {
     clearInterval(timerInterval);
     clearInterval(inactiveTimer);
+    stopCamera();
     examFinished = true;
     document.getElementById('examInterface').classList.remove('active');
     document.getElementById('cancelledOverlay').classList.add('active');
@@ -1411,6 +1546,7 @@ function backToSections() {
 function resetExam() {
   clearInterval(timerInterval);
   clearInterval(inactiveTimer);
+  stopCamera();
   examStarted = false;
   examFinished = false;
   selectedExam = null;
@@ -1463,6 +1599,7 @@ applyLanguage('fr');
 console.log('🎓 NetVanguard Exam System');
 console.log('🔑 Admin: Ctrl+Shift+A pour générer des codes');
 console.log('🔑 Codes permanents: NETVANGUARD2026, Y4WSDKZQ, AW28XGZH, 5RD7Q6XD');
+console.log('📷 Caméra obligatoire pour démarrer l\'examen');
 console.log('📌 Les codes générés par carriere.html sont automatiquement pris en compte');
 </script>
 </body>
