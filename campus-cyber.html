@@ -185,6 +185,7 @@
     .integrity-banner .ib-content .ib-principles span { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--accent); font-weight: 500; }
     .integrity-banner .ib-content .ib-principles span i { font-size: 0.7rem; opacity: 0.8; }
 
+    /* 🆕 MONITORING WIDGET AVEC CAMÉRA */
     .monitoring-widget { display: none; background: rgba(0,212,255,0.06); border: 1px solid rgba(0,212,255,0.15); border-radius: 14px; padding: 0.9rem 1.3rem; margin-bottom: 1.5rem; }
     .monitoring-widget.active { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
     .monitoring-widget .mw-status { display: flex; align-items: center; gap: 0.6rem; }
@@ -240,6 +241,7 @@
     .monitoring-widget .mw-strikes .strike-dot.active-strike { background: var(--red); border-color: var(--red); box-shadow: 0 0 10px rgba(239,68,68,0.5); }
     .monitoring-widget .mw-strikes .strike-label { font-size: 0.7rem; color: var(--gray-light); text-transform: uppercase; letter-spacing: 0.1em; }
 
+    /* 🆕 OVERLAYS CAMÉRA */
     .camera-permission-overlay {
       position: fixed; inset: 0; z-index: 9999;
       background: rgba(2,8,16,0.97);
@@ -1160,7 +1162,7 @@ function stopCamera() {
 }
 
 // ============================================================
-// LOGIN : VÉRIFICATION DU CODE
+// LOGIN : VÉRIFICATION DU CODE (AVEC CODES PERMANENTS)
 // ============================================================
 function checkAccess() {
   const code = document.getElementById('accessCode').value.trim().toUpperCase();
@@ -1174,6 +1176,28 @@ function checkAccess() {
     return;
   }
 
+  // ==========================================================
+  // 🔑 CODES PERMANENTS (MODIFIE-LES ICI)
+  // ==========================================================
+  const PERMANENT_CODES = ['NETVANGUARD2026', 'Y4WSDKZQ'];
+
+  // Vérifier si le code est un code permanent
+  if (PERMANENT_CODES.includes(code)) {
+    // ✅ Code valide !
+    errorEl.style.display = 'none';
+    successEl.textContent = '✅ Code valide ! Activation de la caméra...';
+    successEl.style.display = 'block';
+    document.getElementById('candEmail').value = 'candidat@netvanguard.ma';
+    setTimeout(() => {
+      successEl.style.display = 'none';
+      document.getElementById('cameraPermissionOverlay').classList.add('active');
+    }, 1000);
+    return;
+  }
+
+  // ==========================================================
+  // VÉRIFICATION DES CODES STOCKÉS (usage unique)
+  // ==========================================================
   const codes = getCodes();
   if (!codes[code]) {
     errorEl.textContent = '❌ Code invalide.';
@@ -1196,7 +1220,7 @@ function checkAccess() {
     return;
   }
 
-  // ✅ Code valide
+  // ✅ Code valide (stocké)
   errorEl.style.display = 'none';
   successEl.textContent = '✅ Code valide ! Activation de la caméra...';
   successEl.style.display = 'block';
@@ -1644,6 +1668,7 @@ applyLanguage('fr');
 
 console.log('🎓 NetVanguard Exam System - Mode hors ligne');
 console.log('🔑 Admin: Ctrl+Shift+A pour générer des codes');
+console.log('🔑 Codes permanents: NETVANGUARD2026, Y4WSDKZQ');
 </script>
 
 </body>
