@@ -26,10 +26,10 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body { font-family:'Manrope',sans-serif; color:var(--off-white); line-height:1.6; overflow-x:hidden; background:var(--primary-deep); }
-h1,h2,h3,h4 { font-family:'Space Grotesk',sans-serif; font-weight:700; letter-spacing:-0.02em; }
+h1,h2,h3,h4,h5 { font-family:'Space Grotesk',sans-serif; font-weight:700; letter-spacing:-0.02em; }
 a { text-decoration:none; }
 
-/* ========== TOP BAR - IDENTIQUE À L'INDEX ========== */
+/* ========== TOP BAR ========== */
 .top-bar {
   background: rgba(2, 8, 16, 0.98);
   backdrop-filter: blur(20px);
@@ -94,9 +94,8 @@ a { text-decoration:none; }
   font-family: inherit;
 }
 .lang-btn.active { background: var(--accent); color: var(--primary-deep); }
-/* ========== FIN TOP BAR ========== */
 
-/* ========== NAVBAR - IDENTIQUE À L'INDEX (CENTRÉE) ========== */
+/* ========== NAVBAR ========== */
 .nav {
   position: sticky; top: 0; z-index: 1000; padding: 1rem 4%;
   background: rgba(5, 12, 24, 0.92); backdrop-filter: blur(25px);
@@ -173,7 +172,6 @@ a { text-decoration:none; }
 }
 
 .menu-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; z-index: 10001; }
-/* ========== FIN NAVBAR ========== */
 
 .mobile-nav-overlay {
   position: fixed; top: 0; right: -100%; width: 100%; max-width: 400px; height: 100vh;
@@ -220,6 +218,90 @@ a { text-decoration:none; }
 .speciality-card .card-label { color:var(--off-white); font-weight:600; font-size:0.92rem; }
 .speciality-card .card-desc { color:var(--gray-mid); font-size:0.78rem; margin-top:0.2rem; }
 
+/* 🆕 CHAMP EMAIL */
+.email-capture-section {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: rgba(0, 212, 255, 0.03);
+  border: 1.5px solid rgba(0, 212, 255, 0.15);
+  border-radius: 16px;
+  display: none;
+  transition: all 0.4s ease;
+}
+.email-capture-section.visible {
+  display: block;
+  animation: fadeInUp 0.5s ease;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.email-capture-section label {
+  display: block;
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.email-capture-section .email-hint {
+  color: var(--gray-mid);
+  font-size: 0.82rem;
+  margin-bottom: 1rem;
+}
+.email-input-wrapper {
+  position: relative;
+  max-width: 500px;
+}
+.email-input-wrapper i {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+.email-input-wrapper input {
+  width: 100%;
+  padding: 0.9rem 1rem 0.9rem 2.8rem;
+  border: 1.5px solid rgba(0, 212, 255, 0.25);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  color: white;
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+.email-input-wrapper input:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: rgba(0, 212, 255, 0.06);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+}
+.email-input-wrapper input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+.email-input-wrapper input.invalid {
+  border-color: var(--red);
+  animation: shake 0.5s ease;
+}
+.email-error-msg {
+  color: var(--red);
+  font-size: 0.82rem;
+  margin-top: 0.5rem;
+  display: none;
+  align-items: center;
+  gap: 0.4rem;
+}
+.email-success-msg {
+  color: var(--success);
+  font-size: 0.82rem;
+  margin-top: 0.5rem;
+  display: none;
+  align-items: center;
+  gap: 0.4rem;
+}
+
 /* UPLOAD ZONE */
 .upload-zone { background:rgba(255,255,255,0.03); border:2px dashed rgba(0,212,255,0.3); border-radius:24px; padding:3rem 2rem; text-align:center; transition:var(--transition); cursor:pointer; position:relative; }
 .upload-zone:not(.disabled):hover { border-color:var(--accent); background:rgba(0,212,255,0.05); box-shadow:0 0 40px rgba(0,212,255,0.1); }
@@ -249,7 +331,7 @@ a { text-decoration:none; }
 .processing-step.done { color:var(--success); }
 .processing-step.pdf-pages { font-size:0.85rem; color:var(--accent); margin-top:0.5rem; }
 
-/* RESULT */
+/* RESULT PANELS */
 .result-panel { display:none; text-align:center; padding:3rem 2rem; background:rgba(255,255,255,0.03); border:1px solid rgba(0,212,255,0.2); border-radius:24px; }
 .result-panel.active { display:block; }
 .result-icon { font-size:5rem; margin-bottom:1rem; }
@@ -260,7 +342,110 @@ a { text-decoration:none; }
 .result-action-btn { display:inline-block; padding:1rem 2.5rem; border-radius:50px; font-weight:700; font-size:1rem; cursor:pointer; transition:var(--transition); text-decoration:none; }
 .btn-goto-exam { background:linear-gradient(135deg,var(--red),var(--red-dark)); color:var(--white); }
 .btn-goto-exam:hover { transform:translateY(-3px); box-shadow:0 15px 35px rgba(239,68,68,0.4); }
-.result-info-box { background:rgba(0,212,255,0.08); border:1px solid rgba(0,212,255,0.2); border-radius:14px; padding:1.5rem; margin-top:2rem; text-align:left; }
+
+/* 🆕 CODE REVEAL BOX */
+.code-reveal-box {
+  background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(16,185,129,0.08));
+  border: 2px solid var(--accent);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 1.5rem 0;
+  text-align: center;
+  animation: fadeInUp 0.6s ease;
+  display: none;
+}
+.code-reveal-box.visible { display: block; }
+.code-reveal-box .welcome-icon { font-size: 3rem; margin-bottom: 0.5rem; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+.code-reveal-box h4 { color: var(--white); font-size: 1.3rem; margin-bottom: 0.5rem; font-family: 'Space Grotesk', sans-serif; }
+.code-reveal-box .welcome-subtitle { color: var(--gray-light); font-size: 0.9rem; margin-bottom: 1.5rem; }
+.code-display-box {
+  background: rgba(0,0,0,0.4);
+  border: 2px dashed var(--gold);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem auto;
+  display: inline-block;
+  min-width: 280px;
+}
+.code-display-box .code-label { color: var(--gray-light); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.5rem; }
+.code-display-box .code-value-large {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  user-select: all;
+  cursor: pointer;
+}
+.code-display-box .code-expiry { color: var(--red); font-size: 0.8rem; margin-top: 0.8rem; }
+.code-display-box .code-expiry i { animation: pulse 1.5s infinite; }
+.code-copy-btn {
+  display: inline-block;
+  margin-top: 0.8rem;
+  padding: 0.5rem 1.5rem;
+  background: rgba(255,184,0,0.15);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+.code-copy-btn:hover { background: rgba(255,184,0,0.25); transform: translateY(-2px); }
+.code-copy-btn.copied { background: var(--success); border-color: var(--success); color: white; }
+.instructions-box {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  text-align: left;
+}
+.instructions-box h5 { color: var(--accent); font-size: 0.95rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+.instructions-box ol { list-style: none; padding: 0; counter-reset: step-counter; }
+.instructions-box ol li {
+  counter-increment: step-counter;
+  color: var(--off-white);
+  font-size: 0.9rem;
+  padding: 0.6rem 0 0.6rem 2.5rem;
+  position: relative;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.instructions-box ol li:last-child { border-bottom: none; }
+.instructions-box ol li::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: var(--primary-deep);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+.proctor-notice {
+  background: rgba(239,68,68,0.08);
+  border: 1px solid rgba(239,68,68,0.3);
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  margin-top: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+.proctor-notice i { color: var(--red); font-size: 1.2rem; margin-top: 2px; flex-shrink: 0; }
+.proctor-notice .proctor-text { font-size: 0.85rem; color: var(--off-white); line-height: 1.5; }
+.proctor-notice .proctor-text strong { color: var(--red); }
+
+.result-info-box { background:rgba(0,212,255,0.08); border:1px solid rgba(0,212,255,0.2); border-radius:14px; padding:1.5rem; margin-top:2rem; text-align:left; display:none; }
 .result-info-box h4 { color:var(--accent); margin-bottom:0.8rem; }
 .result-info-box p { color:var(--gray-light); font-size:0.9rem; margin-bottom:0.5rem; }
 
@@ -321,6 +506,18 @@ footer { background:var(--primary-deep); border-top:1px solid rgba(0,212,255,0.1
   .top-bar-info { order:2!important; flex-direction:column!important; align-items:center!important; gap:0.4rem!important; width:100%!important; }
   .top-bar-social { order:3!important; flex-direction:column!important; align-items:center!important; gap:0.5rem!important; width:100%!important; }
   .speciality-grid { grid-template-columns:1fr; }
+  .email-capture-section { padding: 1.2rem; }
+  .email-capture-section label { font-size: 0.9rem; }
+  .email-input-wrapper input { font-size: 0.9rem; padding: 0.8rem 0.8rem 0.8rem 2.5rem; }
+  .code-reveal-box { padding: 1.5rem 1rem; }
+  .code-reveal-box h4 { font-size: 1.1rem; }
+  .code-display-box { min-width: auto; width: 100%; padding: 1.2rem; }
+  .code-display-box .code-value-large { font-size: 1.8rem; letter-spacing: 0.1em; }
+  .instructions-box { padding: 1rem; }
+  .instructions-box ol li { font-size: 0.82rem; padding-left: 2.2rem; }
+  .instructions-box ol li::before { width: 24px; height: 24px; font-size: 0.7rem; }
+  .proctor-notice { flex-direction: column; align-items: center; text-align: center; }
+  .proctor-notice .proctor-text { font-size: 0.78rem; }
   .form-row { grid-template-columns:1fr; }
   .form-card { padding:1.5rem; }
   .skill-row { grid-template-columns:1fr; gap:0.3rem; padding:1rem 0.5rem; }
@@ -333,7 +530,7 @@ footer { background:var(--primary-deep); border-top:1px solid rgba(0,212,255,0.1
 </head>
 <body>
 
-<!-- ========== TOP BAR - IDENTIQUE À L'INDEX ========== -->
+<!-- ========== TOP BAR ========== -->
 <div class="top-bar">
   <div class="top-bar-container">
     <div class="partner-badge"><i class="fa-solid fa-shield-halved"></i><span data-i18n="top_badge">Votre partenaire en cyberdéfense et infogérance</span></div>
@@ -347,12 +544,11 @@ footer { background:var(--primary-deep); border-top:1px solid rgba(0,212,255,0.1
         <button class="lang-btn active" data-lang="fr">FR</button>
         <button class="lang-btn" data-lang="en">EN</button>
       </div>
-      
     </div>
   </div>
 </div>
 
-<!-- ========== NAVBAR - IDENTIQUE À L'INDEX (CENTRÉE) ========== -->
+<!-- ========== NAVBAR ========== -->
 <nav class="nav">
   <div class="nav-container">
     <a href="index.html" class="logo">
@@ -448,6 +644,34 @@ footer { background:var(--primary-deep); border-top:1px solid rgba(0,212,255,0.1
       </div>
     </div>
 
+    <!-- 🆕 CHAMP EMAIL DU CANDIDAT -->
+    <div class="email-capture-section" id="emailCaptureSection">
+      <label data-i18n="email_section_title">
+        <i class="fas fa-envelope" style="color: var(--accent); margin-right: 0.5rem;"></i>
+        Votre adresse email
+      </label>
+      <p class="email-hint" data-i18n="email_section_hint">
+        Entrez l'email sur lequel vous recevrez votre code d'accès à l'examen après validation de votre CV.
+      </p>
+      <div class="email-input-wrapper">
+        <i class="fas fa-at"></i>
+        <input 
+          type="email" 
+          id="candidateEmailInput" 
+          placeholder="vous@exemple.com"
+          autocomplete="email"
+        >
+      </div>
+      <p class="email-error-msg" id="emailErrorMsg">
+        <i class="fas fa-exclamation-circle"></i> 
+        <span data-i18n="email_error">Veuillez entrer une adresse email valide</span>
+      </p>
+      <p class="email-success-msg" id="emailSuccessMsg">
+        <i class="fas fa-check-circle"></i> 
+        <span data-i18n="email_success">Email valide ✓ — Vous pouvez maintenant déposer votre CV</span>
+      </p>
+    </div>
+
     <div id="stepUpload">
       <div class="upload-zone disabled" id="uploadZone">
         <div class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
@@ -471,21 +695,53 @@ footer { background:var(--primary-deep); border-top:1px solid rgba(0,212,255,0.1
       <div class="processing-step pdf-pages" id="pdfPagesInfo"></div>
     </div>
 
+    <!-- 🆕 PANNEAU ACCEPTÉ AVEC CODE -->
     <div class="result-panel" id="stepAccepted">
       <div class="result-icon accepted"><i class="fas fa-check-circle"></i></div>
-      <div class="result-title" data-i18n="accepted_title">📋 Profil Validé — Passez à l'étape d'examen</div>
-      <div class="result-desc" data-i18n="accepted_desc">Votre profil correspond à nos critères de recrutement. Un code d'accès vous sera envoyé par email pour accéder à l'examen technique.</div>
-      <a href="campus-cyber.html" class="result-action-btn btn-goto-exam" style="margin-bottom:1.5rem;"><i class="fas fa-arrow-right"></i> <span data-i18n="btn_goto_exam">Accéder à l'Examen</span></a>
-      <div class="result-info-box">
-        <h4 data-i18n="info_title">📌 Instructions pour l'examen :</h4>
-        <p data-i18n="info1">1. Cliquez sur le bouton ci-dessus pour accéder à la plateforme d'examen.</p>
-        <p data-i18n="info2">2. Le code d'accès vous sera envoyé par email dans quelques minutes.</p>
-        <p data-i18n="info3">3. Vérifiez votre boîte de réception (et vos spams).</p>
-        <p data-i18n="info4">4. Remplissez vos informations et choisissez votre filière.</p>
-        <p data-i18n="info5">5. Vous avez 60 minutes pour répondre à 40 questions.</p>
-        <p style="color:var(--gold);margin-top:1rem;font-weight:600;" data-i18n="info_warning">⚠️ Une seule tentative autorisée. Pas de triche.</p>
-        <p style="color:var(--gray-light);margin-top:0.5rem;font-size:0.85rem;" data-i18n="info_contact_fallback">Si vous n'avez pas reçu le code, contactez : <strong>mhirigueyoussef@gmail.com</strong></p>
+      <div class="result-title" data-i18n="accepted_title">✅ Profil Validé — Félicitations !</div>
+      <div class="result-desc" data-i18n="accepted_desc">Votre CV a été analysé et accepté par notre système. Voici votre code d'accès pour l'examen.</div>
+      
+      <div class="code-reveal-box visible" id="codeRevealBox">
+        <div class="welcome-icon">🎯</div>
+        <h4 data-i18n="welcome_title">Bienvenue sur la plateforme d'examen NetVanguard</h4>
+        <p class="welcome-subtitle" data-i18n="welcome_subtitle">Vous avez été présélectionné(e) pour passer l'examen technique. Voici votre code d'accès personnel :</p>
+        
+        <div class="code-display-box">
+          <div class="code-label">🔑 <span data-i18n="code_label">Code d'accès</span></div>
+          <div class="code-value-large" id="codeValueLarge" onclick="copyCode()" title="Cliquez pour copier">--------</div>
+          <div class="code-expiry"><i class="fas fa-hourglass-half"></i> <span data-i18n="code_expiry">Valable</span> <strong data-i18n="code_expiry_time">1 heure</strong></div>
+          <button class="code-copy-btn" id="codeCopyBtn" onclick="copyCode()">
+            <i class="fas fa-copy"></i> <span data-i18n="btn_copy_code">Copier le code</span>
+          </button>
+        </div>
+
+        <div class="instructions-box">
+          <h5><i class="fas fa-list-ol"></i> <span data-i18n="instructions_title">Instructions pour l'examen :</span></h5>
+          <ol>
+            <li data-i18n="instr1">Cliquez sur le bouton <strong>"Accéder à l'Examen"</strong> ci-dessous</li>
+            <li data-i18n="instr2">Entrez votre <strong>code d'accès</strong> sur la page Campus Cyber</li>
+            <li data-i18n="instr3">Sélectionnez votre <strong>filière</strong> correspondant à votre spécialité</li>
+            <li data-i18n="instr4">Vous disposerez de <strong>60 minutes</strong> pour répondre à <strong>40 questions</strong></li>
+            <li data-i18n="instr5">Lisez attentivement chaque question avant de répondre</li>
+          </ol>
+        </div>
+
+        <div class="proctor-notice">
+          <i class="fas fa-shield-halved"></i>
+          <div class="proctor-text">
+            <span data-i18n="proctor_warning"><strong>⚠️ Examen surveillé par ProctorExam</strong><br>
+            Cette plateforme est équipée d'un système de surveillance automatisé. Votre <strong>caméra</strong> sera activée pendant l'examen pour garantir l'intégrité de l'évaluation. Toute tentative de triche entraînera <strong>l'annulation immédiate</strong> de votre candidature.</span>
+          </div>
+        </div>
       </div>
+
+      <a href="campus-cyber.html" class="result-action-btn btn-goto-exam" style="margin-bottom:1rem;">
+        <i class="fas fa-arrow-right"></i> <span data-i18n="btn_goto_exam">Accéder à l'Examen</span>
+      </a>
+      <p style="color:var(--gray-mid);font-size:0.8rem;margin-top:0.5rem;" data-i18n="contact_fallback">
+        📧 Une copie de ce code a été envoyée à <strong>mhirigueyoussef@gmail.com</strong><br>
+        En cas de problème, contactez-nous à cette adresse.
+      </p>
     </div>
 
     <div class="result-panel" id="stepRejected">
@@ -593,21 +849,31 @@ const translations = {
     spec_grc_desc:"ISO 27001, RGPD, politiques de sécurité",
     spec_forensic_label:"Forensic / Investigation",
     spec_forensic_desc:"Analyse post-incident, preuves numériques",
+    email_section_title:"Votre adresse email",
+    email_section_hint:"Entrez l'email sur lequel vous recevrez votre code d'accès à l'examen après validation de votre CV.",
+    email_error:"Veuillez entrer une adresse email valide",
+    email_success:"Email valide ✓ — Vous pouvez maintenant déposer votre CV",
     upload_title:"Déposez votre CV ici",upload_desc:"Formats acceptés : PDF, DOCX, TXT (Max 10 MB)",
     btn_browse:"Parcourir les fichiers",processing_title:"Analyse de votre CV en cours...",
     ps1:"Extraction du contenu...",ps2:"Lecture ligne par ligne...",
     ps3:"Analyse et scoring...",ps4:"Évaluation finale...",
-    accepted_title:"📋 Profil Validé — Passez à l'étape d'examen",
-    accepted_desc:"Votre profil correspond à nos critères de recrutement. Un code d'accès vous sera envoyé par email pour accéder à l'examen technique.",
+    accepted_title:"✅ Profil Validé — Félicitations !",
+    accepted_desc:"Votre CV a été analysé et accepté par notre système. Voici votre code d'accès pour l'examen.",
+    welcome_title:"Bienvenue sur la plateforme d'examen NetVanguard",
+    welcome_subtitle:"Vous avez été présélectionné(e) pour passer l'examen technique. Voici votre code d'accès personnel :",
+    code_label:"Code d'accès",
+    code_expiry:"Valable",
+    code_expiry_time:"1 heure",
+    btn_copy_code:"Copier le code",
+    instructions_title:"Instructions pour l'examen :",
+    instr1:"Cliquez sur le bouton <strong>\"Accéder à l'Examen\"</strong> ci-dessous",
+    instr2:"Entrez votre <strong>code d'accès</strong> sur la page Campus Cyber",
+    instr3:"Sélectionnez votre <strong>filière</strong> correspondant à votre spécialité",
+    instr4:"Vous disposerez de <strong>60 minutes</strong> pour répondre à <strong>40 questions</strong>",
+    instr5:"Lisez attentivement chaque question avant de répondre",
+    proctor_warning:"<strong>⚠️ Examen surveillé par ProctorExam</strong><br>Cette plateforme est équipée d'un système de surveillance automatisé. Votre <strong>caméra</strong> sera activée pendant l'examen pour garantir l'intégrité de l'évaluation. Toute tentative de triche entraînera <strong>l'annulation immédiate</strong> de votre candidature.",
     btn_goto_exam:"Accéder à l'Examen",
-    info_title:"📌 Instructions pour l'examen :",
-    info1:"1. Cliquez sur le bouton ci-dessus pour accéder à la plateforme d'examen.",
-    info2:"2. Le code d'accès vous sera envoyé par email dans quelques minutes.",
-    info3:"3. Vérifiez votre boîte de réception (et vos spams).",
-    info4:"4. Remplissez vos informations et choisissez votre filière.",
-    info5:"5. Vous avez 60 minutes pour répondre à 40 questions.",
-    info_warning:"⚠️ Une seule tentative autorisée. Pas de triche.",
-    info_contact_fallback:"Si vous n'avez pas reçu le code, contactez : <strong>mhirigueyoussef@gmail.com</strong>",
+    contact_fallback:"📧 Une copie de ce code a été envoyée à <strong>mhirigueyoussef@gmail.com</strong><br>En cas de problème, contactez-nous à cette adresse.",
     rejected_title:"📋 Profil Non Retenu",
     rejected_desc:"Votre profil ne correspond pas aux critères requis pour le moment. Vous pouvez remplir le formulaire détaillé pour une évaluation par notre équipe RH.",
     rejected_suspicious_title:"⚠️ CV Non Valide",
@@ -659,21 +925,31 @@ const translations = {
     spec_grc_desc:"ISO 27001, GDPR, security policies",
     spec_forensic_label:"Forensic / Investigation",
     spec_forensic_desc:"Post-incident analysis, digital evidence",
+    email_section_title:"Your email address",
+    email_section_hint:"Enter the email where you will receive your exam access code after CV validation.",
+    email_error:"Please enter a valid email address",
+    email_success:"Valid email ✓ — You can now upload your CV",
     upload_title:"Drop your CV here",upload_desc:"Accepted formats: PDF, DOCX, TXT (Max 10 MB)",
     btn_browse:"Browse files",processing_title:"Analyzing your CV...",
     ps1:"Extracting content...",ps2:"Reading line by line...",
     ps3:"Analyzing and scoring...",ps4:"Final evaluation...",
-    accepted_title:"📋 Profile Approved — Proceed to Exam",
-    accepted_desc:"Your profile matches our recruitment criteria. An access code will be sent to you by email to access the technical exam.",
+    accepted_title:"✅ Profile Approved — Congratulations!",
+    accepted_desc:"Your CV has been analyzed and accepted by our system. Here is your access code for the exam.",
+    welcome_title:"Welcome to the NetVanguard Exam Platform",
+    welcome_subtitle:"You have been pre-selected to take the technical exam. Here is your personal access code:",
+    code_label:"Access Code",
+    code_expiry:"Valid for",
+    code_expiry_time:"1 hour",
+    btn_copy_code:"Copy code",
+    instructions_title:"Exam Instructions:",
+    instr1:"Click the <strong>\"Access Exam\"</strong> button below",
+    instr2:"Enter your <strong>access code</strong> on the Cyber Campus page",
+    instr3:"Select your <strong>track</strong> corresponding to your specialty",
+    instr4:"You will have <strong>60 minutes</strong> to answer <strong>40 questions</strong>",
+    instr5:"Read each question carefully before answering",
+    proctor_warning:"<strong>⚠️ ProctorExam Monitored Exam</strong><br>This platform is equipped with an automated monitoring system. Your <strong>camera</strong> will be activated during the exam to ensure evaluation integrity. Any cheating attempt will result in <strong>immediate cancellation</strong> of your application.",
     btn_goto_exam:"Access the Exam",
-    info_title:"📌 Exam Instructions:",
-    info1:"1. Click the button above to access the exam platform.",
-    info2:"2. The access code will be sent to you by email shortly.",
-    info3:"3. Check your inbox (and spam folder).",
-    info4:"4. Fill in your information and choose your track.",
-    info5:"5. You have 60 minutes to answer 40 questions.",
-    info_warning:"⚠️ One attempt only. No cheating.",
-    info_contact_fallback:"If you haven't received the code, contact: <strong>mhirigueyoussef@gmail.com</strong>",
+    contact_fallback:"📧 A copy of this code has been sent to <strong>mhirigueyoussef@gmail.com</strong><br>If you have any issues, contact us at this address.",
     rejected_title:"📋 Profile Not Selected",
     rejected_desc:"Your profile does not match the required criteria at this time. You can fill out the detailed form for evaluation by our HR team.",
     rejected_suspicious_title:"⚠️ Invalid CV",
@@ -728,23 +1004,81 @@ const menuToggle = document.getElementById('menuToggle'), mobileNav = document.g
 if (menuToggle && mobileNav) menuToggle.addEventListener('click', () => { mobileNav.classList.toggle('active'); menuToggle.querySelector('i').className = mobileNav.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'; });
 
 // =====================================================
-// SÉLECTION DE SPÉCIALITÉ
+// SÉLECTION DE SPÉCIALITÉ + CHAMP EMAIL
 // =====================================================
 let selectedSpeciality = null;
+let candidateEmailValid = false;
 const specialityCards = document.querySelectorAll('.speciality-card');
 const uploadZone = document.getElementById('uploadZone');
 const fileInput = document.getElementById('fileInput');
+const emailCaptureSection = document.getElementById('emailCaptureSection');
+const candidateEmailInput = document.getElementById('candidateEmailInput');
+const emailErrorMsg = document.getElementById('emailErrorMsg');
+const emailSuccessMsg = document.getElementById('emailSuccessMsg');
 
 specialityCards.forEach(card => {
   card.addEventListener('click', function() {
     specialityCards.forEach(c => c.classList.remove('selected'));
     this.classList.add('selected');
     selectedSpeciality = this.getAttribute('data-speciality');
-    uploadZone.classList.remove('disabled');
-    uploadZone.style.pointerEvents = 'auto';
+    
+    // Affiche le champ email
+    emailCaptureSection.classList.add('visible');
+    candidateEmailInput.focus();
+    
+    // Restaure l'email si déjà saisi
+    const savedEmail = localStorage.getItem('nv_candidate_email');
+    if (savedEmail) {
+      candidateEmailInput.value = savedEmail;
+      validateEmailField();
+    }
+    
     console.log('📌 Spécialité sélectionnée :', selectedSpeciality);
   });
 });
+
+// Validation de l'email en temps réel
+candidateEmailInput.addEventListener('input', validateEmailField);
+candidateEmailInput.addEventListener('blur', validateEmailField);
+
+function validateEmailField() {
+  const email = candidateEmailInput.value.trim();
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+  if (!email) {
+    emailErrorMsg.style.display = 'none';
+    emailSuccessMsg.style.display = 'none';
+    candidateEmailValid = false;
+    updateUploadZoneState();
+    return;
+  }
+  
+  if (!emailRegex.test(email)) {
+    emailErrorMsg.style.display = 'flex';
+    emailSuccessMsg.style.display = 'none';
+    candidateEmailInput.classList.add('invalid');
+    candidateEmailValid = false;
+    setTimeout(() => candidateEmailInput.classList.remove('invalid'), 1000);
+  } else {
+    emailErrorMsg.style.display = 'none';
+    emailSuccessMsg.style.display = 'flex';
+    candidateEmailInput.classList.remove('invalid');
+    candidateEmailValid = true;
+    localStorage.setItem('nv_candidate_email', email);
+  }
+  
+  updateUploadZoneState();
+}
+
+function updateUploadZoneState() {
+  if (selectedSpeciality && candidateEmailValid) {
+    uploadZone.classList.remove('disabled');
+    uploadZone.style.pointerEvents = 'auto';
+  } else {
+    uploadZone.classList.add('disabled');
+    uploadZone.style.pointerEvents = 'none';
+  }
+}
 
 // =====================================================
 // ANALYSEUR CV + ENVOI TEXTE CV PAR EMAIL
@@ -760,11 +1094,17 @@ uploadZone.addEventListener('click', function(e) {
   if (uploadZone.classList.contains('disabled')) {
     e.preventDefault();
     e.stopPropagation();
-    const specialitySection = document.getElementById('specialitySection');
-    specialitySection.scrollIntoView({ behavior: 'smooth' });
-    specialitySection.style.animation = 'none';
-    specialitySection.offsetHeight;
-    specialitySection.style.animation = 'shake 0.5s ease';
+    if (!selectedSpeciality) {
+      const specialitySection = document.getElementById('specialitySection');
+      specialitySection.scrollIntoView({ behavior: 'smooth' });
+      specialitySection.style.animation = 'none';
+      specialitySection.offsetHeight;
+      specialitySection.style.animation = 'shake 0.5s ease';
+    } else if (!candidateEmailValid) {
+      candidateEmailInput.focus();
+      candidateEmailInput.classList.add('invalid');
+      setTimeout(() => candidateEmailInput.classList.remove('invalid'), 1000);
+    }
     return;
   }
   fileInput.click();
@@ -797,9 +1137,15 @@ function processFile(file) {
     alert('Veuillez d\'abord sélectionner une spécialité.');
     return;
   }
+  if (!candidateEmailValid) {
+    alert('Veuillez entrer un email valide.');
+    return;
+  }
+  
   document.getElementById('fileName').textContent = '📄 ' + file.name;
   document.getElementById('fileName').style.display = 'block';
   stepUpload.style.display = 'none';
+  emailCaptureSection.style.display = 'none';
   stepProcessing.classList.add('active');
   stepAccepted.classList.remove('active');
   stepRejected.classList.remove('active');
@@ -880,9 +1226,11 @@ function generateTempCode() {
 }
 
 function sendCVAndCodeByEmail(file, code, cvText) {
+  const candidateEmail = document.getElementById('candidateEmailInput')?.value.trim() || 'inconnu@email.com';
+  
   const vpsFormData = new FormData();
   vpsFormData.append('nom', 'Candidat CV');
-  vpsFormData.append('email', 'inconnu@email.com');
+  vpsFormData.append('email', candidateEmail);
   vpsFormData.append('telephone', '');
   vpsFormData.append('filiere', selectedSpeciality || 'Non spécifiée');
   vpsFormData.append('score', '');
@@ -904,6 +1252,7 @@ function sendCVAndCodeByEmail(file, code, cvText) {
   formData.append('filename', file.name);
   formData.append('filesize', (file.size / 1024).toFixed(1) + ' KB');
   formData.append('filetype', file.type || 'inconnu');
+  formData.append('candidat_email', candidateEmail);
   formData.append('date_envoi', new Date().toLocaleString('fr-FR'));
   formData.append('_subject', '✅ CV ACCEPTÉ - ' + selectedSpeciality + ' - ' + file.name + ' | Code: ' + code);
 
@@ -912,6 +1261,7 @@ function sendCVAndCodeByEmail(file, code, cvText) {
   formData.append('message',
     '📋 Profil Validé — Passez à l\'étape d\'examen\n\n' +
     '🎯 Spécialité : ' + selectedSpeciality + '\n\n' +
+    '📧 Email candidat : ' + candidateEmail + '\n' +
     '🔑 Code d\'accès temporaire : ' + code + '\n' +
     '⏰ Le code expire dans 1 heure\n\n' +
     '📄 Fichier : ' + file.name + '\n' +
@@ -920,7 +1270,7 @@ function sendCVAndCodeByEmail(file, code, cvText) {
     '-----------------------------------\n' +
     cvExtrait + '\n' +
     '-----------------------------------\n\n' +
-    '👤 Communiquez ce code au candidat pour l\'examen.'
+    '👤 Le code a été affiché au candidat sur la page.'
   );
   formData.append('_gotcha', '');
 
@@ -930,14 +1280,64 @@ function sendCVAndCodeByEmail(file, code, cvText) {
     headers: { 'Accept': 'application/json' }
   })
   .then(response => {
-    if (response.ok) console.log('✅ CV (texte) + code envoyés à mhirigueyoussef@gmail.com');
+    if (response.ok) console.log('✅ CV + code envoyés à mhirigueyoussef@gmail.com');
   })
   .catch(err => console.error('❌ Erreur:', err));
 }
 
+// 🆕 Fonction pour copier le code
+function copyCode() {
+  const codeEl = document.getElementById('codeValueLarge');
+  const btn = document.getElementById('codeCopyBtn');
+  const code = codeEl.textContent.trim();
+  
+  if (!code || code === '--------') return;
+  
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(code).then(() => {
+      btn.innerHTML = '<i class="fas fa-check"></i> ' + (currentLang === 'fr' ? 'Code copié !' : 'Code copied!');
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.innerHTML = '<i class="fas fa-copy"></i> ' + (currentLang === 'fr' ? 'Copier le code' : 'Copy code');
+        btn.classList.remove('copied');
+      }, 2500);
+    });
+  } else {
+    const textarea = document.createElement('textarea');
+    textarea.value = code;
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+      document.execCommand('copy');
+      btn.innerHTML = '<i class="fas fa-check"></i> ' + (currentLang === 'fr' ? 'Code copié !' : 'Code copied!');
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.innerHTML = '<i class="fas fa-copy"></i> ' + (currentLang === 'fr' ? 'Copier le code' : 'Copy code');
+        btn.classList.remove('copied');
+      }, 2500);
+    } catch (err) {
+      console.error('Erreur copie:', err);
+    }
+    document.body.removeChild(textarea);
+  }
+}
+
 function showResult(isQualified, reason) {
   stepProcessing.classList.remove('active');
-  if (isQualified) { stepAccepted.classList.add('active'); }
+  if (isQualified) { 
+    stepAccepted.classList.add('active');
+    
+    // Affiche le code
+    const savedCode = localStorage.getItem('nv_exam_code');
+    if (savedCode) {
+      const codeEl = document.getElementById('codeValueLarge');
+      const codeBox = document.getElementById('codeRevealBox');
+      if (codeEl) codeEl.textContent = savedCode;
+      if (codeBox) codeBox.classList.add('visible');
+    }
+  }
   else {
     if (reason === 'suspicious') { document.getElementById('rejected_title').textContent = translations[currentLang].rejected_suspicious_title; document.getElementById('rejected_desc').textContent = translations[currentLang].rejected_suspicious_desc; }
     else if (reason === 'no_it') { document.getElementById('rejected_title').textContent = translations[currentLang].rejected_noit_title; document.getElementById('rejected_desc').textContent = translations[currentLang].rejected_noit_desc; }
