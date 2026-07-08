@@ -26,7 +26,7 @@
     h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
     a { text-decoration: none; }
 
-    /* ========== TOP BAR - IDENTIQUE À L'INDEX ========== */
+    /* ========== TOP BAR ========== */
     .top-bar {
       background: rgba(2, 8, 16, 0.98);
       backdrop-filter: blur(20px);
@@ -91,9 +91,8 @@
       font-family: inherit;
     }
     .lang-btn.active { background: var(--accent); color: var(--primary-deep); }
-    /* ========== FIN TOP BAR ========== */
 
-    /* ========== NAVBAR - IDENTIQUE À L'INDEX (CENTRÉE) ========== */
+    /* ========== NAVBAR ========== */
     .nav {
       position: sticky; top: 0; z-index: 1000; padding: 1rem 4%;
       background: rgba(5, 12, 24, 0.92); backdrop-filter: blur(25px);
@@ -110,16 +109,13 @@
       flex-shrink: 0;
     }
     .logo:hover { transform: scale(1.02); }
-
     .logo-shield {
       width: 32px; height: 32px; flex-shrink: 0;
       animation: float 3s ease-in-out infinite;
       filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.5));
     }
     @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
-
     .logo-text-accent { color: var(--accent); }
-
     .nav-links { 
       display: flex; 
       gap: 0.8rem; 
@@ -130,11 +126,7 @@
       flex-shrink: 0;
       justify-content: center;
     }
-    .nav-links > li { 
-      position: relative; 
-      flex-shrink: 0;
-      display: flex;
-    }
+    .nav-links > li { position: relative; flex-shrink: 0; display: flex; }
     .nav-links > li > a {
       color: var(--off-white); 
       font-size: 0.9rem; 
@@ -150,11 +142,7 @@
       justify-content: center;
     }
     .nav-links > li > a:hover,
-    .nav-links > li > a.active { 
-      background: rgba(0, 212, 255, 0.1); 
-      color: var(--accent); 
-    }
-
+    .nav-links > li > a.active { background: rgba(0, 212, 255, 0.1); color: var(--accent); }
     .nav-links > li > a.btn-espace-client {
       background: linear-gradient(135deg, #00D4FF, #0891B2);
       color: #020810 !important;
@@ -168,10 +156,7 @@
       transform: translateY(-2px);
       box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
     }
-
     .menu-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; z-index: 10001; }
-    /* ========== FIN NAVBAR ========== */
-
     .mobile-nav-overlay {
       position: fixed; top: 0; right: -100%; width: 100%; max-width: 400px; height: 100vh;
       background: rgba(2, 8, 16, 0.98); backdrop-filter: blur(25px); z-index: 10000;
@@ -200,6 +185,7 @@
     .integrity-banner .ib-content .ib-principles span { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--accent); font-weight: 500; }
     .integrity-banner .ib-content .ib-principles span i { font-size: 0.7rem; opacity: 0.8; }
 
+    /* 🆕 MONITORING WIDGET AVEC CAMÉRA */
     .monitoring-widget { display: none; background: rgba(0,212,255,0.06); border: 1px solid rgba(0,212,255,0.15); border-radius: 14px; padding: 0.9rem 1.3rem; margin-bottom: 1.5rem; }
     .monitoring-widget.active { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
     .monitoring-widget .mw-status { display: flex; align-items: center; gap: 0.6rem; }
@@ -210,10 +196,103 @@
     .monitoring-widget .mw-status .mw-dot.danger-state { background: var(--red); animation: pulse-dot-danger 0.4s infinite; }
     @keyframes pulse-dot-danger { 0%,100% { opacity: 1; box-shadow: 0 0 14px var(--red); } 50% { opacity: 0.2; } }
     .monitoring-widget .mw-status span { font-size: 0.82rem; color: var(--off-white); font-weight: 500; }
+    
+    .mw-camera-container { display: flex; align-items: center; gap: 0.8rem; }
+    .mw-camera-feed {
+      width: 120px; height: 90px;
+      border-radius: 8px;
+      border: 2px solid var(--accent);
+      background: #000;
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+    }
+    .mw-camera-feed video {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transform: scaleX(-1);
+    }
+    .mw-camera-feed .camera-rec-dot {
+      position: absolute;
+      top: 6px; right: 6px;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--red);
+      animation: camera-rec-blink 1s infinite;
+      z-index: 2;
+      box-shadow: 0 0 8px var(--red);
+    }
+    @keyframes camera-rec-blink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+    .mw-camera-feed .camera-label {
+      position: absolute;
+      bottom: 4px; left: 6px;
+      font-size: 0.55rem;
+      color: rgba(255,255,255,0.8);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      z-index: 2;
+      text-shadow: 0 0 6px rgba(0,0,0,0.8);
+    }
+    
     .monitoring-widget .mw-strikes { display: flex; gap: 0.5rem; align-items: center; }
     .monitoring-widget .mw-strikes .strike-dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid rgba(239,68,68,0.4); transition: all 0.3s ease; }
     .monitoring-widget .mw-strikes .strike-dot.active-strike { background: var(--red); border-color: var(--red); box-shadow: 0 0 10px rgba(239,68,68,0.5); }
     .monitoring-widget .mw-strikes .strike-label { font-size: 0.7rem; color: var(--gray-light); text-transform: uppercase; letter-spacing: 0.1em; }
+
+    /* 🆕 OVERLAYS CAMÉRA */
+    .camera-permission-overlay {
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(2,8,16,0.97);
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    .camera-permission-overlay.active { display: flex; }
+    .camera-permission-overlay .cp-icon { font-size: 5rem; color: var(--accent); margin-bottom: 1.5rem; animation: float 3s ease-in-out infinite; }
+    .camera-permission-overlay h2 { color: var(--white); font-size: 1.6rem; margin-bottom: 1rem; font-family: 'Space Grotesk', sans-serif; }
+    .camera-permission-overlay p { color: var(--gray-light); max-width: 500px; margin-bottom: 0.8rem; font-size: 0.95rem; line-height: 1.6; }
+    .camera-permission-overlay .cp-warning { color: var(--red); font-weight: 600; font-size: 0.9rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem; justify-content: center; }
+    .camera-permission-overlay .cp-buttons { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .btn-cp {
+      padding: 0.9rem 2rem; border-radius: 10px;
+      font-weight: 700; font-size: 0.95rem;
+      cursor: pointer; transition: var(--transition);
+      font-family: inherit; border: none;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-cp-allow { background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: var(--primary-deep); }
+    .btn-cp-allow:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0, 212, 255, 0.3); }
+    .btn-cp-deny { background: rgba(239, 68, 68, 0.15); color: var(--red); border: 1px solid rgba(239, 68, 68, 0.3); }
+    .btn-cp-deny:hover { background: rgba(239, 68, 68, 0.25); }
+
+    .camera-denied-overlay {
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(2,8,16,0.97);
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    .camera-denied-overlay.active { display: flex; }
+    .camera-denied-overlay .cd-icon { font-size: 5rem; color: var(--red); margin-bottom: 1.5rem; }
+    .camera-denied-overlay h2 { color: var(--white); font-size: 1.6rem; margin-bottom: 1rem; font-family: 'Space Grotesk', sans-serif; }
+    .camera-denied-overlay p { color: var(--gray-light); max-width: 500px; margin-bottom: 1rem; font-size: 0.95rem; line-height: 1.6; }
+    .btn-cd {
+      padding: 0.9rem 2rem; border-radius: 10px;
+      font-weight: 700; font-size: 0.95rem;
+      cursor: pointer; transition: var(--transition);
+      font-family: inherit; border: 1px solid rgba(255,255,255,0.1);
+      display: flex; align-items: center; gap: 0.5rem;
+      background: rgba(255,255,255,0.06); color: var(--off-white);
+    }
+    .btn-cd:hover { background: rgba(255,255,255,0.12); }
 
     .warning-toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 9999; background: rgba(239,68,68,0.95); color: #fff; padding: 1rem 2rem; border-radius: 12px; font-weight: 600; font-size: 0.95rem; box-shadow: 0 10px 40px rgba(239,68,68,0.4); animation: slideDown 0.4s ease; display: none; text-align: center; max-width: 90%; }
     .warning-toast.show { display: block; }
@@ -350,13 +429,18 @@
       .integrity-banner { flex-direction: column; text-align: center; }
       .integrity-banner .ib-content .ib-principles { justify-content: center; }
       .monitoring-widget.active { flex-direction: column; text-align: center; }
+      .mw-camera-container { flex-direction: column; align-items: center; }
+      .mw-camera-feed { width: 100px; height: 75px; }
+      .camera-permission-overlay h2, .camera-denied-overlay h2 { font-size: 1.3rem; }
+      .camera-permission-overlay p, .camera-denied-overlay p { font-size: 0.85rem; }
+      .cp-buttons { flex-direction: column; align-items: center; }
     }
     @media (max-width: 600px) { .section-cards { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
 
-<!-- ========== TOP BAR - IDENTIQUE À L'INDEX ========== -->
+<!-- ========== TOP BAR ========== -->
 <div class="top-bar">
   <div class="top-bar-container">
     <div class="partner-badge"><i class="fa-solid fa-shield-halved"></i><span data-i18n="top_badge">Votre partenaire en cyberdéfense et infogérance</span></div>
@@ -370,12 +454,11 @@
         <button class="lang-btn active" data-lang="fr">FR</button>
         <button class="lang-btn" data-lang="en">EN</button>
       </div>
-      
     </div>
   </div>
 </div>
 
-<!-- ========== NAVBAR - IDENTIQUE À L'INDEX (CENTRÉE) ========== -->
+<!-- ========== NAVBAR ========== -->
 <nav class="nav">
   <div class="nav-container">
     <a href="index.html" class="logo">
@@ -448,16 +531,47 @@
       </div>
     </div>
 
+    <!-- 🆕 MONITORING WIDGET AVEC CAMÉRA -->
     <div class="monitoring-widget" id="monitoringWidget">
       <div class="mw-status">
         <div class="mw-dot" id="mwDot"></div>
         <span data-i18n="mw_active">Session surveillée</span>
       </div>
-      <div class="mw-strikes">
-        <span class="strike-label" data-i18n="mw_strikes">Infractions</span>
-        <div class="strike-dot" id="strike1"></div>
-        <div class="strike-dot" id="strike2"></div>
+      <div class="mw-camera-container">
+        <div class="mw-camera-feed" id="mwCameraFeed" style="display:none;">
+          <video id="cameraVideo" autoplay playsinline muted></video>
+          <div class="camera-rec-dot"></div>
+          <div class="camera-label">● LIVE</div>
+        </div>
+        <div class="mw-strikes">
+          <span class="strike-label" data-i18n="mw_strikes">Infractions</span>
+          <div class="strike-dot" id="strike1"></div>
+          <div class="strike-dot" id="strike2"></div>
+        </div>
       </div>
+    </div>
+
+    <!-- 🆕 OVERLAY PERMISSION CAMÉRA -->
+    <div class="camera-permission-overlay" id="cameraPermissionOverlay">
+      <div class="cp-icon"><i class="fas fa-camera"></i></div>
+      <h2 data-i18n="cp_title">Vérification d'identité requise</h2>
+      <p data-i18n="cp_desc1">Pour garantir l'intégrité de cette évaluation, l'activation de votre caméra est obligatoire.</p>
+      <p data-i18n="cp_desc2">Votre flux vidéo sera diffusé en direct dans le widget de surveillance pendant toute la durée de l'examen. Aucune image n'est stockée.</p>
+      <div class="cp-warning"><i class="fas fa-exclamation-triangle"></i> <span data-i18n="cp_warning">Sans caméra activée, vous ne pourrez pas accéder à l'examen.</span></div>
+      <div class="cp-buttons">
+        <button class="btn-cp btn-cp-allow" onclick="requestCameraAccess()"><i class="fas fa-check-circle"></i> <span data-i18n="cp_allow">Autoriser la caméra</span></button>
+        <button class="btn-cp btn-cp-deny" onclick="denyCameraAccess()"><i class="fas fa-times-circle"></i> <span data-i18n="cp_deny">Refuser</span></button>
+      </div>
+    </div>
+
+    <!-- 🆕 OVERLAY CAMÉRA REFUSÉE -->
+    <div class="camera-denied-overlay" id="cameraDeniedOverlay">
+      <div class="cd-icon"><i class="fas fa-camera-slash"></i></div>
+      <h2 data-i18n="cd_title">Accès à l'examen impossible</h2>
+      <p data-i18n="cd_desc1">Vous avez refusé l'accès à votre caméra.</p>
+      <p data-i18n="cd_desc2">Cet examen est une évaluation sérieuse destinée au recrutement. La surveillance par caméra est obligatoire pour valider votre identité et garantir l'équité entre tous les candidats.</p>
+      <p data-i18n="cd_desc3">Sans caméra, votre candidature ne peut pas être prise en compte.</p>
+      <button class="btn-cd" onclick="location.reload()"><i class="fas fa-redo"></i> <span data-i18n="cd_retry">Réessayer</span></button>
     </div>
 
     <div class="warning-toast" id="warningToast"></div>
@@ -465,7 +579,7 @@
     <div class="cancelled-overlay" id="cancelledOverlay">
       <div class="co-icon"><i class="fas fa-times-octagon"></i></div>
       <h2 data-i18n="cancelled_title">Examen Annulé</h2>
-      <p data-i18n="cancelled_desc">Notre système de surveillance a détecté des comportements non conformes au règlement de l'examen. Votre session a été automatiquement interrompue. Un rapport a été envoyé au responsable recrutement.</p>
+      <p data-i18n="cancelled_desc">Notre système de surveillance a détecté des comportements non conformes au règlement de l'examen. Votre session a été automatiquement interrompue. Un rapport détaillé a été envoyé au responsable recrutement.</p>
       <button class="btn-nav quit" onclick="location.reload()"><i class="fas fa-redo"></i> <span data-i18n="cancelled_btn">Retour à l'accueil</span></button>
     </div>
 
@@ -782,6 +896,17 @@ const translations = {
     ib_desc: "Cet examen s'inscrit dans le cadre du processus de recrutement de NetVanguard IT Solutions. Nous attendons de chaque candidat qu'il réponde avec honnêteté et transparence, dans le respect des standards éthiques qui définissent notre profession.",
     ib_p1: "Travail individuel", ib_p2: "Sans assistance externe", ib_p3: "Dans le temps imparti",
     mw_active: "Session surveillée", mw_strikes: "Infractions",
+    cp_title: "Vérification d'identité requise",
+    cp_desc1: "Pour garantir l'intégrité de cette évaluation, l'activation de votre caméra est obligatoire.",
+    cp_desc2: "Votre flux vidéo sera diffusé en direct dans le widget de surveillance pendant toute la durée de l'examen. Aucune image n'est stockée.",
+    cp_warning: "Sans caméra activée, vous ne pourrez pas accéder à l'examen.",
+    cp_allow: "Autoriser la caméra",
+    cp_deny: "Refuser",
+    cd_title: "Accès à l'examen impossible",
+    cd_desc1: "Vous avez refusé l'accès à votre caméra.",
+    cd_desc2: "Cet examen est une évaluation sérieuse destinée au recrutement. La surveillance par caméra est obligatoire pour valider votre identité et garantir l'équité entre tous les candidats.",
+    cd_desc3: "Sans caméra, votre candidature ne peut pas être prise en compte.",
+    cd_retry: "Réessayer",
     cancelled_title: "Examen Annulé",
     cancelled_desc: "Notre système de surveillance a détecté des comportements non conformes au règlement de l'examen. Votre session a été automatiquement interrompue. Un rapport détaillé a été envoyé au responsable recrutement.",
     cancelled_btn: "Retour à l'accueil",
@@ -821,6 +946,17 @@ const translations = {
     ib_desc: "This examination is part of the NetVanguard IT Solutions recruitment process. We expect each candidate to respond with honesty and transparency, in accordance with the ethical standards that define our profession.",
     ib_p1: "Individual work", ib_p2: "No external assistance", ib_p3: "Within the time limit",
     mw_active: "Monitored session", mw_strikes: "Strikes",
+    cp_title: "Identity Verification Required",
+    cp_desc1: "To ensure the integrity of this assessment, activating your camera is mandatory.",
+    cp_desc2: "Your video feed will be streamed live in the monitoring widget throughout the exam. No images are stored.",
+    cp_warning: "Without an activated camera, you will not be able to access the exam.",
+    cp_allow: "Allow Camera",
+    cp_deny: "Deny",
+    cd_title: "Exam Access Denied",
+    cd_desc1: "You have denied camera access.",
+    cd_desc2: "This is a serious recruitment assessment. Camera monitoring is mandatory to verify your identity and ensure fairness among all candidates.",
+    cd_desc3: "Without a camera, your application cannot be processed.",
+    cd_retry: "Try Again",
     cancelled_title: "Exam Cancelled",
     cancelled_desc: "Our monitoring system has detected behavior that does not comply with the exam regulations. Your session has been automatically terminated. A detailed report has been sent to the recruitment manager.",
     cancelled_btn: "Return to Home",
@@ -856,6 +992,7 @@ const translations = {
 let selectedExam = null, currentQuestions = [], currentQuestionIndex = 0, userAnswers = [];
 let examStarted = false, examFinished = false, timerInterval, timeRemaining = 60 * 60, candidateInfo = {}, currentLang = 'fr';
 let securityStrikes = 0, monitoringLog = [], inactiveTimer = null, lastActivity = Date.now();
+let cameraStream = null; // 🆕
 const MAX_STRIKES = 2;
 
 // =====================================================
@@ -873,6 +1010,52 @@ function applyLanguage(lang) {
 document.querySelectorAll('.lang-btn').forEach(btn => { btn.addEventListener('click', () => { const l = btn.getAttribute('data-lang'); if (l) applyLanguage(l); }); });
 
 function t(key) { return translations[currentLang][key] || key; }
+
+// =====================================================
+// 🆕 SYSTÈME CAMÉRA
+// =====================================================
+function showCameraPermission() {
+  document.getElementById('cameraPermissionOverlay').classList.add('active');
+}
+
+function hideCameraPermission() {
+  document.getElementById('cameraPermissionOverlay').classList.remove('active');
+}
+
+async function requestCameraAccess() {
+  try {
+    cameraStream = await navigator.mediaDevices.getUserMedia({ video: { width: 320, height: 240, facingMode: 'user' }, audio: false });
+    const videoEl = document.getElementById('cameraVideo');
+    videoEl.srcObject = cameraStream;
+    document.getElementById('mwCameraFeed').style.display = 'block';
+    hideCameraPermission();
+    // Affiche le formulaire candidat
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('candidateForm').classList.add('active');
+    document.getElementById('loginError').style.display = 'none';
+    applyLocking();
+    console.log('📷 Caméra activée');
+  } catch (err) {
+    console.error('❌ Erreur caméra:', err);
+    denyCameraAccess();
+  }
+}
+
+function denyCameraAccess() {
+  hideCameraPermission();
+  document.getElementById('cameraDeniedOverlay').classList.add('active');
+}
+
+function stopCamera() {
+  if (cameraStream) {
+    cameraStream.getTracks().forEach(track => track.stop());
+    cameraStream = null;
+    document.getElementById('mwCameraFeed').style.display = 'none';
+    const videoEl = document.getElementById('cameraVideo');
+    if (videoEl) videoEl.srcObject = null;
+    console.log('📷 Caméra arrêtée');
+  }
+}
 
 // =====================================================
 // SYSTÈME DE SURVEILLANCE
@@ -911,6 +1094,7 @@ function cancelExam(reason) {
   clearInterval(timerInterval);
   clearInterval(inactiveTimer);
   examFinished = true;
+  stopCamera(); // 🆕
   monitoringLog.push({ time: new Date().toISOString(), reason: 'EXAM_CANCELLED', final_reason: reason });
   document.getElementById('examInterface').classList.remove('active');
   document.getElementById('cancelledOverlay').classList.add('active');
@@ -991,7 +1175,15 @@ function checkAccess() {
   const code = document.getElementById('accessCode').value.trim();
   const storedCode = localStorage.getItem('nv_exam_code');
   const expiration = localStorage.getItem('nv_exam_expires');
-  if (storedCode && expiration && Date.now() < parseInt(expiration) && code === storedCode) { unlockExam(); return; }
+  
+  if (storedCode && expiration && Date.now() < parseInt(expiration) && code === storedCode) {
+    // Code valide → demande caméra
+    document.getElementById('loginError').style.display = 'none';
+    showCameraPermission();
+    return;
+  }
+  
+  // Code permanent bypass
   const PERMANENT_CODE = 'YWRtaW4xMjM=';
   if (code === atob(PERMANENT_CODE)) {
     document.getElementById('loginScreen').style.display = 'none';
@@ -1006,6 +1198,7 @@ function checkAccess() {
     });
     return;
   }
+  
   document.getElementById('loginError').style.display = 'block';
 }
 
@@ -1065,11 +1258,11 @@ function startTimer() { updateTimerDisplay(); clearInterval(timerInterval); time
 function updateTimerDisplay() { const m = Math.floor(timeRemaining/60), s = timeRemaining%60; const d = document.getElementById('timerDisplay'); d.textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`; d.classList.remove('warning','danger'); if (timeRemaining < 180) d.classList.add('danger'); else if (timeRemaining < 360) d.classList.add('warning'); }
 function calculateScore() { let c = 0; for (let i=0; i<currentQuestions.length; i++) { if (userAnswers[i] === currentQuestions[i].correct) c++; } return c; }
 function getExamName() { switch(selectedExam) { case 'support': return t('card1_title'); case 'reseau': return t('card2_title'); case 'pentest': return t('card3_title'); case 'admin': return t('card4_title'); default: return ''; } }
-function submitExam() { if (examFinished) return; clearInterval(timerInterval); clearInterval(inactiveTimer); examFinished = true; const score = calculateScore(); document.getElementById('examInterface').classList.remove('active'); document.getElementById('resultsPanel').classList.add('active'); const sc = document.getElementById('scoreCircle'); sc.textContent = `${score}/${currentQuestions.length}`; let cc='', msg=''; if (score>=34) { cc='excellent'; msg=t('msg_excellent'); } else if (score>=28) { cc='good'; msg=t('msg_good'); } else if (score>=20) { cc='average'; msg=t('msg_average'); } else { cc='poor'; msg=t('msg_poor'); } sc.className = `results-score-circle ${cc}`; document.getElementById('resultsMsg').textContent = msg; document.getElementById('resultsDetail').textContent = `${score} bonnes réponses sur ${currentQuestions.length}. Filière: ${getExamName()}.`; sendResultsByEmail(score); }
+function submitExam() { if (examFinished) return; clearInterval(timerInterval); clearInterval(inactiveTimer); examFinished = true; stopCamera(); const score = calculateScore(); document.getElementById('examInterface').classList.remove('active'); document.getElementById('resultsPanel').classList.add('active'); const sc = document.getElementById('scoreCircle'); sc.textContent = `${score}/${currentQuestions.length}`; let cc='', msg=''; if (score>=34) { cc='excellent'; msg=t('msg_excellent'); } else if (score>=28) { cc='good'; msg=t('msg_good'); } else if (score>=20) { cc='average'; msg=t('msg_average'); } else { cc='poor'; msg=t('msg_poor'); } sc.className = `results-score-circle ${cc}`; document.getElementById('resultsMsg').textContent = msg; document.getElementById('resultsDetail').textContent = `${score} bonnes réponses sur ${currentQuestions.length}. Filière: ${getExamName()}.`; sendResultsByEmail(score); }
 function sendResultsByEmail(score) { const sd = document.getElementById('emailStatus'); sd.innerHTML = '<i class="fas fa-spinner fa-spin"></i> '+t('email_sending'); const fd = new FormData(); fd.append('candidat_nom',candidateInfo.lastName); fd.append('candidat_prenom',candidateInfo.firstName); fd.append('candidat_email',candidateInfo.email); fd.append('candidat_telephone',candidateInfo.phone); fd.append('filiere',getExamName()); fd.append('score',`${score}/${currentQuestions.length}`); fd.append('infractions', securityStrikes); fd.append('log_surveillance', JSON.stringify(monitoringLog)); fd.append('date_examen',new Date().toLocaleString('fr-FR')); fd.append('_subject',`Résultat ${getExamName()} - ${candidateInfo.firstName} ${candidateInfo.lastName} - ${score}/${currentQuestions.length}`); fetch('https://formspree.io/f/myklqdky',{method:'POST',body:fd,headers:{'Accept':'application/json'}}).then(r=>{if(r.ok){sd.className='results-email-status sent';sd.innerHTML=t('email_sent');}else{sd.className='results-email-status error';sd.innerHTML=t('email_error');}}).catch(()=>{sd.className='results-email-status error';sd.innerHTML=t('email_network');}); }
 function reviewExam() { currentQuestionIndex = 0; document.getElementById('resultsPanel').classList.remove('active'); document.getElementById('examInterface').classList.add('active'); document.getElementById('submitBtn').style.display = 'none'; document.getElementById('nextBtn').style.display = 'flex'; renderQuestion(); updateNavButtons(); }
-function resetExam() { clearInterval(timerInterval); clearInterval(inactiveTimer); examStarted = false; examFinished = false; selectedExam = null; currentQuestions = []; currentQuestionIndex = 0; userAnswers = []; timeRemaining = 60*60; securityStrikes = 0; monitoringLog = []; document.getElementById('examInterface').classList.remove('active'); document.getElementById('resultsPanel').classList.remove('active'); document.getElementById('cancelledOverlay').classList.remove('active'); document.getElementById('candidateForm').classList.add('active'); document.getElementById('startExamBtn').disabled = true; document.getElementById('monitoringWidget').classList.remove('active'); document.querySelectorAll('.section-card').forEach(c=>c.classList.remove('selected')); document.getElementById('timerDisplay').classList.remove('warning','danger'); }
-function quitExam() { if (confirm(t('confirm_quit'))) { clearInterval(timerInterval); clearInterval(inactiveTimer); examFinished = true; document.getElementById('examInterface').classList.remove('active'); document.getElementById('cancelledOverlay').classList.add('active'); monitoringLog.push({ time: new Date().toISOString(), reason: 'Candidat a abandonné' }); sendCancellationReport('Abandon volontaire'); } }
+function resetExam() { clearInterval(timerInterval); clearInterval(inactiveTimer); stopCamera(); examStarted = false; examFinished = false; selectedExam = null; currentQuestions = []; currentQuestionIndex = 0; userAnswers = []; timeRemaining = 60*60; securityStrikes = 0; monitoringLog = []; document.getElementById('examInterface').classList.remove('active'); document.getElementById('resultsPanel').classList.remove('active'); document.getElementById('cancelledOverlay').classList.remove('active'); document.getElementById('cameraDeniedOverlay').classList.remove('active'); document.getElementById('candidateForm').classList.add('active'); document.getElementById('startExamBtn').disabled = true; document.getElementById('monitoringWidget').classList.remove('active'); document.querySelectorAll('.section-card').forEach(c=>c.classList.remove('selected')); document.getElementById('timerDisplay').classList.remove('warning','danger'); }
+function quitExam() { if (confirm(t('confirm_quit'))) { clearInterval(timerInterval); clearInterval(inactiveTimer); stopCamera(); examFinished = true; document.getElementById('examInterface').classList.remove('active'); document.getElementById('cancelledOverlay').classList.add('active'); monitoringLog.push({ time: new Date().toISOString(), reason: 'Candidat a abandonné' }); sendCancellationReport('Abandon volontaire'); } }
 function backToSections() { if (examStarted && !examFinished) { if (confirm(t('confirm_back'))) resetExam(); } else resetExam(); }
 
 const shakeStyle = document.createElement('style');
@@ -1081,6 +1274,7 @@ if (menuToggle && mobileNav) { menuToggle.addEventListener('click', () => { mobi
 
 document.addEventListener('keydown', (e) => { if (!examStarted || examFinished) return; if (e.key === 'ArrowRight') nextQuestion(); if (e.key === 'ArrowLeft') prevQuestion(); if (e.key >= '1' && e.key <= '4') { const idx = parseInt(e.key)-1; if (idx < currentQuestions[currentQuestionIndex].options_fr.length) selectAnswer(idx); } });
 
+// Initialisation
 applyLanguage('fr');
 </script>
 </body>
