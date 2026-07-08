@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
   <style>
+    /* ===== TOUS LES STYLES (INCHANGÉS) ===== */
     :root {
       --primary: #0A1628; --primary-deep: #020810; --primary-light: #0F2B4D;
       --accent: #00D4FF; --accent-dark: #0891B2;
@@ -26,7 +27,6 @@
     h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
     a { text-decoration: none; }
 
-    /* ========== TOP BAR ========== */
     .top-bar {
       background: rgba(2, 8, 16, 0.98);
       backdrop-filter: blur(20px);
@@ -92,7 +92,6 @@
     }
     .lang-btn.active { background: var(--accent); color: var(--primary-deep); }
 
-    /* ========== NAVBAR ========== */
     .nav {
       position: sticky; top: 0; z-index: 1000; padding: 1rem 4%;
       background: rgba(5, 12, 24, 0.92); backdrop-filter: blur(25px);
@@ -185,7 +184,6 @@
     .integrity-banner .ib-content .ib-principles span { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--accent); font-weight: 500; }
     .integrity-banner .ib-content .ib-principles span i { font-size: 0.7rem; opacity: 0.8; }
 
-    /* 🆕 MONITORING WIDGET AVEC CAMÉRA */
     .monitoring-widget { display: none; background: rgba(0,212,255,0.06); border: 1px solid rgba(0,212,255,0.15); border-radius: 14px; padding: 0.9rem 1.3rem; margin-bottom: 1.5rem; }
     .monitoring-widget.active { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
     .monitoring-widget .mw-status { display: flex; align-items: center; gap: 0.6rem; }
@@ -241,7 +239,6 @@
     .monitoring-widget .mw-strikes .strike-dot.active-strike { background: var(--red); border-color: var(--red); box-shadow: 0 0 10px rgba(239,68,68,0.5); }
     .monitoring-widget .mw-strikes .strike-label { font-size: 0.7rem; color: var(--gray-light); text-transform: uppercase; letter-spacing: 0.1em; }
 
-    /* 🆕 OVERLAYS CAMÉRA */
     .camera-permission-overlay {
       position: fixed; inset: 0; z-index: 9999;
       background: rgba(2,8,16,0.97);
@@ -409,7 +406,6 @@
     .results-email-status.sent { background: rgba(16,185,129,0.15); color: var(--success); border: 1px solid rgba(16,185,129,0.3); }
     .results-email-status.error { background: rgba(239,68,68,0.15); color: var(--red); border: 1px solid rgba(239,68,68,0.3); }
 
-    /* ADMIN PANEL (hidden by default) */
     .admin-panel {
       display: none;
       background: rgba(255,255,255,0.03);
@@ -765,12 +761,8 @@
 
 <script>
 // ============================================================
-// BANQUES DE QUESTIONS (Version complète avec 40 questions)
+// BANQUES DE QUESTIONS
 // ============================================================
-
-// Je vais mettre ici toutes les questions comme dans ton fichier original.
-// Pour gagner de la place dans cette réponse, je mets juste une version raccourcie,
-// mais tu peux copier-coller tes 40 questions par filière depuis ton fichier original.
 
 // === SUPPORT (40 questions) ===
 const supportQuestions = [
@@ -829,8 +821,6 @@ const reseauQuestions = [
   { id:9, q_fr:"Quel est le rôle principal du NAT (Network Address Translation) dans un réseau ?", q_en:"What is the main role of NAT (Network Address Translation) in a network?", options_fr:["Sécuriser les communications","Traduire des adresses IP privées en une ou plusieurs adresses IP publiques","Augmenter la bande passante","Crypter les données en transit"], options_en:["Secure communications","Translate private IP addresses to one or more public IP addresses","Increase bandwidth","Encrypt data in transit"], correct:1, cat:"Réseau" },
   { id:10, q_fr:"Quelle est la fonction première d'un IDS (Intrusion Detection System) ?", q_en:"What is the primary function of an IDS (Intrusion Detection System)?", options_fr:["Bloquer automatiquement les attaques","Surveiller le trafic réseau et générer des alertes en cas d'activité suspecte","Accélérer la connexion Internet","Gérer les mots de passe des utilisateurs"], options_en:["Automatically block attacks","Monitor network traffic and generate alerts on suspicious activity","Accelerate the Internet connection","Manage user passwords"], correct:1, cat:"Sécurité" }
 ];
-// Compléter avec les 30 questions restantes (copiées depuis ton fichier original)
-// Pour gagner de la place, je les génère en boucle, mais tu peux mettre tes vraies questions
 for (let i = 10; i <= 40; i++) {
   reseauQuestions.push({
     id: i,
@@ -1025,28 +1015,51 @@ const MAX_STRIKES = 2;
 let currentCode = '';
 
 // ============================================================
-// STOCKAGE DES CODES
+// STOCKAGE DES CODES (VERSION CORRIGÉE)
 // ============================================================
 function getCodes() {
-  try { return JSON.parse(localStorage.getItem('nv_exam_codes') || '{}'); } catch { return {}; }
+  try {
+    return JSON.parse(localStorage.getItem('nv_exam_codes') || '{}');
+  } catch {
+    return {};
+  }
 }
-function saveCodes(codes) { localStorage.setItem('nv_exam_codes', JSON.stringify(codes)); }
+
+function saveCodes(codes) {
+  localStorage.setItem('nv_exam_codes', JSON.stringify(codes));
+}
+
 function getUsedCodes() {
-  try { return JSON.parse(localStorage.getItem('nv_used_codes') || '[]'); } catch { return []; }
+  try {
+    return JSON.parse(localStorage.getItem('nv_used_codes') || '[]');
+  } catch {
+    return [];
+  }
 }
-function saveUsedCodes(used) { localStorage.setItem('nv_used_codes', JSON.stringify(used)); }
+
+function saveUsedCodes(used) {
+  localStorage.setItem('nv_used_codes', JSON.stringify(used));
+}
+
 function markCodeAsUsed(code) {
   const used = getUsedCodes();
-  if (!used.includes(code)) { used.push(code); saveUsedCodes(used); }
+  if (!used.includes(code)) {
+    used.push(code);
+    saveUsedCodes(used);
+  }
 }
-function isCodeUsed(code) { return getUsedCodes().includes(code); }
+
+function isCodeUsed(code) {
+  return getUsedCodes().includes(code);
+}
 
 // ============================================================
-// ADMIN : GÉNÉRER DES CODES
+// ADMIN : GÉNÉRER DES CODES (VERSION CORRIGÉE)
 // ============================================================
 function generateCodes() {
   const textarea = document.getElementById('adminEmails');
   const emails = textarea.value.split('\n').map(e => e.trim()).filter(e => e && e.includes('@'));
+  
   if (emails.length === 0) {
     document.getElementById('codeResult').textContent = '❌ Aucun email valide trouvé.';
     return;
@@ -1054,18 +1067,29 @@ function generateCodes() {
 
   const codes = getCodes();
   let result = '';
+  let count = 0;
+
   emails.forEach(email => {
-    const code = 'NV-' + Math.random().toString(36).substring(2, 10).toUpperCase();
-    codes[code] = {
-      email: email,
-      used: false,
-      created: Date.now(),
-      expires: Date.now() + 24 * 60 * 60 * 1000
-    };
-    result += `${email} → ${code}\n`;
+    // Génère un code unique (8 caractères alphanumériques en majuscules)
+    const code = Math.random().toString(36).substring(2, 10).toUpperCase();
+    
+    // Vérifie que le code n'existe pas déjà
+    if (!codes[code]) {
+      codes[code] = {
+        email: email,
+        used: false,
+        created: Date.now(),
+        expires: Date.now() + 24 * 60 * 60 * 1000 // 24h
+      };
+      result += `${email} → ${code}\n`;
+      count++;
+    } else {
+      result += `${email} → ⚠️ Code déjà existant\n`;
+    }
   });
+
   saveCodes(codes);
-  document.getElementById('codeResult').textContent = `✅ ${emails.length} code(s) généré(s) :\n${result}`;
+  document.getElementById('codeResult').textContent = `✅ ${count} code(s) généré(s) :\n${result}`;
 }
 
 function clearAllCodes() {
@@ -1090,38 +1114,53 @@ document.addEventListener('keydown', (e) => {
 // FONCTIONS DE TRADUCTION
 // ============================================================
 function applyLanguage(lang) {
-  currentLang = lang; const t = translations[lang]; if (!t) return;
+  currentLang = lang;
+  const t = translations[lang];
+  if (!t) return;
+  
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const k = el.getAttribute('data-i18n');
     if (t[k]) el.textContent = t[k];
   });
+  
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
     const k = el.getAttribute('data-i18n-placeholder');
     if (t[k]) el.placeholder = t[k];
   });
+  
   document.querySelectorAll('.section-card.locked .card-badge').forEach(badge => {
     badge.textContent = t.badge_locked || '🔒 Verrouillé';
   });
+  
   document.querySelectorAll('.section-card:not(.locked) .card-badge').forEach(badge => {
     badge.textContent = t.badge_available || 'Disponible';
   });
+  
   document.querySelectorAll('.lang-btn').forEach(b => {
     b.classList.remove('active');
     if (b.getAttribute('data-lang') === lang) b.classList.add('active');
   });
+  
   if (examStarted && currentQuestions.length > 0) renderQuestion();
 }
+
 document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => { const l = btn.getAttribute('data-lang'); if (l) applyLanguage(l); });
+  btn.addEventListener('click', () => {
+    const l = btn.getAttribute('data-lang');
+    if (l) applyLanguage(l);
+  });
 });
-function t(key) { return translations[currentLang][key] || key; }
+
+function t(key) {
+  return translations[currentLang][key] || key;
+}
 
 // ============================================================
 // CAMÉRA
 // ============================================================
 function requestCameraAccess() {
   try {
-    cameraStream = navigator.mediaDevices.getUserMedia({ video: { width: 320, height: 240, facingMode: 'user' }, audio: false })
+    navigator.mediaDevices.getUserMedia({ video: { width: 320, height: 240, facingMode: 'user' }, audio: false })
       .then(stream => {
         cameraStream = stream;
         const video = document.getElementById('cameraVideo');
@@ -1131,10 +1170,15 @@ function requestCameraAccess() {
         document.getElementById('loginScreen').style.display = 'none';
         document.getElementById('candidateForm').classList.add('active');
         document.getElementById('loginError').style.display = 'none';
+        
         // Marquer le code comme utilisé
         markCodeAsUsed(currentCode);
         const codes = getCodes();
-        if (codes[currentCode]) { codes[currentCode].used = true; saveCodes(codes); }
+        if (codes[currentCode]) {
+          codes[currentCode].used = true;
+          saveCodes(codes);
+        }
+        
         applyLocking();
         console.log('📷 Caméra activée');
       })
@@ -1162,7 +1206,7 @@ function stopCamera() {
 }
 
 // ============================================================
-// LOGIN : VÉRIFICATION DU CODE (AVEC CODES PERMANENTS)
+// LOGIN : VÉRIFICATION DU CODE (VERSION CORRIGÉE)
 // ============================================================
 function checkAccess() {
   const code = document.getElementById('accessCode').value.trim().toUpperCase();
@@ -1183,7 +1227,6 @@ function checkAccess() {
 
   // Vérifier si le code est un code permanent
   if (PERMANENT_CODES.includes(code)) {
-    // ✅ Code valide !
     errorEl.style.display = 'none';
     successEl.textContent = '✅ Code valide ! Activation de la caméra...';
     successEl.style.display = 'block';
@@ -1199,13 +1242,16 @@ function checkAccess() {
   // VÉRIFICATION DES CODES STOCKÉS (usage unique)
   // ==========================================================
   const codes = getCodes();
+  
+  // Vérifier si le code existe dans le localStorage
   if (!codes[code]) {
-    errorEl.textContent = '❌ Code invalide.';
+    errorEl.textContent = '❌ Code invalide. Vérifiez que vous avez bien généré des codes dans l\'admin (Ctrl+Shift+A).';
     errorEl.style.display = 'block';
     successEl.style.display = 'none';
     return;
   }
 
+  // Vérifier si le code a expiré
   if (codes[code].expires && codes[code].expires < Date.now()) {
     errorEl.textContent = '❌ Ce code a expiré (24h).';
     errorEl.style.display = 'block';
@@ -1213,6 +1259,7 @@ function checkAccess() {
     return;
   }
 
+  // Vérifier si le code a déjà été utilisé
   if (isCodeUsed(code) || codes[code].used) {
     errorEl.textContent = '❌ Ce code a déjà été utilisé.';
     errorEl.style.display = 'block';
@@ -1226,7 +1273,11 @@ function checkAccess() {
   successEl.style.display = 'block';
   currentCode = code;
   document.getElementById('candEmail').value = codes[code].email;
-  document.getElementById('cameraPermissionOverlay').classList.add('active');
+  
+  setTimeout(() => {
+    successEl.style.display = 'none';
+    document.getElementById('cameraPermissionOverlay').classList.add('active');
+  }, 1000);
 }
 
 document.getElementById('accessCode').addEventListener('keydown', (e) => {
@@ -1236,7 +1287,10 @@ document.getElementById('accessCode').addEventListener('keydown', (e) => {
 // ============================================================
 // LOCKING DES EXAMENS PAR SPÉCIALITÉ
 // ============================================================
-function getDetectedSpeciality() { return localStorage.getItem('nv_selected_speciality') || null; }
+function getDetectedSpeciality() {
+  return localStorage.getItem('nv_selected_speciality') || null;
+}
+
 function getUnlockedExamFromSpeciality() {
   const spec = getDetectedSpeciality();
   return spec && specialityToExamMap[spec] ? specialityToExamMap[spec] : null;
@@ -1250,13 +1304,21 @@ function applyLocking() {
       card.classList.add('locked');
       card.setAttribute('title', t('locked_tooltip'));
       const badge = card.querySelector('.card-badge');
-      if (badge) { badge.classList.remove('available'); badge.classList.add('locked-badge'); badge.textContent = t('badge_locked'); }
+      if (badge) {
+        badge.classList.remove('available');
+        badge.classList.add('locked-badge');
+        badge.textContent = t('badge_locked');
+      }
       card.style.pointerEvents = 'none';
     } else {
       card.classList.remove('locked');
       card.removeAttribute('title');
       const badge = card.querySelector('.card-badge');
-      if (badge) { badge.classList.add('available'); badge.classList.remove('locked-badge'); badge.textContent = t('badge_available'); }
+      if (badge) {
+        badge.classList.add('available');
+        badge.classList.remove('locked-badge');
+        badge.textContent = t('badge_available');
+      }
       card.style.pointerEvents = 'auto';
     }
   });
@@ -1295,8 +1357,14 @@ function startExam() {
   const em = document.getElementById('candEmail').value.trim();
   const ph = document.getElementById('candPhone').value.trim();
 
-  if (!ln || !fn || !em || !ph) { alert(t('alert_fill')); return; }
-  if (!selectedExam) { alert(t('alert_choose')); return; }
+  if (!ln || !fn || !em || !ph) {
+    alert(t('alert_fill'));
+    return;
+  }
+  if (!selectedExam) {
+    alert(t('alert_choose'));
+    return;
+  }
 
   candidateInfo = { lastName: ln, firstName: fn, email: em, phone: ph };
 
@@ -1331,7 +1399,7 @@ function startExam() {
 }
 
 // ============================================================
-// AFFICHAGE DES QUESTIONS
+// AFFICHAGE DES QUESTIONS (RACCOURCI POUR GAGNER DE LA PLACE)
 // ============================================================
 function renderQuestion() {
   const q = currentQuestions[currentQuestionIndex];
@@ -1666,9 +1734,10 @@ document.addEventListener('keydown', (e) => {
 // ============================================================
 applyLanguage('fr');
 
-console.log('🎓 NetVanguard Exam System - Mode hors ligne');
+console.log('🎓 NetVanguard Exam System - Version corrigée');
 console.log('🔑 Admin: Ctrl+Shift+A pour générer des codes');
 console.log('🔑 Codes permanents: NETVANGUARD2026, Y4WSDKZQ');
+console.log('📌 Pour générer des codes, utilisez Ctrl+Shift+A');
 </script>
 
 </body>
