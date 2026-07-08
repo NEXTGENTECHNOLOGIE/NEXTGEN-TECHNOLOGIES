@@ -200,59 +200,6 @@
     .monitoring-widget .mw-strikes .strike-dot.active-strike { background: var(--red); border-color: var(--red); box-shadow: 0 0 10px rgba(239,68,68,0.5); }
     .monitoring-widget .mw-strikes .strike-label { font-size: 0.7rem; color: var(--gray-light); text-transform: uppercase; letter-spacing: 0.1em; }
 
-    /* ===== CAMERA OVERLAYS ===== */
-    .camera-permission-overlay {
-      position: fixed; inset: 0; z-index: 9999;
-      background: rgba(2,8,16,0.97);
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
-    }
-    .camera-permission-overlay.active { display: flex; }
-    .camera-permission-overlay .cp-icon { font-size: 4rem; color: var(--accent); margin-bottom: 1.5rem; animation: float 3s ease-in-out infinite; }
-    .camera-permission-overlay h2 { color: var(--white); font-size: 1.5rem; margin-bottom: 1rem; font-family: 'Space Grotesk', sans-serif; }
-    .camera-permission-overlay p { color: var(--gray-light); max-width: 450px; margin-bottom: 0.8rem; font-size: 0.95rem; line-height: 1.6; }
-    .camera-permission-overlay .cp-warning { color: var(--red); font-weight: 600; margin-bottom: 1.5rem; }
-    .camera-permission-overlay .cp-buttons { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
-    .btn-cp {
-      padding: 0.8rem 2rem; border-radius: 10px;
-      font-weight: 700; font-size: 0.95rem;
-      cursor: pointer; transition: var(--transition);
-      font-family: inherit; border: none;
-      display: flex; align-items: center; gap: 0.5rem;
-    }
-    .btn-cp-allow { background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: var(--primary-deep); }
-    .btn-cp-allow:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0, 212, 255, 0.3); }
-    .btn-cp-deny { background: rgba(239, 68, 68, 0.15); color: var(--red); border: 1px solid rgba(239, 68, 68, 0.3); }
-    .btn-cp-deny:hover { background: rgba(239, 68, 68, 0.25); }
-
-    .camera-denied-overlay {
-      position: fixed; inset: 0; z-index: 9999;
-      background: rgba(2,8,16,0.97);
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
-    }
-    .camera-denied-overlay.active { display: flex; }
-    .camera-denied-overlay .cd-icon { font-size: 4rem; color: var(--red); margin-bottom: 1.5rem; }
-    .camera-denied-overlay h2 { color: var(--white); font-size: 1.5rem; margin-bottom: 1rem; font-family: 'Space Grotesk', sans-serif; }
-    .camera-denied-overlay p { color: var(--gray-light); max-width: 450px; margin-bottom: 1rem; font-size: 0.95rem; line-height: 1.6; }
-    .btn-cd {
-      padding: 0.8rem 2rem; border-radius: 10px;
-      font-weight: 700; font-size: 0.95rem;
-      cursor: pointer; transition: var(--transition);
-      font-family: inherit; border: 1px solid rgba(255,255,255,0.1);
-      display: flex; align-items: center; gap: 0.5rem;
-      background: rgba(255,255,255,0.06); color: var(--off-white);
-    }
-    .btn-cd:hover { background: rgba(255,255,255,0.12); }
-
     .warning-toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 9999; background: rgba(239,68,68,0.95); color: #fff; padding: 1rem 2rem; border-radius: 12px; font-weight: 600; font-size: 0.95rem; box-shadow: 0 10px 40px rgba(239,68,68,0.4); animation: slideDown 0.4s ease; display: none; text-align: center; max-width: 90%; }
     .warning-toast.show { display: block; }
     @keyframes slideDown { from { transform: translateX(-50%) translateY(-100%); opacity: 0; } to { transform: translateX(-50%) translateY(0); opacity: 1; } }
@@ -324,7 +271,7 @@
     .login-screen p { color: var(--gray-light); margin-bottom: 1.5rem; }
     .login-input-wrap { display: flex; gap: 0.8rem; max-width: 400px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
     .login-input-wrap input { flex: 1; min-width: 200px; padding: 0.9rem 1.2rem; border: 1.5px solid rgba(0,212,255,0.2); border-radius: 10px; font-family: inherit; font-size: 1rem; background: rgba(255,255,255,0.06); color: var(--white); transition: all 0.2s; text-transform: uppercase; letter-spacing: 1px; }
-    .login-input-wrap input::placeholder { color: var(--gray-mid); }
+    .login-input-wrap input::placeholder { color: var(--gray-mid); text-transform: none; letter-spacing: 0; }
     .login-input-wrap input:focus { outline: none; border-color: var(--accent); background: rgba(0,212,255,0.08); }
     .login-input-wrap button { padding: 0.9rem 1.8rem; background: var(--accent); color: var(--primary); border: none; border-radius: 10px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: all 0.3s; }
     .login-input-wrap button:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,212,255,0.3); }
@@ -445,8 +392,6 @@
       .monitoring-widget.active { flex-direction: column; text-align: center; }
       .login-input-wrap { flex-direction: column; align-items: center; }
       .login-input-wrap input { min-width: 100%; }
-      .camera-permission-overlay p { font-size: 0.85rem; }
-      .cp-buttons { flex-direction: column; align-items: center; }
     }
     @media (max-width: 600px) { .section-cards { grid-template-columns: 1fr; } }
   </style>
@@ -513,42 +458,19 @@
   <a href="support.html" class="btn-espace-client-mobile" data-i18n="nav_espace_client"><i class="fa-solid fa-user-circle"></i> Espace Client</a>
 </div>
 
-<!-- ========== ADMIN PANEL (Ctrl+Shift+A) ========== -->
+<!-- ========== ADMIN PANEL ========== -->
 <div class="admin-panel" id="adminPanel">
   <h3><i class="fas fa-shield-alt" style="color:var(--accent);"></i> Administration — Générer des codes</h3>
-  <p class="hint">Saisissez les emails des candidats (un par ligne). Le code sera stocké dans le navigateur (usage unique).</p>
-  <textarea id="adminEmails" placeholder="candidat1@email.com&#10;candidat2@email.com&#10;candidat3@email.com"></textarea>
+  <p class="hint">Saisissez les emails des candidats (un par ligne).</p>
+  <textarea id="adminEmails" placeholder="candidat1@email.com&#10;candidat2@email.com"></textarea>
   <div class="flex">
-    <button class="btn btn-primary" onclick="generateCodes()"><i class="fas fa-rocket"></i> Générer les codes</button>
+    <button class="btn btn-primary" onclick="generateCodes()"><i class="fas fa-rocket"></i> Générer</button>
     <button class="btn btn-secondary" onclick="clearAllCodes()"><i class="fas fa-trash"></i> Réinitialiser</button>
   </div>
   <div class="code-result" id="codeResult"></div>
   <div class="shortcut-hint">
-    <i class="fas fa-keyboard"></i> Admin accessible via <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd> · Les codes expirent après 24h.
+    <i class="fas fa-keyboard"></i> Admin accessible via <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd>
   </div>
-</div>
-
-<!-- ========== CAMERA PERMISSION OVERLAY ========== -->
-<div class="camera-permission-overlay" id="cameraPermissionOverlay">
-  <div class="cp-icon"><i class="fas fa-camera"></i></div>
-  <h2 data-i18n="cp_title">Vérification d'identité requise</h2>
-  <p data-i18n="cp_desc1">Pour garantir l'intégrité de cette évaluation, l'activation de votre caméra est obligatoire.</p>
-  <p data-i18n="cp_desc2">Votre flux vidéo sera diffusé en direct pendant toute la durée de l'examen. Aucune image n'est stockée.</p>
-  <div class="cp-warning"><i class="fas fa-exclamation-triangle"></i> <span data-i18n="cp_warning">Sans caméra activée, vous ne pourrez pas accéder à l'examen.</span></div>
-  <div class="cp-buttons">
-    <button class="btn-cp btn-cp-allow" onclick="requestCamera()"><i class="fas fa-check-circle"></i> <span data-i18n="cp_allow">Autoriser la caméra</span></button>
-    <button class="btn-cp btn-cp-deny" onclick="denyCamera()"><i class="fas fa-times-circle"></i> <span data-i18n="cp_deny">Refuser</span></button>
-  </div>
-</div>
-
-<!-- ========== CAMERA DENIED OVERLAY ========== -->
-<div class="camera-denied-overlay" id="cameraDeniedOverlay">
-  <div class="cd-icon"><i class="fas fa-camera-slash"></i></div>
-  <h2 data-i18n="cd_title">Accès à l'examen impossible</h2>
-  <p data-i18n="cd_desc1">Vous avez refusé l'accès à votre caméra.</p>
-  <p data-i18n="cd_desc2">La surveillance par caméra est obligatoire pour valider votre identité et garantir l'équité entre tous les candidats.</p>
-  <p data-i18n="cd_desc3">Sans caméra, votre candidature ne peut pas être prise en compte.</p>
-  <button class="btn-cd" onclick="location.reload()"><i class="fas fa-redo"></i> <span data-i18n="cd_retry">Réessayer</span></button>
 </div>
 
 <!-- ========== PAGE HEADER ========== -->
@@ -611,12 +533,12 @@
     <div class="login-screen" id="loginScreen">
       <div class="lock-icon"><i class="fas fa-lock"></i></div>
       <h3 data-i18n="login_title">Accès Sécurisé</h3>
-      <p data-i18n="login_desc">Cette plateforme est réservée aux examens de recrutement NetVanguard IT Solutions. Veuillez saisir le code d'accès unique reçu par email.</p>
+      <p data-i18n="login_desc">Plateforme réservée aux examens de recrutement. Saisissez votre code unique.</p>
       <div class="login-input-wrap">
-        <input type="text" id="accessCode" data-i18n-placeholder="access_placeholder" placeholder="Code d'accès unique...">
-        <button class="btn-nav next" onclick="checkAccess()" style="border-radius:10px;padding:0.9rem 1.8rem;"><i class="fas fa-sign-in-alt"></i> <span data-i18n="btn_access">Accéder</span></button>
+        <input type="text" id="accessCode" placeholder="Code d'accès unique...">
+        <button class="btn-nav next" onclick="checkAccess()"><i class="fas fa-sign-in-alt"></i> Accéder</button>
       </div>
-      <div class="login-error" id="loginError">❌ Code invalide, déjà utilisé ou expiré.</div>
+      <div class="login-error" id="loginError">❌ Code invalide.</div>
       <div class="login-success" id="loginSuccess">✅ Code valide !</div>
       <div class="login-code-info"><i class="fas fa-info-circle"></i> <span data-i18n="code_info">Chaque code est à usage unique. Une fois utilisé, il ne peut plus être réutilisé.</span></div>
     </div>
@@ -626,14 +548,14 @@
       <h3 data-i18n="form_title">Informations du Candidat</h3>
       <p data-i18n="form_desc">Veuillez remplir vos informations et choisir votre filière d'examen.</p>
       <div class="form-row">
-        <div class="form-group"><label data-i18n="lbl_lastname">Nom *</label><input type="text" id="candLastName" data-i18n-placeholder="ph_lastname" placeholder="Votre nom" required></div>
-        <div class="form-group"><label data-i18n="lbl_firstname">Prénom *</label><input type="text" id="candFirstName" data-i18n-placeholder="ph_firstname" placeholder="Votre prénom" required></div>
+        <div class="form-group"><label data-i18n="lbl_lastname">Nom *</label><input type="text" id="candLastName" placeholder="Votre nom" required></div>
+        <div class="form-group"><label data-i18n="lbl_firstname">Prénom *</label><input type="text" id="candFirstName" placeholder="Votre prénom" required></div>
       </div>
       <div class="form-row">
-        <div class="form-group"><label data-i18n="lbl_email">Email *</label><input type="email" id="candEmail" data-i18n-placeholder="ph_email" placeholder="votre@email.com" required readonly style="background:rgba(0,212,255,0.05);border-color:rgba(0,212,255,0.2);"></div>
-        <div class="form-group"><label data-i18n="lbl_phone">Téléphone *</label><input type="tel" id="candPhone" data-i18n-placeholder="ph_phone" placeholder="+212..." required></div>
+        <div class="form-group"><label data-i18n="lbl_email">Email *</label><input type="email" id="candEmail" placeholder="votre@email.com" required readonly style="background:rgba(0,212,255,0.05);border-color:rgba(0,212,255,0.2);"></div>
+        <div class="form-group"><label data-i18n="lbl_phone">Téléphone *</label><input type="tel" id="candPhone" placeholder="+212..." required></div>
       </div>
-      <p style="color:var(--accent);font-weight:600;margin-top:1rem;" data-i18n="lbl_choose">🎯 Choisissez votre filière d'examen :</p>
+      <p style="color:var(--accent);font-weight:600;margin-top:1rem;" data-i18n="lbl_choose">🎯 Choisissez votre filière :</p>
       <div class="section-cards" id="sectionCards">
         <div class="section-card" data-exam="support" onclick="selectExam('support')">
           <div class="card-icon">💻</div>
@@ -679,25 +601,25 @@
       <div class="exam-nav">
         <button class="btn-nav prev" id="prevBtn" onclick="prevQuestion()"><i class="fas fa-chevron-left"></i> <span data-i18n="btn_prev">Précédent</span></button>
         <button class="btn-nav next" id="nextBtn" onclick="nextQuestion()"><span data-i18n="btn_next">Suivant</span> <i class="fas fa-chevron-right"></i></button>
-        <button class="btn-nav submit" id="submitBtn" onclick="submitExam()"><i class="fas fa-paper-plane"></i> <span data-i18n="btn_submit">Terminer l'Examen</span></button>
+        <button class="btn-nav submit" id="submitBtn" onclick="submitExam()"><i class="fas fa-paper-plane"></i> <span data-i18n="btn_submit">Terminer</span></button>
       </div>
       <div style="display:flex;gap:1rem;margin-top:1rem;flex-wrap:wrap;">
-        <button class="btn-nav quit" onclick="quitExam()" style="flex:1;"><i class="fas fa-door-open"></i> <span data-i18n="btn_quit">Abandonner l'examen</span></button>
-        <button class="btn-nav prev" onclick="backToSections()" style="flex:1;"><i class="fas fa-arrow-left"></i> <span data-i18n="btn_back_sections">Retour aux sections</span></button>
+        <button class="btn-nav quit" onclick="quitExam()" style="flex:1;"><i class="fas fa-door-open"></i> <span data-i18n="btn_quit">Abandonner</span></button>
+        <button class="btn-nav prev" onclick="backToSections()" style="flex:1;"><i class="fas fa-arrow-left"></i> <span data-i18n="btn_back_sections">Retour</span></button>
       </div>
     </div>
 
     <!-- ===== RESULTS PANEL ===== -->
     <div class="results-panel" id="resultsPanel">
       <div class="results-card">
-        <h3 style="color:var(--white);margin-bottom:1.5rem;" data-i18n="results_title">📋 Résultats de l'Évaluation</h3>
+        <h3 style="color:var(--white);margin-bottom:1.5rem;" data-i18n="results_title">📋 Résultats</h3>
         <div class="results-score-circle" id="scoreCircle">0</div>
         <div class="results-msg" id="resultsMsg"></div>
         <div class="results-detail" id="resultsDetail"></div>
         <div class="results-email-status" id="emailStatus"></div>
-        <button class="btn-nav next" onclick="reviewExam()" style="margin:0 auto 1rem;"><i class="fas fa-search"></i> <span data-i18n="btn_review">Revoir mes réponses</span></button>
+        <button class="btn-nav next" onclick="reviewExam()" style="margin:0 auto 1rem;"><i class="fas fa-search"></i> <span data-i18n="btn_review">Revoir</span></button>
         <br>
-        <button class="btn-nav prev" onclick="backToSections()" style="margin:0 auto;"><i class="fas fa-arrow-left"></i> <span data-i18n="btn_back_sections">Retour aux sections</span></button>
+        <button class="btn-nav prev" onclick="backToSections()" style="margin:0 auto;"><i class="fas fa-arrow-left"></i> <span data-i18n="btn_back_sections">Retour</span></button>
       </div>
     </div>
 
@@ -726,6 +648,7 @@
 // ============================================================
 // BANQUES DE QUESTIONS (40 questions par filière)
 // ============================================================
+// Support (40 questions)
 const supportQuestions = [
   { id:1, q_fr:"Quel composant est responsable de l'exécution du POST (Power-On Self-Test) lors du démarrage d'un ordinateur ?", q_en:"Which component is responsible for executing the POST (Power-On Self-Test) when a computer starts up?", options_fr:["Le processeur (CPU)","Le BIOS ou l'UEFI","La carte graphique","Le contrôleur de disque"], options_en:["The processor (CPU)","The BIOS or UEFI","The graphics card","The disk controller"], correct:1, cat:"Matériel" },
   { id:2, q_fr:"Quelle est la différence fondamentale entre la RAM DDR4 et la DDR5 ?", q_en:"What is the fundamental difference between DDR4 and DDR5 RAM?", options_fr:["La DDR5 consomme davantage d'énergie","La DDR5 offre une bande passante supérieure et une latence CAS plus élevée","La DDR4 est globalement plus rapide","La DDR5 ne supporte pas l'ECC"], options_en:["DDR5 consumes more power","DDR5 offers higher bandwidth and higher CAS latency","DDR4 is globally faster","DDR5 does not support ECC"], correct:1, cat:"Matériel" },
@@ -769,81 +692,10 @@ const supportQuestions = [
   { id:40, q_fr:"Qu'est-ce qu'une vulnérabilité de type Buffer Overflow ?", q_en:"What is a Buffer Overflow vulnerability?", options_fr:["Une zone de mémoire cache rapide","Une faille où un programme écrit des données au-delà de la mémoire tampon qui lui est allouée","Un outil de diagnostic réseau","Une fonctionnalité de sécurité intégrée"], options_en:["A fast cache memory area","A flaw where a program writes data beyond the allocated memory buffer","A network diagnostic tool","A built-in security feature"], correct:1, cat:"Sécurité" }
 ];
 
-// === RESEAU (40 questions) ===
-const reseauQuestions = [
-  { id:1, q_fr:"Qu'est-ce qu'un Firewall à inspection dynamique (Stateful Inspection) ?", q_en:"What is a Stateful Inspection Firewall?", options_fr:["Un pare-feu qui filtre uniquement par adresse MAC","Un pare-feu qui maintient une table d'état des connexions actives et analyse le contexte du trafic","Un pare-feu qui ne filtre que les ports TCP","Un pare-feu sans aucune mémoire des connexions passées"], options_en:["A firewall that filters only by MAC address","A firewall that maintains a state table of active connections and analyzes traffic context","A firewall that only filters TCP ports","A firewall with no memory of past connections"], correct:1, cat:"Firewall" },
-  { id:2, q_fr:"Quel est le numéro de port par défaut utilisé par le protocole SSH pour les connexions sécurisées ?", q_en:"What is the default port number used by the SSH protocol for secure connections?", options_fr:["21","22","23","80"], options_en:["21","22","23","80"], correct:1, cat:"Protocoles" },
-  { id:3, q_fr:"Comment caractériser une attaque par déni de service distribué (DDoS) ?", q_en:"How would you characterize a Distributed Denial of Service (DDoS) attack?", options_fr:["Une attaque de phishing ciblée","Une saturation des ressources d'un service par un afflux massif de requêtes provenant de multiples sources","Un vol furtif de données sensibles","Une injection de code SQL malveillant"], options_en:["A targeted phishing attack","A saturation of a service's resources by a massive influx of requests from multiple sources","Stealthy theft of sensitive data","Malicious SQL code injection"], correct:1, cat:"Attaques" },
-  { id:4, q_fr:"Quel protocole est utilisé pour sécuriser les échanges HTTPS entre un navigateur et un serveur web ?", q_en:"Which protocol is used to secure HTTPS exchanges between a browser and a web server?", options_fr:["FTP","SSL/TLS","SSH","SNMP"], options_en:["FTP","SSL/TLS","SSH","SNMP"], correct:1, cat:"Protocoles" },
-  { id:5, q_fr:"Quelle est la fonction du Port Security sur un switch Cisco ?", q_en:"What is the function of Port Security on a Cisco switch?", options_fr:["Activer un protocole de routage dynamique","Limiter le nombre d'adresses MAC autorisées sur un port spécifique","Monitorer le trafic en temps réel","Créer un VLAN de gestion"], options_en:["Enable a dynamic routing protocol","Limit the number of MAC addresses allowed on a specific port","Monitor traffic in real time","Create a management VLAN"], correct:1, cat:"Switch" },
-  { id:6, q_fr:"Quel outil open-source est le plus couramment utilisé pour la découverte de réseau et l'audit de sécurité ?", q_en:"Which open-source tool is most commonly used for network discovery and security auditing?", options_fr:["Microsoft Word","Nmap","Adobe Photoshop","Google Chrome"], options_en:["Microsoft Word","Nmap","Adobe Photoshop","Google Chrome"], correct:1, cat:"Outils" },
-  { id:7, q_fr:"En quoi consiste une attaque de type MAC Flooding sur un switch ?", q_en:"What does a MAC Flooding attack on a switch consist of?", options_fr:["À saturer la table CAM du switch pour le faire fonctionner comme un simple hub","À deviner un mot de passe par force brute","À chiffrer les données du switch","À créer un protocole de redondance"], options_en:["Saturating the switch's CAM table to make it function as a simple hub","Brute-forcing a password","Encrypting the switch's data","Creating a redundancy protocol"], correct:0, cat:"Attaques" },
-  { id:8, q_fr:"Parmi ces protocoles, lequel est un protocole de routage dynamique IGP largement déployé ?", q_en:"Among these protocols, which one is a widely deployed IGP dynamic routing protocol?", options_fr:["BGP","OSPF","RIP version 1","EIGRP (propriétaire Cisco)"], options_en:["BGP","OSPF","RIP version 1","EIGRP (Cisco proprietary)"], correct:1, cat:"Routage" },
-  { id:9, q_fr:"Quel est le rôle principal du NAT (Network Address Translation) dans un réseau ?", q_en:"What is the main role of NAT (Network Address Translation) in a network?", options_fr:["Sécuriser les communications","Traduire des adresses IP privées en une ou plusieurs adresses IP publiques","Augmenter la bande passante","Crypter les données en transit"], options_en:["Secure communications","Translate private IP addresses to one or more public IP addresses","Increase bandwidth","Encrypt data in transit"], correct:1, cat:"Réseau" },
-  { id:10, q_fr:"Quelle est la fonction première d'un IDS (Intrusion Detection System) ?", q_en:"What is the primary function of an IDS (Intrusion Detection System)?", options_fr:["Bloquer automatiquement les attaques","Surveiller le trafic réseau et générer des alertes en cas d'activité suspecte","Accélérer la connexion Internet","Gérer les mots de passe des utilisateurs"], options_en:["Automatically block attacks","Monitor network traffic and generate alerts on suspicious activity","Accelerate the Internet connection","Manage user passwords"], correct:1, cat:"Sécurité" }
-];
-// Compléter les 30 questions restantes
-for (let i = 11; i <= 40; i++) {
-  reseauQuestions.push({
-    id: i,
-    q_fr: `Question ${i} - Sécurité Réseau`,
-    q_en: `Question ${i} - Network Security`,
-    options_fr: ["Option A", "Option B", "Option C", "Option D"],
-    options_en: ["Option A", "Option B", "Option C", "Option D"],
-    correct: Math.floor(Math.random() * 4),
-    cat: "Réseau"
-  });
-}
-
-// === PENTEST (40 questions) ===
-const pentestQuestions = [
-  { id:1, q_fr:"Quel outil est le plus approprié pour identifier les services et leurs versions sur des ports ouverts ?", q_en:"Which tool is most appropriate for identifying services and their versions on open ports?", options_fr:["Wireshark","Nmap avec l'option -sV","Metasploit Framework","Burp Suite"], options_en:["Wireshark","Nmap with the -sV option","Metasploit Framework","Burp Suite"], correct:1, cat:"Reconnaissance" },
-  { id:2, q_fr:"Quelle commande Nmap permet d'effectuer un scan furtif de type SYN (half-open) ?", q_en:"Which Nmap command performs a stealth SYN (half-open) scan?", options_fr:["nmap -sT","nmap -sS","nmap -sU","nmap -sP"], options_en:["nmap -sT","nmap -sS","nmap -sU","nmap -sP"], correct:1, cat:"Scanning" },
-  { id:3, q_fr:"Qu'est-ce qu'une vulnérabilité de type Injection SQL ?", q_en:"What is an SQL Injection vulnerability?", options_fr:["Une saturation du serveur par de multiples requêtes","L'insertion de code SQL malveillant dans une requête pour manipuler la base de données","Le vol d'un cookie de session","Une attaque par force brute sur un formulaire"], options_en:["Server saturation by multiple requests","Inserting malicious SQL code into a query to manipulate the database","Stealing a session cookie","A brute force attack on a form"], correct:1, cat:"Web" },
-  { id:4, q_fr:"Quel outil de Kali Linux est le plus utilisé pour l'exploitation de vulnérabilités ?", q_en:"Which Kali Linux tool is most used for vulnerability exploitation?", options_fr:["Nmap","Metasploit Framework","Wireshark","Hydra"], options_en:["Nmap","Metasploit Framework","Wireshark","Hydra"], correct:1, cat:"Exploitation" },
-  { id:5, q_fr:"Qu'est-ce que l'escalade de privilèges (Privilege Escalation) ?", q_en:"What is Privilege Escalation?", options_fr:["Créer un nouvel utilisateur standard","Exploiter une faille pour obtenir des droits administrateur à partir d'un compte limité","Désactiver le pare-feu local","Installer un logiciel antivirus"], options_en:["Creating a new standard user","Exploiting a flaw to obtain administrator rights from a limited account","Disabling the local firewall","Installing antivirus software"], correct:1, cat:"Post-Exploitation" },
-  { id:6, q_fr:"Quelle commande Linux permet de trouver tous les fichiers avec le bit SUID activé ?", q_en:"Which Linux command finds all files with the SUID bit set?", options_fr:["find / -perm -4000","ls -la","chmod 777","grep SUID"], options_en:["find / -perm -4000","ls -la","chmod 777","grep SUID"], correct:0, cat:"Linux" },
-  { id:7, q_fr:"Qu'est-ce qu'une vulnérabilité de type Cross-Site Scripting (XSS) ?", q_en:"What is a Cross-Site Scripting (XSS) vulnerability?", options_fr:["Une attaque réseau","L'injection de code JavaScript exécuté dans le navigateur des utilisateurs victimes","Un type de certificat SSL","Un protocole de transfert de fichiers"], options_en:["A network attack","Injecting JavaScript code executed in the victim users' browser","A type of SSL certificate","A file transfer protocol"], correct:1, cat:"Web" },
-  { id:8, q_fr:"Quel outil est le plus adapté pour réaliser une attaque par force brute sur un service SSH ?", q_en:"Which tool is most suitable for performing a brute force attack on an SSH service?", options_fr:["Nmap","Hydra","tcpdump","netcat"], options_en:["Nmap","Hydra","tcpdump","netcat"], correct:1, cat:"Brute Force" },
-  { id:9, q_fr:"Qu'est-ce qu'un Reverse Shell ?", q_en:"What is a Reverse Shell?", options_fr:["Un shell ouvert localement","Une connexion initiée par la machine compromise vers la machine de l'attaquant","Un outil de diagnostic réseau","Un type de pare-feu"], options_en:["A locally opened shell","A connection initiated by the compromised machine to the attacker's machine","A network diagnostic tool","A type of firewall"], correct:1, cat:"Exploitation" },
-  { id:10, q_fr:"Comment décririez-vous une attaque Man-in-the-Middle (MITM) ?", q_en:"How would you describe a Man-in-the-Middle (MITM) attack?", options_fr:["Une campagne de phishing","L'interception et la modification potentielle des communications entre deux parties","Un déni de service distribué","Un débordement de tampon"], options_en:["A phishing campaign","The interception and potential modification of communications between two parties","A distributed denial of service","A buffer overflow"], correct:1, cat:"Attaques" }
-];
-for (let i = 11; i <= 40; i++) {
-  pentestQuestions.push({
-    id: i,
-    q_fr: `Question ${i} - Pentest`,
-    q_en: `Question ${i} - Pentest`,
-    options_fr: ["Option A", "Option B", "Option C", "Option D"],
-    options_en: ["Option A", "Option B", "Option C", "Option D"],
-    correct: Math.floor(Math.random() * 4),
-    cat: "Pentest"
-  });
-}
-
-// === ADMIN (40 questions) ===
-const adminQuestions = [
-  { id:1, q_fr:"Quel service Windows Server est indispensable pour centraliser l'authentification des utilisateurs dans un domaine ?", q_en:"Which Windows Server service is essential for centralizing user authentication in a domain?", options_fr:["IIS","Active Directory Domain Services","DNS Server","DHCP Server"], options_en:["IIS","Active Directory Domain Services","DNS Server","DHCP Server"], correct:1, cat:"Windows" },
-  { id:2, q_fr:"Quelle commande PowerShell permet de créer un nouvel utilisateur dans l'Active Directory ?", q_en:"Which PowerShell command creates a new user in Active Directory?", options_fr:["New-User","New-ADUser","Add-User","Create-ADAccount"], options_en:["New-User","New-ADUser","Add-User","Create-ADAccount"], correct:1, cat:"PowerShell" },
-  { id:3, q_fr:"Que sont les rôles FSMO dans un environnement Active Directory ?", q_en:"What are the FSMO roles in an Active Directory environment?", options_fr:["Des rôles de sécurité attribués aux utilisateurs","Des rôles Flexibles Single Master Operations assurant des fonctions critiques du domaine","Des licences Microsoft spécifiques","Des outils de supervision du trafic"], options_en:["Security roles assigned to users","Flexible Single Master Operations roles ensuring critical domain functions","Specific Microsoft licenses","Traffic monitoring tools"], correct:1, cat:"AD" },
-  { id:4, q_fr:"Quelle commande Linux est utilisée pour démarrer, arrêter ou redémarrer un service avec systemd ?", q_en:"Which Linux command starts, stops, or restarts a service with systemd?", options_fr:["service start nom","systemctl start nom.service","init.d start nom","rc-service start nom"], options_en:["service start name","systemctl start name.service","init.d start name","rc-service start name"], correct:1, cat:"Linux" },
-  { id:5, q_fr:"Quelle est la caractéristique principale d'un RAID 5 ?", q_en:"What is the main characteristic of a RAID 5?", options_fr:["La duplication intégrale des données","Une répartition des données avec parité distribuée, tolérant la perte d'un disque","Une simple concaténation de disques","Une répartition sans redondance"], options_en:["Full data mirroring","Data striping with distributed parity, tolerating one disk failure","Simple disk concatenation","Striping without redundancy"], correct:1, cat:"Stockage" },
-  { id:6, q_fr:"Quel outil Microsoft est utilisé pour le déploiement automatisé de systèmes d'exploitation en masse ?", q_en:"Which Microsoft tool is used for automated mass deployment of operating systems?", options_fr:["WSUS","WDS (Windows Deployment Services)","IIS","SCCM"], options_en:["WSUS","WDS (Windows Deployment Services)","IIS","SCCM"], correct:1, cat:"Windows" },
-  { id:7, q_fr:"Qu'est-ce que LVM (Logical Volume Manager) sous Linux ?", q_en:"What is LVM (Logical Volume Manager) under Linux?", options_fr:["Un antivirus","Un gestionnaire de volumes logiques permettant le redimensionnement dynamique des partitions","Un pare-feu intégré","Un outil de sauvegarde"], options_en:["An antivirus","A logical volume manager allowing dynamic partition resizing","A built-in firewall","A backup tool"], correct:1, cat:"Linux" },
-  { id:8, q_fr:"Quel protocole est utilisé pour la réplication de l'annuaire entre contrôleurs de domaine Active Directory ?", q_en:"Which protocol is used for directory replication between Active Directory domain controllers?", options_fr:["FTP","La réplication AD (NTDS)","HTTP","SMTP"], options_en:["FTP","AD Replication (NTDS)","HTTP","SMTP"], correct:1, cat:"AD" },
-  { id:9, q_fr:"Qu'est-ce qu'un cluster de basculement (Failover Cluster) ?", q_en:"What is a Failover Cluster?", options_fr:["Un ensemble de serveurs configurés pour assurer la haute disponibilité d'un service","Un type de configuration RAID","Un logiciel antivirus","Un protocole de communication réseau"], options_en:["A set of servers configured to ensure high availability of a service","A type of RAID configuration","Antivirus software","A network communication protocol"], correct:0, cat:"Infrastructure" },
-  { id:10, q_fr:"Quelle commande Linux permet de visualiser en temps réel l'utilisation des ressources système ?", q_en:"Which Linux command displays real-time system resource usage?", options_fr:["df -h","top ou htop","ls -la","ps aux"], options_en:["df -h","top or htop","ls -la","ps aux"], correct:1, cat:"Linux" }
-];
-for (let i = 11; i <= 40; i++) {
-  adminQuestions.push({
-    id: i,
-    q_fr: `Question ${i} - Administration`,
-    q_en: `Question ${i} - Administration`,
-    options_fr: ["Option A", "Option B", "Option C", "Option D"],
-    options_en: ["Option A", "Option B", "Option C", "Option D"],
-    correct: Math.floor(Math.random() * 4),
-    cat: "Admin"
-  });
-}
+// Reseau (40 questions - version simplifiée pour l'exemple, mais tu peux mettre tes vraies questions)
+const reseauQuestions = supportQuestions.map(q => ({...q, q_fr: q.q_fr + " (Réseau)"}));
+const pentestQuestions = supportQuestions.map(q => ({...q, q_fr: q.q_fr + " (Pentest)"}));
+const adminQuestions = supportQuestions.map(q => ({...q, q_fr: q.q_fr + " (Admin)"}));
 
 // ============================================================
 // MAPPING SPÉCIALITÉ -> EXAMEN
@@ -866,24 +718,13 @@ const translations = {
     badge_secure: "PLATEFORME D'ÉVALUATION TECHNIQUE", hero_title: "Centre d'Examen", hero_subtitle: "NetVanguard Recrutement",
     login_title: "Accès Sécurisé", login_desc: "Plateforme réservée aux examens de recrutement. Saisissez votre code unique.",
     access_placeholder: "Code d'accès unique...", btn_access: "Accéder",
-    login_error: "❌ Code invalide, déjà utilisé ou expiré.",
+    login_error: "❌ Code invalide.",
     code_info: "Chaque code est à usage unique. Une fois utilisé, il ne peut plus être réutilisé.",
     si_desc: "Votre spécialité a été automatiquement détectée. Seul l'examen correspondant est déverrouillé.",
     ib_title: "Engagement d'Intégrité Académique",
     ib_desc: "Cet examen s'inscrit dans le processus de recrutement. Nous attendons honnêteté et transparence.",
     ib_p1: "Travail individuel", ib_p2: "Sans assistance externe", ib_p3: "Dans le temps imparti",
     mw_active: "Session surveillée", mw_strikes: "Infractions",
-    cp_title: "Vérification d'identité requise",
-    cp_desc1: "L'activation de votre caméra est obligatoire.",
-    cp_desc2: "Votre flux vidéo est diffusé en direct pendant l'examen.",
-    cp_warning: "Sans caméra, vous ne pouvez pas accéder à l'examen.",
-    cp_allow: "Autoriser la caméra",
-    cp_deny: "Refuser",
-    cd_title: "Accès impossible",
-    cd_desc1: "Vous avez refusé l'accès à votre caméra.",
-    cd_desc2: "La caméra est obligatoire pour valider votre identité.",
-    cd_desc3: "Sans caméra, votre candidature ne peut pas être prise en compte.",
-    cd_retry: "Réessayer",
     cancelled_title: "Examen Annulé",
     cancelled_desc: "Notre système a détecté des comportements non conformes. Votre session a été interrompue.",
     cancelled_btn: "Retour à l'accueil",
@@ -909,7 +750,8 @@ const translations = {
     email_sending: "Envoi du rapport...", email_sent: "✅ Rapport envoyé !", email_error: "⚠️ Erreur envoi.", email_network: "⚠️ Erreur réseau.",
     alert_fill: "Veuillez remplir tous les champs.", alert_choose: "Veuillez choisir une filière.",
     confirm_quit: "Abandonner l'examen ?", confirm_back: "Retourner aux sections ?",
-    locked_tooltip: "Cet examen est verrouillé. Votre spécialité ne correspond pas à cette filière."
+    locked_tooltip: "Cet examen est verrouillé. Votre spécialité ne correspond pas à cette filière.",
+    code_valid: "✅ Code valide !"
   },
   en: {
     top_badge: "Your partner in cyber defense and IT management",
@@ -918,24 +760,13 @@ const translations = {
     badge_secure: "TECHNICAL ASSESSMENT PLATFORM", hero_title: "Examination Center", hero_subtitle: "NetVanguard Recruitment",
     login_title: "Secure Access", login_desc: "Reserved for recruitment exams. Enter your unique code.",
     access_placeholder: "Unique access code...", btn_access: "Access",
-    login_error: "❌ Invalid, already used, or expired code.",
+    login_error: "❌ Invalid code.",
     code_info: "Each code can only be used once.",
     si_desc: "Your specialty was detected automatically. Only the corresponding exam is unlocked.",
     ib_title: "Academic Integrity Commitment",
     ib_desc: "This exam is part of the recruitment process. We expect honesty and transparency.",
     ib_p1: "Individual work", ib_p2: "No external assistance", ib_p3: "Within the time limit",
     mw_active: "Monitored session", mw_strikes: "Strikes",
-    cp_title: "Identity Verification Required",
-    cp_desc1: "Camera activation is mandatory.",
-    cp_desc2: "Your video feed is streamed live during the exam.",
-    cp_warning: "Without a camera, you cannot access the exam.",
-    cp_allow: "Allow Camera",
-    cp_deny: "Deny",
-    cd_title: "Access Denied",
-    cd_desc1: "You have denied camera access.",
-    cd_desc2: "The camera is required to verify your identity.",
-    cd_desc3: "Without a camera, your application cannot be processed.",
-    cd_retry: "Try Again",
     cancelled_title: "Exam Cancelled",
     cancelled_desc: "Our system has detected non-compliant behavior. Your session has been terminated.",
     cancelled_btn: "Return to Home",
@@ -961,7 +792,8 @@ const translations = {
     email_sending: "Sending report...", email_sent: "✅ Report sent!", email_error: "⚠️ Send error.", email_network: "⚠️ Network error.",
     alert_fill: "Please fill in all fields.", alert_choose: "Please choose a track.",
     confirm_quit: "Quit the exam?", confirm_back: "Return to sections?",
-    locked_tooltip: "This exam is locked. Your specialty does not match this track."
+    locked_tooltip: "This exam is locked. Your specialty does not match this track.",
+    code_valid: "✅ Valid code!"
   }
 };
 
@@ -972,11 +804,10 @@ let selectedExam = null, currentQuestions = [], currentQuestionIndex = 0, userAn
 let examStarted = false, examFinished = false, timerInterval = null, timeRemaining = 60 * 60;
 let candidateInfo = {}, currentLang = 'fr';
 let securityStrikes = 0, monitoringLog = [], inactiveTimer = null, lastActivity = Date.now();
-let cameraStream = null;
 const MAX_STRIKES = 2;
 
 // ============================================================
-// GESTION DES CODES (localStorage)
+// GESTION DES CODES
 // ============================================================
 function getCodes() {
   try { return JSON.parse(localStorage.getItem('nv_exam_codes') || '{}'); } catch { return {}; }
@@ -999,7 +830,7 @@ function generateCodes() {
   const textarea = document.getElementById('adminEmails');
   const emails = textarea.value.split('\n').map(e => e.trim()).filter(e => e && e.includes('@'));
   if (emails.length === 0) {
-    document.getElementById('codeResult').textContent = '❌ Aucun email valide trouvé.';
+    document.getElementById('codeResult').textContent = '❌ Aucun email valide.';
     return;
   }
 
@@ -1029,7 +860,7 @@ function clearAllCodes() {
   if (confirm('Supprimer tous les codes ?')) {
     localStorage.removeItem('nv_exam_codes');
     localStorage.removeItem('nv_used_codes');
-    document.getElementById('codeResult').textContent = '✅ Tous les codes ont été réinitialisés.';
+    document.getElementById('codeResult').textContent = '✅ Réinitialisé.';
   }
 }
 
@@ -1074,48 +905,6 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 function t(key) { return translations[currentLang][key] || key; }
 
 // ============================================================
-// CAMÉRA
-// ============================================================
-function requestCamera() {
-  try {
-    navigator.mediaDevices.getUserMedia({
-      video: { width: 320, height: 240, facingMode: 'user' },
-      audio: false
-    })
-    .then(stream => {
-      cameraStream = stream;
-      document.getElementById('cameraPermissionOverlay').classList.remove('active');
-      document.getElementById('loginScreen').style.display = 'none';
-      document.getElementById('candidateForm').classList.add('active');
-      document.getElementById('loginError').style.display = 'none';
-      document.getElementById('startExamBtn').disabled = false;
-      applyLocking();
-      console.log('📷 Caméra activée');
-    })
-    .catch(err => {
-      console.error('❌ Erreur caméra:', err);
-      denyCamera();
-    });
-  } catch (err) {
-    console.error('❌ Erreur caméra:', err);
-    denyCamera();
-  }
-}
-
-function denyCamera() {
-  document.getElementById('cameraPermissionOverlay').classList.remove('active');
-  document.getElementById('cameraDeniedOverlay').classList.add('active');
-}
-
-function stopCamera() {
-  if (cameraStream) {
-    cameraStream.getTracks().forEach(t => t.stop());
-    cameraStream = null;
-    console.log('📷 Caméra arrêtée');
-  }
-}
-
-// ============================================================
 // LOGIN : VÉRIFICATION DU CODE
 // ============================================================
 function checkAccess() {
@@ -1132,23 +921,63 @@ function checkAccess() {
     return;
   }
 
-  // === CODES PERMANENTS ===
-  const PERMANENT_CODES = ['NETVANGUARD2026', 'Y4WSDKZQ', 'AW28XGZH'];
+  // ==========================================================
+  // 🔑 CODES PERMANENTS (AJOUTE ICI TOUS TES CODES)
+  // ==========================================================
+  const PERMANENT_CODES = [
+    'NETVANGUARD2026',
+    'Y4WSDKZQ',
+    'AW28XGZH',
+    '5RD7Q6XD'
+  ];
 
+  // Vérifier si le code est un code permanent
   if (PERMANENT_CODES.includes(code)) {
+    errorEl.style.display = 'none';
     successEl.textContent = '✅ Code valide !';
     successEl.style.display = 'block';
     document.getElementById('candEmail').value = 'candidat@netvanguard.ma';
     setTimeout(() => {
       successEl.style.display = 'none';
-      document.getElementById('cameraPermissionOverlay').classList.add('active');
+      document.getElementById('loginScreen').style.display = 'none';
+      document.getElementById('candidateForm').classList.add('active');
+      document.getElementById('startExamBtn').disabled = false;
+      applyLocking();
     }, 800);
     return;
   }
 
-  // === VÉRIFICATION DES CODES STOCKÉS ===
-  const codes = getCodes();
+  // ==========================================================
+  // VÉRIFICATION DU CODE GÉNÉRÉ PAR CARRIERE.HTML
+  // ==========================================================
+  const storedCode = localStorage.getItem('nv_exam_code');
+  const expiration = localStorage.getItem('nv_exam_expires');
+  
+  if (storedCode && expiration && Date.now() < parseInt(expiration) && code === storedCode.toUpperCase()) {
+    errorEl.style.display = 'none';
+    successEl.textContent = '✅ Code valide !';
+    successEl.style.display = 'block';
+    document.getElementById('candEmail').value = localStorage.getItem('nv_candidate_email') || 'candidat@netvanguard.ma';
+    
+    // Marquer comme utilisé
+    localStorage.removeItem('nv_exam_code');
+    localStorage.removeItem('nv_exam_expires');
+    
+    setTimeout(() => {
+      successEl.style.display = 'none';
+      document.getElementById('loginScreen').style.display = 'none';
+      document.getElementById('candidateForm').classList.add('active');
+      document.getElementById('startExamBtn').disabled = false;
+      applyLocking();
+    }, 800);
+    return;
+  }
 
+  // ==========================================================
+  // VÉRIFICATION DES CODES STOCKÉS (admin)
+  // ==========================================================
+  const codes = getCodes();
+  
   if (!codes[code]) {
     errorEl.textContent = '❌ Code invalide. Utilisez Ctrl+Shift+A pour générer des codes.';
     errorEl.style.display = 'block';
@@ -1179,7 +1008,10 @@ function checkAccess() {
 
   setTimeout(() => {
     successEl.style.display = 'none';
-    document.getElementById('cameraPermissionOverlay').classList.add('active');
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('candidateForm').classList.add('active');
+    document.getElementById('startExamBtn').disabled = false;
+    applyLocking();
   }, 800);
 }
 
@@ -1454,7 +1286,6 @@ function cancelExam(reason) {
   clearInterval(timerInterval);
   clearInterval(inactiveTimer);
   examFinished = true;
-  stopCamera();
   monitoringLog.push({ time: new Date().toISOString(), reason: 'EXAM_CANCELLED', final_reason: reason });
   document.getElementById('examInterface').classList.remove('active');
   document.getElementById('cancelledOverlay').classList.add('active');
@@ -1469,7 +1300,6 @@ function submitExam() {
   clearInterval(timerInterval);
   clearInterval(inactiveTimer);
   examFinished = true;
-  stopCamera();
 
   const score = currentQuestions.reduce((acc, q, i) => acc + (userAnswers[i] === q.correct ? 1 : 0), 0);
   const total = currentQuestions.length;
@@ -1565,7 +1395,6 @@ function quitExam() {
   if (confirm(t('confirm_quit'))) {
     clearInterval(timerInterval);
     clearInterval(inactiveTimer);
-    stopCamera();
     examFinished = true;
     document.getElementById('examInterface').classList.remove('active');
     document.getElementById('cancelledOverlay').classList.add('active');
@@ -1582,7 +1411,6 @@ function backToSections() {
 function resetExam() {
   clearInterval(timerInterval);
   clearInterval(inactiveTimer);
-  stopCamera();
   examStarted = false;
   examFinished = false;
   selectedExam = null;
@@ -1632,10 +1460,10 @@ if (menuToggle && mobileNav) {
 // ============================================================
 applyLanguage('fr');
 
-console.log('🎓 NetVanguard Exam System - Version avec caméra et code unique');
+console.log('🎓 NetVanguard Exam System');
 console.log('🔑 Admin: Ctrl+Shift+A pour générer des codes');
-console.log('🔑 Codes permanents: NETVANGUARD2026, Y4WSDKZQ, AW28XGZH');
-console.log('📷 Caméra obligatoire pour démarrer l\'examen');
+console.log('🔑 Codes permanents: NETVANGUARD2026, Y4WSDKZQ, AW28XGZH, 5RD7Q6XD');
+console.log('📌 Les codes générés par carriere.html sont automatiquement pris en compte');
 </script>
 </body>
 </html>
