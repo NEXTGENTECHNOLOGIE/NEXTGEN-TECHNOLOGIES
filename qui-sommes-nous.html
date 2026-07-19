@@ -118,7 +118,7 @@ a { text-decoration: none; }
 .mobile-nav-overlay.active { right: 0; }
 .mobile-nav-overlay a { color: var(--white); font-size: 1.1rem; font-weight: 600; }
 
-/* Configuration Arrière-plan Vidéo */
+/* Configuration Arrière-plan Vidéo - PC Desktop */
 .page-header-hero { position: relative; width: 100%; min-height: 75vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background: var(--primary-deep); padding: 4rem 0; }
 .header-video-bg { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: 1; transform: translate(-50%, -50%); object-fit: cover; }
 .header-video-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(2, 8, 16, 0.8) 0%, rgba(2, 8, 16, 0.5) 50%, rgba(2, 8, 16, 0.9) 100%); z-index: 2; pointer-events: none; }
@@ -220,16 +220,46 @@ a { text-decoration: none; }
 
 @media (max-width: 1200px) { .values-grid { grid-template-columns: repeat(2, 1fr); } .footer-container { grid-template-columns: repeat(2, 1fr); } .pillars-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 1024px) { .nav-links { display: none; } .menu-toggle { display: block; } .highlights-grid { grid-template-columns: 1fr; gap: 3rem; } .mission-row { grid-template-columns: 1fr; } }
+
+/* Ajustement Précis Spécial Mobile pour voir 100% du contenu vidéo */
 @media (max-width: 768px) {
   .top-bar-container { flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 0.8rem; }
   .top-bar-info { display: flex !important; flex-direction: column; align-items: center; justify-content: center; gap: 0.4rem; width: 100%; }
   .values-grid { grid-template-columns: 1fr; } .footer-container { grid-template-columns: 1fr; }
   .pillars-grid { grid-template-columns: 1fr; } .highlights-stats-box { grid-template-columns: 1fr 1fr; }
   .mission-row { grid-template-columns: 1fr; }
-  .page-header-hero { min-height: 55vh; padding: 5rem 0; }
-  .header-video-bg { object-position: center center; } /* Force le centrage de la vidéo sur mobile */
+  
+  /* Redimensionnement automatique basé sur le ratio cinéma de ta vidéo */
+  .page-header-hero { 
+    min-height: auto; 
+    height: auto; 
+    aspect-ratio: 16 / 9; /* Aligne la section exactement sur le format de la vidéo */
+    padding: 0;
+    display: flex;
+    align-items: flex-end; /* Descend la petite phrase de texte au bas de la vidéo */
+  }
+  .header-video-bg { 
+    position: relative;
+    top: 0; left: 0;
+    transform: none;
+    min-width: 100%; min-height: auto;
+    width: 100%; height: auto;
+    object-fit: contain; /* Fini le découpage, ta vidéo apparaît en entier au pixel près ! */
+  }
+  .header-content {
+    position: absolute;
+    bottom: 10px; left: 0; right: 0;
+    z-index: 10;
+    padding: 0 1rem;
+  }
+  .header-desc {
+    font-size: 0.85rem; /* Réduit un poil la taille sur mobile pour que ça reste harmonieux */
+    line-height: 1.4;
+  }
+  
   .section { padding: 4rem 4%; }
 }
+
 @media (max-width: 600px) {
   .highlights-stats-box { grid-template-columns: 1fr; }
 }
@@ -437,7 +467,7 @@ const translations = {
     box2Desc: "Parce que derrière NetVanguard, il y a une expertise réelle : plus de 15 ans de terrain, des certifications internationales reconnues, et une connaissance profonde du tissu économique marocain. Nous ne vendons pas des promesses, nous livrons des résultats mesurables et documentés.",
     valuesTag: "CULTURE D'ENTREPRISE", valuesTitle1: "Les valeurs qui cimentent", valuesTitle2: "notre équipe",
     valuesDesc: "L'ingénierie moderne exige de la cohésion, du pragmatisme et de l'éthique.",
-    val1Title: "Proximité Client", val1Desc: "Nous ne sommes pas une multinationale impersonnelle. We are reachable, responsive, and we know each of our clients personally.",
+    val1Title: "Proximité Client", val1Desc: "Nous ne sommes pas une multinationale impersonnelle. Nous sommes joignables, réactifs, et nous connaissons personnellement chacun de nos clients.",
     val2Title: "Transparence Totale", val2Desc: "Pas de jargon incompréhensible, pas de frais cachés. Nous expliquons clairement ce que nous faisons, pourquoi nous le faisons, et combien ça coûte.",
     val3Title: "Innovation Continue", val3Desc: "Nos ingénieurs se forment en permanence. La cyber-menace évolue chaque jour, nos compétences aussi.",
     val4Title: "Engagement Local", val4Desc: "Entreprise 100% marocaine, nous contribuons à la souveraineté numérique de notre pays en formant et en recrutant les meilleurs talents locaux.",
