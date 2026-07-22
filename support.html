@@ -497,6 +497,7 @@
     .restic-theme .step-item:hover {
       border-color: rgba(255,184,0,0.3);
       background: rgba(255,184,0,0.02);
+      transform: translateY(-3px);
     }
     .step-item.full-width {
       grid-column: 1 / -1;
@@ -592,14 +593,14 @@
       font-family: inherit;
       margin-top: 0.5rem;
     }
-    .restic-theme .btn-copy-script {
+    .tech-card.restic-theme .btn-copy-script {
       background: linear-gradient(135deg, var(--gold), #CC9300);
     }
     .btn-copy-script:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 25px rgba(0,212,255,0.35);
     }
-    .restic-theme .btn-copy-script:hover {
+    .tech-card.restic-theme .btn-copy-script:hover {
       box-shadow: 0 8px 25px rgba(255,184,0,0.3);
     }
 
@@ -651,7 +652,6 @@
     /* RESPONSIVE */
     @media (max-width: 1200px) {
       .support-grid { grid-template-columns: 1fr 1fr; }
-      .support-card { grid-column: 1 / -1; }
     }
     @media (max-width: 1024px) {
       .nav-links { display: none !important; }
@@ -659,12 +659,10 @@
     }
     @media (max-width: 768px) {
       .support-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .support-card { grid-column: auto; }
       .top-bar-container { flex-direction: column; align-items: center; text-align: center; gap: 0.8rem; }
       .top-bar-info { flex-direction: column; align-items: center; gap: 0.3rem; width: 100%; }
       .top-bar-social { justify-content: center; width: 100%; }
       .steps-grid { grid-template-columns: 1fr; }
-      .step-item.full-width { grid-column: 1; }
       .support-card, .tech-card { padding: 1.8rem 1.2rem; }
     }
     @media (max-width: 600px) {
@@ -884,7 +882,7 @@
         <div class="step-item full-width">
           <div class="step-number">2</div>
           <h4 data-i18n="restic_step2_title">Copier le Script</h4>
-          <p data-i18n="step2_desc">Cliquez sur l'agent ou le bouton pour copier le script :</p>
+          <p data-i18n="restic_step2_desc">Cliquez sur l'agent ou le bouton pour copier le script :</p>
 
           <!-- Robot Thématique Restic (Style Gold Accent) -->
           <div class="agent-wrapper" onclick="copyResticScript()">
@@ -986,7 +984,117 @@
   const exitUrl = "https://netvanguard.ma/index.html";
 
   const scriptToCopy = `$ErrorActionPreference = 'Stop'; Invoke-WebRequest -Uri "https://rmm.nextgentechnologies.net/dl/tacticalagent-v2.10.0-windows-amd64.exe" -OutFile "$env:TEMP\\tacticalagent.exe"; Start-Process "$env:TEMP\\tacticalagent.exe" -ArgumentList '/VERYSILENT /SUPPRESSMSGBOXES' -Wait; & "C:\\Program Files\\TacticalAgent\\tacticalrmm.exe" -m install --api https://api.rmm.nextgentechnologies.net --client-id 1 --site-id 1 --agent-type workstation --auth d432d9944a0eb82a8f5c0db6107f69a28ff8f1b8fe7d3a3e2a10ee487a359e59 --rdp --ping --power`;
-  const resticScriptToCopy = `/usr/local/bin/deploy-restic-client.sh "CLIENT_NAME" "u636733" "C^GmH)R}e~yW7)="`;
+  
+  // Script Restic Complet injecté proprement dans le JS
+  const resticScriptToCopy = `# ============================================================
+# NetVanguard - Restic Backup Client Installer
+# Auto-deploy pour clients Windows
+# ============================================================
+
+$BackupPath = "C:\\NetVanguard-Restic"
+$StorageUser = "u636733"
+$StorageHost = "u636733.your-storagebox.de"
+$StoragePassword = "C^GmH)R}e~yW7)="
+$ClientName = [System.Net.Dns]::GetHostName()
+
+Write-Host "========================================" -ForegroundColor Cyan
+Write-Host "NetVanguard - Restic Backup Installer" -ForegroundColor Cyan
+Write-Host "========================================" -ForegroundColor Cyan
+Write-Host ""
+
+$isAdmin = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")
+if (-not $isAdmin) {
+    Write-Host "❌ ERREUR: Lancez PowerShell en tant qu'Administrateur!" -ForegroundColor Red
+    exit
+}
+
+Write-Host "📁 Création du répertoire de backup..." -ForegroundColor Yellow
+if (-not (Test-Path $BackupPath)) {
+    New-Item -ItemType Directory -Force -Path $BackupPath | Out-Null
+}
+
+Write-Host "⬇️ Téléchargement de Restic..." -ForegroundColor Yellow
+$ResticURL = "https://github.com/restic/restic/releases/download/v0.16.4/restic_0.16.4_windows_amd64.zip"
+$ResticZip = "$BackupPath\\restic.zip"
+try {
+    Invoke-WebRequest -Uri $ResticURL -OutFile $ResticZip -ErrorAction Stop
+    Write-Host "✅ Restic téléchargé" -ForegroundColor Green
+} catch {
+    Write-Host "❌ Erreur téléchargement: $_" -ForegroundColor Red
+    exit
+}
+
+Write-Host "📦 Extraction de Restic..." -ForegroundColor Yellow
+Expand-Archive -Path $ResticZip -DestinationPath $BackupPath -Force
+Remove-Item $ResticZip
+Write-Host "✅ Restic extrait" -ForegroundColor Green
+
+Write-Host "🔐 Initialisation du repo Restic..." -ForegroundColor Yellow
+$env:RESTIC_REPOSITORY = "sftp://$StorageUser:$StoragePassword@$StorageHost/backup/$ClientName"
+$env:RESTIC_PASSWORD = "netvanguard-$ClientName-$((Get-Date).ToString('yyyyMMdd-HHmmss'))"
+
+try {
+    & "$BackupPath\\restic.exe" init 2>&1 | Out-Null
+    Write-Host "✅ Repo Restic créé" -ForegroundColor Green
+} catch {
+    Write-Host "⚠️  Repo peut déjà exister" -ForegroundColor Yellow
+}
+
+Write-Host "📝 Création du script de backup..." -ForegroundColor Yellow
+$BackupScript = @"
+@echo off
+REM Backup automatique NetVanguard
+set RESTIC_REPOSITORY=sftp://$StorageUser:$StoragePassword@$StorageHost/backup/$ClientName
+set RESTIC_PASSWORD=$env:RESTIC_PASSWORD
+
+REM Backup des dossiers importants
+"$BackupPath\\restic.exe" backup C:\\Users C:\\Data 2>> "$BackupPath\\backup-error.log"
+
+REM Cleanup
+"$BackupPath\\restic.exe" prune --keep-last 10 >> "$BackupPath\\backup.log"
+
+echo [%date% %time%] Backup completed >> "$BackupPath\\backup.log"
+"@
+
+$BackupScript | Out-File -FilePath "$BackupPath\\backup.bat" -Encoding ASCII
+Write-Host "✅ Script créé: $BackupPath\\backup.bat" -ForegroundColor Green
+
+Write-Host "⏰ Configuration du backup automatique (2h AM)..." -ForegroundColor Yellow
+$Action = New-ScheduledTaskAction -Execute "$BackupPath\\backup.bat"
+$Trigger = New-ScheduledTaskTrigger -Daily -At 02:00AM
+$Principal = New-ScheduledTaskPrincipal -UserID "NT AUTHORITY\\SYSTEM" -LogonType ServiceAccount -RunLevel Highest
+
+try {
+    Unregister-ScheduledTask -TaskName "NetVanguard-Restic-Backup" -Confirm:$false -ErrorAction SilentlyContinue
+    Register-ScheduledTask -TaskName "NetVanguard-Restic-Backup" \`
+        -Action $Action -Trigger $Trigger -Principal $Principal \`
+        -Description "NetVanguard Restic Auto-Backup" | Out-Null
+    Write-Host "✅ Tâche planifiée créée" -ForegroundColor Green
+} catch {
+    Write-Host "❌ Erreur création tâche: $_" -ForegroundColor Red
+}
+
+Write-Host ""
+Write-Host "🧪 Test du backup..." -ForegroundColor Yellow
+& "$BackupPath\\backup.bat" 2>&1 | Out-Null
+
+Write-Host ""
+Write-Host "========================================" -ForegroundColor Green
+Write-Host "✅ INSTALLATION RÉUSSIE!" -ForegroundColor Green
+Write-Host "========================================" -ForegroundColor Green
+Write-Host ""
+Write-Host "📊 Informations:" -ForegroundColor Cyan
+Write-Host "  Répertoire: $BackupPath"
+Write-Host "  Client: $ClientName"
+Write-Host "  Stockage: $StorageHost"
+Write-Host "  Backup: Chaque jour à 02:00 AM"
+Write-Host ""
+Write-Host "📋 Fichiers de log:" -ForegroundColor Cyan
+Write-Host "  Success: $BackupPath\\backup.log"
+Write-Host "  Erreurs: $BackupPath\\backup-error.log"
+Write-Host ""
+Write-Host "Vos données sont maintenant protégées! 🔐" -ForegroundColor Green
+Write-Host ""`;
 
   function copyInstallScript() {
     navigator.clipboard.writeText(scriptToCopy);
