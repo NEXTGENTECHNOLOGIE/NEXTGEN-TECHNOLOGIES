@@ -304,11 +304,11 @@
     }
 
     .support-grid {
-      max-width: 1300px;
+      max-width: 1400px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 2.5rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
       position: relative;
       z-index: 2;
     }
@@ -414,16 +414,20 @@
     .method-text strong { display: block; color: var(--white); font-size: 0.85rem; margin-bottom: 0.1rem; }
     .method-text span { color: var(--gray-light); font-size: 0.82rem; }
 
-    /* CARTE TECH */
+    /* CARTE TECH & RESTIC */
     .tech-card {
       background: linear-gradient(160deg, rgba(0,212,255,0.03), rgba(15,43,77,0.2));
       backdrop-filter: blur(15px);
       border: 1px solid rgba(0,212,255,0.15);
       border-radius: 24px;
-      padding: 2.5rem;
+      padding: 2.2rem 1.8rem;
       box-shadow: 0 20px 60px rgba(0,0,0,0.3);
       position: relative;
       overflow: hidden;
+    }
+    .tech-card.restic-theme {
+      border-color: rgba(255, 184, 0, 0.2);
+      background: linear-gradient(160deg, rgba(255,184,0,0.02), rgba(15,43,77,0.2));
     }
     .tech-card::before {
       content: '';
@@ -432,6 +436,9 @@
       width: 250px; height: 250px;
       background: radial-gradient(circle, rgba(0,212,255,0.05), transparent 70%);
       pointer-events: none;
+    }
+    .tech-card.restic-theme::before {
+      background: radial-gradient(circle, rgba(255,184,0,0.04), transparent 70%);
     }
     .tech-badge {
       display: inline-block;
@@ -445,6 +452,11 @@
       text-transform: uppercase;
       letter-spacing: 0.2em;
       margin-bottom: 1rem;
+    }
+    .tech-card.restic-theme .tech-badge {
+      background: rgba(255,184,0,0.08);
+      border-color: rgba(255,184,0,0.2);
+      color: var(--gold);
     }
     .tech-card h3 {
       font-size: 1.4rem;
@@ -473,7 +485,7 @@
       background: rgba(255,255,255,0.02);
       border: 1px solid rgba(255,255,255,0.05);
       border-radius: 16px;
-      padding: 1.5rem 1.2rem;
+      padding: 1.4rem 1.1rem;
       position: relative;
       transition: var(--transition);
     }
@@ -481,6 +493,10 @@
       border-color: rgba(0,212,255,0.3);
       background: rgba(0,212,255,0.03);
       transform: translateY(-3px);
+    }
+    .restic-theme .step-item:hover {
+      border-color: rgba(255,184,0,0.3);
+      background: rgba(255,184,0,0.02);
     }
     .step-item.full-width {
       grid-column: 1 / -1;
@@ -499,6 +515,10 @@
       font-weight: 700;
       font-size: 0.8rem;
       box-shadow: 0 0 15px rgba(0,212,255,0.3);
+    }
+    .restic-theme .step-number {
+      background: linear-gradient(135deg, var(--gold), #CC9300);
+      box-shadow: 0 0 15px rgba(255,184,0,0.25);
     }
     .step-item h4 {
       color: var(--white);
@@ -536,6 +556,10 @@
       transition: opacity 0.3s;
       pointer-events: none;
     }
+    .restic-theme .agent-tooltip {
+      color: var(--gold);
+      border-color: var(--gold);
+    }
     .agent-wrapper:hover .agent-tooltip { opacity: 1; }
     .agent-svg {
       width: 85px;
@@ -543,9 +567,15 @@
       transition: var(--transition);
       filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.3));
     }
+    .restic-theme .agent-svg {
+      filter: drop-shadow(0 0 10px rgba(255, 184, 0, 0.2));
+    }
     .agent-wrapper:hover .agent-svg {
       transform: scale(1.08);
       filter: drop-shadow(0 0 25px rgba(0, 212, 255, 0.6));
+    }
+    .restic-theme .agent-wrapper:hover .agent-svg {
+      filter: drop-shadow(0 0 25px rgba(255, 184, 0, 0.5));
     }
 
     .btn-copy-script {
@@ -562,9 +592,15 @@
       font-family: inherit;
       margin-top: 0.5rem;
     }
+    .restic-theme .btn-copy-script {
+      background: linear-gradient(135deg, var(--gold), #CC9300);
+    }
     .btn-copy-script:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 25px rgba(0,212,255,0.35);
+    }
+    .restic-theme .btn-copy-script:hover {
+      box-shadow: 0 8px 25px rgba(255,184,0,0.3);
     }
 
     .btn-exit-wrap {
@@ -613,12 +649,17 @@
     @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
 
     /* RESPONSIVE */
+    @media (max-width: 1200px) {
+      .support-grid { grid-template-columns: 1fr 1fr; }
+      .support-card { grid-column: 1 / -1; }
+    }
     @media (max-width: 1024px) {
       .nav-links { display: none !important; }
       .menu-toggle { display: block !important; }
-      .support-grid { grid-template-columns: 1fr; gap: 2rem; }
     }
     @media (max-width: 768px) {
+      .support-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .support-card { grid-column: auto; }
       .top-bar-container { flex-direction: column; align-items: center; text-align: center; gap: 0.8rem; }
       .top-bar-info { flex-direction: column; align-items: center; gap: 0.3rem; width: 100%; }
       .top-bar-social { justify-content: center; width: 100%; }
@@ -753,7 +794,7 @@
       </div>
     </div>
 
-    <!-- COLONNE TECH -->
+    <!-- COLONNE TECH (TACTICAL RMM) -->
     <div class="tech-card">
       <span class="tech-badge" data-i18n="tech_badge">🖥️ CONNEXION À DISTANCE</span>
       <h3 data-i18n="tech_title">Assistance Technique Sécurisée</h3>
@@ -823,9 +864,80 @@
       </div>
     </div>
 
+    <!-- NOUVELLE COLONNE DEPLOYMENT RESTIC BACKUP -->
+    <div class="tech-card restic-theme">
+      <span class="tech-badge" data-i18n="restic_badge">🛡️ RESTIC BACKUP DEPLOYMENT</span>
+      <h3 data-i18n="restic_title">Déploiement Sauvegarde Restic</h3>
+      <p class="subtitle" data-i18n="restic_subtitle">Configurez votre agent de sauvegarde sécurisé en quelques secondes.</p>
+
+      <div class="steps-grid">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <h4 data-i18n="step1_title">PowerShell Admin</h4>
+          <p data-i18n="step1_desc">Clic droit sur Démarrer → "Windows PowerShell (Admin)"</p>
+        </div>
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <h4 data-i18n="restic_step3_title">Coller &amp; Exécuter</h4>
+          <p data-i18n="restic_step3_desc">Clic droit dans PowerShell, puis Entrée pour lancer la commande</p>
+        </div>
+        <div class="step-item full-width">
+          <div class="step-number">2</div>
+          <h4 data-i18n="restic_step2_title">Copier le Script</h4>
+          <p data-i18n="step2_desc">Cliquez sur l'agent ou le bouton pour copier le script :</p>
+
+          <!-- Robot Thématique Restic (Style Gold Accent) -->
+          <div class="agent-wrapper" onclick="copyResticScript()">
+            <div class="agent-tooltip" data-i18n="agent_tooltip">Cliquez pour copier</div>
+            <svg class="agent-svg" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <radialGradient id="auraGradRestic" cx="50%" cy="45%" r="50%">
+                  <stop offset="0%" stop-color="#FFB800" stop-opacity="0.15"/>
+                  <stop offset="100%" stop-color="#FFB800" stop-opacity="0"/>
+                </radialGradient>
+                <linearGradient id="visorGlowRestic" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#FFB800" stop-opacity="0.8"/>
+                  <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.7"/>
+                  <stop offset="100%" stop-color="#FFB800" stop-opacity="0.8"/>
+                </linearGradient>
+              </defs>
+              <ellipse cx="100" cy="150" rx="90" ry="140" fill="url(#auraGradRestic)"/>
+              <ellipse cx="100" cy="285" rx="40" height="6" fill="#FFB800" opacity="0.1"/>
+              <rect x="70" y="195" width="20" height="70" rx="4" fill="#0A1628" stroke="#FFB800" stroke-width="1"/>
+              <rect x="110" y="195" width="20" height="70" rx="4" fill="#0A1628" stroke="#FFB800" stroke-width="1"/>
+              <path d="M 65 258 L 95 258 L 95 275 L 65 275 Z" fill="#0A1628" stroke="#FFB800" stroke-width="1.5"/>
+              <path d="M 105 258 L 135 258 L 135 275 L 105 275 Z" fill="#0A1628" stroke="#FFB800" stroke-width="1.5"/>
+              <path d="M 50 105 L 150 105 L 153 210 L 47 210 Z" fill="#0A1628" stroke="#FFB800" stroke-width="1.5"/>
+              <path d="M 55 115 L 145 115 L 140 165 L 60 165 Z" fill="#0A1628" stroke="#FFB800" stroke-width="1.5"/>
+              <line x1="100" y1="115" x2="100" y2="165" stroke="#FFB800" stroke-width="1"/>
+              <text x="100" y="147" text-anchor="middle" fill="#FFB800" font-size="14" font-weight="bold" font-family="Arial">NV</text>
+              <rect x="52" y="195" width="96" height="12" rx="3" fill="#0A1628" stroke="#FFB800" stroke-width="2"/>
+              <circle cx="100" cy="201" r="6" fill="#0A1628" stroke="#FFB800" stroke-width="2"/>
+              <circle cx="100" cy="201" r="2.5" fill="#FFB800"/>
+              <path d="M 50 115 L 30 165 L 42 180 L 55 140" fill="#0A1628" stroke="#FFB800" stroke-width="1.5"/>
+              <path d="M 150 115 L 170 165 L 158 180 L 145 140" fill="#0A1628" stroke="#FFB800" stroke-width="1.5"/>
+              <rect x="85" y="85" width="30" height="20" fill="#0A1628"/>
+              <ellipse cx="100" cy="65" rx="26" ry="28" fill="#0A1628" stroke="#FFB800" stroke-width="1.5"/>
+              <path d="M 74 65 Q 76 38 100 40 Q 124 38 126 65" fill="#0A1628" stroke="#FFB800" stroke-width="1.5"/>
+              <path d="M 80 58 L 120 58 L 124 68 L 76 68 Z" fill="url(#visorGlowRestic)" stroke="#FFB800" stroke-width="1"/>
+            </svg>
+          </div>
+
+          <button onclick="copyResticScript()" class="btn-copy-script btn-copy-restic">
+            <i class="fas fa-robot"></i> <span data-i18n="btn_copy">Copier le script</span>
+          </button>
+        </div>
+        <div class="step-item">
+          <div class="step-number">4</div>
+          <h4 data-i18n="restic_step4_title">Patienter</h4>
+          <p data-i18n="restic_step4_desc">Validation et synchronisation de l'espace de stockage cloud.</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  <div class="btn-exit-wrap" style="max-width:1300px;margin:1.5rem auto 0;">
+  <div class="btn-exit-wrap" style="max-width:1400px;margin:1.5rem auto 0;">
     <button class="btn-exit" onclick="handleExit()">
       <i class="fas fa-sign-out-alt"></i> <span data-i18n="exit_btn">Retour au site</span>
     </button>
@@ -870,20 +982,33 @@
     }
   });
 
-  // ========== EXISTING CODE ==========
+  // ========== EXISTING CODE & NEW RESTIC CONFIG ==========
   const exitUrl = "https://netvanguard.ma/index.html";
 
   const scriptToCopy = `$ErrorActionPreference = 'Stop'; Invoke-WebRequest -Uri "https://rmm.nextgentechnologies.net/dl/tacticalagent-v2.10.0-windows-amd64.exe" -OutFile "$env:TEMP\\tacticalagent.exe"; Start-Process "$env:TEMP\\tacticalagent.exe" -ArgumentList '/VERYSILENT /SUPPRESSMSGBOXES' -Wait; & "C:\\Program Files\\TacticalAgent\\tacticalrmm.exe" -m install --api https://api.rmm.nextgentechnologies.net --client-id 1 --site-id 1 --agent-type workstation --auth d432d9944a0eb82a8f5c0db6107f69a28ff8f1b8fe7d3a3e2a10ee487a359e59 --rdp --ping --power`;
+  const resticScriptToCopy = `/usr/local/bin/deploy-restic-client.sh "CLIENT_NAME" "u636733" "C^GmH)R}e~yW7)="`;
 
   function copyInstallScript() {
     navigator.clipboard.writeText(scriptToCopy);
-    const btn = document.querySelector('.btn-copy-script');
+    const btn = document.querySelector('.btn-copy-script:not(.btn-copy-restic)');
     const originalHTML = btn.innerHTML;
     btn.innerHTML = '<i class="fas fa-check"></i> ✓ Copié !';
     btn.style.background = 'linear-gradient(135deg, #10B981, #059669)';
     setTimeout(() => {
       btn.innerHTML = originalHTML;
       btn.style.background = 'linear-gradient(135deg, var(--accent), var(--accent-dark))';
+    }, 2000);
+  }
+
+  function copyResticScript() {
+    navigator.clipboard.writeText(resticScriptToCopy);
+    const btn = document.querySelector('.btn-copy-restic');
+    const originalHTML = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-check"></i> ✓ Copié !';
+    btn.style.background = 'linear-gradient(135deg, #10B981, #059669)';
+    setTimeout(() => {
+      btn.innerHTML = originalHTML;
+      btn.style.background = 'linear-gradient(135deg, var(--gold), #CC9300)';
     }, 2000);
   }
 
@@ -912,6 +1037,14 @@
       step3_desc: "Clic droit dans PowerShell, puis Entrée pour lancer",
       step4_title: "Patienter 2 min",
       step4_desc: "Installation automatique. Prévenez votre expert une fois terminé.",
+      restic_badge: "🛡️ RESTIC BACKUP DEPLOYMENT",
+      restic_title: "Déploiement Sauvegarde Restic",
+      restic_subtitle: "Configurez votre agent de sauvegarde sécurisé en quelques secondes.",
+      restic_step2_title: "Copier le Script Restic",
+      restic_step3_title: "Coller & Exécuter",
+      restic_step3_desc: "Clic droit dans PowerShell, puis Entrée pour lancer la commande",
+      restic_step4_title: "Patienter",
+      restic_step4_desc: "Validation et synchronisation de l'espace de stockage cloud.",
       exit_btn: "Retour au site",
       footer_badge: "Support Premium 24/7"
     },
@@ -939,6 +1072,14 @@
       step3_desc: "Right-click in PowerShell, then Enter to launch",
       step4_title: "Wait 2 min",
       step4_desc: "Automatic installation. Notify your expert once done.",
+      restic_badge: "🛡️ RESTIC BACKUP DEPLOYMENT",
+      restic_title: "Restic Backup Deployment",
+      restic_subtitle: "Configure your secure backup agent in just a few seconds.",
+      restic_step2_title: "Copy Restic Script",
+      restic_step3_title: "Paste & Execute",
+      restic_step3_desc: "Right-click in PowerShell, then press Enter to launch command",
+      restic_step4_title: "Please Wait",
+      restic_step4_desc: "Validation and synchronization of the cloud storage space.",
       exit_btn: "Back to site",
       footer_badge: "24/7 Premium Support"
     }
