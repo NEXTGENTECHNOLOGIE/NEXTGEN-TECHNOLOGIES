@@ -9,12 +9,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 <style>
-:root{--primary:#0A1628;--primary-deep:#020810;--primary-light:#0F2B4D;--accent:#00D4FF;--accent-dark:#0891B2;--accent-glow:rgba(0,212,255,0.5);--red:#EF4444;--red-dark:#DC2626;--white:#FFFFFF;--off-white:#E2E8F0;--gray-light:#94A3B8;--gray-mid:#64748B;--gold:#FFB800;--gold-light:#FFD700;--success:#10B981;--transition:all 0.6s cubic-bezier(0.16,1,0.3,1);}
+:root{
+  --primary:#0A1628;--primary-deep:#020810;--primary-light:#0F2B4D;
+  --accent:#00D4FF;--accent-dark:#0891B2;
+  --accent-glow:rgba(0,212,255,0.5);--red:#EF4444;--red-dark:#DC2626;
+  --white:#FFFFFF;--off-white:#E2E8F0;--gray-light:#94A3B8;--gray-mid:#64748B;
+  --gold:#FFB800;--gold-light:#FFD700;--success:#10B981;
+  --transition:all 0.6s cubic-bezier(0.16,1,0.3,1);
+}
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{font-family:'Manrope',sans-serif;color:var(--off-white);line-height:1.6;overflow-x:hidden;background:var(--primary-deep);}
 h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-.02em;}
 a{text-decoration:none;}
+
+/* ========== TOP BAR - IDENTIQUE À L'INDEX ========== */
 .top-bar{background:rgba(2,8,16,0.98);backdrop-filter:blur(20px);color:var(--gray-light);padding:0.6rem 4%;font-size:0.78rem;border-bottom:1px solid rgba(0,212,255,0.15);z-index:1001;position:relative;letter-spacing:0.02em;}
 .top-bar-container{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:nowrap;gap:0.6rem;}
 .partner-badge{display:flex;align-items:center;gap:0.6rem;background:linear-gradient(135deg,rgba(0,212,255,0.1),rgba(255,184,0,0.05));padding:0.35rem 1.2rem;border-radius:40px;border:1px solid rgba(0,212,255,0.2);box-shadow:0 0 20px rgba(0,212,255,0.1);flex-shrink:0;max-width:340px;overflow:hidden;}
@@ -29,6 +38,8 @@ a{text-decoration:none;}
 .lang-switch{display:flex;gap:0.2rem;background:rgba(0,212,255,0.1);padding:0.15rem 0.5rem;border-radius:40px;align-items:center;border:1px solid rgba(0,212,255,0.2);flex-shrink:0;}
 .lang-btn{background:none;border:none;color:var(--gray-light);font-size:0.75rem;font-weight:600;cursor:pointer;padding:0.15rem 0.6rem;border-radius:30px;transition:var(--transition);font-family:inherit;}
 .lang-btn.active{background:var(--accent);color:var(--primary-deep);}
+
+/* ========== NAVBAR - 100% IDENTIQUE À L'INDEX ========== */
 .nav{position:sticky;top:0;z-index:1000;padding:1rem 4%;background:rgba(5,12,24,0.92);backdrop-filter:blur(25px);border-bottom:1px solid rgba(0,212,255,0.1);}
 .nav-container{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
 .logo{display:flex;align-items:center;gap:0.6rem;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.3rem;color:var(--white);transition:var(--transition);flex-shrink:0;}
@@ -43,10 +54,13 @@ a{text-decoration:none;}
 .nav-links>li>a.btn-espace-client{background:linear-gradient(135deg,#00D4FF,#0891B2);color:#020810!important;font-weight:700;padding:0.5rem 1.2rem;border-radius:6px;transition:var(--transition);margin-left:0.5rem;}
 .nav-links>li>a.btn-espace-client:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,212,255,0.4);}
 .menu-toggle{display:none;background:none;border:none;color:var(--white);font-size:1.5rem;cursor:pointer;z-index:10001;}
+
 .mobile-nav-overlay{position:fixed;top:0;right:-100%;width:100%;max-width:400px;height:100vh;background:rgba(2,8,16,0.98);backdrop-filter:blur(25px);z-index:10000;padding:8rem 2rem 2rem;display:flex;flex-direction:column;gap:1.5rem;box-shadow:-10px 0 30px rgba(0,0,0,0.5);border-left:1px solid rgba(0,212,255,0.2);transition:right 0.5s cubic-bezier(0.77,0.2,0.05,1);}
 .mobile-nav-overlay.active{right:0;}
 .mobile-nav-overlay a{color:var(--white);font-size:1.1rem;font-weight:600;}
 .btn-espace-client-mobile{background:linear-gradient(135deg,#00D4FF,#0891B2);color:#020810!important;font-weight:700;padding:0.5rem 1.2rem;border-radius:6px;text-align:center;display:inline-flex;align-items:center;justify-content:center;gap:0.5rem;margin-top:1rem;}
+
+/* ========== PAGE HEADER ========== */
 .page-header{position:relative;padding:6rem 4% 5rem;overflow:hidden;background:radial-gradient(circle at 20% 30%,rgba(0,212,255,.18),transparent 35%),radial-gradient(circle at 80% 60%,rgba(255,184,0,.10),transparent 40%),linear-gradient(180deg,#02050b 0%,#081120 60%,#02050b 100%);}
 .page-header::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:28px 28px;mask-image:linear-gradient(to bottom,rgba(0,0,0,1),transparent 80%);pointer-events:none;}
 .page-header-container{max-width:1400px;margin:auto;position:relative;z-index:2;}
@@ -57,6 +71,8 @@ a{text-decoration:none;}
 .page-header h1 .accent-text{background:linear-gradient(90deg,#00D4FF,#38bdf8,#FFB800,#00D4FF);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shine 8s linear infinite;}
 @keyframes shine{to{background-position:300% center;}}
 .page-header p{font-size:1.15rem;color:#cbd5e1;max-width:680px;line-height:1.7;}
+
+/* ========== CONTACT SECTION ========== */
 .contact-section{padding:6rem 4%;position:relative;}
 .contact-container{max-width:1400px;margin:auto;}
 .contact-grid{display:grid;grid-template-columns:.9fr 1.3fr;gap:3rem;align-items:start;}
@@ -73,6 +89,8 @@ a{text-decoration:none;}
 .contact-item-text span{color:#94a3b8;font-size:.88rem;line-height:1.5;}
 .whatsapp-direct{margin-top:1.5rem;display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.4rem;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;border-radius:14px;font-weight:700;font-size:.92rem;transition:.3s;box-shadow:0 10px 30px rgba(37,211,102,.25);text-decoration:none;}
 .whatsapp-direct:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(37,211,102,.4);}
+
+/* ========== FORMULAIRE ========== */
 .contact-form-wrap{position:relative;padding:3rem;border-radius:32px;background:linear-gradient(160deg,rgba(255,255,255,.04),rgba(10,22,40,.7));border:1px solid rgba(0,212,255,.2);backdrop-filter:blur(14px);box-shadow:0 30px 80px rgba(0,0,0,.4),0 0 60px rgba(0,212,255,.08),inset 0 1px 0 rgba(255,255,255,.05);overflow:hidden;}
 .contact-form-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--accent),var(--gold),var(--accent),transparent);background-size:200% 100%;animation:topBeam 4s linear infinite;}
 @keyframes topBeam{0%{background-position:0% 0;}100%{background-position:200% 0;}}
@@ -93,12 +111,16 @@ a{text-decoration:none;}
 .submit-btn{width:100%;padding:1.1rem;background:linear-gradient(135deg,var(--accent),#0ea5e9);color:#04111a;border:none;border-radius:14px;font-weight:800;font-size:1rem;cursor:pointer;font-family:inherit;transition:.3s;box-shadow:0 10px 40px rgba(0,212,255,.25);position:relative;overflow:hidden;}
 .submit-btn:hover{transform:translateY(-3px);box-shadow:0 20px 50px rgba(0,212,255,.4);}
 .submit-btn:disabled{opacity:.6;cursor:not-allowed;transform:none;}
+
+/* ========== TRUST ROW ========== */
 .trust-row{margin-top:5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
 .trust-card{padding:1.8rem;border-radius:20px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);text-align:center;transition:.4s;}
 .trust-card:hover{transform:translateY(-6px);border-color:rgba(0,212,255,.3);}
 .trust-icon{width:60px;height:60px;border-radius:16px;background:linear-gradient(135deg,var(--accent),#0ea5e9);display:inline-flex;align-items:center;justify-content:center;font-size:1.4rem;color:#04111a;margin-bottom:1rem;box-shadow:0 0 30px rgba(0,212,255,.25);}
 .trust-card h4{font-size:1.05rem;margin-bottom:.4rem;color:#fff;}
 .trust-card p{color:#94a3b8;font-size:.88rem;line-height:1.6;}
+
+/* ========== FOOTER ========== */
 footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;background:#02050b;}
 .footer-grid{max-width:1400px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;}
 .footer-brand p{color:#94a3b8;margin-top:1rem;line-height:1.8;font-size:.92rem;}
@@ -108,11 +130,14 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
 .footer-col a{color:#94a3b8;transition:.3s;font-size:.9rem;}
 .footer-col a:hover{color:var(--accent);}
 .footer-bottom{max-width:1400px;margin:auto;border-top:1px solid rgba(255,255,255,.05);margin-top:3rem;padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:#64748b;font-size:.85rem;}
+
+/* ========== RESPONSIVE ========== */
 @media(max-width:1024px){.nav-links{display:none;}.menu-toggle{display:block;}.contact-grid{grid-template-columns:1fr;}.contact-info{position:static;}.trust-row{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:768px){.top-bar-container{flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:0.8rem;}.top-bar-info{display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:0.4rem;width:100%;}.form-row{grid-template-columns:1fr;}.contact-form-wrap{padding:2rem 1.5rem;}.footer-grid{grid-template-columns:1fr;}.page-header::before{background-size:20px 20px;}}
 </style>
 </head>
 <body>
+
 <div class="top-bar">
   <div class="top-bar-container">
     <div class="partner-badge"><i class="fa-solid fa-shield-halved"></i><span data-i18n="top_badge">Votre partenaire en cyberdéfense et infogérance</span></div>
@@ -122,7 +147,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
       <span><i class="fa-solid fa-location-dot"></i> BD 30 JUILLET, Sidi Moumen, Casablanca</span>
     </div>
     <div class="top-bar-social">
-      <div class="lang-switch">
+      <div class="lang-switch" style="margin-right:1rem;">
         <button class="lang-btn active" data-lang="fr">FR</button>
         <button class="lang-btn" data-lang="en">EN</button>
       </div>
@@ -130,11 +155,16 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
     </div>
   </div>
 </div>
+
 <nav class="nav">
   <div class="nav-container">
     <a href="index.html" class="logo">
-      <svg class="logo-shield" viewBox="0 0 24 24"><defs><linearGradient id="shieldGradNav" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1"/><stop offset="100%" style="stop-color:#FFB800;stop-opacity:1"/></linearGradient></defs><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#shieldGradNav)"/><path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/></svg>
-      <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em;font-weight:500;color:var(--gray-light);" data-i18n="nav_home">IT Solutions</span></span>
+      <svg class="logo-shield" viewBox="0 0 24 24" width="32" height="32">
+        <defs><linearGradient id="shieldGradNav" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1"/><stop offset="100%" style="stop-color:#FFB800;stop-opacity:1"/></linearGradient></defs>
+        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#shieldGradNav)"/>
+        <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
+      </svg>
+      <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em;font-weight:500;color:var(--gray-light);">IT Solutions</span></span>
     </a>
     <ul class="nav-links">
       <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
@@ -144,11 +174,12 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
       <li><a href="carrieres.html" data-i18n="nav_careers">Carrières</a></li>
       <li><a href="campus-cyber.html" data-i18n="nav_campus">🎓 Campus Cyber</a></li>
       <li><a href="contact.html" class="active" data-i18n="nav_contact">Contact</a></li>
-      <li><a href="support.html" class="btn-espace-client"><i class="fa-solid fa-user-circle"></i> <span data-i18n="nav_espace_client">Espace Client</span></a></li>
+      <li><a href="support.html" class="btn-espace-client" data-i18n="nav_espace_client"><i class="fa-solid fa-user-circle"></i> Espace Client</a></li>
     </ul>
     <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
   </div>
 </nav>
+
 <div class="mobile-nav-overlay" id="mobileNav">
   <a href="index.html" data-i18n="nav_home">Accueil</a>
   <a href="services.html" data-i18n="nav_services">Services</a>
@@ -157,15 +188,17 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
   <a href="carrieres.html" data-i18n="nav_careers">Carrières</a>
   <a href="campus-cyber.html" data-i18n="nav_campus">🎓 Campus Cyber</a>
   <a href="contact.html" data-i18n="nav_contact">Contact</a>
-  <a href="support.html" class="btn-espace-client-mobile"><i class="fa-solid fa-user-circle"></i> <span data-i18n="nav_espace_client">Espace Client</span></a>
+  <a href="support.html" class="btn-espace-client-mobile" data-i18n="nav_espace_client"><i class="fa-solid fa-user-circle"></i> Espace Client</a>
 </div>
+
 <section class="page-header">
   <div class="page-header-container">
-    <div class="breadcrumb"><a href="index.html" data-i18n="bcHome">Accueil</a><i class="fas fa-chevron-right"></i><span style="color:#fff;" data-i18n="bcContact">Contact</span></div>
+    <div class="breadcrumb"><a href="index.html" data-i18n="bcHome">Accueil</a><i class="fas fa-chevron-right"></i><span style="color:#fff" data-i18n="bcContact">Contact</span></div>
     <h1><span data-i18n="hdrTitle1">Parlons de votre</span> <span class="accent-text" data-i18n="hdrTitleAccent">cybersécurité</span></h1>
     <p data-i18n="hdrDesc">Audit gratuit. Aucun engagement, juste une vision claire de votre exposition cyber.</p>
   </div>
 </section>
+
 <section class="contact-section">
   <div class="contact-container">
     <div class="contact-grid">
@@ -182,31 +215,28 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
       </div>
       <div class="contact-form-wrap">
         <div class="form-header"><h3 data-i18n="formTitle">Demandez votre audit gratuit</h3><p data-i18n="formSubtitle">Remplissez ce formulaire — nous vous recontactons sous 24h.</p></div>
-        <form id="contactForm">
+        <form id="contactForm" action="https://formspree.io/f/myklqdky" method="POST">
           <div id="formSuccess" class="form-message-success"><i class="fas fa-check-circle"></i> <span data-i18n="formSuccess">Merci ! Votre demande a bien été envoyée. Nous vous recontactons sous 24h.</span></div>
           <div id="formError" class="form-message-error"><i class="fas fa-exclamation-circle"></i> <span data-i18n="formError">Une erreur est survenue. Veuillez réessayer ou nous contacter directement.</span></div>
           <div class="form-row">
-            <div class="form-group"><label data-i18n="lblName">Nom complet *</label><input type="text" id="nom" name="nom" data-i18n-placeholder="phName" placeholder="Votre nom" required></div>
+            <div class="form-group"><label data-i18n="lblName">Nom complet *</label><input type="text" id="nom" name="nom" required data-i18n-placeholder="phName" placeholder="Votre nom"></div>
             <div class="form-group"><label data-i18n="lblCompany">Entreprise</label><input type="text" id="entreprise" name="entreprise" data-i18n-placeholder="phCompany" placeholder="Nom de l'entreprise"></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label data-i18n="lblEmail">Email *</label><input type="email" id="email" name="email" placeholder="vous@entreprise.com" required></div>
-            <div class="form-group"><label data-i18n="lblPhone">Téléphone *</label><input type="tel" id="telephone" name="telephone" placeholder="+212..." required></div>
+            <div class="form-group"><label data-i18n="lblEmail">Email *</label><input type="email" id="email" name="email" required placeholder="vous@entreprise.com"></div>
+            <div class="form-group"><label data-i18n="lblPhone">Téléphone *</label><input type="tel" id="telephone" name="telephone" required placeholder="+212..."></div>
           </div>
           <div class="form-group">
             <label data-i18n="lblService">Service qui vous intéresse</label>
             <select id="service" name="service">
               <option data-i18n="optAudit">Audit cyber gratuit</option>
-              <option>Support IT & Infogérance</option>
-              <option>Sécurité Réseau</option>
-              <option data-i18n="optVapt">Pentest / VAPT</option>
-              <option>SOC Consultation</option>
-              <option>Cybercrime</option>
-              <option>NOC Managé</option>
-              <option data-i18n="optOther">Autre</option>
+              <option>Support IT & Infogérance</option><option>Sécurité Réseau</option><option data-i18n="optVapt">Pentest / VAPT</option>
+              <option>SOC Consultation</option><option>Cybercrime</option><option>NOC Managé</option><option data-i18n="optOther">Autre</option>
             </select>
           </div>
           <div class="form-group"><label data-i18n="lblMessage">Votre message</label><textarea id="message" name="message" data-i18n-placeholder="phMessage" placeholder="Décrivez brièvement votre besoin..."></textarea></div>
+          <input type="hidden" name="_subject" value="Nouvelle demande NetVanguard IT Solutions">
+          <input type="text" name="_gotcha" style="display:none">
           <button type="submit" id="submitBtn" class="submit-btn"><span data-i18n="btnSubmit">Envoyer ma demande</span> <i class="fas fa-paper-plane" style="margin-left:.5rem;"></i></button>
         </form>
       </div>
@@ -218,28 +248,95 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:5rem 4% 2rem;backgroun
     </div>
   </div>
 </section>
+
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
       <a href="index.html" class="logo" style="font-size:1.2rem;margin-bottom:.8rem;display:inline-flex;">
         <svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="#00D4FF"/><path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/></svg>
-        <span style="color:white;margin-left:.5rem;">Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.82em;font-weight:400;color:rgba(255,255,255,0.45);" data-i18n="nav_home">IT Solutions</span></span>
+        <span style="color:white;margin-left:.5rem;">Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.82em;font-weight:400;color:rgba(255,255,255,0.45);">IT Solutions</span></span>
       </a>
       <p data-i18n="footerDesc">Cybersécurité, infogérance IT et formation au service des entreprises marocaines. Protection complète, accessible et indépendante.</p>
     </div>
-    <div class="footer-col"><h4 data-i18n="footerServices">Services</h4><ul><li><a href="#">Support IT & Infogérance</a></li><li><a href="#">Sécurité Réseau</a></li><li><a href="#">Pentest / VAPT</a></li><li><a href="#">SOC Consultation</a></li><li><a href="#">Cybercrime</a></li><li><a href="#">NOC Managé</a></li></ul></div>
-    <div class="footer-col"><h4 data-i18n="footerSectors">Secteurs</h4><ul><li><a href="#">Banques & Finance</a></li><li><a href="#">E-commerce</a></li><li><a href="#">Santé</a></li><li><a href="#">Industrie</a></li><li><a href="#">Administrations</a></li></ul></div>
-    <div class="footer-col"><h4 data-i18n="footerCompany">Entreprise</h4><ul><li><a href="#">Qui sommes-nous</a></li><li><a href="#">Carrières</a></li><li><a href="#">Contact</a></li></ul></div>
+    <div class="footer-col"><h4 data-i18n="footerServices">Services</h4><ul><li><a href="infogerance.html">Support IT & Infogérance</a></li><li><a href="securite-reseau.html">Sécurité Réseau</a></li><li><a href="vapt.html">Pentest / VAPT</a></li><li><a href="soc-consultation.html">SOC Consultation</a></li><li><a href="cybercrime.html">Cybercrime</a></li><li><a href="noc.html">NOC Managé</a></li></ul></div>
+    <div class="footer-col"><h4 data-i18n="footerSectors">Secteurs</h4><ul><li><a href="secteur-banques.html">Banques & Finance</a></li><li><a href="secteur-ecommerce.html">E-commerce</a></li><li><a href="secteur-sante.html">Santé</a></li><li><a href="secteur-industrie.html">Industrie</a></li><li><a href="secteur-administrations.html">Administrations</a></li></ul></div>
+    <div class="footer-col"><h4 data-i18n="footerCompany">Entreprise</h4><ul><li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li><li><a href="carrieres.html">Carrières</a></li><li><a href="contact.html">Contact</a></li></ul></div>
   </div>
   <div class="footer-bottom"><span>© 2026 NetVanguard IT Solutions SARL · Casablanca</span><span>Excellence & Innovation</span></div>
 </footer>
 
 <script>
-const translations={fr:{top_badge:"Votre partenaire en cyberdéfense et infogérance",nav_home:"Accueil",nav_services:"Services",nav_sectors:"Secteurs",nav_about:"Qui sommes-nous",nav_careers:"Carrières",nav_campus:"🎓 Campus Cyber",nav_contact:"Contact",nav_espace_client:"Espace Client",bcHome:"Accueil",bcContact:"Contact",hdrTitle1:"Parlons de votre",hdrTitleAccent:"cybersécurité",hdrDesc:"Audit gratuit. Aucun engagement, juste une vision claire de votre exposition cyber.",infoTag:"COORDONNÉES",infoTitle:"Restons en contact",infoDesc:"Notre équipe répond sous 24h. Pour les urgences cyber, privilégiez WhatsApp.",cBureau:"Bureau Casablanca",cBureauDesc:"BD 30 JUILLET, Rés Les Champs Du Printemps, GH 1, IMM F, 5ème Étage N°15, Sidi Moumen, Casablanca, Maroc",cPhone:"Téléphone",cWhatsappDesc:"+212 728 31 28 01 · réponse rapide",cHours:"Horaires",cHoursDesc:"Lun-Ven · 9h-18h<br>Hotline urgence : 24/7",waBtn:"Discuter sur WhatsApp",formTitle:"Demandez votre audit gratuit",formSubtitle:"Remplissez ce formulaire — nous vous recontactons sous 24h.",formSuccess:"✨ Parfait ! Votre demande a bien été reçue. Nous vous recontactons sous 24h.",formError:"❌ Une erreur est survenue. Veuillez réessayer ou nous contacter directement.",lblName:"Nom complet *",phName:"Votre nom",lblCompany:"Entreprise",phCompany:"Nom de l'entreprise",lblEmail:"Email *",lblPhone:"Téléphone *",lblService:"Service qui vous intéresse",optAudit:"Audit cyber gratuit",optVapt:"Pentest / VAPT",optOther:"Autre",lblMessage:"Votre message",phMessage:"Décrivez brièvement votre besoin...",btnSubmit:"Envoyer ma demande",btnSending:"Envoi en cours...",trust1Title:"Réponse sous 24h",trust1Desc:"Notre équipe répond à toutes les demandes en moins de 24 heures ouvrées.",trust2Title:"100% Confidentiel",trust2Desc:"Vos informations sont traitées avec la plus stricte confidentialité.",trust3Title:"Aucun engagement",trust3Desc:"L'audit initial est entièrement gratuit, sans obligation de souscription.",footerDesc:"Cybersécurité, infogérance IT et formation au service des entreprises marocaines. Protection complète, accessible et indépendante.",footerServices:"Services",footerSectors:"Secteurs",footerCompany:"Entreprise"},en:{top_badge:"Your trusted partner in cyber defense and IT management",nav_home:"Home",nav_services:"Services",nav_sectors:"Sectors",nav_about:"About Us",nav_careers:"Careers",nav_campus:"🎓 Cyber Campus",nav_contact:"Contact",nav_espace_client:"Client Area",bcHome:"Home",bcContact:"Contact",hdrTitle1:"Let's talk about your",hdrTitleAccent:"cybersecurity",hdrDesc:"Free audit. No commitment, just a clear view of your cyber exposure.",infoTag:"CONTACT INFO",infoTitle:"Get in touch",infoDesc:"Our team responds within 24h. For cyber emergencies, please use WhatsApp.",cBureau:"Casablanca Office",cBureauDesc:"BD 30 JUILLET, Rés Les Champs Du Printemps, GH 1, IMM F, 5th Floor N°15, Sidi Moumen, Casablanca, Morocco",cPhone:"Phone",cWhatsappDesc:"+212 728 31 28 01 · quick reply",cHours:"Hours",cHoursDesc:"Mon-Fri · 9am-6pm<br>Emergency hotline: 24/7",waBtn:"Chat on WhatsApp",formTitle:"Request your free audit",formSubtitle:"Fill out this form — we'll get back to you within 24h.",formSuccess:"✨ Perfect! Your request has been sent. We'll contact you within 24h.",formError:"❌ An error occurred. Please try again or contact us directly.",lblName:"Full name *",phName:"Your name",lblCompany:"Company",phCompany:"Company name",lblEmail:"Email *",lblPhone:"Phone *",lblService:"Service of interest",optAudit:"Free cyber audit",optVapt:"VAPT - Penetration testing",optOther:"Other",lblMessage:"Your message",phMessage:"Briefly describe your needs...",btnSubmit:"Send my request",btnSending:"Sending...",trust1Title:"24h response time",trust1Desc:"Our team responds to all requests within 24 business hours.",trust2Title:"100% Confidential",trust2Desc:"Your information is handled with the strictest confidentiality.",trust3Title:"No commitment",trust3Desc:"The initial audit is completely free, with no subscription obligation.",footerDesc:"Cybersecurity, IT managed services and training for Moroccan businesses. Complete, accessible and independent protection.",footerServices:"Services",footerSectors:"Sectors",footerCompany:"Company"}};
+const translations={
+  fr:{
+    top_badge:"Votre partenaire en cyberdéfense et infogérance",
+    nav_home:"Accueil",nav_services:"Services",nav_sectors:"Secteurs",
+    nav_about:"Qui sommes-nous",nav_careers:"Carrières",
+    nav_campus:"🎓 Campus Cyber",nav_contact:"Contact",nav_espace_client:"Espace Client",
+    bcHome:"Accueil",bcContact:"Contact",
+    hdrTitle1:"Parlons de votre",hdrTitleAccent:"cybersécurité",
+    hdrDesc:"Audit gratuit. Aucun engagement, juste une vision claire de votre exposition cyber.",
+    infoTag:"COORDONNÉES",infoTitle:"Restons en contact",
+    infoDesc:"Notre équipe répond sous 24h. Pour les urgences cyber, privilégiez WhatsApp.",
+    cBureau:"Bureau Casablanca",cBureauDesc:"BD 30 JUILLET, Rés Les Champs Du Printemps, GH 1, IMM F, 5ème Étage N°15, Sidi Moumen, Casablanca, Maroc",
+    cPhone:"Téléphone",cWhatsappDesc:"+212 728 31 28 01 · réponse rapide",
+    cHours:"Horaires",cHoursDesc:"Lun-Ven · 9h-18h<br>Hotline urgence : 24/7",
+    waBtn:"Discuter sur WhatsApp",
+    formTitle:"Demandez votre audit gratuit",formSubtitle:"Remplissez ce formulaire — nous vous recontactons sous 24h.",
+    formSuccess:"Merci ! Votre demande a bien été envoyée. Nous vous recontactons sous 24h.",
+    formError:"Une erreur est survenue. Veuillez réessayer ou nous contacter directement.",
+    lblName:"Nom complet *",phName:"Votre nom",lblCompany:"Entreprise",phCompany:"Nom de l'entreprise",
+    lblEmail:"Email *",lblPhone:"Téléphone *",lblService:"Service qui vous intéresse",
+    optAudit:"Audit cyber gratuit",optVapt:"Pentest / VAPT",optOther:"Autre",
+    lblMessage:"Votre message",phMessage:"Décrivez brièvement votre besoin...",
+    btnSubmit:"Envoyer ma demande",
+    trust1Title:"Réponse sous 24h",trust1Desc:"Notre équipe répond à toutes les demandes en moins de 24 heures ouvrées.",
+    trust2Title:"100% Confidentiel",trust2Desc:"Vos informations sont traitées avec la plus stricte confidentialité.",
+    trust3Title:"Aucun engagement",trust3Desc:"L'audit initial est entièrement gratuit, sans obligation de souscription.",
+    footerDesc:"Cybersécurité, infogérance IT et formation au service des entreprises marocaines. Protection complète, accessible et indépendante.",
+    footerServices:"Services",footerSectors:"Secteurs",footerCompany:"Company"
+  },
+  en:{
+    top_badge:"Your trusted partner in cyber defense and IT management",
+    nav_home:"Home",nav_services:"Services",nav_sectors:"Sectors",
+    nav_about:"About Us",nav_careers:"Careers",
+    nav_campus:"🎓 Cyber Campus",nav_contact:"Contact",nav_espace_client:"Client Area",
+    bcHome:"Home",bcContact:"Contact",
+    hdrTitle1:"Let's talk about your",hdrTitleAccent:"cybersecurity",
+    hdrDesc:"Free audit. No commitment, just a clear view of your cyber exposure.",
+    infoTag:"CONTACT INFO",infoTitle:"Get in touch",
+    infoDesc:"Our team responds within 24h. For cyber emergencies, please use WhatsApp.",
+    cBureau:"Casablanca Office",cBureauDesc:"BD 30 JUILLET, Rés Les Champs Du Printemps, GH 1, IMM F, 5th Floor N°15, Sidi Moumen, Casablanca, Morocco",
+    cPhone:"Phone",cWhatsappDesc:"+212 728 31 28 01 · quick reply",
+    cHours:"Hours",cHoursDesc:"Mon-Fri · 9am-6pm<br>Emergency hotline: 24/7",
+    waBtn:"Chat on WhatsApp",
+    formTitle:"Request your free audit",formSubtitle:"Fill out this form — we'll get back to you within 24h.",
+    formSuccess:"Thank you! Your request has been sent. We'll contact you within 24h.",
+    formError:"An error occurred. Please try again or contact us directly.",
+    lblName:"Full name *",phName:"Your name",lblCompany:"Company",phCompany:"Company name",
+    lblEmail:"Email *",lblPhone:"Phone *",lblService:"Service of interest",
+    optAudit:"Free cyber audit",optVapt:"VAPT - Penetration testing",optOther:"Other",
+    lblMessage:"Your message",phMessage:"Briefly describe your needs...",
+    btnSubmit:"Send my request",
+    trust1Title:"24h response time",trust1Desc:"Our team responds to all requests within 24 business hours.",
+    trust2Title:"100% Confidential",trust2Desc:"Your information is handled with the strictest confidentiality.",
+    trust3Title:"No commitment",trust3Desc:"The initial audit is completely free, with no subscription obligation.",
+    footerDesc:"Cybersecurity, IT managed services and training for Moroccan businesses. Complete, accessible and independent protection.",
+    footerServices:"Services",footerSectors:"Sectors",footerCompany:"Company"
+  }
+};
+
 let currentLang=localStorage.getItem('netvanguard-lang')||'fr';
-function applyLanguage(lang){const t=translations[lang];if(!t)return;document.querySelectorAll('[data-i18n]').forEach(el=>{const key=el.getAttribute('data-i18n');if(t[key]!==undefined)el.innerHTML=t[key];});document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{const key=el.getAttribute('data-i18n-placeholder');if(t[key]!==undefined)el.setAttribute('placeholder',t[key]);});document.querySelectorAll('.lang-btn').forEach(btn=>{btn.classList.remove('active');if(btn.getAttribute('data-lang')===lang)btn.classList.add('active');});document.documentElement.setAttribute('lang',lang);localStorage.setItem('netvanguard-lang',lang);}
+function applyLanguage(lang){
+  const t=translations[lang];if(!t)return;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const key=el.getAttribute('data-i18n');if(t[key]!==undefined)el.innerHTML=t[key];});
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{const key=el.getAttribute('data-i18n-placeholder');if(t[key]!==undefined)el.setAttribute('placeholder',t[key]);});
+  document.querySelectorAll('.lang-btn').forEach(btn=>{btn.classList.remove('active');if(btn.getAttribute('data-lang')===lang)btn.classList.add('active');});
+  document.documentElement.setAttribute('lang',lang);localStorage.setItem('netvanguard-lang',lang);
+}
 document.querySelectorAll('.lang-btn').forEach(btn=>{btn.addEventListener('click',()=>{const lang=btn.getAttribute('data-lang');if(lang){currentLang=lang;applyLanguage(currentLang);}});});
-const menuToggle=document.getElementById('menuToggle'),mobileNav=document.getElementById('mobileNav');if(menuToggle&&mobileNav){menuToggle.addEventListener('click',()=>{mobileNav.classList.toggle('active');menuToggle.querySelector('i').className=mobileNav.classList.contains('active')?'fa-solid fa-xmark':'fa-solid fa-bars';});}
+
+const menuToggle=document.getElementById('menuToggle'),mobileNav=document.getElementById('mobileNav');
+if(menuToggle&&mobileNav){menuToggle.addEventListener('click',()=>{mobileNav.classList.toggle('active');menuToggle.querySelector('i').className=mobileNav.classList.contains('active')?'fa-solid fa-xmark':'fa-solid fa-bars';});}
 
 document.getElementById('contactForm').addEventListener('submit',async function(e){
   e.preventDefault();
@@ -251,7 +348,7 @@ document.getElementById('contactForm').addEventListener('submit',async function(
   success.style.display='none';
   error.style.display='none';
   btn.disabled=true;
-  btn.querySelector('span').textContent=translations[currentLang].btnSending;
+  btn.textContent='Envoi en cours...';
   
   try{
     const data={
@@ -270,24 +367,16 @@ document.getElementById('contactForm').addEventListener('submit',async function(
     });
     
     if(response.ok){
-      success.querySelector('span').textContent=translations[currentLang].formSuccess;
       success.style.display='block';
       form.reset();
-      success.scrollIntoView({behavior:'smooth',block:'center'});
-      setTimeout(()=>{success.style.display='none';},5000);
     }else{
-      error.querySelector('span').textContent=translations[currentLang].formError;
       error.style.display='block';
-      error.scrollIntoView({behavior:'smooth',block:'center'});
     }
   }catch(err){
-    console.error('Error:',err);
-    error.querySelector('span').textContent=translations[currentLang].formError;
     error.style.display='block';
-    error.scrollIntoView({behavior:'smooth',block:'center'});
   }finally{
     btn.disabled=false;
-    btn.querySelector('span').textContent=translations[currentLang].btnSubmit;
+    btn.textContent='Envoyer ma demande';
   }
 });
 
