@@ -674,6 +674,17 @@ a { text-decoration: none; }
   border-radius: 16px;
 }
 
+/* OVERLAY PLUS CLAIR POUR PHOTOS SOMBRES */
+.stat-box-overlay-light {
+  background: rgba(2, 8, 16, 0.45) !important;
+  background: linear-gradient(145deg, rgba(2, 8, 16, 0.50) 0%, rgba(2, 8, 16, 0.30) 100%) !important;
+}
+
+.stat-box-bg:hover .stat-box-overlay-light {
+  background: rgba(2, 8, 16, 0.25) !important;
+  background: linear-gradient(145deg, rgba(2, 8, 16, 0.30) 0%, rgba(2, 8, 16, 0.15) 100%) !important;
+}
+
 .stat-box-content {
   position: relative;
   z-index: 2;
@@ -716,10 +727,6 @@ a { text-decoration: none; }
   transform: translateY(-6px) scale(1.02);
   border-color: rgba(0, 212, 255, 0.6);
   box-shadow: 0 20px 50px rgba(0, 212, 255, 0.15);
-}
-
-.stat-box-bg:hover .stat-box-overlay {
-  background: rgba(2, 8, 16, 0.50);
 }
 
 .stat-box-bg:hover .stat-number i {
@@ -1021,7 +1028,7 @@ a { text-decoration: none; }
     <div class="stats-grid-centered">
       <!-- CARTE 1 : Cybersécurité Avancée -->
       <div class="stat-box stat-box-bg" style="background-image: url('cybersecurite.jpg');">
-        <div class="stat-box-overlay"></div>
+        <div class="stat-box-overlay stat-box-overlay-light"></div>
         <div class="stat-box-content">
           <div class="stat-number" style="font-size: 2.2rem;">
             <i class="fa-solid fa-shield-halved" style="color: var(--accent);"></i>
@@ -1032,9 +1039,10 @@ a { text-decoration: none; }
           </div>
         </div>
       </div>
+
       <!-- CARTE 2 : Infogérance & Microsoft 365 -->
       <div class="stat-box stat-box-bg" style="background-image: url('infogerance.jpg');">
-        <div class="stat-box-overlay"></div>
+        <div class="stat-box-overlay stat-box-overlay-light"></div>
         <div class="stat-box-content">
           <div class="stat-number" style="font-size: 2.2rem;">
             <i class="fa-solid fa-network-wired" style="color: var(--accent);"></i>
@@ -1045,9 +1053,10 @@ a { text-decoration: none; }
           </div>
         </div>
       </div>
+
       <!-- CARTE 3 : Partenaire de Confiance -->
       <div class="stat-box stat-box-bg" style="background-image: url('partenaire.jpg');">
-        <div class="stat-box-overlay"></div>
+        <div class="stat-box-overlay stat-box-overlay-light"></div>
         <div class="stat-box-content">
           <div class="stat-number" style="font-size: 2.2rem;">
             <i class="fa-solid fa-handshake-angle" style="color: var(--accent);"></i>
