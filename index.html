@@ -130,7 +130,7 @@ a { text-decoration: none; }
   }
 }
 
-/* TOP BAR LUXE */
+/* ========== TOP BAR - IDENTIQUE À QUI-SOMMES-NOUS.HTML ========== */
 .top-bar {
   background: rgba(2, 8, 16, 0.98);
   backdrop-filter: blur(20px);
@@ -153,152 +153,42 @@ a { text-decoration: none; }
   padding: 0.35rem 1.2rem; border-radius: 40px;
   border: 1px solid rgba(0, 212, 255, 0.2);
   box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
-  flex-shrink: 0;
-  max-width: 340px;
-  overflow: hidden;
+  flex-shrink: 0; max-width: 340px; overflow: hidden;
 }
 .partner-badge i { color: var(--accent); font-size: 0.75rem; flex-shrink: 0; }
-.partner-badge span {
-  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px;
-  background: linear-gradient(135deg, #fff, var(--accent));
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.top-bar-info { 
-  display: flex; 
-  gap: 1.5rem; 
-  flex-wrap: nowrap; 
-  flex-shrink: 0;
-}
+.partner-badge span { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px; background: linear-gradient(135deg, #fff, var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.top-bar-info { display: flex; gap: 1.5rem; flex-wrap: nowrap; flex-shrink: 0; }
 .top-bar-info span { display: flex; align-items: center; gap: 0.4rem; white-space: nowrap; }
 .top-bar-info i { color: var(--accent); flex-shrink: 0; }
-.top-bar-social { 
-  display: flex; 
-  align-items: center; 
-  flex-shrink: 0;
-}
+.top-bar-social { display: flex; align-items: center; flex-shrink: 0; }
 .top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; transition: var(--transition); display: inline-block; }
 .top-bar-social a:hover { color: var(--accent); transform: translateY(-2px); }
-
-.lang-switch {
-  display: flex; gap: 0.2rem; background: rgba(0, 212, 255, 0.1);
-  padding: 0.15rem 0.5rem; border-radius: 40px; align-items: center;
-  border: 1px solid rgba(0, 212, 255, 0.2);
-  flex-shrink: 0;
-}
-.lang-btn {
-  background: none; border: none; color: var(--gray-light);
-  font-size: 0.75rem; font-weight: 600; cursor: pointer;
-  padding: 0.15rem 0.6rem; border-radius: 30px; transition: var(--transition);
-  font-family: inherit;
-}
+.lang-switch { display: flex; gap: 0.2rem; background: rgba(0, 212, 255, 0.1); padding: 0.15rem 0.5rem; border-radius: 40px; align-items: center; border: 1px solid rgba(0, 212, 255, 0.2); flex-shrink: 0; }
+.lang-btn { background: none; border: none; color: var(--gray-light); font-size: 0.75rem; font-weight: 600; cursor: pointer; padding: 0.15rem 0.6rem; border-radius: 30px; transition: var(--transition); font-family: inherit; }
 .lang-btn.active { background: var(--accent); color: var(--primary-deep); }
 
-/* NAVIGATION PREMIUM */
-.nav {
-  position: sticky; top: 0; z-index: 1000; padding: 1rem 4%;
-  background: rgba(5, 12, 24, 0.92); backdrop-filter: blur(25px);
-  border-bottom: 1px solid rgba(0, 212, 255, 0.1);
-}
-.nav-container {
-  max-width: 1400px; margin: 0 auto;
-  display: flex; align-items: center; justify-content: space-between;
-}
-.logo {
-  display: flex; align-items: center; gap: 0.6rem;
-  font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.3rem;
-  color: var(--white); transition: var(--transition);
-  flex-shrink: 0;
-}
+/* ========== NAVBAR - IDENTIQUE À QUI-SOMMES-NOUS.HTML (CENTRÉE) ========== */
+.nav { position: sticky; top: 0; z-index: 1000; padding: 1rem 4%; background: rgba(5, 12, 24, 0.92); backdrop-filter: blur(25px); border-bottom: 1px solid rgba(0, 212, 255, 0.1); }
+.nav-container { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.logo { display: flex; align-items: center; gap: 0.6rem; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.3rem; color: var(--white); transition: var(--transition); flex-shrink: 0; }
 .logo:hover { transform: scale(1.02); }
-
-.logo-shield {
-  width: 32px; height: 32px; flex-shrink: 0;
-  animation: float 3s ease-in-out infinite;
-  filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.5));
-}
-@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
-
+.logo-shield { width: 32px; height: 32px; flex-shrink: 0; animation: float 3s ease-in-out infinite; filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.5)); }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
 .logo-text-accent { color: var(--accent); }
+.nav-links { display: flex; gap: 0.8rem; list-style: none; align-items: center; margin: 0 auto; padding: 0; flex-shrink: 0; justify-content: center; }
+.nav-links > li { position: relative; flex-shrink: 0; display: flex; }
+.nav-links > li > a { color: var(--off-white); font-size: 0.9rem; font-weight: 600; padding: 0.5rem 0.9rem; border-radius: 4px; transition: var(--transition); display: flex; align-items: center; gap: 0.3rem; white-space: nowrap; text-align: center; justify-content: center; }
+.nav-links > li > a:hover, .nav-links > li > a.active { background: rgba(0, 212, 255, 0.1); color: var(--accent); }
+.nav-links > li > a.btn-espace-client { background: linear-gradient(135deg, #00D4FF, #0891B2); color: #020810 !important; font-weight: 700; padding: 0.5rem 1.2rem; border-radius: 6px; transition: var(--transition); margin-left: 0.5rem; }
+.nav-links > li > a.btn-espace-client:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4); }
+.menu-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; z-index: 10001; }
 
-/* NAVBAR CENTRÉE */
-.nav-links { 
-  display: flex; 
-  gap: 0.8rem; 
-  list-style: none; 
-  align-items: center; 
-  margin: 0 auto;
-  padding: 0;
-  flex-shrink: 0;
-  justify-content: center;
-}
-.nav-links > li { 
-  position: relative; 
-  flex-shrink: 0;
-  display: flex;
-}
-.nav-links > li > a {
-  color: var(--off-white); 
-  font-size: 0.9rem; 
-  font-weight: 600;
-  padding: 0.5rem 0.9rem; 
-  border-radius: 4px; 
-  transition: var(--transition);
-  display: flex; 
-  align-items: center; 
-  gap: 0.3rem;
-  white-space: nowrap;
-  text-align: center;
-  justify-content: center;
-}
-.nav-links > li > a:hover { 
-  background: rgba(0, 212, 255, 0.1); 
-  color: var(--accent); 
-}
-
-.nav-links > li > a.btn-espace-client {
-  background: linear-gradient(135deg, #00D4FF, #0891B2);
-  color: #020810 !important;
-  font-weight: 700;
-  padding: 0.5rem 1.2rem;
-  border-radius: 6px;
-  transition: var(--transition);
-  margin-left: 0.5rem;
-}
-.nav-links > li > a.btn-espace-client:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
-}
-
-.mobile-nav-overlay a.btn-espace-client-mobile {
-  background: linear-gradient(135deg, #00D4FF, #0891B2);
-  color: #020810 !important;
-  font-weight: 700;
-  padding: 0.5rem 1.2rem;
-  border-radius: 6px;
-  text-align: center;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
-}
-
-.menu-toggle {
-  display: none; background: none; border: none; color: var(--white);
-  font-size: 1.5rem; cursor: pointer; z-index: 10001;
-}
-.mobile-nav-overlay {
-  position: fixed; top: 0; right: -100%; width: 100%; max-width: 400px; height: 100vh;
-  background: rgba(2, 8, 16, 0.98); backdrop-filter: blur(25px); z-index: 10000;
-  padding: 8rem 2rem 2rem; display: flex; flex-direction: column; gap: 1.5rem;
-  box-shadow: -10px 0 30px rgba(0,0,0,0.5); border-left: 1px solid rgba(0, 212, 255, 0.2);
-  transition: right 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-}
+.mobile-nav-overlay a.btn-espace-client-mobile { background: linear-gradient(135deg, #00D4FF, #0891B2); color: #020810 !important; font-weight: 700; padding: 0.5rem 1.2rem; border-radius: 6px; text-align: center; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 1rem; }
+.mobile-nav-overlay { position: fixed; top: 0; right: -100%; width: 100%; max-width: 400px; height: 100vh; background: rgba(2, 8, 16, 0.98); backdrop-filter: blur(25px); z-index: 10000; padding: 8rem 2rem 2rem; display: flex; flex-direction: column; gap: 1.5rem; box-shadow: -10px 0 30px rgba(0,0,0,0.5); border-left: 1px solid rgba(0, 212, 255, 0.2); transition: right 0.5s cubic-bezier(0.77, 0.2, 0.05, 1); }
 .mobile-nav-overlay.active { right: 0; }
 .mobile-nav-overlay a { color: var(--white); font-size: 1.1rem; font-weight: 600; }
+
+/* ========== FIN NAVBAR ========== */
 
 /* HERO SLIDE BACKGROUNDS */
 .hero-slide-bg {
@@ -602,10 +492,6 @@ a { text-decoration: none; }
   transition: var(--transition); display: flex; flex-direction: column;
   opacity: 0; transform: translateY(40px);
 }
-.service-card.featured {
-  border-color: rgba(0, 212, 255, 0.25);
-  background: linear-gradient(160deg, rgba(0, 212, 255, 0.06), rgba(15, 43, 77, 0.25));
-}
 .service-card:hover {
   border-color: var(--accent); box-shadow: 0 20px 50px rgba(0, 212, 255, 0.1);
   transform: translateY(-8px); background: linear-gradient(160deg, rgba(0, 212, 255, 0.04), rgba(15, 43, 77, 0.25));
@@ -613,20 +499,6 @@ a { text-decoration: none; }
 .service-img { height: 220px; overflow: hidden; position: relative; }
 .service-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.2, 0.9, 0.4, 1); }
 .service-card:hover .service-img img { transform: scale(1.1); }
-.service-badge-top {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: var(--accent);
-  color: var(--primary-deep);
-  padding: 0.3rem 0.9rem;
-  border-radius: 20px;
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  z-index: 2;
-}
 .service-content { padding: 2rem; flex-grow: 1; display: flex; flex-direction: column; }
 .service-content h3 { color: var(--white); font-size: 1.35rem; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.6rem; }
 .service-card:hover .service-content h3 { color: var(--accent); }
@@ -864,20 +736,17 @@ a { text-decoration: none; }
 <div class="scroll-progress" id="scrollProgress"></div>
 <div class="cursor-glow" id="cursorGlow"></div>
 
-<!-- TOP BAR -->
+<!-- ========== TOP BAR - IDENTIQUE À QUI-SOMMES-NOUS.HTML ========== -->
 <div class="top-bar">
   <div class="top-bar-container">
-    <div class="partner-badge">
-      <i class="fa-solid fa-shield-halved"></i>
-      <span data-i18n="top_badge">Infogérance, Microsoft 365 & Cybersécurité pour entreprises</span>
-    </div>
+    <div class="partner-badge"><i class="fa-solid fa-shield-halved"></i><span data-i18n="top_badge">Infogérance, Microsoft 365 & Cybersécurité pour entreprises</span></div>
     <div class="top-bar-info">
       <span><i class="fa-solid fa-phone"></i> +212 728 31 28 01</span>
       <span><i class="fa-solid fa-envelope"></i> contact@netvanguard.ma</span>
       <span><i class="fa-solid fa-location-dot"></i> <span data-i18n="top_location">Casablanca — Service global</span></span>
     </div>
     <div class="top-bar-social">
-      <div class="lang-switch" style="margin-right: 1rem;">
+      <div class="lang-switch" style="margin-right:1rem;">
         <button class="lang-btn active" data-lang="fr">FR</button>
         <button class="lang-btn" data-lang="en">EN</button>
       </div>
@@ -885,29 +754,24 @@ a { text-decoration: none; }
   </div>
 </div>
 
-<!-- NAVIGATION -->
+<!-- ========== NAVBAR - IDENTIQUE À QUI-SOMMES-NOUS.HTML (CENTRÉE) ========== -->
 <nav class="nav">
   <div class="nav-container">
     <a href="index.html" class="logo">
       <svg class="logo-shield" viewBox="0 0 24 24" width="32" height="32">
-        <defs>
-          <linearGradient id="shieldGradNav" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#FFB800;stop-opacity:1" />
-          </linearGradient>
-        </defs>
+        <defs><linearGradient id="shieldGradNav" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1"/><stop offset="100%" style="stop-color:#FFB800;stop-opacity:1"/></linearGradient></defs>
         <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#shieldGradNav)"/>
         <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
       </svg>
       <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em; font-weight:500; color: var(--gray-light);">IT Solutions</span></span>
     </a>
     <ul class="nav-links">
-      <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+      <li><a href="index.html" class="active" data-i18n="nav_home">Accueil</a></li>
       <li><a href="services.html" data-i18n="nav_services">Services</a></li>
       <li><a href="secteurs.html" data-i18n="nav_sectors">Secteurs</a></li>
-      <li><a href="qui-sommes-nous.html" data-i18n="nav_about">À propos</a></li>
+      <li><a href="qui-sommes-nous.html" data-i18n="nav_about">Qui sommes-nous</a></li>
       <li><a href="carrieres.html" data-i18n="nav_careers">Carrières</a></li>
-      <li><a href="campus-cyber.html" data-i18n="nav_campus">Campus Cyber</a></li>
+      <li><a href="campus-cyber.html" data-i18n="nav_campus">🎓 Campus Cyber</a></li>
       <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
       <li><a href="support.html" class="btn-espace-client" data-i18n="nav_client"><i class="fa-solid fa-user-circle"></i> Espace Client</a></li>
     </ul>
@@ -915,14 +779,14 @@ a { text-decoration: none; }
   </div>
 </nav>
 
-<!-- MOBILE NAV -->
+<!-- ========== MOBILE NAV ========== -->
 <div class="mobile-nav-overlay" id="mobileNav">
   <a href="index.html" data-i18n="nav_home">Accueil</a>
   <a href="services.html" data-i18n="nav_services">Services</a>
   <a href="secteurs.html" data-i18n="nav_sectors">Secteurs</a>
-  <a href="qui-sommes-nous.html" data-i18n="nav_about">À propos</a>
+  <a href="qui-sommes-nous.html" data-i18n="nav_about">Qui sommes-nous</a>
   <a href="carrieres.html" data-i18n="nav_careers">Carrières</a>
-  <a href="campus-cyber.html" data-i18n="nav_campus">Campus Cyber</a>
+  <a href="campus-cyber.html" data-i18n="nav_campus">🎓 Campus Cyber</a>
   <a href="contact.html" data-i18n="nav_contact">Contact</a>
   <a href="support.html" class="btn-espace-client-mobile" data-i18n="nav_client"><i class="fa-solid fa-user-circle"></i> Espace Client</a>
 </div>
@@ -1207,9 +1071,9 @@ const translations = {
     nav_home: "Accueil",
     nav_services: "Services",
     nav_sectors: "Secteurs",
-    nav_about: "À propos",
+    nav_about: "Qui sommes-nous",
     nav_careers: "Carrières",
-    nav_campus: "Campus Cyber",
+    nav_campus: "🎓 Campus Cyber",
     nav_contact: "Contact",
     nav_client: "Espace Client",
     slide1_subtitle: "Infogérance & Microsoft Cloud",
