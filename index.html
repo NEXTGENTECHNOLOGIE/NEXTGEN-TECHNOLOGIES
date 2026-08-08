@@ -579,6 +579,8 @@ a { text-decoration: none; }
   border: 2px solid rgba(0, 212, 255, 0.2); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 212, 255, 0.15);
   margin-bottom: 4rem; background: #020408;
 }
+
+/* ===== STATS BOXES WITH BACKGROUND IMAGES ===== */
 .stats-grid-centered { 
   display: grid; 
   grid-template-columns: repeat(3, 1fr); 
@@ -587,12 +589,85 @@ a { text-decoration: none; }
   margin: 0 auto; 
 }
 .stat-box {
-  background: rgba(15, 43, 77, 0.4); padding: 2rem; border-radius: 16px;
-  border: 1px solid rgba(0, 212, 255, 0.1); transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  padding: 0;
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  transition: var(--transition);
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(15, 43, 77, 0.4);
 }
-.stat-box:hover { border-color: var(--accent); background: rgba(15, 43, 77, 0.6); transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0, 212, 255, 0.1); }
-.stat-number { font-family: 'Space Grotesk', sans-serif; font-size: 2.8rem; font-weight: 700; color: var(--accent); margin-bottom: 0.3rem; }
-.stat-label { font-size: 0.85rem; color: var(--off-white); font-weight: 500; }
+.stat-box-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.stat-box-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(2, 8, 16, 0.75);
+  background: linear-gradient(145deg, rgba(2, 8, 16, 0.82) 0%, rgba(2, 8, 16, 0.60) 100%);
+  transition: background 0.4s ease;
+  z-index: 1;
+  border-radius: 16px;
+}
+.stat-box-overlay-light {
+  background: rgba(2, 8, 16, 0.30) !important;
+  background: linear-gradient(145deg, rgba(2, 8, 16, 0.35) 0%, rgba(2, 8, 16, 0.15) 100%) !important;
+}
+.stat-box-bg:hover .stat-box-overlay-light {
+  background: rgba(2, 8, 16, 0.15) !important;
+  background: linear-gradient(145deg, rgba(2, 8, 16, 0.20) 0%, rgba(2, 8, 16, 0.05) 100%) !important;
+}
+.stat-box-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem 1.8rem;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 260px;
+}
+.stat-box .stat-number {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+}
+.stat-box .stat-label {
+  font-size: 0.85rem;
+  color: var(--off-white);
+  font-weight: 500;
+  line-height: 1.6;
+}
+.stat-box .stat-label strong {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+.stat-box-bg:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(0, 212, 255, 0.6);
+  box-shadow: 0 20px 50px rgba(0, 212, 255, 0.15);
+}
+.stat-box-bg:hover .stat-number i {
+  filter: drop-shadow(0 0 12px rgba(0, 212, 255, 0.5));
+}
 
 /* MENTIONS LÉGALES SECTION */
 .legal-mentions-section {
@@ -715,6 +790,9 @@ a { text-decoration: none; }
   .legal-card { text-align: center; }
   .legal-footer-note { flex-direction: column; text-align: center; }
   .footer-socials { justify-content: center; }
+  .stat-box { min-height: 220px; }
+  .stat-box-content { min-height: 220px; padding: 1.5rem 1.2rem; }
+  .stat-box .stat-label strong { font-size: 1rem; }
 }
 @media (max-width: 600px) {
   .slide { padding: 1.5rem 1rem; }
@@ -942,31 +1020,45 @@ a { text-decoration: none; }
       <iframe src="https://cybermap.kaspersky.com/en/widget/dynamic/dark" width="100%" height="100%" style="border: none;" allowfullscreen title="Carte des cybermenaces en temps réel"></iframe>
     </div>
     <div class="stats-grid-centered">
-      <div class="stat-box">
-        <div class="stat-number" style="font-size: 2.2rem;">
-          <i class="fa-solid fa-shield-halved" style="color: var(--accent);"></i>
-        </div>
-        <div class="stat-label">
-          <strong data-i18n="stat1_title">Cybersécurité avancée</strong><br>
-          <span data-i18n="stat1_desc">Protection proactive de vos infrastructures, postes de travail, réseaux et données critiques.</span>
-        </div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-number" style="font-size: 2.2rem;">
-          <i class="fa-solid fa-cloud" style="color: var(--accent);"></i>
-        </div>
-        <div class="stat-label">
-          <strong data-i18n="stat2_title">Infogérance & Microsoft 365</strong><br>
-          <span data-i18n="stat2_desc">Gestion complète de votre environnement IT, cloud, sauvegardes et assistance utilisateurs.</span>
+      <!-- CARTE 1 : Cybersécurité avancée -->
+      <div class="stat-box stat-box-bg" style="background-image: url('cybersecurite.jpg');">
+        <div class="stat-box-overlay stat-box-overlay-light"></div>
+        <div class="stat-box-content">
+          <div class="stat-number" style="font-size: 2.2rem;">
+            <i class="fa-solid fa-shield-halved" style="color: var(--accent);"></i>
+          </div>
+          <div class="stat-label">
+            <strong data-i18n="stat1_title">Cybersécurité avancée</strong><br>
+            <span data-i18n="stat1_desc">Protection proactive de vos infrastructures, postes de travail, réseaux et données critiques.</span>
+          </div>
         </div>
       </div>
-      <div class="stat-box">
-        <div class="stat-number" style="font-size: 2.2rem;">
-          <i class="fa-solid fa-handshake-angle" style="color: var(--accent);"></i>
+
+      <!-- CARTE 2 : Infogérance & Microsoft 365 -->
+      <div class="stat-box stat-box-bg" style="background-image: url('infogerance.jpg');">
+        <div class="stat-box-overlay stat-box-overlay-light"></div>
+        <div class="stat-box-content">
+          <div class="stat-number" style="font-size: 2.2rem;">
+            <i class="fa-solid fa-cloud" style="color: var(--accent);"></i>
+          </div>
+          <div class="stat-label">
+            <strong data-i18n="stat2_title">Infogérance & Microsoft 365</strong><br>
+            <span data-i18n="stat2_desc">Gestion complète de votre environnement IT, cloud, sauvegardes et assistance utilisateurs.</span>
+          </div>
         </div>
-        <div class="stat-label">
-          <strong data-i18n="stat3_title">Partenaire de confiance</strong><br>
-          <span data-i18n="stat3_desc">Des solutions fiables, évolutives et adaptées aux besoins des entreprises, partout dans le monde.</span>
+      </div>
+
+      <!-- CARTE 3 : Partenaire de confiance -->
+      <div class="stat-box stat-box-bg" style="background-image: url('partenaire.jpg');">
+        <div class="stat-box-overlay stat-box-overlay-light"></div>
+        <div class="stat-box-content">
+          <div class="stat-number" style="font-size: 2.2rem;">
+            <i class="fa-solid fa-handshake-angle" style="color: var(--accent);"></i>
+          </div>
+          <div class="stat-label">
+            <strong data-i18n="stat3_title">Partenaire de confiance</strong><br>
+            <span data-i18n="stat3_desc">Des solutions fiables, évolutives et adaptées aux besoins des entreprises, partout dans le monde.</span>
+          </div>
         </div>
       </div>
     </div>
