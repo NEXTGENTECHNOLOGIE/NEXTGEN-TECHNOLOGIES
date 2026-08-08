@@ -105,7 +105,7 @@ a { text-decoration: none; }
 .lang-btn { background: none; border: none; color: var(--gray-light); font-size: 0.75rem; font-weight: 600; cursor: pointer; padding: 0.15rem 0.6rem; border-radius: 30px; transition: var(--transition); font-family: inherit; }
 .lang-btn.active { background: var(--accent); color: var(--primary-deep); }
 
-/* ========== NAVBAR ========== */
+/* ========== NAVBAR - IDENTIQUE À INDEX ========== */
 .nav {
   position: sticky; top: 0; z-index: 1000; padding: 1rem 4%;
   background: rgba(5, 12, 24, 0.92); backdrop-filter: blur(25px);
@@ -433,32 +433,32 @@ a { text-decoration: none; }
       <h3 data-i18n="form_title">Déposez votre candidature</h3>
       <p data-i18n="form_desc">Nous étudions chaque dossier avec attention. Vous serez recontacté(e) sous 48h.</p>
 
-      <form id="candidatureForm" enctype="multipart/form-data">
+      <form id="candidatureForm" action="https://formspree.io/f/myklqdky" method="POST" enctype="multipart/form-data">
         <div class="form-row">
           <div class="form-group">
             <label data-i18n="lbl_lastname">Nom *</label>
-            <input type="text" id="nom" placeholder="Votre nom" required>
+            <input type="text" name="nom" placeholder="Votre nom" required>
           </div>
           <div class="form-group">
             <label data-i18n="lbl_firstname">Prénom *</label>
-            <input type="text" id="prenom" placeholder="Votre prénom" required>
+            <input type="text" name="prenom" placeholder="Votre prénom" required>
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group">
             <label data-i18n="lbl_email">Email *</label>
-            <input type="email" id="email" placeholder="votre@email.com" required>
+            <input type="email" name="email" placeholder="votre@email.com" required>
           </div>
           <div class="form-group">
             <label data-i18n="lbl_phone">Téléphone *</label>
-            <input type="tel" id="telephone" placeholder="+212..." required>
+            <input type="tel" name="telephone" placeholder="+212..." required>
           </div>
         </div>
 
         <div class="form-group">
           <label data-i18n="lbl_position">Poste souhaité *</label>
-          <select id="poste" required>
+          <select name="poste" required>
             <option value="" data-i18n="pos_select">Sélectionnez un poste</option>
             <option value="Ingénieur Cybersécurité" data-i18n="pos_sec">Ingénieur Cybersécurité</option>
             <option value="Pentester / VAPT" data-i18n="pos_pentest">Pentester / VAPT</option>
@@ -476,18 +476,21 @@ a { text-decoration: none; }
 
         <div class="form-group">
           <label data-i18n="lbl_message">Message / Lettre de motivation</label>
-          <textarea id="message" placeholder="Dites-nous en plus sur vous, votre parcours et vos aspirations..."></textarea>
+          <textarea name="message" placeholder="Dites-nous en plus sur vous, votre parcours et vos aspirations..."></textarea>
         </div>
 
         <div class="form-group">
           <label data-i18n="lbl_cv">CV * (PDF ou DOCX)</label>
           <div class="file-upload" id="fileUpload">
-            <input type="file" id="cv" accept=".pdf,.doc,.docx" required>
+            <input type="file" name="cv" accept=".pdf,.doc,.docx" required>
             <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
             <div class="text"><span data-i18n="cv_text">Déposez votre CV ici ou cliquez pour parcourir</span></div>
             <div class="file-name" id="fileName"></div>
           </div>
         </div>
+
+        <input type="hidden" name="_subject" value="Nouvelle candidature - NetVanguard">
+        <input type="text" name="_gotcha" style="display:none">
 
         <button type="submit" class="btn-submit" id="submitBtn">
           <i class="fas fa-paper-plane"></i> <span data-i18n="btn_submit">Envoyer ma candidature</span>
@@ -727,7 +730,7 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 // ============================================================
 // 📂 GESTION DU FICHIER
 // ============================================================
-document.getElementById('cv').addEventListener('change', function(e) {
+document.querySelector('input[type="file"]').addEventListener('change', function(e) {
   const file = this.files[0];
   const fileName = document.getElementById('fileName');
   if (file) {
@@ -738,78 +741,43 @@ document.getElementById('cv').addEventListener('change', function(e) {
 });
 
 // ============================================================
-// 📨 SOUMISSION DU FORMULAIRE - AVEC DEBUG
+// 📨 SOUMISSION DU FORMULAIRE - IDENTIQUE À CONTACT.HTML
 // ============================================================
-document.getElementById('candidatureForm').addEventListener('submit', function(e) {
+document.getElementById('candidatureForm').addEventListener('submit', async function(e) {
   e.preventDefault();
-
-  const submitBtn = document.getElementById('submitBtn');
-  const successMsg = document.getElementById('successMsg');
-  const errorMsg = document.getElementById('errorMsg');
-
-  successMsg.classList.remove('show');
-  errorMsg.classList.remove('show');
-
-  const nom = document.getElementById('nom').value.trim();
-  const prenom = document.getElementById('prenom').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const telephone = document.getElementById('telephone').value.trim();
-  const poste = document.getElementById('poste').value;
-  const message = document.getElementById('message').value.trim();
-  const cv = document.getElementById('cv').files[0];
-
-  if (!nom || !prenom || !email || !telephone || !poste || !cv) {
-    errorMsg.innerHTML = '❌ Veuillez remplir tous les champs obligatoires.';
-    errorMsg.classList.add('show');
-    return;
-  }
-
-  // Vérifier la taille du fichier (max 5MB)
-  if (cv.size > 5 * 1024 * 1024) {
-    errorMsg.innerHTML = '❌ Le fichier est trop volumineux (max 5MB).';
-    errorMsg.classList.add('show');
-    return;
-  }
-
-  submitBtn.disabled = true;
-  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
-
-  const formData = new FormData();
-  formData.append('nom', nom);
-  formData.append('prenom', prenom);
-  formData.append('email', email);
-  formData.append('telephone', telephone);
-  formData.append('poste', poste);
-  formData.append('message', message);
-  formData.append('cv', cv);
-  formData.append('_subject', `Candidature - ${prenom} ${nom} - ${poste}`);
-
-  fetch('https://formspree.io/f/myklqdky', {
-    method: 'POST',
-    body: formData,
-    headers: { 'Accept': 'application/json' }
-  })
-  .then(response => {
+  const form = e.target;
+  const btn = document.getElementById('submitBtn');
+  const success = document.getElementById('successMsg');
+  const error = document.getElementById('errorMsg');
+  
+  success.classList.remove('show');
+  error.classList.remove('show');
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+  
+  try {
+    const data = new FormData(form);
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    
     if (response.ok) {
-      successMsg.classList.add('show');
-      document.getElementById('candidatureForm').reset();
+      success.classList.add('show');
+      form.reset();
       document.getElementById('fileName').textContent = '';
-      // Scroll vers le haut pour voir le message
-      successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
     } else {
-      errorMsg.innerHTML = '❌ Erreur lors de l\'envoi. Veuillez réessayer.';
-      errorMsg.classList.add('show');
+      error.classList.add('show');
     }
-  })
-  .catch(err => {
+  } catch (err) {
     console.error('Erreur:', err);
-    errorMsg.innerHTML = '❌ Erreur réseau. Veuillez réessayer.';
-    errorMsg.classList.add('show');
-  })
-  .finally(() => {
-    submitBtn.disabled = false;
-    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> ' + (currentLang === 'fr' ? 'Envoyer ma candidature' : 'Submit my application');
-  });
+    error.classList.add('show');
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = '<i class="fas fa-paper-plane"></i> ' + (currentLang === 'fr' ? 'Envoyer ma candidature' : 'Submit my application');
+  }
 });
 
 // ============================================================
