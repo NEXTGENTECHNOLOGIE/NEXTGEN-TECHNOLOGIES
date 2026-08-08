@@ -3,11 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="NetVanguard IT Solutions — Infogérance, Sécurité Réseau et Cybersécurité au Maroc. Leader en cyberdéfense.">
-<title>NetVanguard IT Solutions · Leader en Infogérance & Cybersécurité</title>
+<meta name="description" content="NetVanguard IT Solutions — Infogérance, Microsoft 365, Cybersécurité et Support informatique pour PME à Casablanca. Déploiement de solutions Microsoft, Cisco, Fortinet.">
+<meta name="keywords" content="infogérance maroc, infogérance casablanca, société informatique casablanca, cybersécurité maroc, support informatique PME, microsoft 365 maroc, prestataire informatique maroc, sécurité réseau casablanca">
+<meta name="author" content="NetVanguard IT Solutions">
+<meta name="robots" content="index, follow">
+<meta name="geo.region" content="MA-CAS">
+<meta name="geo.placename" content="Casablanca">
+<meta name="geo.position" content="33.5731;-7.5898">
+<meta name="ICBM" content="33.5731, -7.5898">
+<link rel="canonical" href="https://netvanguard.ma/">
+<link rel="alternate" hreflang="fr" href="https://netvanguard.ma/">
+<link rel="alternate" hreflang="en" href="https://netvanguard.ma/en/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NetVanguard IT Solutions">
+<meta property="og:title" content="NetVanguard IT Solutions — Infogérance & Cybersécurité pour PME au Maroc">
+<meta property="og:description" content="Infogérance, Microsoft 365, Cybersécurité et Support informatique pour PME à Casablanca. Déploiement de solutions Microsoft, Cisco, Fortinet.">
+<meta property="og:url" content="https://netvanguard.ma/">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://netvanguard.ma/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NetVanguard IT Solutions — Infogérance & Cybersécurité pour PME au Maroc">
+<meta name="twitter:description" content="Infogérance, Microsoft 365, Cybersécurité et Support informatique pour PME à Casablanca. Déploiement de solutions Microsoft, Cisco, Fortinet.">
+<meta name="twitter:image" content="https://netvanguard.ma/og-image.jpg">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "NetVanguard IT Solutions",
+  "url": "https://netvanguard.ma",
+  "logo": "https://netvanguard.ma/logo.png",
+  "description": "Infogérance, Microsoft 365, Cybersécurité et Support informatique pour PME à Casablanca.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "BD 30 JUILLET, Rés Les Champs Du Printemps, GH 1, IMM F, 5ème Étage N°15",
+    "addressLocality": "Sidi Moumen, Casablanca",
+    "addressCountry": "MA"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+212-728-31-28-01",
+    "contactType": "customer service",
+    "areaServed": "MA",
+    "availableLanguage": ["French", "English"]
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/netvanguard",
+    "https://twitter.com/netvanguard"
+  ]
+}
+</script>
+
+<title>NetVanguard IT Solutions — Infogérance, Cybersécurité & Support Informatique PME | Casablanca, Maroc</title>
 
 <!-- ========================================================== -->
-<!-- 🔥 GOOGLE ANALYTICS - AJOUTÉ ICI (UNIQUEMENT CETTE PARTIE) -->
+<!-- 🔥 GOOGLE ANALYTICS -->
 <!-- ========================================================== -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SBZYR52H95"></script>
 <script>
@@ -16,8 +73,6 @@
   gtag('js', new Date());
   gtag('config', 'G-SBZYR52H95');
 </script>
-<!-- ========================================================== -->
-<!-- FIN DU CODE GOOGLE ANALYTICS -->
 <!-- ========================================================== -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -172,7 +227,7 @@ a { text-decoration: none; }
 
 .logo-text-accent { color: var(--accent); }
 
-/* ========== NAVBAR CENTRÉE COMME DATAPROTECT ========== */
+/* NAVBAR CENTRÉE */
 .nav-links { 
   display: flex; 
   gap: 0.8rem; 
@@ -220,7 +275,6 @@ a { text-decoration: none; }
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
 }
-/* ========== FIN NAVBAR ========== */
 
 .mobile-nav-overlay a.btn-espace-client-mobile {
   background: linear-gradient(135deg, #00D4FF, #0891B2);
@@ -236,21 +290,6 @@ a { text-decoration: none; }
   margin-top: 1rem;
 }
 
-.dropdown-menu {
-  position: absolute; top: 100%; left: 0; background: rgba(7, 20, 38, 0.98);
-  min-width: 280px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-  border-radius: 12px; padding: 0.6rem; list-style: none;
-  opacity: 0; visibility: hidden; transform: translateY(10px);
-  transition: var(--transition); border-top: 3px solid var(--accent);
-  backdrop-filter: blur(20px);
-}
-.nav-links > li:hover > .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
-.dropdown-menu li a {
-  display: block; padding: 0.7rem 1rem; color: var(--gray-light);
-  font-size: 0.88rem; border-radius: 8px; transition: var(--transition);
-}
-.dropdown-menu li a:hover { background: rgba(0, 212, 255, 0.1); color: var(--accent); padding-left: 1.4rem; }
-
 .menu-toggle {
   display: none; background: none; border: none; color: var(--white);
   font-size: 1.5rem; cursor: pointer; z-index: 10001;
@@ -265,7 +304,7 @@ a { text-decoration: none; }
 .mobile-nav-overlay.active { right: 0; }
 .mobile-nav-overlay a { color: var(--white); font-size: 1.1rem; font-weight: 600; }
 
-/* ========== HERO SLIDE BACKGROUNDS ========== */
+/* HERO SLIDE BACKGROUNDS */
 .hero-slide-bg {
   position: absolute;
   top: 0;
@@ -383,11 +422,19 @@ a { text-decoration: none; }
   max-width: 1100px;
   width: 100%;
 }
+.slide-subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 1.2rem;
+}
 .slide-title {
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 800;
   line-height: 1.15;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
   color: var(--white);
   letter-spacing: -0.03em;
   text-shadow: 0 0 80px rgba(0, 212, 255, 0.3);
@@ -399,6 +446,13 @@ a { text-decoration: none; }
   background-clip: text;
   color: transparent;
   animation: titleShine 8s linear infinite;
+}
+.slide-description {
+  font-size: 1.2rem;
+  color: var(--gray-light);
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
 }
 @keyframes titleShine {
   0% { background-position: 0% center; }
@@ -552,6 +606,10 @@ a { text-decoration: none; }
   transition: var(--transition); display: flex; flex-direction: column;
   opacity: 0; transform: translateY(40px);
 }
+.service-card.featured {
+  border-color: rgba(0, 212, 255, 0.25);
+  background: linear-gradient(160deg, rgba(0, 212, 255, 0.06), rgba(15, 43, 77, 0.25));
+}
 .service-card:hover {
   border-color: var(--accent); box-shadow: 0 20px 50px rgba(0, 212, 255, 0.1);
   transform: translateY(-8px); background: linear-gradient(160deg, rgba(0, 212, 255, 0.04), rgba(15, 43, 77, 0.25));
@@ -559,6 +617,20 @@ a { text-decoration: none; }
 .service-img { height: 220px; overflow: hidden; position: relative; }
 .service-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.2, 0.9, 0.4, 1); }
 .service-card:hover .service-img img { transform: scale(1.1); }
+.service-badge-top {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--accent);
+  color: var(--primary-deep);
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  z-index: 2;
+}
 .service-content { padding: 2rem; flex-grow: 1; display: flex; flex-direction: column; }
 .service-content h3 { color: var(--white); font-size: 1.35rem; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.6rem; }
 .service-card:hover .service-content h3 { color: var(--accent); }
@@ -568,10 +640,19 @@ a { text-decoration: none; }
 
 /* VALUES SECTION */
 .values-section {
-  padding: 6rem 4%; background: var(--primary-deep); position: relative;
-  border-top: 1px solid rgba(0, 212, 255, 0.05); border-bottom: 1px solid rgba(0, 212, 255, 0.05);
+  padding: 6rem 4%;
+  background: var(--primary-deep);
+  position: relative;
+  border-top: 1px solid rgba(0, 212, 255, 0.05);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.05);
 }
-.values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+.values-grid { 
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 2rem; 
+  max-width: 1200px; 
+  margin: 0 auto; 
+}
 .value-card {
   text-align: center; padding: 2.5rem 2rem; border-radius: 24px;
   background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(16px);
@@ -588,7 +669,7 @@ a { text-decoration: none; }
 .value-card h3 { color: var(--white); font-size: 1.3rem; margin-bottom: 0.8rem; }
 .value-card p { color: var(--gray-light); font-size: 0.9rem; }
 
-/* PARTNERS SECTION */
+/* TECHNOLOGIES SECTION */
 .partners-section { padding: 6rem 4%; background: #030d1a; position: relative; text-align: center; overflow: hidden; }
 .partners-container { max-width: 1300px; margin: 0 auto; }
 .partners-title {
@@ -630,135 +711,20 @@ a { text-decoration: none; }
   border: 2px solid rgba(0, 212, 255, 0.2); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 212, 255, 0.15);
   margin-bottom: 4rem; background: #020408;
 }
-
-/* ===== STATS BOXES WITH BACKGROUND IMAGES ===== */
-.stats-grid-centered {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  max-width: 1000px;
-  margin: 0 auto;
+.stats-grid-centered { 
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 1.5rem; 
+  max-width: 1000px; 
+  margin: 0 auto; 
 }
-
 .stat-box {
-  position: relative;
-  overflow: hidden;
-  border-radius: 16px;
-  padding: 0;
-  border: 1px solid rgba(0, 212, 255, 0.1);
-  transition: var(--transition);
-  min-height: 260px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(15, 43, 77, 0.4);
+  background: rgba(15, 43, 77, 0.4); padding: 2rem; border-radius: 16px;
+  border: 1px solid rgba(0, 212, 255, 0.1); transition: var(--transition);
 }
-
-/* Background image + overlay */
-.stat-box-bg {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.stat-box-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(2, 8, 16, 0.75);
-  background: linear-gradient(145deg, rgba(2, 8, 16, 0.82) 0%, rgba(2, 8, 16, 0.60) 100%);
-  transition: background 0.4s ease;
-  z-index: 1;
-  border-radius: 16px;
-}
-
-/* OVERLAY TRÈS CLAIR POUR PHOTOS - ENCORE PLUS LUMINEUX */
-.stat-box-overlay-light {
-  background: rgba(2, 8, 16, 0.30) !important;
-  background: linear-gradient(145deg, rgba(2, 8, 16, 0.35) 0%, rgba(2, 8, 16, 0.15) 100%) !important;
-}
-
-.stat-box-bg:hover .stat-box-overlay-light {
-  background: rgba(2, 8, 16, 0.15) !important;
-  background: linear-gradient(145deg, rgba(2, 8, 16, 0.20) 0%, rgba(2, 8, 16, 0.05) 100%) !important;
-}
-
-.stat-box-content {
-  position: relative;
-  z-index: 2;
-  padding: 2rem 1.8rem;
-  text-align: center;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 260px;
-}
-
-.stat-box .stat-number {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: var(--accent);
-  margin-bottom: 0.6rem;
-}
-
-.stat-box .stat-label {
-  font-size: 0.85rem;
-  color: var(--off-white);
-  font-weight: 500;
-  line-height: 1.6;
-}
-
-.stat-box .stat-label strong {
-  display: block;
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 0.3rem;
-  color: #ffffff;
-  letter-spacing: -0.01em;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-}
-
-/* HOVER EFFECTS */
-.stat-box-bg:hover {
-  transform: translateY(-6px) scale(1.02);
-  border-color: rgba(0, 212, 255, 0.6);
-  box-shadow: 0 20px 50px rgba(0, 212, 255, 0.15);
-}
-
-.stat-box-bg:hover .stat-number i {
-  filter: drop-shadow(0 0 12px rgba(0, 212, 255, 0.5));
-}
-
-/* RESPONSIVE */
-@media (max-width: 992px) {
-  .stats-grid-centered {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .stats-grid-centered {
-    grid-template-columns: 1fr;
-  }
-
-  .stat-box {
-    min-height: 220px;
-  }
-
-  .stat-box-content {
-    min-height: 220px;
-    padding: 1.5rem 1.2rem;
-  }
-
-  .stat-box .stat-label strong {
-    font-size: 1rem;
-  }
-}
+.stat-box:hover { border-color: var(--accent); background: rgba(15, 43, 77, 0.6); transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0, 212, 255, 0.1); }
+.stat-number { font-family: 'Space Grotesk', sans-serif; font-size: 2.8rem; font-weight: 700; color: var(--accent); margin-bottom: 0.3rem; }
+.stat-label { font-size: 0.85rem; color: var(--off-white); font-weight: 500; }
 
 /* MENTIONS LÉGALES SECTION */
 .legal-mentions-section {
@@ -824,23 +790,59 @@ a { text-decoration: none; }
 }
 
 /* RESPONSIVE */
-@media (max-width: 1200px) { .values-grid { grid-template-columns: repeat(2, 1fr); } .footer-container { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 1024px) { .nav-links { display: none; } .menu-toggle { display: block; } }
+@media (max-width: 1200px) { 
+  .values-grid { grid-template-columns: repeat(2, 1fr); } 
+  .footer-container { grid-template-columns: repeat(2, 1fr); } 
+}
+@media (max-width: 1024px) { 
+  .nav-links { display: none; } 
+  .menu-toggle { display: block; } 
+}
 @media (max-width: 992px) {
   .partner-tile { height: 120px; width: 200px; padding: 1.2rem; }
   .partner-tile img { max-height: 42px; }
   .partners-grid { gap: 1.5rem; animation-duration: 25s; }
   @keyframes infiniteScroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-50% - 0.75rem)); } }
+  .stats-grid-centered { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
-  .top-bar-container { flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 0.8rem; }
-  .top-bar-info { display: flex !important; flex-direction: column; align-items: center; justify-content: center; gap: 0.4rem; width: 100%; }
-  .values-grid { grid-template-columns: 1fr; } .footer-container { grid-template-columns: 1fr; }
+  .top-bar-container { 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    gap: 0.8rem; 
+  }
+  .top-bar-info { 
+    display: flex !important; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 0.4rem; 
+    width: 100%; 
+  }
+  .top-bar-info span { 
+    white-space: normal !important; 
+  }
+  .partner-badge { 
+    max-width: 100%; 
+  }
+  .partner-badge span { 
+    white-space: normal !important; 
+    text-overflow: clip; 
+  }
+  .values-grid { grid-template-columns: 1fr; } 
+  .footer-container { grid-template-columns: 1fr; }
+  .stats-grid-centered { grid-template-columns: 1fr; } 
   .map-iframe-container { height: 400px; }
-  .hero-slider { min-height: 90vh; } .slides-wrapper { height: 90vh; }
+  .hero-slider { min-height: 90vh; } 
+  .slides-wrapper { height: 90vh; }
   .slide { padding: 2rem 1.5rem; }
   .slide-title { font-size: clamp(1.8rem, 5vw, 2.5rem); }
-  .slider-nav { bottom: 2rem; gap: 1rem; } .slider-arrow { width: 40px; height: 40px; font-size: 0.9rem; }
+  .slide-description { font-size: 1rem; }
+  .slide-subtitle { font-size: 0.8rem; }
+  .slider-nav { bottom: 2rem; gap: 1rem; } 
+  .slider-arrow { width: 40px; height: 40px; font-size: 0.9rem; }
   .legal-grid { grid-template-columns: 1fr !important; }
   .legal-card { text-align: center; }
   .legal-footer-note { flex-direction: column; text-align: center; }
@@ -849,8 +851,14 @@ a { text-decoration: none; }
 @media (max-width: 600px) {
   .slide { padding: 1.5rem 1rem; }
   .slide-buttons { flex-direction: column; align-items: center; }
-  .btn-slide-primary, .btn-slide-outline { width: 100%; justify-content: center; font-size: 0.95rem; padding: 0.9rem 1.5rem; }
+  .btn-slide-primary, .btn-slide-outline { 
+    width: 100%; 
+    justify-content: center; 
+    font-size: 0.95rem; 
+    padding: 0.9rem 1.5rem; 
+  }
   .services-grid { grid-template-columns: 1fr; }
+  .service-img { height: 180px; }
 }
 </style>
 </head>
@@ -865,19 +873,18 @@ a { text-decoration: none; }
   <div class="top-bar-container">
     <div class="partner-badge">
       <i class="fa-solid fa-shield-halved"></i>
-      <span data-i18n="top_badge">Votre partenaire en cyberdéfense et infogérance</span>
+      <span data-i18n="top_badge">Infogérance & Cybersécurité pour PME au Maroc</span>
     </div>
     <div class="top-bar-info">
       <span><i class="fa-solid fa-phone"></i> +212 728 31 28 01</span>
       <span><i class="fa-solid fa-envelope"></i> contact@netvanguard.ma</span>
-      <span><i class="fa-solid fa-location-dot"></i> BD 30 JUILLET, Sidi Moumen, Casablanca</span>
+      <span><i class="fa-solid fa-location-dot"></i> <span data-i18n="top_location">Casablanca, Maroc</span></span>
     </div>
     <div class="top-bar-social">
       <div class="lang-switch" style="margin-right: 1rem;">
         <button class="lang-btn active" data-lang="fr">FR</button>
         <button class="lang-btn" data-lang="en">EN</button>
       </div>
-      
     </div>
   </div>
 </div>
@@ -902,11 +909,11 @@ a { text-decoration: none; }
       <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
       <li><a href="services.html" data-i18n="nav_services">Services</a></li>
       <li><a href="secteurs.html" data-i18n="nav_sectors">Secteurs</a></li>
-      <li><a href="qui-sommes-nous.html" data-i18n="nav_about">Qui sommes-nous</a></li>
+      <li><a href="qui-sommes-nous.html" data-i18n="nav_about">À propos</a></li>
       <li><a href="carrieres.html" data-i18n="nav_careers">Carrières</a></li>
-      <li><a href="campus-cyber.html" data-i18n="nav_campus">🎓 Campus Cyber</a></li>
+      <li><a href="campus-cyber.html" data-i18n="nav_campus">Campus Cyber</a></li>
       <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
-      <li><a href="support.html" class="btn-espace-client" data-i18n="nav_espace_client"><i class="fa-solid fa-user-circle"></i> Espace Client</a></li>
+      <li><a href="support.html" class="btn-espace-client" data-i18n="nav_client"><i class="fa-solid fa-user-circle"></i> Espace Client</a></li>
     </ul>
     <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
   </div>
@@ -917,14 +924,14 @@ a { text-decoration: none; }
   <a href="index.html" data-i18n="nav_home">Accueil</a>
   <a href="services.html" data-i18n="nav_services">Services</a>
   <a href="secteurs.html" data-i18n="nav_sectors">Secteurs</a>
-  <a href="qui-sommes-nous.html" data-i18n="nav_about">Qui sommes-nous</a>
+  <a href="qui-sommes-nous.html" data-i18n="nav_about">À propos</a>
   <a href="carrieres.html" data-i18n="nav_careers">Carrières</a>
-  <a href="campus-cyber.html" data-i18n="nav_campus">🎓 Campus Cyber</a>
+  <a href="campus-cyber.html" data-i18n="nav_campus">Campus Cyber</a>
   <a href="contact.html" data-i18n="nav_contact">Contact</a>
-  <a href="support.html" class="btn-espace-client-mobile" data-i18n="nav_espace_client"><i class="fa-solid fa-user-circle"></i> Espace Client</a>
+  <a href="support.html" class="btn-espace-client-mobile" data-i18n="nav_client"><i class="fa-solid fa-user-circle"></i> Espace Client</a>
 </div>
 
-<!-- HERO SLIDER AVEC PHOTOS -->
+<!-- HERO SLIDER -->
 <section class="hero-slider" id="hero">
   <div class="hero-slide-bg active" id="slideBg1" style="background-image: url('bg1.jpg');"></div>
   <div class="hero-slide-bg" id="slideBg2" style="background-image: url('bg0.jpg');"></div>
@@ -937,36 +944,54 @@ a { text-decoration: none; }
   <div class="hero-orb hero-orb-3"></div>
   
   <div class="slides-wrapper" id="slidesWrapper">
+    <!-- Slide 1 : Infogérance & Microsoft 365 -->
     <div class="slide active" data-index="0">
       <div class="slide-content">
+        <p class="slide-subtitle" data-i18n="slide1_subtitle">Infogérance & Cloud Microsoft</p>
         <h1 class="slide-title">
-          <span class="slide-title-gradient" id="typingTitle1"></span><span class="cursor-blink" id="cursor1"></span>
+          <span class="slide-title-gradient" id="typingTitle1" data-i18n="slide1_title">Votre informatique, notre métier</span><span class="cursor-blink" id="cursor1"></span>
         </h1>
+        <p class="slide-description" data-i18n="slide1_desc">
+          Nous gérons votre informatique pour que vous puissiez vous concentrer sur votre activité. 
+          Infogérance, Microsoft 365, Cloud et Support — des solutions adaptées aux PME marocaines.
+        </p>
         <div class="slide-buttons">
-          <a href="contact.html" class="btn-slide-primary">Démarrer mon audit <i class="fa-solid fa-arrow-right"></i></a>
-          <a href="services.html" class="btn-slide-outline">Découvrir nos solutions <i class="fa-solid fa-shield-halved"></i></a>
+          <a href="contact.html" class="btn-slide-primary" data-i18n="slide1_btn1">Discuter de votre projet <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="services.html" class="btn-slide-outline" data-i18n="slide1_btn2">Nos services <i class="fa-solid fa-shield-halved"></i></a>
         </div>
       </div>
     </div>
+    <!-- Slide 2 : Cybersécurité -->
     <div class="slide" data-index="1">
       <div class="slide-content">
+        <p class="slide-subtitle" data-i18n="slide2_subtitle">Cybersécurité & Protection des données</p>
         <h1 class="slide-title">
-          <span class="slide-title-gradient" id="typingTitle2"></span><span class="cursor-blink" id="cursor2"></span>
+          <span class="slide-title-gradient" id="typingTitle2" data-i18n="slide2_title">Protégez votre entreprise</span><span class="cursor-blink" id="cursor2"></span>
         </h1>
+        <p class="slide-description" data-i18n="slide2_desc">
+          Protégez votre entreprise contre les cybermenaces. Nous déployons des solutions de sécurité 
+          avancées pour sécuriser vos postes de travail, vos serveurs et vos données.
+        </p>
         <div class="slide-buttons">
-          <a href="vapt.html" class="btn-slide-primary">Protéger mes actifs <i class="fa-solid fa-arrow-right"></i></a>
-          <a href="services.html" class="btn-slide-outline">Voir nos offres <i class="fa-solid fa-shield-halved"></i></a>
+          <a href="vapt.html" class="btn-slide-primary" data-i18n="slide2_btn1">Évaluer ma sécurité <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="services.html" class="btn-slide-outline" data-i18n="slide2_btn2">Solutions de sécurité <i class="fa-solid fa-shield-halved"></i></a>
         </div>
       </div>
     </div>
+    <!-- Slide 3 : Support & Réseaux -->
     <div class="slide" data-index="2">
       <div class="slide-content">
+        <p class="slide-subtitle" data-i18n="slide3_subtitle">Support IT & Infrastructures Réseau</p>
         <h1 class="slide-title">
-          <span class="slide-title-gradient" id="typingTitle3"></span><span class="cursor-blink" id="cursor3"></span>
+          <span class="slide-title-gradient" id="typingTitle3" data-i18n="slide3_title">Un service IT de proximité</span><span class="cursor-blink" id="cursor3"></span>
         </h1>
+        <p class="slide-description" data-i18n="slide3_desc">
+          Un accompagnement technique de proximité pour votre PME au Maroc. 
+          Des infrastructures réseau performantes et une maintenance proactive.
+        </p>
         <div class="slide-buttons">
-          <a href="contact.html" class="btn-slide-primary">Construire l'avenir <i class="fa-solid fa-arrow-right"></i></a>
-          <a href="qui-sommes-nous.html" class="btn-slide-outline">Notre vision <i class="fa-solid fa-eye"></i></a>
+          <a href="contact.html" class="btn-slide-primary" data-i18n="slide3_btn1">Demander un devis <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="qui-sommes-nous.html" class="btn-slide-outline" data-i18n="slide3_btn2">Découvrir notre équipe <i class="fa-solid fa-users"></i></a>
         </div>
       </div>
     </div>
@@ -986,9 +1011,9 @@ a { text-decoration: none; }
 <!-- SERVICES SECTION -->
 <section class="services-section" id="services">
   <div class="section-header">
-    <span class="section-badge" data-i18n="services_badge">Expertise Cyber</span>
-    <h2 data-i18n="services_section_title">Nos Domaines d'Expertise Cyber</h2>
-    <p data-i18n="services_section_desc">Des solutions ultra-spécifiques et modulaires adaptées aux menaces contemporaines complexes.</p>
+    <span class="section-badge" data-i18n="services_badge">Nos services IT</span>
+    <h2 data-i18n="services_title">Des solutions informatiques complètes pour votre PME</h2>
+    <p data-i18n="services_desc">Infogérance, Microsoft 365, Cybersécurité, Réseaux et Support. Nous couvrons tous vos besoins IT avec un engagement de qualité.</p>
   </div>
   <div class="services-grid" id="servicesGrid"></div>
 </section>
@@ -996,21 +1021,51 @@ a { text-decoration: none; }
 <!-- VALUES SECTION -->
 <section class="values-section">
   <div class="values-grid">
-    <div class="value-card"><div class="value-icon"><i class="fa-solid fa-shield-halved"></i></div><h3 data-i18n="val_1_title">Sécurité Maximale</h3><p data-i18n="val_1_desc">Une approche proactive de pointe pour neutraliser les ransomwares avant tout impact.</p></div>
-    <div class="value-card"><div class="value-icon"><i class="fa-solid fa-bolt"></i></div><h3 data-i18n="val_2_title">Haute Performance</h3><p data-i18n="val_2_desc">Des solutions réseau optimisées offrant une fluidité maximale et sans interruption.</p></div>
-    <div class="value-card"><div class="value-icon"><i class="fa-solid fa-user-shield"></i></div><h3 data-i18n="val_3_title">Expertise Certifiée</h3><p data-i18n="val_3_desc">Une équipe certifiée et spécialisée en tests d'intrusion et sécurité offensive.</p></div>
-    <div class="value-card"><div class="value-icon"><i class="fa-solid fa-headset"></i></div><h3 data-i18n="val_4_title">Support Dédié</h3><p data-i18n="val_4_desc">Assistance réactive en continu 24/7/365 avec une équipe de crise mobilisable à tout instant.</p></div>
+    <div class="value-card">
+      <div class="value-icon"><i class="fa-solid fa-shield-halved"></i></div>
+      <h3 data-i18n="val1_title">Protection continue</h3>
+      <p data-i18n="val1_desc">Une approche proactive pour anticiper et neutraliser les menaces avant qu'elles n'impactent votre activité.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon"><i class="fa-solid fa-bolt"></i></div>
+      <h3 data-i18n="val2_title">Performance garantie</h3>
+      <p data-i18n="val2_desc">Des infrastructures optimisées pour offrir une disponibilité maximale à vos collaborateurs.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon"><i class="fa-solid fa-user-shield"></i></div>
+      <h3 data-i18n="val3_title">Expertise certifiée</h3>
+      <p data-i18n="val3_desc">Une équipe qualifiée, formée aux technologies Microsoft, Cisco, Fortinet et aux bonnes pratiques de sécurité.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon"><i class="fa-solid fa-headset"></i></div>
+      <h3 data-i18n="val4_title">Support réactif</h3>
+      <p data-i18n="val4_desc">Assistance technique disponible pour résoudre rapidement vos incidents et maintenir votre productivité.</p>
+    </div>
   </div>
 </section>
 
-<!-- PARTNERS SECTION -->
+<!-- TECHNOLOGIES SECTION -->
 <section class="partners-section">
   <div class="partners-container">
-    <h2 class="partners-title" data-i18n="partners_section_title">Nos Partenaires Technologiques</h2>
+    <h2 class="partners-title" data-i18n="partners_title">Technologies que nous maîtrisons</h2>
     <div class="partners-carousel-track">
       <div class="partners-grid">
-        <div class="partner-tile"><img src="fortinet.svg" alt="Fortinet"></div><div class="partner-tile"><img src="cisco.svg" alt="Cisco"></div><div class="partner-tile"><img src="paloalto.svg" alt="Palo Alto"></div><div class="partner-tile"><img src="wazuh.svg" alt="Wazuh"></div><div class="partner-tile"><img src="crowdstrike.svg" alt="CrowdStrike"></div><div class="partner-tile"><img src="kaspersky.svg" alt="Kaspersky"></div><div class="partner-tile"><img src="vmware.svg" alt="VMware"></div><div class="partner-tile"><img src="microsoft.svg" alt="Microsoft"></div>
-        <div class="partner-tile"><img src="fortinet.svg" alt="Fortinet"></div><div class="partner-tile"><img src="cisco.svg" alt="Cisco"></div><div class="partner-tile"><img src="paloalto.svg" alt="Palo Alto"></div><div class="partner-tile"><img src="wazuh.svg" alt="Wazuh"></div><div class="partner-tile"><img src="crowdstrike.svg" alt="CrowdStrike"></div><div class="partner-tile"><img src="kaspersky.svg" alt="Kaspersky"></div><div class="partner-tile"><img src="vmware.svg" alt="VMware"></div><div class="partner-tile"><img src="microsoft.svg" alt="Microsoft"></div>
+        <div class="partner-tile"><img src="fortinet.svg" alt="Fortinet"></div>
+        <div class="partner-tile"><img src="cisco.svg" alt="Cisco"></div>
+        <div class="partner-tile"><img src="paloalto.svg" alt="Palo Alto Networks"></div>
+        <div class="partner-tile"><img src="wazuh.svg" alt="Wazuh"></div>
+        <div class="partner-tile"><img src="crowdstrike.svg" alt="CrowdStrike"></div>
+        <div class="partner-tile"><img src="kaspersky.svg" alt="Kaspersky"></div>
+        <div class="partner-tile"><img src="vmware.svg" alt="VMware"></div>
+        <div class="partner-tile"><img src="microsoft.svg" alt="Microsoft"></div>
+        <div class="partner-tile"><img src="fortinet.svg" alt="Fortinet"></div>
+        <div class="partner-tile"><img src="cisco.svg" alt="Cisco"></div>
+        <div class="partner-tile"><img src="paloalto.svg" alt="Palo Alto Networks"></div>
+        <div class="partner-tile"><img src="wazuh.svg" alt="Wazuh"></div>
+        <div class="partner-tile"><img src="crowdstrike.svg" alt="CrowdStrike"></div>
+        <div class="partner-tile"><img src="kaspersky.svg" alt="Kaspersky"></div>
+        <div class="partner-tile"><img src="vmware.svg" alt="VMware"></div>
+        <div class="partner-tile"><img src="microsoft.svg" alt="Microsoft"></div>
       </div>
     </div>
   </div>
@@ -1020,85 +1075,71 @@ a { text-decoration: none; }
 <section class="cyber-defense-premium">
   <div class="cyber-defense-container">
     <div class="cyber-defense-text">
-      <h2 data-i18n="cyber_map_title">Cartographie Mondiale de la Menace</h2>
-      <p data-i18n="cyber_map_desc">Visualisez en direct les cyberattaques détectées à l'échelle planétaire grâce à notre intégration Kaspersky Threat Map. La guerre cybernétique ne dort jamais ; vos défenses opérationnelles non plus.</p>
+      <h2 data-i18n="cyber_title">Cartographie mondiale des cybermenaces</h2>
+      <p data-i18n="cyber_desc">Visualisez en temps réel les cyberattaques détectées à l'échelle planétaire. Cette carte illustre l'importance d'une protection proactive de vos systèmes d'information.</p>
     </div>
     <div class="map-iframe-container">
-      <iframe src="https://cybermap.kaspersky.com/en/widget/dynamic/dark" width="100%" height="100%" style="border: none;" allowfullscreen></iframe>
+      <iframe src="https://cybermap.kaspersky.com/en/widget/dynamic/dark" width="100%" height="100%" style="border: none;" allowfullscreen title="Carte des cybermenaces en temps réel"></iframe>
     </div>
     <div class="stats-grid-centered">
-      <!-- CARTE 1 : Cybersécurité Avancée -->
-      <div class="stat-box stat-box-bg" style="background-image: url('cybersecurite.jpg');">
-        <div class="stat-box-overlay stat-box-overlay-light"></div>
-        <div class="stat-box-content">
-          <div class="stat-number" style="font-size: 2.2rem;">
-            <i class="fa-solid fa-shield-halved" style="color: var(--accent);"></i>
-          </div>
-          <div class="stat-label">
-            <strong data-i18n="card1_title">Cybersécurité Avancée</strong>
-            <span data-i18n="card1_desc">Protection proactive de vos infrastructures, postes de travail, réseaux et données critiques.</span>
-          </div>
+      <div class="stat-box">
+        <div class="stat-number" style="font-size: 2.2rem;">
+          <i class="fa-solid fa-shield-halved" style="color: var(--accent);"></i>
+        </div>
+        <div class="stat-label">
+          <strong data-i18n="stat1_title">Cybersécurité avancée</strong><br>
+          <span data-i18n="stat1_desc">Protection proactive de vos infrastructures, postes de travail, réseaux et données critiques.</span>
         </div>
       </div>
-
-      <!-- CARTE 2 : Infogérance & Microsoft 365 -->
-      <div class="stat-box stat-box-bg" style="background-image: url('infogerance.jpg');">
-        <div class="stat-box-overlay stat-box-overlay-light"></div>
-        <div class="stat-box-content">
-          <div class="stat-number" style="font-size: 2.2rem;">
-            <i class="fa-solid fa-network-wired" style="color: var(--accent);"></i>
-          </div>
-          <div class="stat-label">
-            <strong data-i18n="card2_title">Infogérance &amp; Microsoft 365</strong>
-            <span data-i18n="card2_desc">Gestion complète de votre environnement informatique, cloud, sauvegardes et assistance.</span>
-          </div>
+      <div class="stat-box">
+        <div class="stat-number" style="font-size: 2.2rem;">
+          <i class="fa-solid fa-cloud" style="color: var(--accent);"></i>
+        </div>
+        <div class="stat-label">
+          <strong data-i18n="stat2_title">Infogérance & Microsoft 365</strong><br>
+          <span data-i18n="stat2_desc">Gestion complète de votre environnement IT, cloud, sauvegardes et assistance utilisateurs.</span>
         </div>
       </div>
-
-      <!-- CARTE 3 : Partenaire de Confiance -->
-      <div class="stat-box stat-box-bg" style="background-image: url('partenaire.jpg');">
-        <div class="stat-box-overlay stat-box-overlay-light"></div>
-        <div class="stat-box-content">
-          <div class="stat-number" style="font-size: 2.2rem;">
-            <i class="fa-solid fa-handshake-angle" style="color: var(--accent);"></i>
-          </div>
-          <div class="stat-label">
-            <strong data-i18n="card3_title">Partenaire de Confiance</strong>
-            <span data-i18n="card3_desc">Des solutions fiables, évolutives et adaptées aux besoins des PME marocaines.</span>
-          </div>
+      <div class="stat-box">
+        <div class="stat-number" style="font-size: 2.2rem;">
+          <i class="fa-solid fa-handshake-angle" style="color: var(--accent);"></i>
+        </div>
+        <div class="stat-label">
+          <strong data-i18n="stat3_title">Partenaire de confiance</strong><br>
+          <span data-i18n="stat3_desc">Des solutions fiables, évolutives et adaptées aux besoins des PME marocaines.</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- MENTIONS LÉGALES SECTION -->
+<!-- MENTIONS LÉGALES -->
 <section class="legal-mentions-section">
   <div class="legal-container">
     <div class="legal-header">
       <span class="legal-badge"><i class="fa-solid fa-gavel"></i> <span data-i18n="legal_badge">Conformité Loi 09-08</span></span>
-      <h3><span data-i18n="legal_title">Mentions Légales</span></h3>
-      <p data-i18n="legal_desc">Conformément aux dispositions de la loi marocaine n°09-08 relative à la protection des données et à la cybersécurité.</p>
+      <h3 data-i18n="legal_title">Mentions légales</h3>
+      <p data-i18n="legal_desc">Conformément aux dispositions de la loi marocaine n°09-08 relative à la protection des données à caractère personnel.</p>
     </div>
     <div class="legal-grid">
       <div class="legal-card">
         <i class="fa-solid fa-building"></i>
-        <h4 data-i18n="legal_identity_title">Identité Société</h4>
-        <p><strong data-i18n="legal_company_name">NetVanguard IT Solutions SARL AU</strong><br>
+        <h4 data-i18n="legal_identity_title">Identité de la société</h4>
+        <p><strong data-i18n="legal_company">NetVanguard IT Solutions SARL AU</strong><br>
         <span data-i18n="legal_ice">ICE</span> : 003986584000028<br>
         <span data-i18n="legal_address">Adresse</span> : BD 30 JUILLET, Rés Les Champs Du Printemps, GH 1, IMM F, 5ème Étage N°15, Sidi Moumen, Casablanca, Maroc</p>
       </div>
       <div class="legal-card">
         <i class="fa-solid fa-envelope"></i>
         <h4 data-i18n="legal_contact_title">Coordonnées</h4>
-        <p><strong>Tel :</strong> +212 728 31 28 01<br>
-        <strong>Email :</strong> contact@netvanguard.ma<br>
-        <strong data-i18n="legal_headquarters">Siège social :</strong> Casablanca, Maroc</p>
+        <p><strong data-i18n="legal_tel">Tél :</strong> +212 728 31 28 01<br>
+        <strong data-i18n="legal_email">Email :</strong> contact@netvanguard.ma<br>
+        <strong data-i18n="legal_hq">Siège social :</strong> Casablanca, Maroc</p>
       </div>
     </div>
     <div class="legal-footer-note">
       <i class="fa-solid fa-scale-balanced"></i>
-      <span data-i18n="legal_footer_note">NetVanguard IT Solutions SARL AU. Conformément à la loi 09-08, nous nous engageons à la protection de vos données personnelles.</span>
+      <span data-i18n="legal_footer">NetVanguard IT Solutions SARL AU. Conformément à la loi 09-08, nous nous engageons à protéger vos données personnelles.</span>
     </div>
   </div>
 </section>
@@ -1120,118 +1161,269 @@ a { text-decoration: none; }
         </svg>
         <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em; font-weight:500; color: var(--gray-light);">IT Solutions</span></span>
       </a>
-      <p data-i18n="footer_brand_desc">Pionnier de la souveraineté numérique et de la cyber-résilience avancée au Maroc. Nous sécurisons les infrastructures d'importance vitale.</p>
+      <p data-i18n="footer_desc">Votre partenaire IT de confiance au Maroc. Nous accompagnons les PME dans la gestion, la sécurisation et l'optimisation de leur infrastructure informatique.</p>
       <div class="footer-socials">
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#"><i class="fab fa-x-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
       </div>
     </div>
-    <div class="footer-links"><h4 data-i18n="footer_col1">Expertises</h4><ul><li><a href="infogerance.html" data-i18n="srv_7_title">Infogérance Sécurisée</a></li><li><a href="securite-reseau.html" data-i18n="srv_3_title">Sécurité Réseau</a></li><li><a href="contact.html" data-i18n="srv_1_title">Audit & Diagnostic</a></li><li><a href="vapt.html" data-i18n="srv_2_title">Pentest / VAPT</a></li></ul></div>
-    <div class="footer-links"><h4 data-i18n="footer_col2">Société</h4><ul><li><a href="qui-sommes-nous.html" data-i18n="nav_about">Qui sommes-nous</a></li><li><a href="carrieres.html" data-i18n="nav_careers">Carrières</a></li><li><a href="campus-cyber.html" data-i18n="nav_campus">🎓 Campus Cyber</a></li><li><a href="contact.html" data-i18n="nav_contact">Contact</a></li></ul></div>
-    <div class="footer-links"><h4 data-i18n="footer_col3">Légal</h4><ul><li><a href="mentions-legales.html" data-i18n="leg_mentions">Mentions Légales</a></li><li><a href="cookies.html" data-i18n="leg_cookies">Gestion des Cookies</a></li></ul></div>
+    <div class="footer-links">
+      <h4 data-i18n="footer_col1_services">Services</h4>
+      <ul>
+        <li><a href="infogerance.html" data-i18n="footer_srv1">Infogérance</a></li>
+        <li><a href="securite-reseau.html" data-i18n="footer_srv2">Sécurité Réseau</a></li>
+        <li><a href="contact.html" data-i18n="footer_srv3">Audit & Diagnostic</a></li>
+        <li><a href="vapt.html" data-i18n="footer_srv4">Pentest / VAPT</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4 data-i18n="footer_col2_company">Société</h4>
+      <ul>
+        <li><a href="qui-sommes-nous.html" data-i18n="footer_about">À propos</a></li>
+        <li><a href="carrieres.html" data-i18n="footer_careers">Carrières</a></li>
+        <li><a href="campus-cyber.html" data-i18n="footer_campus">Campus Cyber</a></li>
+        <li><a href="contact.html" data-i18n="footer_contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4 data-i18n="footer_col3_legal">Informations</h4>
+      <ul>
+        <li><a href="mentions-legales.html" data-i18n="footer_legal">Mentions légales</a></li>
+        <li><a href="cookies.html" data-i18n="footer_cookies">Gestion des cookies</a></li>
+      </ul>
+    </div>
   </div>
-  <div class="footer-bottom"><p>&copy; 2026 NetVanguard IT Solutions. Tous droits réservés.</p><p data-i18n="footer_sub_text">Conçu avec excellence opérationnelle au Maroc.</p></div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 NetVanguard IT Solutions. <span data-i18n="footer_rights">Tous droits réservés.</span></p>
+    <p data-i18n="footer_location">Basé à Casablanca, au service des PME marocaines.</p>
+  </div>
 </footer>
 
 <script>
+// ============================================================
+// 🌍 TRADUCTIONS COMPLÈTES FR / EN
+// ============================================================
 const translations = {
   fr: {
-    top_badge: "Votre partenaire en cyberdéfense et infogérance",
-    nav_home: "Accueil", nav_services: "Services", nav_sectors: "Secteurs",
-    nav_about: "Qui sommes-nous", nav_careers: "Carrières",
-    nav_campus: "🎓 Campus Cyber", nav_contact: "Contact", nav_espace_client: "Espace Client",
-    slide1_title: "L'infogérance qui vous fait grandir",
-    slide2_title: "Sécurisez votre patrimoine numérique",
-    slide3_title: "Bâtissez une confiance durable",
-    services_badge: "Expertise Cyber", services_section_title: "Nos Domaines d'Expertise Cyber",
-    services_section_desc: "Des solutions ultra-spécifiques et modulaires adaptées aux menaces contemporaines complexes.",
-    srv_1_title: "Audit & Diagnostic", srv_1_desc: "Analyse exhaustive de vos infrastructures et conformité réglementaire (DNSSI, RGPD).",
-    srv_2_title: "Pentest / VAPT", srv_2_desc: "Simulations d'attaques cyber réelles pour cartographier vos vulnérabilités exploitables.",
-    srv_3_title: "Sécurité Réseau", srv_3_desc: "Déploiement de pare-feu de nouvelle génération (NGFW) et architectures Zero-Trust.",
-    srv_4_title: "SOC Consultation", srv_4_desc: "Ingénierie, déploiement et optimisation de centres de surveillance de sécurité dédiés.",
-    srv_5_title: "Investigation Numérique", srv_5_desc: "Analyse post-incident, Forensics, collecte de preuves et réponse rapide sur sinistre.",
-    srv_6_title: "NOC Managé", srv_6_desc: "Supervision des performances et surveillance en continu de vos infrastructures réseaux.",
-    srv_7_title: "Infogérance Sécurisée", srv_7_desc: "Gestion, maintenance et supervision de votre infrastructure IT à distance. Forfaits adaptés PME avec cybersécurité intégrée.",
-    btn_learn_more: "En savoir plus",
-    val_1_title: "Sécurité Maximale", val_1_desc: "Une approche proactive de pointe pour neutraliser les ransomwares avant tout impact.",
-    val_2_title: "Haute Performance", val_2_desc: "Des solutions réseau optimisées offrant une fluidité maximale et sans interruption.",
-    val_3_title: "Expertise Certifiée", val_3_desc: "Une équipe certifiée et spécialisée en tests d'intrusion et sécurité offensive.",
-    val_4_title: "Support Dédié", val_4_desc: "Assistance réactive en continu 24/7/365 avec une équipe de crise mobilisable à tout instant.",
-    partners_section_title: "Nos Partenaires Technologiques",
-    cyber_map_title: "Cartographie Mondiale de la Menace",
-    cyber_map_desc: "Visualisez en direct les cyberattaques détectées à l'échelle planétaire grâce à Kaspersky Threat Map.",
-    stat_sla: "Disponibilité SLA Réseau", stat_response: "Minutes de Temps de Réponse", stat_audits: "Audits et Pentests Réalisés",
-    footer_brand_desc: "Engagé pour la souveraineté numérique au Maroc. Nous sécurisons les infrastructures informatiques essentielles.",
-    footer_col1: "Expertises", footer_col2: "Société", footer_col3: "Légal",
-    leg_mentions: "Mentions Légales", leg_cookies: "Gestion des Cookies",
-    footer_sub_text: "Conçu avec excellence opérationnelle au Maroc.",
-    legal_badge: "Conformité Loi 09-08", legal_title: "Mentions Légales",
-    legal_desc: "Conformément aux dispositions de la loi marocaine n°09-08 relative à la protection des données et à la cybersécurité.",
-    legal_identity_title: "Identité Société", legal_company_name: "NetVanguard IT Solutions SARL AU",
-    legal_ice: "ICE", legal_address: "Adresse", legal_contact_title: "Coordonnées",
-    legal_headquarters: "Siège social",
-    legal_footer_note: "NetVanguard IT Solutions SARL AU. Conformément à la loi 09-08, nous nous engageons à la protection de vos données personnelles.",
-    card1_title: "Cybersécurité Avancée",
-    card1_desc: "Protection proactive de vos infrastructures, postes de travail, réseaux et données critiques.",
-    card2_title: "Infogérance & Microsoft 365",
-    card2_desc: "Gestion complète de votre environnement informatique, cloud, sauvegardes et assistance.",
-    card3_title: "Partenaire de Confiance",
-    card3_desc: "Des solutions fiables, évolutives et adaptées aux besoins des PME marocaines."
+    top_badge: "Infogérance & Cybersécurité pour PME au Maroc",
+    top_location: "Casablanca, Maroc",
+    nav_home: "Accueil",
+    nav_services: "Services",
+    nav_sectors: "Secteurs",
+    nav_about: "À propos",
+    nav_careers: "Carrières",
+    nav_campus: "Campus Cyber",
+    nav_contact: "Contact",
+    nav_client: "Espace Client",
+    slide1_subtitle: "Infogérance & Cloud Microsoft",
+    slide1_title: "Votre informatique, notre métier",
+    slide1_desc: "Nous gérons votre informatique pour que vous puissiez vous concentrer sur votre activité. Infogérance, Microsoft 365, Cloud et Support — des solutions adaptées aux PME marocaines.",
+    slide1_btn1: "Discuter de votre projet",
+    slide1_btn2: "Nos services",
+    slide2_subtitle: "Cybersécurité & Protection des données",
+    slide2_title: "Protégez votre entreprise",
+    slide2_desc: "Protégez votre entreprise contre les cybermenaces. Nous déployons des solutions de sécurité avancées pour sécuriser vos postes de travail, vos serveurs et vos données.",
+    slide2_btn1: "Évaluer ma sécurité",
+    slide2_btn2: "Solutions de sécurité",
+    slide3_subtitle: "Support IT & Infrastructures Réseau",
+    slide3_title: "Un service IT de proximité",
+    slide3_desc: "Un accompagnement technique de proximité pour votre PME au Maroc. Des infrastructures réseau performantes et une maintenance proactive.",
+    slide3_btn1: "Demander un devis",
+    slide3_btn2: "Découvrir notre équipe",
+    services_badge: "Nos services IT",
+    services_title: "Des solutions informatiques complètes pour votre PME",
+    services_desc: "Infogérance, Microsoft 365, Cybersécurité, Réseaux et Support. Nous couvrons tous vos besoins IT avec un engagement de qualité.",
+    val1_title: "Protection continue",
+    val1_desc: "Une approche proactive pour anticiper et neutraliser les menaces avant qu'elles n'impactent votre activité.",
+    val2_title: "Performance garantie",
+    val2_desc: "Des infrastructures optimisées pour offrir une disponibilité maximale à vos collaborateurs.",
+    val3_title: "Expertise certifiée",
+    val3_desc: "Une équipe qualifiée, formée aux technologies Microsoft, Cisco, Fortinet et aux bonnes pratiques de sécurité.",
+    val4_title: "Support réactif",
+    val4_desc: "Assistance technique disponible pour résoudre rapidement vos incidents et maintenir votre productivité.",
+    partners_title: "Technologies que nous maîtrisons",
+    cyber_title: "Cartographie mondiale des cybermenaces",
+    cyber_desc: "Visualisez en temps réel les cyberattaques détectées à l'échelle planétaire. Cette carte illustre l'importance d'une protection proactive de vos systèmes d'information.",
+    stat1_title: "Cybersécurité avancée",
+    stat1_desc: "Protection proactive de vos infrastructures, postes de travail, réseaux et données critiques.",
+    stat2_title: "Infogérance & Microsoft 365",
+    stat2_desc: "Gestion complète de votre environnement IT, cloud, sauvegardes et assistance utilisateurs.",
+    stat3_title: "Partenaire de confiance",
+    stat3_desc: "Des solutions fiables, évolutives et adaptées aux besoins des PME marocaines.",
+    legal_badge: "Conformité Loi 09-08",
+    legal_title: "Mentions légales",
+    legal_desc: "Conformément aux dispositions de la loi marocaine n°09-08 relative à la protection des données à caractère personnel.",
+    legal_identity_title: "Identité de la société",
+    legal_company: "NetVanguard IT Solutions SARL AU",
+    legal_ice: "ICE",
+    legal_address: "Adresse",
+    legal_contact_title: "Coordonnées",
+    legal_tel: "Tél :",
+    legal_email: "Email :",
+    legal_hq: "Siège social :",
+    legal_footer: "NetVanguard IT Solutions SARL AU. Conformément à la loi 09-08, nous nous engageons à protéger vos données personnelles.",
+    footer_desc: "Votre partenaire IT de confiance au Maroc. Nous accompagnons les PME dans la gestion, la sécurisation et l'optimisation de leur infrastructure informatique.",
+    footer_col1_services: "Services",
+    footer_srv1: "Infogérance",
+    footer_srv2: "Sécurité Réseau",
+    footer_srv3: "Audit & Diagnostic",
+    footer_srv4: "Pentest / VAPT",
+    footer_col2_company: "Société",
+    footer_about: "À propos",
+    footer_careers: "Carrières",
+    footer_campus: "Campus Cyber",
+    footer_contact: "Contact",
+    footer_col3_legal: "Informations",
+    footer_legal: "Mentions légales",
+    footer_cookies: "Gestion des cookies",
+    footer_rights: "Tous droits réservés.",
+    footer_location: "Basé à Casablanca, au service des PME marocaines."
   },
   en: {
-    top_badge: "Your trusted partner in cyber defense and IT management",
-    nav_home: "Home", nav_services: "Services", nav_sectors: "Sectors",
-    nav_about: "About Us", nav_careers: "Careers",
-    nav_campus: "🎓 Cyber Campus", nav_contact: "Contact", nav_espace_client: "Client Area",
-    slide1_title: "IT management that makes you grow",
-    slide2_title: "Secure your digital assets",
-    slide3_title: "Build lasting trust",
-    services_badge: "Cyber Expertise", services_section_title: "Our Cyber Expertise Domains",
-    services_section_desc: "Highly specific and modular defensive solutions tailored to modern complex threat landscapes.",
-    srv_1_title: "Audit & Diagnostics", srv_1_desc: "Exhaustive infrastructure reviews and regulatory compliance mapping.",
-    srv_2_title: "Pentesting / VAPT", srv_2_desc: "Real-world cyberattack simulations to identify exploitable vulnerabilities.",
-    srv_3_title: "Network Security", srv_3_desc: "NGFW deployment and strict Zero-Trust secure architectures.",
-    srv_4_title: "SOC Consultation", srv_4_desc: "Engineering and optimization of dedicated Security Operations Centers.",
-    srv_5_title: "Digital Forensics", srv_5_desc: "Post-incident analysis, deep forensics and emergency response.",
-    srv_6_title: "Managed NOC", srv_6_desc: "End-to-end network performance optimization and monitoring.",
-    srv_7_title: "Managed IT Services", srv_7_desc: "Remote management and monitoring. Monthly packages for SMBs with integrated cybersecurity.",
-    btn_learn_more: "Learn more",
-    val_1_title: "Maximum Security", val_1_desc: "Cutting-edge proactive approach to neutralize ransomware.",
-    val_2_title: "High Performance", val_2_desc: "Optimized network architectures for maximum throughput.",
-    val_3_title: "Certified Expertise", val_3_desc: "A certified team specialized in penetration testing and offensive security.",
-    val_4_title: "Dedicated Support", val_4_desc: "24/7/365 assistance with specialized crisis response team.",
-    partners_section_title: "Our Technology Partners",
-    cyber_map_title: "Global Threat Mapping",
-    cyber_map_desc: "Track live cyber warfare worldwide via Kaspersky Threat Map.",
-    stat_sla: "Network SLA Availability", stat_response: "Minutes Response Time", stat_audits: "Audits Completed",
-    footer_brand_desc: "Committed to digital sovereignty in Morocco. We secure essential IT infrastructures.",
-    footer_col1: "Expertise", footer_col2: "Company", footer_col3: "Legal",
-    leg_mentions: "Legal Notices", leg_cookies: "Cookie Management",
-    footer_sub_text: "Designed with operational excellence in Morocco.",
-    legal_badge: "Compliance Law 09-08", legal_title: "Legal Notices",
-    legal_desc: "In accordance with the provisions of Moroccan law n°09-08 on data protection and cybersecurity.",
-    legal_identity_title: "Company Identity", legal_company_name: "NetVanguard IT Solutions SARL AU",
-    legal_ice: "ICE", legal_address: "Address", legal_contact_title: "Contact Information",
-    legal_headquarters: "Head office",
-    legal_footer_note: "NetVanguard IT Solutions SARL AU. In accordance with Law 09-08, we are committed to protecting your personal data.",
-    card1_title: "Advanced Cybersecurity",
-    card1_desc: "Proactive protection of your infrastructures, workstations, networks and critical data.",
-    card2_title: "Managed IT & Microsoft 365",
-    card2_desc: "Complete management of your IT environment, cloud, backups and support.",
-    card3_title: "Trusted Partner",
-    card3_desc: "Reliable, scalable solutions adapted to the needs of Moroccan SMEs."
+    top_badge: "IT Management & Cybersecurity for SMEs in Morocco",
+    top_location: "Casablanca, Morocco",
+    nav_home: "Home",
+    nav_services: "Services",
+    nav_sectors: "Sectors",
+    nav_about: "About Us",
+    nav_careers: "Careers",
+    nav_campus: "Cyber Campus",
+    nav_contact: "Contact",
+    nav_client: "Client Area",
+    slide1_subtitle: "IT Management & Microsoft Cloud",
+    slide1_title: "Your IT, our business",
+    slide1_desc: "We manage your IT so you can focus on your business. IT Management, Microsoft 365, Cloud and Support — solutions adapted to Moroccan SMEs.",
+    slide1_btn1: "Discuss your project",
+    slide1_btn2: "Our services",
+    slide2_subtitle: "Cybersecurity & Data Protection",
+    slide2_title: "Protect your business",
+    slide2_desc: "Protect your business against cyber threats. We deploy advanced security solutions to secure your workstations, servers and data.",
+    slide2_btn1: "Assess my security",
+    slide2_btn2: "Security solutions",
+    slide3_subtitle: "IT Support & Network Infrastructure",
+    slide3_title: "A local IT service",
+    slide3_desc: "A local technical support for your SME in Morocco. High-performance network infrastructures and proactive maintenance.",
+    slide3_btn1: "Request a quote",
+    slide3_btn2: "Discover our team",
+    services_badge: "Our IT Services",
+    services_title: "Complete IT solutions for your SME",
+    services_desc: "IT Management, Microsoft 365, Cybersecurity, Networks and Support. We cover all your IT needs with a quality commitment.",
+    val1_title: "Continuous Protection",
+    val1_desc: "A proactive approach to anticipate and neutralize threats before they impact your business.",
+    val2_title: "Guaranteed Performance",
+    val2_desc: "Optimized infrastructures to offer maximum availability to your employees.",
+    val3_title: "Certified Expertise",
+    val3_desc: "A qualified team, trained in Microsoft, Cisco, Fortinet technologies and security best practices.",
+    val4_title: "Responsive Support",
+    val4_desc: "Technical assistance available to quickly resolve your incidents and maintain your productivity.",
+    partners_title: "Technologies we master",
+    cyber_title: "Global cyber threat map",
+    cyber_desc: "View in real time cyber attacks detected worldwide. This map illustrates the importance of proactive protection of your information systems.",
+    stat1_title: "Advanced Cybersecurity",
+    stat1_desc: "Proactive protection of your infrastructures, workstations, networks and critical data.",
+    stat2_title: "IT Management & Microsoft 365",
+    stat2_desc: "Complete management of your IT environment, cloud, backups and user support.",
+    stat3_title: "Trusted Partner",
+    stat3_desc: "Reliable, scalable solutions adapted to the needs of Moroccan SMEs.",
+    legal_badge: "Compliance Law 09-08",
+    legal_title: "Legal Notices",
+    legal_desc: "In accordance with the provisions of Moroccan law n°09-08 on the protection of personal data.",
+    legal_identity_title: "Company Identity",
+    legal_company: "NetVanguard IT Solutions SARL AU",
+    legal_ice: "ICE",
+    legal_address: "Address",
+    legal_contact_title: "Contact Information",
+    legal_tel: "Phone:",
+    legal_email: "Email:",
+    legal_hq: "Head office:",
+    legal_footer: "NetVanguard IT Solutions SARL AU. In accordance with Law 09-08, we are committed to protecting your personal data.",
+    footer_desc: "Your trusted IT partner in Morocco. We support SMEs in the management, security and optimization of their IT infrastructure.",
+    footer_col1_services: "Services",
+    footer_srv1: "IT Management",
+    footer_srv2: "Network Security",
+    footer_srv3: "Audit & Diagnostic",
+    footer_srv4: "Pentest / VAPT",
+    footer_col2_company: "Company",
+    footer_about: "About Us",
+    footer_careers: "Careers",
+    footer_campus: "Cyber Campus",
+    footer_contact: "Contact",
+    footer_col3_legal: "Information",
+    footer_legal: "Legal Notices",
+    footer_cookies: "Cookie Management",
+    footer_rights: "All rights reserved.",
+    footer_location: "Based in Casablanca, serving Moroccan SMEs."
   }
 };
 
+// ============================================================
+// 📦 DONNÉES DES SERVICES
+// ============================================================
 const servicesData = [
-  { id: 1, titleKey: "srv_7_title", descKey: "srv_7_desc", link: "infogerance.html", icon: "fa-solid fa-headset", img: "Support IT-Infogérance.jpg" },
-  { id: 2, titleKey: "srv_3_title", descKey: "srv_3_desc", link: "securite-reseau.html", icon: "fa-solid fa-network-wired", img: "securite-reseau.jpg" },
-  { id: 3, titleKey: "srv_1_title", descKey: "srv_1_desc", link: "contact.html", icon: "fa-solid fa-clipboard-check", img: "audit-diagnostic.jpg" },
-  { id: 4, titleKey: "srv_2_title", descKey: "srv_2_desc", link: "vapt.html", icon: "fa-solid fa-terminal", img: "vapt.webp" },
-  { id: 5, titleKey: "srv_4_title", descKey: "srv_4_desc", link: "soc-consultation.html", icon: "fa-solid fa-eye", img: "soc-consultation.jpg" },
-  { id: 6, titleKey: "srv_5_title", descKey: "srv_5_desc", link: "cybercrime.html", icon: "fa-solid fa-magnifying-glass-crack", img: "cybercrime.jpg" },
-  { id: 7, titleKey: "srv_6_title", descKey: "srv_6_desc", link: "noc.html", icon: "fa-solid fa-server", img: "noc-monitoring.jpg" }
+  { 
+    id: 1, 
+    title: "Infogérance & Microsoft 365", 
+    desc: "Gestion complète de votre parc informatique et de votre environnement Microsoft 365. Maintenance proactive, supervision et support utilisateurs inclus.", 
+    link: "infogerance.html", 
+    icon: "fa-solid fa-headset", 
+    img: "Support IT-Infogérance.jpg",
+    featured: true
+  },
+  { 
+    id: 2, 
+    title: "Sécurité Réseau & Cloud", 
+    desc: "Protection de votre réseau d'entreprise, déploiement de pare-feux nouvelle génération et sécurisation de vos accès cloud.", 
+    link: "securite-reseau.html", 
+    icon: "fa-solid fa-cloud", 
+    img: "securite-reseau.jpg",
+    featured: false
+  },
+  { 
+    id: 3, 
+    title: "Support Informatique", 
+    desc: "Assistance technique pour vos collaborateurs, maintenance de votre parc et résolution rapide des incidents IT.", 
+    link: "contact.html", 
+    icon: "fa-solid fa-clipboard-check", 
+    img: "audit-diagnostic.jpg",
+    featured: true
+  },
+  { 
+    id: 4, 
+    title: "Audit & Pentest", 
+    desc: "Évaluation de la sécurité de vos systèmes, tests d'intrusion et identification des vulnérabilités.", 
+    link: "vapt.html", 
+    icon: "fa-solid fa-terminal", 
+    img: "vapt.webp",
+    featured: false
+  },
+  { 
+    id: 5, 
+    title: "SOC & Surveillance", 
+    desc: "Mise en place et gestion d'un centre de surveillance de sécurité pour détecter et répondre aux incidents.", 
+    link: "soc-consultation.html", 
+    icon: "fa-solid fa-eye", 
+    img: "soc-consultation.jpg",
+    featured: false
+  },
+  { 
+    id: 6, 
+    title: "Investigation Numérique", 
+    desc: "Analyse post-incident, investigation numérique et collecte de preuves en cas de compromission.", 
+    link: "cybercrime.html", 
+    icon: "fa-solid fa-magnifying-glass-crack", 
+    img: "cybercrime.jpg",
+    featured: false
+  },
+  { 
+    id: 7, 
+    title: "Supervision NOC", 
+    desc: "Surveillance continue de vos infrastructures réseau et serveurs pour garantir leur disponibilité.", 
+    link: "noc.html", 
+    icon: "fa-solid fa-server", 
+    img: "noc-monitoring.jpg",
+    featured: false
+  }
 ];
 
 let currentLang = 'fr';
@@ -1239,39 +1431,96 @@ let currentSlide = 0;
 let sliderInterval;
 let isTyping = false;
 
+// ============================================================
+// 🌍 APPLIQUER LA LANGUE
+// ============================================================
 function applyLanguage(lang) {
   currentLang = lang;
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (translations[lang] && translations[lang][key]) {
-      if (el.tagName === 'STRONG' || el.tagName === 'SPAN') {
-        el.textContent = translations[lang][key];
-      } else {
-        el.textContent = translations[lang][key];
-      }
+      el.textContent = translations[lang][key];
     }
   });
-  const grid = document.getElementById('servicesGrid');
-  if (grid) {
-    grid.innerHTML = '';
-    servicesData.forEach(s => {
-      const t = translations[lang][s.titleKey] || "Service";
-      const d = translations[lang][s.descKey] || "";
-      const b = translations[lang]["btn_learn_more"] || "En savoir plus";
-      grid.innerHTML += `<a href="${s.link}" class="service-card"><div class="service-img"><img src="${s.img}" alt="${t}" loading="lazy"></div><div class="service-content"><h3><i class="${s.icon}" style="color: var(--accent); margin-right: 8px;"></i> ${t}</h3><p>${d}</p><span class="service-link">${b} <i class="fas fa-arrow-right"></i></span></div></a>`;
-    });
+  
+  // Mettre à jour les titres des slides en cours
+  const slideIndex = currentSlide;
+  const titleEl = document.getElementById(`typingTitle${slideIndex + 1}`);
+  if (titleEl) {
+    const key = `slide${slideIndex + 1}_title`;
+    titleEl.textContent = translations[lang][key] || '';
   }
-  const titleEl = document.getElementById(`typingTitle${currentSlide + 1}`);
-  if (titleEl) { titleEl.textContent = translations[lang][`slide${currentSlide + 1}_title`] || ''; }
+  
+  // Mettre à jour les descriptions des slides
+  document.querySelectorAll('.slide-description').forEach((el, index) => {
+    const key = `slide${index + 1}_desc`;
+    if (translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+  
+  // Mettre à jour les sous-titres des slides
+  document.querySelectorAll('.slide-subtitle').forEach((el, index) => {
+    const key = `slide${index + 1}_subtitle`;
+    if (translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+  
+  // Mettre à jour les boutons des slides
+  document.querySelectorAll('.slide-buttons .btn-slide-primary').forEach((el, index) => {
+    const key = `slide${index + 1}_btn1`;
+    const text = translations[lang][key] || '';
+    // On garde l'icône
+    const iconHTML = el.querySelector('i') ? el.querySelector('i').outerHTML : '';
+    el.innerHTML = text + ' ' + iconHTML;
+  });
+  document.querySelectorAll('.slide-buttons .btn-slide-outline').forEach((el, index) => {
+    const key = `slide${index + 1}_btn2`;
+    const text = translations[lang][key] || '';
+    const iconHTML = el.querySelector('i') ? el.querySelector('i').outerHTML : '';
+    el.innerHTML = text + ' ' + iconHTML;
+  });
 }
 
+// ============================================================
+// 🖨️ RENDER SERVICES
+// ============================================================
+function renderServices() {
+  const grid = document.getElementById('servicesGrid');
+  if (!grid) return;
+  grid.innerHTML = '';
+  servicesData.forEach(s => {
+    const featuredClass = s.featured ? ' featured' : '';
+    const badgeHTML = s.featured ? '<span class="service-badge-top">Service clé</span>' : '';
+    grid.innerHTML += `
+      <a href="${s.link}" class="service-card${featuredClass}">
+        <div class="service-img">
+          <img src="${s.img}" alt="${s.title}" loading="lazy">
+          ${badgeHTML}
+        </div>
+        <div class="service-content">
+          <h3><i class="${s.icon}" style="color: var(--accent); margin-right: 8px;"></i> ${s.title}</h3>
+          <p>${s.desc}</p>
+          <span class="service-link">Découvrir <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>`;
+  });
+}
+
+// ============================================================
+// ⌨️ TYPEWRITER EFFECT
+// ============================================================
 function typeWriter(element, cursorElement, text, speed = 45, callback = null) {
   let i = 0;
   element.textContent = '';
   if (cursorElement) cursorElement.style.display = 'inline-block';
   function type() {
-    if (i < text.length) { element.textContent += text.charAt(i); i++; setTimeout(type, speed); }
-    else {
+    if (i < text.length) { 
+      element.textContent += text.charAt(i); 
+      i++; 
+      setTimeout(type, speed); 
+    } else {
       if (cursorElement) setTimeout(() => { cursorElement.style.display = 'none'; }, 2000);
       if (callback) callback();
     }
@@ -1285,12 +1534,16 @@ function typeCurrentSlide() {
   const num = currentSlide + 1;
   const titleEl = document.getElementById(`typingTitle${num}`);
   const cursorEl = document.getElementById(`cursor${num}`);
-  const titleText = translations[currentLang][`slide${num}_title`] || '';
+  const key = `slide${num}_title`;
+  const titleText = translations[currentLang][key] || '';
   if (titleEl) {
     typeWriter(titleEl, cursorEl, titleText, 45, () => { isTyping = false; });
   } else { isTyping = false; }
 }
 
+// ============================================================
+// 🎠 SLIDER FUNCTIONS
+// ============================================================
 function updateSlideBackgrounds() {
   const bgs = document.querySelectorAll('.hero-slide-bg');
   bgs.forEach((bg, i) => {
@@ -1311,6 +1564,14 @@ function goToSlide(index) {
   dots[index].classList.add('active');
   currentSlide = index;
   updateSlideBackgrounds();
+  
+  // Mettre à jour le titre avec la bonne langue
+  const titleEl = document.getElementById(`typingTitle${index + 1}`);
+  if (titleEl) {
+    const key = `slide${index + 1}_title`;
+    titleEl.textContent = translations[currentLang][key] || '';
+  }
+  
   setTimeout(() => { typeCurrentSlide(); }, 300);
 }
 
@@ -1319,6 +1580,9 @@ function resetSliderTimer() {
   sliderInterval = setInterval(() => { goToSlide(currentSlide + 1); }, 8000);
 }
 
+// ============================================================
+// ✨ HERO PARTICLES
+// ============================================================
 function initHeroParticles() {
   const canvas = document.getElementById('heroParticles');
   if (!canvas) return;
@@ -1326,35 +1590,135 @@ function initHeroParticles() {
   function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
   resize(); window.addEventListener('resize', resize);
   const particles = [];
-  for (let i = 0; i < 80; i++) { particles.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, radius: Math.random()*2+.5, speedX: (Math.random()-.5)*.4, speedY: (Math.random()-.5)*.4, opacity: Math.random()*.6+.1, color: Math.random()>.7?'rgba(255,184,0,':'rgba(0,212,255,' }); }
+  for (let i = 0; i < 80; i++) { 
+    particles.push({ 
+      x: Math.random()*canvas.width, 
+      y: Math.random()*canvas.height, 
+      radius: Math.random()*2+.5, 
+      speedX: (Math.random()-.5)*.4, 
+      speedY: (Math.random()-.5)*.4, 
+      opacity: Math.random()*.6+.1, 
+      color: Math.random()>.7?'rgba(255,184,0,':'rgba(0,212,255,' 
+    }); 
+  }
   function animate() {
     ctx.clearRect(0,0,canvas.width,canvas.height);
-    particles.forEach(p => { p.x+=p.speedX; p.y+=p.speedY; if(p.x<-50)p.x=canvas.width+50; if(p.x>canvas.width+50)p.x=-50; if(p.y<-50)p.y=canvas.height+50; if(p.y>canvas.height+50)p.y=-50; ctx.beginPath(); ctx.arc(p.x,p.y,p.radius,0,Math.PI*2); ctx.fillStyle=p.color+p.opacity+')'; ctx.fill(); });
-    for(let i=0;i<particles.length;i++){for(let j=i+1;j<particles.length;j++){const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy); if(dist<180){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle=`rgba(0,212,255,${.08*(1-dist/180)})`;ctx.lineWidth=.5;ctx.stroke();}}}
+    particles.forEach(p => { 
+      p.x+=p.speedX; p.y+=p.speedY; 
+      if(p.x<-50)p.x=canvas.width+50; 
+      if(p.x>canvas.width+50)p.x=-50; 
+      if(p.y<-50)p.y=canvas.height+50; 
+      if(p.y>canvas.height+50)p.y=-50; 
+      ctx.beginPath(); 
+      ctx.arc(p.x,p.y,p.radius,0,Math.PI*2); 
+      ctx.fillStyle=p.color+p.opacity+')'; 
+      ctx.fill(); 
+    });
+    for(let i=0;i<particles.length;i++){
+      for(let j=i+1;j<particles.length;j++){
+        const dx=particles[i].x-particles[j].x;
+        const dy=particles[i].y-particles[j].y;
+        const dist=Math.sqrt(dx*dx+dy*dy); 
+        if(dist<180){
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x,particles[i].y);
+          ctx.lineTo(particles[j].x,particles[j].y);
+          ctx.strokeStyle=`rgba(0,212,255,${.08*(1-dist/180)})`;
+          ctx.lineWidth=.5;
+          ctx.stroke();
+        }
+      }
+    }
     requestAnimationFrame(animate);
   }
   animate();
 }
 
+// ============================================================
+// 👁️ CARD OBSERVER
+// ============================================================
 function triggerCardObserver(){
-  setTimeout(()=>{const cards=document.querySelectorAll('.service-card');const obs=new IntersectionObserver((entries)=>{entries.forEach((entry,i)=>{if(entry.isIntersecting){setTimeout(()=>{entry.target.style.opacity="1";entry.target.style.transform="translateY(0)";entry.target.style.transition="opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1)";},i*120);obs.unobserve(entry.target);}})},{threshold:.05});cards.forEach(c=>obs.observe(c));},200);
+  setTimeout(()=>{
+    const cards=document.querySelectorAll('.service-card');
+    const obs=new IntersectionObserver((entries)=>{
+      entries.forEach((entry,i)=>{
+        if(entry.isIntersecting){
+          setTimeout(()=>{
+            entry.target.style.opacity="1";
+            entry.target.style.transform="translateY(0)";
+            entry.target.style.transition="opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1)";
+          },i*120);
+          obs.unobserve(entry.target);
+        }
+      });
+    },{threshold:.05});
+    cards.forEach(c=>obs.observe(c));
+  },200);
 }
 
+// ============================================================
+// 🚀 DOM CONTENT LOADED
+// ============================================================
 document.addEventListener('DOMContentLoaded', () => {
-  applyLanguage('fr');
+  renderServices();
   initHeroParticles();
   updateSlideBackgrounds();
   triggerCardObserver();
+  
+  // Appliquer la langue par défaut
+  applyLanguage('fr');
+  
   setTimeout(() => { typeCurrentSlide(); }, 500);
+  
+  // Slider controls
   document.getElementById('prevSlide').addEventListener('click',()=>{goToSlide(currentSlide-1);resetSliderTimer();});
   document.getElementById('nextSlide').addEventListener('click',()=>{goToSlide(currentSlide+1);resetSliderTimer();});
-  document.querySelectorAll('.slider-dot').forEach(d=>{d.addEventListener('click',()=>{goToSlide(parseInt(d.getAttribute('data-dot')));resetSliderTimer();});});
+  document.querySelectorAll('.slider-dot').forEach(d=>{
+    d.addEventListener('click',()=>{
+      goToSlide(parseInt(d.getAttribute('data-dot')));
+      resetSliderTimer();
+    });
+  });
   resetSliderTimer();
-  document.addEventListener('keydown',(e)=>{if(e.key==='ArrowRight'){goToSlide(currentSlide+1);resetSliderTimer();}if(e.key==='ArrowLeft'){goToSlide(currentSlide-1);resetSliderTimer();}});
-  document.querySelectorAll('.lang-btn').forEach(b=>{b.addEventListener('click',(e)=>{const l=e.target.getAttribute('data-lang');document.querySelectorAll('.lang-btn').forEach(x=>x.classList.remove('active'));e.target.classList.add('active');applyLanguage(l);triggerCardObserver();});});
-  const glow=document.getElementById('cursorGlow'); if(glow)window.addEventListener('mousemove',(e)=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px';});
-  window.addEventListener('scroll',()=>{const s=document.body.scrollTop||document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight,p=(s/h)*100;const bar=document.getElementById('scrollProgress');if(bar)bar.style.width=p+"%";});
-  const tb=document.getElementById('menuToggle'),mn=document.getElementById('mobileNav'); if(tb&&mn){tb.addEventListener('click',()=>{mn.classList.toggle('active');tb.querySelector('i').className=mn.classList.contains('active')?'fa-solid fa-xmark':'fa-solid fa-bars';});}
+  
+  // Keyboard controls
+  document.addEventListener('keydown',(e)=>{
+    if(e.key==='ArrowRight'){goToSlide(currentSlide+1);resetSliderTimer();}
+    if(e.key==='ArrowLeft'){goToSlide(currentSlide-1);resetSliderTimer();}
+  });
+  
+  // Language switcher
+  document.querySelectorAll('.lang-btn').forEach(b=>{
+    b.addEventListener('click',(e)=>{
+      const lang = e.target.getAttribute('data-lang');
+      document.querySelectorAll('.lang-btn').forEach(x=>x.classList.remove('active'));
+      e.target.classList.add('active');
+      applyLanguage(lang);
+    });
+  });
+  
+  // Cursor glow
+  const glow=document.getElementById('cursorGlow'); 
+  if(glow)window.addEventListener('mousemove',(e)=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px';});
+  
+  // Scroll progress
+  window.addEventListener('scroll',()=>{
+    const s=document.body.scrollTop||document.documentElement.scrollTop;
+    const h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+    const p=(s/h)*100;
+    const bar=document.getElementById('scrollProgress');
+    if(bar)bar.style.width=p+"%";
+  });
+  
+  // Mobile menu
+  const tb=document.getElementById('menuToggle');
+  const mn=document.getElementById('mobileNav'); 
+  if(tb&&mn){
+    tb.addEventListener('click',()=>{
+      mn.classList.toggle('active');
+      tb.querySelector('i').className=mn.classList.contains('active')?'fa-solid fa-xmark':'fa-solid fa-bars';
+    });
+  }
 });
 </script>
 </body>
