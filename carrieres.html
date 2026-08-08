@@ -8,6 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
 <style>
 :root {
   --primary: #0A1628;
@@ -105,7 +107,7 @@ a { text-decoration: none; }
 .lang-btn { background: none; border: none; color: var(--gray-light); font-size: 0.75rem; font-weight: 600; cursor: pointer; padding: 0.15rem 0.6rem; border-radius: 30px; transition: var(--transition); font-family: inherit; }
 .lang-btn.active { background: var(--accent); color: var(--primary-deep); }
 
-/* ========== NAVBAR - IDENTIQUE À INDEX ========== */
+/* ========== NAVBAR ========== */
 .nav {
   position: sticky; top: 0; z-index: 1000; padding: 1rem 4%;
   background: rgba(5, 12, 24, 0.92); backdrop-filter: blur(25px);
@@ -437,28 +439,28 @@ a { text-decoration: none; }
         <div class="form-row">
           <div class="form-group">
             <label data-i18n="lbl_lastname">Nom *</label>
-            <input type="text" name="nom" placeholder="Votre nom" required>
+            <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
           </div>
           <div class="form-group">
             <label data-i18n="lbl_firstname">Prénom *</label>
-            <input type="text" name="prenom" placeholder="Votre prénom" required>
+            <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group">
             <label data-i18n="lbl_email">Email *</label>
-            <input type="email" name="email" placeholder="votre@email.com" required>
+            <input type="email" id="email" name="email" placeholder="votre@email.com" required>
           </div>
           <div class="form-group">
             <label data-i18n="lbl_phone">Téléphone *</label>
-            <input type="tel" name="telephone" placeholder="+212..." required>
+            <input type="tel" id="telephone" name="telephone" placeholder="+212..." required>
           </div>
         </div>
 
         <div class="form-group">
           <label data-i18n="lbl_position">Poste souhaité *</label>
-          <select name="poste" required>
+          <select id="poste" name="poste" required>
             <option value="" data-i18n="pos_select">Sélectionnez un poste</option>
             <option value="Ingénieur Cybersécurité" data-i18n="pos_sec">Ingénieur Cybersécurité</option>
             <option value="Pentester / VAPT" data-i18n="pos_pentest">Pentester / VAPT</option>
@@ -476,13 +478,13 @@ a { text-decoration: none; }
 
         <div class="form-group">
           <label data-i18n="lbl_message">Message / Lettre de motivation</label>
-          <textarea name="message" placeholder="Dites-nous en plus sur vous, votre parcours et vos aspirations..."></textarea>
+          <textarea id="message" name="message" placeholder="Dites-nous en plus sur vous, votre parcours et vos aspirations..."></textarea>
         </div>
 
         <div class="form-group">
           <label data-i18n="lbl_cv">CV * (PDF ou DOCX)</label>
           <div class="file-upload" id="fileUpload">
-            <input type="file" name="cv" accept=".pdf,.doc,.docx" required>
+            <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
             <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
             <div class="text"><span data-i18n="cv_text">Déposez votre CV ici ou cliquez pour parcourir</span></div>
             <div class="file-name" id="fileName"></div>
@@ -728,23 +730,105 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 });
 
 // ============================================================
-// 📂 GESTION DU FICHIER
+// 📂 GESTION DU FICHIER + EXTRACTION DU TEXTE
 // ============================================================
-document.querySelector('input[type="file"]').addEventListener('change', function(e) {
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+let extractedCVText = '';
+let cvFileData = null;
+
+document.getElementById('cv').addEventListener('change', function(e) {
   const file = this.files[0];
   const fileName = document.getElementById('fileName');
+  
   if (file) {
     fileName.textContent = '📎 ' + file.name;
+    cvFileData = file;
+    extractTextFromCV(file);
   } else {
     fileName.textContent = '';
+    cvFileData = null;
+    extractedCVText = '';
   }
 });
 
+function extractTextFromCV(file) {
+  const fileType = file.type;
+  const fileName = file.name.toLowerCase();
+  
+  if (fileType === 'application/pdf' || fileName.endsWith('.pdf')) {
+    extractTextFromPDF(file);
+  } else if (fileType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || fileName.endsWith('.docx')) {
+    extractTextFromDOCX(file);
+  } else if (fileType === 'text/plain' || fileName.endsWith('.txt')) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      extractedCVText = e.target.result;
+      console.log('📄 Texte extrait (TXT) :', extractedCVText.substring(0, 200) + '...');
+    };
+    reader.readAsText(file);
+  } else {
+    console.warn('⚠️ Format non supporté pour l\'extraction');
+    extractedCVText = 'Format non supporté pour l\'extraction de texte.';
+  }
+}
+
+function extractTextFromPDF(file) {
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const typedarray = new Uint8Array(e.target.result);
+    pdfjsLib.getDocument({ data: typedarray }).promise
+      .then(function(pdf) {
+        let fullText = '';
+        const pagePromises = [];
+        for (let i = 1; i <= pdf.numPages; i++) {
+          pagePromises.push(
+            pdf.getPage(i).then(function(page) {
+              return page.getTextContent().then(function(textContent) {
+                fullText += textContent.items.map(item => item.str).join(' ') + ' ';
+              });
+            })
+          );
+        }
+        return Promise.all(pagePromises).then(function() {
+          extractedCVText = fullText.trim();
+          console.log('📄 Texte extrait (PDF) :', extractedCVText.substring(0, 200) + '...');
+        });
+      })
+      .catch(function(err) {
+        console.warn('⚠️ Erreur extraction PDF:', err);
+        extractedCVText = 'Erreur lors de l\'extraction du PDF.';
+      });
+  };
+  reader.readAsArrayBuffer(file);
+}
+
+function extractTextFromDOCX(file) {
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    if (typeof mammoth !== 'undefined') {
+      mammoth.extractRawText({ arrayBuffer: e.target.result })
+        .then(function(result) {
+          extractedCVText = result.value.trim();
+          console.log('📄 Texte extrait (DOCX) :', extractedCVText.substring(0, 200) + '...');
+        })
+        .catch(function(err) {
+          console.warn('⚠️ Erreur extraction DOCX:', err);
+          extractedCVText = 'Erreur lors de l\'extraction du DOCX.';
+        });
+    } else {
+      extractedCVText = 'Bibliothèque mammoth non chargée.';
+    }
+  };
+  reader.readAsArrayBuffer(file);
+}
+
 // ============================================================
-// 📨 SOUMISSION DU FORMULAIRE - IDENTIQUE À CONTACT.HTML
+// 📨 SOUMISSION DU FORMULAIRE AVEC TEXTE EXTRAIT
 // ============================================================
 document.getElementById('candidatureForm').addEventListener('submit', async function(e) {
   e.preventDefault();
+  
   const form = e.target;
   const btn = document.getElementById('submitBtn');
   const success = document.getElementById('successMsg');
@@ -756,10 +840,23 @@ document.getElementById('candidatureForm').addEventListener('submit', async func
   btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
   
   try {
-    const data = new FormData(form);
+    const formData = new FormData(form);
+    
+    // Ajouter le texte extrait du CV au message
+    if (extractedCVText && extractedCVText.length > 0) {
+      const messageField = formData.get('message') || '';
+      const cvPreview = '\n\n--- CONTENU DU CV ---\n' + extractedCVText.substring(0, 4000) + '\n--- FIN DU CV ---\n';
+      formData.set('message', messageField + cvPreview);
+    }
+    
+    // Ajouter le nom du fichier CV
+    if (cvFileData) {
+      formData.append('cv_filename', cvFileData.name);
+    }
+    
     const response = await fetch(form.action, {
       method: 'POST',
-      body: data,
+      body: formData,
       headers: { 'Accept': 'application/json' }
     });
     
@@ -767,6 +864,8 @@ document.getElementById('candidatureForm').addEventListener('submit', async func
       success.classList.add('show');
       form.reset();
       document.getElementById('fileName').textContent = '';
+      extractedCVText = '';
+      cvFileData = null;
       success.scrollIntoView({ behavior: 'smooth', block: 'center' });
     } else {
       error.classList.add('show');
@@ -819,7 +918,7 @@ window.addEventListener('scroll', () => {
 // ============================================================
 applyLanguage('fr');
 console.log('💼 NetVanguard Careers — Page de recrutement');
-console.log('📤 Formulaire connecté à Formspree');
+console.log('📤 Formulaire connecté à Formspree avec extraction de texte CV');
 </script>
 </body>
 </html>
