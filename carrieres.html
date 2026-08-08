@@ -1,534 +1,365 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Carrières chez NetVanguard IT Solutions. Déposez votre CV et rejoignez nos équipes.">
-<title>Carrières · NetVanguard IT Solutions</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-<style>
-:root {
-  --primary: #0A1628; --primary-deep: #020810; --primary-light: #0F2B4D;
-  --accent: #00D4FF; --accent-dark: #0891B2;
-  --accent-glow: rgba(0, 212, 255, 0.5);
-  --red: #EF4444; --red-dark: #DC2626;
-  --white: #FFFFFF; --off-white: #E2E8F0;
-  --gray-light: #94A3B8; --gray-mid: #64748B;
-  --gold: #FFB800; --gold-light: #FFD700;
-  --success: #10B981;
-  --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  --ios-bg: rgba(255,255,255,0.04);
-  --ios-border: rgba(255,255,255,0.08);
-  --ios-selected: rgba(0,212,255,0.15);
-}
-* { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body { font-family:'Manrope',sans-serif; color:var(--off-white); line-height:1.6; overflow-x:hidden; background:var(--primary-deep); }
-h1,h2,h3,h4,h5 { font-family:'Space Grotesk',sans-serif; font-weight:700; letter-spacing:-0.02em; }
-a { text-decoration:none; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Carrières NetVanguard IT Solutions — Rejoignez une équipe d'experts en cybersécurité, infogérance et infrastructure IT au Maroc.">
+  <title>Carrières · NetVanguard IT Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0A1628;
+      --primary-deep: #020810;
+      --primary-light: #0F2B4D;
+      --accent: #00D4FF;
+      --accent-dark: #0891B2;
+      --accent-glow: rgba(0, 212, 255, 0.5);
+      --red: #EF4444;
+      --red-dark: #DC2626;
+      --white: #FFFFFF;
+      --off-white: #E2E8F0;
+      --gray-light: #94A3B8;
+      --gray-mid: #64748B;
+      --gold: #FFB800;
+      --gold-light: #FFD700;
+      --success: #10B981;
+      --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Manrope', sans-serif;
+      color: var(--off-white);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background: var(--primary-deep);
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    a { text-decoration: none; }
 
-/* ========== TOP BAR ========== */
-.top-bar {
-  background: rgba(2, 8, 16, 0.98);
-  backdrop-filter: blur(20px);
-  color: var(--gray-light);
-  padding: 0.6rem 4%;
-  font-size: 0.78rem;
-  border-bottom: 1px solid rgba(0, 212, 255, 0.15);
-  z-index: 1001;
-  position: relative;
-  letter-spacing: 0.02em;
-}
-.top-bar-container {
-  max-width: 1400px; margin: 0 auto;
-  display: flex; justify-content: space-between; align-items: center;
-  flex-wrap: nowrap; gap: 0.6rem;
-}
-.partner-badge {
-  display: flex; align-items: center; gap: 0.6rem;
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 184, 0, 0.05));
-  padding: 0.35rem 1.2rem; border-radius: 40px;
-  border: 1px solid rgba(0, 212, 255, 0.2);
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
-  flex-shrink: 0;
-  max-width: 340px;
-  overflow: hidden;
-}
-.partner-badge i { color: var(--accent); font-size: 0.75rem; flex-shrink: 0; }
-.partner-badge span {
-  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px;
-  background: linear-gradient(135deg, #fff, var(--accent));
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.top-bar-info { 
-  display: flex; 
-  gap: 1.5rem; 
-  flex-wrap: nowrap; 
-  flex-shrink: 0;
-}
-.top-bar-info span { display: flex; align-items: center; gap: 0.4rem; white-space: nowrap; }
-.top-bar-info i { color: var(--accent); flex-shrink: 0; }
-.top-bar-social { 
-  display: flex; 
-  align-items: center; 
-  flex-shrink: 0;
-}
-.top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; transition: var(--transition); display: inline-block; }
-.top-bar-social a:hover { color: var(--accent); transform: translateY(-2px); }
+    .scroll-progress {
+      position: fixed;
+      top: 0; left: 0; width: 0%; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--gold), var(--red));
+      z-index: 99999;
+      transition: width 0.1s ease;
+    }
 
-.lang-switch {
-  display: flex; gap: 0.2rem; background: rgba(0, 212, 255, 0.1);
-  padding: 0.15rem 0.5rem; border-radius: 40px; align-items: center;
-  border: 1px solid rgba(0, 212, 255, 0.2);
-  flex-shrink: 0;
-}
-.lang-btn {
-  background: none; border: none; color: var(--gray-light);
-  font-size: 0.75rem; font-weight: 600; cursor: pointer;
-  padding: 0.15rem 0.6rem; border-radius: 30px; transition: var(--transition);
-  font-family: inherit;
-}
-.lang-btn.active { background: var(--accent); color: var(--primary-deep); }
+    @media (min-width: 1025px) {
+      .cursor-glow {
+        width: 500px; height: 500px; position: fixed; left: 0; top: 0;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(circle, rgba(0, 212, 255, 0.06), transparent 70%);
+        pointer-events: none; z-index: 9999;
+        border-radius: 50%;
+      }
+    }
 
-/* ========== NAVBAR ========== */
-.nav {
-  position: sticky; top: 0; z-index: 1000; padding: 1rem 4%;
-  background: rgba(5, 12, 24, 0.92); backdrop-filter: blur(25px);
-  border-bottom: 1px solid rgba(0, 212, 255, 0.1);
-}
-.nav-container {
-  max-width: 1400px; margin: 0 auto;
-  display: flex; align-items: center; justify-content: space-between;
-}
-.logo {
-  display: flex; align-items: center; gap: 0.6rem;
-  font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.3rem;
-  color: var(--white); transition: var(--transition);
-  flex-shrink: 0;
-}
-.logo:hover { transform: scale(1.02); }
+    /* ========== TOP BAR ========== */
+    .top-bar {
+      background: rgba(2, 8, 16, 0.98);
+      backdrop-filter: blur(20px);
+      color: var(--gray-light);
+      padding: 0.6rem 4%;
+      font-size: 0.78rem;
+      border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+      z-index: 1001;
+      position: relative;
+      letter-spacing: 0.02em;
+    }
+    .top-bar-container {
+      max-width: 1400px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: nowrap; gap: 0.6rem;
+    }
+    .partner-badge {
+      display: flex; align-items: center; gap: 0.6rem;
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 184, 0, 0.05));
+      padding: 0.35rem 1.2rem; border-radius: 40px;
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+      flex-shrink: 0; max-width: 340px; overflow: hidden;
+    }
+    .partner-badge i { color: var(--accent); font-size: 0.75rem; flex-shrink: 0; }
+    .partner-badge span {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px;
+      background: linear-gradient(135deg, #fff, var(--accent));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .top-bar-info { display: flex; gap: 1.5rem; flex-wrap: nowrap; flex-shrink: 0; }
+    .top-bar-info span { display: flex; align-items: center; gap: 0.4rem; white-space: nowrap; }
+    .top-bar-info i { color: var(--accent); flex-shrink: 0; }
+    .top-bar-social { display: flex; align-items: center; flex-shrink: 0; }
+    .top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; transition: var(--transition); display: inline-block; }
+    .top-bar-social a:hover { color: var(--accent); transform: translateY(-2px); }
+    .lang-switch { display: flex; gap: 0.2rem; background: rgba(0, 212, 255, 0.1); padding: 0.15rem 0.5rem; border-radius: 40px; align-items: center; border: 1px solid rgba(0, 212, 255, 0.2); flex-shrink: 0; }
+    .lang-btn { background: none; border: none; color: var(--gray-light); font-size: 0.75rem; font-weight: 600; cursor: pointer; padding: 0.15rem 0.6rem; border-radius: 30px; transition: var(--transition); font-family: inherit; }
+    .lang-btn.active { background: var(--accent); color: var(--primary-deep); }
 
-.logo-shield {
-  width: 32px; height: 32px; flex-shrink: 0;
-  animation: float 3s ease-in-out infinite;
-  filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.5));
-}
-@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+    /* ========== NAVBAR ========== */
+    .nav {
+      position: sticky; top: 0; z-index: 1000; padding: 1rem 4%;
+      background: rgba(5, 12, 24, 0.92); backdrop-filter: blur(25px);
+      border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+    }
+    .nav-container {
+      max-width: 1400px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.3rem;
+      color: var(--white); transition: var(--transition);
+      flex-shrink: 0;
+    }
+    .logo:hover { transform: scale(1.02); }
+    .logo-shield {
+      width: 32px; height: 32px; flex-shrink: 0;
+      animation: float 3s ease-in-out infinite;
+      filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.5));
+    }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+    .logo-text-accent { color: var(--accent); }
+    .nav-links {
+      display: flex; gap: 0.8rem; list-style: none; align-items: center;
+      margin: 0 auto; padding: 0; flex-shrink: 0; justify-content: center;
+    }
+    .nav-links > li { position: relative; flex-shrink: 0; display: flex; }
+    .nav-links > li > a {
+      color: var(--off-white); font-size: 0.9rem; font-weight: 600;
+      padding: 0.5rem 0.9rem; border-radius: 4px; transition: var(--transition);
+      display: flex; align-items: center; gap: 0.3rem;
+      white-space: nowrap; text-align: center; justify-content: center;
+    }
+    .nav-links > li > a:hover,
+    .nav-links > li > a.active { background: rgba(0, 212, 255, 0.1); color: var(--accent); }
+    .nav-links > li > a.btn-espace-client {
+      background: linear-gradient(135deg, #00D4FF, #0891B2);
+      color: #020810 !important; font-weight: 700;
+      padding: 0.5rem 1.2rem; border-radius: 6px;
+      transition: var(--transition); margin-left: 0.5rem;
+    }
+    .nav-links > li > a.btn-espace-client:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+    }
+    .menu-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; z-index: 10001; }
+    .mobile-nav-overlay {
+      position: fixed; top: 0; right: -100%; width: 100%; max-width: 400px; height: 100vh;
+      background: rgba(2, 8, 16, 0.98); backdrop-filter: blur(25px); z-index: 10000;
+      padding: 8rem 2rem 2rem; display: flex; flex-direction: column; gap: 1.5rem;
+      box-shadow: -10px 0 30px rgba(0,0,0,0.5); border-left: 1px solid rgba(0, 212, 255, 0.2);
+      transition: right 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    }
+    .mobile-nav-overlay.active { right: 0; }
+    .mobile-nav-overlay a { color: var(--white); font-size: 1.1rem; font-weight: 600; }
+    .btn-espace-client-mobile {
+      background: linear-gradient(135deg, #00D4FF, #0891B2); color: #020810 !important;
+      font-weight: 700; padding: 0.5rem 1.2rem; border-radius: 6px; text-align: center;
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 1rem;
+    }
 
-.logo-text-accent { color: var(--accent); }
+    /* ========== PAGE HEADER ========== */
+    .page-header {
+      position: relative;
+      padding: 4rem 4% 3rem;
+      overflow: hidden;
+      background: var(--primary-deep);
+      text-align: center;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 30%, rgba(0,212,255,0.12), transparent 50%);
+      pointer-events: none;
+    }
+    .page-header-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .page-badge {
+      display: inline-block;
+      padding: 0.5rem 1.4rem;
+      background: rgba(0,212,255,0.12);
+      border: 1px solid rgba(0,212,255,0.25);
+      border-radius: 50px;
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      margin-bottom: 1.5rem;
+    }
+    .page-header h1 {
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      color: var(--white);
+    }
+    .page-header h1 .accent {
+      background: linear-gradient(90deg, #FFB800, #EF4444, #00D4FF, #FFB800);
+      background-size: 300% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 6s linear infinite;
+    }
+    @keyframes shine { to { background-position: 300% center; } }
+    .page-header p {
+      color: var(--gray-light);
+      font-size: 1.05rem;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
 
-.nav-links { 
-  display: flex; 
-  gap: 0.8rem; 
-  list-style: none; 
-  align-items: center; 
-  margin: 0 auto;
-  padding: 0;
-  flex-shrink: 0;
-  justify-content: center;
-}
-.nav-links > li { 
-  position: relative; 
-  flex-shrink: 0;
-  display: flex;
-}
-.nav-links > li > a {
-  color: var(--off-white); 
-  font-size: 0.9rem; 
-  font-weight: 600;
-  padding: 0.5rem 0.9rem; 
-  border-radius: 4px; 
-  transition: var(--transition);
-  display: flex; 
-  align-items: center; 
-  gap: 0.3rem;
-  white-space: nowrap;
-  text-align: center;
-  justify-content: center;
-}
-.nav-links > li > a:hover,
-.nav-links > li > a.active { 
-  background: rgba(0, 212, 255, 0.1); 
-  color: var(--accent); 
-}
+    /* ========== CANDIDATE FORM ========== */
+    .form-section { padding: 2rem 4% 5rem; }
+    .form-container { max-width: 800px; margin: 0 auto; }
 
-.nav-links > li > a.btn-espace-client {
-  background: linear-gradient(135deg, #00D4FF, #0891B2);
-  color: #020810 !important;
-  font-weight: 700;
-  padding: 0.5rem 1.2rem;
-  border-radius: 6px;
-  transition: var(--transition);
-  margin-left: 0.5rem;
-}
-.nav-links > li > a.btn-espace-client:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
-}
+    .candidate-form {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(0,212,255,0.15);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+    }
+    .candidate-form h3 { color: var(--white); margin-bottom: 0.5rem; font-size: 1.3rem; }
+    .candidate-form p { color: var(--gray-light); font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; color: var(--accent); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.4rem; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%; padding: 0.85rem 1rem;
+      border: 1.5px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.04);
+      color: var(--white);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: rgba(0,212,255,0.06);
+    }
+    .form-group select option { background: var(--primary-deep); color: var(--white); }
+    .form-group textarea { min-height: 120px; resize: vertical; }
 
-.menu-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; z-index: 10001; }
+    .file-upload {
+      border: 2px dashed rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+    }
+    .file-upload:hover { border-color: var(--accent); background: rgba(0,212,255,0.03); }
+    .file-upload input[type="file"] {
+      position: absolute; inset: 0;
+      opacity: 0; cursor: pointer;
+    }
+    .file-upload .icon { font-size: 2rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .file-upload .text { color: var(--gray-light); font-size: 0.85rem; }
+    .file-upload .text strong { color: var(--white); }
+    .file-upload .file-name { margin-top: 0.5rem; color: var(--accent); font-weight: 600; font-size: 0.85rem; }
 
-.mobile-nav-overlay {
-  position: fixed; top: 0; right: -100%; width: 100%; max-width: 400px; height: 100vh;
-  background: rgba(2, 8, 16, 0.98); backdrop-filter: blur(25px); z-index: 10000;
-  padding: 8rem 2rem 2rem; display: flex; flex-direction: column; gap: 1.5rem;
-  box-shadow: -10px 0 30px rgba(0,0,0,0.5); border-left: 1px solid rgba(0, 212, 255, 0.2);
-  transition: right 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-}
-.mobile-nav-overlay.active { right: 0; }
-.mobile-nav-overlay a { color: var(--white); font-size: 1.1rem; font-weight: 600; }
-.btn-espace-client-mobile {
-  background: linear-gradient(135deg, #00D4FF, #0891B2); color: #020810 !important;
-  font-weight: 700; padding: 0.5rem 1.2rem; border-radius: 6px; text-align: center;
-  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 1rem;
-}
+    .btn-submit {
+      width: 100%; padding: 1rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: var(--primary-deep);
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+    .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0,212,255,0.3); }
+    .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
 
-/* PAGE HEADER */
-.page-header { position:relative; padding:5rem 4% 4rem; overflow:hidden; background:var(--primary-deep); text-align:center; }
-.page-header::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at 50% 30%,rgba(0,212,255,0.12),transparent 50%); pointer-events:none; }
-.page-header-container { max-width:900px; margin:0 auto; position:relative; z-index:2; }
-.page-header h1 { font-size:clamp(2.2rem,5vw,3.5rem); line-height:1.15; margin-bottom:1rem; color:var(--white); }
-.page-header h1 .accent { background:linear-gradient(90deg,#FFB800,#EF4444,#00D4FF,#FFB800); background-size:300% auto; -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation:shine 6s linear infinite; }
-@keyframes shine { to{background-position:300% center;} }
-.page-header p { font-size:1.1rem; color:var(--gray-light); max-width:600px; margin:0 auto; }
+    .success-msg { display: none; background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); border-radius: 12px; padding: 1.5rem; text-align: center; color: var(--success); margin-top: 1.5rem; }
+    .success-msg.show { display: block; }
+    .error-msg { display: none; background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.3); border-radius: 12px; padding: 1.5rem; text-align: center; color: var(--red); margin-top: 1.5rem; }
+    .error-msg.show { display: block; }
 
-/* MAIN CONTENT */
-.section { padding:4rem 4%; }
-.section-container { max-width:900px; margin:0 auto; }
+    /* ========== CTA ========== */
+    .cta-block {
+      background: linear-gradient(135deg, var(--primary-light), var(--primary));
+      text-align: center;
+      padding: 4rem 4%;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-block-content { max-width: 600px; margin: 0 auto; position: relative; z-index: 2; }
+    .cta-block h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--white); margin-bottom: 1rem; }
+    .cta-block p { color: var(--gray-light); }
 
-/* SPÉCIALITÉ SELECTION */
-.speciality-section { margin-bottom:2rem; }
-.speciality-title { color:var(--white); font-size:1.3rem; margin-bottom:0.5rem; text-align:center; font-family:'Space Grotesk',sans-serif; }
-.speciality-subtitle { color:var(--gray-light); font-size:0.9rem; margin-bottom:1.5rem; text-align:center; }
-.speciality-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:0.8rem; }
-.speciality-card { position:relative; background:var(--ios-bg); border:1.5px solid var(--ios-border); border-radius:16px; padding:1.2rem 1rem 1.2rem 3.2rem; cursor:pointer; transition:all 0.3s cubic-bezier(0.2,0.9,0.4,1); user-select:none; }
-.speciality-card:hover { border-color:rgba(0,212,255,0.3); background:rgba(0,212,255,0.05); transform:scale(1.02); }
-.speciality-card:active { transform:scale(0.98); }
-.speciality-card.selected { border-color:var(--accent); background:var(--ios-selected); box-shadow:0 0 20px rgba(0,212,255,0.15); }
-.speciality-card .card-radio { position:absolute; left:1rem; top:50%; transform:translateY(-50%); width:22px; height:22px; border-radius:50%; border:2px solid rgba(255,255,255,0.3); display:flex; align-items:center; justify-content:center; transition:all 0.3s ease; }
-.speciality-card.selected .card-radio { border-color:var(--accent); background:var(--accent); }
-.speciality-card .card-radio::after { content:''; width:10px; height:10px; border-radius:50%; background:var(--primary); transform:scale(0); transition:transform 0.3s cubic-bezier(0.2,0.9,0.4,1); }
-.speciality-card.selected .card-radio::after { transform:scale(1); }
-.speciality-card .card-icon { font-size:1.1rem; color:var(--accent); margin-bottom:0.3rem; display:block; }
-.speciality-card .card-label { color:var(--off-white); font-weight:600; font-size:0.92rem; }
-.speciality-card .card-desc { color:var(--gray-mid); font-size:0.78rem; margin-top:0.2rem; }
+    /* ========== FOOTER ========== */
+    .footer {
+      background: var(--primary-deep);
+      border-top: 1px solid rgba(0,212,255,0.1);
+      padding: 4rem 4% 2rem;
+      margin-top: 0;
+    }
+    .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+    .footer-brand .logo { margin-bottom: 1.2rem; display: inline-flex; align-items: center; gap: 0.6rem; }
+    .footer-brand p { color: var(--gray-mid); font-size: 0.88rem; margin: 1rem 0; line-height: 1.7; }
+    .footer-socials { display: flex; gap: 1rem; margin-top: 1rem; }
+    .footer-socials a {
+      width: 42px; height: 42px;
+      background: rgba(15,43,77,0.5);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--off-white);
+      border: 1px solid rgba(0,212,255,0.1);
+      transition: var(--transition);
+    }
+    .footer-socials a:hover { background: var(--accent); color: var(--primary-deep); transform: translateY(-3px); }
+    .footer-col h4 { color: var(--white); font-size: 0.92rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.08em; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.6rem; }
+    .footer-col ul a { color: var(--gray-light); font-size: 0.88rem; transition: var(--transition); }
+    .footer-col ul a:hover { color: var(--accent); }
+    .footer-bottom { max-width: 1400px; margin: 0 auto; padding-top: 1.5rem; border-top: 1px solid rgba(0,212,255,0.1); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; color: var(--gray-mid); }
 
-/* 🆕 CHAMP EMAIL */
-.email-capture-section {
-  margin: 2rem 0;
-  padding: 1.5rem;
-  background: rgba(0, 212, 255, 0.03);
-  border: 1.5px solid rgba(0, 212, 255, 0.15);
-  border-radius: 16px;
-  display: none;
-  transition: all 0.4s ease;
-}
-.email-capture-section.visible {
-  display: block;
-  animation: fadeInUp 0.5s ease;
-}
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.email-capture-section label {
-  display: block;
-  color: var(--white);
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  font-family: 'Space Grotesk', sans-serif;
-}
-.email-capture-section .email-hint {
-  color: var(--gray-mid);
-  font-size: 0.82rem;
-  margin-bottom: 1rem;
-}
-.email-input-wrapper {
-  position: relative;
-  max-width: 500px;
-}
-.email-input-wrapper i {
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--accent);
-  font-size: 1.1rem;
-}
-.email-input-wrapper input {
-  width: 100%;
-  padding: 0.9rem 1rem 0.9rem 2.8rem;
-  border: 1.5px solid rgba(0, 212, 255, 0.25);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.04);
-  color: white;
-  font-family: inherit;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
-}
-.email-input-wrapper input:focus {
-  outline: none;
-  border-color: var(--accent);
-  background: rgba(0, 212, 255, 0.06);
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
-}
-.email-input-wrapper input::placeholder {
-  color: rgba(255, 255, 255, 0.3);
-}
-.email-input-wrapper input.invalid {
-  border-color: var(--red);
-  animation: shake 0.5s ease;
-}
-.email-error-msg {
-  color: var(--red);
-  font-size: 0.82rem;
-  margin-top: 0.5rem;
-  display: none;
-  align-items: center;
-  gap: 0.4rem;
-}
-.email-success-msg {
-  color: var(--success);
-  font-size: 0.82rem;
-  margin-top: 0.5rem;
-  display: none;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-/* UPLOAD ZONE */
-.upload-zone { background:rgba(255,255,255,0.03); border:2px dashed rgba(0,212,255,0.3); border-radius:24px; padding:3rem 2rem; text-align:center; transition:var(--transition); cursor:pointer; position:relative; }
-.upload-zone:not(.disabled):hover { border-color:var(--accent); background:rgba(0,212,255,0.05); box-shadow:0 0 40px rgba(0,212,255,0.1); }
-.upload-zone.disabled { opacity:0.4; cursor:not-allowed; pointer-events:none; filter:grayscale(30%); border-color:rgba(255,255,255,0.1); }
-.upload-zone.dragover { border-color:var(--accent)!important; background:rgba(0,212,255,0.1)!important; box-shadow:0 0 60px rgba(0,212,255,0.2)!important; }
-.upload-icon { font-size:4rem; color:var(--accent); margin-bottom:1rem; }
-.upload-zone h3 { color:var(--white); font-size:1.4rem; margin-bottom:0.5rem; }
-.upload-zone p { color:var(--gray-light); font-size:0.95rem; margin-bottom:1rem; }
-.upload-btn { display:inline-block; padding:0.8rem 2rem; background:linear-gradient(135deg,var(--accent),var(--accent-dark)); color:var(--primary); border-radius:50px; font-weight:700; cursor:pointer; transition:var(--transition); }
-.upload-btn:hover { transform:translateY(-3px); box-shadow:0 10px 30px rgba(0,212,255,0.3); }
-#fileInput { display:none; }
-.file-name { margin-top:1rem; color:var(--success); font-weight:600; display:none; }
-
-/* PROCESSING OVERLAY */
-.processing-overlay { display:none; text-align:center; padding:3rem 2rem; background:rgba(255,255,255,0.03); border:1px solid rgba(0,212,255,0.2); border-radius:24px; }
-.processing-overlay.active { display:block; }
-.scanner-animation { position:relative; width:150px; height:150px; margin:0 auto 2rem; }
-.scanner-circle { width:150px; height:150px; border-radius:50%; border:3px solid rgba(0,212,255,0.2); position:absolute; top:0; left:0; animation:scannerSpin 2s linear infinite; }
-.scanner-circle::before { content:''; position:absolute; top:-5px; left:50%; transform:translateX(-50%); width:10px; height:10px; background:var(--accent); border-radius:50%; box-shadow:0 0 20px var(--accent); }
-.scanner-line { position:absolute; top:0; left:0; width:100%; height:3px; background:linear-gradient(90deg,transparent,var(--accent),transparent); top:50%; transform:translateY(-50%); animation:scannerPulse 1.5s ease-in-out infinite; }
-@keyframes scannerSpin { 0%{transform:rotate(0deg);} 100%{transform:rotate(360deg);} }
-@keyframes scannerPulse { 0%,100%{opacity:0.3;transform:translateY(-50%) scaleX(0.8);} 50%{opacity:1;transform:translateY(-50%) scaleX(1.2);} }
-.processing-steps { display:flex; flex-direction:column; gap:0.8rem; align-items:center; }
-.processing-step { display:flex; align-items:center; gap:0.8rem; color:var(--gray-light); font-size:0.95rem; }
-.processing-step i { color:var(--accent); }
-.processing-step.done i { color:var(--success); }
-.processing-step.done { color:var(--success); }
-.processing-step.pdf-pages { font-size:0.85rem; color:var(--accent); margin-top:0.5rem; }
-
-/* RESULT PANELS */
-.result-panel { display:none; text-align:center; padding:3rem 2rem; background:rgba(255,255,255,0.03); border:1px solid rgba(0,212,255,0.2); border-radius:24px; }
-.result-panel.active { display:block; }
-.result-icon { font-size:5rem; margin-bottom:1rem; }
-.result-icon.accepted { color:var(--success); }
-.result-icon.rejected { color:var(--red); }
-.result-title { font-size:1.8rem; color:var(--white); margin-bottom:1rem; }
-.result-desc { color:var(--gray-light); font-size:1rem; margin-bottom:2rem; max-width:500px; margin-left:auto; margin-right:auto; }
-.result-action-btn { display:inline-block; padding:1rem 2.5rem; border-radius:50px; font-weight:700; font-size:1rem; cursor:pointer; transition:var(--transition); text-decoration:none; }
-.btn-goto-exam { background:linear-gradient(135deg,var(--red),var(--red-dark)); color:var(--white); }
-.btn-goto-exam:hover { transform:translateY(-3px); box-shadow:0 15px 35px rgba(239,68,68,0.4); }
-
-/* 🆕 CODE REVEAL BOX */
-.code-reveal-box {
-  background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(16,185,129,0.08));
-  border: 2px solid var(--accent);
-  border-radius: 16px;
-  padding: 2rem;
-  margin: 1.5rem 0;
-  text-align: center;
-  animation: fadeInUp 0.6s ease;
-  display: none;
-}
-.code-reveal-box.visible { display: block; }
-.code-reveal-box .welcome-icon { font-size: 3rem; margin-bottom: 0.5rem; animation: pulse 2s infinite; }
-@keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.1); } }
-.code-reveal-box h4 { color: var(--white); font-size: 1.3rem; margin-bottom: 0.5rem; font-family: 'Space Grotesk', sans-serif; }
-.code-reveal-box .welcome-subtitle { color: var(--gray-light); font-size: 0.9rem; margin-bottom: 1.5rem; }
-.code-display-box {
-  background: rgba(0,0,0,0.4);
-  border: 2px dashed var(--gold);
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin: 1.5rem auto;
-  display: inline-block;
-  min-width: 280px;
-}
-.code-display-box .code-label { color: var(--gray-light); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.5rem; }
-.code-display-box .code-value-large {
-  font-family: 'Space Grotesk', monospace;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--gold);
-  letter-spacing: 0.15em;
-  user-select: all;
-  cursor: pointer;
-}
-.code-display-box .code-expiry { color: var(--red); font-size: 0.8rem; margin-top: 0.8rem; }
-.code-display-box .code-expiry i { animation: pulse 1.5s infinite; }
-.code-copy-btn {
-  display: inline-block;
-  margin-top: 0.8rem;
-  padding: 0.5rem 1.5rem;
-  background: rgba(255,184,0,0.15);
-  border: 1px solid var(--gold);
-  color: var(--gold);
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 0.85rem;
-  transition: all 0.3s ease;
-  font-family: inherit;
-}
-.code-copy-btn:hover { background: rgba(255,184,0,0.25); transform: translateY(-2px); }
-.code-copy-btn.copied { background: var(--success); border-color: var(--success); color: white; }
-.instructions-box {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin: 1.5rem 0;
-  text-align: left;
-}
-.instructions-box h5 { color: var(--accent); font-size: 0.95rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
-.instructions-box ol { list-style: none; padding: 0; counter-reset: step-counter; }
-.instructions-box ol li {
-  counter-increment: step-counter;
-  color: var(--off-white);
-  font-size: 0.9rem;
-  padding: 0.6rem 0 0.6rem 2.5rem;
-  position: relative;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-.instructions-box ol li:last-child { border-bottom: none; }
-.instructions-box ol li::before {
-  content: counter(step-counter);
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 28px;
-  height: 28px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-  color: var(--primary-deep);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 0.8rem;
-}
-.proctor-notice {
-  background: rgba(239,68,68,0.08);
-  border: 1px solid rgba(239,68,68,0.3);
-  border-radius: 10px;
-  padding: 1rem 1.2rem;
-  margin-top: 1rem;
-  display: flex;
-  align-items: flex-start;
-  gap: 0.8rem;
-}
-.proctor-notice i { color: var(--red); font-size: 1.2rem; margin-top: 2px; flex-shrink: 0; }
-.proctor-notice .proctor-text { font-size: 0.85rem; color: var(--off-white); line-height: 1.5; }
-.proctor-notice .proctor-text strong { color: var(--red); }
-
-.result-info-box { background:rgba(0,212,255,0.08); border:1px solid rgba(0,212,255,0.2); border-radius:14px; padding:1.5rem; margin-top:2rem; text-align:left; display:none; }
-.result-info-box h4 { color:var(--accent); margin-bottom:0.8rem; }
-.result-info-box p { color:var(--gray-light); font-size:0.9rem; margin-bottom:0.5rem; }
-
-/* FORM SECTION */
-.form-section { background:linear-gradient(180deg,var(--primary-deep),#030d1a); display:none; }
-.form-section.visible { display:block; }
-.form-card { max-width:1100px; margin:0 auto; padding:3rem; border-radius:20px; background:rgba(7,20,38,0.8); backdrop-filter:blur(10px); border:1px solid rgba(0,212,255,0.15); }
-.form-step { margin-bottom:2.5rem; padding-bottom:2.5rem; border-bottom:1px solid rgba(0,212,255,0.08); }
-.form-step:last-of-type { border-bottom:none; padding-bottom:0; }
-.form-step h3 { color:var(--white); font-size:1.2rem; margin-bottom:0.4rem; display:flex; align-items:center; gap:0.7rem; }
-.step-num { width:32px; height:32px; background:linear-gradient(135deg,var(--red),var(--red-dark)); color:var(--white); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.9rem; flex-shrink:0; }
-.step-desc { color:var(--gray-light); font-size:0.88rem; margin-bottom:1.5rem; padding-left:2.7rem; }
-.form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem; }
-.form-group { margin-bottom:1rem; }
-.form-group label { display:block; color:var(--accent); font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.4rem; }
-.form-group label .required { color:var(--red); }
-.form-group input,.form-group select,.form-group textarea { width:100%; padding:0.85rem 1rem; border:1.5px solid rgba(255,255,255,0.1); border-radius:10px; background:rgba(255,255,255,0.04); color:var(--white); font-family:inherit; font-size:0.95rem; transition:var(--transition); }
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus { outline:none; border-color:var(--accent); background:rgba(0,212,255,0.06); }
-.form-group select option { background:var(--primary); color:var(--white); }
-.form-group textarea { resize:vertical; min-height:100px; }
-.form-help { font-size:0.78rem; color:var(--gray-mid); margin-top:0.3rem; }
-.radio-group,.checkbox-group { display:flex; gap:0.8rem; flex-wrap:wrap; }
-.radio-option,.checkbox-option { display:flex; align-items:center; gap:0.5rem; padding:0.6rem 1rem; background:rgba(255,255,255,0.04); border:1.5px solid rgba(0,212,255,0.1); border-radius:8px; cursor:pointer; transition:all 0.2s; font-size:0.88rem; color:var(--off-white); }
-.radio-option:hover,.checkbox-option:hover { border-color:var(--accent); background:rgba(0,212,255,0.06); }
-.radio-option input,.checkbox-option input { width:auto; margin:0; cursor:pointer; accent-color:var(--accent); }
-.skills-matrix { background:rgba(255,255,255,0.03); border:1px solid rgba(0,212,255,0.1); border-radius:12px; padding:1.2rem; margin-top:0.5rem; }
-.skill-row { display:grid; grid-template-columns:1.5fr repeat(5,1fr); gap:0.5rem; align-items:center; padding:0.7rem 0.5rem; border-bottom:1px solid rgba(255,255,255,0.04); font-size:0.85rem; }
-.skill-row:last-child { border-bottom:none; }
-.skill-row.header { font-weight:700; color:var(--accent); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.05em; }
-.skill-row.header>div { text-align:center; }
-.skill-row>div:first-child { font-weight:600; color:var(--off-white); }
-.skill-row label { display:flex; justify-content:center; cursor:pointer; }
-.skill-row input[type="radio"] { width:18px; height:18px; cursor:pointer; accent-color:var(--accent); }
-
-.btn-submit { width:100%; padding:1.2rem; background:linear-gradient(135deg,var(--red),var(--red-dark)); color:var(--white); border:none; border-radius:12px; font-weight:700; font-size:1.05rem; cursor:pointer; transition:var(--transition); font-family:inherit; margin-top:1rem; display:flex; align-items:center; justify-content:center; gap:0.6rem; }
-.btn-submit:hover { transform:translateY(-3px); box-shadow:0 15px 35px rgba(239,68,68,0.3); }
-.btn-submit:disabled { opacity:0.5; cursor:not-allowed; }
-.form-message { padding:1rem; border-radius:10px; margin-bottom:1.5rem; text-align:center; font-weight:600; display:none; }
-.form-message.success { background:rgba(16,185,129,0.15); color:#10B981; border:1px solid rgba(16,185,129,0.3); display:block; }
-.form-message.error { background:rgba(239,68,68,0.15); color:#EF4444; border:1px solid rgba(239,68,68,0.3); display:block; }
-
-/* FOOTER */
-footer { background:var(--primary-deep); border-top:1px solid rgba(0,212,255,0.1); padding:3rem 4% 1.5rem; margin-top:4rem; }
-.footer-grid { max-width:1400px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:3rem; margin-bottom:2.5rem; }
-.footer-brand p { color:var(--gray-mid); font-size:0.88rem; margin:1rem 0; }
-.footer-col h4 { color:var(--white); font-size:0.92rem; margin-bottom:1rem; text-transform:uppercase; letter-spacing:0.08em; }
-.footer-col ul { list-style:none; }
-.footer-col ul li { margin-bottom:0.6rem; }
-.footer-col ul a { color:var(--gray-light); font-size:0.88rem; transition:var(--transition); }
-.footer-col ul a:hover { color:var(--accent); }
-.footer-bottom { max-width:1400px; margin:0 auto; padding-top:1.5rem; border-top:1px solid rgba(0,212,255,0.1); display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; font-size:0.82rem; color:var(--gray-mid); }
-
-/* RESPONSIVE */
-@media (max-width:1200px) { .footer-grid { grid-template-columns:repeat(2,1fr); } }
-@media (max-width:1024px) { .nav-links { display:none; } .menu-toggle { display:block; } }
-@media (max-width:768px) {
-  .top-bar-container { flex-direction:column!important; justify-content:center!important; align-items:center!important; text-align:center!important; gap:0.6rem!important; }
-  .top-bar-info { order:2!important; flex-direction:column!important; align-items:center!important; gap:0.4rem!important; width:100%!important; }
-  .top-bar-social { order:3!important; flex-direction:column!important; align-items:center!important; gap:0.5rem!important; width:100%!important; }
-  .speciality-grid { grid-template-columns:1fr; }
-  .email-capture-section { padding: 1.2rem; }
-  .email-capture-section label { font-size: 0.9rem; }
-  .email-input-wrapper input { font-size: 0.9rem; padding: 0.8rem 0.8rem 0.8rem 2.5rem; }
-  .code-reveal-box { padding: 1.5rem 1rem; }
-  .code-reveal-box h4 { font-size: 1.1rem; }
-  .code-display-box { min-width: auto; width: 100%; padding: 1.2rem; }
-  .code-display-box .code-value-large { font-size: 1.8rem; letter-spacing: 0.1em; }
-  .instructions-box { padding: 1rem; }
-  .instructions-box ol li { font-size: 0.82rem; padding-left: 2.2rem; }
-  .instructions-box ol li::before { width: 24px; height: 24px; font-size: 0.7rem; }
-  .proctor-notice { flex-direction: column; align-items: center; text-align: center; }
-  .proctor-notice .proctor-text { font-size: 0.78rem; }
-  .form-row { grid-template-columns:1fr; }
-  .form-card { padding:1.5rem; }
-  .skill-row { grid-template-columns:1fr; gap:0.3rem; padding:1rem 0.5rem; }
-  .skill-row.header { display:none; }
-  .skill-row label::before { content:attr(data-label); display:inline-block; width:110px; font-size:0.78rem; color:var(--gray-mid); }
-  .skill-row label { justify-content:flex-start; }
-  .footer-grid { grid-template-columns:1fr; }
-}
-</style>
+    @media (max-width: 1200px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 1024px) { .nav-links { display: none; } .menu-toggle { display: block; } }
+    @media (max-width: 768px) {
+      .top-bar-container { flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 0.8rem; }
+      .top-bar-info { display: flex !important; flex-direction: column; align-items: center; justify-content: center; gap: 0.4rem; width: 100%; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .page-header { padding: 3rem 4% 2rem; }
+      .candidate-form { padding: 1.5rem; }
+      .cta-block { padding: 3rem 4%; }
+    }
+  </style>
 </head>
 <body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
 
 <!-- ========== TOP BAR ========== -->
 <div class="top-bar">
@@ -553,12 +384,7 @@ footer { background:var(--primary-deep); border-top:1px solid rgba(0,212,255,0.1
   <div class="nav-container">
     <a href="index.html" class="logo">
       <svg class="logo-shield" viewBox="0 0 24 24" width="32" height="32">
-        <defs>
-          <linearGradient id="shieldGradNav" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#FFB800;stop-opacity:1" />
-          </linearGradient>
-        </defs>
+        <defs><linearGradient id="shieldGradNav" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1"/><stop offset="100%" style="stop-color:#FFB800;stop-opacity:1"/></linearGradient></defs>
         <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#shieldGradNav)"/>
         <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
       </svg>
@@ -570,7 +396,6 @@ footer { background:var(--primary-deep); border-top:1px solid rgba(0,212,255,0.1
       <li><a href="secteurs.html" data-i18n="nav_sectors">Secteurs</a></li>
       <li><a href="qui-sommes-nous.html" data-i18n="nav_about">Qui sommes-nous</a></li>
       <li><a href="carrieres.html" class="active" data-i18n="nav_careers">Carrières</a></li>
-      <li><a href="campus-cyber.html" data-i18n="nav_campus">🎓 Campus Cyber</a></li>
       <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
       <li><a href="support.html" class="btn-espace-client" data-i18n="nav_espace_client"><i class="fa-solid fa-user-circle"></i> Espace Client</a></li>
     </ul>
@@ -585,694 +410,376 @@ footer { background:var(--primary-deep); border-top:1px solid rgba(0,212,255,0.1
   <a href="secteurs.html" data-i18n="nav_sectors">Secteurs</a>
   <a href="qui-sommes-nous.html" data-i18n="nav_about">Qui sommes-nous</a>
   <a href="carrieres.html" data-i18n="nav_careers">Carrières</a>
-  <a href="campus-cyber.html" data-i18n="nav_campus">🎓 Campus Cyber</a>
   <a href="contact.html" data-i18n="nav_contact">Contact</a>
   <a href="support.html" class="btn-espace-client-mobile" data-i18n="nav_espace_client"><i class="fa-solid fa-user-circle"></i> Espace Client</a>
 </div>
 
-<section class="page-header"><div class="page-header-container"><h1 data-i18n="hero_title">Votre Carrière chez<br><span class="accent">NetVanguard</span></h1><p data-i18n="hero_desc">Déposez votre CV, notre système intelligent l'analyse et vous oriente vers la prochaine étape.</p></div></section>
-
-<section class="section">
-  <div class="section-container">
-
-    <div class="speciality-section" id="specialitySection">
-      <h3 class="speciality-title" data-i18n="spec_title">Choisissez votre spécialité</h3>
-      <p class="speciality-subtitle" data-i18n="spec_subtitle">Sélectionnez le domaine qui correspond à votre profil avant de déposer votre CV</p>
-      <div class="speciality-grid" id="specialityGrid">
-        <div class="speciality-card" data-speciality="Support Technique IT" data-i18n-spec="spec_support">
-          <div class="card-radio"></div>
-          <i class="fas fa-headset card-icon"></i>
-          <div class="card-label" data-i18n="spec_support_label">Support Technique IT</div>
-          <div class="card-desc" data-i18n="spec_support_desc">Helpdesk, troubleshooting, maintenance</div>
-        </div>
-        <div class="speciality-card" data-speciality="Administrateur Systèmes" data-i18n-spec="spec_admin">
-          <div class="card-radio"></div>
-          <i class="fas fa-server card-icon"></i>
-          <div class="card-label" data-i18n="spec_admin_label">Administrateur Systèmes</div>
-          <div class="card-desc" data-i18n="spec_admin_desc">Windows, Linux, virtualisation, cloud</div>
-        </div>
-        <div class="speciality-card" data-speciality="Sécurité Réseau" data-i18n-spec="spec_netsec">
-          <div class="card-radio"></div>
-          <i class="fas fa-shield-alt card-icon"></i>
-          <div class="card-label" data-i18n="spec_netsec_label">Sécurité Réseau</div>
-          <div class="card-desc" data-i18n="spec_netsec_desc">Firewall, VPN, IDS/IPS, architecture</div>
-        </div>
-        <div class="speciality-card" data-speciality="Pentest / VAPT" data-i18n-spec="spec_pentest">
-          <div class="card-radio"></div>
-          <i class="fas fa-bug card-icon"></i>
-          <div class="card-label" data-i18n="spec_pentest_label">Pentest / VAPT</div>
-          <div class="card-desc" data-i18n="spec_pentest_desc">Tests d'intrusion, audit de sécurité</div>
-        </div>
-        <div class="speciality-card" data-speciality="SOC Analyst" data-i18n-spec="spec_soc">
-          <div class="card-radio"></div>
-          <i class="fas fa-eye card-icon"></i>
-          <div class="card-label" data-i18n="spec_soc_label">SOC Analyst</div>
-          <div class="card-desc" data-i18n="spec_soc_desc">Surveillance, SIEM, analyse de logs</div>
-        </div>
-        <div class="speciality-card" data-speciality="GRC / Conformité" data-i18n-spec="spec_grc">
-          <div class="card-radio"></div>
-          <i class="fas fa-clipboard-check card-icon"></i>
-          <div class="card-label" data-i18n="spec_grc_label">GRC / Conformité</div>
-          <div class="card-desc" data-i18n="spec_grc_desc">ISO 27001, RGPD, politiques de sécurité</div>
-        </div>
-        <div class="speciality-card" data-speciality="Forensic / Investigation" data-i18n-spec="spec_forensic">
-          <div class="card-radio"></div>
-          <i class="fas fa-search card-icon"></i>
-          <div class="card-label" data-i18n="spec_forensic_label">Forensic / Investigation</div>
-          <div class="card-desc" data-i18n="spec_forensic_desc">Analyse post-incident, preuves numériques</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 🆕 CHAMP EMAIL DU CANDIDAT -->
-    <div class="email-capture-section" id="emailCaptureSection">
-      <label data-i18n="email_section_title">
-        <i class="fas fa-envelope" style="color: var(--accent); margin-right: 0.5rem;"></i>
-        Votre adresse email
-      </label>
-      <p class="email-hint" data-i18n="email_section_hint">
-        Entrez l'email sur lequel vous recevrez votre code d'accès à l'examen après validation de votre CV.
-      </p>
-      <div class="email-input-wrapper">
-        <i class="fas fa-at"></i>
-        <input 
-          type="email" 
-          id="candidateEmailInput" 
-          placeholder="vous@exemple.com"
-          autocomplete="email"
-        >
-      </div>
-      <p class="email-error-msg" id="emailErrorMsg">
-        <i class="fas fa-exclamation-circle"></i> 
-        <span data-i18n="email_error">Veuillez entrer une adresse email valide</span>
-      </p>
-      <p class="email-success-msg" id="emailSuccessMsg">
-        <i class="fas fa-check-circle"></i> 
-        <span data-i18n="email_success">Email valide ✓ — Vous pouvez maintenant déposer votre CV</span>
-      </p>
-    </div>
-
-    <div id="stepUpload">
-      <div class="upload-zone disabled" id="uploadZone">
-        <div class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
-        <h3 data-i18n="upload_title">Déposez votre CV ici</h3>
-        <p data-i18n="upload_desc">Formats acceptés : PDF, DOCX, TXT (Max 10 MB)</p>
-        <span class="upload-btn"><i class="fas fa-folder-open"></i> <span data-i18n="btn_browse">Parcourir les fichiers</span></span>
-        <input type="file" id="fileInput" accept=".pdf,.docx,.txt" onchange="handleFileSelect(event)">
-        <div class="file-name" id="fileName"></div>
-      </div>
-    </div>
-
-    <div class="processing-overlay" id="stepProcessing">
-      <div class="scanner-animation"><div class="scanner-circle"></div><div class="scanner-line"></div></div>
-      <h3 style="color:var(--white);margin-bottom:1.5rem;" data-i18n="processing_title">Analyse de votre CV en cours...</h3>
-      <div class="processing-steps">
-        <div class="processing-step" id="ps1"><i class="fas fa-spinner fa-spin"></i> <span data-i18n="ps1">Extraction du contenu...</span></div>
-        <div class="processing-step" id="ps2"><i class="far fa-circle"></i> <span data-i18n="ps2">Lecture ligne par ligne...</span></div>
-        <div class="processing-step" id="ps3"><i class="far fa-circle"></i> <span data-i18n="ps3">Analyse et scoring...</span></div>
-        <div class="processing-step" id="ps4"><i class="far fa-circle"></i> <span data-i18n="ps4">Évaluation finale...</span></div>
-      </div>
-      <div class="processing-step pdf-pages" id="pdfPagesInfo"></div>
-    </div>
-
-    <!-- 🆕 PANNEAU ACCEPTÉ AVEC CODE -->
-    <div class="result-panel" id="stepAccepted">
-      <div class="result-icon accepted"><i class="fas fa-check-circle"></i></div>
-      <div class="result-title" data-i18n="accepted_title">✅ Profil Validé — Félicitations !</div>
-      <div class="result-desc" data-i18n="accepted_desc">Votre CV a été analysé et accepté par notre système. Voici votre code d'accès pour l'examen.</div>
-      
-      <div class="code-reveal-box visible" id="codeRevealBox">
-        <div class="welcome-icon">🎯</div>
-        <h4 data-i18n="welcome_title">Bienvenue sur la plateforme d'examen NetVanguard</h4>
-        <p class="welcome-subtitle" data-i18n="welcome_subtitle">Vous avez été présélectionné(e) pour passer l'examen technique. Voici votre code d'accès personnel :</p>
-        
-        <div class="code-display-box">
-          <div class="code-label">🔑 <span data-i18n="code_label">Code d'accès</span></div>
-          <div class="code-value-large" id="codeValueLarge" onclick="copyCode()" title="Cliquez pour copier">--------</div>
-          <div class="code-expiry"><i class="fas fa-hourglass-half"></i> <span data-i18n="code_expiry">Valable</span> <strong data-i18n="code_expiry_time">1 heure</strong></div>
-          <button class="code-copy-btn" id="codeCopyBtn" onclick="copyCode()">
-            <i class="fas fa-copy"></i> <span data-i18n="btn_copy_code">Copier le code</span>
-          </button>
-        </div>
-
-        <div class="instructions-box">
-          <h5><i class="fas fa-list-ol"></i> <span data-i18n="instructions_title">Instructions pour l'examen :</span></h5>
-          <ol>
-            <li data-i18n="instr1">Cliquez sur le bouton <strong>"Accéder à l'Examen"</strong> ci-dessous</li>
-            <li data-i18n="instr2">Entrez votre <strong>code d'accès</strong> sur la page Campus Cyber</li>
-            <li data-i18n="instr3">Sélectionnez votre <strong>filière</strong> correspondant à votre spécialité</li>
-            <li data-i18n="instr4">Vous disposerez de <strong>60 minutes</strong> pour répondre à <strong>40 questions</strong></li>
-            <li data-i18n="instr5">Lisez attentivement chaque question avant de répondre</li>
-          </ol>
-        </div>
-
-        <div class="proctor-notice">
-          <i class="fas fa-shield-halved"></i>
-          <div class="proctor-text">
-            <span data-i18n="proctor_warning"><strong>⚠️ Examen surveillé par ProctorExam</strong><br>
-            Cette plateforme est équipée d'un système de surveillance automatisé. Votre <strong>caméra</strong> sera activée pendant l'examen pour garantir l'intégrité de l'évaluation. Toute tentative de triche entraînera <strong>l'annulation immédiate</strong> de votre candidature.</span>
-          </div>
-        </div>
-      </div>
-
-      <a href="campus-cyber.html" class="result-action-btn btn-goto-exam" style="margin-bottom:1rem;">
-        <i class="fas fa-arrow-right"></i> <span data-i18n="btn_goto_exam">Accéder à l'Examen</span>
-      </a>
-      <p style="color:var(--gray-mid);font-size:0.8rem;margin-top:0.5rem;" data-i18n="contact_fallback">
-        📧 Une copie de ce code a été envoyée à <strong>contact@netvanguard.ma</strong><br>
-        En cas de problème, contactez-nous à cette adresse.
-      </p>
-    </div>
-
-    <div class="result-panel" id="stepRejected">
-      <div class="result-icon rejected"><i class="fas fa-times-circle"></i></div>
-      <div class="result-title" id="rejected_title" data-i18n="rejected_title">📋 Profil Non Retenu</div>
-      <div class="result-desc" id="rejected_desc" data-i18n="rejected_desc">Votre profil ne correspond pas aux critères requis pour le moment. Vous pouvez remplir le formulaire détaillé pour une évaluation par notre équipe RH.</div>
-      <button class="result-action-btn btn-goto-exam" onclick="scrollToForm()"><i class="fas fa-arrow-down"></i> <span data-i18n="btn_fill_form">Remplir le formulaire</span></button>
-    </div>
-
+<!-- ========== PAGE HEADER ========== -->
+<section class="page-header">
+  <div class="page-header-container">
+    <span class="page-badge">💼 <span data-i18n="badge_careers">REJOIGNEZ-NOUS</span></span>
+    <h1><span data-i18n="hero_title">Construisons ensemble l'</span><span class="accent" data-i18n="hero_subtitle">avenir numérique</span></h1>
+    <p data-i18n="hero_desc">Vous êtes passionné par la cybersécurité, l'infogérance ou l'infrastructure IT ? Nous recrutons les meilleurs talents pour relever les défis de demain.</p>
   </div>
 </section>
 
-<section class="form-section" id="detailedForm">
-  <div class="section-container">
-    <h2 style="text-align:center;margin-bottom:2rem;color:var(--white);" data-i18n="form_main_title">Formulaire de Candidature Détaillé</h2>
-    <form id="careerForm" action="https://formspree.io/f/myklqdky" method="POST" enctype="multipart/form-data">
-      <div class="form-card">
-        <div id="formMsgSuccess" class="form-message" style="display:none;"><i class="fas fa-check-circle"></i> <span data-i18n="msg_success">✅ Documents envoyés au responsable recrutement ! Nous vous recontacterons sous 7 jours.</span></div>
-        <div id="formMsgError" class="form-message" style="display:none;"><i class="fas fa-exclamation-circle"></i> <span data-i18n="msg_error">Erreur lors de l'envoi. Veuillez réessayer.</span></div>
-        <div class="form-step"><h3><span class="step-num">1</span><span data-i18n="step1Title">Vos informations personnelles</span></h3><p class="step-desc" data-i18n="step1Desc">Pour que nous puissions vous identifier et vous recontacter.</p>
-          <div class="form-row"><div class="form-group"><label data-i18n="lbl_firstname">Prénom <span class="required">*</span></label><input type="text" name="prenom" required></div><div class="form-group"><label data-i18n="lbl_lastname">Nom <span class="required">*</span></label><input type="text" name="nom" required></div></div>
-          <div class="form-row"><div class="form-group"><label data-i18n="lbl_email">Email <span class="required">*</span></label><input type="email" name="email" required></div><div class="form-group"><label data-i18n="lbl_phone">Téléphone <span class="required">*</span></label><input type="tel" name="telephone" required></div></div>
-          <div class="form-row"><div class="form-group"><label data-i18n="lbl_genre">Genre</label><div class="radio-group"><label class="radio-option"><input type="radio" name="genre" value="Femme"><span data-i18n="genre_f">Femme</span></label><label class="radio-option"><input type="radio" name="genre" value="Homme"><span data-i18n="genre_h">Homme</span></label><label class="radio-option"><input type="radio" name="genre" value="Autre"><span data-i18n="genre_o">Préfère ne pas répondre</span></label></div></div><div class="form-group"><label data-i18n="lbl_city">Ville <span class="required">*</span></label><input type="text" name="ville" required></div></div>
-        </div>
-        <div class="form-step"><h3><span class="step-num">2</span><span data-i18n="step2Title">Mobilité et disponibilité</span></h3><p class="step-desc" data-i18n="step2Desc">Pour évaluer la compatibilité avec nos besoins opérationnels.</p>
-          <div class="form-group"><label data-i18n="lbl_casa">Notre siège est à Casablanca. Êtes-vous prêt(e) à y travailler ? <span class="required">*</span></label><div class="radio-group"><label class="radio-option"><input type="radio" name="base_casablanca" value="Déjà resident" required><span data-i18n="mob1">Je suis déjà à Casablanca</span></label><label class="radio-option"><input type="radio" name="base_casablanca" value="Prêt à déménager"><span data-i18n="mob2">Prêt(e) à m'y installer</span></label><label class="radio-option"><input type="radio" name="base_casablanca" value="Hybride uniquement"><span data-i18n="mob3">Mode hybride uniquement</span></label><label class="radio-option"><input type="radio" name="base_casablanca" value="Non"><span data-i18n="mob4">Non disponible</span></label></div></div>
-          <div class="form-row"><div class="form-group"><label data-i18n="lbl_dispo">Délai de disponibilité</label><select name="disponibilite"><option value="Immédiate" data-i18n="dispo1">Immédiate</option><option value="2 semaines" data-i18n="dispo2">Sous 2 semaines</option><option value="1 mois" data-i18n="dispo3">Sous 1 mois</option><option value="2 mois" data-i18n="dispo4">Sous 2 mois</option><option value="3 mois ou plus" data-i18n="dispo5">3 mois ou plus</option></select></div><div class="form-group"><label data-i18n="lbl_permis">Permis de conduire</label><div class="radio-group"><label class="radio-option"><input type="radio" name="permis" value="Oui avec véhicule"><span data-i18n="per1">Oui, avec véhicule</span></label><label class="radio-option"><input type="radio" name="permis" value="Oui sans véhicule"><span data-i18n="per2">Oui, sans véhicule</span></label><label class="radio-option"><input type="radio" name="permis" value="Non"><span data-i18n="per3">Non</span></label></div></div></div>
-        </div>
-        <div class="form-step"><h3><span class="step-num">3</span><span data-i18n="step3Title">Parcours académique</span></h3><p class="step-desc" data-i18n="step3Desc">Votre formation et vos certifications professionnelles.</p>
-          <div class="form-row"><div class="form-group"><label data-i18n="lbl_diploma">Plus haut diplôme <span class="required">*</span></label><select name="niveau_etudes" required><option value="">Choisissez...</option><option value="Bac">Baccalauréat</option><option value="Bac+2">Bac+2</option><option value="Bac+3">Bac+3 (Licence)</option><option value="Bac+4">Bac+4 (Maîtrise)</option><option value="Bac+5">Bac+5 (Master/Ingénieur)</option><option value="Doctorat">Doctorat</option></select></div><div class="form-group"><label data-i18n="lbl_etab">Établissement</label><input type="text" name="etablissement"></div></div>
-          <div class="form-group"><label data-i18n="lbl_spec">Spécialité</label><input type="text" name="specialite"></div><div class="form-group"><label data-i18n="lbl_certifs">Certifications professionnelles</label><textarea name="certifications" rows="2"></textarea></div>
-        </div>
-        <div class="form-step"><h3><span class="step-num">4</span><span data-i18n="step4Title">Votre expérience</span></h3><p class="step-desc" data-i18n="step4Desc">Votre parcours professionnel.</p>
-          <div class="form-row"><div class="form-group"><label data-i18n="lbl_exp">Années d'expérience <span class="required">*</span></label><select name="experience" required><option value="">Choisissez...</option><option value="0-1">Moins d'1 an</option><option value="1-3">1 à 3 ans</option><option value="3-5">3 à 5 ans</option><option value="5-10">5 à 10 ans</option><option value="10+">Plus de 10 ans</option></select></div><div class="form-group"><label data-i18n="lbl_domain">Domaine d'expertise</label><select name="domaine"><option value="">Choisissez...</option><option value="Support IT">Support IT</option><option value="Réseau">Réseau</option><option value="Sécurité">Cybersécurité</option><option value="Cloud">Cloud</option><option value="Développement">Développement</option><option value="Autre">Autre</option></select></div></div>
-        </div>
-        <div class="form-step"><h3><span class="step-num">5</span><span data-i18n="step5Title">Auto-évaluation technique</span></h3><p class="step-desc" data-i18n="step5Desc">Évaluez honnêtement votre maîtrise.</p>
-          <div class="skills-matrix">
-            <div class="skill-row header"><div></div><div data-i18n="lvl0">Aucune</div><div data-i18n="lvl1">Débutant</div><div data-i18n="lvl2">Intermédiaire</div><div data-i18n="lvl3">Avancé</div><div data-i18n="lvl4">Expert</div></div>
-            <div class="skill-row"><div>SIEM / SOC</div><label data-label="Aucune"><input type="radio" name="skill_siem" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_siem" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_siem" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_siem" value="3"></label><label data-label="Expert"><input type="radio" name="skill_siem" value="4"></label></div>
-            <div class="skill-row"><div>Pentest</div><label data-label="Aucune"><input type="radio" name="skill_pentest" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_pentest" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_pentest" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_pentest" value="3"></label><label data-label="Expert"><input type="radio" name="skill_pentest" value="4"></label></div>
-            <div class="skill-row"><div>Pare-feu</div><label data-label="Aucune"><input type="radio" name="skill_firewall" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_firewall" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_firewall" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_firewall" value="3"></label><label data-label="Expert"><input type="radio" name="skill_firewall" value="4"></label></div>
-            <div class="skill-row"><div>Cloud</div><label data-label="Aucune"><input type="radio" name="skill_cloud" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_cloud" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_cloud" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_cloud" value="3"></label><label data-label="Expert"><input type="radio" name="skill_cloud" value="4"></label></div>
-            <div class="skill-row"><div>Windows/AD</div><label data-label="Aucune"><input type="radio" name="skill_windows" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_windows" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_windows" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_windows" value="3"></label><label data-label="Expert"><input type="radio" name="skill_windows" value="4"></label></div>
-            <div class="skill-row"><div>Linux</div><label data-label="Aucune"><input type="radio" name="skill_linux" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_linux" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_linux" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_linux" value="3"></label><label data-label="Expert"><input type="radio" name="skill_linux" value="4"></label></div>
-            <div class="skill-row"><div>Scripting</div><label data-label="Aucune"><input type="radio" name="skill_scripting" value="0"></label><label data-label="Débutant"><input type="radio" name="skill_scripting" value="1"></label><label data-label="Intermédiaire"><input type="radio" name="skill_scripting" value="2"></label><label data-label="Avancé"><input type="radio" name="skill_scripting" value="3"></label><label data-label="Expert"><input type="radio" name="skill_scripting" value="4"></label></div>
+<!-- ========== FORM SECTION ========== -->
+<section class="form-section">
+  <div class="form-container">
+    <div class="candidate-form">
+      <h3 data-i18n="form_title">Déposez votre candidature</h3>
+      <p data-i18n="form_desc">Nous étudions chaque dossier avec attention. Vous serez recontacté(e) sous 48h.</p>
+
+      <form id="candidatureForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label data-i18n="lbl_lastname">Nom *</label>
+            <input type="text" id="nom" placeholder="Votre nom" required>
+          </div>
+          <div class="form-group">
+            <label data-i18n="lbl_firstname">Prénom *</label>
+            <input type="text" id="prenom" placeholder="Votre prénom" required>
           </div>
         </div>
-        <div class="form-step"><h3><span class="step-num">6</span><span data-i18n="step6Title">Compétences linguistiques</span></h3>
-          <div class="form-row"><div class="form-group"><label data-i18n="lbl_fr">Français <span class="required">*</span></label><select name="francais" required><option value="">Choisissez...</option><option value="Notions">Notions</option><option value="Conversationnel">Conversationnel</option><option value="Professionnel">Professionnel</option><option value="Courant">Courant</option><option value="Langue maternelle">Langue maternelle</option></select></div><div class="form-group"><label data-i18n="lbl_en">Anglais</label><select name="anglais"><option value="">Choisissez...</option><option value="Notions">Notions</option><option value="Conversationnel">Conversationnel</option><option value="Professionnel">Professionnel</option><option value="Courant">Courant</option><option value="Langue maternelle">Langue maternelle</option></select></div></div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label data-i18n="lbl_email">Email *</label>
+            <input type="email" id="email" placeholder="votre@email.com" required>
+          </div>
+          <div class="form-group">
+            <label data-i18n="lbl_phone">Téléphone *</label>
+            <input type="tel" id="telephone" placeholder="+212..." required>
+          </div>
         </div>
-        <div class="form-step"><h3><span class="step-num">7</span><span data-i18n="step7Title">Motivation et Documents</span></h3>
-          <div class="form-group"><label data-i18n="lbl_motivation">Pourquoi nous rejoindre ? <span class="required">*</span></label><textarea name="motivation" required rows="3"></textarea></div>
-          <div class="form-group"><label data-i18n="lbl_docs">Joindre des documents (Diplômes, Certificats, Bulletins) <span class="required">*</span></label><input type="file" name="documents" accept=".pdf,.docx,.jpg,.jpeg,.png" multiple required></div>
-          <div class="form-group"><label data-i18n="lbl_linkedin">LinkedIn (optionnel)</label><input type="url" name="linkedin"></div>
+
+        <div class="form-group">
+          <label data-i18n="lbl_position">Poste souhaité *</label>
+          <select id="poste" required>
+            <option value="" data-i18n="pos_select">Sélectionnez un poste</option>
+            <option value="Ingénieur Cybersécurité" data-i18n="pos_sec">Ingénieur Cybersécurité</option>
+            <option value="Pentester / VAPT" data-i18n="pos_pentest">Pentester / VAPT</option>
+            <option value="Ingénieur Réseau & Sécurité" data-i18n="pos_network">Ingénieur Réseau & Sécurité</option>
+            <option value="Administrateur Systèmes" data-i18n="pos_sysadmin">Administrateur Systèmes</option>
+            <option value="Support Technique IT" data-i18n="pos_support">Support Technique IT</option>
+            <option value="Chef de Projet IT" data-i18n="pos_pm">Chef de Projet IT</option>
+            <option value="Consultant Cybersécurité" data-i18n="pos_consultant">Consultant Cybersécurité</option>
+            <option value="Ingénieur Cloud & Microsoft 365" data-i18n="pos_cloud">Ingénieur Cloud & Microsoft 365</option>
+            <option value="Ingénieur SOC / NOC" data-i18n="pos_soc">Ingénieur SOC / NOC</option>
+            <option value="Stage / Alternance" data-i18n="pos_intern">Stage / Alternance</option>
+            <option value="Autre" data-i18n="pos_other">Autre</option>
+          </select>
         </div>
-        <div class="form-step"><h3><span class="step-num">8</span><span data-i18n="step8Title">Aspects financiers</span></h3>
-          <div class="form-row"><div class="form-group"><label data-i18n="lbl_salaire">Salaire actuel (DH net)</label><input type="text" name="salaire_actuel"></div><div class="form-group"><label data-i18n="lbl_pretention">Prétention salariale (DH net)</label><input type="text" name="pretention"></div></div>
+
+        <div class="form-group">
+          <label data-i18n="lbl_message">Message / Lettre de motivation</label>
+          <textarea id="message" placeholder="Dites-nous en plus sur vous, votre parcours et vos aspirations..."></textarea>
         </div>
-        <input type="hidden" name="_subject" value="Nouvelle candidature - Carrières NetVanguard">
-        <input type="text" name="_gotcha" style="display:none">
-        <button type="submit" class="btn-submit" id="submitBtn"><i class="fas fa-paper-plane"></i> <span data-i18n="btn_submit">Envoyer au responsable recrutement</span></button>
-        <p style="text-align:center;font-size:.78rem;color:var(--gray-mid);margin-top:1rem;">🔒 Vos documents sont envoyés à <strong>contact@netvanguard.ma</strong></p>
+
+        <div class="form-group">
+          <label data-i18n="lbl_cv">CV * (PDF ou DOCX)</label>
+          <div class="file-upload" id="fileUpload">
+            <input type="file" id="cv" accept=".pdf,.doc,.docx" required>
+            <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+            <div class="text"><span data-i18n="cv_text">Déposez votre CV ici ou cliquez pour parcourir</span></div>
+            <div class="file-name" id="fileName"></div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">
+          <i class="fas fa-paper-plane"></i> <span data-i18n="btn_submit">Envoyer ma candidature</span>
+        </button>
+      </form>
+
+      <div class="success-msg" id="successMsg">
+        <i class="fas fa-check-circle" style="font-size:1.5rem;margin-bottom:0.5rem;display:block;"></i>
+        <span data-i18n="success_msg">✅ Votre candidature a été envoyée avec succès ! Nous vous recontacterons dans les plus brefs délais.</span>
       </div>
-    </form>
+
+      <div class="error-msg" id="errorMsg">
+        <i class="fas fa-exclamation-circle" style="font-size:1.5rem;margin-bottom:0.5rem;display:block;"></i>
+        <span data-i18n="error_msg">❌ Une erreur est survenue. Veuillez réessayer ou nous contacter directement.</span>
+      </div>
+    </div>
   </div>
 </section>
 
-<footer>
+<!-- ========== CTA BLOCK ========== -->
+<section class="cta-block">
+  <div class="cta-block-content">
+    <h2 data-i18n="cta_title">Vous ne trouvez pas le poste qui vous correspond ?</h2>
+    <p data-i18n="cta_desc">Envoyez-nous une candidature spontanée. Nous sommes toujours à la recherche de talents passionnés.</p>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
   <div class="footer-grid">
-    <div class="footer-brand"><a href="index.html" class="logo" style="font-size:1.2rem;margin-bottom:.8rem;display:inline-flex;"><svg viewBox="0 0 24 24" width="28" height="28"><defs><linearGradient id="sgF" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1"/><stop offset="100%" style="stop-color:#FFB800;stop-opacity:1"/></linearGradient></defs><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#sgF)"/><path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/></svg><span style="color:white;margin-left:.5rem;">Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.82em;font-weight:400;color:rgba(255,255,255,0.45);">IT Solutions</span></span></a><p>Cabinet de conseil et d'ingénierie spécialisé en cybersécurité au Maroc.</p></div>
-    <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Audits & Pentest</a></li><li><a href="services.html">Architecture Réseau</a></li><li><a href="services.html">Cloud Security</a></li></ul></div>
-    <div class="footer-col"><h4>Liens</h4><ul><li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li><li><a href="carrieres.html">Carrières</a></li><li><a href="campus-cyber.html">Campus Cyber</a></li></ul></div>
-    <div class="footer-col"><h4>Contact</h4><ul style="color:var(--gray-light);font-size:0.88rem;"><li><i class="fas fa-phone" style="color:var(--accent);"></i>+212 728 31 28 01</li><li><i class="fas fa-envelope" style="color:var(--accent);"></i>contact@netvanguard.ma</li></ul></div>
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <svg class="logo-shield" viewBox="0 0 24 24" width="36" height="36">
+          <defs><linearGradient id="shieldGradFooter" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1"/><stop offset="100%" style="stop-color:#FFB800;stop-opacity:1"/></linearGradient></defs>
+          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#shieldGradFooter)"/>
+          <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
+        </svg>
+        <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em; font-weight:500; color: var(--gray-light);">IT Solutions</span></span>
+      </a>
+      <p data-i18n="footer_desc">Expert en cybersécurité, infogérance et infrastructures IT pour les entreprises au Maroc.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer_services">Services</h4>
+      <ul>
+        <li><a href="infogerance.html" data-i18n="footer_srv1">Infogérance</a></li>
+        <li><a href="securite-reseau.html" data-i18n="footer_srv2">Sécurité Réseau</a></li>
+        <li><a href="contact.html" data-i18n="footer_srv3">Audit & Diagnostic</a></li>
+        <li><a href="vapt.html" data-i18n="footer_srv4">Pentest / VAPT</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer_company">Société</h4>
+      <ul>
+        <li><a href="qui-sommes-nous.html" data-i18n="footer_about">Qui sommes-nous</a></li>
+        <li><a href="carrieres.html" data-i18n="footer_careers">Carrières</a></li>
+        <li><a href="contact.html" data-i18n="footer_contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer_legal">Informations</h4>
+      <ul>
+        <li><a href="mentions-legales.html" data-i18n="footer_legal_mentions">Mentions légales</a></li>
+        <li><a href="cookies.html" data-i18n="footer_cookies">Gestion des cookies</a></li>
+      </ul>
+    </div>
   </div>
-  <div class="footer-bottom"><div>© 2026 NetVanguard IT Solutions SARL · Casablanca</div><div><a href="#">Mentions légales</a>·<a href="#">Confidentialité</a></div></div>
+  <div class="footer-bottom">
+    <span data-i18n="footer_copy">&copy; 2026 NetVanguard IT Solutions. Tous droits réservés.</span>
+    <span data-i18n="footer_location">Basé à Casablanca, au service des entreprises.</span>
+  </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
-
 <script>
-// =====================================================
-// DICTIONNAIRE DE TRADUCTION
-// =====================================================
+// ============================================================
+// 🌍 TRADUCTIONS
+// ============================================================
 const translations = {
   fr: {
     top_badge: "Votre partenaire en cyberdéfense et infogérance",
-    nav_home:"Accueil",nav_services:"Services",nav_sectors:"Secteurs",nav_about:"Qui sommes-nous",
-    nav_careers:"Carrières",nav_campus:"🎓 Campus Cyber",nav_contact:"Contact",nav_espace_client:"Espace Client",
-    hero_title:"Votre Carrière chez<br><span class='accent'>NetVanguard</span>",
-    hero_desc:"Déposez votre CV, notre système intelligent l'analyse et vous oriente vers la prochaine étape.",
-    spec_title:"Choisissez votre spécialité",
-    spec_subtitle:"Sélectionnez le domaine qui correspond à votre profil avant de déposer votre CV",
-    spec_support_label:"Support Technique IT",
-    spec_support_desc:"Helpdesk, troubleshooting, maintenance",
-    spec_admin_label:"Administrateur Systèmes",
-    spec_admin_desc:"Windows, Linux, virtualisation, cloud",
-    spec_netsec_label:"Sécurité Réseau",
-    spec_netsec_desc:"Firewall, VPN, IDS/IPS, architecture",
-    spec_pentest_label:"Pentest / VAPT",
-    spec_pentest_desc:"Tests d'intrusion, audit de sécurité",
-    spec_soc_label:"SOC Analyst",
-    spec_soc_desc:"Surveillance, SIEM, analyse de logs",
-    spec_grc_label:"GRC / Conformité",
-    spec_grc_desc:"ISO 27001, RGPD, politiques de sécurité",
-    spec_forensic_label:"Forensic / Investigation",
-    spec_forensic_desc:"Analyse post-incident, preuves numériques",
-    email_section_title:"Votre adresse email",
-    email_section_hint:"Entrez l'email sur lequel vous recevrez votre code d'accès à l'examen après validation de votre CV.",
-    email_error:"Veuillez entrer une adresse email valide",
-    email_success:"Email valide ✓ — Vous pouvez maintenant déposer votre CV",
-    upload_title:"Déposez votre CV ici",upload_desc:"Formats acceptés : PDF, DOCX, TXT (Max 10 MB)",
-    btn_browse:"Parcourir les fichiers",processing_title:"Analyse de votre CV en cours...",
-    ps1:"Extraction du contenu...",ps2:"Lecture ligne par ligne...",
-    ps3:"Analyse et scoring...",ps4:"Évaluation finale...",
-    accepted_title:"✅ Profil Validé — Félicitations !",
-    accepted_desc:"Votre CV a été analysé et accepté par notre système. Voici votre code d'accès pour l'examen.",
-    welcome_title:"Bienvenue sur la plateforme d'examen NetVanguard",
-    welcome_subtitle:"Vous avez été présélectionné(e) pour passer l'examen technique. Voici votre code d'accès personnel :",
-    code_label:"Code d'accès",
-    code_expiry:"Valable",
-    code_expiry_time:"1 heure",
-    btn_copy_code:"Copier le code",
-    instructions_title:"Instructions pour l'examen :",
-    instr1:"Cliquez sur le bouton <strong>\"Accéder à l'Examen\"</strong> ci-dessous",
-    instr2:"Entrez votre <strong>code d'accès</strong> sur la page Campus Cyber",
-    instr3:"Sélectionnez votre <strong>filière</strong> correspondant à votre spécialité",
-    instr4:"Vous disposerez de <strong>60 minutes</strong> pour répondre à <strong>40 questions</strong>",
-    instr5:"Lisez attentivement chaque question avant de répondre",
-    proctor_warning:"<strong>⚠️ Examen surveillé par ProctorExam</strong><br>Cette plateforme est équipée d'un système de surveillance automatisé. Votre <strong>caméra</strong> sera activée pendant l'examen pour garantir l'intégrité de l'évaluation. Toute tentative de triche entraînera <strong>l'annulation immédiate</strong> de votre candidature.",
-    btn_goto_exam:"Accéder à l'Examen",
-    contact_fallback:"📧 Une copie de ce code a été envoyée à <strong>contact@netvanguard.ma</strong><br>En cas de problème, contactez-nous à cette adresse.",
-    rejected_title:"📋 Profil Non Retenu",
-    rejected_desc:"Votre profil ne correspond pas aux critères requis pour le moment. Vous pouvez remplir le formulaire détaillé pour une évaluation par notre équipe RH.",
-    rejected_suspicious_title:"⚠️ CV Non Valide",
-    rejected_suspicious_desc:"Notre système a détecté des incohérences dans votre CV. Merci de soumettre un CV correspondant à un profil IT ou cybersécurité.",
-    rejected_noit_title:"❌ Profil Non IT",
-    rejected_noit_desc:"Votre CV ne contient pas de compétences IT ou cybersécurité. Cette plateforme est réservée aux profils techniques.",
-    btn_fill_form:"Remplir le formulaire",form_main_title:"Formulaire de Candidature Détaillé",
-    step1Title:"Vos informations personnelles",step1Desc:"Pour que nous puissions vous identifier et vous recontacter.",
-    step2Title:"Mobilité et disponibilité",step2Desc:"Pour évaluer la compatibilité avec nos besoins opérationnels.",
-    step3Title:"Parcours académique",step3Desc:"Votre formation et vos certifications professionnelles.",
-    step4Title:"Votre expérience",step4Desc:"Votre parcours professionnel.",
-    step5Title:"Auto-évaluation technique",step5Desc:"Évaluez honnêtement votre maîtrise.",
-    step6Title:"Compétences linguistiques",step7Title:"Motivation et Documents",step8Title:"Aspects financiers",
-    lbl_firstname:"Prénom",lbl_lastname:"Nom",lbl_email:"Email",lbl_phone:"Téléphone",
-    lbl_genre:"Genre",genre_f:"Femme",genre_h:"Homme",genre_o:"Préfère ne pas répondre",
-    lbl_city:"Ville",lbl_casa:"Notre siège est à Casablanca. Êtes-vous prêt(e) à y travailler ?",
-    mob1:"Je suis déjà à Casablanca",mob2:"Prêt(e) à m'y installer",mob3:"Mode hybride uniquement",mob4:"Non disponible",
-    lbl_dispo:"Délai de disponibilité",dispo1:"Immédiate",dispo2:"Sous 2 semaines",dispo3:"Sous 1 mois",dispo4:"Sous 2 mois",dispo5:"3 mois ou plus",
-    lbl_permis:"Permis de conduire",per1:"Oui, avec véhicule",per2:"Oui, sans véhicule",per3:"Non",
-    lbl_diploma:"Plus haut diplôme",lbl_etab:"Établissement",lbl_spec:"Spécialité",lbl_certifs:"Certifications professionnelles",
-    lbl_exp:"Années d'expérience",lbl_domain:"Domaine d'expertise",
-    lvl0:"Aucune",lvl1:"Débutant",lvl2:"Intermédiaire",lvl3:"Avancé",lvl4:"Expert",
-    lbl_fr:"Français",lbl_en:"Anglais",lbl_motivation:"Pourquoi nous rejoindre ?",
-    lbl_docs:"Joindre des documents (Diplômes, Certificats, Bulletins)",
-    lbl_linkedin:"LinkedIn (optionnel)",lbl_salaire:"Salaire actuel (DH net)",lbl_pretention:"Prétention salariale (DH net)",
-    btn_submit:"Envoyer au responsable recrutement",
-    msg_success:"✅ Documents envoyés au responsable recrutement ! Nous vous recontacterons sous 7 jours.",
-    msg_error:"Erreur lors de l'envoi. Veuillez réessayer."
+    nav_home: "Accueil",
+    nav_services: "Services",
+    nav_sectors: "Secteurs",
+    nav_about: "Qui sommes-nous",
+    nav_careers: "Carrières",
+    nav_contact: "Contact",
+    nav_espace_client: "Espace Client",
+    badge_careers: "REJOIGNEZ-NOUS",
+    hero_title: "Construisons ensemble l'",
+    hero_subtitle: "avenir numérique",
+    hero_desc: "Vous êtes passionné par la cybersécurité, l'infogérance ou l'infrastructure IT ? Nous recrutons les meilleurs talents pour relever les défis de demain.",
+    form_title: "Déposez votre candidature",
+    form_desc: "Nous étudions chaque dossier avec attention. Vous serez recontacté(e) sous 48h.",
+    lbl_lastname: "Nom *",
+    lbl_firstname: "Prénom *",
+    lbl_email: "Email *",
+    lbl_phone: "Téléphone *",
+    lbl_position: "Poste souhaité *",
+    pos_select: "Sélectionnez un poste",
+    pos_sec: "Ingénieur Cybersécurité",
+    pos_pentest: "Pentester / VAPT",
+    pos_network: "Ingénieur Réseau & Sécurité",
+    pos_sysadmin: "Administrateur Systèmes",
+    pos_support: "Support Technique IT",
+    pos_pm: "Chef de Projet IT",
+    pos_consultant: "Consultant Cybersécurité",
+    pos_cloud: "Ingénieur Cloud & Microsoft 365",
+    pos_soc: "Ingénieur SOC / NOC",
+    pos_intern: "Stage / Alternance",
+    pos_other: "Autre",
+    lbl_message: "Message / Lettre de motivation",
+    lbl_cv: "CV * (PDF ou DOCX)",
+    cv_text: "Déposez votre CV ici ou cliquez pour parcourir",
+    btn_submit: "Envoyer ma candidature",
+    success_msg: "✅ Votre candidature a été envoyée avec succès ! Nous vous recontacterons dans les plus brefs délais.",
+    error_msg: "❌ Une erreur est survenue. Veuillez réessayer ou nous contacter directement.",
+    cta_title: "Vous ne trouvez pas le poste qui vous correspond ?",
+    cta_desc: "Envoyez-nous une candidature spontanée. Nous sommes toujours à la recherche de talents passionnés.",
+    footer_desc: "Expert en cybersécurité, infogérance et infrastructures IT pour les entreprises au Maroc.",
+    footer_services: "Services",
+    footer_srv1: "Infogérance",
+    footer_srv2: "Sécurité Réseau",
+    footer_srv3: "Audit & Diagnostic",
+    footer_srv4: "Pentest / VAPT",
+    footer_company: "Société",
+    footer_about: "Qui sommes-nous",
+    footer_careers: "Carrières",
+    footer_contact: "Contact",
+    footer_legal: "Informations",
+    footer_legal_mentions: "Mentions légales",
+    footer_cookies: "Gestion des cookies",
+    footer_copy: "© 2026 NetVanguard IT Solutions. Tous droits réservés.",
+    footer_location: "Basé à Casablanca, au service des entreprises."
   },
   en: {
-    top_badge: "Your trusted partner in cyber defense and IT management",
-    nav_home:"Home",nav_services:"Services",nav_sectors:"Sectors",nav_about:"About Us",
-    nav_careers:"Careers",nav_campus:"🎓 Cyber Campus",nav_contact:"Contact",nav_espace_client:"Client Area",
-    hero_title:"Your Career at<br><span class='accent'>NetVanguard</span>",
-    hero_desc:"Submit your CV, our intelligent system analyzes it and guides you to the next step.",
-    spec_title:"Choose your specialty",
-    spec_subtitle:"Select the domain that matches your profile before uploading your CV",
-    spec_support_label:"IT Technical Support",
-    spec_support_desc:"Helpdesk, troubleshooting, maintenance",
-    spec_admin_label:"Systems Administrator",
-    spec_admin_desc:"Windows, Linux, virtualization, cloud",
-    spec_netsec_label:"Network Security",
-    spec_netsec_desc:"Firewall, VPN, IDS/IPS, architecture",
-    spec_pentest_label:"Pentest / VAPT",
-    spec_pentest_desc:"Penetration testing, security audit",
-    spec_soc_label:"SOC Analyst",
-    spec_soc_desc:"Monitoring, SIEM, log analysis",
-    spec_grc_label:"GRC / Compliance",
-    spec_grc_desc:"ISO 27001, GDPR, security policies",
-    spec_forensic_label:"Forensic / Investigation",
-    spec_forensic_desc:"Post-incident analysis, digital evidence",
-    email_section_title:"Your email address",
-    email_section_hint:"Enter the email where you will receive your exam access code after CV validation.",
-    email_error:"Please enter a valid email address",
-    email_success:"Valid email ✓ — You can now upload your CV",
-    upload_title:"Drop your CV here",upload_desc:"Accepted formats: PDF, DOCX, TXT (Max 10 MB)",
-    btn_browse:"Browse files",processing_title:"Analyzing your CV...",
-    ps1:"Extracting content...",ps2:"Reading line by line...",
-    ps3:"Analyzing and scoring...",ps4:"Final evaluation...",
-    accepted_title:"✅ Profile Approved — Congratulations!",
-    accepted_desc:"Your CV has been analyzed and accepted by our system. Here is your access code for the exam.",
-    welcome_title:"Welcome to the NetVanguard Exam Platform",
-    welcome_subtitle:"You have been pre-selected to take the technical exam. Here is your personal access code:",
-    code_label:"Access Code",
-    code_expiry:"Valid for",
-    code_expiry_time:"1 hour",
-    btn_copy_code:"Copy code",
-    instructions_title:"Exam Instructions:",
-    instr1:"Click the <strong>\"Access Exam\"</strong> button below",
-    instr2:"Enter your <strong>access code</strong> on the Cyber Campus page",
-    instr3:"Select your <strong>track</strong> corresponding to your specialty",
-    instr4:"You will have <strong>60 minutes</strong> to answer <strong>40 questions</strong>",
-    instr5:"Read each question carefully before answering",
-    proctor_warning:"<strong>⚠️ ProctorExam Monitored Exam</strong><br>This platform is equipped with an automated monitoring system. Your <strong>camera</strong> will be activated during the exam to ensure evaluation integrity. Any cheating attempt will result in <strong>immediate cancellation</strong> of your application.",
-    btn_goto_exam:"Access the Exam",
-    contact_fallback:"📧 A copy of this code has been sent to <strong>contact@netvanguard.ma</strong><br>If you have any issues, contact us at this address.",
-    rejected_title:"📋 Profile Not Selected",
-    rejected_desc:"Your profile does not match the required criteria at this time. You can fill out the detailed form for evaluation by our HR team.",
-    rejected_suspicious_title:"⚠️ Invalid CV",
-    rejected_suspicious_desc:"Our system detected inconsistencies in your CV. Please submit a CV matching an IT or cybersecurity profile.",
-    rejected_noit_title:"❌ Non-IT Profile",
-    rejected_noit_desc:"Your CV does not contain IT or cybersecurity skills. This platform is reserved for technical profiles.",
-    btn_fill_form:"Fill out the form",form_main_title:"Detailed Application Form",
-    step1Title:"Personal Information",step1Desc:"So we can identify you and get back to you.",
-    step2Title:"Mobility & Availability",step2Desc:"To assess compatibility with our operational needs.",
-    step3Title:"Academic Background",step3Desc:"Your education and professional certifications.",
-    step4Title:"Your Experience",step4Desc:"Your professional journey.",
-    step5Title:"Technical Self-Assessment",step5Desc:"Honestly evaluate your skills.",
-    step6Title:"Language Skills",step7Title:"Motivation & Documents",step8Title:"Financial Aspects",
-    lbl_firstname:"First Name",lbl_lastname:"Last Name",lbl_email:"Email",lbl_phone:"Phone",
-    lbl_genre:"Gender",genre_f:"Female",genre_h:"Male",genre_o:"Prefer not to answer",
-    lbl_city:"City",lbl_casa:"Our HQ is in Casablanca. Are you ready to work there?",
-    mob1:"Already in Casablanca",mob2:"Ready to relocate",mob3:"Hybrid only",mob4:"Not available",
-    lbl_dispo:"Availability",dispo1:"Immediate",dispo2:"Within 2 weeks",dispo3:"Within 1 month",dispo4:"Within 2 months",dispo5:"3+ months",
-    lbl_permis:"Driver's license",per1:"Yes, with vehicle",per2:"Yes, no vehicle",per3:"No",
-    lbl_diploma:"Highest degree",lbl_etab:"Institution",lbl_spec:"Major",lbl_certifs:"Professional certifications",
-    lbl_exp:"Years of experience",lbl_domain:"Area of expertise",
-    lvl0:"None",lvl1:"Beginner",lvl2:"Intermediate",lvl3:"Advanced",lvl4:"Expert",
-    lbl_fr:"French",lbl_en:"English",lbl_motivation:"Why join us?",
-    lbl_docs:"Attach documents (Diplomas, Certificates, Transcripts)",
-    lbl_linkedin:"LinkedIn (optional)",lbl_salaire:"Current salary",lbl_pretention:"Expected salary",
-    btn_submit:"Send to Recruitment Manager",
-    msg_success:"✅ Documents sent to recruitment manager! We will contact you within 7 days.",
-    msg_error:"Sending error. Please try again."
+    top_badge: "Your partner in cyber defense and IT management",
+    nav_home: "Home",
+    nav_services: "Services",
+    nav_sectors: "Sectors",
+    nav_about: "About Us",
+    nav_careers: "Careers",
+    nav_contact: "Contact",
+    nav_espace_client: "Client Area",
+    badge_careers: "JOIN US",
+    hero_title: "Let's build the",
+    hero_subtitle: "digital future together",
+    hero_desc: "Are you passionate about cybersecurity, IT management or IT infrastructure? We are hiring the best talents to tackle tomorrow's challenges.",
+    form_title: "Submit your application",
+    form_desc: "We carefully review every application. You will be contacted within 48 hours.",
+    lbl_lastname: "Last Name *",
+    lbl_firstname: "First Name *",
+    lbl_email: "Email *",
+    lbl_phone: "Phone *",
+    lbl_position: "Desired Position *",
+    pos_select: "Select a position",
+    pos_sec: "Cybersecurity Engineer",
+    pos_pentest: "Pentester / VAPT",
+    pos_network: "Network & Security Engineer",
+    pos_sysadmin: "Systems Administrator",
+    pos_support: "IT Technical Support",
+    pos_pm: "IT Project Manager",
+    pos_consultant: "Cybersecurity Consultant",
+    pos_cloud: "Cloud & Microsoft 365 Engineer",
+    pos_soc: "SOC / NOC Engineer",
+    pos_intern: "Internship / Apprenticeship",
+    pos_other: "Other",
+    lbl_message: "Message / Cover Letter",
+    lbl_cv: "CV * (PDF or DOCX)",
+    cv_text: "Drop your CV here or click to browse",
+    btn_submit: "Submit my application",
+    success_msg: "✅ Your application has been sent successfully! We will contact you shortly.",
+    error_msg: "❌ An error occurred. Please try again or contact us directly.",
+    cta_title: "Don't see a position that matches you?",
+    cta_desc: "Send us a spontaneous application. We are always looking for passionate talent.",
+    footer_desc: "Cybersecurity, IT management and IT infrastructure expert for businesses in Morocco.",
+    footer_services: "Services",
+    footer_srv1: "IT Management",
+    footer_srv2: "Network Security",
+    footer_srv3: "Audit & Diagnostic",
+    footer_srv4: "Pentest / VAPT",
+    footer_company: "Company",
+    footer_about: "About Us",
+    footer_careers: "Careers",
+    footer_contact: "Contact",
+    footer_legal: "Information",
+    footer_legal_mentions: "Legal Notices",
+    footer_cookies: "Cookie Management",
+    footer_copy: "© 2026 NetVanguard IT Solutions. All rights reserved.",
+    footer_location: "Based in Casablanca, serving businesses."
   }
 };
 
-let currentLang = localStorage.getItem('netvanguard-lang') || 'fr';
+let currentLang = 'fr';
+
+// ============================================================
+// 🌍 APPLIQUER LA LANGUE
+// ============================================================
 function applyLanguage(lang) {
   currentLang = lang;
-  const t = translations[lang]; if (!t) return;
-  document.querySelectorAll('[data-i18n]').forEach(el => { const k = el.getAttribute('data-i18n'); if (t[k]) el.innerHTML = t[k]; });
-  document.querySelectorAll('.speciality-card').forEach(card => {
-    const specKey = card.getAttribute('data-i18n-spec');
-    if (specKey && t[specKey + '_label']) {
-      card.querySelector('.card-label').textContent = t[specKey + '_label'];
-      card.querySelector('.card-desc').textContent = t[specKey + '_desc'];
+  const t = translations[lang];
+  if (!t) return;
+  
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) {
+      if (el.tagName === 'INPUT' && el.hasAttribute('placeholder')) {
+        el.placeholder = t[key];
+      } else if (el.tagName === 'SELECT' && el.hasAttribute('data-i18n')) {
+        // Gérer les options select
+      } else {
+        el.textContent = t[key];
+      }
     }
   });
-  document.querySelectorAll('.lang-btn').forEach(b => { b.classList.remove('active'); if (b.getAttribute('data-lang') === lang) b.classList.add('active'); });
-  localStorage.setItem('netvanguard-lang', lang);
-}
-document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => applyLanguage(btn.getAttribute('data-lang'))));
-applyLanguage(currentLang);
-
-// MOBILE MENU
-const menuToggle = document.getElementById('menuToggle'), mobileNav = document.getElementById('mobileNav');
-if (menuToggle && mobileNav) menuToggle.addEventListener('click', () => { mobileNav.classList.toggle('active'); menuToggle.querySelector('i').className = mobileNav.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'; });
-
-// =====================================================
-// SÉLECTION DE SPÉCIALITÉ + CHAMP EMAIL
-// =====================================================
-let selectedSpeciality = null;
-let candidateEmailValid = false;
-const specialityCards = document.querySelectorAll('.speciality-card');
-const uploadZone = document.getElementById('uploadZone');
-const fileInput = document.getElementById('fileInput');
-const emailCaptureSection = document.getElementById('emailCaptureSection');
-const candidateEmailInput = document.getElementById('candidateEmailInput');
-const emailErrorMsg = document.getElementById('emailErrorMsg');
-const emailSuccessMsg = document.getElementById('emailSuccessMsg');
-
-specialityCards.forEach(card => {
-  card.addEventListener('click', function() {
-    specialityCards.forEach(c => c.classList.remove('selected'));
-    this.classList.add('selected');
-    selectedSpeciality = this.getAttribute('data-speciality');
-    
-    // Affiche le champ email
-    emailCaptureSection.classList.add('visible');
-    candidateEmailInput.focus();
-    
-    // Restaure l'email si déjà saisi
-    const savedEmail = localStorage.getItem('nv_candidate_email');
-    if (savedEmail) {
-      candidateEmailInput.value = savedEmail;
-      validateEmailField();
+  
+  // Gérer les options du select
+  document.querySelectorAll('#poste option').forEach(opt => {
+    const key = opt.getAttribute('data-i18n');
+    if (key && t[key] !== undefined) {
+      opt.textContent = t[key];
     }
-    
-    console.log('📌 Spécialité sélectionnée :', selectedSpeciality);
+  });
+  
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.remove('active');
+    if (b.getAttribute('data-lang') === lang) b.classList.add('active');
+  });
+}
+
+// ============================================================
+// 🔄 CHANGEMENT DE LANGUE
+// ============================================================
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const lang = btn.getAttribute('data-lang');
+    if (lang) applyLanguage(lang);
   });
 });
 
-// Validation de l'email en temps réel
-candidateEmailInput.addEventListener('input', validateEmailField);
-candidateEmailInput.addEventListener('blur', validateEmailField);
-
-function validateEmailField() {
-  const email = candidateEmailInput.value.trim();
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  
-  if (!email) {
-    emailErrorMsg.style.display = 'none';
-    emailSuccessMsg.style.display = 'none';
-    candidateEmailValid = false;
-    updateUploadZoneState();
-    return;
-  }
-  
-  if (!emailRegex.test(email)) {
-    emailErrorMsg.style.display = 'flex';
-    emailSuccessMsg.style.display = 'none';
-    candidateEmailInput.classList.add('invalid');
-    candidateEmailValid = false;
-    setTimeout(() => candidateEmailInput.classList.remove('invalid'), 1000);
+// ============================================================
+// 📂 GESTION DU FICHIER
+// ============================================================
+document.getElementById('cv').addEventListener('change', function(e) {
+  const file = this.files[0];
+  const fileName = document.getElementById('fileName');
+  if (file) {
+    fileName.textContent = '📎 ' + file.name;
   } else {
-    emailErrorMsg.style.display = 'none';
-    emailSuccessMsg.style.display = 'flex';
-    candidateEmailInput.classList.remove('invalid');
-    candidateEmailValid = true;
-    localStorage.setItem('nv_candidate_email', email);
+    fileName.textContent = '';
   }
-  
-  updateUploadZoneState();
-}
-
-function updateUploadZoneState() {
-  if (selectedSpeciality && candidateEmailValid) {
-    uploadZone.classList.remove('disabled');
-    uploadZone.style.pointerEvents = 'auto';
-  } else {
-    uploadZone.classList.add('disabled');
-    uploadZone.style.pointerEvents = 'none';
-  }
-}
-
-// =====================================================
-// ANALYSEUR CV + ENVOI TEXTE CV PAR EMAIL
-// =====================================================
-pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-
-const stepUpload = document.getElementById('stepUpload');
-const stepProcessing = document.getElementById('stepProcessing');
-const stepAccepted = document.getElementById('stepAccepted');
-const stepRejected = document.getElementById('stepRejected');
-
-uploadZone.addEventListener('click', function(e) {
-  if (uploadZone.classList.contains('disabled')) {
-    e.preventDefault();
-    e.stopPropagation();
-    if (!selectedSpeciality) {
-      const specialitySection = document.getElementById('specialitySection');
-      specialitySection.scrollIntoView({ behavior: 'smooth' });
-      specialitySection.style.animation = 'none';
-      specialitySection.offsetHeight;
-      specialitySection.style.animation = 'shake 0.5s ease';
-    } else if (!candidateEmailValid) {
-      candidateEmailInput.focus();
-      candidateEmailInput.classList.add('invalid');
-      setTimeout(() => candidateEmailInput.classList.remove('invalid'), 1000);
-    }
-    return;
-  }
-  fileInput.click();
 });
 
-const shakeStyle = document.createElement('style');
-shakeStyle.textContent = '@keyframes shake { 0%,100%{transform:translateX(0);} 25%{transform:translateX(-8px);} 50%{transform:translateX(8px);} 75%{transform:translateX(-4px);} }';
-document.head.appendChild(shakeStyle);
-
-uploadZone.addEventListener('dragover', (e) => {
-  if (uploadZone.classList.contains('disabled')) return;
+// ============================================================
+// 📨 SOUMISSION DU FORMULAIRE
+// ============================================================
+document.getElementById('candidatureForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  uploadZone.classList.add('dragover');
-});
-uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('dragover'));
-uploadZone.addEventListener('drop', (e) => {
-  if (uploadZone.classList.contains('disabled')) return;
-  e.preventDefault();
-  uploadZone.classList.remove('dragover');
-  if (e.dataTransfer.files.length > 0) processFile(e.dataTransfer.files[0]);
-});
 
-function handleFileSelect(event) {
-  if (uploadZone.classList.contains('disabled')) return;
-  if (event.target.files.length > 0) processFile(event.target.files[0]);
-}
+  const submitBtn = document.getElementById('submitBtn');
+  const successMsg = document.getElementById('successMsg');
+  const errorMsg = document.getElementById('errorMsg');
 
-function processFile(file) {
-  if (!selectedSpeciality) {
-    alert('Veuillez d\'abord sélectionner une spécialité.');
+  successMsg.classList.remove('show');
+  errorMsg.classList.remove('show');
+
+  const nom = document.getElementById('nom').value.trim();
+  const prenom = document.getElementById('prenom').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const telephone = document.getElementById('telephone').value.trim();
+  const poste = document.getElementById('poste').value;
+  const message = document.getElementById('message').value.trim();
+  const cv = document.getElementById('cv').files[0];
+
+  if (!nom || !prenom || !email || !telephone || !poste || !cv) {
+    errorMsg.textContent = '❌ Veuillez remplir tous les champs obligatoires.';
+    errorMsg.classList.add('show');
     return;
   }
-  if (!candidateEmailValid) {
-    alert('Veuillez entrer un email valide.');
-    return;
-  }
-  
-  document.getElementById('fileName').textContent = '📄 ' + file.name;
-  document.getElementById('fileName').style.display = 'block';
-  stepUpload.style.display = 'none';
-  emailCaptureSection.style.display = 'none';
-  stepProcessing.classList.add('active');
-  stepAccepted.classList.remove('active');
-  stepRejected.classList.remove('active');
-  ['ps1','ps2','ps3','ps4'].forEach(id => { const el = document.getElementById(id); el.querySelector('i').className = 'far fa-circle'; el.classList.remove('done'); });
-  document.getElementById('pdfPagesInfo').textContent = '';
-  const steps = [{ el: document.getElementById('ps1'), delay: 600 },{ el: document.getElementById('ps2'), delay: 1500 },{ el: document.getElementById('ps3'), delay: 2500 },{ el: document.getElementById('ps4'), delay: 3500 }];
-  steps.forEach((step) => { setTimeout(() => { step.el.querySelector('i').className = 'fas fa-check-circle'; step.el.classList.add('done'); }, step.delay); });
 
-  setTimeout(() => {
-    const fileType = file.type;
-    const fileName = file.name.toLowerCase();
-    const forbiddenNames = ['danse', 'dance', 'chanson', 'music', 'acteur', 'actrice', 'cuisine', 'coiffure', 'sport', 'football', 'basket', 'photo', 'design', 'mode', 'vente', 'commerce', 'boulanger', 'chauffeur', 'livreur', 'caissier'];
-    let nameBlocked = false;
-    forbiddenNames.forEach(kw => { if (fileName.includes(kw)) nameBlocked = true; });
-    if (nameBlocked) { showResult(false, 'suspicious'); return; }
-    if (fileType === 'application/pdf') { extractTextFromPDF(file); }
-    else if (fileType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || fileName.endsWith('.docx')) { extractTextFromDOCX(file); }
-    else if (fileType === 'text/plain' || fileName.endsWith('.txt')) { const reader = new FileReader(); reader.onload = function(e) { analyzeCVContent(e.target.result, file); }; reader.readAsText(file); }
-    else { showResult(false, 'suspicious'); }
-  }, 4000);
-}
-
-function extractTextFromPDF(file) {
-  const fileReader = new FileReader();
-  fileReader.onload = function() {
-    const typedarray = new Uint8Array(this.result);
-    pdfjsLib.getDocument({ data: typedarray }).promise.then(function(pdf) {
-      let fullText = ''; const totalPages = pdf.numPages; const pagePromises = [];
-      for (let i = 1; i <= totalPages; i++) { pagePromises.push(pdf.getPage(i).then(function(page) { return page.getTextContent().then(function(textContent) { fullText += textContent.items.map(item => item.str).join(' ') + ' '; }); })); }
-      Promise.all(pagePromises).then(() => { document.getElementById('pdfPagesInfo').textContent = '✅ ' + totalPages + ' pages analysées'; analyzeCVContent(fullText.toLowerCase(), file); }).catch(() => { analyzeCVContent(file.name.toLowerCase(), file); });
-    }).catch(() => { showResult(false, 'suspicious'); });
-  };
-  fileReader.readAsArrayBuffer(file);
-}
-
-function extractTextFromDOCX(file) {
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    if (typeof mammoth !== 'undefined') { mammoth.extractRawText({ arrayBuffer: e.target.result }).then(function(result) { analyzeCVContent(result.value.toLowerCase(), file); }).catch(function() { analyzeCVContent(file.name.toLowerCase(), file); }); }
-    else { const reader2 = new FileReader(); reader2.onload = function(ev) { analyzeCVContent(ev.target.result, file); }; reader2.readAsText(file); }
-  };
-  reader.readAsArrayBuffer(file);
-}
-
-function analyzeCVContent(content, file) {
-  if (!content || content.length < 30) { showResult(false, 'suspicious'); return; }
-  const nonITJobs = ['danceur','danseur','danse','chanteur','chanteuse','acteur','actrice','musicien','coiffeur','coiffeuse','cuisinier','boulanger','serveur','serveuse','vendeur','caissier','livreur','chauffeur','agriculteur','jardinier','maçon','plombier'];
-  let nonITScore = 0; nonITJobs.forEach(kw => { if (content.includes(kw)) nonITScore += 3; });
-  const hasITWords = /support.it|technicien|réseau|network|sécurité|security|cyber|informatique|développeur|admin|ingénieur|cloud|linux|windows.server|cisco|firewall|pentest|vapt|soc|siem/i.test(content);
-  if (nonITScore >= 9 && !hasITWords) { showResult(false, 'suspicious'); return; }
-  const mandatoryIT = ['support','it','technique','réseau','network','security','sécurité','cyber','informatique','développeur','developer','admin','administrateur','ingenieur','ingénieur','technicien','analyste','consultant','infrastructure','cloud','système','system','software','logiciel','données','data'];
-  let mandatoryScore = 0; mandatoryIT.forEach(kw => { if (content.includes(kw)) mandatoryScore++; });
-  if (mandatoryScore < 2) { showResult(false, 'no_it'); return; }
-  const technicalSkills = ['tcp/ip','dns','dhcp','vpn','firewall','pare-feu','vlan','ospf','bgp','wifi','radius','ids','ips','siem','soc','pentest','vapt','metasploit','nmap','wireshark','burp suite','owasp','xss','sql injection','ddos','ransomware','phishing','malware','edr','xdr','linux','windows server','active directory','azure','aws','gcp','virtualisation','vmware','hyper-v','docker','kubernetes','terraform','ansible','jenkins','gitlab','devops','python','powershell','bash','sql','mysql','postgresql','mongodb','splunk','elk','wazuh','ccna','ccnp','comptia','security+','ceh','cissp','oscp','itil','iso 27001'];
-  let techScore = 0; technicalSkills.forEach(kw => { if (content.includes(kw)) techScore++; });
-  const education = ['diplôme','diploma','master','licence','bachelor','doctorat','phd','ingénieur','engineer','bts','dut','bac','formation','certification','certifié','certified','université','ecole','école','institut'];
-  let eduScore = 0; education.forEach(kw => { if (content.includes(kw)) eduScore++; });
-  const experience = ['expérience','experience','année','years','an','ans','stage','internship','cdi','cdd','freelance','mission','projet','project','client','entreprise','company','société'];
-  let expScore = 0; experience.forEach(kw => { if (content.includes(kw)) expScore++; });
-  let bonus = 0; if (content.includes('@')) bonus += 2; if (/\b(20\d{2}|19\d{2})\b/.test(content)) bonus += 2; if (content.includes('expérience') || content.includes('experience') || content.includes('formation') || content.includes('education')) bonus += 2;
-  const finalScore = (techScore * 4) + (eduScore * 3) + (expScore * 3) + (mandatoryScore * 3) + bonus;
-  const isQualified = techScore >= 5 && mandatoryScore >= 3 && finalScore >= 30;
-
-  if (isQualified) {
-    const code = generateTempCode();
-    sendCVAndCodeByEmail(file, code, content);
-  }
-  showResult(isQualified, isQualified ? 'qualified' : 'low_score');
-}
-
-function generateTempCode() {
-  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; let code = '';
-  for (let i = 0; i < 8; i++) { code += chars.charAt(Math.floor(Math.random() * chars.length)); }
-  const expiration = Date.now() + (60 * 60 * 1000);
-  localStorage.setItem('nv_exam_code', code); localStorage.setItem('nv_exam_expires', expiration.toString());
-  localStorage.setItem('nv_selected_speciality', selectedSpeciality);
-  return code;
-}
-
-function sendCVAndCodeByEmail(file, code, cvText) {
-  const candidateEmail = document.getElementById('candidateEmailInput')?.value.trim() || 'inconnu@email.com';
-  
-  const vpsFormData = new FormData();
-  vpsFormData.append('nom', 'Candidat CV');
-  vpsFormData.append('email', candidateEmail);
-  vpsFormData.append('telephone', '');
-  vpsFormData.append('filiere', selectedSpeciality || 'Non spécifiée');
-  vpsFormData.append('score', '');
-  vpsFormData.append('code', code);
-  vpsFormData.append('secret', 'NetVanguard2026!');
-  vpsFormData.append('cv', file);
-
-  fetch('https://api.netvanguard.ma/cv-handler.php', {
-    method: 'POST',
-    body: vpsFormData
-  })
-  .then(r => r.json())
-  .then(data => console.log('🗄️ BDD:', data.message))
-  .catch(err => console.warn('⚠️ BDD erreur:', err));
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
 
   const formData = new FormData();
-  formData.append('code_acces', code);
-  formData.append('filiere', selectedSpeciality || 'Non spécifiée');
-  formData.append('filename', file.name);
-  formData.append('filesize', (file.size / 1024).toFixed(1) + ' KB');
-  formData.append('filetype', file.type || 'inconnu');
-  formData.append('candidat_email', candidateEmail);
-  formData.append('date_envoi', new Date().toLocaleString('fr-FR'));
-  formData.append('_subject', '✅ CV ACCEPTÉ - ' + selectedSpeciality + ' - ' + file.name + ' | Code: ' + code);
-
-  const cvExtrait = cvText ? cvText.substring(0, 8000) : 'Texte non extrait';
-  formData.append('contenu_cv', cvExtrait);
-  formData.append('message',
-    '📋 Profil Validé — Passez à l\'étape d\'examen\n\n' +
-    '🎯 Spécialité : ' + selectedSpeciality + '\n\n' +
-    '📧 Email candidat : ' + candidateEmail + '\n' +
-    '🔑 Code d\'accès temporaire : ' + code + '\n' +
-    '⏰ Le code expire dans 1 heure\n\n' +
-    '📄 Fichier : ' + file.name + '\n' +
-    '📏 Taille : ' + (file.size / 1024).toFixed(1) + ' KB\n\n' +
-    '📝 CONTENU DU CV :\n' +
-    '-----------------------------------\n' +
-    cvExtrait + '\n' +
-    '-----------------------------------\n\n' +
-    '👤 Le code a été affiché au candidat sur la page.'
-  );
-  formData.append('_gotcha', '');
+  formData.append('nom', nom);
+  formData.append('prenom', prenom);
+  formData.append('email', email);
+  formData.append('telephone', telephone);
+  formData.append('poste', poste);
+  formData.append('message', message);
+  formData.append('cv', cv);
+  formData.append('_subject', `Candidature - ${prenom} ${nom} - ${poste}`);
 
   fetch('https://formspree.io/f/myklqdky', {
     method: 'POST',
@@ -1280,83 +787,66 @@ function sendCVAndCodeByEmail(file, code, cvText) {
     headers: { 'Accept': 'application/json' }
   })
   .then(response => {
-    if (response.ok) console.log('✅ CV + code envoyés à contact@netvanguard.ma');
+    if (response.ok) {
+      successMsg.classList.add('show');
+      document.getElementById('candidatureForm').reset();
+      document.getElementById('fileName').textContent = '';
+    } else {
+      errorMsg.textContent = '❌ Erreur lors de l\'envoi. Veuillez réessayer.';
+      errorMsg.classList.add('show');
+    }
   })
-  .catch(err => console.error('❌ Erreur:', err));
-}
-
-// 🆕 Fonction pour copier le code
-function copyCode() {
-  const codeEl = document.getElementById('codeValueLarge');
-  const btn = document.getElementById('codeCopyBtn');
-  const code = codeEl.textContent.trim();
-  
-  if (!code || code === '--------') return;
-  
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(code).then(() => {
-      btn.innerHTML = '<i class="fas fa-check"></i> ' + (currentLang === 'fr' ? 'Code copié !' : 'Code copied!');
-      btn.classList.add('copied');
-      setTimeout(() => {
-        btn.innerHTML = '<i class="fas fa-copy"></i> ' + (currentLang === 'fr' ? 'Copier le code' : 'Copy code');
-        btn.classList.remove('copied');
-      }, 2500);
-    });
-  } else {
-    const textarea = document.createElement('textarea');
-    textarea.value = code;
-    textarea.style.position = 'fixed';
-    textarea.style.opacity = '0';
-    document.body.appendChild(textarea);
-    textarea.select();
-    try {
-      document.execCommand('copy');
-      btn.innerHTML = '<i class="fas fa-check"></i> ' + (currentLang === 'fr' ? 'Code copié !' : 'Code copied!');
-      btn.classList.add('copied');
-      setTimeout(() => {
-        btn.innerHTML = '<i class="fas fa-copy"></i> ' + (currentLang === 'fr' ? 'Copier le code' : 'Copy code');
-        btn.classList.remove('copied');
-      }, 2500);
-    } catch (err) {
-      console.error('Erreur copie:', err);
-    }
-    document.body.removeChild(textarea);
-  }
-}
-
-function showResult(isQualified, reason) {
-  stepProcessing.classList.remove('active');
-  if (isQualified) { 
-    stepAccepted.classList.add('active');
-    
-    // Affiche le code
-    const savedCode = localStorage.getItem('nv_exam_code');
-    if (savedCode) {
-      const codeEl = document.getElementById('codeValueLarge');
-      const codeBox = document.getElementById('codeRevealBox');
-      if (codeEl) codeEl.textContent = savedCode;
-      if (codeBox) codeBox.classList.add('visible');
-    }
-  }
-  else {
-    if (reason === 'suspicious') { document.getElementById('rejected_title').textContent = translations[currentLang].rejected_suspicious_title; document.getElementById('rejected_desc').textContent = translations[currentLang].rejected_suspicious_desc; }
-    else if (reason === 'no_it') { document.getElementById('rejected_title').textContent = translations[currentLang].rejected_noit_title; document.getElementById('rejected_desc').textContent = translations[currentLang].rejected_noit_desc; }
-    else { document.getElementById('rejected_title').textContent = translations[currentLang].rejected_title; document.getElementById('rejected_desc').textContent = translations[currentLang].rejected_desc; }
-    stepRejected.classList.add('active');
-  }
-}
-
-function scrollToForm() { const formSection = document.getElementById('detailedForm'); formSection.classList.add('visible'); formSection.scrollIntoView({ behavior: 'smooth' }); }
-
-document.getElementById('careerForm').addEventListener('submit', async function(e) {
-  e.preventDefault(); const btn = document.getElementById('submitBtn'); btn.disabled = true;
-  try {
-    const response = await fetch(this.action, { method: 'POST', body: new FormData(this), headers: { 'Accept': 'application/json' } });
-    if (response.ok) { document.getElementById('formMsgSuccess').style.display = 'block'; document.getElementById('formMsgError').style.display = 'none'; this.reset(); }
-    else { document.getElementById('formMsgError').style.display = 'block'; document.getElementById('formMsgSuccess').style.display = 'none'; }
-  } catch { document.getElementById('formMsgError').style.display = 'block'; }
-  finally { btn.disabled = false; }
+  .catch(() => {
+    errorMsg.textContent = '❌ Erreur réseau. Veuillez réessayer.';
+    errorMsg.classList.add('show');
+  })
+  .finally(() => {
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> ' + (currentLang === 'fr' ? 'Envoyer ma candidature' : 'Submit my application');
+  });
 });
+
+// ============================================================
+// 📱 MENU MOBILE
+// ============================================================
+const toggleBtn = document.getElementById('menuToggle');
+const mobileNav = document.getElementById('mobileNav');
+if (toggleBtn && mobileNav) {
+  toggleBtn.addEventListener('click', () => {
+    mobileNav.classList.toggle('active');
+    toggleBtn.querySelector('i').className = mobileNav.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+  });
+}
+
+// ============================================================
+// 🖱️ CURSOR GLOW
+// ============================================================
+const glow = document.getElementById('cursorGlow');
+if (glow) {
+  window.addEventListener('mousemove', (e) => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+  });
+}
+
+// ============================================================
+// 📜 SCROLL PROGRESS
+// ============================================================
+window.addEventListener('scroll', () => {
+  const s = document.body.scrollTop || document.documentElement.scrollTop;
+  const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const p = (s / h) * 100;
+  const bar = document.getElementById('scrollProgress');
+  if (bar) bar.style.width = p + '%';
+});
+
+// ============================================================
+// 🚀 INITIALISATION
+// ============================================================
+applyLanguage('fr');
+console.log('💼 NetVanguard Careers — Page de recrutement');
+console.log('🌍 Traductions FR/EN disponibles');
+console.log('📤 Formulaire connecté à Formspree');
 </script>
 </body>
 </html>
