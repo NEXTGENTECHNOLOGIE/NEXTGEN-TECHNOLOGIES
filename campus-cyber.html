@@ -1,455 +1,506 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Campus Cyber NetVanguard IT Solutions — Plateforme d'Évaluation Technique.">
-  <title>Plateforme d'Examen · NetVanguard IT Solutions</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #0A1628; --primary-deep: #020810; --primary-light: #0F2B4D;
-      --accent: #00D4FF; --accent-dark: #0891B2;
-      --accent-glow: rgba(0, 212, 255, 0.5);
-      --red: #EF4444; --red-dark: #DC2626;
-      --white: #FFFFFF; --off-white: #E2E8F0;
-      --gray-light: #94A3B8; --gray-mid: #64748B;
-      --gold: #FFB800; --gold-light: #FFD700;
-      --success: #10B981;
-      --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Manrope', sans-serif; color: var(--off-white); line-height: 1.6; overflow-x: hidden; background: var(--primary-deep); }
-    h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
-    a { text-decoration: none; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Campus Cyber NetVanguard — Formations cybersécurité pour entreprises. Sensibilisation, RGPD, Cloud, SOC. Programmes certifiants sur mesure.">
+<title>Campus Cyber · Formations Cybersécurité · NetVanguard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<style>
+:root {
+  --primary: #0A1628;
+  --primary-deep: #020810;
+  --primary-light: #0F2B4D;
+  --accent: #00D4FF;
+  --accent-dark: #0891B2;
+  --accent-glow: rgba(0, 212, 255, 0.5);
+  --red: #EF4444;
+  --red-dark: #DC2626;
+  --white: #FFFFFF;
+  --off-white: #E2E8F0;
+  --gray-light: #94A3B8;
+  --gray-mid: #64748B;
+  --gold: #FFB800;
+  --gold-light: #FFD700;
+  --success: #10B981;
+  --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Manrope', sans-serif;
+  color: var(--off-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+  background: var(--primary-deep);
+}
+h1, h2, h3, h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+a { text-decoration: none; }
 
-    /* ========== TOP BAR ========== */
-    .top-bar {
-      background: rgba(2, 8, 16, 0.98);
-      backdrop-filter: blur(20px);
-      color: var(--gray-light);
-      padding: 0.6rem 4%;
-      font-size: 0.78rem;
-      border-bottom: 1px solid rgba(0, 212, 255, 0.15);
-      z-index: 1001;
-      position: relative;
-      letter-spacing: 0.02em;
-    }
-    .top-bar-container {
-      max-width: 1400px; margin: 0 auto;
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: nowrap; gap: 0.6rem;
-    }
-    .partner-badge {
-      display: flex; align-items: center; gap: 0.6rem;
-      background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 184, 0, 0.05));
-      padding: 0.35rem 1.2rem; border-radius: 40px;
-      border: 1px solid rgba(0, 212, 255, 0.2);
-      box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
-      flex-shrink: 0;
-      max-width: 340px;
-      overflow: hidden;
-    }
-    .partner-badge i { color: var(--accent); font-size: 0.75rem; flex-shrink: 0; }
-    .partner-badge span {
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px;
-      background: linear-gradient(135deg, #fff, var(--accent));
-      -webkit-background-clip: text; background-clip: text; color: transparent;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .top-bar-info { 
-      display: flex; 
-      gap: 1.5rem; 
-      flex-wrap: nowrap; 
-      flex-shrink: 0;
-    }
-    .top-bar-info span { display: flex; align-items: center; gap: 0.4rem; white-space: nowrap; }
-    .top-bar-info i { color: var(--accent); flex-shrink: 0; }
-    .top-bar-social { 
-      display: flex; 
-      align-items: center; 
-      flex-shrink: 0;
-    }
-    .top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; transition: var(--transition); display: inline-block; }
-    .top-bar-social a:hover { color: var(--accent); transform: translateY(-2px); }
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0; width: 0%; height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--gold), var(--red));
+  z-index: 99999;
+  transition: width 0.1s ease;
+}
 
-    .lang-switch {
-      display: flex; gap: 0.2rem; background: rgba(0, 212, 255, 0.1);
-      padding: 0.15rem 0.5rem; border-radius: 40px; align-items: center;
-      border: 1px solid rgba(0, 212, 255, 0.2);
-      flex-shrink: 0;
-    }
-    .lang-btn {
-      background: none; border: none; color: var(--gray-light);
-      font-size: 0.75rem; font-weight: 600; cursor: pointer;
-      padding: 0.15rem 0.6rem; border-radius: 30px; transition: var(--transition);
-      font-family: inherit;
-    }
-    .lang-btn.active { background: var(--accent); color: var(--primary-deep); }
+@media (min-width: 1025px) {
+  .cursor-glow {
+    width: 500px; height: 500px; position: fixed; left: 0; top: 0;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.06), transparent 70%);
+    pointer-events: none; z-index: 9999;
+    border-radius: 50%;
+  }
+}
 
-    /* ========== NAVBAR ========== */
-    .nav {
-      position: sticky; top: 0; z-index: 1000; padding: 1rem 4%;
-      background: rgba(5, 12, 24, 0.92); backdrop-filter: blur(25px);
-      border-bottom: 1px solid rgba(0, 212, 255, 0.1);
-    }
-    .nav-container {
-      max-width: 1400px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .logo {
-      display: flex; align-items: center; gap: 0.6rem;
-      font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.3rem;
-      color: var(--white); transition: var(--transition);
-      flex-shrink: 0;
-    }
-    .logo:hover { transform: scale(1.02); }
-    .logo-shield {
-      width: 32px; height: 32px; flex-shrink: 0;
-      animation: float 3s ease-in-out infinite;
-      filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.5));
-    }
-    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
-    .logo-text-accent { color: var(--accent); }
-    .nav-links { 
-      display: flex; 
-      gap: 0.8rem; 
-      list-style: none; 
-      align-items: center; 
-      margin: 0 auto;
-      padding: 0;
-      flex-shrink: 0;
-      justify-content: center;
-    }
-    .nav-links > li { position: relative; flex-shrink: 0; display: flex; }
-    .nav-links > li > a {
-      color: var(--off-white); 
-      font-size: 0.9rem; 
-      font-weight: 600;
-      padding: 0.5rem 0.9rem; 
-      border-radius: 4px; 
-      transition: var(--transition);
-      display: flex; 
-      align-items: center; 
-      gap: 0.3rem;
-      white-space: nowrap;
-      text-align: center;
-      justify-content: center;
-    }
-    .nav-links > li > a:hover,
-    .nav-links > li > a.active { background: rgba(0, 212, 255, 0.1); color: var(--accent); }
-    .nav-links > li > a.btn-espace-client {
-      background: linear-gradient(135deg, #00D4FF, #0891B2);
-      color: #020810 !important;
-      font-weight: 700;
-      padding: 0.5rem 1.2rem;
-      border-radius: 6px;
-      transition: var(--transition);
-      margin-left: 0.5rem;
-    }
-    .nav-links > li > a.btn-espace-client:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
-    }
-    .menu-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; z-index: 10001; }
-    .mobile-nav-overlay {
-      position: fixed; top: 0; right: -100%; width: 100%; max-width: 400px; height: 100vh;
-      background: rgba(2, 8, 16, 0.98); backdrop-filter: blur(25px); z-index: 10000;
-      padding: 8rem 2rem 2rem; display: flex; flex-direction: column; gap: 1.5rem;
-      box-shadow: -10px 0 30px rgba(0,0,0,0.5); border-left: 1px solid rgba(0, 212, 255, 0.2);
-      transition: right 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-    }
-    .mobile-nav-overlay.active { right: 0; }
-    .mobile-nav-overlay a { color: var(--white); font-size: 1.1rem; font-weight: 600; }
-    .btn-espace-client-mobile {
-      background: linear-gradient(135deg, #00D4FF, #0891B2); color: #020810 !important;
-      font-weight: 700; padding: 0.5rem 1.2rem; border-radius: 6px; text-align: center;
-      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 1rem;
-    }
+/* ========== TOP BAR ========== */
+.top-bar {
+  background: rgba(2, 8, 16, 0.98);
+  backdrop-filter: blur(20px);
+  color: var(--gray-light);
+  padding: 0.6rem 4%;
+  font-size: 0.78rem;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+  z-index: 1001;
+  position: relative;
+  letter-spacing: 0.02em;
+}
+.top-bar-container {
+  max-width: 1400px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: nowrap; gap: 0.6rem;
+}
+.partner-badge {
+  display: flex; align-items: center; gap: 0.6rem;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 184, 0, 0.05));
+  padding: 0.35rem 1.2rem; border-radius: 40px;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+  flex-shrink: 0; max-width: 340px; overflow: hidden;
+}
+.partner-badge i { color: var(--accent); font-size: 0.75rem; flex-shrink: 0; }
+.partner-badge span {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px;
+  background: linear-gradient(135deg, #fff, var(--accent));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.top-bar-info { display: flex; gap: 1.5rem; flex-wrap: nowrap; flex-shrink: 0; }
+.top-bar-info span { display: flex; align-items: center; gap: 0.4rem; white-space: nowrap; }
+.top-bar-info i { color: var(--accent); flex-shrink: 0; }
+.top-bar-social { display: flex; align-items: center; flex-shrink: 0; }
+.top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; transition: var(--transition); display: inline-block; }
+.top-bar-social a:hover { color: var(--accent); transform: translateY(-2px); }
+.lang-switch { display: flex; gap: 0.2rem; background: rgba(0, 212, 255, 0.1); padding: 0.15rem 0.5rem; border-radius: 40px; align-items: center; border: 1px solid rgba(0, 212, 255, 0.2); flex-shrink: 0; }
+.lang-btn { background: none; border: none; color: var(--gray-light); font-size: 0.75rem; font-weight: 600; cursor: pointer; padding: 0.15rem 0.6rem; border-radius: 30px; transition: var(--transition); font-family: inherit; }
+.lang-btn.active { background: var(--accent); color: var(--primary-deep); }
 
-    .speciality-info { background: linear-gradient(135deg, rgba(0,212,255,0.1), rgba(0,212,255,0.03)); border: 1px solid rgba(0,212,255,0.25); border-radius: 14px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
-    .speciality-info i { font-size: 2rem; color: var(--accent); }
-    .speciality-info .si-text h4 { color: var(--accent); font-size: 0.95rem; margin-bottom: 0.2rem; }
-    .speciality-info .si-text p { color: var(--gray-light); font-size: 0.82rem; line-height: 1.4; }
+/* ========== NAVBAR ========== */
+.nav {
+  position: sticky; top: 0; z-index: 1000; padding: 1rem 4%;
+  background: rgba(5, 12, 24, 0.92); backdrop-filter: blur(25px);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+}
+.nav-container {
+  max-width: 1400px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo {
+  display: flex; align-items: center; gap: 0.6rem;
+  font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.3rem;
+  color: var(--white); transition: var(--transition);
+  flex-shrink: 0;
+}
+.logo:hover { transform: scale(1.02); }
+.logo-shield {
+  width: 32px; height: 32px; flex-shrink: 0;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.5));
+}
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+.logo-text-accent { color: var(--accent); }
+.nav-links {
+  display: flex; gap: 0.8rem; list-style: none; align-items: center;
+  margin: 0 auto; padding: 0; flex-shrink: 0; justify-content: center;
+}
+.nav-links > li { position: relative; flex-shrink: 0; display: flex; }
+.nav-links > li > a {
+  color: var(--off-white); font-size: 0.9rem; font-weight: 600;
+  padding: 0.5rem 0.9rem; border-radius: 4px; transition: var(--transition);
+  display: flex; align-items: center; gap: 0.3rem;
+  white-space: nowrap; text-align: center; justify-content: center;
+}
+.nav-links > li > a:hover, .nav-links > li > a.active { background: rgba(0, 212, 255, 0.1); color: var(--accent); }
+.nav-links > li > a.btn-espace-client {
+  background: linear-gradient(135deg, #00D4FF, #0891B2);
+  color: #020810 !important; font-weight: 700;
+  padding: 0.5rem 1.2rem; border-radius: 6px;
+  transition: var(--transition); margin-left: 0.5rem;
+}
+.nav-links > li > a.btn-espace-client:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+}
+.menu-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; z-index: 10001; }
+.mobile-nav-overlay {
+  position: fixed; top: 0; right: -100%; width: 100%; max-width: 400px; height: 100vh;
+  background: rgba(2, 8, 16, 0.98); backdrop-filter: blur(25px); z-index: 10000;
+  padding: 8rem 2rem 2rem; display: flex; flex-direction: column; gap: 1.5rem;
+  box-shadow: -10px 0 30px rgba(0,0,0,0.5); border-left: 1px solid rgba(0, 212, 255, 0.2);
+  transition: right 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+.mobile-nav-overlay.active { right: 0; }
+.mobile-nav-overlay a { color: var(--white); font-size: 1.1rem; font-weight: 600; }
+.btn-espace-client-mobile {
+  background: linear-gradient(135deg, #00D4FF, #0891B2); color: #020810 !important;
+  font-weight: 700; padding: 0.5rem 1.2rem; border-radius: 6px; text-align: center;
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 1rem;
+}
 
-    .integrity-banner { background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(0,212,255,0.02)); border: 1px solid rgba(0,212,255,0.2); border-radius: 16px; padding: 1.5rem 1.8rem; display: flex; align-items: flex-start; gap: 1.2rem; margin-bottom: 2rem; }
-    .integrity-banner .ib-icon { font-size: 2.2rem; color: var(--accent); flex-shrink: 0; opacity: 0.9; }
-    .integrity-banner .ib-content h4 { color: var(--white); font-size: 1rem; margin-bottom: 0.4rem; font-weight: 600; letter-spacing: -0.01em; }
-    .integrity-banner .ib-content p { color: var(--gray-light); font-size: 0.85rem; line-height: 1.6; margin-bottom: 0.5rem; }
-    .integrity-banner .ib-content .ib-principles { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 0.6rem; }
-    .integrity-banner .ib-content .ib-principles span { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--accent); font-weight: 500; }
-    .integrity-banner .ib-content .ib-principles span i { font-size: 0.7rem; opacity: 0.8; }
+/* ========== PAGE HEADER ========== */
+.page-header {
+  position: relative;
+  padding: 4rem 4% 3rem;
+  overflow: hidden;
+  background: var(--primary-deep);
+  text-align: center;
+}
+.page-header::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(0,212,255,0.12), transparent 50%);
+  pointer-events: none;
+}
+.page-header-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+.page-badge {
+  display: inline-block;
+  padding: 0.5rem 1.4rem;
+  background: rgba(0,212,255,0.12);
+  border: 1px solid rgba(0,212,255,0.25);
+  border-radius: 50px;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  margin-bottom: 1.5rem;
+}
+.page-header h1 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  color: var(--white);
+}
+.page-header h1 .accent {
+  background: linear-gradient(90deg, #FFB800, #EF4444, #00D4FF, #FFB800);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 6s linear infinite;
+}
+@keyframes shine { to { background-position: 300% center; } }
+.page-header p {
+  color: var(--gray-light);
+  font-size: 1.05rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
 
-    .monitoring-widget { display: none; background: rgba(0,212,255,0.06); border: 1px solid rgba(0,212,255,0.15); border-radius: 14px; padding: 0.9rem 1.3rem; margin-bottom: 1.5rem; }
-    .monitoring-widget.active { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-    .monitoring-widget .mw-status { display: flex; align-items: center; gap: 0.6rem; }
-    .monitoring-widget .mw-status .mw-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--success); animation: pulse-dot 2s infinite; }
-    @keyframes pulse-dot { 0%,100% { opacity: 1; box-shadow: 0 0 6px var(--success); } 50% { opacity: 0.5; box-shadow: 0 0 2px var(--success); } }
-    .monitoring-widget .mw-status .mw-dot.warning-state { background: var(--gold); animation: pulse-dot-warn 0.8s infinite; }
-    @keyframes pulse-dot-warn { 0%,100% { opacity: 1; box-shadow: 0 0 10px var(--gold); } 50% { opacity: 0.3; } }
-    .monitoring-widget .mw-status .mw-dot.danger-state { background: var(--red); animation: pulse-dot-danger 0.4s infinite; }
-    @keyframes pulse-dot-danger { 0%,100% { opacity: 1; box-shadow: 0 0 14px var(--red); } 50% { opacity: 0.2; } }
-    .monitoring-widget .mw-status span { font-size: 0.82rem; color: var(--off-white); font-weight: 500; }
-    .monitoring-widget .mw-strikes { display: flex; gap: 0.5rem; align-items: center; }
-    .monitoring-widget .mw-strikes .strike-dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid rgba(239,68,68,0.4); transition: all 0.3s ease; }
-    .monitoring-widget .mw-strikes .strike-dot.active-strike { background: var(--red); border-color: var(--red); box-shadow: 0 0 10px rgba(239,68,68,0.5); }
-    .monitoring-widget .mw-strikes .strike-label { font-size: 0.7rem; color: var(--gray-light); text-transform: uppercase; letter-spacing: 0.1em; }
+/* ========== SECTION CAMPUS ========== */
+.campus-section { padding: 4rem 4%; }
+.campus-container { max-width: 1200px; margin: 0 auto; }
 
-    .warning-toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 9999; background: rgba(239,68,68,0.95); color: #fff; padding: 1rem 2rem; border-radius: 12px; font-weight: 600; font-size: 0.95rem; box-shadow: 0 10px 40px rgba(239,68,68,0.4); animation: slideDown 0.4s ease; display: none; text-align: center; max-width: 90%; }
-    .warning-toast.show { display: block; }
-    @keyframes slideDown { from { transform: translateX(-50%) translateY(-100%); opacity: 0; } to { transform: translateX(-50%) translateY(0); opacity: 1; } }
+/* ========== ONGLETS FORMATIONS ========== */
+.tabs-container { margin-bottom: 3rem; }
+.tabs-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+.tab-btn {
+  padding: 0.7rem 1.4rem;
+  border: 1.5px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.03);
+  color: var(--gray-light);
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.tab-btn:hover { background: rgba(0,212,255,0.05); border-color: rgba(0,212,255,0.25); }
+.tab-btn.active {
+  background: rgba(0,212,255,0.12);
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 0 30px rgba(0,212,255,0.08);
+}
+.tab-btn i { font-size: 0.9rem; width: 18px; text-align: center; }
 
-    .cancelled-overlay { position: fixed; inset: 0; z-index: 9998; background: rgba(5,11,20,0.97); display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; }
-    .cancelled-overlay.active { display: flex; }
-    .cancelled-overlay .co-icon { font-size: 5rem; color: var(--red); margin-bottom: 1.5rem; }
-    .cancelled-overlay h2 { color: var(--white); font-size: 1.8rem; margin-bottom: 1rem; }
-    .cancelled-overlay p { color: var(--gray-light); max-width: 500px; margin-bottom: 2rem; font-size: 1rem; line-height: 1.6; }
+.tab-content {
+  display: none;
+  animation: fadeInUp 0.5s ease;
+}
+.tab-content.active { display: block; }
+@keyframes fadeInUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
 
-    .page-header { position: relative; padding: 4rem 4% 3rem; overflow: hidden; background: var(--primary-deep); text-align: center; }
-    .page-header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 30%, rgba(0,212,255,0.12), transparent 50%); pointer-events: none; }
-    .page-header-container { max-width: 1000px; margin: 0 auto; position: relative; z-index: 2; }
-    .exam-badge { display: inline-block; padding: 0.5rem 1.4rem; background: rgba(0,212,255,0.12); border: 1px solid rgba(0,212,255,0.25); border-radius: 50px; color: var(--accent); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.25em; margin-bottom: 1.5rem; }
-    .page-header h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); line-height: 1.15; margin-bottom: 1rem; color: var(--white); }
-    .page-header h1 .accent { background: linear-gradient(90deg, #FFB800, #EF4444, #00D4FF, #FFB800); background-size: 300% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shine 6s linear infinite; }
-    @keyframes shine { to { background-position: 300% center; } }
+.training-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(0,212,255,0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  transition: var(--transition);
+}
+.training-card:hover {
+  border-color: rgba(0,212,255,0.25);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+.training-card .image {
+  min-height: 280px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.training-card .content {
+  padding: 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.training-card .content .badge {
+  display: inline-block;
+  padding: 0.2rem 0.8rem;
+  background: rgba(0,212,255,0.12);
+  border: 1px solid rgba(0,212,255,0.2);
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.8rem;
+  align-self: flex-start;
+}
+.training-card .content h3 {
+  color: var(--white);
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+.training-card .content .meta {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--gray-light);
+  margin-bottom: 1rem;
+}
+.training-card .content .meta span i { color: var(--accent); width: 16px; margin-right: 0.3rem; }
+.training-card .content p {
+  color: var(--gray-light);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+.training-card .content .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+.training-card .content .tags span {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.8rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 20px;
+  color: var(--gray-light);
+}
+.training-card .content .btn-detail {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.6rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: var(--primary-deep);
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+  align-self: flex-start;
+}
+.training-card .content .btn-detail:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,212,255,0.3); }
 
-    .exam-section { padding: 2rem 4% 5rem; }
-    .exam-container { max-width: 900px; margin: 0 auto; }
+/* ========== POUR QUI ========== */
+.audience-section { margin: 4rem 0; }
+.audience-section h2 {
+  color: var(--white);
+  font-size: clamp(1.6rem, 2.5vw, 2rem);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.audience-section .sub {
+  color: var(--gray-light);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.audience-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(0,212,255,0.06);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: var(--transition);
+}
+.audience-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+.audience-card .icon { font-size: 2.2rem; color: var(--accent); margin-bottom: 0.8rem; }
+.audience-card h4 { color: var(--white); font-size: 1rem; margin-bottom: 0.3rem; }
+.audience-card p { color: var(--gray-light); font-size: 0.85rem; }
 
-    /* ===== ADMIN PANEL ===== */
-    .admin-panel {
-      display: none;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(0,212,255,0.1);
-      border-radius: 16px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-    }
-    .admin-panel.visible { display: block; }
-    .admin-panel h3 { color: var(--white); margin-bottom: 0.5rem; }
-    .admin-panel .hint { color: var(--gray-light); font-size: 0.8rem; margin-bottom: 1rem; }
-    .admin-panel textarea {
-      width: 100%; padding: 1rem; min-height: 120px;
-      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 8px; color: var(--white); font-family: 'Courier New', monospace;
-      font-size: 0.9rem; resize: vertical;
-    }
-    .admin-panel textarea:focus { outline: none; border-color: var(--accent); }
-    .admin-panel .flex { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; }
-    .admin-panel .btn {
-      padding: 0.8rem 2rem; border: none; border-radius: 10px;
-      font-weight: 700; font-size: 0.95rem; cursor: pointer;
-      transition: all 0.3s; font-family: inherit;
-    }
-    .admin-panel .btn-primary { background: var(--accent); color: var(--primary); }
-    .admin-panel .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,212,255,0.3); }
-    .admin-panel .btn-secondary { background: rgba(255,255,255,0.06); color: var(--gray-light); border: 1px solid rgba(255,255,255,0.1); }
-    .admin-panel .btn-secondary:hover { background: rgba(255,255,255,0.12); }
-    .admin-panel .code-result {
-      background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.1);
-      border-radius: 8px; padding: 1rem; margin-top: 1rem;
-      font-size: 0.85rem; white-space: pre-wrap; word-break: break-all;
-      color: var(--accent); max-height: 300px; overflow-y: auto;
-    }
-    .admin-panel .shortcut-hint {
-      font-size: 0.7rem; color: var(--gray-mid); margin-top: 0.8rem;
-    }
-    .admin-panel .shortcut-hint kbd {
-      background: rgba(255,255,255,0.1); padding: 0.1rem 0.5rem; border-radius: 4px;
-      font-family: inherit; font-size: 0.7rem; color: var(--gray-light);
-    }
+/* ========== CONTACT ========== */
+.contact-section { margin-top: 4rem; }
+.contact-section h2 {
+  color: var(--white);
+  font-size: clamp(1.6rem, 2.5vw, 2rem);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.contact-section .sub {
+  color: var(--gray-light);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.contact-form-wrap {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(0,212,255,0.1);
+  border-radius: 24px;
+  padding: 3rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.form-group { margin-bottom: 1rem; }
+.form-group label { display: block; color: var(--accent); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.4rem; }
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%; padding: 0.85rem 1rem;
+  border: 1.5px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.03);
+  color: var(--white);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: rgba(0,212,255,0.05);
+}
+.form-group textarea { min-height: 120px; resize: vertical; }
+.form-group select option { background: var(--primary-deep); color: var(--white); }
+.btn-submit-form {
+  width: 100%; padding: 1rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: var(--primary-deep);
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+.btn-submit-form:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0,212,255,0.3); }
+.btn-submit-form:disabled { opacity: 0.5; cursor: not-allowed; }
 
-    /* ===== LOGIN ===== */
-    .login-screen { background: rgba(255,255,255,0.03); border: 1px solid rgba(0,212,255,0.15); border-radius: 20px; padding: 3rem; text-align: center; }
-    .login-screen .lock-icon { font-size: 3.5rem; color: var(--accent); margin-bottom: 1rem; }
-    .login-screen h3 { color: var(--white); font-size: 1.5rem; margin-bottom: 0.5rem; }
-    .login-screen p { color: var(--gray-light); margin-bottom: 1.5rem; }
-    .login-input-wrap { display: flex; gap: 0.8rem; max-width: 400px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
-    .login-input-wrap input { flex: 1; min-width: 200px; padding: 0.9rem 1.2rem; border: 1.5px solid rgba(0,212,255,0.2); border-radius: 10px; font-family: inherit; font-size: 1rem; background: rgba(255,255,255,0.06); color: var(--white); transition: all 0.2s; text-transform: uppercase; letter-spacing: 1px; }
-    .login-input-wrap input::placeholder { color: var(--gray-mid); text-transform: none; letter-spacing: 0; }
-    .login-input-wrap input:focus { outline: none; border-color: var(--accent); background: rgba(0,212,255,0.08); }
-    .login-input-wrap button { padding: 0.9rem 1.8rem; background: var(--accent); color: var(--primary); border: none; border-radius: 10px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: all 0.3s; }
-    .login-input-wrap button:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,212,255,0.3); }
-    .login-error { color: var(--red); font-size: 0.88rem; margin-top: 0.8rem; display: none; padding: 0.8rem; background: rgba(239,68,68,0.1); border-radius: 8px; border: 1px solid rgba(239,68,68,0.2); }
-    .login-success { color: var(--success); font-size: 0.88rem; margin-top: 0.8rem; display: none; padding: 0.8rem; background: rgba(16,185,129,0.1); border-radius: 8px; border: 1px solid rgba(16,185,129,0.2); }
-    .login-code-info { color: var(--gray-light); font-size: 0.75rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.05); }
-    .login-code-info i { color: var(--accent); }
+/* ========== FOOTER ========== */
+.footer {
+  background: var(--primary-deep);
+  border-top: 1px solid rgba(0,212,255,0.1);
+  padding: 4rem 4% 2rem;
+  margin-top: 0;
+}
+.footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+.footer-brand .logo { margin-bottom: 1.2rem; display: inline-flex; align-items: center; gap: 0.6rem; }
+.footer-brand p { color: var(--gray-mid); font-size: 0.88rem; margin: 1rem 0; line-height: 1.7; }
+.footer-socials { display: flex; gap: 1rem; margin-top: 1rem; }
+.footer-socials a {
+  width: 42px; height: 42px;
+  background: rgba(15,43,77,0.5);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--off-white);
+  border: 1px solid rgba(0,212,255,0.1);
+  transition: var(--transition);
+}
+.footer-socials a:hover { background: var(--accent); color: var(--primary-deep); transform: translateY(-3px); }
+.footer-col h4 { color: var(--white); font-size: 0.92rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 0.6rem; }
+.footer-col ul a { color: var(--gray-light); font-size: 0.88rem; transition: var(--transition); }
+.footer-col ul a:hover { color: var(--accent); }
+.footer-bottom { max-width: 1400px; margin: 0 auto; padding-top: 1.5rem; border-top: 1px solid rgba(0,212,255,0.1); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; color: var(--gray-mid); }
 
-    /* ===== CANDIDATE FORM ===== */
-    .candidate-form { background: rgba(255,255,255,0.03); border: 1px solid rgba(0,212,255,0.15); border-radius: 20px; padding: 2.5rem; margin-bottom: 2rem; display: none; }
-    .candidate-form.active { display: block; }
-    .candidate-form h3 { color: var(--white); margin-bottom: 0.5rem; font-size: 1.3rem; }
-    .candidate-form p { color: var(--gray-light); font-size: 0.9rem; margin-bottom: 1.5rem; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
-    .form-group { margin-bottom: 1rem; }
-    .form-group label { display: block; color: var(--accent); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.4rem; }
-    .form-group input { width: 100%; padding: 0.85rem 1rem; border: 1.5px solid rgba(255,255,255,0.1); border-radius: 10px; background: rgba(255,255,255,0.04); color: var(--white); font-family: inherit; font-size: 0.95rem; transition: var(--transition); }
-    .form-group input:focus { outline: none; border-color: var(--accent); background: rgba(0,212,255,0.06); }
-    .form-group input:disabled { opacity: 0.6; cursor: not-allowed; }
-
-    .section-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2rem; }
-    .section-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 2rem; cursor: pointer; transition: var(--transition); text-align: center; position: relative; overflow: hidden; }
-    .section-card:hover:not(.locked) { border-color: var(--accent); background: rgba(0,212,255,0.05); transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,212,255,0.1); }
-    .section-card.selected { border-color: var(--accent) !important; background: rgba(0,212,255,0.08) !important; box-shadow: 0 0 30px rgba(0,212,255,0.2); }
-    .section-card.locked { opacity: 0.4; cursor: not-allowed; filter: grayscale(50%); border-color: rgba(255,255,255,0.05); }
-    .section-card.locked:hover { transform: none; box-shadow: none; }
-    .section-card .card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-    .section-card h4 { color: var(--white); font-size: 1.1rem; margin-bottom: 0.5rem; }
-    .section-card .card-meta { color: var(--gray-light); font-size: 0.82rem; }
-    .section-card .card-badge { position: absolute; top: 1rem; right: 1rem; font-size: 0.65rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 20px; text-transform: uppercase; }
-    .section-card .card-badge.available { background: var(--success); color: #000; }
-    .section-card .card-badge.locked-badge { background: rgba(255,184,0,0.3); color: var(--gold); }
-    .section-card .card-lock-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 2rem; color: var(--gold); opacity: 0; transition: opacity 0.3s ease; pointer-events: none; }
-    .section-card.locked .card-lock-icon { opacity: 1; }
-    .section-card.locked .card-icon, .section-card.locked h4, .section-card.locked .card-meta { filter: blur(1px); }
-    .btn-start-exam { width: 100%; padding: 1rem; background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: var(--primary); border: none; border-radius: 12px; font-weight: 700; font-size: 1.05rem; cursor: pointer; transition: var(--transition); font-family: inherit; display: flex; align-items: center; justify-content: center; gap: 0.6rem; margin-top: 1.5rem; }
-    .btn-start-exam:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0,212,255,0.3); }
-    .btn-start-exam:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
-
-    /* ===== EXAM INTERFACE ===== */
-    .exam-interface { display: none; }
-    .exam-interface.active { display: block; }
-    .exam-header-bar { background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.15); border-radius: 16px; padding: 1.2rem 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; }
-    .exam-info-item { text-align: center; }
-    .exam-info-item .label { font-size: 0.7rem; color: var(--gray-light); text-transform: uppercase; letter-spacing: 0.1em; }
-    .exam-info-item .value { font-size: 1.4rem; font-weight: 700; color: var(--white); font-family: 'Space Grotesk', sans-serif; }
-    .exam-info-item .value.timer { color: var(--accent); }
-    .exam-info-item .value.timer.warning { color: var(--gold); animation: pulse 1s infinite; }
-    .exam-info-item .value.timer.danger { color: var(--red); animation: pulse 0.5s infinite; }
-    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
-    .exam-progress-wrap { background: rgba(255,255,255,0.06); border-radius: 10px; height: 6px; margin-bottom: 2rem; overflow: hidden; }
-    .exam-progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--success)); border-radius: 10px; transition: width 0.3s ease; }
-    .question-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 2rem; margin-bottom: 1.5rem; transition: var(--transition); }
-    .question-card.answered { border-color: rgba(0,212,255,0.3); }
-    .question-card.correct-card { border-color: var(--success) !important; background: rgba(16,185,129,0.05) !important; }
-    .question-card.wrong-card { border-color: var(--red) !important; background: rgba(239,68,68,0.05) !important; }
-    .question-number { font-size: 0.8rem; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.5rem; }
-    .question-text { font-size: 1.05rem; color: var(--white); font-weight: 600; margin-bottom: 1.2rem; line-height: 1.5; }
-    .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
-    .option-btn { padding: 0.9rem 1rem; border: 1.5px solid rgba(255,255,255,0.1); border-radius: 10px; background: rgba(255,255,255,0.02); color: var(--off-white); cursor: pointer; transition: var(--transition); font-family: inherit; font-size: 0.9rem; text-align: left; }
-    .option-btn:hover:not(:disabled) { background: rgba(0,212,255,0.08); border-color: var(--accent); }
-    .option-btn.selected { background: rgba(0,212,255,0.15); border-color: var(--accent); color: var(--white); font-weight: 600; }
-    .option-btn.correct-show { background: rgba(16,185,129,0.2) !important; border-color: var(--success) !important; color: var(--success) !important; font-weight: 700; }
-    .option-btn.wrong-show { background: rgba(239,68,68,0.2) !important; border-color: var(--red) !important; color: var(--red) !important; }
-    .option-btn:disabled { cursor: not-allowed; opacity: 0.7; }
-    .exam-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; flex-wrap: wrap; gap: 1rem; }
-    .btn-nav { padding: 0.8rem 1.6rem; border-radius: 10px; font-weight: 700; font-size: 0.9rem; cursor: pointer; transition: var(--transition); font-family: inherit; border: none; display: flex; align-items: center; gap: 0.5rem; }
-    .btn-nav.prev { background: rgba(255,255,255,0.06); color: var(--off-white); border: 1px solid rgba(255,255,255,0.1); }
-    .btn-nav.prev:hover { background: rgba(255,255,255,0.1); }
-    .btn-nav.next { background: var(--accent); color: var(--primary); }
-    .btn-nav.next:hover { background: var(--accent-dark); }
-    .btn-nav.submit { background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: var(--primary); display: none; }
-    .btn-nav.submit:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,212,255,0.3); }
-    .btn-nav.submit.show { display: flex; }
-    .btn-nav.quit { background: rgba(255,184,0,0.2); color: var(--gold); border: 1px solid rgba(255,184,0,0.3); }
-    .btn-nav.quit:hover { background: rgba(255,184,0,0.35); }
-    .btn-nav:disabled { opacity: 0.4; cursor: not-allowed; }
-
-    /* ===== RESULTS ===== */
-    .results-panel { display: none; text-align: center; }
-    .results-panel.active { display: block; }
-    .results-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(0,212,255,0.2); border-radius: 24px; padding: 3rem; max-width: 600px; margin: 0 auto; }
-    .results-score-circle { width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 3rem; font-weight: 800; font-family: 'Space Grotesk', sans-serif; color: var(--white); }
-    .results-score-circle.excellent { background: linear-gradient(135deg, #10B981, #059669); box-shadow: 0 0 50px rgba(16,185,129,0.4); }
-    .results-score-circle.good { background: linear-gradient(135deg, #00D4FF, #0891B2); box-shadow: 0 0 50px rgba(0,212,255,0.4); }
-    .results-score-circle.average { background: linear-gradient(135deg, #FFB800, #F59E0B); box-shadow: 0 0 50px rgba(255,184,0,0.4); }
-    .results-score-circle.poor { background: linear-gradient(135deg, #EF4444, #DC2626); box-shadow: 0 0 50px rgba(239,68,68,0.4); }
-    .results-msg { font-size: 1.2rem; color: var(--white); margin-bottom: 0.5rem; font-weight: 600; }
-    .results-detail { color: var(--gray-light); margin-bottom: 2rem; }
-    .results-email-status { padding: 1rem; border-radius: 10px; margin-bottom: 1.5rem; font-weight: 600; font-size: 0.9rem; }
-    .results-email-status.sent { background: rgba(16,185,129,0.15); color: var(--success); border: 1px solid rgba(16,185,129,0.3); }
-    .results-email-status.error { background: rgba(239,68,68,0.15); color: var(--red); border: 1px solid rgba(239,68,68,0.3); }
-
-    /* ===== FOOTER ===== */
-    footer { background: var(--primary-deep); border-top: 1px solid rgba(0,212,255,0.1); padding: 3rem 4% 1.5rem; margin-top: 4rem; }
-    .footer-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
-    .footer-brand p { color: var(--gray-mid); font-size: 0.88rem; margin: 1rem 0; }
-    .footer-col h4 { color: var(--white); font-size: 0.92rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.08em; }
-    .footer-col ul { list-style: none; }
-    .footer-col ul li { margin-bottom: 0.6rem; }
-    .footer-col ul a { color: var(--gray-light); font-size: 0.88rem; transition: var(--transition); }
-    .footer-col ul a:hover { color: var(--accent); }
-    .footer-bottom { max-width: 1400px; margin: 0 auto; padding-top: 1.5rem; border-top: 1px solid rgba(0,212,255,0.1); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.82rem; color: var(--gray-mid); }
-
-    @media (max-width: 1200px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 1024px) { .nav-links { display: none; } .menu-toggle { display: block; } .section-cards { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 768px) {
-      .top-bar-container { flex-direction: column !important; justify-content: center !important; align-items: center !important; text-align: center !important; gap: 0.6rem !important; }
-      .top-bar-info { order: 2 !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; gap: 0.4rem !important; width: 100% !important; }
-      .top-bar-social { order: 3 !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; gap: 0.5rem !important; width: 100% !important; }
-      .form-row, .section-cards, .options-grid { grid-template-columns: 1fr; }
-      .exam-header-bar { flex-direction: column; text-align: center; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .exam-nav { flex-direction: column; }
-      .exam-nav .btn-nav { width: 100%; justify-content: center; }
-      .integrity-banner { flex-direction: column; text-align: center; }
-      .integrity-banner .ib-content .ib-principles { justify-content: center; }
-      .monitoring-widget.active { flex-direction: column; text-align: center; }
-      .login-input-wrap { flex-direction: column; align-items: center; }
-      .login-input-wrap input { min-width: 100%; }
-    }
-    @media (max-width: 600px) { .section-cards { grid-template-columns: 1fr; } }
-
-    /* ===== CAMERA OVERLAYS ===== */
-    .camera-permission-overlay {
-      position: fixed; inset: 0; z-index: 9999;
-      background: rgba(2,8,16,0.97);
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
-    }
-    .camera-permission-overlay.active { display: flex; }
-    .camera-permission-overlay .cp-icon { font-size: 4rem; color: var(--accent); margin-bottom: 1.5rem; animation: float 3s ease-in-out infinite; }
-    .camera-permission-overlay h2 { color: var(--white); font-size: 1.5rem; margin-bottom: 1rem; font-family: 'Space Grotesk', sans-serif; }
-    .camera-permission-overlay p { color: var(--gray-light); max-width: 450px; margin-bottom: 0.8rem; font-size: 0.95rem; line-height: 1.6; }
-    .camera-permission-overlay .cp-warning { color: var(--red); font-weight: 600; margin-bottom: 1.5rem; }
-    .camera-permission-overlay .cp-buttons { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
-    .btn-cp {
-      padding: 0.8rem 2rem; border-radius: 10px;
-      font-weight: 700; font-size: 0.95rem;
-      cursor: pointer; transition: var(--transition);
-      font-family: inherit; border: none;
-      display: flex; align-items: center; gap: 0.5rem;
-    }
-    .btn-cp-allow { background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: var(--primary-deep); }
-    .btn-cp-allow:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0, 212, 255, 0.3); }
-    .btn-cp-deny { background: rgba(239, 68, 68, 0.15); color: var(--red); border: 1px solid rgba(239, 68, 68, 0.3); }
-    .btn-cp-deny:hover { background: rgba(239, 68, 68, 0.25); }
-
-    .camera-denied-overlay {
-      position: fixed; inset: 0; z-index: 9999;
-      background: rgba(2,8,16,0.97);
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
-    }
-    .camera-denied-overlay.active { display: flex; }
-    .camera-denied-overlay .cd-icon { font-size: 4rem; color: var(--red); margin-bottom: 1.5rem; }
-    .camera-denied-overlay h2 { color: var(--white); font-size: 1.5rem; margin-bottom: 1rem; font-family: 'Space Grotesk', sans-serif; }
-    .camera-denied-overlay p { color: var(--gray-light); max-width: 450px; margin-bottom: 1rem; font-size: 0.95rem; line-height: 1.6; }
-    .btn-cd {
-      padding: 0.8rem 2rem; border-radius: 10px;
-      font-weight: 700; font-size: 0.95rem;
-      cursor: pointer; transition: var(--transition);
-      font-family: inherit; border: 1px solid rgba(255,255,255,0.1);
-      display: flex; align-items: center; gap: 0.5rem;
-      background: rgba(255,255,255,0.06); color: var(--off-white);
-    }
-    .btn-cd:hover { background: rgba(255,255,255,0.12); }
-  </style>
+@media (max-width: 1200px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 1024px) { .nav-links { display: none; } .menu-toggle { display: block; } }
+@media (max-width: 992px) {
+  .training-card { grid-template-columns: 1fr; }
+  .training-card .image { min-height: 200px; }
+  .audience-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .top-bar-container { flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 0.8rem; }
+  .top-bar-info { display: flex !important; flex-direction: column; align-items: center; justify-content: center; gap: 0.4rem; width: 100%; }
+  .form-row { grid-template-columns: 1fr; }
+  .contact-form-wrap { padding: 1.5rem; }
+  .tabs-nav { flex-direction: column; align-items: stretch; }
+  .tab-btn { justify-content: center; }
+  .training-card .content { padding: 1.5rem; }
+  .training-card .content .meta { flex-wrap: wrap; gap: 0.8rem; }
+  .audience-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .page-header { padding: 3rem 4% 2rem; }
+}
+</style>
 </head>
 <body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
 
 <!-- ========== TOP BAR ========== -->
 <div class="top-bar">
@@ -458,7 +509,7 @@
     <div class="top-bar-info">
       <span><i class="fa-solid fa-phone"></i> +212 728 31 28 01</span>
       <span><i class="fa-solid fa-envelope"></i> contact@netvanguard.ma</span>
-      <span><i class="fa-solid fa-location-dot"></i> BD 30 JUILLET, Sidi Moumen, Casablanca</span>
+      <span><i class="fa-solid fa-location-dot"></i> Casablanca, Maroc</span>
     </div>
     <div class="top-bar-social">
       <div class="lang-switch" style="margin-right:1rem;">
@@ -474,12 +525,7 @@
   <div class="nav-container">
     <a href="index.html" class="logo">
       <svg class="logo-shield" viewBox="0 0 24 24" width="32" height="32">
-        <defs>
-          <linearGradient id="shieldGradNav" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#FFB800;stop-opacity:1" />
-          </linearGradient>
-        </defs>
+        <defs><linearGradient id="shieldGradNav" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1"/><stop offset="100%" style="stop-color:#FFB800;stop-opacity:1"/></linearGradient></defs>
         <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#shieldGradNav)"/>
         <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
       </svg>
@@ -511,191 +557,168 @@
   <a href="support.html" class="btn-espace-client-mobile" data-i18n="nav_espace_client"><i class="fa-solid fa-user-circle"></i> Espace Client</a>
 </div>
 
-<!-- ========== ADMIN PANEL ========== -->
-<div class="admin-panel" id="adminPanel">
-  <h3><i class="fas fa-shield-alt" style="color:var(--accent);"></i> Administration — Générer des codes</h3>
-  <p class="hint">Saisissez les emails des candidats (un par ligne).</p>
-  <textarea id="adminEmails" placeholder="candidat1@email.com&#10;candidat2@email.com"></textarea>
-  <div class="flex">
-    <button class="btn btn-primary" onclick="generateCodes()"><i class="fas fa-rocket"></i> Générer</button>
-    <button class="btn btn-secondary" onclick="clearAllCodes()"><i class="fas fa-trash"></i> Réinitialiser</button>
-  </div>
-  <div class="code-result" id="codeResult"></div>
-  <div class="shortcut-hint">
-    <i class="fas fa-keyboard"></i> Admin accessible via <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd>
-  </div>
-</div>
-
-<!-- ========== CAMERA PERMISSION OVERLAY ========== -->
-<div class="camera-permission-overlay" id="cameraPermissionOverlay">
-  <div class="cp-icon"><i class="fas fa-camera"></i></div>
-  <h2 data-i18n="cp_title">Vérification d'identité requise</h2>
-  <p data-i18n="cp_desc1">Pour garantir l'intégrité de cette évaluation, l'activation de votre caméra est obligatoire.</p>
-  <p data-i18n="cp_desc2">Votre flux vidéo sera diffusé en direct pendant toute la durée de l'examen. Aucune image n'est stockée.</p>
-  <div class="cp-warning"><i class="fas fa-exclamation-triangle"></i> <span data-i18n="cp_warning">Sans caméra activée, vous ne pourrez pas accéder à l'examen.</span></div>
-  <div class="cp-buttons">
-    <button class="btn-cp btn-cp-allow" onclick="requestCamera()"><i class="fas fa-check-circle"></i> <span data-i18n="cp_allow">Autoriser la caméra</span></button>
-    <button class="btn-cp btn-cp-deny" onclick="denyCamera()"><i class="fas fa-times-circle"></i> <span data-i18n="cp_deny">Refuser</span></button>
-  </div>
-</div>
-
-<!-- ========== CAMERA DENIED OVERLAY ========== -->
-<div class="camera-denied-overlay" id="cameraDeniedOverlay">
-  <div class="cd-icon"><i class="fas fa-camera-slash"></i></div>
-  <h2 data-i18n="cd_title">Accès à l'examen impossible</h2>
-  <p data-i18n="cd_desc1">Vous avez refusé l'accès à votre caméra.</p>
-  <p data-i18n="cd_desc2">La surveillance par caméra est obligatoire pour valider votre identité et garantir l'équité entre tous les candidats.</p>
-  <p data-i18n="cd_desc3">Sans caméra, votre candidature ne peut pas être prise en compte.</p>
-  <button class="btn-cd" onclick="location.reload()"><i class="fas fa-redo"></i> <span data-i18n="cd_retry">Réessayer</span></button>
-</div>
-
 <!-- ========== PAGE HEADER ========== -->
 <section class="page-header">
   <div class="page-header-container">
-    <span class="exam-badge">🎓 <span data-i18n="badge_secure">PLATEFORME D'ÉVALUATION TECHNIQUE</span></span>
-    <h1><span data-i18n="hero_title">Centre d'Examen</span><br><span class="accent" data-i18n="hero_subtitle">NetVanguard Recrutement</span></h1>
+    <span class="page-badge">🎓 <span data-i18n="badge_campus">CAMPUS CYBER</span></span>
+    <h1><span data-i18n="hero_title">Formations cybersécurité</span><br><span class="accent" data-i18n="hero_subtitle">pour vos équipes</span></h1>
+    <p data-i18n="hero_desc">Des programmes de sensibilisation et de formation professionnelle pour renforcer la sécurité de votre entreprise. Formations sur mesure, en présentiel ou à distance.</p>
   </div>
 </section>
 
-<section class="exam-section">
-  <div class="exam-container">
+<!-- ========== CAMPUS SECTION ========== -->
+<section class="campus-section">
+  <div class="campus-container">
 
-    <div class="speciality-info" id="specialityInfoBanner" style="display:none;">
-      <i class="fas fa-tag"></i>
-      <div class="si-text">
-        <h4>🎯 Spécialité détectée : <span id="detectedSpeciality">—</span></h4>
-        <p data-i18n="si_desc">Votre spécialité a été automatiquement détectée depuis votre candidature. Seul l'examen correspondant est déverrouillé.</p>
+    <!-- ====== FORMATIONS ====== -->
+    <div class="tabs-container" id="formations">
+      <div class="tabs-nav">
+        <button class="tab-btn active" data-tab="tab1"><i class="fas fa-shield-halved"></i> <span data-i18n="tab1">Sensibilisation</span></button>
+        <button class="tab-btn" data-tab="tab2"><i class="fas fa-user-tie"></i> <span data-i18n="tab2">Managers</span></button>
+        <button class="tab-btn" data-tab="tab3"><i class="fas fa-database"></i> <span data-i18n="tab3">RGPD / Données</span></button>
+        <button class="tab-btn" data-tab="tab4"><i class="fas fa-cloud"></i> <span data-i18n="tab4">Cloud & M365</span></button>
+        <button class="tab-btn" data-tab="tab5"><i class="fas fa-check-circle"></i> <span data-i18n="tab5">Bonnes pratiques</span></button>
+        <button class="tab-btn" data-tab="tab6"><i class="fas fa-server"></i> <span data-i18n="tab6">SOC & Incidents</span></button>
       </div>
-    </div>
 
-    <div class="integrity-banner">
-      <div class="ib-icon"><i class="fas fa-graduation-cap"></i></div>
-      <div class="ib-content">
-        <h4 data-i18n="ib_title">Engagement d'Intégrité Académique</h4>
-        <p data-i18n="ib_desc">Cet examen s'inscrit dans le cadre du processus de recrutement de NetVanguard IT Solutions. Nous attendons de chaque candidat qu'il réponde avec honnêteté et transparence, dans le respect des standards éthiques qui définissent notre profession.</p>
-        <div class="ib-principles">
-          <span><i class="fas fa-check-circle"></i> <span data-i18n="ib_p1">Travail individuel</span></span>
-          <span><i class="fas fa-check-circle"></i> <span data-i18n="ib_p2">Sans assistance externe</span></span>
-          <span><i class="fas fa-check-circle"></i> <span data-i18n="ib_p3">Dans le temps imparti</span></span>
+      <!-- Tab 1 : Sensibilisation -->
+      <div class="tab-content active" id="tab1">
+        <div class="training-card">
+          <div class="image" style="background-image: url('images/sensibilisation.jpg');"></div>
+          <div class="content">
+            <span class="badge"><i class="fas fa-shield-halved"></i> <span data-i18n="t1_badge">Sensibilisation</span></span>
+            <h3 data-i18n="t1_title">Cybersécurité pour tous</h3>
+            <div class="meta"><span><i class="fas fa-clock"></i> <span data-i18n="t1_duration">1 jour</span></span><span><i class="fas fa-users"></i> <span data-i18n="t1_audience">Tous collaborateurs</span></span></div>
+            <p data-i18n="t1_desc">Former tous vos collaborateurs aux bons réflexes pour identifier et éviter les menaces du quotidien : phishing, ransomware, ingénierie sociale. Une formation interactive et pratique.</p>
+            <div class="tags"><span data-i18n="t1_tag1">Phishing</span><span data-i18n="t1_tag2">Ransomware</span><span data-i18n="t1_tag3">Bonnes pratiques</span></div>
+            <button class="btn-detail" onclick="scrollToContact()"><i class="fas fa-file-invoice"></i> <span data-i18n="btn_devis">Demander un devis</span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2 : Managers -->
+      <div class="tab-content" id="tab2">
+        <div class="training-card">
+          <div class="image" style="background-image: url('images/managers.jpg');"></div>
+          <div class="content">
+            <span class="badge"><i class="fas fa-user-tie"></i> <span data-i18n="t2_badge">Management</span></span>
+            <h3 data-i18n="t2_title">Cybersécurité pour managers</h3>
+            <div class="meta"><span><i class="fas fa-clock"></i> <span data-i18n="t2_duration">2 jours</span></span><span><i class="fas fa-users"></i> <span data-i18n="t2_audience">Managers & Dirigeants</span></span></div>
+            <p data-i18n="t2_desc">Donnez aux managers les clés pour intégrer la cybersécurité dans leur pilotage d'équipe, évaluer les risques et gérer une crise cyber efficacement.</p>
+            <div class="tags"><span data-i18n="t2_tag1">Gouvernance</span><span data-i18n="t2_tag2">Gestion de crise</span><span data-i18n="t2_tag3">Risques</span></div>
+            <button class="btn-detail" onclick="scrollToContact()"><i class="fas fa-file-invoice"></i> <span data-i18n="btn_devis">Demander un devis</span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3 : RGPD -->
+      <div class="tab-content" id="tab3">
+        <div class="training-card">
+          <div class="image" style="background-image: url('images/donnees.jpg');"></div>
+          <div class="content">
+            <span class="badge"><i class="fas fa-database"></i> <span data-i18n="t3_badge">RGPD / Data</span></span>
+            <h3 data-i18n="t3_title">Protection des données & RGPD</h3>
+            <div class="meta"><span><i class="fas fa-clock"></i> <span data-i18n="t3_duration">1 jour</span></span><span><i class="fas fa-users"></i> <span data-i18n="t3_audience">Juridique, DPO, IT</span></span></div>
+            <p data-i18n="t3_desc">Maîtrisez les obligations RGPD, identifiez les données personnelles et mettez en place les mesures de sécurité pour protéger vos informations sensibles.</p>
+            <div class="tags"><span data-i18n="t3_tag1">RGPD</span><span data-i18n="t3_tag2">Conformité</span><span data-i18n="t3_tag3">Données</span></div>
+            <button class="btn-detail" onclick="scrollToContact()"><i class="fas fa-file-invoice"></i> <span data-i18n="btn_devis">Demander un devis</span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 4 : Cloud & M365 -->
+      <div class="tab-content" id="tab4">
+        <div class="training-card">
+          <div class="image" style="background-image: url('images/cloud.jpg');"></div>
+          <div class="content">
+            <span class="badge"><i class="fas fa-cloud"></i> <span data-i18n="t4_badge">Cloud</span></span>
+            <h3 data-i18n="t4_title">Sécurité Cloud & Microsoft 365</h3>
+            <div class="meta"><span><i class="fas fa-clock"></i> <span data-i18n="t4_duration">2 jours</span></span><span><i class="fas fa-users"></i> <span data-i18n="t4_audience">Équipes IT</span></span></div>
+            <p data-i18n="t4_desc">Sécurisez votre environnement cloud et Microsoft 365. Apprenez à gérer les identités, protéger les données et configurer les outils de sécurité intégrés.</p>
+            <div class="tags"><span data-i18n="t4_tag1">Azure AD</span><span data-i18n="t4_tag2">Defender</span><span data-i18n="t4_tag3">Cloud</span></div>
+            <button class="btn-detail" onclick="scrollToContact()"><i class="fas fa-file-invoice"></i> <span data-i18n="btn_devis">Demander un devis</span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 5 : Bonnes pratiques -->
+      <div class="tab-content" id="tab5">
+        <div class="training-card">
+          <div class="image" style="background-image: url('images/bonnes-pratiques.jpg');"></div>
+          <div class="content">
+            <span class="badge"><i class="fas fa-check-circle"></i> <span data-i18n="t5_badge">Bonnes pratiques</span></span>
+            <h3 data-i18n="t5_title">Hygiène numérique & bonnes pratiques</h3>
+            <div class="meta"><span><i class="fas fa-clock"></i> <span data-i18n="t5_duration">0.5 jour</span></span><span><i class="fas fa-users"></i> <span data-i18n="t5_audience">Tous collaborateurs</span></span></div>
+            <p data-i18n="t5_desc">Adoptez les bonnes pratiques numériques au quotidien : mots de passe, navigation sécurisée, protection des données personnelles et reconnaissance des tentatives de fraude.</p>
+            <div class="tags"><span data-i18n="t5_tag1">Mots de passe</span><span data-i18n="t5_tag2">Navigation</span><span data-i18n="t5_tag3">Sensibilisation</span></div>
+            <button class="btn-detail" onclick="scrollToContact()"><i class="fas fa-file-invoice"></i> <span data-i18n="btn_devis">Demander un devis</span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 6 : SOC & Incidents -->
+      <div class="tab-content" id="tab6">
+        <div class="training-card">
+          <div class="image" style="background-image: url('images/soc.jpg');"></div>
+          <div class="content">
+            <span class="badge"><i class="fas fa-server"></i> <span data-i18n="t6_badge">SOC / Incidents</span></span>
+            <h3 data-i18n="t6_title">SOC & Gestion des incidents</h3>
+            <div class="meta"><span><i class="fas fa-clock"></i> <span data-i18n="t6_duration">3 jours</span></span><span><i class="fas fa-users"></i> <span data-i18n="t6_audience">IT & Sécurité</span></span></div>
+            <p data-i18n="t6_desc">Formez vos équipes à la détection et la réponse aux incidents de sécurité. Maîtrisez le fonctionnement d'un SOC, les outils SIEM et les procédures de réponse.</p>
+            <div class="tags"><span data-i18n="t6_tag1">SOC</span><span data-i18n="t6_tag2">SIEM</span><span data-i18n="t6_tag3">Incidents</span></div>
+            <button class="btn-detail" onclick="scrollToContact()"><i class="fas fa-file-invoice"></i> <span data-i18n="btn_devis">Demander un devis</span></button>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- ===== MONITORING WIDGET ===== -->
-    <div class="monitoring-widget" id="monitoringWidget">
-      <div class="mw-status">
-        <div class="mw-dot" id="mwDot"></div>
-        <span data-i18n="mw_active">Session surveillée</span>
-      </div>
-      <div class="mw-strikes">
-        <span class="strike-label" data-i18n="mw_strikes">Infractions</span>
-        <div class="strike-dot" id="strike1"></div>
-        <div class="strike-dot" id="strike2"></div>
-      </div>
-    </div>
-
-    <!-- ===== WARNING TOAST ===== -->
-    <div class="warning-toast" id="warningToast"></div>
-
-    <!-- ===== CANCELLED OVERLAY ===== -->
-    <div class="cancelled-overlay" id="cancelledOverlay">
-      <div class="co-icon"><i class="fas fa-times-octagon"></i></div>
-      <h2 data-i18n="cancelled_title">Examen Annulé</h2>
-      <p data-i18n="cancelled_desc">Notre système de surveillance a détecté des comportements non conformes au règlement de l'examen. Votre session a été automatiquement interrompue. Un rapport détaillé a été envoyé au responsable recrutement.</p>
-      <button class="btn-nav quit" onclick="location.reload()"><i class="fas fa-redo"></i> <span data-i18n="cancelled_btn">Retour à l'accueil</span></button>
-    </div>
-
-    <!-- ===== LOGIN SCREEN ===== -->
-    <div class="login-screen" id="loginScreen">
-      <div class="lock-icon"><i class="fas fa-lock"></i></div>
-      <h3 data-i18n="login_title">Accès Sécurisé</h3>
-      <p data-i18n="login_desc">Plateforme réservée aux examens de recrutement. Saisissez votre code unique.</p>
-      <div class="login-input-wrap">
-        <input type="text" id="accessCode" placeholder="Code d'accès unique...">
-        <button class="btn-nav next" onclick="checkAccess()"><i class="fas fa-sign-in-alt"></i> Accéder</button>
-      </div>
-      <div class="login-error" id="loginError">❌ Code invalide.</div>
-      <div class="login-success" id="loginSuccess">✅ Code valide !</div>
-      <div class="login-code-info"><i class="fas fa-info-circle"></i> <span data-i18n="code_info">Chaque code est à usage unique. Une fois utilisé, il ne peut plus être réutilisé.</span></div>
-    </div>
-
-    <!-- ===== CANDIDATE FORM ===== -->
-    <div class="candidate-form" id="candidateForm">
-      <h3 data-i18n="form_title">Informations du Candidat</h3>
-      <p data-i18n="form_desc">Veuillez remplir vos informations et choisir votre filière d'examen.</p>
-      <div class="form-row">
-        <div class="form-group"><label data-i18n="lbl_lastname">Nom *</label><input type="text" id="candLastName" placeholder="Votre nom" required></div>
-        <div class="form-group"><label data-i18n="lbl_firstname">Prénom *</label><input type="text" id="candFirstName" placeholder="Votre prénom" required></div>
-      </div>
-      <div class="form-row">
-        <div class="form-group"><label data-i18n="lbl_email">Email *</label><input type="email" id="candEmail" placeholder="votre@email.com" required readonly style="background:rgba(0,212,255,0.05);border-color:rgba(0,212,255,0.2);"></div>
-        <div class="form-group"><label data-i18n="lbl_phone">Téléphone *</label><input type="tel" id="candPhone" placeholder="+212..." required></div>
-      </div>
-      <p style="color:var(--accent);font-weight:600;margin-top:1rem;" data-i18n="lbl_choose">🎯 Choisissez votre filière :</p>
-      <div class="section-cards" id="sectionCards">
-        <div class="section-card" data-exam="support" onclick="selectExam('support')">
-          <div class="card-icon">💻</div>
-          <h4 data-i18n="card1_title">Support Technique IT</h4>
-          <div class="card-meta" data-i18n="card1_desc">40 questions · 60 min</div>
-          <div class="card-badge available" data-i18n="badge_available">Disponible</div>
-          <i class="fas fa-lock card-lock-icon"></i>
-        </div>
-        <div class="section-card" data-exam="reseau" onclick="selectExam('reseau')">
-          <div class="card-icon">🌐</div>
-          <h4 data-i18n="card2_title">Sécurité Réseau</h4>
-          <div class="card-meta" data-i18n="card2_desc">40 questions · 60 min</div>
-          <div class="card-badge available" data-i18n="badge_available">Disponible</div>
-          <i class="fas fa-lock card-lock-icon"></i>
-        </div>
-        <div class="section-card" data-exam="pentest" onclick="selectExam('pentest')">
-          <div class="card-icon">🛡️</div>
-          <h4 data-i18n="card3_title">Pentest / VAPT</h4>
-          <div class="card-meta" data-i18n="card3_desc">40 questions · 60 min</div>
-          <div class="card-badge available" data-i18n="badge_available">Disponible</div>
-          <i class="fas fa-lock card-lock-icon"></i>
-        </div>
-        <div class="section-card" data-exam="admin" onclick="selectExam('admin')">
-          <div class="card-icon">🖥️</div>
-          <h4 data-i18n="card4_title">Administrateur Systèmes</h4>
-          <div class="card-meta" data-i18n="card4_desc">40 questions · 60 min</div>
-          <div class="card-badge available" data-i18n="badge_available">Disponible</div>
-          <i class="fas fa-lock card-lock-icon"></i>
-        </div>
-      </div>
-      <button class="btn-start-exam" id="startExamBtn" onclick="startExam()" disabled><i class="fas fa-play-circle"></i> <span data-i18n="btn_start">Démarrer l'Examen</span></button>
-    </div>
-
-    <!-- ===== EXAM INTERFACE ===== -->
-    <div class="exam-interface" id="examInterface">
-      <div class="exam-header-bar">
-        <div class="exam-info-item"><div class="label" data-i18n="lbl_question">Question</div><div class="value" id="currentQDisplay">1 / 40</div></div>
-        <div class="exam-info-item"><div class="label" data-i18n="lbl_time">Temps Restant</div><div class="value timer" id="timerDisplay">60:00</div></div>
-        <div class="exam-info-item"><div class="label" data-i18n="lbl_answered">Répondues</div><div class="value" id="answeredCount">0 / 40</div></div>
-      </div>
-      <div class="exam-progress-wrap"><div class="exam-progress-fill" id="examProgress" style="width:0%;"></div></div>
-      <div id="questionContainer"></div>
-      <div class="exam-nav">
-        <button class="btn-nav prev" id="prevBtn" onclick="prevQuestion()"><i class="fas fa-chevron-left"></i> <span data-i18n="btn_prev">Précédent</span></button>
-        <button class="btn-nav next" id="nextBtn" onclick="nextQuestion()"><span data-i18n="btn_next">Suivant</span> <i class="fas fa-chevron-right"></i></button>
-        <button class="btn-nav submit" id="submitBtn" onclick="submitExam()"><i class="fas fa-paper-plane"></i> <span data-i18n="btn_submit">Terminer</span></button>
-      </div>
-      <div style="display:flex;gap:1rem;margin-top:1rem;flex-wrap:wrap;">
-        <button class="btn-nav quit" onclick="quitExam()" style="flex:1;"><i class="fas fa-door-open"></i> <span data-i18n="btn_quit">Abandonner</span></button>
-        <button class="btn-nav prev" onclick="backToSections()" style="flex:1;"><i class="fas fa-arrow-left"></i> <span data-i18n="btn_back_sections">Retour</span></button>
+    <!-- ====== POUR QUI ====== -->
+    <div class="audience-section">
+      <h2 data-i18n="audience_title">À qui s'adressent nos formations ?</h2>
+      <p class="sub" data-i18n="audience_sub">Des programmes adaptés à chaque profil</p>
+      <div class="audience-grid">
+        <div class="audience-card"><div class="icon"><i class="fas fa-users"></i></div><h4 data-i18n="aud1_title">Tous les collaborateurs</h4><p data-i18n="aud1_desc">Sensibilisation aux bonnes pratiques et aux menaces du quotidien</p></div>
+        <div class="audience-card"><div class="icon"><i class="fas fa-user-tie"></i></div><h4 data-i18n="aud2_title">Managers & Dirigeants</h4><p data-i18n="aud2_desc">Pilotage de la sécurité et gestion de crise</p></div>
+        <div class="audience-card"><div class="icon"><i class="fas fa-gavel"></i></div><h4 data-i18n="aud3_title">Équipes juridiques & DPO</h4><p data-i18n="aud3_desc">RGPD, conformité et protection des données</p></div>
+        <div class="audience-card"><div class="icon"><i class="fas fa-laptop-code"></i></div><h4 data-i18n="aud4_title">Équipes IT & Sécurité</h4><p data-i18n="aud4_desc">Cloud, SOC, incidents, techniques avancées</p></div>
       </div>
     </div>
 
-    <!-- ===== RESULTS PANEL ===== -->
-    <div class="results-panel" id="resultsPanel">
-      <div class="results-card">
-        <h3 style="color:var(--white);margin-bottom:1.5rem;" data-i18n="results_title">📋 Résultats</h3>
-        <div class="results-score-circle" id="scoreCircle">0</div>
-        <div class="results-msg" id="resultsMsg"></div>
-        <div class="results-detail" id="resultsDetail"></div>
-        <div class="results-email-status" id="emailStatus"></div>
-        <button class="btn-nav next" onclick="reviewExam()" style="margin:0 auto 1rem;"><i class="fas fa-search"></i> <span data-i18n="btn_review">Revoir</span></button>
-        <br>
-        <button class="btn-nav prev" onclick="backToSections()" style="margin:0 auto;"><i class="fas fa-arrow-left"></i> <span data-i18n="btn_back_sections">Retour</span></button>
+    <!-- ====== CONTACT ====== -->
+    <div class="contact-section" id="contact">
+      <h2 data-i18n="contact_title">Demandez votre programme personnalisé</h2>
+      <p class="sub" data-i18n="contact_sub">Nous vous proposons un devis sur mesure adapté à vos besoins</p>
+      <div class="contact-form-wrap">
+        <form id="contactForm" action="https://formspree.io/f/myklqdky" method="POST">
+          <div class="form-row">
+            <div class="form-group"><label data-i18n="lbl_name">Nom complet *</label><input type="text" name="nom" required placeholder="Votre nom"></div>
+            <div class="form-group"><label data-i18n="lbl_company">Entreprise *</label><input type="text" name="entreprise" required placeholder="Votre entreprise"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label data-i18n="lbl_email">Email *</label><input type="email" name="email" required placeholder="votre@email.com"></div>
+            <div class="form-group"><label data-i18n="lbl_phone">Téléphone *</label><input type="tel" name="telephone" required placeholder="+212..."></div>
+          </div>
+          <div class="form-group">
+            <label data-i18n="lbl_formation">Formation qui vous intéresse</label>
+            <select name="formation">
+              <option value="Sensibilisation cybersécurité">Sensibilisation cybersécurité</option>
+              <option value="Cybersécurité pour managers">Cybersécurité pour managers</option>
+              <option value="RGPD / Protection des données">RGPD / Protection des données</option>
+              <option value="Sécurité Cloud & Microsoft 365">Sécurité Cloud & Microsoft 365</option>
+              <option value="Bonnes pratiques / Hygiène numérique">Bonnes pratiques / Hygiène numérique</option>
+              <option value="SOC & Gestion des incidents">SOC & Gestion des incidents</option>
+              <option value="Programme personnalisé">Programme personnalisé</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label data-i18n="lbl_message">Votre message</label>
+            <textarea name="message" placeholder="Décrivez vos besoins..."></textarea>
+          </div>
+          <input type="hidden" name="_subject" value="Demande de formation - Campus Cyber">
+          <input type="text" name="_gotcha" style="display:none">
+          <button type="submit" class="btn-submit-form" id="contactSubmitBtn"><i class="fas fa-paper-plane"></i> <span data-i18n="btn_send">Envoyer ma demande</span></button>
+          <p style="text-align:center;font-size:0.8rem;color:var(--gray-mid);margin-top:0.8rem;" data-i18n="contact_secure">Réponse sous 24h · Devis sans engagement</p>
+        </form>
       </div>
     </div>
 
@@ -703,904 +726,396 @@
 </section>
 
 <!-- ========== FOOTER ========== -->
-<footer>
+<footer class="footer">
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="index.html" class="logo" style="font-size:1.2rem;margin-bottom:.8rem;display:inline-flex;">
-        <svg viewBox="0 0 24 24" width="28" height="28"><defs><linearGradient id="sgF" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1"/><stop offset="100%" style="stop-color:#FFB800;stop-opacity:1"/></linearGradient></defs>
-        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#sgF)"/><path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/></svg>
-        <span style="color:white;margin-left:.5rem;">Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.82em;font-weight:400;color:rgba(255,255,255,0.45);">IT Solutions</span></span>
+      <a href="index.html" class="logo">
+        <svg class="logo-shield" viewBox="0 0 24 24" width="36" height="36">
+          <defs><linearGradient id="shieldGradFooter" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1"/><stop offset="100%" style="stop-color:#FFB800;stop-opacity:1"/></linearGradient></defs>
+          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#shieldGradFooter)"/>
+          <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
+        </svg>
+        <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em; font-weight:500; color: var(--gray-light);">IT Solutions</span></span>
       </a>
-      <p>Cabinet de conseil et d'ingénierie spécialisé en cybersécurité, architectures réseaux sécurisées et transformation digitale des entreprises au Maroc.</p>
+      <p data-i18n="footer_desc">Formations cybersécurité, sensibilisation et recrutement pour les entreprises.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
     </div>
-    <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Audits & Tests d'intrusion</a></li><li><a href="services.html">Architecture Réseau</a></li><li><a href="services.html">Sécurisation Cloud</a></li><li><a href="services.html">Supervision SOC 24/7</a></li></ul></div>
-    <div class="footer-col"><h4>Liens utiles</h4><ul><li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li><li><a href="secteurs.html">Secteurs d'activité</a></li><li><a href="carrieres.html">Carrières</a></li><li><a href="campus-cyber.html">Campus Cyber</a></li></ul></div>
-    <div class="footer-col"><h4>Contact</h4><ul style="color:var(--gray-light);font-size:0.88rem;"><li><i class="fas fa-phone" style="color:var(--accent);margin-right:0.5rem;"></i> +212 728 31 28 01</li><li><i class="fas fa-envelope" style="color:var(--accent);margin-right:0.5rem;"></i> contact@netvanguard.ma</li><li><i class="fas fa-map-marker-alt" style="color:var(--accent);margin-right:0.5rem;"></i> Bd d'Anfa, Casablanca</li></ul></div>
+    <div class="footer-col">
+      <h4 data-i18n="footer_services">Services</h4>
+      <ul>
+        <li><a href="infogerance.html" data-i18n="footer_srv1">Infogérance</a></li>
+        <li><a href="securite-reseau.html" data-i18n="footer_srv2">Sécurité Réseau</a></li>
+        <li><a href="vapt.html" data-i18n="footer_srv3">Pentest / VAPT</a></li>
+        <li><a href="contact.html" data-i18n="footer_srv4">Audit & Diagnostic</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer_company">Société</h4>
+      <ul>
+        <li><a href="qui-sommes-nous.html" data-i18n="footer_about">Qui sommes-nous</a></li>
+        <li><a href="carrieres.html" data-i18n="footer_careers">Carrières</a></li>
+        <li><a href="contact.html" data-i18n="footer_contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer_legal">Informations</h4>
+      <ul>
+        <li><a href="mentions-legales.html" data-i18n="footer_legal_mentions">Mentions légales</a></li>
+        <li><a href="cookies.html" data-i18n="footer_cookies">Gestion des cookies</a></li>
+      </ul>
+    </div>
   </div>
-  <div class="footer-bottom"><div>© 2026 NetVanguard IT Solutions SARL · Casablanca</div><div style="display:flex;gap:1.5rem;"><a href="#">Mentions légales</a><a href="#">Politique de confidentialité</a></div></div>
+  <div class="footer-bottom">
+    <span data-i18n="footer_copy">&copy; 2026 NetVanguard IT Solutions. Tous droits réservés.</span>
+    <span data-i18n="footer_location">Basé à Casablanca, au service des entreprises.</span>
+  </div>
 </footer>
 
 <script>
 // ============================================================
-// BANQUES DE QUESTIONS (40 questions par filière)
-// ============================================================
-// Support (40 questions)
-const supportQuestions = [
-  { id:1, q_fr:"Quel composant est responsable de l'exécution du POST (Power-On Self-Test) lors du démarrage d'un ordinateur ?", q_en:"Which component is responsible for executing the POST (Power-On Self-Test) when a computer starts up?", options_fr:["Le processeur (CPU)","Le BIOS ou l'UEFI","La carte graphique","Le contrôleur de disque"], options_en:["The processor (CPU)","The BIOS or UEFI","The graphics card","The disk controller"], correct:1, cat:"Matériel" },
-  { id:2, q_fr:"Quelle est la différence fondamentale entre la RAM DDR4 et la DDR5 ?", q_en:"What is the fundamental difference between DDR4 and DDR5 RAM?", options_fr:["La DDR5 consomme davantage d'énergie","La DDR5 offre une bande passante supérieure et une latence CAS plus élevée","La DDR4 est globalement plus rapide","La DDR5 ne supporte pas l'ECC"], options_en:["DDR5 consumes more power","DDR5 offers higher bandwidth and higher CAS latency","DDR4 is globally faster","DDR5 does not support ECC"], correct:1, cat:"Matériel" },
-  { id:3, q_fr:"Lorsqu'un écran bleu (BSOD) affiche le code 'MEMORY_MANAGEMENT', quelle en est la cause la plus probable ?", q_en:"When a BSOD displays the 'MEMORY_MANAGEMENT' code, what is the most likely cause?", options_fr:["Un pilote graphique corrompu","Une défaillance de la mémoire RAM ou une corruption de la mémoire","Un secteur défectueux sur le disque dur","Un pilote réseau endommagé"], options_en:["A corrupted graphics driver","A RAM failure or memory corruption","A defective hard disk sector","A damaged network driver"], correct:1, cat:"Matériel" },
-  { id:4, q_fr:"Que signifie le code SMART 'Current Pending Sector Count' sur un disque dur ?", q_en:"What does the SMART code 'Current Pending Sector Count' indicate on a hard drive?", options_fr:["Le disque fonctionne parfaitement","Des secteurs instables sont en attente de réallocation","Le disque est plein","Le câble SATA est défectueux"], options_en:["The drive is working perfectly","Unstable sectors are pending reallocation","The drive is full","The SATA cable is defective"], correct:1, cat:"Matériel" },
-  { id:5, q_fr:"Quelle commande Linux utilisez-vous pour lister tous les périphériques PCI connectés au système ?", q_en:"Which Linux command do you use to list all PCI devices connected to the system?", options_fr:["lsusb","lspci","lsblk","lscpu"], options_en:["lsusb","lspci","lsblk","lscpu"], correct:1, cat:"Linux" },
-  { id:6, q_fr:"Quel service Windows Server permet la résolution des noms NetBIOS en adresses IP ?", q_en:"Which Windows Server service resolves NetBIOS names to IP addresses?", options_fr:["Le serveur DNS","Le serveur WINS","Le serveur DHCP","Le serveur IIS"], options_en:["DNS Server","WINS Server","DHCP Server","IIS"], correct:1, cat:"Windows" },
-  { id:7, q_fr:"Quel est le numéro de port par défaut utilisé par le protocole RDP pour la prise de main à distance ?", q_en:"What is the default port number used by the RDP protocol for remote desktop access?", options_fr:["22","443","3389","5900"], options_en:["22","443","3389","5900"], correct:2, cat:"Réseau" },
-  { id:8, q_fr:"Quel type de groupe Active Directory permet d'attribuer des permissions sur des ressources dans plusieurs domaines d'une même forêt ?", q_en:"Which Active Directory group type allows assigning permissions on resources across multiple domains within the same forest?", options_fr:["Groupe Local de Domaine","Groupe Global","Groupe Universel","Groupe de Distribution"], options_en:["Domain Local Group","Global Group","Universal Group","Distribution Group"], correct:2, cat:"Windows" },
-  { id:9, q_fr:"Quelle commande PowerShell permet d'afficher les 10 processus les plus gourmands en mémoire ?", q_en:"Which PowerShell command displays the top 10 processes by memory usage?", options_fr:["Get-Process | Sort-Object WS -Descending | Select-Object -First 10","Get-Service | Sort Memory","Show-Process -Top 10","Get-TaskManager"], options_en:["Get-Process | Sort-Object WS -Descending | Select-Object -First 10","Get-Service | Sort Memory","Show-Process -Top 10","Get-TaskManager"], correct:0, cat:"Windows" },
-  { id:10, q_fr:"Quel est le rôle d'un enregistrement MX dans une zone DNS ?", q_en:"What is the role of an MX record in a DNS zone?", options_fr:["Il mappe un nom d'hôte vers une adresse IPv6","Il identifie le serveur de messagerie responsable du domaine","Il définit un alias pour un autre nom DNS","Il spécifie le serveur de noms du domaine"], options_en:["Maps a hostname to an IPv6 address","Identifies the mail server responsible for the domain","Defines an alias for another DNS name","Specifies the domain's name server"], correct:1, cat:"Réseau" },
-  { id:11, q_fr:"Quel protocole est utilisé pour synchroniser l'horloge des équipements sur un réseau ?", q_en:"Which protocol is used to synchronize the clock of network devices?", options_fr:["SNMP","NTP","SMTP","ICMP"], options_en:["SNMP","NTP","SMTP","ICMP"], correct:1, cat:"Réseau" },
-  { id:12, q_fr:"Quelle est la fonction du Port Mirroring (SPAN) sur un switch réseau ?", q_en:"What is the function of Port Mirroring (SPAN) on a network switch?", options_fr:["Dupliquer un port physique","Copier le trafic d'un port source vers un port de destination pour analyse","Augmenter la bande passante d'un port","Créer un nouveau VLAN"], options_en:["Duplicate a physical port","Copy traffic from a source port to a destination port for analysis","Increase port bandwidth","Create a new VLAN"], correct:1, cat:"Réseau" },
-  { id:13, q_fr:"Quelle est la différence fondamentale entre les protocoles TCP et UDP ?", q_en:"What is the fundamental difference between TCP and UDP protocols?", options_fr:["TCP est plus rapide que UDP","TCP est orienté connexion avec contrôle d'erreur, UDP est sans connexion","UDP est plus fiable que TCP","Il n'y a aucune différence significative"], options_en:["TCP is faster than UDP","TCP is connection-oriented with error control, UDP is connectionless","UDP is more reliable than TCP","There is no significant difference"], correct:1, cat:"Réseau" },
-  { id:14, q_fr:"Quel outil en ligne de commande permet de tester la connectivité vers une adresse IP et un port spécifique ?", q_en:"Which command-line tool tests connectivity to a specific IP address and port?", options_fr:["La commande ping","La commande tracert","La commande telnet","La commande ipconfig"], options_en:["The ping command","The tracert command","The telnet command","The ipconfig command"], correct:2, cat:"Réseau" },
-  { id:15, q_fr:"Que signifie le code d'erreur HTTP 502 Bad Gateway ?", q_en:"What does the HTTP 502 Bad Gateway error code mean?", options_fr:["Le serveur est en maintenance","Le serveur proxy a reçu une réponse invalide du serveur amont","La ressource demandée n'existe pas","Une authentification est requise"], options_en:["The server is under maintenance","The proxy server received an invalid response from the upstream server","The requested resource does not exist","Authentication is required"], correct:1, cat:"Réseau" },
-  { id:16, q_fr:"Quel est le masque de sous-réseau correspondant à un préfixe /27 ?", q_en:"What subnet mask corresponds to a /27 prefix?", options_fr:["255.255.255.0","255.255.255.192","255.255.255.224","255.255.255.240"], options_en:["255.255.255.0","255.255.255.192","255.255.255.224","255.255.255.240"], correct:2, cat:"Réseau" },
-  { id:17, q_fr:"À quoi sert un port VMkernel dans un environnement VMware ?", q_en:"What is the purpose of a VMkernel port in a VMware environment?", options_fr:["C'est un port USB virtuel","C'est une interface réseau dédiée à la gestion, vMotion et au stockage IP","C'est un port série virtuel","C'est un port d'affichage vidéo"], options_en:["A virtual USB port","A network interface dedicated to management, vMotion, and IP storage","A virtual serial port","A video display port"], correct:1, cat:"Virtualisation" },
-  { id:18, q_fr:"Quelle commande Linux affiche l'espace disque utilisé et disponible par système de fichiers ?", q_en:"Which Linux command displays used and available disk space per filesystem?", options_fr:["du -sh","df -h","lsblk","fdisk -l"], options_en:["du -sh","df -h","lsblk","fdisk -l"], correct:1, cat:"Linux" },
-  { id:19, q_fr:"Que représente le runlevel 3 dans une distribution Linux traditionnelle ?", q_en:"What does runlevel 3 represent in a traditional Linux distribution?", options_fr:["Le mode graphique multi-utilisateur","Le mode mono-utilisateur","Le mode multi-utilisateur en ligne de commande avec réseau","L'arrêt du système"], options_en:["Multi-user graphical mode","Single-user mode","Multi-user command-line mode with networking","System shutdown"], correct:2, cat:"Linux" },
-  { id:20, q_fr:"Quel fichier sous Linux définit les montages automatiques des systèmes de fichiers au démarrage ?", q_en:"Which Linux file defines automatic filesystem mounts at boot?", options_fr:["/etc/hosts","/etc/fstab","/etc/mtab","/etc/network/interfaces"], options_en:["/etc/hosts","/etc/fstab","/etc/mtab","/etc/network/interfaces"], correct:1, cat:"Linux" },
-  { id:21, q_fr:"Quelle commande Windows permet de vérifier l'intégrité des fichiers système et de les réparer automatiquement ?", q_en:"Which Windows command checks system file integrity and repairs them automatically?", options_fr:["chkdsk /f","sfc /scannow","diskpart","gpupdate /force"], options_en:["chkdsk /f","sfc /scannow","diskpart","gpupdate /force"], correct:1, cat:"Windows" },
-  { id:22, q_fr:"Quelle est la caractéristique principale d'une configuration RAID 5 ?", q_en:"What is the main characteristic of a RAID 5 configuration?", options_fr:["Duplication intégrale des données (mirroring)","Répartition des données avec parité distribuée, tolérant la perte d'un disque","Concaténation simple des disques","Répartition sans aucune redondance"], options_en:["Full data mirroring","Data striping with distributed parity, tolerating one disk failure","Simple disk concatenation","Striping without any redundancy"], correct:1, cat:"Matériel" },
-  { id:23, q_fr:"Quel protocole permet de sécuriser les communications HTTP (HTTPS) ?", q_en:"Which protocol secures HTTP communications (HTTPS)?", options_fr:["FTP","SSL/TLS","SSH","SNMP v2"], options_en:["FTP","SSL/TLS","SSH","SNMP v2"], correct:1, cat:"Sécurité" },
-  { id:24, q_fr:"Que représente le Distinguished Name (DN) dans un annuaire LDAP ?", q_en:"What does the Distinguished Name (DN) represent in an LDAP directory?", options_fr:["Le nom d'utilisateur uniquement","Le chemin complet et unique identifiant une entrée dans l'arborescence","Le mot de passe de l'utilisateur","Le nom du serveur LDAP"], options_en:["The username only","The complete and unique path identifying an entry in the directory tree","The user's password","The LDAP server name"], correct:1, cat:"Windows" },
-  { id:25, q_fr:"Quelle commande Windows permet de libérer puis de renouveler l'adresse IP d'une interface réseau ?", q_en:"Which Windows command releases and then renews the IP address of a network interface?", options_fr:["ipconfig /release && ipconfig /renew","netsh reset","ping -release","dhcp restart"], options_en:["ipconfig /release && ipconfig /renew","netsh reset","ping -release","dhcp restart"], correct:0, cat:"Windows" },
-  { id:26, q_fr:"Comment contrer efficacement une attaque de type MAC Address Flooding sur un switch ?", q_en:"How can you effectively counter a MAC Address Flooding attack on a switch?", options_fr:["En installant un antivirus","En configurant le Port Security sur le switch","En activant DNSSEC","En déployant l'authentification multi-facteurs"], options_en:["By installing an antivirus","By configuring Port Security on the switch","By enabling DNSSEC","By deploying multi-factor authentication"], correct:1, cat:"Sécurité" },
-  { id:27, q_fr:"Quel environnement de diagnostic permet de dépanner un système Windows qui ne démarre pas ?", q_en:"Which diagnostic environment helps troubleshoot a Windows system that won't boot?", options_fr:["MSConfig","Windows Recovery Environment (WinRE)","L'éditeur de registre (Regedit)","Le Gestionnaire des tâches"], options_en:["MSConfig","Windows Recovery Environment (WinRE)","Registry Editor (Regedit)","Task Manager"], correct:1, cat:"Windows" },
-  { id:28, q_fr:"Quel est l'effet de la commande 'chmod 755 script.sh' sous Linux ?", q_en:"What is the effect of the 'chmod 755 script.sh' command under Linux?", options_fr:["Elle supprime le fichier","Elle donne les droits rwx au propriétaire, rx au groupe et rx aux autres","Elle exécute le script","Elle compresse le fichier"], options_en:["Deletes the file","Gives rwx rights to owner, rx to group, and rx to others","Executes the script","Compresses the file"], correct:1, cat:"Linux" },
-  { id:29, q_fr:"Quelle est la fonction principale d'un Reverse Proxy dans une architecture web ?", q_en:"What is the main function of a Reverse Proxy in a web architecture?", options_fr:["Masquer l'adresse IP du client","Distribuer les requêtes vers les serveurs backend et gérer la terminaison SSL","Stocker les mots de passe utilisateurs","Accélérer la fréquence du processeur"], options_en:["Hide the client's IP address","Distribute requests to backend servers and handle SSL termination","Store user passwords","Accelerate processor frequency"], correct:1, cat:"Réseau" },
-  { id:30, q_fr:"Que sont les GPO (Group Policy Objects) dans un environnement Active Directory ?", q_en:"What are GPOs (Group Policy Objects) in an Active Directory environment?", options_fr:["Des types de licences Microsoft","Des ensembles de règles de configuration appliquées aux utilisateurs et aux ordinateurs","Un protocole de chiffrement","Un outil de monitoring réseau"], options_en:["Microsoft license types","Configuration rule sets applied to users and computers","An encryption protocol","A network monitoring tool"], correct:1, cat:"Windows" },
-  { id:31, q_fr:"Quelle commande Linux permet de suivre en temps réel les 10 dernières lignes d'un fichier de log ?", q_en:"Which Linux command allows real-time monitoring of the last 10 lines of a log file?", options_fr:["head -n 10","tail -f","cat | last 10","more"], options_en:["head -n 10","tail -f","cat | last 10","more"], correct:1, cat:"Linux" },
-  { id:32, q_fr:"Que signifie l'acronyme MTTR dans le domaine ITIL et de la gestion des services IT ?", q_en:"What does the acronym MTTR stand for in ITIL and IT service management?", options_fr:["Maximum Time To Respond","Mean Time To Repair","Minimum Time To Reboot","Monthly Total Ticket Resolution"], options_en:["Maximum Time To Respond","Mean Time To Repair","Minimum Time To Reboot","Monthly Total Ticket Resolution"], correct:1, cat:"ITSM" },
-  { id:33, q_fr:"Quel est le rôle principal d'un serveur DHCP sur un réseau ?", q_en:"What is the main role of a DHCP server on a network?", options_fr:["Résoudre les noms de domaine","Attribuer automatiquement des adresses IP et les paramètres réseau aux clients","Filtrer le trafic réseau","Chiffrer les communications"], options_en:["Resolve domain names","Automatically assign IP addresses and network parameters to clients","Filter network traffic","Encrypt communications"], correct:1, cat:"Réseau" },
-  { id:34, q_fr:"Quelle est la différence majeure entre la conteneurisation et la virtualisation traditionnelle ?", q_en:"What is the major difference between containerization and traditional virtualization?", options_fr:["La virtualisation est plus légère","La conteneurisation isole les applications avec leurs bibliothèques sans virtualiser le noyau du système hôte","La conteneurisation émule le matériel","La conteneurisation nécessite un hyperviseur de type 1"], options_en:["Virtualization is lighter","Containerization isolates applications with their libraries without virtualizing the host kernel","Containerization emulates hardware","Containerization requires a Type 1 hypervisor"], correct:1, cat:"Virtualisation" },
-  { id:35, q_fr:"Quelle commande permet de tester manuellement la résolution DNS d'un nom de domaine ?", q_en:"Which command manually tests DNS resolution of a domain name?", options_fr:["ping","nslookup","netstat","route"], options_en:["ping","nslookup","netstat","route"], correct:1, cat:"Réseau" },
-  { id:36, q_fr:"Qu'est-ce qu'une Rétention Policy dans Microsoft 365 ?", q_en:"What is a Retention Policy in Microsoft 365?", options_fr:["Une règle de pare-feu avancée","Une politique qui définit la durée de conservation ou la suppression automatique des données","Une stratégie de complexité des mots de passe","Un plan de sauvegarde automatisé"], options_en:["An advanced firewall rule","A policy that defines data retention duration or automatic deletion","A password complexity strategy","An automated backup plan"], correct:1, cat:"Cloud" },
-  { id:37, q_fr:"Quel est le numéro de port standard utilisé par le protocole SSH ?", q_en:"What is the standard port number used by the SSH protocol?", options_fr:["21","22","23","25"], options_en:["21","22","23","25"], correct:1, cat:"Réseau" },
-  { id:38, q_fr:"En quoi consiste une attaque par force brute (Brute Force) ?", q_en:"What does a Brute Force attack consist of?", options_fr:["Une saturation des ressources réseau","La tentative systématique de deviner un mot de passe en essayant toutes les combinaisons possibles","L'envoi massif d'emails de phishing","Un déni de service distribué"], options_en:["Network resource saturation","The systematic attempt to guess a password by trying all possible combinations","Mass phishing email sending","A distributed denial of service"], correct:1, cat:"Sécurité" },
-  { id:39, q_fr:"Parmi ces outils, lequel est un logiciel open-source de supervision d'infrastructure IT ?", q_en:"Among these tools, which one is an open-source IT infrastructure monitoring solution?", options_fr:["Microsoft Word","Nagios / Zabbix","Adobe Photoshop","Google Chrome"], options_en:["Microsoft Word","Nagios / Zabbix","Adobe Photoshop","Google Chrome"], correct:1, cat:"Monitoring" },
-  { id:40, q_fr:"Qu'est-ce qu'une vulnérabilité de type Buffer Overflow ?", q_en:"What is a Buffer Overflow vulnerability?", options_fr:["Une zone de mémoire cache rapide","Une faille où un programme écrit des données au-delà de la mémoire tampon qui lui est allouée","Un outil de diagnostic réseau","Une fonctionnalité de sécurité intégrée"], options_en:["A fast cache memory area","A flaw where a program writes data beyond the allocated memory buffer","A network diagnostic tool","A built-in security feature"], correct:1, cat:"Sécurité" }
-];
-
-// Reseau (40 questions - version simplifiée pour l'exemple)
-const reseauQuestions = supportQuestions.map(q => ({...q, q_fr: q.q_fr + " (Réseau)"}));
-const pentestQuestions = supportQuestions.map(q => ({...q, q_fr: q.q_fr + " (Pentest)"}));
-const adminQuestions = supportQuestions.map(q => ({...q, q_fr: q.q_fr + " (Admin)"}));
-
-// ============================================================
-// MAPPING SPÉCIALITÉ -> EXAMEN
-// ============================================================
-const specialityToExamMap = {
-  'Support Technique IT': 'support',
-  'Administrateur Systèmes': 'admin',
-  'Sécurité Réseau': 'reseau',
-  'Pentest / VAPT': 'pentest'
-};
-
-// ============================================================
-// DICTIONNAIRE DE TRADUCTION
+// 🌍 TRADUCTIONS
 // ============================================================
 const translations = {
   fr: {
     top_badge: "Votre partenaire en cyberdéfense et infogérance",
-    nav_home:"Accueil",nav_services:"Services",nav_sectors:"Secteurs",nav_about:"Qui sommes-nous",
-    nav_careers:"Carrières",nav_campus:"🎓 Campus Cyber",nav_contact:"Contact",nav_espace_client:"Espace Client",
-    badge_secure: "PLATEFORME D'ÉVALUATION TECHNIQUE", hero_title: "Centre d'Examen", hero_subtitle: "NetVanguard Recrutement",
-    login_title: "Accès Sécurisé", login_desc: "Plateforme réservée aux examens de recrutement. Saisissez votre code unique.",
-    access_placeholder: "Code d'accès unique...", btn_access: "Accéder",
-    login_error: "❌ Code invalide.",
-    code_info: "Chaque code est à usage unique. Une fois utilisé, il ne peut plus être réutilisé.",
-    si_desc: "Votre spécialité a été automatiquement détectée. Seul l'examen correspondant est déverrouillé.",
-    ib_title: "Engagement d'Intégrité Académique",
-    ib_desc: "Cet examen s'inscrit dans le processus de recrutement. Nous attendons honnêteté et transparence.",
-    ib_p1: "Travail individuel", ib_p2: "Sans assistance externe", ib_p3: "Dans le temps imparti",
-    mw_active: "Session surveillée", mw_strikes: "Infractions",
-    cp_title: "Vérification d'identité requise",
-    cp_desc1: "Pour garantir l'intégrité de cette évaluation, l'activation de votre caméra est obligatoire.",
-    cp_desc2: "Votre flux vidéo sera diffusé en direct pendant toute la durée de l'examen. Aucune image n'est stockée.",
-    cp_warning: "Sans caméra activée, vous ne pourrez pas accéder à l'examen.",
-    cp_allow: "Autoriser la caméra",
-    cp_deny: "Refuser",
-    cd_title: "Accès à l'examen impossible",
-    cd_desc1: "Vous avez refusé l'accès à votre caméra.",
-    cd_desc2: "La surveillance par caméra est obligatoire pour valider votre identité et garantir l'équité entre tous les candidats.",
-    cd_desc3: "Sans caméra, votre candidature ne peut pas être prise en compte.",
-    cd_retry: "Réessayer",
-    cancelled_title: "Examen Annulé",
-    cancelled_desc: "Notre système a détecté des comportements non conformes. Votre session a été interrompue.",
-    cancelled_btn: "Retour à l'accueil",
-    warning_tab_change: "⚠️ Changement d'onglet ! Infraction ",
-    warning_focus_lost: "⚠️ Perte de focus ! Infraction ",
-    warning_copy: "⚠️ Tentative de copie ! Infraction ",
-    warning_inactive: "⚠️ Inactivité prolongée ! Infraction ",
-    form_title: "Informations du Candidat", form_desc: "Veuillez compléter vos informations.",
-    lbl_lastname: "Nom *", lbl_firstname: "Prénom *", lbl_email: "Email *", lbl_phone: "Téléphone *",
-    ph_lastname: "Votre nom", ph_firstname: "Votre prénom", ph_email: "votre@email.com", ph_phone: "+212...",
-    lbl_choose: "🎯 Choisissez votre filière :",
-    card1_title: "Support Technique IT", card1_desc: "40 questions · 60 min",
-    card2_title: "Sécurité Réseau", card2_desc: "40 questions · 60 min",
-    card3_title: "Pentest / VAPT", card3_desc: "40 questions · 60 min",
-    card4_title: "Administrateur Systèmes", card4_desc: "40 questions · 60 min",
-    badge_available: "Disponible", badge_locked: "🔒 Verrouillé",
-    btn_start: "Démarrer l'Examen",
-    lbl_question: "Question", lbl_time: "Temps Restant", lbl_answered: "Répondues",
-    btn_prev: "Précédent", btn_next: "Suivant", btn_submit: "Terminer",
-    btn_quit: "Abandonner", btn_back_sections: "Retour",
-    results_title: "📋 Résultats", btn_review: "Revoir mes réponses",
-    msg_excellent: "🏆 Excellent !", msg_good: "👍 Bien !", msg_average: "📚 Moyen.", msg_poor: "❌ Insuffisant.",
-    email_sending: "Envoi du rapport...", email_sent: "✅ Rapport envoyé !", email_error: "⚠️ Erreur envoi.", email_network: "⚠️ Erreur réseau.",
-    alert_fill: "Veuillez remplir tous les champs.", alert_choose: "Veuillez choisir une filière.",
-    confirm_quit: "Abandonner l'examen ?", confirm_back: "Retourner aux sections ?",
-    locked_tooltip: "Cet examen est verrouillé. Votre spécialité ne correspond pas à cette filière.",
-    code_valid: "✅ Code valide !"
+    nav_home: "Accueil",
+    nav_services: "Services",
+    nav_sectors: "Secteurs",
+    nav_about: "Qui sommes-nous",
+    nav_careers: "Carrières",
+    nav_campus: "🎓 Campus Cyber",
+    nav_contact: "Contact",
+    nav_espace_client: "Espace Client",
+    badge_campus: "CAMPUS CYBER",
+    hero_title: "Formations cybersécurité",
+    hero_subtitle: "pour vos équipes",
+    hero_desc: "Des programmes de sensibilisation et de formation professionnelle pour renforcer la sécurité de votre entreprise. Formations sur mesure, en présentiel ou à distance.",
+    tab1: "Sensibilisation",
+    tab2: "Managers",
+    tab3: "RGPD / Données",
+    tab4: "Cloud & M365",
+    tab5: "Bonnes pratiques",
+    tab6: "SOC & Incidents",
+    t1_badge: "Sensibilisation",
+    t1_title: "Cybersécurité pour tous",
+    t1_duration: "1 jour",
+    t1_audience: "Tous collaborateurs",
+    t1_desc: "Former tous vos collaborateurs aux bons réflexes pour identifier et éviter les menaces du quotidien : phishing, ransomware, ingénierie sociale. Une formation interactive et pratique.",
+    t1_tag1: "Phishing",
+    t1_tag2: "Ransomware",
+    t1_tag3: "Bonnes pratiques",
+    t2_badge: "Management",
+    t2_title: "Cybersécurité pour managers",
+    t2_duration: "2 jours",
+    t2_audience: "Managers & Dirigeants",
+    t2_desc: "Donnez aux managers les clés pour intégrer la cybersécurité dans leur pilotage d'équipe, évaluer les risques et gérer une crise cyber efficacement.",
+    t2_tag1: "Gouvernance",
+    t2_tag2: "Gestion de crise",
+    t2_tag3: "Risques",
+    t3_badge: "RGPD / Data",
+    t3_title: "Protection des données & RGPD",
+    t3_duration: "1 jour",
+    t3_audience: "Juridique, DPO, IT",
+    t3_desc: "Maîtrisez les obligations RGPD, identifiez les données personnelles et mettez en place les mesures de sécurité pour protéger vos informations sensibles.",
+    t3_tag1: "RGPD",
+    t3_tag2: "Conformité",
+    t3_tag3: "Données",
+    t4_badge: "Cloud",
+    t4_title: "Sécurité Cloud & Microsoft 365",
+    t4_duration: "2 jours",
+    t4_audience: "Équipes IT",
+    t4_desc: "Sécurisez votre environnement cloud et Microsoft 365. Apprenez à gérer les identités, protéger les données et configurer les outils de sécurité intégrés.",
+    t4_tag1: "Azure AD",
+    t4_tag2: "Defender",
+    t4_tag3: "Cloud",
+    t5_badge: "Bonnes pratiques",
+    t5_title: "Hygiène numérique & bonnes pratiques",
+    t5_duration: "0.5 jour",
+    t5_audience: "Tous collaborateurs",
+    t5_desc: "Adoptez les bonnes pratiques numériques au quotidien : mots de passe, navigation sécurisée, protection des données personnelles et reconnaissance des tentatives de fraude.",
+    t5_tag1: "Mots de passe",
+    t5_tag2: "Navigation",
+    t5_tag3: "Sensibilisation",
+    t6_badge: "SOC / Incidents",
+    t6_title: "SOC & Gestion des incidents",
+    t6_duration: "3 jours",
+    t6_audience: "IT & Sécurité",
+    t6_desc: "Formez vos équipes à la détection et la réponse aux incidents de sécurité. Maîtrisez le fonctionnement d'un SOC, les outils SIEM et les procédures de réponse.",
+    t6_tag1: "SOC",
+    t6_tag2: "SIEM",
+    t6_tag3: "Incidents",
+    audience_title: "À qui s'adressent nos formations ?",
+    audience_sub: "Des programmes adaptés à chaque profil",
+    aud1_title: "Tous les collaborateurs",
+    aud1_desc: "Sensibilisation aux bonnes pratiques et aux menaces du quotidien",
+    aud2_title: "Managers & Dirigeants",
+    aud2_desc: "Pilotage de la sécurité et gestion de crise",
+    aud3_title: "Équipes juridiques & DPO",
+    aud3_desc: "RGPD, conformité et protection des données",
+    aud4_title: "Équipes IT & Sécurité",
+    aud4_desc: "Cloud, SOC, incidents, techniques avancées",
+    contact_title: "Demandez votre programme personnalisé",
+    contact_sub: "Nous vous proposons un devis sur mesure adapté à vos besoins",
+    lbl_name: "Nom complet *",
+    lbl_company: "Entreprise *",
+    lbl_email: "Email *",
+    lbl_phone: "Téléphone *",
+    lbl_formation: "Formation qui vous intéresse",
+    lbl_message: "Votre message",
+    btn_send: "Envoyer ma demande",
+    contact_secure: "Réponse sous 24h · Devis sans engagement",
+    btn_devis: "Demander un devis",
+    footer_desc: "Formations cybersécurité, sensibilisation et recrutement pour les entreprises.",
+    footer_services: "Services",
+    footer_srv1: "Infogérance",
+    footer_srv2: "Sécurité Réseau",
+    footer_srv3: "Pentest / VAPT",
+    footer_srv4: "Audit & Diagnostic",
+    footer_company: "Société",
+    footer_about: "Qui sommes-nous",
+    footer_careers: "Carrières",
+    footer_contact: "Contact",
+    footer_legal: "Informations",
+    footer_legal_mentions: "Mentions légales",
+    footer_cookies: "Gestion des cookies",
+    footer_copy: "© 2026 NetVanguard IT Solutions. Tous droits réservés.",
+    footer_location: "Basé à Casablanca, au service des entreprises."
   },
   en: {
     top_badge: "Your partner in cyber defense and IT management",
-    nav_home:"Home",nav_services:"Services",nav_sectors:"Sectors",nav_about:"About Us",
-    nav_careers:"Careers",nav_campus:"🎓 Cyber Campus",nav_contact:"Contact",nav_espace_client:"Client Area",
-    badge_secure: "TECHNICAL ASSESSMENT PLATFORM", hero_title: "Examination Center", hero_subtitle: "NetVanguard Recruitment",
-    login_title: "Secure Access", login_desc: "Reserved for recruitment exams. Enter your unique code.",
-    access_placeholder: "Unique access code...", btn_access: "Access",
-    login_error: "❌ Invalid code.",
-    code_info: "Each code can only be used once.",
-    si_desc: "Your specialty was detected automatically. Only the corresponding exam is unlocked.",
-    ib_title: "Academic Integrity Commitment",
-    ib_desc: "This exam is part of the recruitment process. We expect honesty and transparency.",
-    ib_p1: "Individual work", ib_p2: "No external assistance", ib_p3: "Within the time limit",
-    mw_active: "Monitored session", mw_strikes: "Strikes",
-    cp_title: "Identity Verification Required",
-    cp_desc1: "Camera activation is mandatory.",
-    cp_desc2: "Your video feed is streamed live during the exam.",
-    cp_warning: "Without a camera, you cannot access the exam.",
-    cp_allow: "Allow Camera",
-    cp_deny: "Deny",
-    cd_title: "Access Denied",
-    cd_desc1: "You have denied camera access.",
-    cd_desc2: "The camera is required to verify your identity.",
-    cd_desc3: "Without a camera, your application cannot be processed.",
-    cd_retry: "Try Again",
-    cancelled_title: "Exam Cancelled",
-    cancelled_desc: "Our system has detected non-compliant behavior. Your session has been terminated.",
-    cancelled_btn: "Return to Home",
-    warning_tab_change: "⚠️ Tab change! Strike ",
-    warning_focus_lost: "⚠️ Focus lost! Strike ",
-    warning_copy: "⚠️ Copy attempt! Strike ",
-    warning_inactive: "⚠️ Prolonged inactivity! Strike ",
-    form_title: "Candidate Information", form_desc: "Please complete your information.",
-    lbl_lastname: "Last Name *", lbl_firstname: "First Name *", lbl_email: "Email *", lbl_phone: "Phone *",
-    ph_lastname: "Your last name", ph_firstname: "Your first name", ph_email: "your@email.com", ph_phone: "+212...",
-    lbl_choose: "🎯 Choose your track:",
-    card1_title: "IT Technical Support", card1_desc: "40 questions · 60 min",
-    card2_title: "Network Security", card2_desc: "40 questions · 60 min",
-    card3_title: "Pentest / VAPT", card3_desc: "40 questions · 60 min",
-    card4_title: "Systems Administrator", card4_desc: "40 questions · 60 min",
-    badge_available: "Available", badge_locked: "🔒 Locked",
-    btn_start: "Start Exam",
-    lbl_question: "Question", lbl_time: "Time Remaining", lbl_answered: "Answered",
-    btn_prev: "Previous", btn_next: "Next", btn_submit: "Submit",
-    btn_quit: "Quit", btn_back_sections: "Back",
-    results_title: "📋 Results", btn_review: "Review my answers",
-    msg_excellent: "🏆 Excellent!", msg_good: "👍 Good!", msg_average: "📚 Average.", msg_poor: "❌ Insufficient.",
-    email_sending: "Sending report...", email_sent: "✅ Report sent!", email_error: "⚠️ Send error.", email_network: "⚠️ Network error.",
-    alert_fill: "Please fill in all fields.", alert_choose: "Please choose a track.",
-    confirm_quit: "Quit the exam?", confirm_back: "Return to sections?",
-    locked_tooltip: "This exam is locked. Your specialty does not match this track.",
-    code_valid: "✅ Valid code!"
+    nav_home: "Home",
+    nav_services: "Services",
+    nav_sectors: "Sectors",
+    nav_about: "About Us",
+    nav_careers: "Careers",
+    nav_campus: "🎓 Cyber Campus",
+    nav_contact: "Contact",
+    nav_espace_client: "Client Area",
+    badge_campus: "CYBER CAMPUS",
+    hero_title: "Cybersecurity training",
+    hero_subtitle: "for your teams",
+    hero_desc: "Awareness and professional training programs to strengthen your company's security. Customized training, on-site or remote.",
+    tab1: "Awareness",
+    tab2: "Managers",
+    tab3: "GDPR / Data",
+    tab4: "Cloud & M365",
+    tab5: "Best practices",
+    tab6: "SOC & Incidents",
+    t1_badge: "Awareness",
+    t1_title: "Cybersecurity for everyone",
+    t1_duration: "1 day",
+    t1_audience: "All employees",
+    t1_desc: "Train all your employees with the right reflexes to identify and avoid daily threats: phishing, ransomware, social engineering. An interactive and practical training.",
+    t1_tag1: "Phishing",
+    t1_tag2: "Ransomware",
+    t1_tag3: "Best practices",
+    t2_badge: "Management",
+    t2_title: "Cybersecurity for managers",
+    t2_duration: "2 days",
+    t2_audience: "Managers & Executives",
+    t2_desc: "Give managers the keys to integrate cybersecurity into their team management, assess risks and effectively handle a cyber crisis.",
+    t2_tag1: "Governance",
+    t2_tag2: "Crisis management",
+    t2_tag3: "Risks",
+    t3_badge: "GDPR / Data",
+    t3_title: "Data Protection & GDPR",
+    t3_duration: "1 day",
+    t3_audience: "Legal, DPO, IT",
+    t3_desc: "Master GDPR obligations, identify personal data and implement security measures to protect your sensitive information.",
+    t3_tag1: "GDPR",
+    t3_tag2: "Compliance",
+    t3_tag3: "Data",
+    t4_badge: "Cloud",
+    t4_title: "Cloud Security & Microsoft 365",
+    t4_duration: "2 days",
+    t4_audience: "IT teams",
+    t4_desc: "Secure your cloud and Microsoft 365 environment. Learn to manage identities, protect data and configure integrated security tools.",
+    t4_tag1: "Azure AD",
+    t4_tag2: "Defender",
+    t4_tag3: "Cloud",
+    t5_badge: "Best practices",
+    t5_title: "Digital hygiene & best practices",
+    t5_duration: "0.5 day",
+    t5_audience: "All employees",
+    t5_desc: "Adopt good digital practices in your daily work: passwords, secure browsing, personal data protection and fraud recognition.",
+    t5_tag1: "Passwords",
+    t5_tag2: "Browsing",
+    t5_tag3: "Awareness",
+    t6_badge: "SOC / Incidents",
+    t6_title: "SOC & Incident Management",
+    t6_duration: "3 days",
+    t6_audience: "IT & Security",
+    t6_desc: "Train your teams in detection and response to security incidents. Master SOC operations, SIEM tools and response procedures.",
+    t6_tag1: "SOC",
+    t6_tag2: "SIEM",
+    t6_tag3: "Incidents",
+    audience_title: "Who are our trainings for?",
+    audience_sub: "Programs adapted to each profile",
+    aud1_title: "All employees",
+    aud1_desc: "Awareness of best practices and daily threats",
+    aud2_title: "Managers & Executives",
+    aud2_desc: "Security governance and crisis management",
+    aud3_title: "Legal teams & DPO",
+    aud3_desc: "GDPR, compliance and data protection",
+    aud4_title: "IT & Security teams",
+    aud4_desc: "Cloud, SOC, incidents, advanced techniques",
+    contact_title: "Request your customized program",
+    contact_sub: "We offer a tailored quote adapted to your needs",
+    lbl_name: "Full name *",
+    lbl_company: "Company *",
+    lbl_email: "Email *",
+    lbl_phone: "Phone *",
+    lbl_formation: "Training of interest",
+    lbl_message: "Your message",
+    btn_send: "Send my request",
+    contact_secure: "Response within 24h · Free quote",
+    btn_devis: "Request a quote",
+    footer_desc: "Cybersecurity training, awareness and recruitment for businesses.",
+    footer_services: "Services",
+    footer_srv1: "IT Management",
+    footer_srv2: "Network Security",
+    footer_srv3: "Pentest / VAPT",
+    footer_srv4: "Audit & Diagnostic",
+    footer_company: "Company",
+    footer_about: "About Us",
+    footer_careers: "Careers",
+    footer_contact: "Contact",
+    footer_legal: "Information",
+    footer_legal_mentions: "Legal Notices",
+    footer_cookies: "Cookie Management",
+    footer_copy: "© 2026 NetVanguard IT Solutions. All rights reserved.",
+    footer_location: "Based in Casablanca, serving businesses."
   }
 };
 
-// ============================================================
-// VARIABLES D'ÉTAT
-// ============================================================
-let selectedExam = null, currentQuestions = [], currentQuestionIndex = 0, userAnswers = [];
-let examStarted = false, examFinished = false, timerInterval = null, timeRemaining = 60 * 60;
-let candidateInfo = {}, currentLang = 'fr';
-let securityStrikes = 0, monitoringLog = [], inactiveTimer = null, lastActivity = Date.now();
-let cameraStream = null;
-const MAX_STRIKES = 2;
+let currentLang = 'fr';
 
-// ============================================================
-// GESTION DES CODES
-// ============================================================
-function getCodes() {
-  try { return JSON.parse(localStorage.getItem('nv_exam_codes') || '{}'); } catch { return {}; }
-}
-function saveCodes(codes) { localStorage.setItem('nv_exam_codes', JSON.stringify(codes)); }
-function getUsedCodes() {
-  try { return JSON.parse(localStorage.getItem('nv_used_codes') || '[]'); } catch { return []; }
-}
-function saveUsedCodes(used) { localStorage.setItem('nv_used_codes', JSON.stringify(used)); }
-function markCodeAsUsed(code) {
-  const used = getUsedCodes();
-  if (!used.includes(code)) { used.push(code); saveUsedCodes(used); }
-}
-function isCodeUsed(code) { return getUsedCodes().includes(code); }
-
-// ============================================================
-// ADMIN : GÉNÉRER DES CODES
-// ============================================================
-function generateCodes() {
-  const textarea = document.getElementById('adminEmails');
-  const emails = textarea.value.split('\n').map(e => e.trim()).filter(e => e && e.includes('@'));
-  if (emails.length === 0) {
-    document.getElementById('codeResult').textContent = '❌ Aucun email valide.';
-    return;
-  }
-
-  const codes = getCodes();
-  let result = '';
-  let count = 0;
-
-  emails.forEach(email => {
-    const code = Math.random().toString(36).substring(2, 10).toUpperCase();
-    if (!codes[code]) {
-      codes[code] = {
-        email: email,
-        used: false,
-        created: Date.now(),
-        expires: Date.now() + 24 * 60 * 60 * 1000
-      };
-      result += `${email} → ${code}\n`;
-      count++;
+function applyLanguage(lang) {
+  currentLang = lang;
+  const t = translations[lang];
+  if (!t) return;
+  
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) {
+      if (el.tagName === 'INPUT' && el.hasAttribute('placeholder')) {
+        el.placeholder = t[key];
+      } else {
+        el.textContent = t[key];
+      }
     }
   });
-
-  saveCodes(codes);
-  document.getElementById('codeResult').textContent = `✅ ${count} code(s) généré(s) :\n${result}`;
-}
-
-function clearAllCodes() {
-  if (confirm('Supprimer tous les codes ?')) {
-    localStorage.removeItem('nv_exam_codes');
-    localStorage.removeItem('nv_used_codes');
-    document.getElementById('codeResult').textContent = '✅ Réinitialisé.';
-  }
-}
-
-// ============================================================
-// TOGGLE ADMIN PANEL (Ctrl+Shift+A)
-// ============================================================
-document.addEventListener('keydown', (e) => {
-  if (e.ctrlKey && e.shiftKey && e.key === 'A') {
-    e.preventDefault();
-    document.getElementById('adminPanel').classList.toggle('visible');
-  }
-});
-
-// ============================================================
-// FONCTIONS DE TRADUCTION
-// ============================================================
-function applyLanguage(lang) {
-  currentLang = lang; const t = translations[lang]; if (!t) return;
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const k = el.getAttribute('data-i18n');
-    if (t[k]) el.textContent = t[k];
-  });
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-    const k = el.getAttribute('data-i18n-placeholder');
-    if (t[k]) el.placeholder = t[k];
-  });
-  document.querySelectorAll('.section-card.locked .card-badge').forEach(badge => {
-    badge.textContent = t.badge_locked || '🔒 Verrouillé';
-  });
-  document.querySelectorAll('.section-card:not(.locked) .card-badge').forEach(badge => {
-    badge.textContent = t.badge_available || 'Disponible';
-  });
+  
   document.querySelectorAll('.lang-btn').forEach(b => {
     b.classList.remove('active');
     if (b.getAttribute('data-lang') === lang) b.classList.add('active');
   });
-  if (examStarted && currentQuestions.length > 0) renderQuestion();
 }
+
 document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => { const l = btn.getAttribute('data-lang'); if (l) applyLanguage(l); });
-});
-function t(key) { return translations[currentLang][key] || key; }
-
-// ============================================================
-// CAMÉRA
-// ============================================================
-function requestCamera() {
-  try {
-    navigator.mediaDevices.getUserMedia({
-      video: { width: 320, height: 240, facingMode: 'user' },
-      audio: false
-    })
-    .then(stream => {
-      cameraStream = stream;
-      document.getElementById('cameraPermissionOverlay').classList.remove('active');
-      document.getElementById('loginScreen').style.display = 'none';
-      document.getElementById('candidateForm').classList.add('active');
-      document.getElementById('loginError').style.display = 'none';
-      document.getElementById('startExamBtn').disabled = false;
-      applyLocking();
-      console.log('📷 Caméra activée');
-    })
-    .catch(err => {
-      console.error('❌ Erreur caméra:', err);
-      denyCamera();
-    });
-  } catch (err) {
-    console.error('❌ Erreur caméra:', err);
-    denyCamera();
-  }
-}
-
-function denyCamera() {
-  document.getElementById('cameraPermissionOverlay').classList.remove('active');
-  document.getElementById('cameraDeniedOverlay').classList.add('active');
-}
-
-function stopCamera() {
-  if (cameraStream) {
-    cameraStream.getTracks().forEach(t => t.stop());
-    cameraStream = null;
-    console.log('📷 Caméra arrêtée');
-  }
-}
-
-// ============================================================
-// LOGIN : VÉRIFICATION DU CODE
-// ============================================================
-function checkAccess() {
-  const code = document.getElementById('accessCode').value.trim().toUpperCase();
-  const errorEl = document.getElementById('loginError');
-  const successEl = document.getElementById('loginSuccess');
-
-  errorEl.style.display = 'none';
-  successEl.style.display = 'none';
-
-  if (!code) {
-    errorEl.textContent = 'Veuillez saisir un code.';
-    errorEl.style.display = 'block';
-    return;
-  }
-
-  // ==========================================================
-  // 🔑 CODES PERMANENTS
-  // ==========================================================
-  const PERMANENT_CODES = [
-    'NETVANGUARD2026',
-    'Y4WSDKZQ',
-    'AW28XGZH',
-    '5RD7Q6XD'
-  ];
-
-  // Vérifier si le code est un code permanent
-  if (PERMANENT_CODES.includes(code)) {
-    errorEl.style.display = 'none';
-    successEl.textContent = '✅ Code valide !';
-    successEl.style.display = 'block';
-    document.getElementById('candEmail').value = 'candidat@netvanguard.ma';
-    setTimeout(() => {
-      successEl.style.display = 'none';
-      document.getElementById('cameraPermissionOverlay').classList.add('active');
-    }, 800);
-    return;
-  }
-
-  // ==========================================================
-  // VÉRIFICATION DU CODE GÉNÉRÉ PAR CARRIERE.HTML
-  // ==========================================================
-  const storedCode = localStorage.getItem('nv_exam_code');
-  const expiration = localStorage.getItem('nv_exam_expires');
-  
-  if (storedCode && expiration && Date.now() < parseInt(expiration) && code === storedCode.toUpperCase()) {
-    errorEl.style.display = 'none';
-    successEl.textContent = '✅ Code valide !';
-    successEl.style.display = 'block';
-    document.getElementById('candEmail').value = localStorage.getItem('nv_candidate_email') || 'candidat@netvanguard.ma';
-    
-    // Marquer comme utilisé
-    localStorage.removeItem('nv_exam_code');
-    localStorage.removeItem('nv_exam_expires');
-    
-    setTimeout(() => {
-      successEl.style.display = 'none';
-      document.getElementById('cameraPermissionOverlay').classList.add('active');
-    }, 800);
-    return;
-  }
-
-  // ==========================================================
-  // VÉRIFICATION DES CODES STOCKÉS (admin)
-  // ==========================================================
-  const codes = getCodes();
-  
-  if (!codes[code]) {
-    errorEl.textContent = '❌ Code invalide.';
-    errorEl.style.display = 'block';
-    return;
-  }
-
-  if (codes[code].expires && codes[code].expires < Date.now()) {
-    errorEl.textContent = '❌ Ce code a expiré.';
-    errorEl.style.display = 'block';
-    return;
-  }
-
-  if (isCodeUsed(code) || codes[code].used) {
-    errorEl.textContent = '❌ Ce code a déjà été utilisé.';
-    errorEl.style.display = 'block';
-    return;
-  }
-
-  // ✅ Code valide (stocké)
-  errorEl.style.display = 'none';
-  successEl.textContent = '✅ Code valide !';
-  successEl.style.display = 'block';
-  document.getElementById('candEmail').value = codes[code].email;
-
-  markCodeAsUsed(code);
-  codes[code].used = true;
-  saveCodes(codes);
-
-  setTimeout(() => {
-    successEl.style.display = 'none';
-    document.getElementById('cameraPermissionOverlay').classList.add('active');
-  }, 800);
-}
-
-document.getElementById('accessCode').addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') checkAccess();
+  btn.addEventListener('click', () => {
+    const lang = btn.getAttribute('data-lang');
+    if (lang) applyLanguage(lang);
+  });
 });
 
 // ============================================================
-// LOCKING DES EXAMENS PAR SPÉCIALITÉ
+// 🗂️ TABS
 // ============================================================
-function getDetectedSpeciality() { return localStorage.getItem('nv_selected_speciality') || null; }
-function getUnlockedExamFromSpeciality() {
-  const spec = getDetectedSpeciality();
-  return spec && specialityToExamMap[spec] ? specialityToExamMap[spec] : null;
-}
-
-function applyLocking() {
-  const allowedExam = getUnlockedExamFromSpeciality();
-  document.querySelectorAll('.section-card').forEach(card => {
-    const examType = card.getAttribute('data-exam');
-    if (allowedExam && examType !== allowedExam) {
-      card.classList.add('locked');
-      card.setAttribute('title', t('locked_tooltip'));
-      const badge = card.querySelector('.card-badge');
-      if (badge) { badge.classList.remove('available'); badge.classList.add('locked-badge'); badge.textContent = t('badge_locked'); }
-      card.style.pointerEvents = 'none';
-    } else {
-      card.classList.remove('locked');
-      card.removeAttribute('title');
-      const badge = card.querySelector('.card-badge');
-      if (badge) { badge.classList.add('available'); badge.classList.remove('locked-badge'); badge.textContent = t('badge_available'); }
-      card.style.pointerEvents = 'auto';
-    }
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    this.classList.add('active');
+    document.getElementById(this.dataset.tab).classList.add('active');
   });
-  const specBanner = document.getElementById('specialityInfoBanner');
-  const detectedSpecEl = document.getElementById('detectedSpeciality');
-  if (specBanner && detectedSpecEl && allowedExam) {
-    specBanner.style.display = 'flex';
-    detectedSpecEl.textContent = getDetectedSpeciality();
-    selectExam(allowedExam);
-  }
+});
+
+// ============================================================
+// 📜 SCROLL TO CONTACT
+// ============================================================
+function scrollToContact() {
+  document.getElementById('contact').scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 // ============================================================
-// SÉLECTION DE L'EXAMEN
+// 📨 FORMULAIRE CONTACT
 // ============================================================
-function selectExam(examType) {
-  const card = document.querySelector(`.section-card[data-exam="${examType}"]`);
-  if (card && card.classList.contains('locked')) {
-    card.style.animation = 'none';
-    card.offsetHeight;
-    card.style.animation = 'shake 0.5s ease';
-    return;
-  }
-  selectedExam = examType;
-  document.querySelectorAll('.section-card').forEach(c => c.classList.remove('selected'));
-  if (card) card.classList.add('selected');
-  document.getElementById('startExamBtn').disabled = false;
-}
-
-// ============================================================
-// DÉMARRER L'EXAMEN
-// ============================================================
-function startExam() {
-  const ln = document.getElementById('candLastName').value.trim();
-  const fn = document.getElementById('candFirstName').value.trim();
-  const em = document.getElementById('candEmail').value.trim();
-  const ph = document.getElementById('candPhone').value.trim();
-
-  if (!ln || !fn || !em || !ph) { alert(t('alert_fill')); return; }
-  if (!selectedExam) { alert(t('alert_choose')); return; }
-
-  candidateInfo = { lastName: ln, firstName: fn, email: em, phone: ph };
-
-  switch (selectedExam) {
-    case 'support': currentQuestions = supportQuestions; break;
-    case 'reseau': currentQuestions = reseauQuestions; break;
-    case 'pentest': currentQuestions = pentestQuestions; break;
-    case 'admin': currentQuestions = adminQuestions; break;
-    default: currentQuestions = supportQuestions;
-  }
-
-  userAnswers = new Array(currentQuestions.length).fill(null);
-  currentQuestionIndex = 0;
-  examStarted = true;
-  examFinished = false;
-  timeRemaining = 60 * 60;
-  securityStrikes = 0;
-  monitoringLog = [];
-
-  document.getElementById('candidateForm').classList.remove('active');
-  document.getElementById('examInterface').classList.add('active');
-  document.getElementById('resultsPanel').classList.remove('active');
-  document.getElementById('monitoringWidget').classList.add('active');
-  document.getElementById('strike1').classList.remove('active-strike');
-  document.getElementById('strike2').classList.remove('active-strike');
-  document.getElementById('mwDot').className = 'mw-dot';
-
-  renderQuestion();
-  startTimer();
-  updateNavButtons();
-  startMonitoring();
-}
-
-// ============================================================
-// AFFICHAGE DES QUESTIONS
-// ============================================================
-function renderQuestion() {
-  const q = currentQuestions[currentQuestionIndex];
-  const sa = userAnswers[currentQuestionIndex];
-  const qText = currentLang === 'en' ? q.q_en : q.q_fr;
-  const qOptions = currentLang === 'en' ? q.options_en : q.options_fr;
-
-  let html = `<div class="question-card${sa !== null ? ' answered' : ''}">
-    <div class="question-number">QUESTION ${currentQuestionIndex+1} / ${currentQuestions.length} — ${q.cat || ''}</div>
-    <div class="question-text">${qText}</div>
-    <div class="options-grid">`;
-
-  qOptions.forEach((o, i) => {
-    let cls = 'option-btn';
-    if (examFinished) {
-      if (i === q.correct) cls += ' correct-show';
-      if (sa === i && sa !== q.correct) cls += ' wrong-show';
-    } else if (sa === i) cls += ' selected';
-    html += `<button class="${cls}" ${examFinished ? 'disabled' : ''} onclick="selectAnswer(${i})">
-      ${String.fromCharCode(65+i)}. ${o}
-    </button>`;
-  });
-
-  html += `</div></div>`;
-  document.getElementById('questionContainer').innerHTML = html;
-  updateQuestionDisplay();
-  updateProgress();
-}
-
-function selectAnswer(i) {
-  if (examFinished) return;
-  userAnswers[currentQuestionIndex] = i;
-  lastActivity = Date.now();
-  renderQuestion();
-  updateNavButtons();
-}
-
-function nextQuestion() {
-  if (currentQuestionIndex < currentQuestions.length - 1) {
-    currentQuestionIndex++;
-    lastActivity = Date.now();
-    renderQuestion();
-    updateNavButtons();
-  }
-}
-
-function prevQuestion() {
-  if (currentQuestionIndex > 0) {
-    currentQuestionIndex--;
-    lastActivity = Date.now();
-    renderQuestion();
-    updateNavButtons();
-  }
-}
-
-function updateNavButtons() {
-  document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
-  const isLast = currentQuestionIndex === currentQuestions.length - 1;
-  document.getElementById('nextBtn').style.display = isLast ? 'none' : 'flex';
-  document.getElementById('submitBtn').classList.toggle('show', isLast);
-}
-
-function updateQuestionDisplay() {
-  document.getElementById('currentQDisplay').textContent = `${currentQuestionIndex+1} / ${currentQuestions.length}`;
-  document.getElementById('answeredCount').textContent = `${userAnswers.filter(a => a !== null).length} / ${currentQuestions.length}`;
-}
-
-function updateProgress() {
-  const pct = Math.round((userAnswers.filter(a => a !== null).length / currentQuestions.length) * 100);
-  document.getElementById('examProgress').style.width = pct + '%';
-}
-
-// ============================================================
-// TIMER
-// ============================================================
-function startTimer() {
-  updateTimerDisplay();
-  clearInterval(timerInterval);
-  timerInterval = setInterval(() => {
-    timeRemaining--;
-    updateTimerDisplay();
-    if (timeRemaining <= 0) {
-      clearInterval(timerInterval);
-      submitExam();
-    }
-  }, 1000);
-}
-
-function updateTimerDisplay() {
-  const m = Math.floor(timeRemaining / 60);
-  const s = timeRemaining % 60;
-  const el = document.getElementById('timerDisplay');
-  el.textContent = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
-  el.classList.remove('warning', 'danger');
-  if (timeRemaining < 180) el.classList.add('danger');
-  else if (timeRemaining < 360) el.classList.add('warning');
-}
-
-// ============================================================
-// SURVEILLANCE ANTI-TRICHE
-// ============================================================
-function startMonitoring() {
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden && examStarted && !examFinished) addStrike('tab_change');
-  });
-  window.addEventListener('blur', () => {
-    if (examStarted && !examFinished) addStrike('focus_lost');
-  });
-  document.addEventListener('copy', (e) => {
-    if (examStarted && !examFinished) { e.preventDefault(); addStrike('copy_attempt'); }
-  });
-  document.addEventListener('paste', (e) => {
-    if (examStarted && !examFinished) { e.preventDefault(); addStrike('copy_attempt'); }
-  });
-  document.addEventListener('contextmenu', (e) => {
-    if (examStarted && !examFinished) e.preventDefault();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (!examStarted || examFinished) return;
-    if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'v' || e.key === 'u' || e.key === 's')) {
-      e.preventDefault();
-      addStrike('copy_attempt');
-    }
-  });
-
-  ['mousemove', 'keydown', 'click', 'scroll'].forEach(ev => {
-    document.addEventListener(ev, () => { lastActivity = Date.now(); });
-  });
-
-  inactiveTimer = setInterval(() => {
-    if (!examStarted || examFinished) return;
-    if ((Date.now() - lastActivity) / 1000 > 45) {
-      addStrike('inactive');
-      lastActivity = Date.now();
-    }
-  }, 10000);
-}
-
-function addStrike(reason) {
-  if (examFinished || !examStarted) return;
-  securityStrikes++;
-  monitoringLog.push({ time: new Date().toISOString(), reason, strike: securityStrikes });
-
-  if (securityStrikes >= 1) document.getElementById('strike1').classList.add('active-strike');
-  if (securityStrikes >= 2) document.getElementById('strike2').classList.add('active-strike');
-
-  const dot = document.getElementById('mwDot');
-  if (securityStrikes >= 2) dot.className = 'mw-dot danger-state';
-  else if (securityStrikes >= 1) dot.className = 'mw-dot warning-state';
-
-  showToast(`⚠️ ${reason} (${securityStrikes}/${MAX_STRIKES})`);
-
-  if (securityStrikes >= MAX_STRIKES) {
-    cancelExam(reason);
-  }
-}
-
-function showToast(msg) {
-  const toast = document.getElementById('warningToast');
-  toast.textContent = msg;
-  toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 4000);
-}
-
-function cancelExam(reason) {
-  clearInterval(timerInterval);
-  clearInterval(inactiveTimer);
-  examFinished = true;
-  stopCamera();
-  monitoringLog.push({ time: new Date().toISOString(), reason: 'EXAM_CANCELLED', final_reason: reason });
-  document.getElementById('examInterface').classList.remove('active');
-  document.getElementById('cancelledOverlay').classList.add('active');
-  sendNotification('annulation', reason);
-}
-
-// ============================================================
-// SOUMISSION DE L'EXAMEN
-// ============================================================
-function submitExam() {
-  if (examFinished) return;
-  clearInterval(timerInterval);
-  clearInterval(inactiveTimer);
-  examFinished = true;
-  stopCamera();
-
-  const score = currentQuestions.reduce((acc, q, i) => acc + (userAnswers[i] === q.correct ? 1 : 0), 0);
-  const total = currentQuestions.length;
-
-  document.getElementById('examInterface').classList.remove('active');
-  document.getElementById('resultsPanel').classList.add('active');
-
-  const circle = document.getElementById('scoreCircle');
-  circle.textContent = `${score}/${total}`;
-
-  let cls = 'poor', msg = '❌ Niveau insuffisant.';
-  if (score >= 34) { cls = 'excellent'; msg = '🏆 Excellent !'; }
-  else if (score >= 28) { cls = 'good'; msg = '👍 Bien !'; }
-  else if (score >= 20) { cls = 'average'; msg = '📚 Niveau moyen.'; }
-  circle.className = `results-score-circle ${cls}`;
-  document.getElementById('resultsMsg').textContent = msg;
-  document.getElementById('resultsDetail').textContent = `${score} bonnes réponses sur ${total}. Filière: ${getExamName()}.`;
-
-  sendResults(score, total);
-}
-
-function getExamName() {
-  const names = { support: 'Support Technique IT', reseau: 'Sécurité Réseau', pentest: 'Pentest / VAPT', admin: 'Administrateur Systèmes' };
-  return names[selectedExam] || '';
-}
-
-function sendResults(score, total) {
-  const status = document.getElementById('emailStatus');
-  status.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi du rapport...';
-
-  const fd = new FormData();
-  fd.append('candidat_nom', candidateInfo.lastName);
-  fd.append('candidat_prenom', candidateInfo.firstName);
-  fd.append('candidat_email', candidateInfo.email);
-  fd.append('candidat_telephone', candidateInfo.phone);
-  fd.append('filiere', getExamName());
-  fd.append('score', `${score}/${total}`);
-  fd.append('infractions', securityStrikes);
-  fd.append('log_surveillance', JSON.stringify(monitoringLog));
-  fd.append('date_examen', new Date().toLocaleString('fr-FR'));
-  fd.append('_subject', `Résultat ${getExamName()} - ${candidateInfo.firstName} ${candidateInfo.lastName} - ${score}/${total}`);
-
-  fetch('https://formspree.io/f/myklqdky', {
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('contactSubmitBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+  
+  const formData = new FormData(this);
+  fetch(this.action, {
     method: 'POST',
-    body: fd,
+    body: formData,
     headers: { 'Accept': 'application/json' }
   })
   .then(r => {
     if (r.ok) {
-      status.className = 'results-email-status sent';
-      status.innerHTML = '✅ Rapport envoyé !';
+      alert('✅ Votre demande a été envoyée avec succès ! Nous vous recontacterons sous 24h.');
+      this.reset();
+      btn.innerHTML = '<i class="fas fa-paper-plane"></i> ' + (currentLang === 'fr' ? 'Envoyer ma demande' : 'Send my request');
+      btn.disabled = false;
     } else {
-      status.className = 'results-email-status error';
-      status.innerHTML = '⚠️ Erreur envoi.';
+      alert('❌ Une erreur est survenue. Veuillez réessayer.');
+      btn.innerHTML = '<i class="fas fa-paper-plane"></i> ' + (currentLang === 'fr' ? 'Envoyer ma demande' : 'Send my request');
+      btn.disabled = false;
     }
   })
   .catch(() => {
-    status.className = 'results-email-status error';
-    status.innerHTML = '⚠️ Erreur réseau.';
+    alert('❌ Une erreur est survenue. Veuillez réessayer.');
+    btn.innerHTML = '<i class="fas fa-paper-plane"></i> ' + (currentLang === 'fr' ? 'Envoyer ma demande' : 'Send my request');
+    btn.disabled = false;
   });
-}
-
-function sendNotification(type, reason) {
-  const fd = new FormData();
-  fd.append('candidat_nom', candidateInfo.lastName || 'Inconnu');
-  fd.append('candidat_prenom', candidateInfo.firstName || 'Inconnu');
-  fd.append('candidat_email', candidateInfo.email || 'Inconnu');
-  fd.append('filiere', getExamName());
-  fd.append('infractions', securityStrikes);
-  fd.append('raison', reason);
-  fd.append('log_surveillance', JSON.stringify(monitoringLog));
-  fd.append('date_examen', new Date().toLocaleString('fr-FR'));
-  fd.append('_subject', `🚨 EXAMEN ANNULÉ - ${candidateInfo.firstName} ${candidateInfo.lastName}`);
-
-  fetch('https://formspree.io/f/myklqdky', { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } })
-    .catch(() => {});
-}
-
-// ============================================================
-// REVOIR / QUITTER / RETOUR
-// ============================================================
-function reviewExam() {
-  document.getElementById('resultsPanel').classList.remove('active');
-  document.getElementById('examInterface').classList.add('active');
-  document.getElementById('submitBtn').style.display = 'none';
-  document.getElementById('nextBtn').style.display = 'flex';
-  currentQuestionIndex = 0;
-  renderQuestion();
-  updateNavButtons();
-}
-
-function quitExam() {
-  if (confirm(t('confirm_quit'))) {
-    clearInterval(timerInterval);
-    clearInterval(inactiveTimer);
-    stopCamera();
-    examFinished = true;
-    document.getElementById('examInterface').classList.remove('active');
-    document.getElementById('cancelledOverlay').classList.add('active');
-    sendNotification('abandon', 'Abandon volontaire');
-  }
-}
-
-function backToSections() {
-  if (examStarted && !examFinished) {
-    if (confirm(t('confirm_back'))) resetExam();
-  } else resetExam();
-}
-
-function resetExam() {
-  clearInterval(timerInterval);
-  clearInterval(inactiveTimer);
-  stopCamera();
-  examStarted = false;
-  examFinished = false;
-  selectedExam = null;
-  currentQuestions = [];
-  userAnswers = [];
-  timeRemaining = 60 * 60;
-  securityStrikes = 0;
-  monitoringLog = [];
-  document.getElementById('examInterface').classList.remove('active');
-  document.getElementById('resultsPanel').classList.remove('active');
-  document.getElementById('cancelledOverlay').classList.remove('active');
-  document.getElementById('candidateForm').classList.add('active');
-  document.getElementById('startExamBtn').disabled = true;
-  document.getElementById('monitoringWidget').classList.remove('active');
-  document.querySelectorAll('.section-card').forEach(c => c.classList.remove('selected'));
-  document.getElementById('timerDisplay').className = 'value timer';
-}
-
-// ============================================================
-// NAVIGATION CLAVIER
-// ============================================================
-document.addEventListener('keydown', (e) => {
-  if (!examStarted || examFinished) return;
-  if (e.key === 'ArrowRight') nextQuestion();
-  if (e.key === 'ArrowLeft') prevQuestion();
-  if (e.key >= '1' && e.key <= '4') {
-    const idx = parseInt(e.key) - 1;
-    const q = currentQuestions[currentQuestionIndex];
-    if (q && idx < q.options_fr.length) selectAnswer(idx);
-  }
 });
 
 // ============================================================
-// MENU TOGGLE
+// 📱 MENU MOBILE
 // ============================================================
-const menuToggle = document.getElementById('menuToggle');
+const toggleBtn = document.getElementById('menuToggle');
 const mobileNav = document.getElementById('mobileNav');
-if (menuToggle && mobileNav) {
-  menuToggle.addEventListener('click', () => {
+if (toggleBtn && mobileNav) {
+  toggleBtn.addEventListener('click', () => {
     mobileNav.classList.toggle('active');
-    menuToggle.querySelector('i').className = mobileNav.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+    toggleBtn.querySelector('i').className = mobileNav.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
   });
 }
 
 // ============================================================
-// INITIALISATION
+// 🖱️ CURSOR GLOW
+// ============================================================
+const glow = document.getElementById('cursorGlow');
+if (glow) {
+  window.addEventListener('mousemove', (e) => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+  });
+}
+
+// ============================================================
+// 📜 SCROLL PROGRESS
+// ============================================================
+window.addEventListener('scroll', () => {
+  const s = document.body.scrollTop || document.documentElement.scrollTop;
+  const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const p = (s / h) * 100;
+  const bar = document.getElementById('scrollProgress');
+  if (bar) bar.style.width = p + '%';
+});
+
+// ============================================================
+// 🚀 INITIALISATION
 // ============================================================
 applyLanguage('fr');
-
-console.log('🎓 NetVanguard Exam System');
-console.log('🔑 Admin: Ctrl+Shift+A pour générer des codes');
-console.log('🔑 Codes permanents: NETVANGUARD2026, Y4WSDKZQ, AW28XGZH, 5RD7Q6XD');
-console.log('📷 Caméra obligatoire pour démarrer l\'examen');
-console.log('📌 Les codes générés par carriere.html sont automatiquement pris en compte');
+console.log('🎓 Campus Cyber — Formations cybersécurité');
+console.log('📚 6 programmes de formation disponibles');
 </script>
 </body>
 </html>
