@@ -10,6 +10,7 @@
 <link rel="canonical" href="https://netvanguard.ma/">
 <link rel="alternate" hreflang="fr" href="https://netvanguard.ma/">
 <link rel="alternate" hreflang="en" href="https://netvanguard.ma/en/">
+<link rel="preload" as="image" href="bg1.jpg" fetchpriority="high">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -17,7 +18,8 @@
 <meta property="og:title" content="NetVanguard IT Solutions — Infogérance, Microsoft 365 & Cybersécurité pour entreprises">
 <meta property="og:description" content="Infogérance, Microsoft 365, Cybersécurité et Support informatique. Solutions adaptées aux entreprises du monde entier.">
 <meta property="og:url" content="https://netvanguard.ma/">
-<meta property="og:locale" content="fr_FR">
+<meta property="og:locale" content="fr_MA">
+<meta property="og:locale:alternate" content="en_US">
 <meta property="og:image" content="https://netvanguard.ma/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -32,16 +34,31 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "ProfessionalService",
   "name": "NetVanguard IT Solutions",
   "url": "https://netvanguard.ma",
   "logo": "https://netvanguard.ma/logo.png",
+  "image": "https://netvanguard.ma/og-image.jpg",
   "description": "Infogérance, Microsoft 365, Cybersécurité et Support informatique pour entreprises.",
+  "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "BD 30 JUILLET, Rés Les Champs Du Printemps, GH 1, IMM F, 5ème Étage N°15",
     "addressLocality": "Sidi Moumen, Casablanca",
+    "addressRegion": "Casablanca-Settat",
     "addressCountry": "MA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 33.5928,
+    "longitude": -7.5498
+  },
+  "areaServed": { "@type": "Country", "name": "Morocco" },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+    "opens": "09:00",
+    "closes": "18:00"
   },
   "contactPoint": {
     "@type": "ContactPoint",
@@ -51,9 +68,21 @@
     "availableLanguage": ["French", "English"]
   },
   "sameAs": [
-    "https://www.linkedin.com/company/netvanguard",
-    "https://twitter.com/netvanguard"
-  ]
+    "https://www.linkedin.com/company/netvanguard"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Services NetVanguard",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Infogérance Sécurisée"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Sécurité Réseau (NGFW/Zero-Trust)"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Audit & Diagnostic"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Pentest / VAPT"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "SOC Consultation"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Investigation Numérique"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "NOC Managé"}}
+    ]
+  }
 }
 </script>
 
@@ -903,9 +932,9 @@ a { text-decoration: none; }
     <div class="slide" data-index="1">
       <div class="slide-content">
         <p class="slide-subtitle" data-i18n="slide2_subtitle">Cybersécurité & Protection des données</p>
-        <h1 class="slide-title">
+        <p class="slide-title">
           <span class="slide-title-gradient" id="typingTitle2" data-i18n="slide2_title">Protégez votre entreprise</span><span class="cursor-blink" id="cursor2"></span>
-        </h1>
+        </p>
         <p class="slide-description" data-i18n="slide2_desc">
           Protégez votre entreprise contre les cybermenaces. Nous déployons des solutions de sécurité 
           avancées pour sécuriser vos postes de travail, vos serveurs et vos données, où que vous soyez.
@@ -920,9 +949,9 @@ a { text-decoration: none; }
     <div class="slide" data-index="2">
       <div class="slide-content">
         <p class="slide-subtitle" data-i18n="slide3_subtitle">Support IT & Infrastructures Réseau</p>
-        <h1 class="slide-title">
+        <p class="slide-title">
           <span class="slide-title-gradient" id="typingTitle3" data-i18n="slide3_title">Un service IT de proximité</span><span class="cursor-blink" id="cursor3"></span>
-        </h1>
+        </p>
         <p class="slide-description" data-i18n="slide3_desc">
           Un accompagnement technique de proximité pour votre entreprise, avec des infrastructures 
           réseau performantes et une maintenance proactive, partout dans le monde.
@@ -988,22 +1017,22 @@ a { text-decoration: none; }
     <h2 class="partners-title" data-i18n="partners_title">Technologies que nous maîtrisons</h2>
     <div class="partners-carousel-track">
       <div class="partners-grid">
-        <div class="partner-tile"><img src="fortinet.svg" alt="Fortinet"></div>
-        <div class="partner-tile"><img src="cisco.svg" alt="Cisco"></div>
-        <div class="partner-tile"><img src="paloalto.svg" alt="Palo Alto Networks"></div>
-        <div class="partner-tile"><img src="wazuh.svg" alt="Wazuh"></div>
-        <div class="partner-tile"><img src="crowdstrike.svg" alt="CrowdStrike"></div>
-        <div class="partner-tile"><img src="kaspersky.svg" alt="Kaspersky"></div>
-        <div class="partner-tile"><img src="vmware.svg" alt="VMware"></div>
-        <div class="partner-tile"><img src="microsoft.svg" alt="Microsoft"></div>
-        <div class="partner-tile"><img src="fortinet.svg" alt="Fortinet"></div>
-        <div class="partner-tile"><img src="cisco.svg" alt="Cisco"></div>
-        <div class="partner-tile"><img src="paloalto.svg" alt="Palo Alto Networks"></div>
-        <div class="partner-tile"><img src="wazuh.svg" alt="Wazuh"></div>
-        <div class="partner-tile"><img src="crowdstrike.svg" alt="CrowdStrike"></div>
-        <div class="partner-tile"><img src="kaspersky.svg" alt="Kaspersky"></div>
-        <div class="partner-tile"><img src="vmware.svg" alt="VMware"></div>
-        <div class="partner-tile"><img src="microsoft.svg" alt="Microsoft"></div>
+        <div class="partner-tile"><img src="fortinet.svg" alt="Fortinet" width="90" height="52" loading="lazy"></div>
+        <div class="partner-tile"><img src="cisco.svg" alt="Cisco" width="90" height="52" loading="lazy"></div>
+        <div class="partner-tile"><img src="paloalto.svg" alt="Palo Alto Networks" width="90" height="52" loading="lazy"></div>
+        <div class="partner-tile"><img src="wazuh.svg" alt="Wazuh" width="90" height="52" loading="lazy"></div>
+        <div class="partner-tile"><img src="crowdstrike.svg" alt="CrowdStrike" width="90" height="52" loading="lazy"></div>
+        <div class="partner-tile"><img src="kaspersky.svg" alt="Kaspersky" width="90" height="52" loading="lazy"></div>
+        <div class="partner-tile"><img src="vmware.svg" alt="VMware" width="90" height="52" loading="lazy"></div>
+        <div class="partner-tile"><img src="microsoft.svg" alt="Microsoft" width="90" height="52" loading="lazy"></div>
+        <div class="partner-tile"><img src="fortinet.svg" alt="Fortinet" width="90" height="52" loading="lazy"></div>
+        <div class="partner-tile"><img src="cisco.svg" alt="Cisco" width="90" height="52" loading="lazy"></div>
+        <div class="partner-tile"><img src="paloalto.svg" alt="Palo Alto Networks" width="90" height="52" loading="lazy"></div>
+        <div class="partner-tile"><img src="wazuh.svg" alt="Wazuh" width="90" height="52" loading="lazy"></div>
+        <div class="partner-tile"><img src="crowdstrike.svg" alt="CrowdStrike" width="90" height="52" loading="lazy"></div>
+        <div class="partner-tile"><img src="kaspersky.svg" alt="Kaspersky" width="90" height="52" loading="lazy"></div>
+        <div class="partner-tile"><img src="vmware.svg" alt="VMware" width="90" height="52" loading="lazy"></div>
+        <div class="partner-tile"><img src="microsoft.svg" alt="Microsoft" width="90" height="52" loading="lazy"></div>
       </div>
     </div>
   </div>
@@ -1017,7 +1046,7 @@ a { text-decoration: none; }
       <p data-i18n="cyber_desc">Visualisez en temps réel les cyberattaques détectées à l'échelle planétaire. Cette carte illustre l'importance d'une protection proactive de vos systèmes d'information.</p>
     </div>
     <div class="map-iframe-container">
-      <iframe src="https://cybermap.kaspersky.com/en/widget/dynamic/dark" width="100%" height="100%" style="border: none;" allowfullscreen title="Carte des cybermenaces en temps réel"></iframe>
+      <iframe src="https://cybermap.kaspersky.com/en/widget/dynamic/dark" width="100%" height="100%" style="border: none;" allowfullscreen title="Carte des cybermenaces en temps réel" loading="lazy"></iframe>
     </div>
     <div class="stats-grid-centered">
       <!-- CARTE 1 : Cybersécurité avancée -->
@@ -1388,6 +1417,7 @@ let isTyping = false;
 // ============================================================
 function applyLanguage(lang) {
   currentLang = lang;
+  document.documentElement.lang = lang;
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (translations[lang] && translations[lang][key]) {
