@@ -536,11 +536,11 @@
   <div class="password-overlay" id="passwordOverlay">
     <div class="password-box">
       <i class="fas fa-shield-alt shield-icon"></i>
-      <h2>🔐 Accès Sécurisé</h2>
-      <p>Entrez votre mot de passe pour accéder au portail client</p>
+      <h2 data-i18n="password_title">🔐 Accès Sécurisé</h2>
+      <p data-i18n="password_subtitle">Entrez votre mot de passe pour accéder au portail client</p>
       <div class="password-input-group">
-        <input type="password" id="passwordInput" placeholder="Mot de passe" />
-        <button type="button" id="btnPassword">Accéder</button>
+        <input type="password" id="passwordInput" data-i18n-placeholder="password_placeholder" placeholder="Mot de passe" />
+        <button type="button" id="btnPassword" data-i18n="btn_access">Accéder</button>
       </div>
       <div class="password-error" id="passwordError"></div>
     </div>
@@ -553,12 +553,12 @@
     <div class="top-bar-container">
       <div class="partner-badge">
         <i class="fa-solid fa-shield-halved"></i>
-        <span>Infogérance, Microsoft 365 & Cybersécurité pour entreprises</span>
+        <span data-i18n="topbar_badge">Infogérance, Microsoft 365 & Cybersécurité pour entreprises</span>
       </div>
       <div class="top-bar-info">
         <span><i class="fa-solid fa-phone"></i> +212 728 31 28 01</span>
         <span><i class="fa-solid fa-envelope"></i> contact@netvanguard.ma</span>
-        <span><i class="fa-solid fa-location-dot"></i> Casablanca — Service global</span>
+        <span><i class="fa-solid fa-location-dot"></i> <span data-i18n="topbar_location">Casablanca — Service global</span></span>
       </div>
       <div class="lang-switch">
         <button class="lang-btn active" data-lang="fr" type="button">FR</button>
@@ -585,15 +585,15 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="secteurs.html">Secteurs</a></li>
-        <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
-        <li><a href="carrieres.html">Carrières</a></li>
-        <li><a href="campus-cyber.html">🎓 Campus Cyber</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+        <li><a href="services.html" data-i18n="nav_services">Services</a></li>
+        <li><a href="secteurs.html" data-i18n="nav_secteurs">Secteurs</a></li>
+        <li><a href="qui-sommes-nous.html" data-i18n="nav_about">Qui sommes-nous</a></li>
+        <li><a href="carrieres.html" data-i18n="nav_careers">Carrières</a></li>
+        <li><a href="campus-cyber.html" data-i18n="nav_campus">🎓 Campus Cyber</a></li>
+        <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
         <li><a href="support.html" class="btn-espace-client">
-          <i class="fa-solid fa-user-circle"></i> Espace Client
+          <i class="fa-solid fa-user-circle"></i> <span data-i18n="nav_client_space">Espace Client</span>
         </a></li>
       </ul>
 
@@ -605,23 +605,23 @@
 
   <!-- MOBILE NAVIGATION -->
   <div class="mobile-nav-overlay" id="mobileNav">
-    <a href="index.html">Accueil</a>
-    <a href="services.html">Services</a>
-    <a href="secteurs.html">Secteurs</a>
-    <a href="qui-sommes-nous.html">Qui sommes-nous</a>
-    <a href="carrieres.html">Carrières</a>
-    <a href="campus-cyber.html">🎓 Campus Cyber</a>
-    <a href="contact.html">Contact</a>
+    <a href="index.html" data-i18n="nav_home">Accueil</a>
+    <a href="services.html" data-i18n="nav_services">Services</a>
+    <a href="secteurs.html" data-i18n="nav_secteurs">Secteurs</a>
+    <a href="qui-sommes-nous.html" data-i18n="nav_about">Qui sommes-nous</a>
+    <a href="carrieres.html" data-i18n="nav_careers">Carrières</a>
+    <a href="campus-cyber.html" data-i18n="nav_campus">🎓 Campus Cyber</a>
+    <a href="contact.html" data-i18n="nav_contact">Contact</a>
     <a href="support.html" class="btn-espace-client-mobile">
-      <i class="fa-solid fa-user-circle"></i> Espace Client
+      <i class="fa-solid fa-user-circle"></i> <span data-i18n="nav_client_space">Espace Client</span>
     </a>
   </div>
 
   <!-- MAIN CONTENT -->
   <div class="main-content" style="display: none;" id="mainContent">
     <div class="hero-section">
-      <h1>Votre Espace Client Dédié</h1>
-      <p>Installation automatisée de 3 solutions NetVanguard en quelques minutes</p>
+      <h1 data-i18n="hero_title">Votre Espace Client Dédié</h1>
+      <p data-i18n="hero_subtitle">Installation automatisée de 3 solutions NetVanguard en quelques minutes</p>
     </div>
 
     <div class="solutions-grid">
@@ -631,13 +631,13 @@
           <i class="fas fa-desktop" style="color: var(--accent);"></i>
           Tactical RMM
         </div>
-        <div class="description">
+        <div class="description" data-i18n="tactical_desc">
           Gestion à distance, support technique sécurisé et contrôle complet de vos machines
         </div>
         <div class="script-container" id="tacticalScriptContainer">
 $ErrorActionPreference = 'Stop'; Invoke-WebRequest -Uri "https://rmm.netvanguard.ma/dl/tacticalagent-v2.10.0-windows-amd64.exe" -OutFile "$env:TEMP\tacticalagent.exe"; Start-Process "$env:TEMP\tacticalagent.exe" -ArgumentList '/VERYSILENT /SUPPRESSMSGBOXES' -Wait; & "C:\Program Files\TacticalAgent\tacticalrmm.exe" -m install --api https://api.rmm.netvanguard.ma --client-id 1 --site-id 1 --agent-type workstation --auth d432d9944a0eb82a8f5c0db6107f69a28ff8f1b8fe7d3a3e2a10ee487a359e59 --rdp --ping --power
         </div>
-        <button class="btn-copy-script" id="btnTactical" type="button">
+        <button class="btn-copy-script" id="btnTactical" type="button" data-i18n="btn_copy">
           <i class="fas fa-copy"></i> Copier le script
         </button>
       </div>
@@ -648,13 +648,13 @@ $ErrorActionPreference = 'Stop'; Invoke-WebRequest -Uri "https://rmm.netvanguard
           <i class="fas fa-database" style="color: var(--gold);"></i>
           Restic Backup
         </div>
-        <div class="description">
+        <div class="description" data-i18n="restic_desc">
           Sauvegarde automatique et chiffrée de vos données critiques chaque nuit
         </div>
         <div class="script-container" id="resticScriptContainer">
 $StorageUser = "u636733"; $StorageHost = "u636733.your-storagebox.de"; $StoragePassword = "YourStorageBoxPassword"; $BackupPath = "C:\NetVanguard\Restic"; mkdir $BackupPath -ErrorAction SilentlyContinue; $env:RESTIC_REPOSITORY = "sftp://$StorageUser:$StoragePassword@$StorageHost/backup"; $env:RESTIC_PASSWORD = "your-secure-password"; & restic.exe init --repo $env:RESTIC_REPOSITORY; & restic.exe backup C:\Users --repo $env:RESTIC_REPOSITORY
         </div>
-        <button class="btn-copy-script btn-copy-restic" id="btnRestic" type="button">
+        <button class="btn-copy-script btn-copy-restic" id="btnRestic" type="button" data-i18n="btn_copy">
           <i class="fas fa-copy"></i> Copier le script
         </button>
       </div>
@@ -665,20 +665,20 @@ $StorageUser = "u636733"; $StorageHost = "u636733.your-storagebox.de"; $StorageP
           <i class="fas fa-chart-line" style="color: #E74C3C;"></i>
           Zabbix Agent
         </div>
-        <div class="description">
+        <div class="description" data-i18n="zabbix_desc">
           Monitoring avancé avec alertes intelligentes et rapports détaillés en temps réel
         </div>
         <div class="script-container" id="zabbixScriptContainer">
-$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue'; $ZabbixServer = "zabbix.netvanguard.ma"; $ClientName = $env:COMPUTERNAME; $URL = "https://cdn.zabbix.com/zabbix/binaries/stable/6.4/6.4.8/zabbix_agent2-6.4.8-windows-amd64-openssl.msi"; $Installer = "$env:TEMP\zabbix-agent.msi"; $InstallLog = "$env:TEMP\zabbix-install.log"; [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -Uri $URL -OutFile $Installer -ErrorAction Stop -UseBasicParsing; $arguments = "/i `"$Installer`" /qn /norestart /L*v `"$InstallLog`" SERVER=$ZabbixServer SERVERACTIVE=$ZabbixServer HOSTNAME=$ClientName"; $process = Start-Process msiexec.exe -ArgumentList $arguments -Wait -PassThru -NoNewWindow; Start-Sleep -Seconds 10; $service = Get-Service | Where-Object { $_.DisplayName -like "*Zabbix*" -or $_.Name -like "*Zabbix*" } | Select-Object -First 1; if ($service) { if ($service.Status -ne 'Running') { Start-Service $service.Name -ErrorAction SilentlyContinue }; Set-Service $service.Name -StartupType Automatic -ErrorAction SilentlyContinue }; New-NetFirewallRule -DisplayName "Zabbix Agent 2" -Direction Inbound -Protocol TCP -LocalPort 10050 -Action Allow -Profile Any -ErrorAction SilentlyContinue | Out-Null; Remove-Item $Installer -Force -ErrorAction SilentlyContinue; Remove-Item $InstallLog -Force -ErrorAction SilentlyContinue; Write-Host "Zabbix Agent 2 installe avec succes sur $ClientName!" -ForegroundColor Green
+$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue'; $ZabbixServer = "zabbix.netvanguard.ma"; $ClientName = $env:COMPUTERNAME; $URL = "https://cdn.zabbix.com/zabbix/binaries/stable/6.4/6.4.8/zabbix_agent2-6.4.8-windows-amd64-openssl.msi"; $Installer = "$env:TEMP\zabbix-agent.msi"; $InstallLog = "$env:TEMP\zabbix-install.log"; [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -Uri $URL -OutFile $Installer -ErrorAction Stop -UseBasicParsing; $arguments = "/i `"$Installer`" /qn /norestart /L*v `"$InstallLog`" SERVER=$ZabbixServer SERVERACTIVE=$ZabbixServer HOSTNAME=$ClientName"; $process = Start-Process msiexec.exe -ArgumentList $arguments -Wait -PassThru -NoNewWindow; Start-Sleep -Seconds 10; $configFile = "C:\Program Files\Zabbix Agent 2\zabbix_agent2.conf"; if (Test-Path $configFile) { $content = Get-Content $configFile -Raw; $content = $content -replace "Server=zabbix.netvanguard.ma", "Server=zabbix.netvanguard.ma,127.0.0.1,0.0.0.0/0"; $content = $content -replace "^ServerActive=.*", "ServerActive=$ZabbixServer"; $content = $content -replace "^Hostname=.*", "Hostname=$ClientName"; Set-Content $configFile -Value $content }; $service = Get-Service | Where-Object { $_.DisplayName -like "*Zabbix*" -or $_.Name -like "*Zabbix*" } | Select-Object -First 1; if ($service) { Restart-Service $service.Name -ErrorAction SilentlyContinue; Start-Sleep -Seconds 3; Set-Service $service.Name -StartupType Automatic -ErrorAction SilentlyContinue }; New-NetFirewallRule -DisplayName "Zabbix Agent 2" -Direction Inbound -Protocol TCP -LocalPort 10050 -Action Allow -Profile Any -ErrorAction SilentlyContinue | Out-Null; Remove-Item $Installer -Force -ErrorAction SilentlyContinue; Remove-Item $InstallLog -Force -ErrorAction SilentlyContinue; Write-Host "✅ Zabbix Agent 2 installé et configuré avec succès sur $ClientName!" -ForegroundColor Green; Write-Host "📊 Dashboard: https://zabbix.netvanguard.ma/zabbix.php?action=dashboard.list" -ForegroundColor Cyan
         </div>
-        <button class="btn-copy-script btn-copy-zabbix" id="btnZabbix" type="button">
+        <button class="btn-copy-script btn-copy-zabbix" id="btnZabbix" type="button" data-i18n="btn_copy">
           <i class="fas fa-copy"></i> Copier le script
         </button>
       </div>
     </div>
 
     <div class="alert-box">
-      <p><i class="fas fa-check-circle"></i> <strong>💡 Conseil:</strong> Exécutez les scripts dans l'ordre Tactical RMM → Restic Backup → Zabbix Agent pour une installation optimale</p>
+      <p><i class="fas fa-check-circle"></i> <strong data-i18n="alert_title">💡 Conseil:</strong> <span data-i18n="alert_text">Exécutez les scripts dans l'ordre Tactical RMM → Restic Backup → Zabbix Agent pour une installation optimale</span></p>
     </div>
   </div>
 
@@ -689,7 +689,7 @@ $ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue'; $Zabb
         <a href="index.html" class="logo">
           <span>Net<span class="logo-text-accent">Vanguard</span> IT Solutions</span>
         </a>
-        <p>Votre partenaire IT de confiance...</p>
+        <p data-i18n="footer_tagline">Votre partenaire IT de confiance...</p>
         <div class="footer-socials">
           <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
           <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
@@ -698,42 +698,125 @@ $ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue'; $Zabb
       </div>
 
       <div class="footer-links">
-        <h4>Services</h4>
+        <h4 data-i18n="footer_services">Services</h4>
         <ul>
-          <li><a href="#">Infogérance</a></li>
-          <li><a href="#">Sécurité Réseau</a></li>
-          <li><a href="#">Audit & Diagnostic</a></li>
-          <li><a href="#">Pentest / VAPT</a></li>
+          <li><a href="#" data-i18n="footer_managed">Infogérance</a></li>
+          <li><a href="#" data-i18n="footer_network">Sécurité Réseau</a></li>
+          <li><a href="#" data-i18n="footer_audit">Audit & Diagnostic</a></li>
+          <li><a href="#" data-i18n="footer_pentest">Pentest / VAPT</a></li>
         </ul>
       </div>
 
       <div class="footer-links">
-        <h4>Société</h4>
+        <h4 data-i18n="footer_company">Société</h4>
         <ul>
-          <li><a href="#">À propos</a></li>
-          <li><a href="#">Carrières</a></li>
-          <li><a href="#">Campus Cyber</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#" data-i18n="footer_about">À propos</a></li>
+          <li><a href="#" data-i18n="footer_careers">Carrières</a></li>
+          <li><a href="#" data-i18n="footer_campus">Campus Cyber</a></li>
+          <li><a href="#" data-i18n="footer_contact">Contact</a></li>
         </ul>
       </div>
 
       <div class="footer-links">
-        <h4>Informations</h4>
+        <h4 data-i18n="footer_info">Informations</h4>
         <ul>
-          <li><a href="#">Mentions légales</a></li>
-          <li><a href="#">Gestion des cookies</a></li>
+          <li><a href="#" data-i18n="footer_legal">Mentions légales</a></li>
+          <li><a href="#" data-i18n="footer_cookies">Gestion des cookies</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2026 NetVanguard IT Solutions. Tous droits réservés.</p>
-      <p>Basé à Casablanca — Service global</p>
+      <p>&copy; 2026 NetVanguard IT Solutions. <span data-i18n="footer_rights">Tous droits réservés</span>.</p>
+      <p data-i18n="footer_location">Basé à Casablanca — Service global</p>
     </div>
   </footer>
 
   <script>
     const correctPassword = "admin123";
+
+    const translations = {
+      fr: {
+        password_title: "🔐 Accès Sécurisé",
+        password_subtitle: "Entrez votre mot de passe pour accéder au portail client",
+        password_placeholder: "Mot de passe",
+        btn_access: "Accéder",
+        topbar_badge: "Infogérance, Microsoft 365 & Cybersécurité pour entreprises",
+        topbar_location: "Casablanca — Service global",
+        nav_home: "Accueil",
+        nav_services: "Services",
+        nav_secteurs: "Secteurs",
+        nav_about: "Qui sommes-nous",
+        nav_careers: "Carrières",
+        nav_campus: "🎓 Campus Cyber",
+        nav_contact: "Contact",
+        nav_client_space: "Espace Client",
+        hero_title: "Votre Espace Client Dédié",
+        hero_subtitle: "Installation automatisée de 3 solutions NetVanguard en quelques minutes",
+        tactical_desc: "Gestion à distance, support technique sécurisé et contrôle complet de vos machines",
+        restic_desc: "Sauvegarde automatique et chiffrée de vos données critiques chaque nuit",
+        zabbix_desc: "Monitoring avancé avec alertes intelligentes et rapports détaillés en temps réel",
+        btn_copy: "Copier le script",
+        alert_title: "💡 Conseil:",
+        alert_text: "Exécutez les scripts dans l'ordre Tactical RMM → Restic Backup → Zabbix Agent pour une installation optimale",
+        footer_tagline: "Votre partenaire IT de confiance...",
+        footer_services: "Services",
+        footer_managed: "Infogérance",
+        footer_network: "Sécurité Réseau",
+        footer_audit: "Audit & Diagnostic",
+        footer_pentest: "Pentest / VAPT",
+        footer_company: "Société",
+        footer_about: "À propos",
+        footer_careers: "Carrières",
+        footer_campus: "Campus Cyber",
+        footer_contact: "Contact",
+        footer_info: "Informations",
+        footer_legal: "Mentions légales",
+        footer_cookies: "Gestion des cookies",
+        footer_rights: "Tous droits réservés",
+        footer_location: "Basé à Casablanca — Service global"
+      },
+      en: {
+        password_title: "🔐 Secure Access",
+        password_subtitle: "Enter your password to access the client portal",
+        password_placeholder: "Password",
+        btn_access: "Access",
+        topbar_badge: "Managed IT, Microsoft 365 & Cybersecurity for enterprises",
+        topbar_location: "Casablanca — Global service",
+        nav_home: "Home",
+        nav_services: "Services",
+        nav_secteurs: "Industries",
+        nav_about: "About Us",
+        nav_careers: "Careers",
+        nav_campus: "🎓 Cyber Campus",
+        nav_contact: "Contact",
+        nav_client_space: "Client Portal",
+        hero_title: "Your Client Portal",
+        hero_subtitle: "Automated deployment of 3 NetVanguard solutions in minutes",
+        tactical_desc: "Remote management, secure technical support and full control of your machines",
+        restic_desc: "Automated and encrypted backup of your critical data every night",
+        zabbix_desc: "Advanced monitoring with intelligent alerts and detailed real-time reports",
+        btn_copy: "Copy script",
+        alert_title: "💡 Tip:",
+        alert_text: "Execute scripts in order: Tactical RMM → Restic Backup → Zabbix Agent for optimal installation",
+        footer_tagline: "Your trusted IT partner...",
+        footer_services: "Services",
+        footer_managed: "Managed IT",
+        footer_network: "Network Security",
+        footer_audit: "Audit & Assessment",
+        footer_pentest: "Pentest / VAPT",
+        footer_company: "Company",
+        footer_about: "About",
+        footer_careers: "Careers",
+        footer_campus: "Cyber Campus",
+        footer_contact: "Contact",
+        footer_info: "Information",
+        footer_legal: "Legal Notice",
+        footer_cookies: "Cookie Policy",
+        footer_rights: "All rights reserved",
+        footer_location: "Based in Casablanca — Global service"
+      }
+    };
 
     // Password check
     document.getElementById('btnPassword').addEventListener('click', function() {
@@ -811,85 +894,6 @@ $ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue'; $Zabb
     });
 
     // Language switch
-    const translations = {
-      fr: {
-        password_title: "🔐 Accès Sécurisé",
-        password_subtitle: "Entrez votre mot de passe pour accéder au portail client",
-        password_placeholder: "Mot de passe",
-        topbar_badge: "Infogérance, Microsoft 365 & Cybersécurité pour entreprises",
-        nav_home: "Accueil",
-        nav_services: "Services",
-        nav_secteurs: "Secteurs",
-        nav_about: "Qui sommes-nous",
-        nav_careers: "Carrières",
-        nav_campus: "🎓 Campus Cyber",
-        nav_contact: "Contact",
-        nav_client_space: "Espace Client",
-        hero_title: "Votre Espace Client Dédié",
-        hero_subtitle: "Installation automatisée de 3 solutions NetVanguard en quelques minutes",
-        tactical_desc: "Gestion à distance, support technique sécurisé et contrôle complet de vos machines",
-        restic_desc: "Sauvegarde automatique et chiffrée de vos données critiques chaque nuit",
-        zabbix_desc: "Monitoring avancé avec alertes intelligentes et rapports détaillés en temps réel",
-        btn_copy: "Copier le script",
-        alert_title: "💡 Conseil:",
-        alert_text: "Exécutez les scripts dans l'ordre Tactical RMM → Restic Backup → Zabbix Agent pour une installation optimale",
-        footer_tagline: "Votre partenaire IT de confiance...",
-        footer_services: "Services",
-        footer_managed: "Infogérance",
-        footer_network: "Sécurité Réseau",
-        footer_audit: "Audit & Diagnostic",
-        footer_pentest: "Pentest / VAPT",
-        footer_company: "Société",
-        footer_about: "À propos",
-        footer_careers: "Carrières",
-        footer_campus: "Campus Cyber",
-        footer_contact: "Contact",
-        footer_info: "Informations",
-        footer_legal: "Mentions légales",
-        footer_cookies: "Gestion des cookies",
-        footer_rights: "Tous droits réservés",
-        footer_location: "Basé à Casablanca — Service global"
-      },
-      en: {
-        password_title: "🔐 Secure Access",
-        password_subtitle: "Enter your password to access the client portal",
-        password_placeholder: "Password",
-        topbar_badge: "Managed IT, Microsoft 365 & Cybersecurity for enterprises",
-        nav_home: "Home",
-        nav_services: "Services",
-        nav_secteurs: "Industries",
-        nav_about: "About Us",
-        nav_careers: "Careers",
-        nav_campus: "🎓 Cyber Campus",
-        nav_contact: "Contact",
-        nav_client_space: "Client Portal",
-        hero_title: "Your Client Portal",
-        hero_subtitle: "Automated deployment of 3 NetVanguard solutions in minutes",
-        tactical_desc: "Remote management, secure technical support and full control of your machines",
-        restic_desc: "Automated and encrypted backup of your critical data every night",
-        zabbix_desc: "Advanced monitoring with intelligent alerts and detailed real-time reports",
-        btn_copy: "Copy script",
-        alert_title: "💡 Tip:",
-        alert_text: "Execute scripts in order: Tactical RMM → Restic Backup → Zabbix Agent for optimal installation",
-        footer_tagline: "Your trusted IT partner...",
-        footer_services: "Services",
-        footer_managed: "Managed IT",
-        footer_network: "Network Security",
-        footer_audit: "Audit & Assessment",
-        footer_pentest: "Pentest / VAPT",
-        footer_company: "Company",
-        footer_about: "About",
-        footer_careers: "Careers",
-        footer_campus: "Cyber Campus",
-        footer_contact: "Contact",
-        footer_info: "Information",
-        footer_legal: "Legal Notice",
-        footer_cookies: "Cookie Policy",
-        footer_rights: "All rights reserved",
-        footer_location: "Based in Casablanca — Global service"
-      }
-    };
-
     document.querySelectorAll('.lang-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
         const lang = btn.getAttribute('data-lang');
@@ -899,7 +903,6 @@ $ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue'; $Zabb
         });
         btn.classList.add('active');
         
-        // Update text content
         document.querySelectorAll('[data-i18n]').forEach(function(el) {
           const key = el.getAttribute('data-i18n');
           if (translations[lang] && translations[lang][key]) {
@@ -907,7 +910,6 @@ $ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue'; $Zabb
           }
         });
         
-        // Update placeholders
         document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
           const key = el.getAttribute('data-i18n-placeholder');
           if (translations[lang] && translations[lang][key]) {
