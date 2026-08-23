@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="NetVanguard IT Solutions · Portail Client Premium · Support & Assistance 24/7">
-  <title data-i18n="support_page_title">Espace Client · NetVanguard IT Solutions</title>
+  <title>Espace Client · NetVanguard IT Solutions</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
@@ -15,6 +15,7 @@
       --primary-light: #0F2B4D;
       --accent: #00D4FF;
       --accent-dark: #0891B2;
+      --accent-glow: rgba(0, 212, 255, 0.5);
       --red: #EF4444;
       --red-dark: #DC2626;
       --white: #FFFFFF;
@@ -23,9 +24,9 @@
       --gray-mid: #64748B;
       --gold: #FFB800;
       --gold-light: #FFD700;
-      --success: #10B981;
-      --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
@@ -57,9 +58,8 @@
       justify-content: center;
       flex-direction: column;
     }
-    .password-overlay.hidden {
-      display: none;
-    }
+    .password-overlay.hidden { display: none; }
+    
     .password-box {
       background: linear-gradient(160deg, rgba(255,255,255,0.04), rgba(15,43,77,0.3));
       border: 1px solid rgba(0,212,255,0.2);
@@ -106,9 +106,7 @@
       border-color: var(--accent);
       box-shadow: 0 0 15px rgba(0,212,255,0.15);
     }
-    .password-input-group input::placeholder {
-      color: var(--gray-mid);
-    }
+    .password-input-group input::placeholder { color: var(--gray-mid); }
     .password-input-group button {
       background: linear-gradient(135deg, var(--accent), var(--accent-dark));
       border: none;
@@ -131,7 +129,6 @@
       font-size: 0.8rem;
       margin-top: 0.8rem;
       min-height: 1.2rem;
-      transition: all 0.3s ease;
     }
 
     /* CURSOR GLOW */
@@ -153,1088 +150,787 @@
       padding: 0.5rem 4%;
       font-size: 0.78rem;
       border-bottom: 1px solid rgba(0,212,255,0.12);
-      z-index: 1001; position: relative;
+      z-index: 1001;
+      position: relative;
     }
     .top-bar-container {
-      max-width: 1400px; margin: 0 auto;
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 0.5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
     .partner-badge {
-      display: flex; align-items: center; gap: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
       background: linear-gradient(135deg, rgba(0,212,255,0.1), rgba(255,184,0,0.05));
-      padding: 0.35rem 1.2rem; border-radius: 40px;
+      padding: 0.35rem 1.2rem;
+      border-radius: 40px;
       border: 1px solid rgba(0,212,255,0.2);
-      box-shadow: 0 0 20px rgba(0,212,255,0.08);
     }
     .partner-badge i { color: var(--accent); font-size: 0.75rem; }
     .partner-badge span {
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px;
-      background: linear-gradient(135deg, #fff, var(--accent));
-      -webkit-background-clip: text; background-clip: text; color: transparent;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
     }
     .top-bar-info { display: flex; gap: 2rem; flex-wrap: wrap; }
     .top-bar-info span { display: flex; align-items: center; gap: 0.4rem; }
     .top-bar-info i { color: var(--accent); }
-    .top-bar-social a { color: var(--gray-light); margin-left: 0.8rem; transition: var(--transition); display: inline-block; }
-    .top-bar-social a:hover { color: var(--accent); transform: translateY(-2px); }
     .lang-switch {
-      display: flex; gap: 0.2rem; background: rgba(0,212,255,0.08);
-      padding: 0.15rem 0.5rem; border-radius: 40px; align-items: center;
+      display: flex;
+      gap: 0.2rem;
+      background: rgba(0,212,255,0.08);
+      padding: 0.15rem 0.5rem;
+      border-radius: 40px;
+      align-items: center;
       border: 1px solid rgba(0,212,255,0.15);
     }
     .lang-btn {
-      background: none; border: none; color: var(--gray-light);
-      font-size: 0.75rem; font-weight: 600; cursor: pointer;
-      padding: 0.15rem 0.6rem; border-radius: 30px; transition: var(--transition);
+      background: none;
+      border: none;
+      color: var(--gray-light);
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0.15rem 0.6rem;
+      border-radius: 30px;
+      transition: var(--transition);
       font-family: inherit;
     }
-    .lang-btn.active { background: var(--accent); color: var(--primary-deep); }
+    .lang-btn.active {
+      background: var(--accent);
+      color: var(--primary-deep);
+    }
 
     /* NAV */
     .nav {
-      position: sticky; top: 0; z-index: 1000; padding: 0.9rem 4%;
-      background: rgba(5, 12, 24, 0.92); backdrop-filter: blur(25px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 0.9rem 4%;
+      background: rgba(5, 12, 24, 0.92);
+      backdrop-filter: blur(25px);
       border-bottom: 1px solid rgba(0,212,255,0.08);
     }
     .nav-container {
-      max-width: 1400px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
     }
     .logo {
-      display: flex; align-items: center; gap: 0.6rem;
-      font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.3rem;
-      color: var(--white); transition: var(--transition);
-    }
-    .logo:hover { transform: scale(1.02); }
-    .logo-shield {
-      width: 38px; height: 38px; flex-shrink: 0;
-      animation: float 3s ease-in-out infinite;
-      filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.4));
-    }
-    @keyframes float {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-7px); }
-    }
-    .logo-text-accent { color: var(--accent); }
-    .nav-links { display: flex; gap: 0.3rem; list-style: none; align-items: center; }
-    .nav-links > li > a {
-      color: var(--off-white); font-size: 0.9rem; font-weight: 600;
-      padding: 0.5rem 0.9rem; border-radius: 6px; transition: var(--transition);
-      display: flex; align-items: center; gap: 0.3rem;
-    }
-    .nav-links > li > a:hover { background: rgba(0,212,255,0.08); color: var(--accent); }
-    .btn-espace-client {
-      background: linear-gradient(135deg, #00D4FF, #0891B2) !important;
-      color: #020810 !important;
-      font-weight: 700 !important;
-      padding: 0.5rem 1.2rem !important;
-      border-radius: 6px !important;
-      box-shadow: 0 0 20px rgba(0,212,255,0.2);
-    }
-    .btn-espace-client.active {
-      box-shadow: 0 0 30px rgba(0,212,255,0.5) !important;
-    }
-    .menu-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
-
-    /* HERO MINI */
-    .hero-mini {
-      position: relative;
-      padding: 3rem 4%;
-      text-align: center;
-      overflow: hidden;
-      background: linear-gradient(180deg, var(--primary-deep), #030d1a);
-    }
-    .hero-mini::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 50% 50%, rgba(0,212,255,0.06), transparent 60%);
-      pointer-events: none;
-    }
-    .hero-badge {
-      display: inline-block;
-      padding: 0.5rem 1.4rem;
-      background: rgba(0,212,255,0.08);
-      border: 1px solid rgba(0,212,255,0.25);
-      border-radius: 50px;
-      color: var(--accent);
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.25em;
-      margin-bottom: 1rem;
-      position: relative;
-      z-index: 2;
-    }
-    .hero-mini h1 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
       color: var(--white);
-      position: relative;
-      z-index: 2;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: var(--transition);
     }
-    .hero-mini h1 .gradient-text {
-      background: linear-gradient(135deg, var(--accent), #7dd3fc, var(--gold-light), var(--accent));
-      background-size: 300% auto;
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      animation: shine 6s linear infinite;
+    .logo:hover { color: var(--accent); }
+    .logo-shield { width: 32px; height: 32px; }
+    .logo-text-accent { color: var(--accent); }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+      margin: 0;
     }
-    @keyframes shine { to { background-position: 300% center; } }
+    .nav-links a {
+      color: var(--off-white);
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+    .nav-links a.active {
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.25rem;
+    }
+    .btn-espace-client {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: var(--primary-deep) !important;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .btn-espace-client:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,212,255,0.3);
+    }
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--accent);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .mobile-nav-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(2, 8, 16, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 999;
+      flex-direction: column;
+      padding: 5rem 2rem;
+      gap: 1rem;
+      overflow-y: auto;
+    }
+    .mobile-nav-overlay.active { display: flex; }
+    .mobile-nav-overlay a {
+      color: var(--off-white);
+      font-weight: 500;
+      padding: 1rem;
+      border-radius: 10px;
+      transition: var(--transition);
+      text-align: center;
+    }
+    .mobile-nav-overlay a:hover {
+      background: rgba(0,212,255,0.1);
+      color: var(--accent);
+    }
+    .btn-espace-client-mobile {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: var(--primary-deep) !important;
+      font-weight: 700 !important;
+    }
 
     /* MAIN CONTENT */
     .main-content {
       flex: 1;
-      padding: 2rem 4% 4rem;
-      background: linear-gradient(180deg, #030d1a, var(--primary-deep));
-      position: relative;
-    }
-    .main-content::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: 
-        linear-gradient(rgba(0,212,255,0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,212,255,0.02) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
-      mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
-    }
-
-    .support-grid {
+      padding: 3rem 4%;
       max-width: 1400px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      position: relative;
-      z-index: 2;
+      width: 100%;
     }
 
-    /* CARTE SUPPORT */
-    .support-card {
-      background: linear-gradient(160deg, rgba(255,255,255,0.03), rgba(15,43,77,0.3));
-      backdrop-filter: blur(15px);
-      border: 1px solid rgba(0,212,255,0.12);
-      border-radius: 24px;
-      padding: 2.5rem;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-      position: relative;
-      overflow: hidden;
+    .hero-section {
+      text-align: center;
+      margin-bottom: 4rem;
     }
-    .support-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent), var(--gold), var(--accent), transparent);
-      background-size: 200% 100%;
-      animation: topBeam 4s linear infinite;
-    }
-    @keyframes topBeam { 0% { background-position: 0% 0; } 100% { background-position: 200% 0; } }
-
-    .card-badge {
-      display: inline-block;
-      padding: 0.4rem 1rem;
-      background: rgba(16,185,129,0.1);
-      border: 1px solid rgba(16,185,129,0.25);
-      border-radius: 50px;
-      color: var(--success);
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
+    .hero-section h1 {
+      font-size: 3rem;
       margin-bottom: 1rem;
+      background: linear-gradient(135deg, #fff, var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
-    .support-card h3 {
-      font-size: 1.4rem;
+    .hero-section p {
+      color: var(--gray-light);
+      font-size: 1.1rem;
+    }
+
+    /* SOLUTIONS GRID */
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .solution-card {
+      background: linear-gradient(160deg, rgba(255,255,255,0.04), rgba(15,43,77,0.3));
+      border: 1px solid rgba(0,212,255,0.2);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: var(--transition);
+    }
+    .solution-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 20px 60px rgba(0,212,255,0.15);
+      transform: translateY(-5px);
+    }
+
+    .solution-card .title {
+      font-size: 1.5rem;
       color: var(--white);
       margin-bottom: 0.5rem;
-    }
-    .support-card .subtitle {
-      color: var(--gray-light);
-      font-size: 0.9rem;
-      margin-bottom: 2rem;
-    }
-
-    /* METHODES */
-    .methods-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-    }
-    .method-link {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.06);
-      padding: 1rem 1.2rem;
-      border-radius: 14px;
-      transition: var(--transition);
-      text-decoration: none;
-      color: inherit;
-      position: relative;
-      overflow: hidden;
+      gap: 0.5rem;
     }
-    .method-link::after {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 3px;
-      background: var(--accent);
-      transform: scaleY(0);
-      transition: transform 0.3s ease;
-      border-radius: 0 3px 3px 0;
-    }
-    .method-link:hover::after { transform: scaleY(1); }
-    .method-link:hover {
-      border-color: rgba(0,212,255,0.3);
-      background: rgba(0,212,255,0.04);
-      transform: translateX(4px);
-      box-shadow: 0 8px 25px rgba(0,212,255,0.06);
-    }
-    .method-icon {
-      width: 44px; height: 44px;
-      background: linear-gradient(135deg, rgba(0,212,255,0.1), rgba(8,145,178,0.15));
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--accent); font-size: 1.1rem; flex-shrink: 0;
-      border: 1px solid rgba(0,212,255,0.15);
-      transition: var(--transition);
-    }
-    .method-link:hover .method-icon {
-      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-      color: var(--primary-deep);
-      box-shadow: 0 0 20px rgba(0,212,255,0.3);
-    }
-    .method-text { font-size: 0.9rem; }
-    .method-text strong { display: block; color: var(--white); font-size: 0.85rem; margin-bottom: 0.1rem; }
-    .method-text span { color: var(--gray-light); font-size: 0.82rem; }
-
-    /* CARTE TECH & RESTIC */
-    .tech-card {
-      background: linear-gradient(160deg, rgba(0,212,255,0.03), rgba(15,43,77,0.2));
-      backdrop-filter: blur(15px);
-      border: 1px solid rgba(0,212,255,0.15);
-      border-radius: 24px;
-      padding: 2.2rem 1.8rem;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-      position: relative;
-      overflow: hidden;
-    }
-    .tech-card.restic-theme {
-      border-color: rgba(255, 184, 0, 0.2);
-      background: linear-gradient(160deg, rgba(255,184,0,0.02), rgba(15,43,77,0.2));
-    }
-    .tech-card::before {
-      content: '';
-      position: absolute;
-      top: -100px; right: -100px;
-      width: 250px; height: 250px;
-      background: radial-gradient(circle, rgba(0,212,255,0.05), transparent 70%);
-      pointer-events: none;
-    }
-    .tech-card.restic-theme::before {
-      background: radial-gradient(circle, rgba(255,184,0,0.04), transparent 70%);
-    }
-    .tech-badge {
-      display: inline-block;
-      padding: 0.4rem 1rem;
-      background: rgba(0,212,255,0.08);
-      border: 1px solid rgba(0,212,255,0.2);
-      border-radius: 50px;
-      color: var(--accent);
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      margin-bottom: 1rem;
-    }
-    .tech-card.restic-theme .tech-badge {
-      background: rgba(255,184,0,0.08);
-      border-color: rgba(255,184,0,0.2);
-      color: var(--gold);
-    }
-    .tech-card h3 {
-      font-size: 1.4rem;
-      color: var(--white);
-      margin-bottom: 0.5rem;
-      position: relative;
-      z-index: 2;
-    }
-    .tech-card .subtitle {
+    .solution-card .description {
       color: var(--gray-light);
       font-size: 0.9rem;
-      margin-bottom: 2rem;
-      position: relative;
-      z-index: 2;
+      margin-bottom: 1.5rem;
     }
 
-    /* STEPS */
-    .steps-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.2rem;
-      position: relative;
-      z-index: 2;
-    }
-    .step-item {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.05);
-      border-radius: 16px;
-      padding: 1.4rem 1.1rem;
-      position: relative;
-      transition: var(--transition);
-    }
-    .step-item:hover {
-      border-color: rgba(0,212,255,0.3);
-      background: rgba(0,212,255,0.03);
-      transform: translateY(-3px);
-    }
-    .restic-theme .step-item:hover {
-      border-color: rgba(255,184,0,0.3);
-      background: rgba(255,184,0,0.02);
-      transform: translateY(-3px);
-    }
-    .step-item.full-width {
-      grid-column: 1 / -1;
-      text-align: center;
-    }
-    .step-number {
-      position: absolute;
-      top: -14px;
-      left: 14px;
-      width: 28px; height: 28px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-      color: var(--primary-deep);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
+    .script-container {
+      display: none;
+      background: rgba(0,0,0,0.5);
+      border: 1px solid rgba(0,212,255,0.15);
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      max-height: 200px;
+      overflow-y: auto;
+      font-family: 'Courier New', monospace;
       font-size: 0.8rem;
-      box-shadow: 0 0 15px rgba(0,212,255,0.3);
-    }
-    .restic-theme .step-number {
-      background: linear-gradient(135deg, var(--gold), #CC9300);
-      box-shadow: 0 0 15px rgba(255,184,0,0.25);
-    }
-    .step-item h4 {
-      color: var(--white);
-      font-size: 0.95rem;
-      margin: 0.3rem 0 0.4rem 0;
-    }
-    .step-item p {
-      color: var(--gray-light);
-      font-size: 0.82rem;
-      line-height: 1.5;
-      margin: 0;
-    }
-
-    /* AGENT */
-    .agent-wrapper {
-      display: inline-block;
-      cursor: pointer;
-      position: relative;
-      margin: 0.8rem 0;
-    }
-    .agent-tooltip {
-      position: absolute;
-      top: -35px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--primary);
       color: var(--accent);
-      padding: 0.3rem 0.8rem;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      white-space: nowrap;
-      border: 1px solid var(--accent);
-      opacity: 0;
-      transition: opacity 0.3s;
-      pointer-events: none;
-    }
-    .restic-theme .agent-tooltip {
-      color: var(--gold);
-      border-color: var(--gold);
-    }
-    .agent-wrapper:hover .agent-tooltip { opacity: 1; }
-    .agent-svg {
-      width: 85px;
-      height: 130px;
-      transition: var(--transition);
-      filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.3));
-    }
-    .restic-theme .agent-svg {
-      filter: drop-shadow(0 0 10px rgba(255, 184, 0, 0.2));
-    }
-    .agent-wrapper:hover .agent-svg {
-      transform: scale(1.08);
-      filter: drop-shadow(0 0 25px rgba(0, 212, 255, 0.6));
-    }
-    .restic-theme .agent-wrapper:hover .agent-svg {
-      filter: drop-shadow(0 0 25px rgba(255, 184, 0, 0.5));
+      white-space: pre-wrap;
+      word-break: break-all;
     }
 
     .btn-copy-script {
-      display: inline-flex; align-items: center; gap: 0.5rem;
+      width: 100%;
       background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-      color: var(--primary-deep);
       border: none;
-      padding: 0.65rem 1.4rem;
+      color: var(--primary-deep);
+      padding: 0.8rem 1.5rem;
       border-radius: 10px;
       font-weight: 700;
-      font-size: 0.85rem;
       cursor: pointer;
-      transition: var(--transition);
       font-family: inherit;
-      margin-top: 0.5rem;
-    }
-    .tech-card.restic-theme .btn-copy-script {
-      background: linear-gradient(135deg, var(--gold), #CC9300);
+      font-size: 0.95rem;
+      transition: var(--transition);
     }
     .btn-copy-script:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 25px rgba(0,212,255,0.35);
     }
-    .tech-card.restic-theme .btn-copy-script:hover {
-      box-shadow: 0 8px 25px rgba(255,184,0,0.3);
+
+    .btn-copy-restic {
+      background: linear-gradient(135deg, var(--gold), #CC9300);
+      color: var(--primary-deep) !important;
+    }
+    .btn-copy-restic:hover {
+      box-shadow: 0 8px 25px rgba(255,184,0,0.35);
     }
 
-    .btn-exit-wrap {
-      text-align: right;
-      margin-top: 1.5rem;
+    .btn-copy-zabbix {
+      background: linear-gradient(135deg, #E74C3C, #C0392B);
+      color: var(--white);
     }
-    .btn-exit {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: transparent;
-      color: var(--gray-light);
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 0.55rem 1.2rem;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: var(--transition);
-      font-family: inherit;
+    .btn-copy-zabbix:hover {
+      box-shadow: 0 8px 25px rgba(231,76,60,0.35);
     }
-    .btn-exit:hover {
-      border-color: var(--red);
-      color: var(--red);
-      background: rgba(239,68,68,0.05);
+
+    .alert-box {
+      background: rgba(16,185,129,0.1);
+      border: 1px solid rgba(16,185,129,0.3);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 3rem;
+      color: #10B981;
     }
+    .alert-box i { margin-right: 0.5rem; }
 
     /* FOOTER */
-    .support-footer {
-      text-align: center;
-      padding: 1rem 2rem;
-      background: rgba(0,212,255,0.04);
-      border-top: 1px solid rgba(0,212,255,0.08);
-      margin-top: auto;
+    .footer {
+      background: rgba(2, 8, 16, 0.98);
+      border-top: 1px solid rgba(0,212,255,0.12);
+      padding: 3rem 4%;
+      margin-top: 4rem;
     }
-    .footer-badge {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: linear-gradient(135deg, var(--accent), #0891B2);
+    .footer-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.8fr repeat(3, 1fr);
+      gap: 3rem;
+      margin-bottom: 2rem;
+    }
+    .footer-brand p {
+      color: var(--gray-light);
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    .footer-socials {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .footer-socials a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(0,212,255,0.1);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    .footer-socials a:hover {
+      background: var(--accent);
       color: var(--primary-deep);
-      padding: 0.5rem 1.4rem;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 0.85rem;
-      letter-spacing: 0.5px;
-      box-shadow: 0 4px 15px rgba(0,212,255,0.25);
     }
-    .footer-badge i { animation: pulse 2s infinite; }
-    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
+    .footer-links h4 {
+      color: var(--white);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .footer-links ul {
+      list-style: none;
+    }
+    .footer-links ul li {
+      margin-bottom: 0.8rem;
+    }
+    .footer-links a {
+      color: var(--gray-light);
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(0,212,255,0.12);
+      padding-top: 2rem;
+      text-align: center;
+      color: var(--gray-light);
+      font-size: 0.85rem;
+    }
 
     /* RESPONSIVE */
     @media (max-width: 1200px) {
-      .support-grid { grid-template-columns: 1fr 1fr; }
+      .footer-container { grid-template-columns: repeat(2, 1fr); }
     }
+
     @media (max-width: 1024px) {
-      .nav-links { display: none !important; }
-      .menu-toggle { display: block !important; }
+      .nav-links { display: none; }
+      .menu-toggle { display: block; }
     }
+
+    @media (max-width: 992px) {
+      .solutions-grid { gap: 1.5rem; }
+    }
+
     @media (max-width: 768px) {
-      .support-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .top-bar-container { flex-direction: column; align-items: center; text-align: center; gap: 0.8rem; }
-      .top-bar-info { flex-direction: column; align-items: center; gap: 0.3rem; width: 100%; }
-      .top-bar-social { justify-content: center; width: 100%; }
-      .steps-grid { grid-template-columns: 1fr; }
-      .support-card, .tech-card { padding: 1.8rem 1.2rem; }
+      .hero-section h1 { font-size: 2rem; }
+      .solutions-grid { grid-template-columns: 1fr; }
+      .footer-container { grid-template-columns: 1fr; }
+      .top-bar-container { flex-direction: column; gap: 1rem; }
+      .top-bar-info { flex-direction: column; gap: 0.5rem; }
+      .main-content { padding: 2rem 4%; }
     }
+
     @media (max-width: 600px) {
-      .top-bar-social { display: none; }
+      .hero-section h1 { font-size: 1.5rem; }
+      .solution-card { padding: 1.5rem; }
+      .script-container { font-size: 0.7rem; max-height: 150px; }
     }
   </style>
 </head>
 <body>
-
-<!-- PASSWORD OVERLAY -->
-<div class="password-overlay" id="passwordOverlay">
-  <div class="password-box">
-    <div class="shield-icon">
-      <i class="fa-solid fa-lock"></i>
-    </div>
-    <h2>Accès Sécurisé</h2>
-    <p>Cette page est réservée aux clients NetVanguard.<br>Veuillez entrer le mot de passe pour continuer.</p>
-    <div class="password-input-group">
-      <input type="password" id="passwordInput" placeholder="Mot de passe" autocomplete="off">
-      <button onclick="checkPassword()"><i class="fa-solid fa-arrow-right-to-bracket"></i> Accéder</button>
-    </div>
-    <div class="password-error" id="passwordError"></div>
-  </div>
-</div>
-
-<div class="cursor-glow" id="cursorGlow"></div>
-
-<!-- TOP BAR -->
-<div class="top-bar">
-  <div class="top-bar-container">
-    <div class="partner-badge">
-      <i class="fa-solid fa-shield-halved"></i>
-      <span>Partenaire Premium en Cyberdéfense</span>
-    </div>
-    <div class="top-bar-info">
-      <span><i class="fa-solid fa-phone"></i> +212 728 31 28 01</span>
-      <span><i class="fa-solid fa-envelope"></i> support@netvanguard.ma</span>
-      <span><i class="fa-solid fa-location-dot"></i> Casablanca</span>
-    </div>
-    <div class="top-bar-social" style="display: flex; align-items: center;">
-      <div class="lang-switch" style="margin-right: 1rem;">
-        <button class="lang-btn active" data-lang="fr">FR</button>
-        <button class="lang-btn" data-lang="en">EN</button>
+  <!-- PASSWORD OVERLAY -->
+  <div class="password-overlay" id="passwordOverlay">
+    <div class="password-box">
+      <i class="fas fa-shield-alt shield-icon"></i>
+      <h2>🔐 Accès Sécurisé</h2>
+      <p>Entrez votre mot de passe pour accéder au portail client</p>
+      <div class="password-input-group">
+        <input type="password" id="passwordInput" placeholder="Mot de passe" />
+        <button type="button" id="btnPassword">Accéder</button>
       </div>
-      <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      <a href="#"><i class="fab fa-x-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
+      <div class="password-error" id="passwordError"></div>
     </div>
   </div>
-</div>
 
-<!-- NAV -->
-<nav class="nav">
-  <div class="nav-container">
-    <a href="index.html" class="logo">
-      <svg class="logo-shield" viewBox="0 0 24 24" width="38" height="38">
-        <defs>
-          <linearGradient id="shieldGradNav" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#FFB800;stop-opacity:1" />
-          </linearGradient>
-        </defs>
-        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#shieldGradNav)"/>
-        <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
-      </svg>
-      <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.82em;font-weight:500;color:var(--gray-light);">IT Solutions</span></span>
+  <div id="cursorGlow" class="cursor-glow"></div>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="top-bar-container">
+      <div class="partner-badge">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>Infogérance, Microsoft 365 & Cybersécurité pour entreprises</span>
+      </div>
+      <div class="top-bar-info">
+        <span><i class="fa-solid fa-phone"></i> +212 728 31 28 01</span>
+        <span><i class="fa-solid fa-envelope"></i> contact@netvanguard.ma</span>
+        <span><i class="fa-solid fa-location-dot"></i> Casablanca — Service global</span>
+      </div>
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="fr" type="button">FR</button>
+        <button class="lang-btn" data-lang="en" type="button">EN</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <svg class="logo-shield" viewBox="0 0 24 24" width="32" height="32">
+          <defs>
+            <linearGradient id="shieldGradNav" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1"/>
+              <stop offset="100%" style="stop-color:#FFB800;stop-opacity:1"/>
+            </linearGradient>
+          </defs>
+          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="url(#shieldGradNav)"/>
+          <path d="M12 6.5l-1.5 3h1v3.5h1V9.5h1l-1.5-3z" fill="#ffffff"/>
+        </svg>
+        <span>Net<span class="logo-text-accent">Vanguard</span> <span style="font-size:0.85em;">IT Solutions</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="secteurs.html">Secteurs</a></li>
+        <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
+        <li><a href="carrieres.html">Carrières</a></li>
+        <li><a href="campus-cyber.html">🎓 Campus Cyber</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="support.html" class="btn-espace-client">
+          <i class="fa-solid fa-user-circle"></i> Espace Client
+        </a></li>
+      </ul>
+
+      <button class="menu-toggle" id="menuToggle" type="button">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAVIGATION -->
+  <div class="mobile-nav-overlay" id="mobileNav">
+    <a href="index.html">Accueil</a>
+    <a href="services.html">Services</a>
+    <a href="secteurs.html">Secteurs</a>
+    <a href="qui-sommes-nous.html">Qui sommes-nous</a>
+    <a href="carrieres.html">Carrières</a>
+    <a href="campus-cyber.html">🎓 Campus Cyber</a>
+    <a href="contact.html">Contact</a>
+    <a href="support.html" class="btn-espace-client-mobile">
+      <i class="fa-solid fa-user-circle"></i> Espace Client
     </a>
-    <ul class="nav-links">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="secteurs.html">Secteurs</a></li>
-      <li><a href="qui-sommes-nous.html">Qui sommes-nous</a></li>
-      <li><a href="carrieres.html">Carrières</a></li>
-      <li><a href="campus-cyber.html">🎓 Campus Cyber</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="support.html" class="btn-espace-client active"><i class="fa-solid fa-user-circle"></i> Espace Client</a></li>
-    </ul>
-    <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
   </div>
-</nav>
 
-<!-- HERO MINI -->
-<section class="hero-mini">
-  <span class="hero-badge">✨ Portail Premium</span>
-  <h1 data-i18n="hero_title">Votre <span class="gradient-text">Espace Client</span> Dédié</h1>
-</section>
+  <!-- MAIN CONTENT -->
+  <div class="main-content" style="display: none;" id="mainContent">
+    <div class="hero-section">
+      <h1>Votre Espace Client Dédié</h1>
+      <p>Installation automatisée de 3 solutions NetVanguard en quelques minutes</p>
+    </div>
 
-<!-- MAIN -->
-<div class="main-content">
-  <div class="support-grid">
-
-    <!-- COLONNE SUPPORT -->
-    <div class="support-card">
-      <span class="card-badge" data-i18n="support_badge">🎫 SERVICE CLIENT</span>
-      <h3 data-i18n="support_title">Une demande ? Nous sommes là.</h3>
-      <p class="subtitle" data-i18n="support_subtitle">Choisissez votre canal préféré. Intervention garantie en moins de 2h.</p>
-
-      <div class="methods-list">
-        <a href="https://tickets.nextgentechnologies.net" target="_blank" class="method-link">
-          <div class="method-icon"><i class="fas fa-ticket-alt"></i></div>
-          <div class="method-text">
-            <strong data-i18n="support_ticket">Portail Tickets</strong>
-            <span data-i18n="support_ticket_desc">Créez et suivez vos demandes avec un numéro dédié</span>
-          </div>
-        </a>
-        <a href="mailto:support@netvanguard.ma" class="method-link">
-          <div class="method-icon"><i class="fas fa-envelope-open-text"></i></div>
-          <div class="method-text">
-            <strong>Email</strong>
-            <span>support@netvanguard.ma</span>
-          </div>
-        </a>
-        <a href="contact.html" class="method-link">
-          <div class="method-icon"><i class="fas fa-wpforms"></i></div>
-          <div class="method-text">
-            <strong data-i18n="support_form">Formulaire en ligne</strong>
-            <span data-i18n="support_form_desc">Soumettez votre demande directement</span>
-          </div>
-        </a>
-        <div class="method-link">
-          <div class="method-icon"><i class="fas fa-phone-alt"></i></div>
-          <div class="method-text">
-            <strong data-i18n="support_phone">Téléphone</strong>
-            <span>+212 728 31 28 01</span>
-          </div>
+    <div class="solutions-grid">
+      <!-- TACTICAL RMM -->
+      <div class="solution-card">
+        <div class="title">
+          <i class="fas fa-desktop" style="color: var(--accent);"></i>
+          Tactical RMM
         </div>
+        <div class="description">
+          Gestion à distance, support technique sécurisé et contrôle complet de vos machines
+        </div>
+        <div class="script-container" id="tacticalScriptContainer">
+$ErrorActionPreference = 'Stop'; Invoke-WebRequest -Uri "https://rmm.netvanguard.ma/dl/tacticalagent-v2.10.0-windows-amd64.exe" -OutFile "$env:TEMP\tacticalagent.exe"; Start-Process "$env:TEMP\tacticalagent.exe" -ArgumentList '/VERYSILENT /SUPPRESSMSGBOXES' -Wait; & "C:\Program Files\TacticalAgent\tacticalrmm.exe" -m install --api https://api.rmm.netvanguard.ma --client-id 1 --site-id 1 --agent-type workstation --auth d432d9944a0eb82a8f5c0db6107f69a28ff8f1b8fe7d3a3e2a10ee487a359e59 --rdp --ping --power
+        </div>
+        <button class="btn-copy-script" id="btnTactical" type="button">
+          <i class="fas fa-copy"></i> Copier le script
+        </button>
+      </div>
+
+      <!-- RESTIC BACKUP -->
+      <div class="solution-card">
+        <div class="title">
+          <i class="fas fa-database" style="color: var(--gold);"></i>
+          Restic Backup
+        </div>
+        <div class="description">
+          Sauvegarde automatique et chiffrée de vos données critiques chaque nuit
+        </div>
+        <div class="script-container" id="resticScriptContainer">
+$StorageUser = "u636733"; $StorageHost = "u636733.your-storagebox.de"; $StoragePassword = "YourStorageBoxPassword"; $BackupPath = "C:\NetVanguard\Restic"; mkdir $BackupPath -ErrorAction SilentlyContinue; $env:RESTIC_REPOSITORY = "sftp://$StorageUser:$StoragePassword@$StorageHost/backup"; $env:RESTIC_PASSWORD = "your-secure-password"; & restic.exe init --repo $env:RESTIC_REPOSITORY; & restic.exe backup C:\Users --repo $env:RESTIC_REPOSITORY
+        </div>
+        <button class="btn-copy-script btn-copy-restic" id="btnRestic" type="button">
+          <i class="fas fa-copy"></i> Copier le script
+        </button>
+      </div>
+
+      <!-- ZABBIX AGENT -->
+      <div class="solution-card">
+        <div class="title">
+          <i class="fas fa-chart-line" style="color: #E74C3C;"></i>
+          Zabbix Agent
+        </div>
+        <div class="description">
+          Monitoring avancé avec alertes intelligentes et rapports détaillés en temps réel
+        </div>
+        <div class="script-container" id="zabbixScriptContainer">
+$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue'; $ZabbixServer = "zabbix.netvanguard.ma"; $ClientName = $env:COMPUTERNAME; $URL = "https://cdn.zabbix.com/zabbix/binaries/stable/6.4/6.4.8/zabbix_agent2-6.4.8-windows-amd64-openssl.msi"; $Installer = "$env:TEMP\zabbix-agent.msi"; $InstallLog = "$env:TEMP\zabbix-install.log"; [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -Uri $URL -OutFile $Installer -ErrorAction Stop -UseBasicParsing; $arguments = "/i `"$Installer`" /qn /norestart /L*v `"$InstallLog`" SERVER=$ZabbixServer SERVERACTIVE=$ZabbixServer HOSTNAME=$ClientName"; $process = Start-Process msiexec.exe -ArgumentList $arguments -Wait -PassThru -NoNewWindow; Start-Sleep -Seconds 10; $service = Get-Service | Where-Object { $_.DisplayName -like "*Zabbix*" -or $_.Name -like "*Zabbix*" } | Select-Object -First 1; if ($service) { if ($service.Status -ne 'Running') { Start-Service $service.Name -ErrorAction SilentlyContinue }; Set-Service $service.Name -StartupType Automatic -ErrorAction SilentlyContinue }; New-NetFirewallRule -DisplayName "Zabbix Agent 2" -Direction Inbound -Protocol TCP -LocalPort 10050 -Action Allow -Profile Any -ErrorAction SilentlyContinue | Out-Null; Remove-Item $Installer -Force -ErrorAction SilentlyContinue; Remove-Item $InstallLog -Force -ErrorAction SilentlyContinue; Write-Host "Zabbix Agent 2 installe avec succes sur $ClientName!" -ForegroundColor Green
+        </div>
+        <button class="btn-copy-script btn-copy-zabbix" id="btnZabbix" type="button">
+          <i class="fas fa-copy"></i> Copier le script
+        </button>
       </div>
     </div>
 
-    <!-- COLONNE TECH (TACTICAL RMM) -->
-    <div class="tech-card">
-      <span class="tech-badge" data-i18n="tech_badge">🖥️ CONNEXION À DISTANCE</span>
-      <h3 data-i18n="tech_title">Assistance Technique Sécurisée</h3>
-      <p class="subtitle" data-i18n="tech_subtitle">4 étapes simples pour permettre à votre expert NetVanguard d'intervenir.</p>
+    <div class="alert-box">
+      <p><i class="fas fa-check-circle"></i> <strong>💡 Conseil:</strong> Exécutez les scripts dans l'ordre Tactical RMM → Restic Backup → Zabbix Agent pour une installation optimale</p>
+    </div>
+  </div>
 
-      <div class="steps-grid">
-        <div class="step-item">
-          <div class="step-number">1</div>
-          <h4 data-i18n="step1_title">PowerShell Admin</h4>
-          <p data-i18n="step1_desc">Clic droit sur Démarrer → "Windows PowerShell (Admin)"</p>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span>Net<span class="logo-text-accent">Vanguard</span> IT Solutions</span>
+        </a>
+        <p>Votre partenaire IT de confiance...</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
         </div>
-        <div class="step-item">
-          <div class="step-number">3</div>
-          <h4 data-i18n="step3_title">Coller & Exécuter</h4>
-          <p data-i18n="step3_desc">Clic droit dans PowerShell, puis Entrée pour lancer</p>
-        </div>
-        <div class="step-item full-width">
-          <div class="step-number">2</div>
-          <h4 data-i18n="step2_title">Copier le Script</h4>
-          <p data-i18n="step2_desc">Cliquez sur l'agent ou le bouton pour copier le script :</p>
+      </div>
 
-          <div class="agent-wrapper" onclick="copyInstallScript()">
-            <div class="agent-tooltip" data-i18n="agent_tooltip">Cliquez pour copier</div>
-            <svg class="agent-svg" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <radialGradient id="auraGrad2" cx="50%" cy="45%" r="50%">
-                  <stop offset="0%" stop-color="#00D4FF" stop-opacity="0.2"/>
-                  <stop offset="100%" stop-color="#00D4FF" stop-opacity="0"/>
-                </radialGradient>
-                <linearGradient id="visorGlow2" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#00D4FF" stop-opacity="0.8"/>
-                  <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.7"/>
-                  <stop offset="100%" stop-color="#00D4FF" stop-opacity="0.8"/>
-                </linearGradient>
-              </defs>
-              <ellipse cx="100" cy="150" rx="90" ry="140" fill="url(#auraGrad2)"/>
-              <ellipse cx="100" cy="285" rx="40" height="6" fill="#00D4FF" opacity="0.1"/>
-              <rect x="70" y="195" width="20" height="70" rx="4" fill="#0A1628" stroke="#00D4FF" stroke-width="1"/>
-              <rect x="110" y="195" width="20" height="70" rx="4" fill="#0A1628" stroke="#00D4FF" stroke-width="1"/>
-              <path d="M 65 258 L 95 258 L 95 275 L 65 275 Z" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
-              <path d="M 105 258 L 135 258 L 135 275 L 105 275 Z" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
-              <path d="M 50 105 L 150 105 L 153 210 L 47 210 Z" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
-              <path d="M 55 115 L 145 115 L 140 165 L 60 165 Z" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
-              <line x1="100" y1="115" x2="100" y2="165" stroke="#00D4FF" stroke-width="1"/>
-              <text x="100" y="147" text-anchor="middle" fill="#00D4FF" font-size="14" font-weight="bold" font-family="Arial">NV</text>
-              <rect x="52" y="195" width="96" height="12" rx="3" fill="#0A1628" stroke="#00D4FF" stroke-width="2"/>
-              <circle cx="100" cy="201" r="6" fill="#0A1628" stroke="#00D4FF" stroke-width="2"/>
-              <circle cx="100" cy="201" r="2.5" fill="#00D4FF"/>
-              <path d="M 50 115 L 30 165 L 42 180 L 55 140" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
-              <path d="M 150 115 L 170 165 L 158 180 L 145 140" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
-              <rect x="85" y="85" width="30" height="20" fill="#0A1628"/>
-              <ellipse cx="100" cy="65" rx="26" ry="28" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
-              <path d="M 74 65 Q 76 38 100 40 Q 124 38 126 65" fill="#0A1628" stroke="#00D4FF" stroke-width="1.5"/>
-              <path d="M 80 58 L 120 58 L 124 68 L 76 68 Z" fill="url(#visorGlow2)" stroke="#00D4FF" stroke-width="1"/>
-            </svg>
-          </div>
+      <div class="footer-links">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Infogérance</a></li>
+          <li><a href="#">Sécurité Réseau</a></li>
+          <li><a href="#">Audit & Diagnostic</a></li>
+          <li><a href="#">Pentest / VAPT</a></li>
+        </ul>
+      </div>
 
-          <button onclick="copyInstallScript()" class="btn-copy-script">
-            <i class="fas fa-copy"></i> <span data-i18n="btn_copy">Copier le script</span>
-          </button>
-        </div>
-        <div class="step-item">
-          <div class="step-number">4</div>
-          <h4 data-i18n="step4_title">Patienter 2 min</h4>
-          <p data-i18n="step4_desc">Installation automatique. Prévenez votre expert une fois terminé.</p>
-        </div>
+      <div class="footer-links">
+        <h4>Société</h4>
+        <ul>
+          <li><a href="#">À propos</a></li>
+          <li><a href="#">Carrières</a></li>
+          <li><a href="#">Campus Cyber</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Informations</h4>
+        <ul>
+          <li><a href="#">Mentions légales</a></li>
+          <li><a href="#">Gestion des cookies</a></li>
+        </ul>
       </div>
     </div>
 
-    <!-- NOUVELLE COLONNE DEPLOYMENT RESTIC BACKUP -->
-    <div class="tech-card restic-theme">
-      <span class="tech-badge" data-i18n="restic_badge">🛡️ RESTIC BACKUP DEPLOYMENT</span>
-      <h3 data-i18n="restic_title">Déploiement Sauvegarde Restic</h3>
-      <p class="subtitle" data-i18n="restic_subtitle">Configurez votre agent de sauvegarde sécurisé en quelques secondes.</p>
-
-      <div class="steps-grid">
-        <div class="step-item">
-          <div class="step-number">1</div>
-          <h4 data-i18n="step1_title">PowerShell Admin</h4>
-          <p data-i18n="step1_desc">Clic droit sur Démarrer → "Windows PowerShell (Admin)"</p>
-        </div>
-        <div class="step-item">
-          <div class="step-number">3</div>
-          <h4 data-i18n="restic_step3_title">Coller &amp; Exécuter</h4>
-          <p data-i18n="restic_step3_desc">Clic droit dans PowerShell, puis Entrée pour lancer la commande</p>
-        </div>
-        <div class="step-item full-width">
-          <div class="step-number">2</div>
-          <h4 data-i18n="restic_step2_title">Copier le Script</h4>
-          <p data-i18n="restic_step2_desc">Cliquez sur l'agent ou le bouton pour copier le script :</p>
-
-          <!-- Robot Thématique Restic (Style Gold Accent) -->
-          <div class="agent-wrapper" onclick="copyResticScript()">
-            <div class="agent-tooltip" data-i18n="agent_tooltip">Cliquez pour copier</div>
-            <svg class="agent-svg" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <radialGradient id="auraGradRestic" cx="50%" cy="45%" r="50%">
-                  <stop offset="0%" stop-color="#FFB800" stop-opacity="0.15"/>
-                  <stop offset="100%" stop-color="#FFB800" stop-opacity="0"/>
-                </radialGradient>
-                <linearGradient id="visorGlowRestic" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#FFB800" stop-opacity="0.8"/>
-                  <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.7"/>
-                  <stop offset="100%" stop-color="#FFB800" stop-opacity="0.8"/>
-                </linearGradient>
-              </defs>
-              <ellipse cx="100" cy="150" rx="90" ry="140" fill="url(#auraGradRestic)"/>
-              <ellipse cx="100" cy="285" rx="40" height="6" fill="#FFB800" opacity="0.1"/>
-              <rect x="70" y="195" width="20" height="70" rx="4" fill="#0A1628" stroke="#FFB800" stroke-width="1"/>
-              <rect x="110" y="195" width="20" height="70" rx="4" fill="#0A1628" stroke="#FFB800" stroke-width="1"/>
-              <path d="M 65 258 L 95 258 L 95 275 L 65 275 Z" fill="#0A1628" stroke="#FFB800" stroke-width="1.5"/>
-              <path d="M 105 258 L 135 258 L 135 275 L 105 275 Z" fill="#0A1628" stroke="#FFB800" stroke-width="1.5"/>
-              <path d="M 50 105 L 150 105 L 153 210 L 47 210 Z" fill="#0A1628" stroke="#FFB800" stroke-width="1.5"/>
-              <path d="M 55 115 L 145 115 L 140 165 L 60 165 Z" fill="#0A1628" stroke="#FFB800" stroke-width="1.5"/>
-              <line x1="100" y1="115" x2="100" y2="165" stroke="#FFB800" stroke-width="1"/>
-              <text x="100" y="147" text-anchor="middle" fill="#FFB800" font-size="14" font-weight="bold" font-family="Arial">NV</text>
-              <rect x="52" y="195" width="96" height="12" rx="3" fill="#0A1628" stroke="#FFB800" stroke-width="2"/>
-              <circle cx="100" cy="201" r="6" fill="#0A1628" stroke="#FFB800" stroke-width="2"/>
-              <circle cx="100" cy="201" r="2.5" fill="#FFB800"/>
-              <path d="M 50 115 L 30 165 L 42 180 L 55 140" fill="#0A1628" stroke="#FFB800" stroke-width="1.5"/>
-              <path d="M 150 115 L 170 165 L 158 180 L 145 140" fill="#0A1628" stroke="#FFB800" stroke-width="1.5"/>
-              <rect x="85" y="85" width="30" height="20" fill="#0A1628"/>
-              <ellipse cx="100" cy="65" rx="26" ry="28" fill="#0A1628" stroke="#FFB800" stroke-width="1.5"/>
-              <path d="M 74 65 Q 76 38 100 40 Q 124 38 126 65" fill="#0A1628" stroke="#FFB800" stroke-width="1.5"/>
-              <path d="M 80 58 L 120 58 L 124 68 L 76 68 Z" fill="url(#visorGlowRestic)" stroke="#FFB800" stroke-width="1"/>
-            </svg>
-          </div>
-
-          <button onclick="copyResticScript()" class="btn-copy-script btn-copy-restic">
-            <i class="fas fa-robot"></i> <span data-i18n="btn_copy">Copier le script</span>
-          </button>
-        </div>
-        <div class="step-item">
-          <div class="step-number">4</div>
-          <h4 data-i18n="restic_step4_title">Patienter</h4>
-          <p data-i18n="restic_step4_desc">Validation et synchronisation de l'espace de stockage cloud.</p>
-        </div>
-      </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 NetVanguard IT Solutions. Tous droits réservés.</p>
+      <p>Basé à Casablanca — Service global</p>
     </div>
+  </footer>
 
-  </div>
+  <script>
+    const correctPassword = "admin123";
 
-  <div class="btn-exit-wrap" style="max-width:1400px;margin:1.5rem auto 0;">
-    <button class="btn-exit" onclick="handleExit()">
-      <i class="fas fa-sign-out-alt"></i> <span data-i18n="exit_btn">Retour au site</span>
-    </button>
-  </div>
-</div>
+    // Password check
+    document.getElementById('btnPassword').addEventListener('click', function() {
+      const passwordInput = document.getElementById('passwordInput');
+      const passwordError = document.getElementById('passwordError');
 
-<!-- FOOTER -->
-<div class="support-footer">
-  <div class="footer-badge" data-i18n="footer_badge">
-    <i class="fas fa-headset"></i> Support Premium 24/7
-  </div>
-</div>
-
-<script>
-  // ========== PASSWORD PROTECTION ==========
-  const CORRECT_PASSWORD = "admin123"; // CHANGEZ CE MOT DE PASSE ICI
-  
-  function checkPassword() {
-    const input = document.getElementById('passwordInput');
-    const error = document.getElementById('passwordError');
-    const overlay = document.getElementById('passwordOverlay');
-    
-    if (input.value === CORRECT_PASSWORD) {
-      overlay.classList.add('hidden');
-      error.textContent = '';
-    } else {
-      error.textContent = '⛔ Mot de passe incorrect. Veuillez réessayer.';
-      input.value = '';
-      input.focus();
-      // Animation de secousse
-      input.style.borderColor = 'var(--red)';
-      setTimeout(() => {
-        input.style.borderColor = 'rgba(0,212,255,0.2)';
-      }, 600);
-    }
-  }
-  
-  // Permettre d'appuyer sur Entrée pour valider
-  document.getElementById('passwordInput').addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-      checkPassword();
-    }
-  });
-
-  // ========== EXISTING CODE & NEW RESTIC CONFIG ==========
-  const exitUrl = "https://netvanguard.ma/index.html";
-
-  const scriptToCopy = `$ErrorActionPreference = 'Stop'; Invoke-WebRequest -Uri "https://rmm.netvanguard.ma/dl/tacticalagent-v2.10.0-windows-amd64.exe" -OutFile "$env:TEMP\\tacticalagent.exe"; Start-Process "$env:TEMP\\tacticalagent.exe" -ArgumentList '/VERYSILENT /SUPPRESSMSGBOXES' -Wait; & "C:\\Program Files\\TacticalAgent\\tacticalrmm.exe" -m install --api https://api.rmm.netvanguard.ma --client-id 1 --site-id 1 --agent-type workstation --auth d432d9944a0eb82a8f5c0db6107f69a28ff8f1b8fe7d3a3e2a10ee487a359e59 --rdp --ping --power`;
-  
-  // Script Restic Complet injecté proprement dans le JS
-  const resticScriptToCopy = `# ============================================================
-# NetVanguard - Restic Backup Client Installer
-# Auto-deploy pour clients Windows
-# ============================================================
-
-$BackupPath = "C:\\NetVanguard-Restic"
-$StorageUser = "u636733"
-$StorageHost = "u636733.your-storagebox.de"
-$StoragePassword = "C^GmH)R}e~yW7)="
-$ClientName = [System.Net.Dns]::GetHostName()
-
-Write-Host "========================================" -ForegroundColor Cyan
-Write-Host "NetVanguard - Restic Backup Installer" -ForegroundColor Cyan
-Write-Host "========================================" -ForegroundColor Cyan
-Write-Host ""
-
-$isAdmin = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")
-if (-not $isAdmin) {
-    Write-Host "❌ ERREUR: Lancez PowerShell en tant qu'Administrateur!" -ForegroundColor Red
-    exit
-}
-
-Write-Host "📁 Création du répertoire de backup..." -ForegroundColor Yellow
-if (-not (Test-Path $BackupPath)) {
-    New-Item -ItemType Directory -Force -Path $BackupPath | Out-Null
-}
-
-Write-Host "⬇️ Téléchargement de Restic..." -ForegroundColor Yellow
-$ResticURL = "https://github.com/restic/restic/releases/download/v0.16.4/restic_0.16.4_windows_amd64.zip"
-$ResticZip = "$BackupPath\\restic.zip"
-try {
-    Invoke-WebRequest -Uri $ResticURL -OutFile $ResticZip -ErrorAction Stop
-    Write-Host "✅ Restic téléchargé" -ForegroundColor Green
-} catch {
-    Write-Host "❌ Erreur téléchargement: $_" -ForegroundColor Red
-    exit
-}
-
-Write-Host "📦 Extraction de Restic..." -ForegroundColor Yellow
-Expand-Archive -Path $ResticZip -DestinationPath $BackupPath -Force
-Remove-Item $ResticZip
-Write-Host "✅ Restic extrait" -ForegroundColor Green
-
-Write-Host "🔐 Initialisation du repo Restic..." -ForegroundColor Yellow
-$env:RESTIC_REPOSITORY = "sftp://$StorageUser:$StoragePassword@$StorageHost/backup/$ClientName"
-$env:RESTIC_PASSWORD = "netvanguard-$ClientName-$((Get-Date).ToString('yyyyMMdd-HHmmss'))"
-
-try {
-    & "$BackupPath\\restic.exe" init 2>&1 | Out-Null
-    Write-Host "✅ Repo Restic créé" -ForegroundColor Green
-} catch {
-    Write-Host "⚠️  Repo peut déjà exister" -ForegroundColor Yellow
-}
-
-Write-Host "📝 Création du script de backup..." -ForegroundColor Yellow
-$BackupScript = @"
-@echo off
-REM Backup automatique NetVanguard
-set RESTIC_REPOSITORY=sftp://$StorageUser:$StoragePassword@$StorageHost/backup/$ClientName
-set RESTIC_PASSWORD=$env:RESTIC_PASSWORD
-
-REM Backup des dossiers importants
-"$BackupPath\\restic.exe" backup C:\\Users C:\\Data 2>> "$BackupPath\\backup-error.log"
-
-REM Cleanup
-"$BackupPath\\restic.exe" prune --keep-last 10 >> "$BackupPath\\backup.log"
-
-echo [%date% %time%] Backup completed >> "$BackupPath\\backup.log"
-"@
-
-$BackupScript | Out-File -FilePath "$BackupPath\\backup.bat" -Encoding ASCII
-Write-Host "✅ Script créé: $BackupPath\\backup.bat" -ForegroundColor Green
-
-Write-Host "⏰ Configuration du backup automatique (2h AM)..." -ForegroundColor Yellow
-$Action = New-ScheduledTaskAction -Execute "$BackupPath\\backup.bat"
-$Trigger = New-ScheduledTaskTrigger -Daily -At 02:00AM
-$Principal = New-ScheduledTaskPrincipal -UserID "NT AUTHORITY\\SYSTEM" -LogonType ServiceAccount -RunLevel Highest
-
-try {
-    Unregister-ScheduledTask -TaskName "NetVanguard-Restic-Backup" -Confirm:$false -ErrorAction SilentlyContinue
-    Register-ScheduledTask -TaskName "NetVanguard-Restic-Backup" \`
-        -Action $Action -Trigger $Trigger -Principal $Principal \`
-        -Description "NetVanguard Restic Auto-Backup" | Out-Null
-    Write-Host "✅ Tâche planifiée créée" -ForegroundColor Green
-} catch {
-    Write-Host "❌ Erreur création tâche: $_" -ForegroundColor Red
-}
-
-Write-Host ""
-Write-Host "🧪 Test du backup..." -ForegroundColor Yellow
-& "$BackupPath\\backup.bat" 2>&1 | Out-Null
-
-Write-Host ""
-Write-Host "========================================" -ForegroundColor Green
-Write-Host "✅ INSTALLATION RÉUSSIE!" -ForegroundColor Green
-Write-Host "========================================" -ForegroundColor Green
-Write-Host ""
-Write-Host "📊 Informations:" -ForegroundColor Cyan
-Write-Host "  Répertoire: $BackupPath"
-Write-Host "  Client: $ClientName"
-Write-Host "  Stockage: $StorageHost"
-Write-Host "  Backup: Chaque jour à 02:00 AM"
-Write-Host ""
-Write-Host "📋 Fichiers de log:" -ForegroundColor Cyan
-Write-Host "  Success: $BackupPath\\backup.log"
-Write-Host "  Erreurs: $BackupPath\\backup-error.log"
-Write-Host ""
-Write-Host "Vos données sont maintenant protégées! 🔐" -ForegroundColor Green
-Write-Host ""`;
-
-  function copyInstallScript() {
-    navigator.clipboard.writeText(scriptToCopy);
-    const btn = document.querySelector('.btn-copy-script:not(.btn-copy-restic)');
-    const originalHTML = btn.innerHTML;
-    btn.innerHTML = '<i class="fas fa-check"></i> ✓ Copié !';
-    btn.style.background = 'linear-gradient(135deg, #10B981, #059669)';
-    setTimeout(() => {
-      btn.innerHTML = originalHTML;
-      btn.style.background = 'linear-gradient(135deg, var(--accent), var(--accent-dark))';
-    }, 2000);
-  }
-
-  function copyResticScript() {
-    navigator.clipboard.writeText(resticScriptToCopy);
-    const btn = document.querySelector('.btn-copy-restic');
-    const originalHTML = btn.innerHTML;
-    btn.innerHTML = '<i class="fas fa-check"></i> ✓ Copié !';
-    btn.style.background = 'linear-gradient(135deg, #10B981, #059669)';
-    setTimeout(() => {
-      btn.innerHTML = originalHTML;
-      btn.style.background = 'linear-gradient(135deg, var(--gold), #CC9300)';
-    }, 2000);
-  }
-
-  const translations = {
-    fr: {
-      support_page_title: "Espace Client · NetVanguard IT Solutions",
-      hero_title: 'Votre <span class="gradient-text">Espace Client</span> Dédié',
-      support_badge: "🎫 SERVICE CLIENT",
-      support_title: "Une demande ? Nous sommes là.",
-      support_subtitle: "Choisissez votre canal préféré. Intervention garantie en moins de 2h.",
-      support_ticket: "Portail Tickets",
-      support_ticket_desc: "Créez et suivez vos demandes avec un numéro dédié",
-      support_form: "Formulaire en ligne",
-      support_form_desc: "Soumettez votre demande directement",
-      support_phone: "Téléphone",
-      tech_badge: "🖥️ CONNEXION À DISTANCE",
-      tech_title: "Assistance Technique Sécurisée",
-      tech_subtitle: "4 étapes simples pour permettre à votre expert NetVanguard d'intervenir.",
-      step1_title: "PowerShell Admin",
-      step1_desc: "Clic droit sur Démarrer → \"Windows PowerShell (Admin)\"",
-      step2_title: "Copier le Script",
-      step2_desc: "Cliquez sur l'agent ou le bouton pour copier le script :",
-      agent_tooltip: "Cliquez pour copier",
-      btn_copy: "Copier le script",
-      step3_title: "Coller & Exécuter",
-      step3_desc: "Clic droit dans PowerShell, puis Entrée pour lancer",
-      step4_title: "Patienter 2 min",
-      step4_desc: "Installation automatique. Prévenez votre expert une fois terminé.",
-      restic_badge: "🛡️ RESTIC BACKUP DEPLOYMENT",
-      restic_title: "Déploiement Sauvegarde Restic",
-      restic_subtitle: "Configurez votre agent de sauvegarde sécurisé en quelques secondes.",
-      restic_step2_title: "Copier le Script Restic",
-      restic_step3_title: "Coller & Exécuter",
-      restic_step3_desc: "Clic droit dans PowerShell, puis Entrée pour lancer la commande",
-      restic_step4_title: "Patienter",
-      restic_step4_desc: "Validation et synchronisation de l'espace de stockage cloud.",
-      exit_btn: "Retour au site",
-      footer_badge: "Support Premium 24/7"
-    },
-    en: {
-      support_page_title: "Client Portal · NetVanguard IT Solutions",
-      hero_title: 'Your <span class="gradient-text">Client Portal</span>',
-      support_badge: "🎫 CUSTOMER SERVICE",
-      support_title: "Need help? We're here.",
-      support_subtitle: "Choose your preferred channel. Guaranteed response within 2h.",
-      support_ticket: "Ticket Portal",
-      support_ticket_desc: "Create and track your requests with a dedicated number",
-      support_form: "Online Form",
-      support_form_desc: "Submit your request directly",
-      support_phone: "Phone",
-      tech_badge: "🖥️ REMOTE CONNECTION",
-      tech_title: "Secure Remote Assistance",
-      tech_subtitle: "4 simple steps to allow your NetVanguard expert to connect.",
-      step1_title: "PowerShell Admin",
-      step1_desc: "Right-click Start → \"Windows PowerShell (Admin)\"",
-      step2_title: "Copy Script",
-      step2_desc: "Click the agent or button to copy the script:",
-      agent_tooltip: "Click to copy",
-      btn_copy: "Copy script",
-      step3_title: "Paste & Execute",
-      step3_desc: "Right-click in PowerShell, then Enter to launch",
-      step4_title: "Wait 2 min",
-      step4_desc: "Automatic installation. Notify your expert once done.",
-      restic_badge: "🛡️ RESTIC BACKUP DEPLOYMENT",
-      restic_title: "Restic Backup Deployment",
-      restic_subtitle: "Configure your secure backup agent in just a few seconds.",
-      restic_step2_title: "Copy Restic Script",
-      restic_step3_title: "Paste & Execute",
-      restic_step3_desc: "Right-click in PowerShell, then press Enter to launch command",
-      restic_step4_title: "Please Wait",
-      restic_step4_desc: "Validation and synchronization of the cloud storage space.",
-      exit_btn: "Back to site",
-      footer_badge: "24/7 Premium Support"
-    }
-  };
-
-  function switchLanguage(lang, event) {
-    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-    if (event && event.target) event.target.classList.add('active');
-    document.querySelectorAll('[data-i18n]').forEach(element => {
-      const key = element.getAttribute('data-i18n');
-      if (translations[lang] && translations[lang][key]) {
-        if (key === 'hero_title') {
-          element.innerHTML = translations[lang][key];
-        } else {
-          element.textContent = translations[lang][key];
-        }
+      if (passwordInput.value === correctPassword) {
+        document.getElementById('passwordOverlay').classList.add('hidden');
+        document.getElementById('mainContent').style.display = 'block';
+      } else {
+        passwordError.textContent = '❌ Mot de passe incorrect';
+        passwordInput.value = '';
       }
     });
-    document.title = translations[lang]['support_page_title'];
-  }
 
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => switchLanguage(e.target.getAttribute('data-lang'), e));
-  });
-
-  function handleExit() {
-    window.location.href = exitUrl;
-  }
-
-  // Cursor glow
-  const glow = document.getElementById('cursorGlow');
-  if (glow) {
-    window.addEventListener('mousemove', (e) => {
-      glow.style.left = e.clientX + 'px';
-      glow.style.top = e.clientY + 'px';
+    document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        document.getElementById('btnPassword').click();
+      }
     });
-  }
 
-  // Mobile menu
-  document.getElementById('menuToggle')?.addEventListener('click', () => {
-    const navLinks = document.querySelector('.nav-links');
-    if (navLinks) {
-      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-      const icon = document.getElementById('menuToggle').querySelector('i');
-      icon.className = navLinks.style.display === 'flex' ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+    // Copy scripts
+    function copyScript(type) {
+      let scriptText = '';
+      let btn = null;
+
+      if (type === 'tactical') {
+        scriptText = document.getElementById('tacticalScriptContainer').textContent.trim();
+        btn = document.getElementById('btnTactical');
+      } else if (type === 'restic') {
+        scriptText = document.getElementById('resticScriptContainer').textContent.trim();
+        btn = document.getElementById('btnRestic');
+      } else if (type === 'zabbix') {
+        scriptText = document.getElementById('zabbixScriptContainer').textContent.trim();
+        btn = document.getElementById('btnZabbix');
+      }
+
+      if (scriptText && btn) {
+        navigator.clipboard.writeText(scriptText).then(function() {
+          const originalHTML = btn.innerHTML;
+          btn.innerHTML = '<i class="fas fa-check"></i> ✓ Copié !';
+          btn.style.transform = 'scale(1.05)';
+
+          setTimeout(function() {
+            btn.innerHTML = originalHTML;
+            btn.style.transform = 'scale(1)';
+          }, 2000);
+        }).catch(function() {
+          const textarea = document.createElement('textarea');
+          textarea.value = scriptText;
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+
+          const originalHTML = btn.innerHTML;
+          btn.innerHTML = '<i class="fas fa-check"></i> ✓ Copié !';
+          setTimeout(function() {
+            btn.innerHTML = originalHTML;
+          }, 2000);
+        });
+      }
     }
-  });
-</script>
+
+    document.getElementById('btnTactical').addEventListener('click', function() {
+      copyScript('tactical');
+    });
+
+    document.getElementById('btnRestic').addEventListener('click', function() {
+      copyScript('restic');
+    });
+
+    document.getElementById('btnZabbix').addEventListener('click', function() {
+      copyScript('zabbix');
+    });
+
+    // Language switch
+    const translations = {
+      fr: {
+        password_title: "🔐 Accès Sécurisé",
+        password_subtitle: "Entrez votre mot de passe pour accéder au portail client",
+        password_placeholder: "Mot de passe",
+        topbar_badge: "Infogérance, Microsoft 365 & Cybersécurité pour entreprises",
+        nav_home: "Accueil",
+        nav_services: "Services",
+        nav_secteurs: "Secteurs",
+        nav_about: "Qui sommes-nous",
+        nav_careers: "Carrières",
+        nav_campus: "🎓 Campus Cyber",
+        nav_contact: "Contact",
+        nav_client_space: "Espace Client",
+        hero_title: "Votre Espace Client Dédié",
+        hero_subtitle: "Installation automatisée de 3 solutions NetVanguard en quelques minutes",
+        tactical_desc: "Gestion à distance, support technique sécurisé et contrôle complet de vos machines",
+        restic_desc: "Sauvegarde automatique et chiffrée de vos données critiques chaque nuit",
+        zabbix_desc: "Monitoring avancé avec alertes intelligentes et rapports détaillés en temps réel",
+        btn_copy: "Copier le script",
+        alert_title: "💡 Conseil:",
+        alert_text: "Exécutez les scripts dans l'ordre Tactical RMM → Restic Backup → Zabbix Agent pour une installation optimale",
+        footer_tagline: "Votre partenaire IT de confiance...",
+        footer_services: "Services",
+        footer_managed: "Infogérance",
+        footer_network: "Sécurité Réseau",
+        footer_audit: "Audit & Diagnostic",
+        footer_pentest: "Pentest / VAPT",
+        footer_company: "Société",
+        footer_about: "À propos",
+        footer_careers: "Carrières",
+        footer_campus: "Campus Cyber",
+        footer_contact: "Contact",
+        footer_info: "Informations",
+        footer_legal: "Mentions légales",
+        footer_cookies: "Gestion des cookies",
+        footer_rights: "Tous droits réservés",
+        footer_location: "Basé à Casablanca — Service global"
+      },
+      en: {
+        password_title: "🔐 Secure Access",
+        password_subtitle: "Enter your password to access the client portal",
+        password_placeholder: "Password",
+        topbar_badge: "Managed IT, Microsoft 365 & Cybersecurity for enterprises",
+        nav_home: "Home",
+        nav_services: "Services",
+        nav_secteurs: "Industries",
+        nav_about: "About Us",
+        nav_careers: "Careers",
+        nav_campus: "🎓 Cyber Campus",
+        nav_contact: "Contact",
+        nav_client_space: "Client Portal",
+        hero_title: "Your Client Portal",
+        hero_subtitle: "Automated deployment of 3 NetVanguard solutions in minutes",
+        tactical_desc: "Remote management, secure technical support and full control of your machines",
+        restic_desc: "Automated and encrypted backup of your critical data every night",
+        zabbix_desc: "Advanced monitoring with intelligent alerts and detailed real-time reports",
+        btn_copy: "Copy script",
+        alert_title: "💡 Tip:",
+        alert_text: "Execute scripts in order: Tactical RMM → Restic Backup → Zabbix Agent for optimal installation",
+        footer_tagline: "Your trusted IT partner...",
+        footer_services: "Services",
+        footer_managed: "Managed IT",
+        footer_network: "Network Security",
+        footer_audit: "Audit & Assessment",
+        footer_pentest: "Pentest / VAPT",
+        footer_company: "Company",
+        footer_about: "About",
+        footer_careers: "Careers",
+        footer_campus: "Cyber Campus",
+        footer_contact: "Contact",
+        footer_info: "Information",
+        footer_legal: "Legal Notice",
+        footer_cookies: "Cookie Policy",
+        footer_rights: "All rights reserved",
+        footer_location: "Based in Casablanca — Global service"
+      }
+    };
+
+    document.querySelectorAll('.lang-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const lang = btn.getAttribute('data-lang');
+        
+        document.querySelectorAll('.lang-btn').forEach(function(b) {
+          b.classList.remove('active');
+        });
+        btn.classList.add('active');
+        
+        // Update text content
+        document.querySelectorAll('[data-i18n]').forEach(function(el) {
+          const key = el.getAttribute('data-i18n');
+          if (translations[lang] && translations[lang][key]) {
+            el.textContent = translations[lang][key];
+          }
+        });
+        
+        // Update placeholders
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+          const key = el.getAttribute('data-i18n-placeholder');
+          if (translations[lang] && translations[lang][key]) {
+            el.placeholder = translations[lang][key];
+          }
+        });
+      });
+    });
+
+    // Mobile menu
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      const mobileNav = document.getElementById('mobileNav');
+      mobileNav.classList.toggle('active');
+    });
+
+    // Cursor glow
+    const glow = document.getElementById('cursorGlow');
+    if (glow) {
+      window.addEventListener('mousemove', function(e) {
+        glow.style.left = e.clientX + 'px';
+        glow.style.top = e.clientY + 'px';
+      });
+    }
+  </script>
 </body>
 </html>
